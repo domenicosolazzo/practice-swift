@@ -7,3 +7,6 @@
 # Pods/
 .DS_Store
 *.xcodeproj
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
