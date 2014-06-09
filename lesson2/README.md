@@ -1,5 +1,10 @@
 Learning SWIFT
 
-Title: Simple TableView
-Source Title: Developing iOS Apps Using Swift Tutorial Part 1
-Source: http://goo.gl/N8BE2I
+
+Title: A simple TableView
+
+Description: A simple TableView in Swift
+
+
+[Source: Developing iOS Apps Using Swift Tutorial Part 1](http://www.goo.gl/N8BE2I)
+
