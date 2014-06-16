@@ -15,3 +15,5 @@ Lesson 4: Refactoring of the previous lesson
 Lesson 5: Table View optimization and Alerts
 
 Lesson 6: Async image loading and caching
+
+Lesson 7: Multiple Views
