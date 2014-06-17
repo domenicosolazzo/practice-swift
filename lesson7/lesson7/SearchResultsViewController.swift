@@ -5,15 +5,15 @@ import UIKit
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
     @IBOutlet var appTableView: UITableView
-    var api: APIController = APIController()
+    var api: APIController?
     var tableData: NSArray = NSArray()
     // Image Cache
     var imageCache = NSMutableDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.api.delegate = self
-        api.searchItunesFor("Apple")
+        self.api = APIController(delegate:self)
+        self.api!.searchItunesFor("Apple")
         
     }
     
