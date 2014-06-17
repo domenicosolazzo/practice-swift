@@ -13,6 +13,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.api = APIController(delegate:self)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible  = true
         self.api!.searchItunesFor("Apple")
         
     }
