@@ -35,6 +35,8 @@ class APIController {
                     self.delegate?.didRecieveAPIResults(jsonResult)
                 }
             }
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
     
