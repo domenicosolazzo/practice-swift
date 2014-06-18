@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  lesson7
-//
-//  Created by Domenico Solazzo on 6/17/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
 
 import UIKit
 

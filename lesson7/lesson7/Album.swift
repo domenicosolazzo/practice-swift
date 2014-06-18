@@ -1,5 +1,8 @@
 import Foundation
 
+/**
+ Album Model
+*/
 class Album{
     var title: String?
     var price: String?

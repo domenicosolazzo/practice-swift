@@ -4,7 +4,7 @@ protocol APIControllerProtocol {
     func didRecieveAPIResults(results: NSDictionary)
 }
 
-class APIController {
+class APIController: NSObject {
     var delegate: APIControllerProtocol?
     
     init(delegate: APIControllerProtocol?) {
@@ -14,7 +14,8 @@ class APIController {
     func searchItunesFor(searchTerm: String){
         var itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
         var escapedItunesSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        var urlPath = "https://itunes.apple.com/search?term=\(escapedItunesSearchTerm)&media=software"
+        var urlPath = "https://itunes.apple.com/search?term=\(escapedItunesSearchTerm)&media=music&entity=album"
+        
         var url: NSURL = NSURL(string: urlPath)
         var request: NSURLRequest = NSURLRequest(URL: url)
         
@@ -32,11 +33,11 @@ class APIController {
                 }
                 else {
                     println("Results recieved")
-                    self.delegate?.didRecieveAPIResults(jsonResult)
+                    self.delegate?.didReceiveAPIResults(jsonResult)
                 }
             }
             
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
         })
     }
     
