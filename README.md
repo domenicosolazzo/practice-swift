@@ -17,3 +17,5 @@ Lesson 5: Table View optimization and Alerts
 Lesson 6: Async image loading and caching
 
 Lesson 7: Multiple Views
+
+Lesson 8: Animations, Audio, and Custom Table View Cells 
