@@ -5,6 +5,7 @@ class DetailsViewController: UIViewController{
     
     @IBOutlet var albumTitle : UILabel
     @IBOutlet var cover : UIImageView
+    @IBOutlet var tracksTableView: UITableView
     
     init(coder aDecoder: NSCoder!){
         super.init(coder: aDecoder)
