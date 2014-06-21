@@ -11,34 +11,34 @@ class APIController: NSObject {
         self.delegate = delegate
     }
     
+    func get(path: String){
+        let url = NSURL(string: path)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+            println("Task completed")
+            if(error){
+                println(error.localizedDescription)
+            }else{
+                var err: NSError?
+                var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+                if(err?) {
+                    // If there is an error parsing JSON, print it to the console
+                    println("JSON Error \(err!.localizedDescription)")
+                }
+                var results = jsonResult["results"] as NSArray
+                // Now send the JSON result to our delegate object
+                self.delegate?.didReceiveAPIResults(jsonResult)
+            }
+        })
+        task.resume()
+    }
+    
     func searchItunesFor(searchTerm: String){
         var itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
         var escapedItunesSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         var urlPath = "https://itunes.apple.com/search?term=\(escapedItunesSearchTerm)&media=music&entity=album"
         
-        var url: NSURL = NSURL(string: urlPath)
-        var request: NSURLRequest = NSURLRequest(URL: url)
-        
-        // Use SendAsynchronous
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-            if error? {
-                println("ERROR: (error.localizedDescription)")
-            }
-            else {
-                var error: NSError?
-                let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
-                // Now send the JSON result to our delegate object
-                if error? {
-                    println("HTTP Error: (error?.localizedDescription)")
-                }
-                else {
-                    println("Results recieved")
-                    self.delegate?.didReceiveAPIResults(jsonResult)
-                }
-            }
-            
-            
-            })
+        get(urlPath)
     }
     
 }
