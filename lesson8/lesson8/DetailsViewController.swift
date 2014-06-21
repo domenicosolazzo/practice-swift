@@ -1,5 +1,6 @@
 import UIKit
 import MediaPlayer
+import QuartzCore
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, APIControllerProtocol{
     @lazy var api: APIController = APIController(delegate: self)
@@ -65,6 +66,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
 
+    }
+    
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {

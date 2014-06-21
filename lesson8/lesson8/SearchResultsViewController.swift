@@ -1,6 +1,7 @@
 
 
 import UIKit
+import QuartzCore
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
@@ -85,6 +86,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         alert.addButtonWithTitle("OK")
         alert.show()*/
         
+    }
+    
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
