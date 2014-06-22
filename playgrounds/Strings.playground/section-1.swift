@@ -102,6 +102,13 @@ let string1 = "String to encode"
 let string2: NSString = myString
 let data = string2.dataUsingEncoding(NSUTF8StringEncoding)
 
+/*
+======== Prefix & Suffix ========
+*/
+let romeoAndJuliet = "Act 1 Scene 1: Verona, A public place"
+var hasPrefix = romeoAndJuliet.hasPrefix("Act 1")
+var hasSuffix = romeoAndJuliet.hasSuffix("place")
+
 
 /*
 ======== Unicode ========
