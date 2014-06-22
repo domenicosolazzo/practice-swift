@@ -91,7 +91,9 @@ myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAnd
 */
 var cities = "Rome, Milan, Paris, New York"
 var splittedCities: String[] = cities.componentsSeparatedByString(",")
-
+// Using more than one character
+var stringToSplit = "A-B-C-D, ciao"
+var newString = stringToSplit.componentsSeparatedByCharactersInSet(NSCharacterSet (charactersInString: "-,"))
 
 
 
