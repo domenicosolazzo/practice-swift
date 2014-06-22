@@ -3,3 +3,7 @@
 import Cocoa
 
 var str = "Hello, playground"
+
+// Immutable string
+let immutableString = "This is immutable"
+
