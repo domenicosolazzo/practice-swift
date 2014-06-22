@@ -95,7 +95,12 @@ var splittedCities: String[] = cities.componentsSeparatedByString(",")
 var stringToSplit = "A-B-C-D, ciao"
 var newString = stringToSplit.componentsSeparatedByCharactersInSet(NSCharacterSet (charactersInString: "-,"))
 
-
+/*
+======== Converting a String to NSData ========
+*/
+let string1 = "String to encode"
+let string2: NSString = myString
+let data = string2.dataUsingEncoding(NSUTF8StringEncoding)
 
 
 
