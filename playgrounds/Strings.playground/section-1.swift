@@ -1,6 +1,7 @@
 // Playground - noun: a place where people can play
 
 import Cocoa
+import Fundation
 
 /*
 ======== A string ========
@@ -57,6 +58,23 @@ var equality2 = "Domenico"
 if(equality1 == equality2){
     var equal = "These two strings are equal"
 }
+
+
+/*
+======== Uppercase & Lowercase ========
+*/
+var myString = "This is a string"
+var uppercase = myString.uppercaseString
+var lowercase = myString.lowercaseString
+
+/*
+======== Check substrings ========
+*/
+// Check if a substring exists in a string
+var containString = myString.rangeOfString("This", options: nil, range:nil, locale: nil)
+
+
+
 
 
 
