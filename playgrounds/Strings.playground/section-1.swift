@@ -86,6 +86,12 @@ myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCha
 myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 
 
+/*
+======== Splitting strings ========
+*/
+var cities = "Rome, Milan, Paris, New York"
+var splittedCities: String[] = cities.componentsSeparatedByString(",")
+
 
 
 
