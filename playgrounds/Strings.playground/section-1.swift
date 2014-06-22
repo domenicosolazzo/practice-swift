@@ -103,6 +103,20 @@ let string2: NSString = myString
 let data = string2.dataUsingEncoding(NSUTF8StringEncoding)
 
 
+/*
+======== Unicode ========
+*/
+// Four-byte unicode scalar
+let unicode1 = "\U0001F496"
+// Two-byte unicode scalar
+let unicode2 = "\u2665"
+// One-byte unicode scalar
+let unicode3 = "\x24"
+
+
+
+
+
 
 
 
