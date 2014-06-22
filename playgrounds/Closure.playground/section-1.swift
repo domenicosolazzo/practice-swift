@@ -40,4 +40,7 @@ which can be used to refer to the values of the closure’s arguments by the nam
 */
 reversed = sort(names, {$0 > $1})
 
-
+/*
+====== Operator function ======
+*/
+reversed = sort(names, >)
