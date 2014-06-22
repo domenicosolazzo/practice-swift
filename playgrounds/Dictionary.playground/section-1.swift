@@ -7,3 +7,9 @@ var dict: Dictionary<String, String> = Dictionary<String, String>()
 ====== Initialization ======
 */
 dict = ["First":"1", "Second":"2"]
+
+/*
+====== Counting ======
+*/
+var count = dict.count
+
