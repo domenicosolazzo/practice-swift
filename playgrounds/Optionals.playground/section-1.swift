@@ -28,3 +28,10 @@ var unwrappedNumber = number!
 */
 var optional: String? = nil // Set the optional to a valueless state
 
+/*
+====== Implicit Unwrapped Options ======
+*/
+// Used when a optional will always have a value (e.g. class initialization)
+// If you access an implicit unwrapped option without value, a runtime-error will be thrown
+var implicitOptional: String!
+
