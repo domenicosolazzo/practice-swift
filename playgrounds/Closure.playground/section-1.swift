@@ -44,3 +44,20 @@ reversed = sort(names, {$0 > $1})
 ====== Operator function ======
 */
 reversed = sort(names, >)
+
+/*
+====== Trailing closures ======
+*/
+func someFunctionThatTakesAClosure(closure: () -> ()) {
+    // function body goes here
+}
+
+// Calling this function without a trailing closure
+someFunctionThatTakesAClosure({
+        // function body goes here
+})
+
+// Calling this fuction with a trailing closure
+someFunctionThatTakesAClosure(){
+    // function body goes here
+}
