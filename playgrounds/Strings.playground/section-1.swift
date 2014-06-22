@@ -120,6 +120,25 @@ let unicode2 = "\u2665"
 // One-byte unicode scalar
 let unicode3 = "\x24"
 
+var dogString = "Dog 🐶"
+// UTF8 Representation
+for codeUnit in dogString.utf8 {
+    var utf8codeUnit = codeUnit
+}
+// UTF16 Representation
+for codeUnit in dogString.utf16 {
+    var utf16codeUnit = codeUnit
+}
+
+// Unicode scalars
+for scalar in dogString.unicodeScalars {
+    var scalarValue = "\(scalar)  -> \(scalar.value)"
+}
+
+
+
+
+
 
 
 
