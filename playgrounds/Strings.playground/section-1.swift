@@ -1,7 +1,6 @@
 // Playground - noun: a place where people can play
 
 import Cocoa
-import Fundation
 
 /*
 ======== A string ========
@@ -68,10 +67,26 @@ var uppercase = myString.uppercaseString
 var lowercase = myString.lowercaseString
 
 /*
-======== Check substrings ========
+======== Substrings ========
 */
 // Check if a substring exists in a string
 var containString = myString.rangeOfString("This", options: nil, range:nil, locale: nil)
+// Retrieve a substring
+var substring = myString.substringFromIndex(4)
+// Retrieve first part of the substring
+substring = myString.substringToIndex(4)
+
+/*
+======== Trimming ========
+*/
+myString = "   This should be trimmed   "
+// Trimming of whitespaces
+myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+// Trimming of both newline and whitespaces
+myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+
+
+
 
 
 
