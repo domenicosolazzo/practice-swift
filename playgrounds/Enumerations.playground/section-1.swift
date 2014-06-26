@@ -26,4 +26,8 @@ enum ASCIIControlCharacter: Character {
 }
 
 var char = ASCIIControlCharacter.Tab.toRaw()
-println(char)
+
+// FromRaw
+var val = ASCIIControlCharacter.fromRaw("\t")
+
+
