@@ -21,3 +21,30 @@ class Vehicle{
         maxPassengers = 1
     }
 }
+
+
+let someVehicle = Vehicle()
+
+/*
+==== Subclassing ====
+*/
+class Bicycle:Vehicle{
+
+    init(){
+        super.init()
+        numberOfWheels = 2
+    }
+}
+
+let someBicycle = Bicycle()
+println(someBicycle.description())
+
+
+class Tandem:Bicycle{
+    init(){
+        super.init()
+        maxPassengers = 2
+    }
+}
+let someTandem = Tandem()
+println(someTandem.description())
