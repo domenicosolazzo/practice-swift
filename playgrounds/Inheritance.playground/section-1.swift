@@ -48,3 +48,41 @@ class Tandem:Bicycle{
 }
 let someTandem = Tandem()
 println(someTandem.description())
+
+/*
+==== Overriding ====
+*/
+class Car:Vehicle{
+    var speed: Double = 0.0
+    
+    init(){
+        super.init()
+        maxPassengers = 5
+        numberOfWheels = 4
+    }
+    
+    override func description() -> String{
+        return super.description() + ";" + " travelling at \(speed) mph"
+    }
+}
+
+class SpeedLimitedCar: Car{
+    override var speed: Double{
+        get{
+            return super.speed
+        }
+        set{
+            super.speed = min(newValue, 40.0)
+        }
+    }
+}
+
+class NormalCar:Car{
+    init(){
+        super.init()
+    }
+    
+    @final func fly() -> Bool{
+        return true
+    }
+}
