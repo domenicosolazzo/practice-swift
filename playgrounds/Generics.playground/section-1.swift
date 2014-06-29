@@ -152,3 +152,35 @@ struct Stack<T>:Container{
     }
 }
 
+/*
+====== Where clauses =======
+It can also be useful to define requirements for associated
+types. You do this by defining where clauses as part of a
+type parameter list. A where clause enables you to require
+that an associated type conforms to a certain protocol, and
+or that certain type parameters and associated types be the
+same. You write a where clause by placing the where keyword
+immediately after the list of type parameters, followed by
+one or more constraints for associated types, and/or one or
+more equality relationships between types and associated
+types.
+*/
+func allItemsMatch<C1: Container, C2: Container
+    where C1.ItemType == C2.ItemType, C1.ItemType: Equatable>
+        (someContainer:C1, anotherContainer:C2) -> Bool{
+         
+            // Check that both containers contain the same number of items
+            if someContainer.count != anotherContainer.count{
+                return false
+            }
+            
+            // Check each pair of items to see if they are equivalent
+            for i  in 0..someContainer.count{
+                if someContainer[i] != anotherContainer[i]{
+                    return false
+                }
+            }
+            return true
+}
+
+
