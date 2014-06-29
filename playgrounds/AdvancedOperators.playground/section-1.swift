@@ -26,3 +26,10 @@ let middleFourBits = firstSixBits & lastSixBits // 00111100
 let someBits: UInt8 = 0b10110010
 let moreBits: UInt8 = 0b01011110
 let combinedbits = someBits | moreBits // 11111110
+
+/*
+=== Bitwise XOR operator (^) ===
+*/
+let firstBits:UInt8 = 0b00010100
+let otherBits: UInt8 = 0b00000101
+let outputBits = firstBits ^ otherBits // 00010001
