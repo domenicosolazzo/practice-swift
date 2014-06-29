@@ -111,3 +111,44 @@ func findIndex<T: Equatable>(array: T[], valueToFind: T)->Int?{
 }
 let doubleIndex = findIndex([1.23, 22.11, 424.11, 3.2], 3.2)
 let stringIndex = findIndex(["Domenico", "Sandro", "Guido"], "Domenico")
+
+
+/* 
+====== Associated Types ======
+When defining a protocol, it is sometimes useful to declare one
+or more associated types as part of the protocol’s definition.
+An associated type gives a placeholder name (or alias) to a
+type that is used as part of the protocol. The actual type to
+use for that associated type is not specified until the
+protocol is adopted. Associated types are specified with the
+typealias keyword.
+*/
+protocol Container{
+
+    typealias ItemType
+    mutating func append(item:ItemType)
+    var count:Int {get; }
+    subscript(i:Int) -> ItemType{get}
+}
+// Switft can infer the appropriate ItemType to use
+struct Stack<T>:Container{
+    var items = T[]()
+    mutating func push(item:T){
+        items.append(item)
+    }
+    mutating func pop() -> T{
+        return items.removeLast()
+    }
+    
+    // conformance to the Container protocol
+    mutating func append(item:T){
+        self.push(item)
+    }
+    var count:Int{
+        return items.count
+    }
+    subscript(i:Int) -> T{
+        return items[i]
+    }
+}
+
