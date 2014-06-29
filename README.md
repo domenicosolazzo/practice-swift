@@ -4,6 +4,8 @@ practice-swift
 Learning a new language: SWIFT
 
 
+Playground: Basic language reference with Swift
+
 Lesson 1: Hello World
 
 Lesson 2: A simple TableView
