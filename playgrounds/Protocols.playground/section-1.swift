@@ -94,3 +94,87 @@ var d6 = Dice(sides: 6, generator:LinearCongruentialGenerator())
 for _ in 1...5{
     println("Random dice roll is \(d6.roll())")
 }
+
+/*
+=== Delegation ===
+
+Delegation is a design pattern that enables a class or structure to hand
+off (or delegate) some of its responsibilities to an instance of another
+type. This design pattern is implemented by defining a protocol that
+encapsulates the delegated responsibilities, such that a conforming type
+(known as a delegate) is guaranteed to provide the functionality that has
+been delegated. Delegation can be used to respond to a particular action,
+or to retrieve data from an external source without needing to know the
+underlying type of that source.
+*/
+protocol DiceGame{
+    var dice: Dice{get}
+    func play()
+}
+
+protocol DiceGameDelegate{
+    func gameDidStart(game:DiceGame)
+    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
+    func gameDidEnd(game:DiceGame)
+}
+
+class SnakesAndLadders: DiceGame{
+    let finalSquare = 25
+    let dice = Dice(sides:6, generator:LinearCongruentialGenerator())
+    
+    var square = 0
+    var board: Int[]
+    
+    init(){
+        board = Int[](count: finalSquare + 1, repeatedValue: 0)
+        board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+        board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
+    }
+    
+    var delegate: DiceGameDelegate?
+    
+    func play(){
+        square = 0
+        delegate?.gameDidStart(self)
+        gameLoop: while square != finalSquare{
+            let diceRoll = dice.roll()
+            delegate?.game(self, didStartNewTurnWithDiceRoll: diceRoll)
+            
+            switch square + diceRoll {
+            case finalSquare:
+                break gameLoop
+            case let newSquare where newSquare > finalSquare:
+                continue gameLoop
+            default:
+                square += diceRoll
+                square += board[square]
+            }
+        }
+        delegate?.gameDidEnd(self)
+    }
+}
+
+class DiceGameTracker: DiceGameDelegate{
+    var numberOfTurns = 0
+    func gameDidStart(game:DiceGame){
+        numberOfTurns = 0
+        if game is SnakesAndLadders{
+            println("Started a new game of Snakes and Ladders")
+        }
+        println("The game is using a \(game.dice.sides)-sided dice")
+    }
+    
+    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int){
+        +numberOfTurns
+        println("Rolled a \(diceRoll)")
+    }
+    
+    func gameDidEnd(game: DiceGame){
+        println("The game lasted for \(numberOfTurns) turns")
+    }
+}
+
+let tracker = DiceGameTracker()
+let game = SnakesAndLadders()
+game.delegate = tracker
+game.play()
