@@ -61,6 +61,6 @@ struct GenericInStack<T>{
 var stackOfStrings = GenericInStack<String>()
 stackOfStrings.push("First")
 stackOfStrings.push("Second")
-stackOfStrings.pop("Third")
-var pullElement = stackOfStrings.pull()
+stackOfStrings.push("Third")
+var pullElement = stackOfStrings.pop()
 println(pullElement)
