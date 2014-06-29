@@ -56,3 +56,11 @@ struct GenericInStack<T>{
     }
 
 }
+
+// Example for the GenericInStack
+var stackOfStrings = GenericInStack<String>()
+stackOfStrings.push("First")
+stackOfStrings.push("Second")
+stackOfStrings.push("Third")
+var pullElement = stackOfStrings.pull()
+println(pullElement)
