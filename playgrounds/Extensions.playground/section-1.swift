@@ -55,3 +55,29 @@ extension Int{
 3.repetitions({ println("Hello!")})
 3.repetitions({ println("Goodbye!")})
 
+extension Int{
+    mutating func square(){
+        self = self * self
+        
+    }
+}
+var someInt = 3
+println(someInt)
+someInt.square()
+println(someInt)
+
+/*
+=== Subscripts ===
+*/
+extension Int{
+    subscript(digitIndex:Int) -> Int{
+        var decimalBase = 1
+            for _ in 1...digitIndex{
+                digitalBase *= 10
+            }
+            return (self / decimalBase) % 10
+    }
+}
+
+let five = 746381295[0]
+let nine = 746381295[1]
