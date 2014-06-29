@@ -73,3 +73,24 @@ enum OnOffSwitch: Togglable{
 }
 var ligthSwitch = OnOffSwitch.Off
 ligthSwitch.toggle()
+
+/*
+=== Protocols as Types ===
+*/
+class Dice{
+    let sides:Int
+    let generator: RandomNumberGenerator
+    init(sides: Int, generator: RandomNumberGenerator){
+        self.sides = sides
+        self.generator = generator
+    }
+    
+    func roll() -> Int{
+        return Int(self.generator.random() * Double(self.sides)) + 1
+    }
+}
+
+var d6 = Dice(sides: 6, generator:LinearCongruentialGenerator())
+for _ in 1...5{
+    println("Random dice roll is \(d6.roll())")
+}
