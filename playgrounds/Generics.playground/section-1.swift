@@ -38,7 +38,7 @@ struct InStack{
         items.append(i)
     }
     
-    mutating func pull() -> Int{
+    mutating func pop() -> Int{
         return items.removeLast()
     }
 }
@@ -51,7 +51,7 @@ struct GenericInStack<T>{
         items.append(i)
     }
     
-    mutating func pull() -> T{
+    mutating func pop() -> T{
         return items.removeLast()
     }
 
@@ -61,6 +61,6 @@ struct GenericInStack<T>{
 var stackOfStrings = GenericInStack<String>()
 stackOfStrings.push("First")
 stackOfStrings.push("Second")
-stackOfStrings.push("Third")
+stackOfStrings.pop("Third")
 var pullElement = stackOfStrings.pull()
 println(pullElement)
