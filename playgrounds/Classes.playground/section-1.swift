@@ -32,5 +32,5 @@ class AnotherClass{
 }
 
 var anotherClass = AnotherClass(Age:"32")
-var age = anotherClass.age
+age = anotherClass.age
 
