@@ -200,3 +200,4 @@ struct MyPerson: Named, Aged{
 func wishHappyBirthday(celebrator: protocol<Named, Aged>){
     println("Happy birthday (\(celebrator.age)) \(celebrator.name)")
 }
+
