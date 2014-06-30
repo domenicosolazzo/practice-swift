@@ -178,3 +178,25 @@ let tracker = DiceGameTracker()
 let game = SnakesAndLadders()
 game.delegate = tracker
 game.play()
+
+/*
+=== Protocol Composition ===
+*/
+protocol Named{
+    var name:String {get}
+}
+
+protocol Aged{
+    var age:Int {get}
+}
+
+
+struct MyPerson: Named, Aged{
+    var name:String
+    var age:Int
+}
+
+
+func wishHappyBirthday(celebrator: protocol<Named, Aged>){
+    println("Happy birthday (\(celebrator.age)) \(celebrator.name)")
+}
