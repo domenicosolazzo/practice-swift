@@ -6,6 +6,7 @@ Playgrounds
 - Closure
 - Enumerations
 - Optionals
+- Classes
 - Subscripts
 - Inheritance
 - Generics
