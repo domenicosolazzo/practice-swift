@@ -12,4 +12,5 @@ Playgrounds
 - Generics
 - Advanced Operators
 - Extensions
-- Protocols (work in progress...)
+- Protocols
+- Algorithms
