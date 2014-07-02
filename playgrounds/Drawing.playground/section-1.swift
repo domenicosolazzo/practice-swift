@@ -31,7 +31,7 @@ XCPShowView("DoG", view)
 var size = NSMakeSize(300, 300)
 
 // Create an empty image
-var img = NSImage(size)
+var img = NSImage(size: size)
 
 // Draw a new image
 // Lock an image
