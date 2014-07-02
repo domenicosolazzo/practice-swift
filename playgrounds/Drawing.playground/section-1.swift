@@ -25,15 +25,21 @@ var dogPicture = NSImage(contentsOfURL: dogPictureUrl)
 // Tell the view which image to display
 view.image = dogPicture
 
-// Tell the playground to show the picture
+/**
+==== Show the picture in playground ====
+*/
 XCPShowView("DoG", view)
 
-var size = NSMakeSize(300, 300)
 
-// Create an empty image
+/**
+==== Create an empty image ===
+*/
+var size = NSMakeSize(300, 300)
 var img = NSImage(size: size)
 
-// Draw a new image
+/**
+==== Draw a new image ====
+*/
 // Lock an image
 img.lockFocus() // We want to draw in this image
 
@@ -42,11 +48,15 @@ NSRectFill(NSMakeRect(20, 30, 100, 50))
 // Unlock an image
 img.unlockFocus()
 
-// Draw a line
+/**
+==== Draw a line ====
+*/
 var img2 = NSImage(size: size)
 img2.lockFocus()
 
-// Create  a path
+/**
+==== Create  a path ====
+*/
 var path = NSBezierPath()
 // Move the path to the start point
 path.moveToPoint(NSPoint(x:0, y:0))
@@ -57,7 +67,9 @@ path.stroke()
 
 img2.unlockFocus()
 
-// Create complex images using loops
+/**
+==== Draw a parabola ====
+*/
 var img3 = NSImage(size:size)
 
 var shift = 0
@@ -70,5 +82,9 @@ while shift <= 200 {
     path2.stroke()
     img3.unlockFocus()
 
-    shift += 14
+    shift += 5
 }
+
+var view3 = NSImageView(frame:frameRect)
+view3.image = img3
+XCPShowView("Parabola", view3)
