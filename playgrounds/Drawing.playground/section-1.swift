@@ -37,7 +37,22 @@ var img = NSImage(size: size)
 // Lock an image
 img.lockFocus() // We want to draw in this image
 
-NSRectFill(NSMakeRect(0, 0, 10, 10))
+NSRectFill(NSMakeRect(20, 30, 100, 50))
 
 // Unlock an image
 img.unlockFocus()
+
+// Draw a line
+var img2 = NSImage(size: size)
+img2.lockFocus()
+
+// Create  a path
+var path = NSBezierPath()
+// Move the path to the start point
+path.moveToPoint(NSPoint(x:0, y:0))
+// End point
+path.lineToPoint(NSPoint(x: 100, y:500))
+// Draw the pixels
+path.stroke()
+
+img2.unlockFocus()
