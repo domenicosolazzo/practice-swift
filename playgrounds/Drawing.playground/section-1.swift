@@ -20,3 +20,7 @@ var view = NSImageView(frame: frameRect)
 var dogPictureUrl = NSURL(string: "https://openclipart.org/image/300px/svg_to_png/190758/lemmling_Cartoon_dog_Laughing.png")
 // Get the picture
 var dogPicture = NSImage(contentsOfURL: dogPictureUrl)
+// Tell the view which image to display
+view.image = dogPicture
+// Tell the playground to show the picture
+XCPShowView("DoG", view)
