@@ -56,3 +56,19 @@ path.lineToPoint(NSPoint(x: 100, y:500))
 path.stroke()
 
 img2.unlockFocus()
+
+// Create complex images using loops
+var img3 = NSImage(size:size)
+
+var shift = 0
+while shift <= 200 {
+
+    img3.lockFocus()
+    var path2 = NSBezierPath()
+    path2.moveToPoint(NSPoint(x:shift, y:300))
+    path2.lineToPoint(NSPoint(x:0, y:shift))
+    path2.stroke()
+    img3.unlockFocus()
+
+    shift += 14
+}
