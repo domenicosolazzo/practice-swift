@@ -29,3 +29,4 @@ view.image = dogPicture
 XCPShowView("DoG", view)
 
 var size = NSMakeSize(300, 300)
+var img = NSImage(size)
