@@ -12,3 +12,8 @@ var y = 0
 var width = 300
 var height = 300
 var frameRect = NSRect(x: x,y: y,width: width, height: height)
+
+/**
+==== Image View ====
+*/
+var view = NSImageView(frame: frameRect)
