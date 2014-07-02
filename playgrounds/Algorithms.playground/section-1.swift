@@ -66,3 +66,40 @@ inputArray
 selectionSort(inputArray)
 println("After Selection Sort")
 inputArray
+
+println("")
+println("")
+
+/**
+==== Binary Search ====
+*/
+func findItem(searchItem: Int)->Int{
+    var lowerIndex = 0
+    var upperIndex = inputArray.count - 1
+    
+    while(true){
+        var currentIndex = (lowerIndex + upperIndex) / 2
+        println("Current Index: \(currentIndex), Value: \(inputArray[currentIndex])")
+        if(inputArray[currentIndex] == searchItem){
+            println("Found the value!")
+            return currentIndex
+        }else if(lowerIndex > upperIndex){
+            println("Returning the last element!")
+            return inputArray.count
+        }else if(inputArray[currentIndex] > searchItem){
+            println("The current index is higher than the search item")
+            upperIndex = currentIndex - 1
+        }else{
+            println("The current index is lower than the search item")
+            lowerIndex = currentIndex + 1
+        }
+    }
+}
+
+inputArray = Int[]()
+generateRandomValues()
+println("Selection sort...")
+selectionSort(inputArray)
+println("\nBefore Binary Search ")
+findItem(42)
+println("End Binary Search")
