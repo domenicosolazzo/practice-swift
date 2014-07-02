@@ -14,3 +14,6 @@ var b = UIButton(frame: CGRectMake(0,0,100,30))
 b.setTitle("Domenico Button", forState: UIControlState.Normal)
 // Set the title color
 b.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+
+// Add the button to the subview
+v.addSubview(b)
