@@ -29,4 +29,15 @@ view.image = dogPicture
 XCPShowView("DoG", view)
 
 var size = NSMakeSize(300, 300)
+
+// Create an empty image
 var img = NSImage(size)
+
+// Draw a new image
+// Lock an image
+img.lockFocus() // We want to draw in this image
+
+NSRectFill(NSMakeRect(0, 0, 10, 10))
+
+// Unlock an image
+img.unlockFocus()
