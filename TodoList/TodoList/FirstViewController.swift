@@ -5,7 +5,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,16 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // UITableViewDataSource
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
+    
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!{
+    
+    }
+    
 
 
 }
