@@ -19,11 +19,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // UITableViewDataSource
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
-    
+        return taskManager.tasks.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!{
-    
+        let cell: UITableViewCell(style:UITableViewCellStyle.Subtitle, reuseIdentifier:"task")
+        
+        cell.text = taskManager.tasks[indexPath.row].name
+        cell.detailTextLabel.text = taskManager.tasks[indexPath.row].desc
+        
+        return cell
     }
     
 
