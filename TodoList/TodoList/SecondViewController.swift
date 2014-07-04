@@ -21,7 +21,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addTask_Click(sender: UIButton) {
-        println("The button was clicked.")
+        taskManager.addTask(txtTask.text, txtDesc.text)
+        self.view.endEditing(true)
     }
     //
     // I want to remove the keyboard when the user touch outside the keyboard
