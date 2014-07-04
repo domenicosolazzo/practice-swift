@@ -23,11 +23,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addTask_Click(sender: UIButton) {
         taskManager.addTask(txtTask.text, desc:txtDesc.text)
         self.view.endEditing(true)
-    }
-    //
-    // I want to remove the keyboard when the user touch outside the keyboard
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!){
-        self.view.endEditing(true)
+        
         
         // Clean up the text fields
         txtTask.text = ""
@@ -35,6 +31,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         // Go back to the first view
         self.tabBarController.selectedIndex = 0
+    }
+    //
+    // I want to remove the keyboard when the user touch outside the keyboard
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!){
+        self.view.endEditing(true)
+        
     }
     
     // UITextFieldDelegate
