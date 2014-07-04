@@ -13,4 +13,4 @@ Learning a new language: SWIFT
 - Lesson 6: Async image loading and caching
 - Lesson 7: Multiple Views
 - Lesson 8: Animations, Audio, and Custom Table View Cells
-- Lesson 9: TodoList app
+- Lesson 9: [TodoList app](http://goo.gl/sQHnj6)
