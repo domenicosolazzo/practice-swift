@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITextFieldDelegate {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
