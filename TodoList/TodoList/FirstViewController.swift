@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Reload the data when the view appear
     override func viewWillAppear(animated: Bool) {
         tblTask.reloadData()
+        // Reloading the data will fire the events for the table view below
     }
     
     // UITableViewDataSource
