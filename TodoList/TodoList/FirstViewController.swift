@@ -23,7 +23,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!{
-        let cell: UITableViewCell(style:UITableViewCellStyle.Subtitle, reuseIdentifier:"task")
+        
+        let cell: UITableViewCell(style:UITableViewCellStyle.Subtitle, reuseIdentifier:"Default")
         
         cell.text = taskManager.tasks[indexPath.row].name
         cell.detailTextLabel.text = taskManager.tasks[indexPath.row].desc
