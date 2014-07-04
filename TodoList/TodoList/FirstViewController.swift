@@ -25,6 +25,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Reloading the data will fire the events for the table view below
     }
     
+    // UITableViewDelegate
+    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
+    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
+        if(editingStyle == UITableViewCellEditingStyle.Delete){
+            taskManager.tasks.removeAtIndex(indexPath.row)
+            tblTask.reloadData()
+        }
+    }
+    
     // UITableViewDataSource
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
         return taskManager.tasks.count
