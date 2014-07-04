@@ -7,6 +7,8 @@ import UIKit
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             
+    @IBOutlet var tblTask: UITableView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -15,6 +17,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Reload the data when the view appear
+    override func viewWillAppear(animated: Bool) {
+        tblTask.reloadData()
     }
     
     // UITableViewDataSource
