@@ -32,6 +32,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         // Clean up the text fields
         txtTask.text = ""
         txtDesc.text = ""
+        
+        // Go back to the first view
+        self.tabBarController.selectedIndex = 0
     }
     
     // UITextFieldDelegate
