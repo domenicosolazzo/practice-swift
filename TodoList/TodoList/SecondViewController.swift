@@ -21,7 +21,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addTask_Click(sender: UIButton) {
-        taskManager.addTask(txtTask.text, txtDesc.text)
+        taskManager.addTask(txtTask.text, desc:txtDesc.text)
         self.view.endEditing(true)
     }
     //
