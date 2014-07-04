@@ -28,6 +28,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     // I want to remove the keyboard when the user touch outside the keyboard
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!){
         self.view.endEditing(true)
+        
+        // Clean up the text fields
+        txtTask.text = ""
+        txtDesc.text = ""
     }
     
     // UITextFieldDelegate
