@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="960" y="383"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="eQ8-Pu-HCU">
             <objects>
-                <viewController id="4r0-zo-9tY" sceneMemberID="viewController">
+                <viewController id="4r0-zo-9tY" customClass="AddViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4OQ-P1-bAs"/>
                         <viewControllerLayoutGuide type="bottom" id="eMR-1g-pEG"/>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1393" y="15"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="KNg-es-AeB">
             <objects>
-                <viewController id="rDL-8S-USP" sceneMemberID="viewController">
+                <viewController id="rDL-8S-USP" customClass="DetailsViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YBd-4W-vu4"/>
                         <viewControllerLayoutGuide type="bottom" id="1Kg-y3-z4w"/>
