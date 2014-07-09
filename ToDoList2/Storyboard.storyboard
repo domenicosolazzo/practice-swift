@@ -124,7 +124,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IAD-wU-fby"/>
+                    <navigationItem key="navigationItem" id="IAD-wU-fby">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="36b-6e-l4f"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2g-E8-ZYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
