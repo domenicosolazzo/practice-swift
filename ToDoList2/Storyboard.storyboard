@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Master Table View Controller-->
         <scene sceneID="6Yl-hP-pNJ">
             <objects>
-                <tableViewController id="iIc-7v-waP" sceneMemberID="viewController">
+                <tableViewController id="iIc-7v-waP" customClass="MasterTableViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uRb-7h-bCt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
