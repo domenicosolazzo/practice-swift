@@ -26,7 +26,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="t9v-5A-2dl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yfh-In-YLq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yfh-In-YLq">
+                            <connections>
+                                <segue destination="4r0-zo-9tY" kind="push" id="MRz-Td-UO8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlt-AM-3HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,8 +48,34 @@
                     <view key="view" contentMode="scaleToFill" id="pxD-sv-edO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffi-c9-J2u">
+                                <rect key="frame" x="20" y="69" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gz-n3-UbN">
+                                <rect key="frame" x="20" y="89" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add notes here..." translatesAutoresizingMaskIntoConstraints="NO" id="55b-2X-r5M">
+                                <rect key="frame" x="20" y="161" width="224" height="157"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2I-FN-BEF">
+                                <rect key="frame" x="20" y="138" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="D0X-My-Shy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P39-A5-OJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
