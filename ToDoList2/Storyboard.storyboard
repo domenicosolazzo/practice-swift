@@ -75,7 +75,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="D0X-My-Shy"/>
+                    <navigationItem key="navigationItem" id="D0X-My-Shy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zuQ-Ns-ndt"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P39-A5-OJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
