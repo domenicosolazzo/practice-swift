@@ -30,7 +30,7 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func deleteView(sender: AnyObject) {
-        println("Deleted...
+        println("Deleted...");
     }
 
     /*

@@ -38,17 +38,18 @@ class AddViewController: UIViewController {
             }
             newMutableArray.addObject(dataSet)
             
-            self.ResetAndInitializeData(userDefaults, newMutableArray)
+            self.ResetAndInitializeData(userDefaults, data:newMutableArray)
         
         }else{ // First item of the list
             itemList = NSMutableArray()
             itemList!.addObject(dataSet)
             
-            self.ResetAndInitializeData(userDefaults, itemList)
+            self.ResetAndInitializeData(userDefaults, data:itemList)
         }
         
         userDefaults.synchronize()
         
+        self.navigationController.popToRootViewControllerAnimated(true)
     }
     
     func ResetAndInitializeData(userDefaults:NSUserDefaults, data:NSMutableArray!){
