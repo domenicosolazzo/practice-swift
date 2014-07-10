@@ -13,6 +13,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet var uiTextField: UITextField
     @IBOutlet var uiTextView: UITextView
     
+    var todoData:NSDictionary = NSDictionary()
+    
     init(coder aDecoder: NSCoder!){
         super.init(coder: aDecoder)
     }
@@ -24,6 +26,9 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        uiTextField.userInteractionEnabled = false
+        uiTextView.userInteractionEnabled = false
 
         // Do any additional setup after loading the view.
     }

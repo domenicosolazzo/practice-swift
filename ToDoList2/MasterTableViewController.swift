@@ -13,7 +13,7 @@ class MasterTableViewController: UITableViewController {
         // Custom initialization
     }
 
-    override func override func viewDidAppear(animated: Bool){
+     override func viewDidAppear(animated: Bool){
         var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
         var items: NSMutableArray? = userDefaults.objectForKey("itemList") as? NSMutableArray
