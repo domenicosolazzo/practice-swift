@@ -44,24 +44,26 @@ class MasterTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.todoItems.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
+        var item = self.todoItems.objectAtIndex(indexPath!.row) as NSDictionary
         // Configure the cell...
-
+        cell.text = item.objectForKey("itemTitle") as String
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
