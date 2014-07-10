@@ -30,7 +30,9 @@ class DetailsViewController: UIViewController {
         uiTextField.userInteractionEnabled = false
         uiTextView.userInteractionEnabled = false
 
-        // Do any additional setup after loading the view.
+        uiTextField.text = todoData.objectForKey("itemTitle") as String
+        uiTextView.text = todoData.objectForKey("itemNotes") as String
+        
     }
 
     override func didReceiveMemoryWarning() {
