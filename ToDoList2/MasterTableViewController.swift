@@ -3,12 +3,25 @@ import UIKit
 
 class MasterTableViewController: UITableViewController {
 
+    var todoItems:NSMutableArray = NSMutableArray()
     
+    init(coder aDecoder: NSCoder!){
+        super.init(coder: aDecoder)
+    }
     init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
     }
 
+    override func override func viewDidAppear(animated: Bool){
+        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        var items: NSMutableArray? = userDefaults.objectForKey("itemList") as? NSMutableArray
+        if(items){
+            self.todoItems = items!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

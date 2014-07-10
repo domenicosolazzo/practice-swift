@@ -13,6 +13,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet var uiTextField: UITextField
     @IBOutlet var uiTextView: UITextView
     
+    init(coder aDecoder: NSCoder!){
+        super.init(coder: aDecoder)
+    }
+    
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
