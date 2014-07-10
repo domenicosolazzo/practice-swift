@@ -41,6 +41,23 @@ class DetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func deleteTask(sender: AnyObject) {
+        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var itemList:NSMutableArray? = userDefaults.objectForKey("itemList") as? NSMutableArray
+        var mutableArray:NSMutableArray = NSMutableArray()
+        
+        for dict:AnyObject in itemList!{
+            mutableArray.addObject(dict)
+        }
+        mutableArray.removeObject(todoData)
+        
+        userDefaults.removeObjectForKey("itemList")
+        userDefaults.setObject(mutableArray, forKey: "itemList")
+        
+        userDefaults.synchronize()
+        
+        self.navigationController.popToRootViewControllerAnimated(true)
+    }
 
     /*
     // #pragma mark - Navigation

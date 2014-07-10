@@ -133,7 +133,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hjz-5k-wyk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iLV-gl-vtq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iLV-gl-vtq">
+                            <connections>
+                                <action selector="deleteTask:" destination="08P-rp-l7c" id="Mff-yS-J4K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="uiTextField" destination="FlF-Ch-Ede" id="EPB-MP-VSr"/>
