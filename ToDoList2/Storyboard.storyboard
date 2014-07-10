@@ -79,8 +79,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="D0X-My-Shy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zuQ-Ns-ndt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zuQ-Ns-ndt">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="4r0-zo-9tY" id="R3V-fK-PCA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="uiTextField" destination="5gz-n3-UbN" id="nvl-MJ-kAm"/>
+                        <outlet property="uiTextView" destination="55b-2X-r5M" id="156-60-Lr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P39-A5-OJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

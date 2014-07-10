@@ -3,6 +3,7 @@ import UIKit
 
 class MasterTableViewController: UITableViewController {
 
+    
     init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization

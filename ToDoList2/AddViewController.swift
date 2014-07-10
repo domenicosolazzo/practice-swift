@@ -3,6 +3,9 @@ import UIKit
 
 class AddViewController: UIViewController {
 
+    @IBOutlet var uiTextField: UITextField
+    @IBOutlet var uiTextView: UITextView
+    
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
@@ -19,6 +22,9 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addButtonPressed(sender: AnyObject) {
+        println("button pressed")
+    }
 
     /*
     // #pragma mark - Navigation
