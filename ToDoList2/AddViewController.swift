@@ -38,19 +38,20 @@ class AddViewController: UIViewController {
             }
             newMutableArray.addObject(dataSet)
             
-            self.ResetAndInitializeData(newMutableArray)
+            self.ResetAndInitializeData(userDefaults, newMutableArray)
         
         }else{ // First item of the list
             itemList = NSMutableArray()
             itemList!.addObject(dataSet)
             
-            self.ResetAndInitializeData(itemList)
+            self.ResetAndInitializeData(userDefaults, itemList)
         }
+        
+        userDefaults.synchronize()
         
     }
     
-    func ResetAndInitializeData(data:NSMutableArray!){
-        var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    func ResetAndInitializeData(userDefaults:NSUserDefaults, data:NSMutableArray!){
         userDefaults.removeObjectForKey("itemList")
         userDefaults.setObject(data, forKey: "itemList")
     }
