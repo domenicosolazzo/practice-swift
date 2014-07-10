@@ -23,7 +23,36 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
-        println("button pressed")
+        var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var itemList:NSMutableArray? =  userDefaults.objectForKey("itemList") as? NSMutableArray
+        
+        var dataSet:NSMutableDictionary = NSMutableDictionary()
+        dataSet.setObject(uiTextField.text, forKey: "itemTitle")
+        dataSet.setObject(uiTextView.text, forKey: "itemNotes")
+        
+        if(itemList){ // data already available
+            var newMutableArray = NSMutableArray()
+        
+            for dict:AnyObject in itemList!{
+                newMutableArray.addObject(dict)
+            }
+            newMutableArray.addObject(dataSet)
+            
+            self.ResetAndInitializeData(newMutableArray)
+        
+        }else{ // First item of the list
+            itemList = NSMutableArray()
+            itemList!.addObject(dataSet)
+            
+            self.ResetAndInitializeData(itemList)
+        }
+        
+    }
+    
+    func ResetAndInitializeData(data:NSMutableArray!){
+        var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.removeObjectForKey("itemList")
+        userDefaults.setObject(data, forKey: "itemList")
     }
 
     /*
