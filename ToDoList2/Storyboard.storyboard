@@ -133,8 +133,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IAD-wU-fby">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="36b-6e-l4f"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="36b-6e-l4f">
+                            <connections>
+                                <action selector="deleteView:" destination="rDL-8S-USP" id="dRs-gJ-y5r"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteTask" destination="36b-6e-l4f" id="FbO-Mh-ekW"/>
+                        <outlet property="uiTextField" destination="IWA-yM-ZGY" id="huK-TV-eeJ"/>
+                        <outlet property="uiTextView" destination="Jp9-08-STg" id="4ag-ll-G65"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2g-E8-ZYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
