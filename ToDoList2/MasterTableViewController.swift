@@ -20,6 +20,8 @@ class MasterTableViewController: UITableViewController {
         if(items){
             self.todoItems = items!
         }
+        
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
