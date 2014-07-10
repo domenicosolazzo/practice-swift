@@ -19,7 +19,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="rDL-8S-USP" kind="push" id="Hmg-iB-Bl7"/>
+                                    <segue destination="08P-rp-l7c" kind="push" identifier="showDetail" id="RQc-HA-KCA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -31,7 +31,7 @@
                     <navigationItem key="navigationItem" id="t9v-5A-2dl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yfh-In-YLq">
                             <connections>
-                                <segue destination="4r0-zo-9tY" kind="push" id="MRz-Td-UO8"/>
+                                <segue destination="4r0-zo-9tY" kind="push" identifier="showAdd" id="MRz-Td-UO8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,18 +63,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add notes here..." translatesAutoresizingMaskIntoConstraints="NO" id="55b-2X-r5M">
-                                <rect key="frame" x="20" y="161" width="224" height="157"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2I-FN-BEF">
                                 <rect key="frame" x="20" y="138" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add notes here..." translatesAutoresizingMaskIntoConstraints="NO" id="55b-2X-r5M">
+                                <rect key="frame" x="20" y="161" width="224" height="157"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -95,59 +95,54 @@
             <point key="canvasLocation" x="1393" y="15"/>
         </scene>
         <!--Details View Controller-->
-        <scene sceneID="KNg-es-AeB">
+        <scene sceneID="jYp-3M-JZH">
             <objects>
-                <viewController id="rDL-8S-USP" customClass="DetailsViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="08P-rp-l7c" customClass="DetailsViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YBd-4W-vu4"/>
-                        <viewControllerLayoutGuide type="bottom" id="1Kg-y3-z4w"/>
+                        <viewControllerLayoutGuide type="top" id="oDw-D7-miF"/>
+                        <viewControllerLayoutGuide type="bottom" id="9iw-6T-2F9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fsu-QK-LKq">
+                    <view key="view" contentMode="scaleToFill" id="GMi-eZ-vDh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZs-v4-cfN">
-                                <rect key="frame" x="20" y="70" width="84" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuN-p1-lke">
+                                <rect key="frame" x="20" y="92" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHv-oW-gb7">
-                                <rect key="frame" x="20" y="139" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWA-yM-ZGY">
-                                <rect key="frame" x="20" y="90" width="224" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlF-Ch-Ede">
+                                <rect key="frame" x="20" y="112" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add notes here..." translatesAutoresizingMaskIntoConstraints="NO" id="Jp9-08-STg">
-                                <rect key="frame" x="20" y="162" width="224" height="157"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add notes here..." translatesAutoresizingMaskIntoConstraints="NO" id="1aQ-x6-h1o">
+                                <rect key="frame" x="20" y="184" width="224" height="157"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmy-VK-FvQ">
+                                <rect key="frame" x="20" y="161" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IAD-wU-fby">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="36b-6e-l4f">
-                            <connections>
-                                <action selector="deleteView:" destination="rDL-8S-USP" id="dRs-gJ-y5r"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="Hjz-5k-wyk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iLV-gl-vtq"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteTask" destination="36b-6e-l4f" id="FbO-Mh-ekW"/>
-                        <outlet property="uiTextField" destination="IWA-yM-ZGY" id="huK-TV-eeJ"/>
-                        <outlet property="uiTextView" destination="Jp9-08-STg" id="4ag-ll-G65"/>
+                        <outlet property="uiTextField" destination="FlF-Ch-Ede" id="EPB-MP-VSr"/>
+                        <outlet property="uiTextView" destination="1aQ-x6-h1o" id="8ux-UH-azc"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g2g-E8-ZYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hM-ef-R8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="710"/>
+            <point key="canvasLocation" x="1393" y="658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DPj-77-hnO">

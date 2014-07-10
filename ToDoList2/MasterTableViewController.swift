@@ -107,7 +107,14 @@ class MasterTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        
+        if(segue && segue!.identifier == "showDetail"){
+            var selectedIndexPath: NSIndexPath = self.tableView.indexPathForSelectedRow()
+            var item = self.todoItems.objectAtIndex(selectedIndexPath.row) as NSDictionary
+            
+            // Create a detail view controller
+            var detailViewController = segue!.destinationViewController as DetailsViewController
+            detailViewController.todoData = item
+        }
         
     }
     

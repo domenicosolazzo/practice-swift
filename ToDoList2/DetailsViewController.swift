@@ -10,6 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    
     @IBOutlet var uiTextField: UITextField
     @IBOutlet var uiTextView: UITextView
     
@@ -40,9 +41,6 @@ class DetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func deleteView(sender: AnyObject) {
-        println("Deleted...");
-    }
 
     /*
     // #pragma mark - Navigation
