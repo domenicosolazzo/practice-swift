@@ -21,12 +21,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func MemoryOperationPressed(sender: AnyObject) {
+    @IBAction func MemoryOperationPressed(sender: UIButton) {
     }
 
-    @IBAction func pressedOperation(sender: AnyObject) {
+    @IBAction func pressedOperation(sender: UIButton) {
+        println(sender.titleLabel.text)
     }
-    @IBAction func numberPressed(sender: AnyObject) {
+    @IBAction func numberPressed(sender: UIButton) {
+        if(resultTextView.text == "0"){
+            resultTextView.text = sender.titleLabel.text
+        }else{
+            resultTextView.text = resultTextView.text + sender.titleLabel.text
+        }
+        
     }
 }
 
