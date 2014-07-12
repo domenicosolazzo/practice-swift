@@ -212,6 +212,20 @@
                                     <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b9K-3D-Rp3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-jx-5ri">
+                                <rect key="frame" x="20" y="289" width="70" height="42"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="x">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="238" y="184" width="52" height="42"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gPq-wj-zBA"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usj-PB-RIi">
                                 <rect key="frame" x="20" y="289" width="70" height="42"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -224,21 +238,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZAm-7Y-9ci"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-MB-0e1">
-                                <rect key="frame" x="20" y="289" width="70" height="42"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="+/-">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="97" y="184" width="52" height="42"/>
-                                </variation>
-                                <connections>
-                                    <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RXd-j5-rov"/>
-                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ywy-Wo-I6q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-cA-SMs">
@@ -322,18 +321,19 @@
                                     <rect key="frame" x="31" y="71" width="259" height="37"/>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-jx-5ri">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-MB-0e1">
                                 <rect key="frame" x="20" y="289" width="70" height="42"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="x">
+                                <state key="normal" title="+/-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="238" y="184" width="52" height="42"/>
+                                    <rect key="frame" x="97" y="184" width="52" height="42"/>
                                 </variation>
                                 <connections>
-                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gPq-wj-zBA"/>
+                                    <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EQd-o7-RPT"/>
+                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ywy-Wo-I6q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,15 +354,15 @@
                                 <exclude reference="m2R-8x-KZ2"/>
                                 <exclude reference="Sb5-Be-V1x"/>
                                 <exclude reference="Aoi-1d-mFc"/>
+                                <exclude reference="UMe-jx-5ri"/>
                                 <exclude reference="usj-PB-RIi"/>
-                                <exclude reference="T3J-MB-0e1"/>
                                 <exclude reference="9nd-cA-SMs"/>
                                 <exclude reference="UyG-qa-5Fr"/>
                                 <exclude reference="YhF-jP-ROY"/>
                                 <exclude reference="KIR-UB-fbk"/>
                                 <exclude reference="t94-l1-eL4"/>
                                 <exclude reference="eys-2y-iaO"/>
-                                <exclude reference="UMe-jx-5ri"/>
+                                <exclude reference="T3J-MB-0e1"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -380,15 +380,15 @@
                                 <include reference="m2R-8x-KZ2"/>
                                 <include reference="Sb5-Be-V1x"/>
                                 <include reference="Aoi-1d-mFc"/>
+                                <include reference="UMe-jx-5ri"/>
                                 <include reference="usj-PB-RIi"/>
-                                <include reference="T3J-MB-0e1"/>
                                 <include reference="9nd-cA-SMs"/>
                                 <include reference="UyG-qa-5Fr"/>
                                 <include reference="YhF-jP-ROY"/>
                                 <include reference="KIR-UB-fbk"/>
                                 <include reference="t94-l1-eL4"/>
                                 <include reference="eys-2y-iaO"/>
-                                <include reference="UMe-jx-5ri"/>
+                                <include reference="T3J-MB-0e1"/>
                             </mask>
                         </variation>
                     </view>

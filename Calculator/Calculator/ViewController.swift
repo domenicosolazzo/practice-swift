@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var operation: String = ""
     var firstOperand: Int = 0
     var secondOperand: Int = 0
+    var isMinusPrefix:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,9 @@ class ViewController: UIViewController {
     @IBAction func MemoryOperationPressed(sender: UIButton) {
     }
 
+    @IBAction func prefixPressed(sender: UIButton) {
+        isMinusPrefix = !isMinusPrefix
+    }
     @IBAction func pressedOperation(sender: UIButton) {
 
         var op = sender.titleLabel.text
