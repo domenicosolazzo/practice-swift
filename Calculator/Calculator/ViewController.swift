@@ -25,7 +25,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pressedOperation(sender: UIButton) {
-        println(sender.titleLabel.text)
+        if(sender.titleLabel.text == "C"){
+            resultTextView.text = ""
+        }
+        
     }
     @IBAction func numberPressed(sender: UIButton) {
         if(resultTextView.text == "0"){
@@ -33,7 +36,6 @@ class ViewController: UIViewController {
         }else{
             resultTextView.text = resultTextView.text + sender.titleLabel.text
         }
-        
     }
 }
 

@@ -391,6 +391,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="operationButton" destination="usj-PB-RIi" id="fgW-Eg-Ncn"/>
                         <outlet property="resultTextView" destination="eys-2y-iaO" id="c7P-Zg-okY"/>
                     </connections>
                 </viewController>
