@@ -237,6 +237,7 @@
                                     <rect key="frame" x="97" y="184" width="52" height="42"/>
                                 </variation>
                                 <connections>
+                                    <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RXd-j5-rov"/>
                                     <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ywy-Wo-I6q"/>
                                 </connections>
                             </button>
@@ -252,6 +253,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qqj-fr-1we"/>
+                                    <action selector="resetResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rBm-d8-mYe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyG-qa-5Fr">
