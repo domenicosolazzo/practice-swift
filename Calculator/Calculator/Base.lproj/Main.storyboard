@@ -195,7 +195,7 @@
                                     <rect key="frame" x="238" y="363" width="52" height="97"/>
                                 </variation>
                                 <connections>
-                                    <action selector="calculateResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qWA-k9-Wh5"/>
+                                    <action selector="calculateResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uOy-UV-VVd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-1d-mFc">
@@ -317,7 +317,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="31" y="71" width="259" height="37"/>
+                                    <rect key="frame" x="31" y="52" width="259" height="32"/>
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-MB-0e1">
@@ -334,6 +334,16 @@
                                     <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XxN-th-bcq"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHk-nn-8vJ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="86" width="259" height="22"/>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -361,6 +371,7 @@
                                 <exclude reference="t94-l1-eL4"/>
                                 <exclude reference="eys-2y-iaO"/>
                                 <exclude reference="T3J-MB-0e1"/>
+                                <exclude reference="jHk-nn-8vJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -387,10 +398,12 @@
                                 <include reference="t94-l1-eL4"/>
                                 <include reference="eys-2y-iaO"/>
                                 <include reference="T3J-MB-0e1"/>
+                                <include reference="jHk-nn-8vJ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="operationTextView" destination="jHk-nn-8vJ" id="V3B-bc-wIs"/>
                         <outlet property="resultTextView" destination="eys-2y-iaO" id="c7P-Zg-okY"/>
                     </connections>
                 </viewController>
