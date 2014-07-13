@@ -43,10 +43,17 @@ class ViewController: UIViewController {
         operation = op
     }
     
+    @IBAction func calculateResult(sender: UIButton) {
+    }
     @IBAction func dotPressed(sender: UIButton) {
         var dot = "."
+        
+        if resultTextView.text.isEmpty{
+            resultTextView.text = "0"
+        }
+        
         var result = resultTextView.text as NSString
-        if(!result.containsString(dot)){
+        if(!result.containsString(dot) ){
             resultTextView.text = resultTextView.text + dot
         }
     }

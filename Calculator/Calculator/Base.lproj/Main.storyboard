@@ -195,7 +195,7 @@
                                     <rect key="frame" x="238" y="363" width="52" height="97"/>
                                 </variation>
                                 <connections>
-                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fG2-Qd-UM5"/>
+                                    <action selector="calculateResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qWA-k9-Wh5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-1d-mFc">
@@ -210,7 +210,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="dotPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZzT-iw-NBN"/>
-                                    <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b9K-3D-Rp3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-jx-5ri">
@@ -252,8 +251,7 @@
                                     <rect key="frame" x="31" y="184" width="52" height="42"/>
                                 </variation>
                                 <connections>
-                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qqj-fr-1we"/>
-                                    <action selector="resetResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rBm-d8-mYe"/>
+                                    <action selector="resetResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VAi-PQ-Hu6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyG-qa-5Fr">
@@ -333,8 +331,7 @@
                                     <rect key="frame" x="97" y="184" width="52" height="42"/>
                                 </variation>
                                 <connections>
-                                    <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EQd-o7-RPT"/>
-                                    <action selector="pressedOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ywy-Wo-I6q"/>
+                                    <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XxN-th-bcq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -394,7 +391,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="operationButton" destination="usj-PB-RIi" id="fgW-Eg-Ncn"/>
                         <outlet property="resultTextView" destination="eys-2y-iaO" id="c7P-Zg-okY"/>
                     </connections>
                 </viewController>
