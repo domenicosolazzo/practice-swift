@@ -16,14 +16,13 @@ class ViewController: UIViewController {
     var firstOperand: Int = 0
     var secondOperand: Int = 0
     var isMinusPrefix:Bool = false
+    var isDecimalDot:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func prefixPressed(sender: UIButton) {
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,8 +41,16 @@ class ViewController: UIViewController {
 
         var op = sender.titleLabel.text
         operation = op
-        
     }
+    
+    @IBAction func dotPressed(sender: UIButton) {
+        var dot = "."
+        var result = resultTextView.text as NSString
+        if(!result.containsString(dot)){
+            resultTextView.text = resultTextView.text + dot
+        }
+    }
+    
     @IBAction func numberPressed(sender: UIButton) {
         if(resultTextView.text == "0"){
             resultTextView.text = sender.titleLabel.text

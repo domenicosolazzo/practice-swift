@@ -69,6 +69,7 @@ var lowercase = myString.lowercaseString
 /*
 ======== Substrings ========
 */
+var abc = myString.rangeOfString("abc", options:nil, range: nil, locale:nil)
 // Check if a substring exists in a string
 var containString = myString.rangeOfString("This", options: nil, range:nil, locale: nil)
 // Retrieve a substring

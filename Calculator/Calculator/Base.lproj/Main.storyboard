@@ -209,6 +209,7 @@
                                     <rect key="frame" x="164" y="418" width="52" height="42"/>
                                 </variation>
                                 <connections>
+                                    <action selector="dotPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZzT-iw-NBN"/>
                                     <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b9K-3D-Rp3"/>
                                 </connections>
                             </button>
