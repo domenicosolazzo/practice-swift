@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var resultTextView: UITextView = UITextView()
     
     var operation: String = ""
-    var firstOperand: Int = 0
-    var secondOperand: Int = 0
+    var firstOperand: Double?
+    var secondOperand: Double?
     var isMinusPrefix:Bool = false
     var isDecimalDot:Bool = false
     
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func resetResult(sender: UIButton) {
+    @IBAction func resetResult(sender: UIButton?) {
         resultTextView.text = ""
     }
     @IBAction func MemoryOperationPressed(sender: UIButton) {
@@ -41,9 +41,19 @@ class ViewController: UIViewController {
 
         var op = sender.titleLabel.text
         operation = op
+        
+        if(!firstOperand){
+            firstOperand = (resultTextView.text as NSString).doubleValue
+        }else{
+            secondOperand = (resultTextView.text as NSString).doubleValue
+            calculateResult(nil)
+        }
+        
+        // Reset the result view
+        resetResult(nil)
     }
     
-    @IBAction func calculateResult(sender: UIButton) {
+    @IBAction func calculateResult(sender: UIButton?) {
     }
     @IBAction func dotPressed(sender: UIButton) {
         var dot = "."
