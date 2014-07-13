@@ -13,11 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet var resultTextView: UITextView = UITextView()
     
     @IBOutlet var operationTextView: UITextView
+    @IBOutlet var memoryTextView: UITextView
+    
     var operation: String = ""
     var accumulator:Double? = nil
     var isResult = false
     var firstOperand:Double?
     var secondOperand:Double?
+    var memoryResult:Double = 0
+    var result:Double? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,53 @@ class ViewController: UIViewController {
     }
     // Memory operations
     @IBAction func MemoryOperationPressed(sender: UIButton) {
+        var memoryOp = sender.titleLabel.text as String
+        switch(memoryOp){
+            case "MR":
+                showMemory()
+            case "M+":
+                addToMemory()
+            case "M-":
+                removeFromMemory()
+            case "MC":
+                cleanMemory()
+            default:
+                showError()
+        }
     }
-
+    
+    func cleanMemory(){
+        memoryResult = 0
+        memoryTextView.text = ""
+    }
+    func addToMemory(){
+        var res:Double = 0
+        if(!resultTextView.text.isEmpty){
+            res = (resultTextView.text as NSString).doubleValue
+        }else{
+            return;
+        }
+        
+        memoryResult = (memoryResult + res)
+        memoryTextView.text = "M"
+    }
+    
+    func removeFromMemory(){
+        var res:Double = 0
+        if(!resultTextView.text.isEmpty){
+            res = (resultTextView.text as NSString).doubleValue
+        }else{
+            return;
+        }
+        
+        memoryResult = (memoryResult - res)
+        memoryTextView.text = "M"
+    }
+    
+    func showMemory(){
+        resultTextView.text = "\(memoryResult)"
+    }
+    
     // Prefix pressed
     @IBAction func prefixPressed(sender: UIButton) {
         if resultTextView.text.isEmpty || resultTextView.text == "0" || resultTextView.text == "ERROR!"{
@@ -109,6 +158,7 @@ class ViewController: UIViewController {
             println("Res:\(res)")
             
             firstOperand = res
+            result = res
             showResult(res)
             
         }else{

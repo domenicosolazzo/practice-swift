@@ -320,6 +320,16 @@
                                     <rect key="frame" x="31" y="52" width="259" height="32"/>
                                 </variation>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHk-nn-8vJ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="86" width="186" height="22"/>
+                                </variation>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-MB-0e1">
                                 <rect key="frame" x="20" y="289" width="70" height="42"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -334,14 +344,14 @@
                                     <action selector="prefixPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XxN-th-bcq"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHk-nn-8vJ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wT-ZE-Ta3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="30" y="86" width="259" height="22"/>
+                                    <rect key="frame" x="238" y="86" width="52" height="22"/>
                                 </variation>
                             </textView>
                         </subviews>
@@ -370,8 +380,9 @@
                                 <exclude reference="KIR-UB-fbk"/>
                                 <exclude reference="t94-l1-eL4"/>
                                 <exclude reference="eys-2y-iaO"/>
-                                <exclude reference="T3J-MB-0e1"/>
                                 <exclude reference="jHk-nn-8vJ"/>
+                                <exclude reference="T3J-MB-0e1"/>
+                                <exclude reference="5wT-ZE-Ta3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -397,12 +408,14 @@
                                 <include reference="KIR-UB-fbk"/>
                                 <include reference="t94-l1-eL4"/>
                                 <include reference="eys-2y-iaO"/>
-                                <include reference="T3J-MB-0e1"/>
                                 <include reference="jHk-nn-8vJ"/>
+                                <include reference="T3J-MB-0e1"/>
+                                <include reference="5wT-ZE-Ta3"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="memoryTextView" destination="5wT-ZE-Ta3" id="rOk-zR-7Hs"/>
                         <outlet property="operationTextView" destination="jHk-nn-8vJ" id="V3B-bc-wIs"/>
                         <outlet property="resultTextView" destination="eys-2y-iaO" id="c7P-Zg-okY"/>
                     </connections>
