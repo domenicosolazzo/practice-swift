@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         
         // Create a new user
         var newUser = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context)
+        newUser.setValue(txtUsername.text, forKey: "username")
+        newUser.setValue(txtPassword.text, forKey: "password")
         
     }
     
