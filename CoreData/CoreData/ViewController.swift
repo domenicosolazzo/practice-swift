@@ -26,7 +26,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnSave(sender: UIButton) {
+        // Fetch the app delegate
+        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
+        // Fetch the context
+        var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        // Request for CoreData
+        var request:NSFetchRequest = NSFetchRequest(entityName: "Users")
     }
     
     override func viewDidLoad() {
