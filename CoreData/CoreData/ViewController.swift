@@ -13,25 +13,6 @@ class ViewController: UIViewController {
         // Fetch the context
         var context: NSManagedObjectContext = appDel.managedObjectContext
         
-        // Create a new user
-        var newUser = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context)
-        newUser.setValue(txtUsername.text, forKey: "username")
-        newUser.setValue(txtPassword.text, forKey: "password")
-        
-        // Save the new object
-        context.save(nil)
-        
-        println(newUser)
-        println("User saved!")
-    }
-    
-    @IBAction func btnSave(sender: UIButton) {
-        // Fetch the app delegate
-        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        // Fetch the context
-        var context: NSManagedObjectContext = appDel.managedObjectContext
-        
         // Request for CoreData
         var request:NSFetchRequest = NSFetchRequest(entityName: "Users")
         request.returnsObjectsAsFaults = false // TODO: learn about this property
@@ -46,6 +27,26 @@ class ViewController: UIViewController {
         }else{
             println("No user in the database. Save your first!")
         }
+    }
+    
+    @IBAction func btnSave(sender: UIButton) {
+        // Fetch the app delegate
+        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        // Fetch the context
+        var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        // Create a new user
+        var newUser = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) as NSManagedObject
+        newUser.setValue("" + txtUsername.text, forKey: "username")
+        newUser.setValue("" + txtPassword.text, forKey: "password")
+        
+        // Save the new object
+        context.save(nil)
+        
+        println(newUser)
+        println("User saved!")
+        
     }
     
     override func viewDidLoad() {

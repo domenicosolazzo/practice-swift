@@ -17,22 +17,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-d7-vBg">
-                                <rect key="frame" x="20" y="20" width="440" height="30"/>
+                                <rect key="frame" x="20" y="20" width="251" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact">
+                                    <rect key="frame" x="20" y="20" width="280" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uer-Oc-tSC">
-                                <rect key="frame" x="20" y="58" width="440" height="30"/>
+                                <rect key="frame" x="20" y="58" width="234" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact">
+                                    <rect key="frame" x="20" y="58" width="280" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2R-f4-Fwl">
-                                <rect key="frame" x="414" y="101" width="46" height="22"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="btnSave:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Mn-OT-HFG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vm-mx-4Q3">
                                 <rect key="frame" x="20" y="96" width="46" height="30"/>
                                 <state key="normal" title="Load">
@@ -40,6 +41,17 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLoad:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xaf-Pj-NKe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2R-f4-Fwl">
+                                <rect key="frame" x="217" y="96" width="46" height="22"/>
+                                <state key="normal" title="Save"/>
+                                <variation key="widthClass=compact">
+                                    <rect key="frame" x="254" y="100" width="46" height="22"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES"/>
+                                <connections>
+                                    <action selector="btnSave:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Mn-OT-HFG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,6 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="141"/>
         </scene>
     </scenes>
 </document>
