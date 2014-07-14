@@ -72,7 +72,7 @@ var lowercase = myString.lowercaseString
 // Check if a substring exists in a string
 var containString = myString.rangeOfString("This", options: nil, range:nil, locale: nil)
 // Retrieve a substring
-var substring = myString.substringFromIndex(1)
+var substring = x
 // Retrieve first part of the substring
 substring = myString.substringToIndex(4)
 

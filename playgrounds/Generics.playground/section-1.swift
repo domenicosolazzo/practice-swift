@@ -44,18 +44,7 @@ struct InStack{
 }
 
 // Generic version of Stack
-struct GenericInStack<T>{
-    var items = T[]()
-    
-    mutating func push(i:T){
-        items.append(i)
-    }
-    
-    mutating func pop() -> T{
-        return items.removeLast()
-    }
 
-}
 
 // Example for the GenericInStack
 var stackOfStrings = GenericInStack<String>()
