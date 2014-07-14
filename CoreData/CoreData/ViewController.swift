@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         newUser.setValue(txtUsername.text, forKey: "username")
         newUser.setValue(txtPassword.text, forKey: "password")
         
+        // Save the new object
+        context.save(nil)
+        
+        println(newUser)
+        println("User saved!")
     }
     
     @IBAction func btnSave(sender: UIButton) {
