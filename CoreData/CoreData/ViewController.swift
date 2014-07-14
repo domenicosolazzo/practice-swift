@@ -34,6 +34,10 @@ class ViewController: UIViewController {
         
         // Request for CoreData
         var request:NSFetchRequest = NSFetchRequest(entityName: "Users")
+        request.returnsObjectsAsFaults = false // TODO: learn about this property
+        
+        // Execute the request
+        var results: NSArray = context.executeFetchRequest(request, error: nil)
     }
     
     override func viewDidLoad() {
