@@ -7,8 +7,15 @@ class ViewController: UIViewController {
     @IBOutlet var txtPassword: UITextField = UITextField()
     
     @IBAction func btnLoad(sender: UIButton) {
+        // Fetch the app delegate
         var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        // Fetch the context
         var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        // Create a new user
+        var newUser = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context)
+        
     }
     
     @IBAction func btnSave(sender: UIButton) {
