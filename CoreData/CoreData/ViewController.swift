@@ -1,12 +1,5 @@
-//
-//  ViewController.swift
-//  CoreData
-//
-//  Created by Domenico Solazzo on 7/14/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
-
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
                             
@@ -15,6 +8,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnLoad(sender: UIButton) {
         var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var context: NSManagedObjectContext = appDel.managedObjectContext
     }
     
     @IBAction func btnSave(sender: UIButton) {
