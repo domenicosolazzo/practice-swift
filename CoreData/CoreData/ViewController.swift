@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var txtPassword: UITextField = UITextField()
     
     @IBAction func btnLoad(sender: UIButton) {
-        
+        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     }
     
     @IBAction func btnSave(sender: UIButton) {
