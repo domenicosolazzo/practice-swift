@@ -38,6 +38,14 @@ class ViewController: UIViewController {
         
         // Execute the request
         var results: NSArray = context.executeFetchRequest(request, error: nil)
+        
+        if(results.count > 0){
+            for res in results{
+                println(res)
+            }
+        }else{
+            println("No user in the database. Save your first!")
+        }
     }
     
     override func viewDidLoad() {
