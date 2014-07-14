@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
                             
+    @IBOutlet var txtUsername: UITextField = UITextField()
+    @IBOutlet var txtPassword: UITextField = UITextField()
+    
+    @IBAction func btnLoad(sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnSave(sender: UIButton) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
