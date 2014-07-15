@@ -23,9 +23,9 @@ class ViewController: UIViewController {
         var results: NSArray = context.executeFetchRequest(request, error: nil)
         
         if(results.count > 0){
-            for res in results{
-                println(res)
-            }
+            var res = results[0] as NSManagedObject
+            txtUsername.text = res.valueForKey("username") as String
+            txtPassword.text = res.valueForKey("password") as String
         }else{
             println("No user in the database. Save your first!")
         }
