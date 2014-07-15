@@ -16,6 +16,8 @@ class ViewController: UIViewController {
         // Request for CoreData
         var request:NSFetchRequest = NSFetchRequest(entityName: "Users")
         request.returnsObjectsAsFaults = false // TODO: learn about this property
+        // Add a predicate (filter)
+        request.predicate = NSPredicate(format:"username = %@", "" + txtUsername.text)
         
         // Execute the request
         var results: NSArray = context.executeFetchRequest(request, error: nil)
