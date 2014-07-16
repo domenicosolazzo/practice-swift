@@ -1,6 +1,9 @@
 import UIKit
 
+// Document Directory
 let documentFileFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+// File name
+let fileName = "file.txt"
 
 class ViewController: UIViewController {
                             
