@@ -48,6 +48,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="207" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="bntLoad:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rfz-RF-ywj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-cF-rCR">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -57,6 +60,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="254" y="202" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnSave:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Lw-jP-EGR"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="..." translatesAutoresizingMaskIntoConstraints="NO" id="opR-DV-1f1">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -88,6 +94,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="txtAddress" destination="sEo-Yr-orE" id="9Zx-eU-G1v"/>
+                        <outlet property="txtDescription" destination="opR-DV-1f1" id="0f0-Rb-his"/>
+                        <outlet property="txtFirstname" destination="feo-xT-9Y9" id="UcW-5x-v9B"/>
+                        <outlet property="txtLastname" destination="dwX-vb-Dmv" id="FQk-7H-0iv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

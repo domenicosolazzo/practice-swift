@@ -9,6 +9,11 @@ let path = documentFileFolder.stringByAppendingString(fileName)
 
 class ViewController: UIViewController {
                             
+    @IBOutlet var txtFirstname: UITextField
+    @IBOutlet var txtLastname: UITextField
+    @IBOutlet var txtAddress: UITextField
+    
+    @IBOutlet var txtDescription: UITextView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +25,9 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func bntLoad(sender: UIButton) {
+    }
+    @IBAction func btnSave(sender: UIButton) {
+    }
 }
 
