@@ -1,5 +1,8 @@
 import UIKit
 
+// User directory path
+let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+
 class ViewController: UIViewController {
                             
     @IBOutlet var txtFirstname: UITextField
