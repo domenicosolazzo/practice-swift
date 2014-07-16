@@ -48,6 +48,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="254" y="177" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnSave:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ye4-U2-8AB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-5i-ikh">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -66,6 +69,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="177" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnLoad:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6To-qb-X3o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -88,6 +94,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="txtAge" destination="R8t-7K-jp3" id="ySH-yj-nvs"/>
+                        <outlet property="txtFirstname" destination="7Uv-Sc-11s" id="HKm-sj-s2C"/>
+                        <outlet property="txtLastname" destination="v25-r5-aVe" id="8cq-Ei-cw3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
