@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnSave(sender: UIButton) {
+        var firstname = txtFirstname.text as String
+        var lastname = txtLastname.text as String
+        var age = txtAge.text as String
+        
+        var message = "The info: \(firstname) \(lastname) is \(age) years old"
     }
 
     @IBAction func btnLoad(sender: UIButton) {
