@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         var age = txtAge.text as String
         
         var message = "The info: \(firstname) \(lastname) is \(age) years old"
+        
+        // FileManager
+        var fileManager = NSFileManager.defaultManager()
+        
     }
 
     @IBAction func btnLoad(sender: UIButton) {
