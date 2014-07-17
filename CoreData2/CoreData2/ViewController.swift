@@ -34,6 +34,9 @@ class ViewController: UIViewController {
         
         // Check if the file exists
         if(!fileManager.fileExistsAtPath(filePath)){
+            // The NSError in case there is an error writing the file
+            var writeError: NSError?
+            
             
         }else{
         
