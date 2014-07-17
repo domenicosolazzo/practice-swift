@@ -40,6 +40,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="136" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnLoad:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lb2-gn-fn1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iw-Kw-P3a">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -49,6 +52,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="254" y="136" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnSave:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QrB-9b-Aqr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -69,6 +75,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="txtLastname" destination="oPy-9m-8ms" id="aXF-po-Fh0"/>
+                        <outlet property="txtUsername" destination="IdB-yZ-C0T" id="TRf-iw-FyN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
