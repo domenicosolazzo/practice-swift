@@ -47,10 +47,13 @@ class ViewController: UIViewController {
             }
             
         }else{
-            println("The file already exists"))
+            println("The file already exists")
         }
         
-        
+        // Remove the keyboard
+        txtFirstname.resignFirstResponder()
+        txtLastname.resignFirstResponder()
+        txtAge.resignFirstResponder()
         
     }
 
