@@ -17,6 +17,7 @@ Learning a new language: SWIFT
 - Lesson 10: [Yet Another Todo List](http://goo.gl/FpcnA6)
 - Lesson 11: [Calculator](http://goo.gl/NKAqLO)
 - Lesson 12: [CoreData: Small introduction](http://goo.gl/VqRLkE)
+- Lesson 13: [CoreData: The file manager](http://goo.gl/0FxURE)
 
 
 Apps (3)
