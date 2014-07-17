@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var txtFirstname: UITextField
     @IBOutlet var txtLastname: UITextField
     @IBOutlet var txtAge: UITextField
+    @IBOutlet var theMessage: UILabel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -62,6 +63,13 @@ class ViewController: UIViewController {
         // Reading the file
         var message = String.stringWithContentsOfFile(filePath, encoding: NSUTF8StringEncoding, error: &err)
         
+        // Checking if there is an error reading the file
+        if err == nil{
+            theMessage.text = message
+        }else{
+            println("Error reading the file \(err)")
+            theMessage.text = "Error reading the file: \(err)"
+        }
     }
 }
 

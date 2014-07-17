@@ -95,6 +95,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="theMessage" destination="7Pg-5i-ikh" id="w7R-jf-Nf8"/>
                         <outlet property="txtAge" destination="R8t-7K-jp3" id="ySH-yj-nvs"/>
                         <outlet property="txtFirstname" destination="7Uv-Sc-11s" id="HKm-sj-s2C"/>
                         <outlet property="txtLastname" destination="v25-r5-aVe" id="8cq-Ei-cw3"/>
