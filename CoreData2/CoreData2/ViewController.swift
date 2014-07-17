@@ -58,6 +58,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnLoad(sender: UIButton) {
+        var err:NSError?
+        // Reading the file
+        var message = String.stringWithContentsOfFile(filePath, encoding: NSUTF8StringEncoding, error: &err)
+        
     }
 }
 
