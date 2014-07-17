@@ -32,6 +32,13 @@ class ViewController: UIViewController {
         // FileManager
         var fileManager = NSFileManager.defaultManager()
         
+        // Check if the file exists
+        if(!fileManager.fileExistsAtPath(filePath)){
+            
+        }else{
+        
+        }
+        
     }
 
     @IBAction func btnLoad(sender: UIButton) {
