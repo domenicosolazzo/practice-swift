@@ -36,7 +36,8 @@ class ViewController: UIViewController {
         if(!fileManager.fileExistsAtPath(filePath)){
             // The NSError in case there is an error writing the file
             var writeError: NSError?
-            
+            // Write the file 
+            message.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding, error: &writeError)
             
         }else{
         
