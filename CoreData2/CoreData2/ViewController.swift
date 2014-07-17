@@ -47,8 +47,10 @@ class ViewController: UIViewController {
             }
             
         }else{
-        
+            println("The file already exists"))
         }
+        
+        
         
     }
 
