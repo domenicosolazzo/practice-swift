@@ -38,6 +38,9 @@ class ViewController: UIViewController {
             for res in results{
                 var user = res as Users
                 println("User: \(user.username), \(user.password)")
+                println(user.ToString())
+                user.AddPrefix("YoYo")
+                printlne(user.ToString())
             }
             println("Found \(results.count) results!")
         }else{
