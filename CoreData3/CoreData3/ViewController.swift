@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         var context:NSManagedObjectContext = appDel.managedObjectContext as NSManagedObjectContext
         
         // Create a request
-        var request:NSFetchRequest = NSFetchRequest("Users")
+        var request:NSFetchRequest = NSFetchRequest(entityName: "Users")
         // Return a list of objects that we are looking for
         request.returnsObjectsAsFaults = false
         
@@ -32,6 +32,17 @@ class ViewController: UIViewController {
         
         // Execute the request
         var results = context.executeFetchRequest(request, error: nil)
+        
+        if results.count > 0{
+        
+            for res in results{
+                var user = res as Users
+                println("User: \(user.username), \(user.password)")
+            }
+            println("Found \(results.count) results!")
+        }else{
+            println("No result found!")
+        }
         
     }
     @IBAction func btnSave(sender: UIButton) {
