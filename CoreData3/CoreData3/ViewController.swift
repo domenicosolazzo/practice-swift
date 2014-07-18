@@ -31,6 +31,14 @@ class ViewController: UIViewController {
         
         // Create a new user object
         var newUser = Users(entity: ent, insertIntoManagedObjectContext: context)
+        newUser.username = txtUsername.text
+        newUser.password = txtPassword.text
+        
+        //Save the object
+        context.save(nil)
+        
+        //Print the object
+        println(newUser)
         
     }
 
