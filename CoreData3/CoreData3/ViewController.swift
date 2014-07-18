@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         
         // Create a request
         var request:NSFetchRequest = NSFetchRequest("Users")
+        // Return a list of objects that we are looking for
+        request.returnsObjectsAsFaults = false
         
     }
     @IBAction func btnSave(sender: UIButton) {
