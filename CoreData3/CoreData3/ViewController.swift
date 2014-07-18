@@ -29,6 +29,9 @@ class ViewController: UIViewController {
         // Fetch the user entities
         let ent = NSEntityDescription.entityForName("Users", inManagedObjectContext: context)
         
+        // Create a new user object
+        var newUser = Users(entity: ent, insertIntoManagedObjectContext: context)
+        
     }
 
 }
