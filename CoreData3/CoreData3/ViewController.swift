@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     }
     @IBAction func btnSave(sender: UIButton) {
         
+        // Fetch the AppDelegate
+        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     }
 
 }
