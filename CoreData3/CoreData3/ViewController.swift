@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         // Fetch the NSManagedObjectContext
         var context:NSManagedObjectContext = appDel.managedObjectContext as NSManagedObjectContext
         
+        // Create a request
+        var request:NSFetchRequest = NSFetchRequest("Users")
         
     }
     @IBAction func btnSave(sender: UIButton) {
