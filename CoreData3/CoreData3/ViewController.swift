@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         // Return a list of objects that we are looking for
         request.returnsObjectsAsFaults = false
         
+        // Create a predicate(filter) for the request
+        request.predicate = NSPredicate(format: "username = %@", txtUsername.text)
+        
     }
     @IBAction func btnSave(sender: UIButton) {
         
