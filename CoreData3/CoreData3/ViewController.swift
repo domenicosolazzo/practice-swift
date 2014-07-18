@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnLoad(sender: UIButton) {
+        // Fetch the AppDelegate
+        var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        // Fetch the NSManagedObjectContext
+        var context:NSManagedObjectContext = appDel.managedObjectContext as NSManagedObjectContext
+        
         
     }
     @IBAction func btnSave(sender: UIButton) {
