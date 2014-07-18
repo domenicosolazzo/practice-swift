@@ -30,6 +30,9 @@ class ViewController: UIViewController {
         // Create a predicate(filter) for the request
         request.predicate = NSPredicate(format: "username = %@", txtUsername.text)
         
+        // Execute the request
+        var results = context.executeFetchRequest(request, error: nil)
+        
     }
     @IBAction func btnSave(sender: UIButton) {
         
