@@ -15,7 +15,7 @@ class Users: NSManagedObject {
     
     // Add prefix to the username
     func AddPrefix(prefix:String){
-        self.username = "\(prefix)-(\self.username)"
+        self.username = "\(prefix)-" + self.username
     }
     
 }
