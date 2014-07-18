@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         
         // Fetch the AppDelegate
         var appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        // Fetch the NSManagedObjectContext
+        var context:NSManagedObjectContext = appDel.managedObjectContext as NSManagedObjectContext
+        
+        // Fetch the user entities
+        let ent = NSEntityDescription.entityForName("Users", inManagedObjectContext: context)
+        
     }
 
 }
