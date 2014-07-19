@@ -34,9 +34,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Coordinate of the pin
         myLocationAnnotation.coordinate = myLocation
         // Title of the pin
-        myLocationAnnotation.title = "The PIN title"
+        myLocationAnnotation.title = "Piazza Navona"
         // Subtitle of the pin
-        myLocationAnnotation.subtitle = "The PIN subtitle"
+        myLocationAnnotation.subtitle = "Roma, Italy"
         
         // Add the annotation to the mapview
         self.theMap.addAnnotation(myLocationAnnotation)
