@@ -6,7 +6,8 @@ class PlayScene: SKScene{
     let runningBar = SKSpriteNode(imageNamed: "bar")
     // Original X position for the running bar
     let originRunningBarPositionX = CGFloat(0)
-    
+    // Amount of the hidden running bar that is available (The bar width is longer than the screen size)
+    let maxBarX = CGFloat(0)
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
@@ -20,6 +21,10 @@ class PlayScene: SKScene{
         
         // Set the original running bar X-position
         self.originRunningBarPositionX = self.runningBar.position.x
+        
+        // Set the MaxBarX ( RunningBar's widht - Screen's width)=> Available Running Bar
+        self.maxBarX = self.runningBar.size.width - self.frame.width
+        self.maxBarX *= -1 // Make a negative number
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
