@@ -6,6 +6,10 @@ class PlayScene: SKScene{
     let runningBar = SKSpriteNode(imageNamed: "bar")
     // Sprite node for the hero
     let hero = SKSpriteNode(imageNamed: "hero")
+    // Sprite node for the block1
+    let block1 = SKSpriteNode(imageNamed: "block1")
+    // Sprite node for the block2
+    let block2 = SKSpriteNode(imageNamed: "block2")
     
     // Original X position for the running bar
     var originRunningBarPositionX = CGFloat(0)
