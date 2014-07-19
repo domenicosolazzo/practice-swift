@@ -69,6 +69,8 @@ class PlayScene: SKScene{
         self.hero.physicsBody.categoryBitMask = ColliderType.Hero.toRaw()
         // Check the type of objects that you CANNOT collide with
         self.hero.physicsBody.contactTestBitMask = ColliderType.Block.toRaw()
+        // What will collide with the hero
+        self.hero.physicsBody.collisionBitMask = ColliderType.Block.toRaw()
         
         // Block1 position: it should be outside of the screen in the beginning
         self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseLine)
