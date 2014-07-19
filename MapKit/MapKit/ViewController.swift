@@ -3,6 +3,8 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
                             
+    @IBOutlet var theMap: MKMapView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
