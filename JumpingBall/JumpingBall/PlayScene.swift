@@ -25,6 +25,8 @@ class PlayScene: SKScene{
     var velocityY = CGFloat(0)
     // Gravity
     var gravity = CGFloat(0.6)
+    // BlockStatus dictionary
+    var blockStatuses: Dictionary<String, BlockStatus> =[:]
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
