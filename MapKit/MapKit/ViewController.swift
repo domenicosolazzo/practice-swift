@@ -13,9 +13,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         var latitude:CLLocationDegrees = 12.47307180000007
         
         // Latitude delta: The map will look more zoom-in
-        var latDelta:CLLocationDegrees = 0.01
+        var latDelta:CLLocationDegrees = 0.1
         // Longitude delta
-        var longDelta:CLLocationDegrees = 0.01
+        var longDelta:CLLocationDegrees = 0.1
         
         // It defines the latitude and longitude directions to show on a map.
         var spanCoordinate: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
