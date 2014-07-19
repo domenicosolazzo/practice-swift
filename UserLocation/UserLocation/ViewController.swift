@@ -7,7 +7,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // User tracking mode in iOS
+        self.theMap.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true);
     }
 
     override func didReceiveMemoryWarning() {
