@@ -62,6 +62,12 @@ class PlayScene: SKScene{
         
     }
     
+    func random() -> UInt32{
+        // We want these blocks to come in a gap between 50 frame updates to 200 frame updates
+        var range = UInt32(50)...UInt32(200)
+        return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex +1)
+    }
+    
     // When the user hold down...
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         if self.velocityY < 9.0{
