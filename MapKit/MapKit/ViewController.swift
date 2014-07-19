@@ -18,6 +18,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // It defines the latitude and longitude directions to show on a map.
         var spanCoordinate: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
+        // Set the location
+        var myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        
     }
 
     override func didReceiveMemoryWarning() {
