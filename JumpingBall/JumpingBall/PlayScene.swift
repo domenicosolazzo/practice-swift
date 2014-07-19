@@ -70,6 +70,11 @@ class PlayScene: SKScene{
         blockStatuses["block1"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
         blockStatuses["block2"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
         
+        // Initialize score text
+        self.scoreText.text = 0
+        self.scoreText.fontSize = 42
+        self.scoreText.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        
         // Present the running bar in the screen
         self.addChild(self.runningBar)
         // Present the hero in the screen
