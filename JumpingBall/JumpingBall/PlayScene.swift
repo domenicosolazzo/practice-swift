@@ -13,7 +13,7 @@ class PlayScene: SKScene{
         // Set the bar at the bottom of the screen
         self.runningBar.position = CGPointMake(
             CGRectGetMinX(self.frame),
-            CGRectGetMinY(self.frame))
+            CGRectGetMinY(self.frame) * (self.runningBar.size.height / 2))
         
     }
     
