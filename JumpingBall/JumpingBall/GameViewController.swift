@@ -34,6 +34,8 @@ class GameViewController: UIViewController {
             let skView = self.view as SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
+            // Set the size of the view
+            skView.size = skView.bounds.size
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
