@@ -48,6 +48,10 @@ class PlayScene: SKScene{
         
     }
     
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        
+    }
+    
     /// Update the scene: It will run every single frame
     override func update(currentTime: NSTimeInterval) {
         // Check if the runningBar X-Position is lower or equal to the maxBarX. In that case, you must reset 
