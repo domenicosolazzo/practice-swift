@@ -28,6 +28,10 @@ class GameScene: SKScene {
                 let view = self.view as SKView
                 // Ignore sibling order
                 view.ignoresSiblingOrder = true
+                
+                // Scale mode for the new PlayScene
+                scene.scaleMode = .ResizeFill
+                
             }
         }
     }
