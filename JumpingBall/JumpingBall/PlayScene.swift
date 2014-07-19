@@ -39,6 +39,8 @@ class PlayScene: SKScene{
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
+        // Present the hero in the screen
+        self.addChild(self.hero)
         
     }
     
