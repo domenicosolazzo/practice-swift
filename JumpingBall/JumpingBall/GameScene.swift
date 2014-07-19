@@ -23,7 +23,7 @@ class GameScene: SKScene {
             // Retrieve the sprite in that location
             // If the sprite at that location is matching play button, the do something!
             if( self.nodeAtPoint(location) == self.playButton){
-                println("Start playing")
+                let playScene = PlayScene(size:self.size)
             }
         }
     }
