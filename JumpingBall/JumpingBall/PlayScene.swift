@@ -52,8 +52,15 @@ class PlayScene: SKScene{
             self.runningBar.position.x = self.originRunningBarPositionX
         }
         
+        
+        // Rotation Degree
+        var rotationDegree = CDouble(self.groundSpeed) * M_PI / 180
+        // Rotate the hero
+        self.hero.zRotation -= rotationDegree
+        
         // Change the X-Position of the running bar
         self.runningBar.position.x -= CGFloat(self.groundSpeed)
+        
         
     }
 }
