@@ -48,6 +48,13 @@ class PlayScene: SKScene{
         
     }
     
+    // When the user hold down...
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+        if self.velocityY < 9.0{
+            self.velocityY = 9.0
+        }
+    }
+    
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         // Check if the hero is on the ground
         if self.onGround{
