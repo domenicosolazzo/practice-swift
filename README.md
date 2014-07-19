@@ -20,6 +20,8 @@ Learning a new language: SWIFT
 - Lesson 13: [CoreData: The file manager](http://goo.gl/0FxURE)
 - Lesson 14: [CoreData: Custom objects](http://goo.gl/hqqDle)
 - Lesson 15: [MapKit: A small introduction](http://goo.gl/ZwhN6Z)
+- Lesson 16: [MapKit: Finding the user location](http://goo.gl/rPg7tS)
+
 
 
 
