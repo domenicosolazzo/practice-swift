@@ -49,7 +49,11 @@ class PlayScene: SKScene{
     }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
-        
+        // Check if the hero is on the ground
+        if self.onGround{
+            self.velocityY = -18.0
+            self.onGround = false
+        }
     }
     
     /// Update the scene: It will run every single frame
