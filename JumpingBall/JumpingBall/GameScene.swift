@@ -11,6 +11,9 @@ class GameScene: SKScene {
         
         // Add the button to the screen
         self.addChild(self.playButton)
+        
+        // Set the background color
+        self.backgroundColor = UIColor(hex: 0x809DFF)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
