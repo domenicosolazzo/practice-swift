@@ -23,8 +23,11 @@ class GameScene: SKScene {
             // Retrieve the sprite in that location
             // If the sprite at that location is matching play button, the do something!
             if( self.nodeAtPoint(location) == self.playButton){
+                // Create a new PlayScene with the same size
                 let playScene = PlayScene(size:self.size)
                 let view = self.view as SKView
+                // Ignore sibling order
+                view.ignoresSiblingOrder = true
             }
         }
     }
