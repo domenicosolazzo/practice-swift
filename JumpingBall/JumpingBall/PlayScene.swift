@@ -65,11 +65,11 @@ class PlayScene: SKScene{
         self.hero.physicsBody = SKPhysicsBody(circleOfRadius: self.hero.size.width/2)
         // If you let it on, the hero would be sinking in the ground
         self.hero.physicsBody.affectedByGravity = false
-        // Check the type of objects that you can collide with
+        // Type of object
         self.hero.physicsBody.categoryBitMask = ColliderType.Hero.toRaw()
-        // Check the type of objects that you CANNOT collide with
+        // Check the type of objects that you will collide with
         self.hero.physicsBody.contactTestBitMask = ColliderType.Block.toRaw()
-        // What will collide with the hero
+        // What will stop the hero
         self.hero.physicsBody.collisionBitMask = ColliderType.Block.toRaw()
         
         // Block1 position: it should be outside of the screen in the beginning
@@ -80,6 +80,20 @@ class PlayScene: SKScene{
         self.block2.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block2.size.width, self.heroBaseLine + self.block1.size.height / 2)
         // Set the name for block2
         self.block2.name = "block2"
+        
+        // Updating the physicbody for both block1 and block2
+        self.block1.physicsBody = SKPhysicsBody(rectangleOfSize: self.block1.size)
+        // The block should be static body and not move itself when will enter in contact with the herog
+        self.block1.physicsBody.dynamic = false
+        self.block1.physicsBody.categoryBitMask = ColliderType.Block.toRaw()
+        self.block1.physicsBody.contactTestBitMask = ColliderType.Hero.toRaw()
+        self.block1.physicsBody.collisionBitMask = ColliderType.Hero.toRaw()
+        
+        self.block2.physicsBody = SKPhysicsBody(rectangleOfSize: self.block1.size)
+        self.block2.physicsBody.dynamic = false
+        self.block2.physicsBody.categoryBitMask = ColliderType.Block.toRaw()
+        self.block2.physicsBody.contactTestBitMask = ColliderType.Hero.toRaw()
+        self.block2.physicsBody.collisionBitMask = ColliderType.Hero.toRaw()
         
         // Add block statuses for all the block
         blockStatuses["block1"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
