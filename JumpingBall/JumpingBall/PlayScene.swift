@@ -71,7 +71,7 @@ class PlayScene: SKScene{
         blockStatuses["block2"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
         
         // Initialize score text
-        self.scoreText.text = 0
+        self.scoreText.text = "0"
         self.scoreText.fontSize = 42
         self.scoreText.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         
@@ -79,9 +79,11 @@ class PlayScene: SKScene{
         self.addChild(self.runningBar)
         // Present the hero in the screen
         self.addChild(self.hero)
-        // Presenting both block1 and block2 in the screen
+        // Present both block1 and block2 in the screen
         self.addChild(self.block1)
         self.addChild(self.block2)
+        // Present scoreText
+        self.addChild(self.scoreText)
         
     }
     
