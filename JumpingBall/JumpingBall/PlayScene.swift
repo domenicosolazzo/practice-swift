@@ -4,7 +4,7 @@ import SpriteKit
 class PlayScene: SKScene{
     // Sprite node for the bar
     let runningBar = SKSpriteNode(imageNamed: "bar")
-    // Sprite node for the her
+    // Sprite node for the hero
     let hero = SKSpriteNode(imageNamed: "hero")
     
     // Original X position for the running bar
