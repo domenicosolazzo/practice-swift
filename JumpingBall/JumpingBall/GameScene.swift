@@ -32,7 +32,7 @@ class GameScene: SKScene {
                 // Scale mode for the new PlayScene
                 scene.scaleMode = .ResizeFill
                 // Set the scene size
-                scene.size = self.view.bounds.size
+                scene.size = view.bounds.size
             }
         }
     }
