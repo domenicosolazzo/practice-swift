@@ -26,6 +26,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Create a region: it defines which portion of the map to display
         var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, spanCoordinate)
         
+        // Set the region in the mapview
+        self.theMap.setRegion(theRegion, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
