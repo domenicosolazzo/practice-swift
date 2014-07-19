@@ -75,6 +75,9 @@ class PlayScene: SKScene{
         self.scoreText.fontSize = 42
         self.scoreText.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         
+        // Set the max X-Position for the block
+        self.maxBlockX = 0 - self.block1.size.width / 2
+        
         // Present the running bar in the screen
         self.addChild(self.runningBar)
         // Present the hero in the screen
