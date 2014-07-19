@@ -1,7 +1,7 @@
 import SpriteKit
 
 
-class PlayScene: SKScene{
+class PlayScene: SKScene, SKPhysicsContactDelegate{
     // Sprite node for the bar
     let runningBar = SKSpriteNode(imageNamed: "bar")
     // Sprite node for the hero
