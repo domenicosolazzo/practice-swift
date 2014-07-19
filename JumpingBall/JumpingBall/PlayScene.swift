@@ -33,6 +33,8 @@ class PlayScene: SKScene{
     var originalBarPositionX = CGFloat(0)
     // Score
     var score = 0
+    // Score text
+    var scoreText = SKLabelNode("Chulkduster")
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
