@@ -58,6 +58,10 @@ class PlayScene: SKScene{
         // Set the name for block2
         self.block2.name = "block2"
         
+        // Add block statuses for all the block
+        blockStatuses["block1"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
+        blockStatuses["block2"] = BlockStatus(isRunning: false, timeGapForNextRun: random(), currentInterval: UInt32(0))
+        
         // Present the running bar in the screen
         self.addChild(self.runningBar)
         // Present the hero in the screen
