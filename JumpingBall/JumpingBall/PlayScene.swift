@@ -73,6 +73,15 @@ class PlayScene: SKScene{
             self.runningBar.position.x = self.originRunningBarPositionX
         }
         
+        // jump
+        self.velocityY += self.gravity
+        self.hero.position.y -= self.velocityY
+        
+        if self.hero.position.y < self.heroBaseLine{
+            self.hero.position.y = self.heroBaseLine
+            self.velocityY = 0.0
+            self.onGround = true
+        }
         
         // Rotation Degree
         var rotationDegree = CDouble(self.groundSpeed) * M_PI / 180
