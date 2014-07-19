@@ -26,7 +26,9 @@ class PlayScene: SKScene{
     // Gravity
     var gravity = CGFloat(0.6)
     // BlockStatus dictionary
-    var blockStatuses: Dictionary<String, BlockStatus> =[:]
+    var blockStatuses: Dictionary<String, BlockStatus> = [:]
+    // Max X-Position for the Block
+    var maxBlockX = CGFloat(0)
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
