@@ -8,6 +8,8 @@ class PlayScene: SKScene{
     var originRunningBarPositionX = CGFloat(0)
     // Amount of the hidden running bar that is available (The bar width is longer than the screen size)
     var maxBarX = CGFloat(0)
+    // Ground speed
+    var groundSpeed = 5
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
