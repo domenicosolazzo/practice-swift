@@ -51,8 +51,12 @@ class PlayScene: SKScene{
         
         // Block1 position: it should be outside of the screen in the beginning
         self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseLine)
+        self.block1.name = "block1"
+        
         // Block1 position: it should be outside of the screen in the beginning
         self.block2.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block2.size.width, self.heroBaseLine + self.block2.size.height)
+        // Set the name for block2
+        self.block2.name = "block2"
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
