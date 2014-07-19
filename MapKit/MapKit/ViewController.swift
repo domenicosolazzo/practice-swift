@@ -12,6 +12,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         // Latitude delta: The map will look more zoom-in
         var latDelta:CLLocationDegrees = 0.01
+        // Longitude delta
+        var longDelta:CLLocationDegrees = 0.01
         
     }
 
