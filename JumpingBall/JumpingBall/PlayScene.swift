@@ -35,7 +35,7 @@ class PlayScene: SKScene{
         
         // Set the baseline for the hero
         self.heroBaseLine = self.runningBar.position.y + (self.runningBar.size.height / 2) + (self.hero.size.width / 2)
-        self.hero.position = CGPointMake(CGRectGetMinX(self.frame) + (self.hero.size.width / 4), self.heroBaseLine)
+        self.hero.position = CGPointMake(CGRectGetMinX(self.frame) + (self.hero.size.width) + (self.hero.size.width / 4), self.heroBaseLine)
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
