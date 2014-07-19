@@ -4,6 +4,9 @@ import SpriteKit
 class PlayScene: SKScene{
     // Sprite node for the bar
     let runningBar = SKSpriteNode(imageNamed: "bar")
+    // Sprite node for the her
+    let hero = SKSpriteNode(imageNamed: "hero")
+    
     // Original X position for the running bar
     var originRunningBarPositionX = CGFloat(0)
     // Amount of the hidden running bar that is available (The bar width is longer than the screen size)
