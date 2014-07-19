@@ -8,7 +8,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         // Add the longitude and latitude
         var longitude:CLLocationDegrees = 98.3
-        var latitude:CLLocationDegrees: = 21.44
+        var latitude:CLLocationDegrees = 21.44
+        
     }
 
     override func didReceiveMemoryWarning() {
