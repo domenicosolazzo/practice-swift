@@ -29,6 +29,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Set the region in the mapview
         self.theMap.setRegion(theRegion, animated: true)
         
+        // Add an annotation on the center of the map (PIN)
+        var myLocationAnnotation = MKPointAnnotation()
+        
     }
 
     override func didReceiveMemoryWarning() {
