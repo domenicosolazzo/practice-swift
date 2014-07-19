@@ -8,9 +8,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add the longitude and latitude
-        var longitude:CLLocationDegrees = 98.3
-        var latitude:CLLocationDegrees = 21.44
+        // Add the longitude and latitude (Piazza Navona, Roma, Italy)
+        var longitude:CLLocationDegrees = 41.8991623
+        var latitude:CLLocationDegrees = 12.47307180000007
         
         // Latitude delta: The map will look more zoom-in
         var latDelta:CLLocationDegrees = 0.01
