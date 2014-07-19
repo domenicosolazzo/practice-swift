@@ -44,6 +44,9 @@ class PlayScene: SKScene, SKPhysicsContactDelegate{
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
         
+        // Allow to respond to the contact
+        self.physicsWorld.contactDelegate = self
+        
         // Set the anchor point of the running bar at (0, 0.5)
         self.runningBar.anchorPoint = CGPointMake(0, 0.5)
         // Set the bar at the bottom of the screen
@@ -128,6 +131,21 @@ class PlayScene: SKScene, SKPhysicsContactDelegate{
         return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex + 1)
     }
     
+    func didBeginContact(contact:SKPhysicsContact) {
+        // When there is a contact, come back to the previous scene
+        died()
+    }
+    
+    func died() {
+        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            let skView = self.view as SKView
+            skView.ignoresSiblingOrder = true
+            scene.size = skView.bounds.size
+            scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
+        }
+    }
+
     // When the user hold down...
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         if self.velocityY < 9.0{
