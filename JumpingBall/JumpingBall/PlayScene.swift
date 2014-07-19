@@ -15,6 +15,9 @@ class PlayScene: SKScene{
             CGRectGetMinX(self.frame),
             CGRectGetMinY(self.frame) * (self.runningBar.size.height / 2))
         
+        // Present the running bar in the screen
+        self.addChild(self.runningBar)
+        
     }
     
     /// Update the scene: It will run every single frame
