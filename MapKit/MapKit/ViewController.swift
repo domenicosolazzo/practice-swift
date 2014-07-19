@@ -10,6 +10,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         var longitude:CLLocationDegrees = 98.3
         var latitude:CLLocationDegrees = 21.44
         
+        // Latitude delta: The map will look more zoom-in
+        var latDelta:CLLocationDegrees = 0.01
+        
     }
 
     override func didReceiveMemoryWarning() {
