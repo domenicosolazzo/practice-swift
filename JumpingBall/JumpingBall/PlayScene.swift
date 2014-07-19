@@ -62,7 +62,9 @@ class PlayScene: SKScene{
         self.heroBaseLine = self.runningBar.position.y + (self.runningBar.size.height / 2) + (self.hero.size.width / 2)
         self.hero.position = CGPointMake(CGRectGetMinX(self.frame) + (self.hero.size.width) + (self.hero.size.width / 4), self.heroBaseLine)
         // Add a physic body for collision detection
-        self.hero.physicsBody = SKPhysicsBody(circleOfRadius: self.hero.size.width/2))
+        self.hero.physicsBody = SKPhysicsBody(circleOfRadius: self.hero.size.width/2)
+        // If you let it on, the hero would be sinking in the ground
+        self.hero.physicsBody.affectedByGravity = false
         
         // Block1 position: it should be outside of the screen in the beginning
         self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseLine)
