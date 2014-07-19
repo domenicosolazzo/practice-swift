@@ -35,6 +35,11 @@ class PlayScene: SKScene{
     var score = 0
     // Score text
     var scoreText = SKLabelNode(fontNamed: "Chulkduster")
+    // Collider type
+    enum ColliderType{
+        case hero = 1
+        case block = 2
+    }
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
@@ -96,7 +101,7 @@ class PlayScene: SKScene{
     func random() -> UInt32{
         // We want these blocks to come in a gap between 50 frame updates to 200 frame updates
         var range = UInt32(50)...UInt32(200)
-        return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex +1)
+        return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex + 1)
     }
     
     // When the user hold down...
@@ -140,6 +145,48 @@ class PlayScene: SKScene{
         // Change the X-Position of the running bar
         self.runningBar.position.x -= CGFloat(self.groundSpeed)
         
-        
+        // Run the blocks
+        blockRunner()
+    }
+    
+    func blockRunner() {
+        for(block, blockStatus) in self.blockStatuses {
+            // Take the current block by name
+            var thisBlock = self.childNodeWithName(block)
+            // Check if the block shoud run
+            if blockStatus.shouldRunBlock() {
+                // Add anew random time gap for the next run
+                blockStatus.timeGapForNextRun = random()
+                // Set the current interval to 0
+                blockStatus.currentInterval = 0
+                // Set the block as running
+                blockStatus.isRunning = true
+            }
+            
+            // Check if the block is running
+            if blockStatus.isRunning {
+                
+                if thisBlock.position.x > self.maxBlockX {
+                    thisBlock.position.x -= CGFloat(self.groundSpeed)
+                }else {
+                    // Set the position to the original X-position for the block
+                    thisBlock.position.x = self.originalBlockPositionX
+                    // The block is not running
+                    blockStatus.isRunning = false
+                    
+                    // Update the score
+                    self.score++
+                    // If the score is a multiple of 5, increament the ground speed
+                    if ((self.score % 5) == 0) {
+                        self.groundSpeed++
+                    }
+                    // Update the scoreText
+                    self.scoreText.text = String(self.score)
+                }
+            }else {
+                // The block is not running and we will update its currentInterval
+                blockStatus.currentInterval++
+            }
+        }
     }
 }
