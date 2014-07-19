@@ -30,7 +30,7 @@ class PlayScene: SKScene{
     // Max X-Position for the Block
     var maxBlockX = CGFloat(0)
     // Original X-Positon for the blocks
-    var originalBarPositionX = CGFloat(0)
+    var originalBlockPositionX = CGFloat(0)
     // Score
     var score = 0
     // Score text
@@ -77,6 +77,9 @@ class PlayScene: SKScene{
         
         // Set the max X-Position for the block
         self.maxBlockX = 0 - self.block1.size.width / 2
+        
+        // Set the original block position
+        self.originalBlockPositionX = self.block1.position.x
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
