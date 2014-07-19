@@ -21,7 +21,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Set the location
         var myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
         
-        // Create a region
+        // Create a region: it defines which portion of the map to display
         var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, spanCoordinate)
         
     }
