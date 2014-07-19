@@ -35,6 +35,14 @@ class PlayScene: SKScene{
     
     /// Update the scene: It will run every single frame
     override func update(currentTime: NSTimeInterval) {
+        // Check if the runningBar X-Position is lower or equal to the maxBarX. In that case, you must reset 
+        // to the original X-Position
+        if self.runningBar.position.x <= self.maxBarX{
+            self.runningBar.position.x = self.originRunningBarPositionX
+        }
+        
+        // Change the X-Position of the running bar
+        self.runningBar.position.x -= CGFloat(self.groundSpeed)
         
     }
 }
