@@ -17,7 +17,15 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
+        for touch:AnyObject in touches{
+            // Grab the touch location
+            let location = touch.locationInNode(self)
+            // Retrieve the sprite in that location
+            // If the sprite at that location is matching play button, the do something!
+            if( self.nodeAtPoint(location) == self.playButton){
+                println("Start playing")
+            }
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
