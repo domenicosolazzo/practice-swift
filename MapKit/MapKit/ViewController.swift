@@ -31,6 +31,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         // Add an annotation on the center of the map (PIN)
         var myLocationAnnotation = MKPointAnnotation()
+        // Coordinate of the pin
+        myLocationAnnotation.coordinate = myLocation
+        // Title of the pin
+        myLocationAnnotation.title = "The PIN title"
+        // Subtitle of the pin
+        myLocationAnnotation.subtitle = "The PIN subtitle"
         
     }
 
