@@ -56,6 +56,9 @@ class PlayScene: SKScene{
         self.addChild(self.runningBar)
         // Present the hero in the screen
         self.addChild(self.hero)
+        // Presenting both block1 and block2 in the screen
+        self.addChild(self.block1)
+        self.addChild(self.block2)
         
     }
     
