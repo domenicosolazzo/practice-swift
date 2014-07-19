@@ -31,6 +31,8 @@ class PlayScene: SKScene{
     var maxBlockX = CGFloat(0)
     // Original X-Positon for the blocks
     var originalBarPositionX = CGFloat(0)
+    // Score
+    var score = 0
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
