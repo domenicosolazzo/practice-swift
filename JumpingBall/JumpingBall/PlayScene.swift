@@ -13,6 +13,8 @@ class PlayScene: SKScene{
     var maxBarX = CGFloat(0)
     // Ground speed
     var groundSpeed = 5
+    // Baseline for the hero
+    var heroBaseLine = CGFloat(0)
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
@@ -30,6 +32,10 @@ class PlayScene: SKScene{
         // Set the MaxBarX ( RunningBar's widht - Screen's width)=> Available Running Bar
         self.maxBarX = self.runningBar.size.width - self.frame.width
         self.maxBarX *= -1 // Make a negative number
+        
+        // Set the baseline for the hero
+        self.heroBaseLine = self.runningBar.position.y + (self.runningBar.size.height / 2)
+        self.hero.position = CGPointMake(CGRectGetMinX(self.frame), self.heroBaseLine)
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
