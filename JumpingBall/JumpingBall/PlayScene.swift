@@ -36,9 +36,9 @@ class PlayScene: SKScene{
     // Score text
     var scoreText = SKLabelNode(fontNamed: "Chulkduster")
     // Collider type
-    enum ColliderType{
-        case hero = 1
-        case block = 2
+    enum ColliderType:UInt32{
+        case Hero = 1
+        case Block = 2
     }
     
     override func didMoveToView(view: SKView!) {
@@ -65,6 +65,10 @@ class PlayScene: SKScene{
         self.hero.physicsBody = SKPhysicsBody(circleOfRadius: self.hero.size.width/2)
         // If you let it on, the hero would be sinking in the ground
         self.hero.physicsBody.affectedByGravity = false
+        // Check the type of objects that you can collide with
+        self.hero.physicsBody.categoryBitMask = ColliderType.Hero.toRaw()
+        // Check the type of objects that you CANNOT collide with
+        self.hero.physicsBody.contactTestBitMask = ColliderType.Block.toRaw()
         
         // Block1 position: it should be outside of the screen in the beginning
         self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseLine)
