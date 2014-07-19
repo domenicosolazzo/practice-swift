@@ -38,6 +38,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Subtitle of the pin
         myLocationAnnotation.subtitle = "The PIN subtitle"
         
+        // Add the annotation to the mapview
+        self.theMap.addAnnotation(myLocationAnnotation)
+        
     }
 
     override func didReceiveMemoryWarning() {
