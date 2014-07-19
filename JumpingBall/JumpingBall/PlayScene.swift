@@ -17,7 +17,8 @@ class PlayScene: SKScene{
     var heroBaseLine = CGFloat(0)
     // Check if the hero is on the ground
     var onGround = true
-    
+    // Velocity of the hero
+    var velocityY = CGFloat(0)
     
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
