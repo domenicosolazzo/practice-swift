@@ -4,7 +4,10 @@ import SpriteKit
 class PlayScene: SKScene{
     // Sprite node for the bar
     let runningBar = SKSpriteNode(imageNamed: "bar")
-
+    // Original X position for the running bar
+    let originRunningBarPositionX = CGFloat(0)
+    
+    
     override func didMoveToView(view: SKView!) {
         self.backgroundColor = UIColor(hex: 0x809DFF)
         
@@ -14,6 +17,9 @@ class PlayScene: SKScene{
         self.runningBar.position = CGPointMake(
             CGRectGetMinX(self.frame),
             CGRectGetMinY(self.frame) * (self.runningBar.size.height / 2))
+        
+        // Set the original running bar X-position
+        self.originRunningBarPositionX = self.runningBar.position.x
         
         // Present the running bar in the screen
         self.addChild(self.runningBar)
