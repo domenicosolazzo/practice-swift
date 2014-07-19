@@ -5,7 +5,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Add the longitude and latitude
+        var longitude:CLLocationDegrees = 98.3
+        var latitude:CLLocationDegrees: = 21.44
     }
 
     override func didReceiveMemoryWarning() {
