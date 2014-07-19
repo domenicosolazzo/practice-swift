@@ -8,6 +8,9 @@ class GameScene: SKScene {
         // Position the play button in the middle of the screen
         // It position the button in the middle of the frame.
         self.playButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        
+        // Add the button to the screen
+        self.addChild(self.playButton)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
