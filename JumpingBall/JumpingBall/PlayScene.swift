@@ -47,6 +47,9 @@ class PlayScene: SKScene{
         self.heroBaseLine = self.runningBar.position.y + (self.runningBar.size.height / 2) + (self.hero.size.width / 2)
         self.hero.position = CGPointMake(CGRectGetMinX(self.frame) + (self.hero.size.width) + (self.hero.size.width / 4), self.heroBaseLine)
         
+        // Block1 position: it should be outside of the screen in the beginning
+        self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseLine)
+        
         // Present the running bar in the screen
         self.addChild(self.runningBar)
         // Present the hero in the screen
