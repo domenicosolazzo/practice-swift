@@ -40,7 +40,7 @@ class ViewController: UIViewController {
                 println("User: \(user.username), \(user.password)")
                 println(user.ToString())
                 user.AddPrefix("YoYo")
-                printlne(user.ToString())
+                println(user.ToString())
             }
             println("Found \(results.count) results!")
         }else{
