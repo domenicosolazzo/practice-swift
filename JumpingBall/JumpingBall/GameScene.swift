@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  JumpingBall
-//
-//  Created by Domenico Solazzo on 7/19/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
-
 import SpriteKit
 
 class GameScene: SKScene {
