@@ -24,7 +24,7 @@ class GameScene: SKScene {
             // If the sprite at that location is matching play button, the do something!
             if( self.nodeAtPoint(location) == self.playButton){
                 // Create a new PlayScene with the same size
-                let playScene = PlayScene(size:self.size)
+                let scene = PlayScene(size:self.size)
                 let view = self.view as SKView
                 // Ignore sibling order
                 view.ignoresSiblingOrder = true
@@ -33,6 +33,9 @@ class GameScene: SKScene {
                 scene.scaleMode = .ResizeFill
                 // Set the scene size
                 scene.size = view.bounds.size
+                
+                // Present the new scene
+                view.presentScene(scene)
             }
         }
     }
