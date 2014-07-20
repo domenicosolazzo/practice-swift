@@ -57,5 +57,8 @@ if session.canAddOutput(videoOutput){
     session.addOutput(videoOutput)
 }
 
+// AVCaptureVideoPreviewLayer is a subclass of CALayer that you use to display video as it is being captured by an input device.
+var layer = AVCaptureVideoPreviewLayer(session:session)
+
 // Show the view
 XCPShowView("camera", view)
