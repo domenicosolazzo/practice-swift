@@ -16,3 +16,4 @@ Playgrounds
 - Algorithms
 - Drawing
 - UIKit
+- Camera
