@@ -1,5 +1,7 @@
-// Playground - noun: a place where people can play
-
 import Cocoa
+import AVFoundation
+import AVKit
+import QuartzCore
+import XCPlayground
 
 var str = "Hello, playground"
