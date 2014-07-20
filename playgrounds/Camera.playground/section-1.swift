@@ -20,6 +20,8 @@ session.commitConfiguration()
 
 // Used to capture data from an AVCaptureDevice obj
 var input:AVCaptureDeviceInput! = nil
+// Error variable
+var err:NSError?
 
 // Show the view
 XCPShowView("camera", view)
