@@ -13,6 +13,11 @@ var session = AVCaptureSession()
 // SessionPreset: A constant value indicating the quality level or bitrate of the output.
 session.sessionPreset = AVCaptureSessionPreset640x480
 
+// BeginConfiguration: Indicates the start of a set of configuration changes to be made atomically.
+session.beginConfiguration()
+
+
+
 
 // Show the view
 XCPShowView("camera", view)
