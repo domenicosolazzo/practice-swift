@@ -18,7 +18,8 @@ session.beginConfiguration()
 // CommitConfiguration: Commits a set of configuration changes.
 session.commitConfiguration()
 
-
+// Used to capture data from an AVCaptureDevice obj
+var input:AVCaptureDeviceInput! = nil
 
 // Show the view
 XCPShowView("camera", view)
