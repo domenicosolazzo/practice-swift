@@ -49,7 +49,8 @@ var settings = [kCVPixelBufferPixelFormatTypeKey:kCVPixelFormatType_32BGRA]
 var videoOutput = AVCaptureVideoDataOutput()
 // The compression settings for the video output
 videoOutput.videoSettings = settings
-
+// Indicates whether video frames are dropped if they arrive late. (Default: YES)
+videoOutput.alwaysDiscardsLateVideoFrames = true
 
 // Show the view
 XCPShowView("camera", view)
