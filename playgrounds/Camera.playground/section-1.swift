@@ -52,5 +52,10 @@ videoOutput.videoSettings = settings
 // Indicates whether video frames are dropped if they arrive late. (Default: YES)
 videoOutput.alwaysDiscardsLateVideoFrames = true
 
+// Check if the session can add the output
+if session.canAddOutput(videoOutput){
+    session.addOutput(videoOutput)
+}
+
 // Show the view
 XCPShowView("camera", view)
