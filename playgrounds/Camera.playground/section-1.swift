@@ -64,5 +64,8 @@ var layer = AVCaptureVideoPreviewLayer(session:session)
 view.wantsLayer = true
 view.layer = layer
 
+// Tells the receiver to start running.
+session.startRunning()
+
 // Show the view
 XCPShowView("camera", view)
