@@ -4,4 +4,3 @@ import AVKit
 import QuartzCore
 import XCPlayground
 
-var str = "Hello, playground"
