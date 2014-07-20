@@ -34,7 +34,8 @@ var devices: [AVCaptureDevice] = AVCaptureDevice.devices() as [AVCaptureDevice]
 for device in devices{
     // Check if the device support video and the given session preset
     if device.hasMediaType(AVMediaTypeVideo) && device.supportsAVCaptureSessionPreset(AVCaptureSessionPreset640x480){
-    
+        // Returns an input initialized to use a specified device.
+        input = AVCaptureDeviceInput.deviceInputWithDevice(device as AVCaptureDevice, error: &err) as AVCaptureDeviceInput
     }
 }
 
