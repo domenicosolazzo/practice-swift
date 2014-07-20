@@ -15,7 +15,8 @@ session.sessionPreset = AVCaptureSessionPreset640x480
 
 // BeginConfiguration: Indicates the start of a set of configuration changes to be made atomically.
 session.beginConfiguration()
-
+// CommitConfiguration: Commits a set of configuration changes.
+session.commitConfiguration()
 
 
 
