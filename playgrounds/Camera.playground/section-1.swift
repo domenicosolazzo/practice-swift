@@ -44,5 +44,12 @@ for device in devices{
     }
 }
 
+var settings = [kCVPixelBufferPixelFormatTypeKey:kCVPixelFormatType_32BGRA]
+
+var videoOutput = AVCaptureVideoDataOutput()
+// The compression settings for the video output
+videoOutput.videoSettings = settings
+
+
 // Show the view
 XCPShowView("camera", view)
