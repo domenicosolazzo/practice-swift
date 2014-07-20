@@ -29,6 +29,6 @@ AVCaptureDevice
 
 You use the methods of the AVCaptureDevice class to enumerate the available devices, query their capabilities, and be informed about when devices come and go." - (https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureDevice_Class/Reference/Reference.html#//apple_ref/occ/clm/AVCaptureDevice/devices)
 */
-var devices: AVCaptureDevice[] = AVCaptureDevice.devices() as AVCaptureDevice[]
+var devices: [AVCaptureDevice] = AVCaptureDevice.devices() as [AVCaptureDevice]
 // Show the view
 XCPShowView("camera", view)
