@@ -23,5 +23,12 @@ var input:AVCaptureDeviceInput! = nil
 // Error variable
 var err:NSError?
 
+/*
+AVCaptureDevice
+"An AVCaptureDevice object represents a physical capture device and the properties associated with that device. You use a capture device to configure the properties of the underlying hardware. A capture device also provides input data (such as audio or video) to an AVCaptureSession object.
+
+You use the methods of the AVCaptureDevice class to enumerate the available devices, query their capabilities, and be informed about when devices come and go." - (https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureDevice_Class/Reference/Reference.html#//apple_ref/occ/clm/AVCaptureDevice/devices)
+*/
+var devices: AVCaptureDevice[] = AVCaptureDevice.devices() as AVCaptureDevice[]
 // Show the view
 XCPShowView("camera", view)
