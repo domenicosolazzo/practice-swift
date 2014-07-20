@@ -36,6 +36,11 @@ for device in devices{
     if device.hasMediaType(AVMediaTypeVideo) && device.supportsAVCaptureSessionPreset(AVCaptureSessionPreset640x480){
         // Returns an input initialized to use a specified device.
         input = AVCaptureDeviceInput.deviceInputWithDevice(device as AVCaptureDevice, error: &err) as AVCaptureDeviceInput
+        
+        // Check whether a given input can be added to the session.
+        if session.canAddInput(input){
+            session.addInput(input)
+        }
     }
 }
 
