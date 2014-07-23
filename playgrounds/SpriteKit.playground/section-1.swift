@@ -38,4 +38,6 @@ XCPShowView("view", view)
 var scene = MyScene(size: CGSize(width:1024, height:768))
 // Present the scene
 view.presentScene(scene)
+// Change background color
+scene.backgroundColor = NSColor.blackColor()
 
