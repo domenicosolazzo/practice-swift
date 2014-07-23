@@ -26,4 +26,14 @@ class MyScene:SKScene{
         // Update block position
         block.position = CGPoint(x: block.position.x + (20.0 * _deltaTime), y: block.position.y + (20.0 * _deltaTime))
     }
+    
+    
 }
+
+// Create the view
+var view = SKView(frame:NSRect(x:0, y:0, width:1024, height:768))
+XCPShowView("view", view)
+
+// Create a new scene
+var scene = MyScene(size: CGSize(width:1024, height:768))
+
