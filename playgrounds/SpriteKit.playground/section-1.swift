@@ -16,8 +16,14 @@ class MyScene:SKScene{
     }
     
     override func update(currentTime: NSTimeInterval) {
-        if _previousTime == 0.0 { _previousTime = currentTime}
+        if _previousTime == 0.0 { _previousTime = _currentTime}
         // Delta
-        _deltaTime = currentTime - _previousTime
+        _deltaTime = _currentTime - _previousTime
+        
+        _previousTime = _currentTime
+        // Retrieve the sprite by name
+        var block = self.childNodeWithName("block")
+        // Update block position
+        block.position = CGPoint(x: block.position.x + (20.0 * _deltaTime), y: block.position.y + (20.0 * _deltaTime))
     }
 }
