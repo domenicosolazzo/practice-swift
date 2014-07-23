@@ -15,4 +15,7 @@ class MyScene:SKScene{
         self.addChild(sprite)
     }
     
+    override func update(currentTime: NSTimeInterval) {
+    
+    }
 }
