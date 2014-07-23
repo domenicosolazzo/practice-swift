@@ -3,6 +3,8 @@ import Cocoa
 import SpriteKit
 import XCPlayground
 
+
+// Playground 1 (Source: http://goo.gl/qyH8eq)
 class MyScene:SKScene{
     var _previousTime = 0.0
     var _deltaTime = 0.0
