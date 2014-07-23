@@ -16,6 +16,8 @@ class MyScene:SKScene{
     }
     
     override func update(currentTime: NSTimeInterval) {
-    
+        if _previousTime == 0.0 { _previousTime = currentTime}
+        // Delta
+        _deltaTime = currentTime - _previousTime
     }
 }
