@@ -36,4 +36,6 @@ XCPShowView("view", view)
 
 // Create a new scene
 var scene = MyScene(size: CGSize(width:1024, height:768))
+// Present the scene
+view.presentScene(scene)
 
