@@ -5,7 +5,6 @@ import XCPlayground
 
 class MyScene:SKScene{
     var _previousTime = 0.0
-    var _currentTime = 0.0
     var _deltaTime = 0.0
     
     override func didMoveToView(view: SKView!) {
@@ -16,11 +15,11 @@ class MyScene:SKScene{
     }
     
     override func update(currentTime: NSTimeInterval) {
-        if _previousTime == 0.0 { _previousTime = _currentTime}
+        if _previousTime == 0.0 { _previousTime = currentTime}
         // Delta
-        _deltaTime = _currentTime - _previousTime
+        _deltaTime = currentTime - _previousTime
         
-        _previousTime = _currentTime
+        _previousTime = currentTime
         // Retrieve the sprite by name
         var block = self.childNodeWithName("block")
         // Update block position
