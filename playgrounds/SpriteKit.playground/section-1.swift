@@ -1,0 +1,2 @@
+// Playground SpriteKit
+import Cocoa
