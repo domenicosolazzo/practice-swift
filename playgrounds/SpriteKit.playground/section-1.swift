@@ -5,4 +5,7 @@ import XCPlayground
 
 class MyScene:SKScene{
 
+    override func didMoveToView(view: SKView!) {
+    
+    }
 }
