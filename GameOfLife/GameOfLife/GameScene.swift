@@ -6,6 +6,13 @@ class GameScene: SKScene {
     let _numRows = 8
     let _numCols = 10
     let _gridLowerLeftCorner: CGPoint = CGPoint(x: 158, y:10)
+    let _populationLabel:SKLabelNode = SKLabelNode(text:"Population")
+    let _generationLabel:SKLabelNode = SKLabelNode(text:"Generation")
+    var _populationValueLabel:SKLabelNode(text:"0")
+    var _generationValueLabel:SKLabelNode(text:"0")
+    var _playButton: SKSpriteNode = SKSpriteNode(imageNamed: "play.png")
+    var _pauseButton: SKSpriteNode = SKSpriteNode(imageNamed:   "pause.png")
+    
     
     override func didMoveToView(view: SKView) {
         /// Add main background
@@ -22,6 +29,8 @@ class GameScene: SKScene {
         gridBackground.anchorPoint = CGPoint(x:0, y:0)
         gridBackground.position = _gridLowerLeftCorner
         self.addChild(gridBackground)
+        
+        
         
     }
     
