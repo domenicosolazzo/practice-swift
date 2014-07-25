@@ -35,6 +35,10 @@ class GameScene: SKScene {
         _playButton.setScale(0.5)
         self.addChild(_playButton)
         
+        // Pause button conf
+        _pauseButton.position = CGPoint(x:79: y:250)
+        _pauseButton.setScale(0.5)
+        self.addChild(_pauseButton)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
