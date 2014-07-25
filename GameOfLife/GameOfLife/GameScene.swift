@@ -51,6 +51,14 @@ class GameScene: SKScene {
         microscope.position = CGPoint(x:79, y:70)
         microscope.setScale(0.4)
         self.addChild(microscope)
+        
+        // Population label
+        _populationLabel.position = CGPoint(x:79, y:190)
+        _populationLabel.fontName = "Courier"
+        _populationLabel.fontSize = 12
+        _populationLabel.fontColor = UIColor(red:0, green:0.2, blue:0, alpha:1)
+        self.addChild(_populationLabel)
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
