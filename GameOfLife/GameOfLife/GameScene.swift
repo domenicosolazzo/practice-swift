@@ -1,14 +1,11 @@
-//
-//  GameScene.swift
-//  GameOfLife
-//
-//  Created by Domenico Solazzo on 7/24/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
-
 import SpriteKit
 
 class GameScene: SKScene {
+    let _gridWidth = 400
+    let _gridHeight = 300
+    let _numRows = 8
+    let _numCols = 10
+    let _gridLowerLeftCorner: CGPoint = CGPoint(x: 158, y:10)
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
