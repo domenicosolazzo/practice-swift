@@ -39,6 +39,12 @@ class GameScene: SKScene {
         _pauseButton.position = CGPoint(x:79: y:250)
         _pauseButton.setScale(0.5)
         self.addChild(_pauseButton)
+        
+        // Balloon background
+        let balloon  = SKSpriteNode(imageNamed: "balloon.png")
+        balloon.position = CGPoint(x:79, y: 170)
+        balloon.setScale(0.5)
+        self.addChild(balloon)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
