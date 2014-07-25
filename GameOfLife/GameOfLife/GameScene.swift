@@ -36,7 +36,7 @@ class GameScene: SKScene {
         self.addChild(_playButton)
         
         // Pause button conf
-        _pauseButton.position = CGPoint(x:79: y:250)
+        _pauseButton.position = CGPoint(x:79:, y:250)
         _pauseButton.setScale(0.5)
         self.addChild(_pauseButton)
         
@@ -45,6 +45,12 @@ class GameScene: SKScene {
         balloon.position = CGPoint(x:79, y: 170)
         balloon.setScale(0.5)
         self.addChild(balloon)
+        
+        // Microscope image
+        let microscope = SKSpriteNode(imageNamed: "microscope.png")
+        microscope.position = CGPoint(x:79, y:70)
+        microscope.setScale(0.4)
+        self.addChild(microscope)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
