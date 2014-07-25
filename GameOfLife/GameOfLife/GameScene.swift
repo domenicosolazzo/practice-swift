@@ -12,7 +12,8 @@ class GameScene: SKScene {
     var _generationValueLabel = SKLabelNode(text:"0")
     var _playButton: SKSpriteNode = SKSpriteNode(imageNamed: "play.png")
     var _pauseButton: SKSpriteNode = SKSpriteNode(imageNamed:   "pause.png")
-    
+    var _tiles: [[SKSpriteNode]] = []
+    var _margin = 4
     
     override func didMoveToView(view: SKView) {
         /// Add main background
