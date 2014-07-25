@@ -8,8 +8,8 @@ class GameScene: SKScene {
     let _gridLowerLeftCorner: CGPoint = CGPoint(x: 158, y:10)
     let _populationLabel:SKLabelNode = SKLabelNode(text:"Population")
     let _generationLabel:SKLabelNode = SKLabelNode(text:"Generation")
-    var _populationValueLabel:SKLabelNode(text:"0")
-    var _generationValueLabel:SKLabelNode(text:"0")
+    var _populationValueLabel = SKLabelNode(text:"0")
+    var _generationValueLabel = SKLabelNode(text:"0")
     var _playButton: SKSpriteNode = SKSpriteNode(imageNamed: "play.png")
     var _pauseButton: SKSpriteNode = SKSpriteNode(imageNamed:   "pause.png")
     
@@ -30,7 +30,10 @@ class GameScene: SKScene {
         gridBackground.position = _gridLowerLeftCorner
         self.addChild(gridBackground)
         
-        
+        // Play button conf
+        _playButton.position = CGPoint(x:79, y:290)
+        _playButton.setScale(0.5)
+        self.addChild(_playButton)
         
     }
     
