@@ -72,6 +72,13 @@ class GameScene: SKScene {
         _populationValueLabel.fontSize = 12
         _populationValueLabel.fontColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1)
         self.addChild(_populationValueLabel)
+        
+        // Generation value label
+        _generationValueLabel.position = CGPoint(x: 79, y: 145)
+        _generationValueLabel.fontName = "Courier"
+        _generationValueLabel.fontSize = 12
+        _generationValueLabel.fontColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1)
+        self.addChild(_generationValueLabel)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
