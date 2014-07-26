@@ -82,12 +82,20 @@ class GameScene: SKScene {
         self.addChild(_generationValueLabel)
     }
     
+    // Calculate the tile size
     func calculateTileSize() -> CGSize{
         let tileWidth = _gridWidth /  _numCols - _margin
         let tileHeight = _gridHeight /_numRows - _margin
         return  CGSize(width: tileWidth, height: tileHeight)
     }
     
+    /// Get the tile position
+    func getTilePosition(row r:Int, column c:Int) -> CGPoint{
+        let tileSize = calculateTileSize()
+        let x = Int(_gridLowerLeftCorner.x) + _margin + (c * (Int(tileSize.width)) + _margin)
+        let y = Int(_gridLowerLeftCorner.y) + _margin + (r * (Int(tileSize.height)) + _margin)
+        return CGPoint(x:x, y:y)
+    }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
