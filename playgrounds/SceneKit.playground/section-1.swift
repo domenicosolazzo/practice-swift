@@ -36,4 +36,11 @@ scene.rootNode.addChildNode(torusNode)
 torus.firstMaterial.diffuse.contents = NSColor.redColor()
 torus.firstMaterial.specular.contents = NSColor.whiteColor()
 
+// animate the rotation of the torus
+var spin = CABasicAnimation(keyPath: "rotation")
+spin.toValue = NSValue(SCNVector4:SCNVector4(x:1, y:0, z:0, w:2.0*M_PI))
+spin.duration = 3
+spin.repaeatCount = HUGE // for infinity
+torus.addAnimation(spin,forKey: "spin around")
+
 
