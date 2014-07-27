@@ -57,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Range
         let range = maxX - minX
         // Random position
-        var position = CGFloat(arc4random()) % CGFloat(range) + CGFloat(minX)
+        var position:CGFloat = ((CGFloat)arc4random()) % CGFloat(range) + CGFloat(minX)
         // Positioning the alien: alien will be off-screen at this point
         alien.position = CGPointMake(position, self.frame.size.height + alien.size.height)
     }
