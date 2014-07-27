@@ -134,6 +134,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.addObject(SKAction.moveTo(finalDestionation, duration: NSTimeInterval(moveDuration)))
         actionArray.addObject(SKAction.removeFromParent())
         
+        // Add the actions to the torpedo
+        torpedo.runAction(SKAction.sequence(actionArray))
     }
     
     override func update(currentTime: CFTimeInterval) {
