@@ -42,8 +42,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.physicsBody = SKPhysicsBody(rectangleOfSize: alien.size)
         // The object is dynamic: it is moved from the physic of the game scene
         alien.physicsBody.dynamic = true
-        // Category bitmask 
+        // Category bitmask
         alien.physicsBody.categoryBitMask = alienCategory
+        // Contact test bit mask
+        alien.physicsBody.contactTestBitMask = photonTorpedoCategory
         
     }
     
