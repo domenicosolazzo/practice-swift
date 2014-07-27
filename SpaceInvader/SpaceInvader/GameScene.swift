@@ -121,6 +121,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Get the direction we are shooting
         var direction = vecNormalize(offset)
+        // Get the shot length (1000 should be enough for an IPhone)
+        var shotLength = vecMult(direction, factor: 1000)
     }
     
     override func update(currentTime: CFTimeInterval) {
