@@ -36,7 +36,7 @@ class GameOverScene: SKScene {
         self.runAction(SKAction.sequence([ SKAction.waitForDuration(3),
             SKAction.runBlock({
                 var transition:SKTransition = SKTransition.flipHorizontalWithDuration(0.5)
-                var gameScene:GameScene = GameScene(size: self.size)
+                var gameScene:SKScene = GameScene(size: self.size)
                 self.view.presentScene(gameScene, transition: transition)   
                 })
             ]))
