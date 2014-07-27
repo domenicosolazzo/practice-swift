@@ -151,6 +151,11 @@ class GameScene: SKScene {
             var selectedTile:Tile? = self.getTileAtPosition(xPos: Int(touch.locationInNode(self).x), yPos: Int(touch.locationInNode(self).y))
             if let tile = selectedTile{
                 tile.isAlive = !tile.isAlive
+                if tile.isAlive {
+                    _population++
+                } else {
+                    _population—-
+                }
             }
             
             if CGRectContainsPoint(_playButton.frame, touch.locationInNode(self)) {
@@ -193,6 +198,7 @@ class GameScene: SKScene {
     func timeStep(){
         countLivingNeighbors()
         updateCreatures()
+        _generation++
     }
     
     func countLivingNeighbors()
@@ -232,6 +238,7 @@ class GameScene: SKScene {
                     numAlive++
                 }
             }
-        }        
+        }
+        _population = numAlive
     }
 }
