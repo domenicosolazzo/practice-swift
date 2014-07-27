@@ -153,7 +153,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Used for collision detection
     func didBeginContact(contact: SKPhysicsContact!){
-    
+        // First body
+        var firstBody:SKPhysicsBody
+        // Second body
+        var secondBody:SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        }else{
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if (firstBody.categoryBitMask & photonTorpedoCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
+            didTorpedoCollideWithAlien(firstBody.node as SKSpriteNode, alien:secondBody.node as SKSpriteNode)
+        }
     }
     
     // Add two vectors
@@ -192,6 +207,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Remove the torpedo from the screen
         torpedo.removeFromParent()
         // Remove the alien from the screen
-        alien.removeFromParent()s
+        alien.removeFromParent()
     }
 }
