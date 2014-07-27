@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var _pauseButton: SKSpriteNode = SKSpriteNode(imageNamed:   "pause.png")
     var _tiles: [[Tile]] = []
     var _margin = 4
+    var _isPlaying = false
     
     override func didMoveToView(view: SKView) {
         /// Add main background
