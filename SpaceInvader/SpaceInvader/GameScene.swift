@@ -60,6 +60,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var position:CGFloat = ((CGFloat)arc4random()) % CGFloat(range) + CGFloat(minX)
         // Positioning the alien: alien will be off-screen at this point
         alien.position = CGPointMake(position, self.frame.size.height + alien.size.height)
+        
+        // Add the alien to the view
+        self.addChild(alien)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
