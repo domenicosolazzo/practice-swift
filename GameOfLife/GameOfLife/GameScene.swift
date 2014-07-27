@@ -18,6 +18,18 @@ class GameScene: SKScene {
     var _prevTime:CFTimeInterval = 0
     var _timeCounter:CFTimeInterval = 0
     
+    
+    var _population:Int = 0 {
+      didSet {
+         _populationValueLabel.text = "\(_population)"
+      }
+    }
+    var _generation:Int = 0 {
+      didSet {
+         _generationValueLabel.text = "\(_generation)"
+      }
+    }
+    
     override func didMoveToView(view: SKView) {
         /// Add main background
         let background = SKSpriteNode(imageNamed: "background.pmg")
