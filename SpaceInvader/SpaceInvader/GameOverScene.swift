@@ -25,5 +25,6 @@ class GameOverScene: SKScene {
         // Add the position
         label.position = CGPointMake(self.size.width / 2, self.size.height / 2)
         
+        self.addChild(label)
     }
 }
