@@ -154,7 +154,7 @@ class GameScene: SKScene {
                 if tile.isAlive {
                     _population++
                 } else {
-                    _population—-
+                    _population--
                 }
             }
             
@@ -229,7 +229,7 @@ class GameScene: SKScene {
             for c in 0..<_numCols
             {
                 var tile:Tile = _tiles[r][c]
-                if tile.numLivingNeighbors == 3 {
+                if tile.numLivingNeighbors == 2 || tile.numLivingNeighbors == 3 {
                     tile.isAlive = true
                 } else if tile.numLivingNeighbors < 2 || tile.numLivingNeighbors > 3 {
                     tile.isAlive = false
