@@ -151,6 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         updateWithTimeSinceLastUpdate(timeSinceLastUpdate)
     }
     
+    // Used for collision detection
     func didBeginContact(contact: SKPhysicsContact!){
     
     }
