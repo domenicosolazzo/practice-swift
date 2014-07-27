@@ -35,6 +35,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var alien:SKSpriteNode = SKSpriteNode(imageNamed: "alien")
         // Add a physical body: Used for collision detection
         alien.physicsBody = SKPhysicsBody(rectangleOfSize: alien.size)
+        // The object is dynamic: it is moved from the physic of the game scene
+        alien.physicsBody.dynamic = true
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
