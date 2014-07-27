@@ -118,6 +118,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add the torpedo to the screen
         self.addChild(torpedo)
+        
+        // Get the direction we are shooting
+        var direction = vecNormalize(offset)
     }
     
     override func update(currentTime: CFTimeInterval) {
