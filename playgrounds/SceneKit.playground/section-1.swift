@@ -25,3 +25,8 @@ cameraNode.camera = camera
 cameraNode.position = SCNVector3(x:0, y:0, z:3)
 // Connect the camera to the scene
 scene.rootNode.addChildNode(cameraNode)
+
+// Geometry object
+var torus = SCNTorus(ringRadius: 1, pipeRadius: 0.35)
+var torusNode = SCNNode(geometry: torus)
+
