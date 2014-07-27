@@ -116,4 +116,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func vecSub(a:CGPoint, b:CGPoint) -> CGPoint{
         return CGPointMake(a.x - b.x, a.y - b.y)
     }
+    
+    // Multiply a vector
+    func vecMult(a:CGPoint, factor: CGFloat) -> CGPoint{
+        return CGPointMake(a.x * factor, a.y * factor)
+    }
 }
