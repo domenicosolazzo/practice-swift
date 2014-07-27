@@ -44,6 +44,8 @@ class GameViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         // Retrieve the background music
         var bgMusicURL = NSBundle.mainBundle().URLForResource("bgMusic", withExtension: "mp3")
+        // Reinitialize the music player
+        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicURL, error: nil)
     }
     
     
