@@ -111,4 +111,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func vecAdd(a:CGPoint, b:CGPoint) -> CGPoint{
         return CGPointMake(a.x + b.x, a.y + b.y)
     }
+    
+    // Subtract two vectors
+    func vecSub(a:CGPoint, b:CGPoint) -> CGPoint{
+        return CGPointMake(a.x - b.x, a.y - b.y)
+    }
 }
