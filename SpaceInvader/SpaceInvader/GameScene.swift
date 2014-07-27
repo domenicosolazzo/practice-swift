@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // the following formula:
     // length = sqrt(a.x^2 + a.y^2)
     func vecLength(a:CGPoint) -> CGFloat{
-        var length = sqrtf(CGFloat( CFloat(a.x) * CFloat(a.x) + CFloat(a.y) * CFloat(a.y)))
+        var length = CGFloat(sqrtf( CFloat(a.x) * CFloat(a.x) + CFloat(a.y) * CFloat(a.y)))
         return length
     }
     
