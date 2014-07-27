@@ -123,6 +123,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var direction = vecNormalize(offset)
         // Get the shot length (1000 should be enough for an IPhone)
         var shotLength = vecMult(direction, factor: 1000)
+        // Get the final destination for the torpedo
+        var finalDestionation = vecAdd(shotLength, b: torpedo.position)
     }
     
     override func update(currentTime: CFTimeInterval) {
