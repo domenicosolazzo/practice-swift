@@ -153,7 +153,21 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
+        
         /* Called before each frame is rendered */
+        if _prevTime == 0 {
+            _prevTime = currentTime
+        }
+        if _isPlaying
+        {
+            _timeCounter += currentTime - _prevTime
+            // Evolution every 0.5 secs
+            if _timeCounter > 0.5 {
+                _timeCounter = 0
+                timeStep()
+            }
+        }
+        _prevTime = currentTime
     }
     
     func playButtonPressed(){
