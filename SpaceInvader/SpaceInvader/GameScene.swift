@@ -97,6 +97,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var touch = touches.anyObject() as UITouch
         // Get the location from the touch
         var location: CGPoint = touch.locationInNode(self)
+        
+        // Torpedo
+        var torpedo:SKSpriteNode = SKSpriteNode(imageNamed: "torpedo")
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
