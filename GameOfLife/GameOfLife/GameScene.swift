@@ -177,4 +177,29 @@ class GameScene: SKScene {
     func pauseButtonPressed(){
         _isPlaying = false
     }
+    
+    func timeStep(){
+        countLivingNeighbors()
+    }
+    
+    func countLivingNeighbors()
+    {
+        for r in 0..<_numRows {
+            for c in 0..<_numCols
+            {
+                var numLivingNeighbors:Int = 0
+                for i in (r-1)...(r+1) {
+                    for j in (c-1)...(c+1)
+                    {
+                        if ( !((r == i) && (c == j)) && isValidTile(row: i, column: j)) {
+                            if _tiles[i][j].isAlive {
+                                numLivingNeighbors++
+                            }
+                        }
+                    }
+                }
+                _tiles[r][c].numLivingNeighbors = numLivingNeighbors
+            }
+        }
+    }
 }
