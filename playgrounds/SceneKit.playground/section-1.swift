@@ -32,3 +32,8 @@ var torusNode = SCNNode(geometry: torus)
 // Connect the object to the scene
 scene.rootNode.addChildNode(torusNode)
 
+// Configure the geometry object
+torus.firstMaterial.diffuse.contents = NSColor.redColor()
+torus.firstMaterial.specular.contents = NSColor.whiteColor()
+
+
