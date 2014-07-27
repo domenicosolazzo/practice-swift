@@ -3,6 +3,8 @@ import SpriteKit
 class GameScene: SKScene {
     // Player
     var player:SKSpriteNode = SKSpriteNode()
+    // Number of aliens destroyed
+    var aliensDestroyed = 0
     
     override func didMoveToView(view: SKView) {
         
