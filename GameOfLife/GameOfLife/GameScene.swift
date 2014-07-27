@@ -144,4 +144,12 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    func playButtonPressed(){
+        _isPlaying = true
+    }
+    
+    func pauseButtonPressed(){
+        _isPlaying = false
+    }
 }
