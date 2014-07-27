@@ -37,6 +37,11 @@ class GameViewController: UIViewController {
         }
     }
 
+    override func viewWillLayoutSubviews() {
+    
+    }
+    
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
