@@ -74,6 +74,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var arrayAction:NSMutableArray = NSMutableArray()
         // Move the alien from their start to position to the bottom of the screen
         arrayAction.addObject(SKAction.moveTo(CGPointMake(position, CGFloat(-alien.size.height)), duration: NSTimeInterval(duration)))
+        // Transition to the game over scene if the alien moved offscreen
+        arrayAction.addObject(SKAction.runBlock({
+            var transition:SKTransition = SKTransition.flipHorizontalWithDuration(0.5)
+            var gameOver:SKScene = GameOverScene(size: self.size, won: false)
+            self.view.presentScene(gameOver, transition: transition)
+            }))
         // Remove the object when is off screen
         arrayAction.addObject(SKAction.removeFromParent())
         
