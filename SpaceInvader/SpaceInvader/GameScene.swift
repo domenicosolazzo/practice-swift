@@ -42,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.physicsBody = SKPhysicsBody(rectangleOfSize: alien.size)
         // The object is dynamic: it is moved from the physic of the game scene
         alien.physicsBody.dynamic = true
+        // Category bitmask 
+        alien.physicsBody.categoryBitMask = alienCategory
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
