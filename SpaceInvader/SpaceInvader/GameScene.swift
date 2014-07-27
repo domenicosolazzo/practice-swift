@@ -22,6 +22,8 @@ class GameScene: SKScene {
         player = SKSpriteNode(imageNamed: "shuttle")
         // Position of the player
         player.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height/2 + 20)
+        // Add the player to the game scene
+        self.addChild(player)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
