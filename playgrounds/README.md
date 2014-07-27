@@ -17,3 +17,4 @@ Playgrounds
 - Drawing
 - UIKit
 - Camera
+- SceneKit
