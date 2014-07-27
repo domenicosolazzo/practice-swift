@@ -208,5 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         torpedo.removeFromParent()
         // Remove the alien from the screen
         alien.removeFromParent()
+        
+        aliensDestroyed++
     }
 }
