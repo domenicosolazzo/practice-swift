@@ -121,4 +121,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func vecMult(a:CGPoint, factor: CGFloat) -> CGPoint{
         return CGPointMake(a.x * factor, a.y * factor)
     }
+    
+    // Calculate the lenght of the vector
+    // Given a vector 'a', you can calculate the lenght of a vector using
+    // the following formula:
+    // length = sqrt(a.x^2 + a.y^2)
+    func vecLength(a:CGPoint) -> CGFloat{
+        var length = sqrtf(CGFloat( CFloat(a.x) * CFloat(a.x) + CFloat(a.y) * CFloat(a.y)))
+        return length
+    }
 }
