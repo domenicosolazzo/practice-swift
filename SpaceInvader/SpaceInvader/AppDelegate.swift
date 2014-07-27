@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  SpaceInvader
-//
-//  Created by Domenico Solazzo on 7/27/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
