@@ -15,6 +15,8 @@ class GameScene: SKScene {
     var _tiles: [[Tile]] = []
     var _margin = 4
     var _isPlaying = false
+    var _prevTime:CFTimeInterval = 0
+    var _timeCounter:CFTimeInterval = 0
     
     override func didMoveToView(view: SKView) {
         /// Add main background
