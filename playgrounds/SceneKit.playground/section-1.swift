@@ -11,3 +11,6 @@ var sceneView = SCNView(frame:CGRect(x:0, y:0, width:300, height:300))
 var scene = SCNScene()
 // Connect the scene to the view
 sceneView.scene = scene
+
+// Start a live preview of the scene
+XCPShowView("The Scene View", sceneView)
