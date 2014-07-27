@@ -29,5 +29,16 @@ class GameOverScene: SKScene {
         label.position = CGPointMake(self.size.width / 2, self.size.height / 2)
         
         self.addChild(label)
+        
+        // Run actions
+        // - The user read the message for 3 seconds
+        // - The user is redirected to the GameScene with a transition
+        self.runAction(SKAction.sequence([ SKAction.waitForDuration(3),
+            SKAction.runBlock({
+                var transition:SKTransition = SKTransition.flipHorizontalWithDuration(0.5)
+                var gameScene:GameScene = GameScene(size: self.size)
+                self.view.presentScene(gameScene, transition: transition)   
+                })
+            ]))
     }
 }
