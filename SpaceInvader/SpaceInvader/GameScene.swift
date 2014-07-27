@@ -15,6 +15,8 @@ class GameScene: SKScene {
     
     init(size:CGSize){
         super.init(size: size)
+        // Initialize the background with a black color
+        self.backgroundColor = SKColor.blackColor()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
