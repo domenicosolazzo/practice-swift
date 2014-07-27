@@ -6,3 +6,5 @@ Source: [Youtube Video](http://goo.gl/zI9iYW)
 Description:
 
 Game of life version in Swift
+
+Notes: Optimized for IPhone 5
