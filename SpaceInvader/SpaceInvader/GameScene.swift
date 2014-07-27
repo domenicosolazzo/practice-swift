@@ -125,6 +125,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var shotLength = vecMult(direction, factor: 1000)
         // Get the final destination for the torpedo
         var finalDestionation = vecAdd(shotLength, b: torpedo.position)
+        // Velocity of the torpedo
+        let velocity = 568/1
     }
     
     override func update(currentTime: CFTimeInterval) {
