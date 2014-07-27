@@ -21,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Initialize the player
         player = SKSpriteNode(imageNamed: "shuttle")
         // Position of the player
-        player.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height/2 + 20)
+        player.position = CGPointMake(self.frame.size.width/2, player.size.height/2 + 20)
         // Add the player to the game scene
         self.addChild(player)
         
