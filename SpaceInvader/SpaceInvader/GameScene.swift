@@ -215,6 +215,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Remove the alien from the screen
         alien.removeFromParent()
         
+        // Add a point
         aliensDestroyed++
+        
+        // Check if you won
+        if aliensDestroyed > 10{
+            var transition:SKTransition = SKTransition.flipHorizontalWithDuration(0.5)
+            var gameOver:SKScene = GameOverScene(size: self.size, won: true)
+            self.view.presentScene(gameOver, transition: transition)
+        }
     }
 }
