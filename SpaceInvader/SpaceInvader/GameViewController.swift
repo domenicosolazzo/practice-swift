@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         // Retrieve the background music
-        var bgMusicURL = NSBundle.mainBundle().URLForResource("bgMusic", withExtension: "mp3")
+        var bgMusicURL = NSBundle.mainBundle().URLForResource("bgmusic", withExtension: "mp3")
         // Reinitialize the music player
         backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicURL, error: nil)
         // Infinite loop
@@ -39,6 +39,11 @@ class GameViewController: UIViewController {
         backgroundMusicPlayer.prepareToPlay()
         // Play the background music
         backgroundMusicPlayer.play()
+        
+        // SKView
+        var skView:SKView = self.view as SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
 
     }
     
