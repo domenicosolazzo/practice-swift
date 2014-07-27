@@ -33,6 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addAlien(){
         var alien:SKSpriteNode = SKSpriteNode(imageNamed: "alien")
+        // Add a physical body: Used for collision detection
+        alien.physicsBody = SKPhysicsBody(rectangleOfSize: alien.size)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
