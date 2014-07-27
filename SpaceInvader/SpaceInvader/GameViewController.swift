@@ -42,7 +42,8 @@ class GameViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
-    
+        // Retrieve the background music
+        var bgMusicURL = NSBundle.mainBundle().URLForResource("bgMusic", withExtension: "mp3")
     }
     
     
