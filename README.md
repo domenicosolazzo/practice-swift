@@ -22,7 +22,7 @@ Learning a new language: SWIFT
 - Lesson 15: [MapKit: A small introduction](http://goo.gl/ZwhN6Z)
 - Lesson 16: [MapKit: Finding the user location](http://goo.gl/rPg7tS)
 - Lesson 17: [SpriteKit: JumpingBall, a full game using SpriteKit](http://goo.gl/0vgmcZ)
-
+- Lesson 18: [Game Of Life](http://goo.gl/82urKd)
 
 
 Apps (3)
@@ -31,5 +31,6 @@ Apps (3)
 - [Yet Another Todo List](http://goo.gl/FpcnA6)
 - [Calculator](http://goo.gl/NKAqLO)
 
-Games (1)
-- [JumpingBall](http://goo.gl/0vgmcZ)
+Games (2)
+- [JumpingBall](http://goo.gl/0vgmcZi)
+- [GameOfLife](http://goo.gl/82urKd)
