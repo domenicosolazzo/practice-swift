@@ -8,8 +8,13 @@ class GameScene: SKScene {
     // Used to decide when to add new aliens
     var lastYieldTimeInterval:NSTimeInterval = NSTimeInterval()
     var lastUpdateTimerInterval:NSTimeInterval = NSTimeInterval()
+    
     override func didMoveToView(view: SKView) {
         
+    }
+    
+    init(size:CGSize){
+        super.init(size: size)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
