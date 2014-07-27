@@ -9,6 +9,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastYieldTimeInterval:NSTimeInterval = NSTimeInterval()
     var lastUpdateTimerInterval:NSTimeInterval = NSTimeInterval()
     
+    // Alien category
+    var alienCategory:UInt32 = 0x1 << 1
+    // Photon torpedo category
+    var photonTorpedoCategory:UInt32 = 0x1 << 0
+    
     override func didMoveToView(view: SKView) {
         
     }
