@@ -103,6 +103,17 @@ class GameScene: SKScene {
         return r >= 0 && r < _numRows && c >= 0 && c < _numCols
     }
     
+    // GetTileAtPosition
+    func getTileAtPosition(xPos x: Int, yPos y: Int) -> Tile? {
+        let r:Int = Int( CGFloat(y - (Int(_gridLowerLeftCorner.y) + _margin)) / CGFloat(_gridHeight) * CGFloat(_numRows))
+        let c:Int = Int( CGFloat(x - (Int(_gridLowerLeftCorner.x) + _margin)) / CGFloat(_gridWidth) * CGFloat(_numCols))
+        if isValidTile(row: r, column: c) {
+            return _tiles[r][c]
+        } else {
+            return nil
+        }
+    }
+    
     // Calculate the tile size
     func calculateTileSize() -> CGSize
     {
