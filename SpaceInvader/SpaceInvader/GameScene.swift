@@ -46,6 +46,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.physicsBody.categoryBitMask = alienCategory
         // Contact test bit mask
         alien.physicsBody.contactTestBitMask = photonTorpedoCategory
+        // Collision bit mask
+        alien.physicsBody.collisionBitMask = 0
         
     }
     
