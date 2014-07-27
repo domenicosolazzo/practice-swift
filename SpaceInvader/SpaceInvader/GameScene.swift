@@ -70,6 +70,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rangeDuration = maxDuration - minDuration
         var duration = Int(arc4random()) % Int(rangeDuration) + Int(maxDuration)
         
+        // Animation array
+        var arrayAction:NSMutableArray = NSMutableArray()
+        // Move the alien from their start to position to the bottom of the screen
+        arrayAction.addObject(SKAction.moveTo(CGPointMake(position, -alien.size.height), duration: duration))
+        // Remove the object when is off screen
+        arrayAction.addObject(SKAction.removeFromParent())
+        
+        // Run the actions
+        alien.runAction(SKAction.sequence(arrayAction))
         
     }
     
