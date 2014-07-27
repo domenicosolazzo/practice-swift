@@ -49,6 +49,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Collision bit mask
         alien.physicsBody.collisionBitMask = 0
         
+        
+        // MinX for the alien
+        let minX = alien.size.width / 2
+        // MaxX for the alien
+        let maxX = self.frame.size.width - alien.size.width/2
+        // Range
+        let range = maxX - minX
+        // Random position
+        var position = CGFloat(arc4random()) % CGFloat(range) + CGFloat(minX)
+        // Positioning the alien: alien will be off-screen at this point
+        alien.position = CGPointMake(position, self.frame.size.height + alien.size.height)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
