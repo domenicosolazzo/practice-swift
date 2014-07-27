@@ -44,6 +44,11 @@ class GameViewController: UIViewController {
         var skView:SKView = self.view as SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
+        
+        // SKScene
+        var scene:SKScene = GameScene.sceneWithSize(skView.bounds.size)
+        scene.scaleMode = SKSceneScaleMode.AspectFill
+        skView.presentScene(scene)
 
     }
     
