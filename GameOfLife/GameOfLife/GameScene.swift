@@ -84,7 +84,7 @@ class GameScene: SKScene {
         // Grid initialization
         let tileSize = self.calculateTileSize()
         for r in 0..<_numRows {
-            var tileRow: [SKSpriteNode] = []
+            var tileRow: [Tile] = []
             for c in 0..<_numCols{
                 let tile = Tile(imageNamed: "bubble.png")
                 tile.isAlive = false
@@ -96,6 +96,11 @@ class GameScene: SKScene {
             }
             _tiles.append(tileRow)
         }
+    }
+    
+    // IsValidTile
+    func isValidTile(row r: Int, column c:Int) -> Bool {
+        return r >= 0 && r < _numRows && c >= 0 && c < _numCols
     }
     
     // Calculate the tile size
