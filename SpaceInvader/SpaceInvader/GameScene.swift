@@ -82,6 +82,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func updateWithTimeSinceLastUpdate(sinceLastUpdate:CFTimeInterval){
+        lastYieldTimeInterval += sinceLastUpdate
+        if lastYieldTimeInterval > 1{
+            lastYieldTimeInterval = 0
+            addAlien()
+        }
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
     }
