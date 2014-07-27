@@ -6,6 +6,9 @@ class GameOverScene: SKScene {
     init(size:CGSize, won:Bool){
         super.init(size: size)
         
+        // Background color
+        self.backgroundColor = SKColor.blackColor()
+        
         // Create a new message
         var message:NSString = NSString()
         
