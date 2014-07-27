@@ -46,6 +46,13 @@ class GameViewController: UIViewController {
         var bgMusicURL = NSBundle.mainBundle().URLForResource("bgMusic", withExtension: "mp3")
         // Reinitialize the music player
         backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicURL, error: nil)
+        // Infinite loop
+        backgroundMusicPlayer.numberOfLoops = -1
+        // Prepares the audio player for playback by preloading its buffers.
+        backgroundMusicPlayer.prepareToPlay()
+        // Play the background music
+        backgroundMusicPlayer.play()
+
     }
     
     
