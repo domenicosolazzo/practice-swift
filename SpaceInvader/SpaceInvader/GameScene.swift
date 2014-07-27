@@ -112,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         torpedo.physicsBody.usesPreciseCollisionDetection = true
         
         // offset between the point we touched in the screen and the start position of the torpedo
-        var offeset = vecSub(location, b: torpedo.position)
+        var offset = vecSub(location, b: torpedo.position)
         // Check if the offset is lower than 0 (wrong direction for the torpedo)
         if offset < 0{ return }
         
