@@ -1,6 +1,9 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    // Player
+    var player:SKSpriteNode = SKSpriteNode()
+    
     override func didMoveToView(view: SKView) {
         
     }
