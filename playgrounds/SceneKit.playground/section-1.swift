@@ -29,4 +29,6 @@ scene.rootNode.addChildNode(cameraNode)
 // Geometry object
 var torus = SCNTorus(ringRadius: 1, pipeRadius: 0.35)
 var torusNode = SCNNode(geometry: torus)
+// Connect the object to the scene
+scene.rootNode.addChildNode(torusNode)
 
