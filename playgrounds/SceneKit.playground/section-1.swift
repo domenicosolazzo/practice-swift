@@ -9,3 +9,5 @@ import XCPlayground // for the live preview
 var sceneView = SCNView(frame:CGRect(x:0, y:0, width:300, height:300))
 // New scene
 var scene = SCNScene()
+// Connect the scene to the view
+sceneView.scene = scene
