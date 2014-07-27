@@ -116,6 +116,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Check if the offset is lower than 0 (wrong direction for the torpedo)
         if offset.y < 0{ return }
         
+        // Add the torpedo to the screen
+        self.addChild(torpedo)
     }
     
     override func update(currentTime: CFTimeInterval) {
