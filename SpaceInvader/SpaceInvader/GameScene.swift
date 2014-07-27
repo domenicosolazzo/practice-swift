@@ -73,7 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Animation array
         var arrayAction:NSMutableArray = NSMutableArray()
         // Move the alien from their start to position to the bottom of the screen
-        arrayAction.addObject(SKAction.moveTo(CGPointMake(position, -alien.size.height), duration: duration))
+        arrayAction.addObject(SKAction.moveTo(CGPointMake(position, -alien.size.height),duration))
         // Remove the object when is off screen
         arrayAction.addObject(SKAction.removeFromParent())
         
@@ -96,5 +96,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        var timeSinceLastUpdate = currentTime - lastUpdateTimerInterval
+        lastUpdateTimerInterval = currentTime
+        
+        if timeSinceLastUpdate > 1 {
+            timeSinceLastUpdate = 1/60
+            lastUpdateTimerInterval = currentTime
+        }
+        
+        updateWithTimeSinceLastUpdate(timeSinceLastUpdate)
     }
 }
