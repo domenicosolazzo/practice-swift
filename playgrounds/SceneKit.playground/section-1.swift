@@ -17,3 +17,10 @@ XCPShowView("The Scene View", sceneView)
 
 // Default lighting
 sceneView.autoenablesDefaultLighting = true
+
+// Camera
+var camera = SCNCamera()
+var cameraNode = SCNNode()
+cameraNode.camera = camera
+cameraNode.position = SCNVector3(x:0, y:0, z:3)
+
