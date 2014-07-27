@@ -31,6 +31,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
     }
     
+    func addAlien(){
+        var alien:SKSpriteNode = SKSpriteNode(imageNamed: "alien")
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
     }
