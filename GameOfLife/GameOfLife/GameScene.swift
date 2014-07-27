@@ -12,7 +12,7 @@ class GameScene: SKScene {
     var _generationValueLabel = SKLabelNode(text:"0")
     var _playButton: SKSpriteNode = SKSpriteNode(imageNamed: "play.png")
     var _pauseButton: SKSpriteNode = SKSpriteNode(imageNamed:   "pause.png")
-    var _tiles: [[SKSpriteNode]] = []
+    var _tiles: [[Tile]] = []
     var _margin = 4
     
     override func didMoveToView(view: SKView) {
@@ -86,7 +86,8 @@ class GameScene: SKScene {
         for r in 0..<_numRows {
             var tileRow: [SKSpriteNode] = []
             for c in 0..<_numCols{
-                let tile = SKSpriteNode(imageNamed: "bubble.png")
+                let tile = Tile(imageNamed: "bubble.png")
+                tile.isAlive = false
                 tile.size = CGSize(width: tileSize.width, height: tileSize.height)
                 tile.anchorPoint = CGPoint(x:0, y:0)
                 tile.position = self.getTilePosition(row: r, column: c)
