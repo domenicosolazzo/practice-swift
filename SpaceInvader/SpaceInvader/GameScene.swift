@@ -17,6 +17,11 @@ class GameScene: SKScene {
         super.init(size: size)
         // Initialize the background with a black color
         self.backgroundColor = SKColor.blackColor()
+        
+        // Initialize the player
+        player = SKSpriteNode(imageNamed: "shuttle")
+        // Position of the player
+        player.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height/2 + 20)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
