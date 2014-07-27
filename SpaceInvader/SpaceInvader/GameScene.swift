@@ -106,4 +106,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         updateWithTimeSinceLastUpdate(timeSinceLastUpdate)
     }
+    
+    // Add two vectors
+    func vecAdd(a:CGPoint, b:CGPoint) -> CGPoint{
+        return CGPointMake(a.x + b.x, a.y + b.y)
+    }
 }
