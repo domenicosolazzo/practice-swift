@@ -5,7 +5,9 @@ class GameScene: SKScene {
     var player:SKSpriteNode = SKSpriteNode()
     // Number of aliens destroyed
     var aliensDestroyed = 0
-    
+    // Used to decide when to add new aliens
+    var lastYieldTimeInterval:NSTimeInterval = NSTimeInterval()
+    var lastUpdateTimerInterval:NSTimeInterval = NSTimeInterval()
     override func didMoveToView(view: SKView) {
         
     }
