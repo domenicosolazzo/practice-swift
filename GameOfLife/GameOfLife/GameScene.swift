@@ -180,6 +180,7 @@ class GameScene: SKScene {
     
     func timeStep(){
         countLivingNeighbors()
+        updateCreatures()
     }
     
     func countLivingNeighbors()
@@ -201,5 +202,24 @@ class GameScene: SKScene {
                 _tiles[r][c].numLivingNeighbors = numLivingNeighbors
             }
         }
+    }
+    
+    func updateCreatures()
+    {
+        var numAlive = 0
+        for r in 0..<_numRows {
+            for c in 0..<_numCols
+            {
+                var tile:Tile = _tiles[r][c]
+                if tile.numLivingNeighbors == 3 {
+                    tile.isAlive = true
+                } else if tile.numLivingNeighbors < 2 || tile.numLivingNeighbors > 3 {
+                    tile.isAlive = false
+                }
+                if tile.isAlive {
+                    numAlive++
+                }
+            }
+        }        
     }
 }
