@@ -102,6 +102,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var torpedo:SKSpriteNode = SKSpriteNode(imageNamed: "torpedo")
         // Set the position of the new created sprite node
         torpedo.position = player.position
+        
+        // Torpedo physics body: Use the radius of the torpedo
+        torpedo.physicsBody = SKPhysicsBody(circleOfRadius: torpedo.size.width/2)
+        torpedo.physicsBody.categoryBitMask = photonTorpedoCategory
+        torpedo.physicsBody.contactTestBitMask = alienCategory
+        torpedo.physicsBody.collisionBitMask = 0
+        // This value determines whether the physics world uses a more precise collision detection algorithm.
+        torpedo.physicsBody.usesPreciseCollisionDetection = true
     }
     
     override func update(currentTime: CFTimeInterval) {
