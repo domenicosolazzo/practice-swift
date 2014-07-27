@@ -14,3 +14,6 @@ sceneView.scene = scene
 
 // Start a live preview of the scene
 XCPShowView("The Scene View", sceneView)
+
+// Default lighting
+sceneView.autoenablesDefaultLighting = true
