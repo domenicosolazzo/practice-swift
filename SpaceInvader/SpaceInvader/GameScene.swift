@@ -63,6 +63,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add the alien to the view
         self.addChild(alien)
+        
+        // Adding some animation for the alien
+        let minDuration = 2
+        let maxDuration = 4
+        let rangeDuration = maxDuration - minDuration
+        var duration = Int(arc4random()) % Int(rangeDuration) + Int(maxDuration)
+        
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
