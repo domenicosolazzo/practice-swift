@@ -91,7 +91,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
-    
+        // Play a torpido sound
+        self.runAction(SKAction.playSoundFileNamed("torped.mp3", waitForCompletion: false))
     }
     
     override func update(currentTime: CFTimeInterval) {
