@@ -1,6 +1,6 @@
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     // Player
     var player:SKSpriteNode = SKSpriteNode()
     // Number of aliens destroyed
