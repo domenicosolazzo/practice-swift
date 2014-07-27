@@ -127,6 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var finalDestionation = vecAdd(shotLength, b: torpedo.position)
         // Velocity of the torpedo
         let velocity = 568/1
+        var moveDuration = Float(self.size.width) / Float(velocity)
     }
     
     override func update(currentTime: CFTimeInterval) {
