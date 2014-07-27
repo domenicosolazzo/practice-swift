@@ -95,6 +95,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.runAction(SKAction.playSoundFileNamed("torped.mp3", waitForCompletion: false))
         // Get the UITouch
         var touch = touches.anyObject() as UITouch
+        // Get the location from the touch
+        var location: CGPoint = touch.locationInNode(self)
     }
     
     override func update(currentTime: CFTimeInterval) {
