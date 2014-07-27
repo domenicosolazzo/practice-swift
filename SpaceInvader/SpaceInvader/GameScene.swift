@@ -110,6 +110,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         torpedo.physicsBody.collisionBitMask = 0
         // This value determines whether the physics world uses a more precise collision detection algorithm.
         torpedo.physicsBody.usesPreciseCollisionDetection = true
+        
+        // offset between the point we touched in the screen and the start position of the torpedo
+        var offeset = vecSub(location, b: torpedo.position)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
