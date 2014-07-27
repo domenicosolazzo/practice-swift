@@ -100,7 +100,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Torpedo
         var torpedo:SKSpriteNode = SKSpriteNode(imageNamed: "torpedo")
-        
+        // Set the position of the new created sprite node
+        torpedo.position = player.position
     }
     
     override func update(currentTime: CFTimeInterval) {
