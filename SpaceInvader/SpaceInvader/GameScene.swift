@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Gravity: We do not want any gravity
         self.physicsWorld.gravity = CGVectorMake(0, 0)
+        // Contact delegate for the physics world
+        self.physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
