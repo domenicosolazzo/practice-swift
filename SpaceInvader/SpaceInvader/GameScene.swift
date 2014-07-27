@@ -92,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         // Play a torpido sound
-        self.runAction(SKAction.playSoundFileNamed("torped.mp3", waitForCompletion: false))
+        self.runAction(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
         // Get the UITouch
         var touch = touches.anyObject() as UITouch
         // Get the location from the touch
@@ -179,5 +179,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func vecNormalize(a:CGPoint) -> CGPoint{
         var length = self.vecLength(a)
         return CGPointMake(a.x / length, a.y / length)
+    }
+    
+    // Check if the torpedo is colliding with an alien
+    func didTorpedoCollideWithAlien(torpedo:SKSpriteNode, alien:SKSpriteNode){
+        println("HIT!!!")
+        // Remove the torpedo from the screen
+        torpedo.removeFromParent()
+        // Remove the alien from the screen
+        alien.removeFromParent()s
     }
 }
