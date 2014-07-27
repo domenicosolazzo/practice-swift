@@ -138,7 +138,16 @@ class GameScene: SKScene {
             if let tile = selectedTile{
                 tile.isAlive = !tile.isAlive
             }
+            
+            if CGRectContainsPoint(_playButton.frame, touch.locationInNode(self)) {
+                playButtonPressed()
+            }
+            if CGRectContainsPoint(_pauseButton.frame, touch.locationInNode(self)) {
+                pauseButtonPressed()
+            }
         }
+        
+        
     }
    
     override func update(currentTime: CFTimeInterval) {
