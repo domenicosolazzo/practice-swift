@@ -24,6 +24,9 @@ class GameScene: SKScene {
         player.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height/2 + 20)
         // Add the player to the game scene
         self.addChild(player)
+        
+        // Gravity: We do not want any gravity
+        self.physicsWorld.gravity = CGVectorMake(0, 0)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
