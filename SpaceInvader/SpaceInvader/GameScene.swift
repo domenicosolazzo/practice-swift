@@ -128,6 +128,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Velocity of the torpedo
         let velocity = 568/1
         var moveDuration = Float(self.size.width) / Float(velocity)
+        
+        // SKActions
+        var actionArray:NSMutableArray = NSMutableArray()
+        actionArray.addObject(SKAction.moveTo(finalDestionation, duration: NSTimeInterval(moveDuration)))
+        actionArray.addObject(SKAction.removeFromParent())
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
