@@ -132,7 +132,12 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
+        for touch:AnyObject in touches{
+            var selectedTile:Tile? = self.getTileAtPosition(xPos: Int(touch.locationInNode(self).x), yPos: Int(touch.locationInNode(self).y))
+            if let tile = selectedTile{
+                tile.isAlive = !tile.isAlive
+            }
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
