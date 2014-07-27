@@ -90,10 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
-    }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         var timeSinceLastUpdate = currentTime - lastUpdateTimerInterval
