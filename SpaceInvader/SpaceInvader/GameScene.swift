@@ -130,4 +130,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var length = sqrtf(CGFloat( CFloat(a.x) * CFloat(a.x) + CFloat(a.y) * CFloat(a.y)))
         return length
     }
+    
+    // Normalize a vector
+    func vecNormalize(a:CGPoint) -> CGPoint{
+        var length = self.vecLength(a)
+        return CGPointMake(a.x / length, a.y / length)
+    }
 }
