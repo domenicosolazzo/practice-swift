@@ -16,7 +16,11 @@ class GameScene: SKScene {
         
         // Gather all the frames
         var numImages = textureAtlas.textureNames.count
-        
+        for i in 1...numImages/2{
+            var textureName = "bear\(i)"
+            var textureTemp:SKTexture = textureAtlas.textureNamed(textureName)
+            bearWalkingFrames.addObject(textureTemp)
+        }
     }
     
     override func didMoveToView(view: SKView) {
