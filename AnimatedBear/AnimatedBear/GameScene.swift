@@ -1,6 +1,9 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var bear:SKSpriteNode = SKSpriteNode()
+    var bearWalkingFrames:NSMutableArray = NSMutableArray()
+    
     override func didMoveToView(view: SKView) {
         
     }
