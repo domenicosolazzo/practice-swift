@@ -10,6 +10,9 @@ class GameScene: SKScene {
         
         // Add background color
         self.backgroundColor = SKColor.blackColor()
+        
+        // Load the atlas
+        var textureAtlas:SKTextureAtlas = SKTextureAtlas(named: "BearImages")
     }
     
     override func didMoveToView(view: SKView) {
