@@ -4,6 +4,11 @@ class GameScene: SKScene {
     var bear:SKSpriteNode = SKSpriteNode()
     var bearWalkingFrames:NSMutableArray = NSMutableArray()
     
+    // Constructor
+    init(size: CGSize){
+        super.init(size: size)
+    }
+    
     override func didMoveToView(view: SKView) {
         
     }
