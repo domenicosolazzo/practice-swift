@@ -7,6 +7,9 @@ class GameScene: SKScene {
     // Constructor
     init(size: CGSize){
         super.init(size: size)
+        
+        // Add background color
+        self.backgroundColor = SKColor.blackColor()
     }
     
     override func didMoveToView(view: SKView) {
