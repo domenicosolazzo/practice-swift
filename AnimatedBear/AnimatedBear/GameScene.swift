@@ -24,6 +24,8 @@ class GameScene: SKScene {
         
         // Create the first sprite
         bear = SKSpriteNode(texture: bearWalkingFrames[0])
+        // Set the position to the center of the screen
+        bear.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
     }
     
     override func didMoveToView(view: SKView) {
