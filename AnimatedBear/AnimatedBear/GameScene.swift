@@ -21,6 +21,9 @@ class GameScene: SKScene {
             var textureTemp:SKTexture = textureAtlas.textureNamed(textureName)
             bearWalkingFrames.addObject(textureTemp)
         }
+        
+        // Create the first sprite
+        bear = SKSpriteNode(texture: bearWalkingFrames[0])
     }
     
     override func didMoveToView(view: SKView) {
