@@ -13,6 +13,10 @@ class GameScene: SKScene {
         
         // Load the atlas
         var textureAtlas:SKTextureAtlas = SKTextureAtlas(named: "BearImages")
+        
+        // Gather all the frames
+        var numImages = textureAtlas.textureNames.count
+        
     }
     
     override func didMoveToView(view: SKView) {
