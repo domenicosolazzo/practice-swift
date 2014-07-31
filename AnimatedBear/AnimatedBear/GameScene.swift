@@ -71,4 +71,9 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         //self.walkingBear(_bearWalkingFrames)
     }
+    
+    func bearMoveEnded(){
+        // Remove all the actions from the bear
+        bear.removeAllActions()
+    }
 }
