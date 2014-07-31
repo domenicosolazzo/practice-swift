@@ -53,6 +53,11 @@ class GameScene: SKScene {
         // Multiplier for the direction
         var multiplierForDirection:CGFloat = 1
         
+        // Find the velocity of the bear
+        var screenSize:CGSize = self.frame.size
+        // Take 3 seconds for the bear to move at a given position
+        var bearVelocity = screenSize.width / 3.0
+        
         // Check the direction
         if location.x <= CGRectGetMidX(self.frame){
             // Walk left
