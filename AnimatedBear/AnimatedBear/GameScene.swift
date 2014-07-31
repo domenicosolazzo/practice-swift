@@ -64,6 +64,8 @@ class GameScene: SKScene {
         // Figure out the actual length moved (Vector normalization)
         var distanceToMove = sqrt(positionDifference.x * positionDifference.x + positionDifference.y * positionDifference.y)
         
+        // Figure out how long will take to move
+        var moveDuration = distanceToMove / bearVelocity
         
         
         // Check the direction
