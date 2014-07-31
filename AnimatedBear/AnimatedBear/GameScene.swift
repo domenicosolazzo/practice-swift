@@ -9,7 +9,7 @@ class GameScene: SKScene {
     }
     
     func walkingBear(){
-        SKAction.runAction(SKAction.animateWithTextures(_bearWalkingFrames, timePerFrame: 0.1), onChildWithName:"ciao"  )
+        SKAction.runAction(SKAction.animateWithTextures(_bearWalkingFrames, timePerFrame: 0.1), onChildWithName:"walkingInPlaceBear"  )
     }
     
     func initialization(){
