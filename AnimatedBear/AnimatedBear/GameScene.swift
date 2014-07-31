@@ -80,7 +80,10 @@ class GameScene: SKScene {
         // Change direction of the bear
         bear.xScale = fabs(bear.xScale) * multiplierForDirection
         
-        
+        //stop just the moving to a new location, but leave the walking legs movement running
+        if bear.actionForKey("bearMoving"){
+            bear.removeActionForKey("bearMoving")
+        }
         self.walkingBear()
     }
     
