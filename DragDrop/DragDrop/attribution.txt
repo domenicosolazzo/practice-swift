@@ -1,0 +1,4 @@
+blue-shooting-stars.png: copyright gwebstock.net http://www.gwebstock.net/2010/11/06/blue-shotting-stars-vector-background/
+bird.png, cat.png, dog.png, turtle.png: copyright Vicki Wenderlich http://www.vmwstudios.com
+
+These images cannot be used in commercial products without prior permission.
