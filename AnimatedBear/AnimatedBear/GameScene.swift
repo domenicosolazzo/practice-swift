@@ -98,6 +98,9 @@ class GameScene: SKScene {
         var doneAction:SKAction = SKAction.runBlock({
                 self.bearMoveEnded()
         })
+        
+        // Mix the two actions
+        var mixedActions: SKAction = SKAction.sequence([moveAction, doneAction])
     }
     
     override func update(currentTime: CFTimeInterval) {
