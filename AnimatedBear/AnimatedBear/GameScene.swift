@@ -62,7 +62,9 @@ class GameScene: SKScene {
         var positionDifference = CGPointMake(location.x - bear.position.x, location.y - bear.position.y)
         
         // Figure out the actual length moved (Vector normalization)
-        var positionNormalized = sqrt(positionDifference.x * positionDifference.x + positionDifference.y * positionDifference.y)
+        var distanceToMove = sqrt(positionDifference.x * positionDifference.x + positionDifference.y * positionDifference.y)
+        
+        
         
         // Check the direction
         if location.x <= CGRectGetMidX(self.frame){
