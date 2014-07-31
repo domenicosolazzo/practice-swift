@@ -103,7 +103,7 @@ class GameScene: SKScene {
         var mixedActions: SKAction = SKAction.sequence([moveAction, doneAction])
         
         // Run all the actions
-        bear.runAction(runAction(mixedActions, withKey: "bearMoving")
+        bear.runAction(mixedActions, withKey:"bearMoving")
     }
     
     override func update(currentTime: CFTimeInterval) {
