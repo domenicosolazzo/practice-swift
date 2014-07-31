@@ -89,6 +89,9 @@ class GameScene: SKScene {
         if !(bear.actionForKey("walkingInPlaceBear")){
             self.walkingBear()
         }
+        
+        // Move action
+        var moveAction:SKAction = SKAction.moveTo(location, duration: NSTimeInterval(moveDuration))
         self.walkingBear()
     }
     
