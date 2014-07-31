@@ -3,13 +3,20 @@ var _bearWalkingFrames = NSMutableArray()
 var bear:SKSpriteNode = SKSpriteNode()
 class GameScene: SKScene {
     
+    init(size:CGSize){
+        super.init(size:size)
+        self.initialization()
+    }
     init(coder aDecoder: NSCoder!){
         super.init(coder: aDecoder)
         self.initialization()
     }
     
     func walkingBear(){
-        SKAction.runAction(SKAction.animateWithTextures(_bearWalkingFrames, timePerFrame: 0.1), onChildWithName:"walkingInPlaceBear"  )
+        bear.runAction(SKAction.repeatActionForever(
+            
+            SKAction.animateWithTextures(_bearWalkingFrames, timePerFrame: 0.1, resize: false, restore:false)), withKey:"walkingInPlaceBear" )
+        
     }
     
     func initialization(){
@@ -22,8 +29,8 @@ class GameScene: SKScene {
         // Gather all the frames
         var numImages = textureAtlas.textureNames.count
         var tempArray:NSMutableArray = NSMutableArray()
-        for i in 1...numImages/2{
-            var textureName = "bear\(i)~ipad"
+        for i in 1...numImages{
+            var textureName = "bear\(i)"
             tempArray.addObject(textureAtlas.textureNamed(textureName))
         }
         
@@ -36,6 +43,7 @@ class GameScene: SKScene {
         self.addChild(bear)
         // Walk in place
         //self.walkingBear()
+        
         
     }
     override func didMoveToView(view: SKView) {
@@ -69,7 +77,7 @@ class GameScene: SKScene {
         
         
         // Check the direction
-        if location.x < 0{
+        if location.x < CGRectGetMidX(self.frame){
             // Walk left
             multiplierForDirection = 1
         }else{
