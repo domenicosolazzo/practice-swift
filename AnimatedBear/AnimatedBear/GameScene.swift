@@ -35,7 +35,7 @@ class GameScene: SKScene {
         // Add the bear to the view
         self.addChild(bear)
         // Walk in place
-        self.walkingBear()
+        //self.walkingBear()
         
     }
     override func didMoveToView(view: SKView) {
