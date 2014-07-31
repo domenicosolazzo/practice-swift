@@ -48,10 +48,10 @@ class GameScene: SKScene {
    
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         // Getting the location
-        location:CGPoint = touches.anyObject().locationInNode(self)
+        var location:CGPoint = touches.anyObject().locationInNode(self)
         
         // Multiplier for the direction
-        multiplierForDirection:CGFloat = 1
+        var multiplierForDirection:CGFloat = 1
     }
     
     override func update(currentTime: CFTimeInterval) {
