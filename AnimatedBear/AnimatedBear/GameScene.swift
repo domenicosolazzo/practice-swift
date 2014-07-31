@@ -84,6 +84,11 @@ class GameScene: SKScene {
         if bear.actionForKey("bearMoving"){
             bear.removeActionForKey("bearMoving")
         }
+        
+        //if legs are not moving go ahead and start them
+        if !(bear.actionForKey("walkingInPlaceBear")){
+            self.walkingBear()
+        }
         self.walkingBear()
     }
     
