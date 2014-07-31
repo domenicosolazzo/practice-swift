@@ -1,6 +1,10 @@
 import SpriteKit
 
+
 class GameScene: SKScene {
+    var background:SKSpriteNode = SKSpriteNode()
+    var selectedNode:SKSpriteNode = SKSpriteNode()
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
