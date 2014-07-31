@@ -1,7 +1,7 @@
 import SpriteKit
 var _bearWalkingFrames = NSMutableArray()
+var bear:SKSpriteNode = SKSpriteNode()
 class GameScene: SKScene {
-    var bear:SKSpriteNode = SKSpriteNode()
     
     init(coder aDecoder: NSCoder!){
         super.init(coder: aDecoder)
@@ -61,6 +61,10 @@ class GameScene: SKScene {
             // Walk right
             multiplierForDirection = -1
         }
+        
+        // Change direction of the bear
+        bear.xScale = fabs(bear.xScale) * multiplierForDirection
+        self.walkingBear()
     }
     
     override func update(currentTime: CFTimeInterval) {
