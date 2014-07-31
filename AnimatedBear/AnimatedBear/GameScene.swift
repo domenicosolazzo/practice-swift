@@ -1,10 +1,7 @@
 import SpriteKit
-
+var _bearWalkingFrames = NSMutableArray()
 class GameScene: SKScene {
     var bear:SKSpriteNode = SKSpriteNode()
-    var bearWalkingFrames:NSMutableArray = NSMutableArray()
-    
-    // Constructor
     
     init(coder aDecoder: NSCoder!){
         super.init(coder: aDecoder)
@@ -12,7 +9,7 @@ class GameScene: SKScene {
     }
     
     func walkingBear(){
-        SKAction.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(self.bearWalkingFrames, timePerFrame: 0.1.floatingPointClass, resize: false, restore: true)), onChildWithName: "walkingInPlaceBear")
+        SKAction.runAction(SKAction.animateWithTextures(_bearWalkingFrames, timePerFrame: 0.1), onChildWithName:"ciao"  )
     }
     
     func initialization(){
@@ -30,9 +27,9 @@ class GameScene: SKScene {
             tempArray.addObject(textureAtlas.textureNamed(textureName))
         }
         
-        self.bearWalkingFrames = tempArray
+        _bearWalkingFrames = tempArray
         // Create the first sprite
-        bear = SKSpriteNode(texture: bearWalkingFrames[0] as SKTexture)
+        bear = SKSpriteNode(texture: tempArray[0] as SKTexture)
         // Set the position to the center of the screen
         bear.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         // Add the bear to the view
@@ -49,7 +46,13 @@ class GameScene: SKScene {
         
     }
    
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+        // Getting the location
+        CGPoint location = touches.anyObject().locationInNode(self)
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        //self.walkingBear(_bearWalkingFrames)
     }
 }
