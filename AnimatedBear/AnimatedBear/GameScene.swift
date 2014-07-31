@@ -58,6 +58,9 @@ class GameScene: SKScene {
         // Take 3 seconds for the bear to move at a given position
         var bearVelocity = screenSize.width / 3.0
         
+        // Figure it out the amount between bear position and the new positon
+        var positionDifference = CGPointMake(location.x - bear.position.x, location.y - bear.position.y)
+        
         // Check the direction
         if location.x <= CGRectGetMidX(self.frame){
             // Walk left
