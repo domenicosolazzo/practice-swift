@@ -93,6 +93,11 @@ class GameScene: SKScene {
         // Move action
         var moveAction:SKAction = SKAction.moveTo(location, duration: NSTimeInterval(moveDuration))
         self.walkingBear()
+        
+        // Done action
+        var doneAction:SKAction = SKAction.runBlock({
+                self.bearMoveEnded()
+        })
     }
     
     override func update(currentTime: CFTimeInterval) {
