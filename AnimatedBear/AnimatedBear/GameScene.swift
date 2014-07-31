@@ -69,7 +69,7 @@ class GameScene: SKScene {
         
         
         // Check the direction
-        if location.x <= CGRectGetMidX(self.frame){
+        if location.x < 0{
             // Walk left
             multiplierForDirection = 1
         }else{
@@ -79,6 +79,8 @@ class GameScene: SKScene {
         
         // Change direction of the bear
         bear.xScale = fabs(bear.xScale) * multiplierForDirection
+        
+        
         self.walkingBear()
     }
     
