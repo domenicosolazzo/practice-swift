@@ -52,6 +52,15 @@ class GameScene: SKScene {
         
         // Multiplier for the direction
         var multiplierForDirection:CGFloat = 1
+        
+        // Check the direction
+        if location.x <= CGRectGetMidX(self.frame){
+            // Walk left
+            multiplierForDirection = 1
+        }else{
+            // Walk right
+            multiplierForDirection = -1
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
