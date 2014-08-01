@@ -81,6 +81,16 @@ class GameScene: SKScene {
         return Double(degree) / Double(180.0) *  M_PI
     }
     
+    // Set the position of the animal
+    func panForTranslation(translation:CGPoint){
+        // Position of the selected node
+        var position = _selectedNode.position
+        if _selectedNode.name == _kAnimalNodeName{
+            _selectedNode.position = CGPointMake(position.x + translation.x, position.y + translation.y)
+            
+        }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
