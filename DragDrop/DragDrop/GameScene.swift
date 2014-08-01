@@ -7,15 +7,15 @@ class GameScene: SKScene {
     let _kAnimalNodeName:String = "movable"
     
     // Constructor
-    init(size: CGSize) {
-        super.init(size: size)
+    
+    init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         
         // Background
         _background = SKSpriteNode(imageNamed: "blue-shooting-stars")
         _background.name = "background"
         _background.anchorPoint = CGPointZero
         self.addChild(_background)
-        
         
     }
     
