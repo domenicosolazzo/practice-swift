@@ -2,9 +2,22 @@ import SpriteKit
 
 
 class GameScene: SKScene {
-    var background:SKSpriteNode = SKSpriteNode()
-    var selectedNode:SKSpriteNode = SKSpriteNode()
-    let kAnimalNodeName:String = "movable"
+    var _background:SKSpriteNode = SKSpriteNode()
+    var _selectedNode:SKSpriteNode = SKSpriteNode()
+    let _kAnimalNodeName:String = "movable"
+    
+    // Constructor
+    init(size: CGSize) {
+        super.init(size: size)
+        
+        // Background
+        _background = SKSpriteNode(imageNamed: "blue-shooting-stars")
+        _background.name = "background"
+        _background.anchorPoint = CGPointZero
+        self.addChild(_background)
+        
+        
+    }
     
     override func didMoveToView(view: SKView) {
         
