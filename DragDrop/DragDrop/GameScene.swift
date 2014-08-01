@@ -43,6 +43,9 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        // Select the node
+        var touch: AnyObject! = touches.anyObject()
+        var positionInScene = touch.locationInNode(self)
         
     }
    
