@@ -1,6 +1,6 @@
 Sprite Kit: Drag & Drop Sprites
 
-Source [Original Tutorial by ](http://goo.gl/gZAEjo)
+Source [Original Tutorial by Ray Wenderlich](http://goo.gl/gZAEjo)
 
 
 Description:
