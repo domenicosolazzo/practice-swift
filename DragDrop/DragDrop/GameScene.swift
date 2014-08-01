@@ -76,6 +76,10 @@ class GameScene: SKScene {
         }
         
     }
+    // Degrees to Radiants
+    func degToRad(degree:Float) {
+        return CGFloat(degree) / CGFloat(180.0) * M_PI;
+    }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
