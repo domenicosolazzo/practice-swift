@@ -11,11 +11,8 @@ class GameScene: SKScene {
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         
-        // Background
-        _background = SKSpriteNode(imageNamed: "blue-shooting-stars")
-        _background.name = "background"
-        _background.anchorPoint = CGPointZero
-        self.addChild(_background)
+        // Adding background color
+        self.backgroundColor = SKColor.blueColor()
         
         // Adding the other pictures
         var imageNames:NSArray = NSArray(array: ["bird", "turtle", "cat", "dog"])
@@ -28,9 +25,9 @@ class GameScene: SKScene {
             animalSprite.name = _kAnimalNodeName
             
             // Calculate the position of the new sprite
-            var offsetFraction = (i+20) / (imageNames.count + 1)
+            var offsetFraction = 120 * (i+1)
             // Find the new point
-            var x:CGFloat = CGRectGetMidX(self.frame)
+            var x:CGFloat = CGRectGetMinX(self.frame) + CGFloat(offsetFraction)
             var y:CGFloat = CGRectGetMidY(self.frame)
             var position = CGPointMake(x, y)
             // Setting the new position for the sprite
