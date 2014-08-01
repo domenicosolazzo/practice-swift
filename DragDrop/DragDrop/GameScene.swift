@@ -53,11 +53,26 @@ class GameScene: SKScene {
     
     func selectNodeForTouch(location:CGPoint){
         // Select the node at a given point
-        var touchedNode = self.nodeAtPoint(location)
+        var touchedNode = self.nodeAtPoint(location) as SKSpriteNode
         
         // Check for the selected node
         if !(_selectedNode.isEqual(touchedNode)){
-        
+            // Remove all actions
+            _selectedNode.removeAllActions()
+            // Rotate the node
+            _selectedNode.runAction(SKAction.rotateByAngle(0.0, duration: 0.1))
+            
+            _selectedNode = touchedNode
+            
+            // Check if the nome has a certain name
+            if touchedNode.name == _kAnimalNodeName{
+                var sequence = SKAction.sequence([
+                    SKAction.rotateByAngle(-4.0, duration: 0.1),
+                    SKAction.rotateByAngle(0, duration: 0.1),
+                    SKAction.rotateByAngle(4.0, duration: 0.1)
+                ])
+                touchedNode.runAction(SKAction.repeatActionForever(sequence))
+            }
         }
         
     }
