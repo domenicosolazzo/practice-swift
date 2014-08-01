@@ -47,8 +47,20 @@ class GameScene: SKScene {
         var touch: AnyObject! = touches.anyObject()
         var positionInScene = touch.locationInNode(self)
         
+        self.selectNodeForTouch(positionInScene)
+        
     }
-   
+    
+    func selectNodeForTouch(location:CGPoint){
+        // Select the node at a given point
+        var touchedNode = self.nodeAtPoint(location)
+        
+        // Check for the selected node
+        if !(_selectedNode.isEqual(touchedNode)){
+        
+        }
+        
+    }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
