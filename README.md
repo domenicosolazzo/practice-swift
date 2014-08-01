@@ -23,8 +23,9 @@ Learning a new language: SWIFT
 - Lesson 16: [MapKit: Finding the user location](http://goo.gl/rPg7tS)
 - Lesson 17: [SpriteKit: JumpingBall, a full game using SpriteKit](http://goo.gl/0vgmcZ)
 - Lesson 18: [SpriteKit: Animated Bear, animatations and texture atlases](http://goo.gl/emjPj7)
-- Lesson 19: [Game Of Life](http://goo.gl/82urKd)
-- Lesson 20: [Space Invader](http://goo.gl/q5Yb0s)
+- Lesson 19: [SpriteKit: Drag and Drop Sprites](http://goo.gl/5RYJzh)
+- Lesson 20: [Game Of Life](http://goo.gl/82urKd)
+- Lesson 21: [Space Invader](http://goo.gl/q5Yb0s)
 
 Apps (3)
 
