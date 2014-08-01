@@ -17,6 +17,28 @@ class GameScene: SKScene {
         _background.anchorPoint = CGPointZero
         self.addChild(_background)
         
+        // Adding the other pictures
+        var imageNames:NSArray = NSArray(array: ["bird", "turtle", "cat", "dog"])
+        for i in 0..<imageNames.count{
+            // Fetch the image name
+            var imageName:NSString = imageNames.objectAtIndex(i) as NSString
+            // Create a new sprite
+            var animalSprite:SKSpriteNode = SKSpriteNode(imageNamed: imageName)
+            // Set the name
+            animalSprite.name = _kAnimalNodeName
+            
+            // Calculate the position of the new sprite
+            var offsetFraction = (i+20) / (imageNames.count + 1)
+            // Find the new point
+            var x:CGFloat = CGRectGetMidX(self.frame)
+            var y:CGFloat = CGRectGetMidY(self.frame)
+            var position = CGPointMake(x, y)
+            // Setting the new position for the sprite
+            animalSprite.position = position
+            // Add the sprite to the view
+            self.addChild(animalSprite)
+        }
+        
     }
     
     override func didMoveToView(view: SKView) {
