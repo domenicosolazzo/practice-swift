@@ -12,7 +12,7 @@ class GameScene: SKScene {
         super.init(coder: aDecoder)
         
         // Adding background color
-        self.backgroundColor = SKColor.blueColor()
+        self.backgroundColor = SKColor.blackColor()
         
         // Adding the other pictures
         var imageNames:NSArray = NSArray(array: ["bird", "turtle", "cat", "dog"])
@@ -51,27 +51,36 @@ class GameScene: SKScene {
         
     }
     
+    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+        var touch: AnyObject! = touches.anyObject()
+        var newPosition = touch.locationInNode(self)
+        var previousPosition = touch.previousLocationInNode(self)
+        
+        var translation = CGPointMake(newPosition.x - previousPosition.x, newPosition.y - previousPosition.y)
+        self.panForTranslation(translation)
+    }
+    
     func selectNodeForTouch(location:CGPoint){
         // Select the node at a given point
-        var touchedNode = self.nodeAtPoint(location) as SKSpriteNode
+        var touchedNode = self.nodeAtPoint(location) as? SKSpriteNode
         
         // Check for the selected node
-        if !(_selectedNode.isEqual(touchedNode)){
+        if (touchedNode && !_selectedNode.isEqual(touchedNode)){
             // Remove all actions
             _selectedNode.removeAllActions()
             // Rotate the node
             _selectedNode.runAction(SKAction.rotateByAngle(0.0, duration: 0.1))
             
-            _selectedNode = touchedNode
+            _selectedNode = touchedNode!
             
             // Check if the nome has a certain name
-            if touchedNode.name == _kAnimalNodeName{
+            if touchedNode!.name == _kAnimalNodeName{
                 var sequence = SKAction.sequence([
                     SKAction.rotateByAngle(-4.0, duration: 0.1),
                     SKAction.rotateByAngle(0, duration: 0.1),
                     SKAction.rotateByAngle(4.0, duration: 0.1)
                 ])
-                touchedNode.runAction(SKAction.repeatActionForever(sequence))
+                touchedNode!.runAction(SKAction.repeatActionForever(sequence))
             }
         }
         
