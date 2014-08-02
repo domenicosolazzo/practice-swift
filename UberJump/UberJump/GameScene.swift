@@ -121,4 +121,26 @@ class GameScene: SKScene {
         // Add the sprite to the hud node
         hudNode.addChild(sprite)
     }
+    
+    func createStarAtPosition(position:CGPoint) -> SKNode{
+        // Create a SKNode
+        var starNode = SKNode()
+        // Star position
+        starNode.position = position
+        // Star name
+        starNode.name = "STAR_NODE"
+        
+        // Add a sprite for the star
+        var sprite = SKSpriteNode(imageNamed: "Star")
+        
+        // Add the sprite to the star node
+        starNode.addChild(sprite)
+        
+        // Add a physic body to the star
+        starNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        // The star is static
+        starNode.physicsBody.dynamic = false
+        
+        return starNode
+    }
 }
