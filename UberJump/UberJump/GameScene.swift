@@ -87,6 +87,13 @@ class GameScene: SKScene {
         // No rotation
         playerNode.physicsBody.allowsRotation = false
         
+        // The player node will not lose momentum during collisions
+        playerNode.physicsBody.restitution = 1.0;
+        // Avoid friction and dampling
+        playerNode.physicsBody.friction = 0.0;
+        playerNode.physicsBody.angularDamping = 0.0;
+        playerNode.physicsBody.linearDamping = 0.0;
+        
         return playerNode
     }
 }
