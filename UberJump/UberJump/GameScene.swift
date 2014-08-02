@@ -195,4 +195,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         return starNode
     }
+    
+    func createPlatformAtPosition(position:CGPoint, platformType: PlatformTypes) -> PlatformNode{
+        // Create a platform node
+        var platform = PlatformNode()
+        
+        // Platform position 
+        platform.position = position
+        
+        // Platform name
+        platform.name = "PLATFORM_NAME"
+        
+        // Platform type
+        platform.platformType = platformType
+        
+        // Sprite
+        var sprite = SKSpriteNode(imageNamed: "Platform")
+        if platformType == PlatformTypes.PLATFORM_BREAK{
+            sprite = SKSpriteNode(imageNamed: "PlatformBreak")
+        }
+        
+        platform.addChild(sprite)
+        
+        // Add the physic body
+        platform.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
+        // The platform is static
+        platform.physicsBody.dynamic = false
+        // Category
+        platform.physicsBody.categoryBitMask = ObjectTypes.Platform.toRaw()
+        // Collision 
+        platform.physicsBody.collisionBitMask = 0
+        
+        return platform
+    }
 }
