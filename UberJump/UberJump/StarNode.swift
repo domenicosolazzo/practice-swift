@@ -1,7 +1,7 @@
 import SpriteKit
-enum StarTypes:UInt32{
-    case STAR_NORMAL = 1
-    case STAR_SPECIAL = 2
+enum StarTypes{
+    case STAR_NORMAL
+    case STAR_SPECIAL
 }
 
 class StarNode: GameObjectNode {
