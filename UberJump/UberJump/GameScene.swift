@@ -92,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         foregroundNode.addChild(hudNode)
         
         // Create a star
-        var star = self.createStarAtPosition(CGPointMake(160, 200))
+        var star = self.createStarAtPosition(CGPointMake(160, 200), StarTypes.STAR_SPECIAL)
         foregroundNode.addChild(star)
         
         // Add gravity
@@ -165,13 +165,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hudNode.addChild(sprite)
     }
     
-    func createStarAtPosition(position:CGPoint) -> SKNode{
+    func createStarAtPosition(position:CGPoint, starType:StarTypes) -> SKNode{
         // Create a SKNode
-        var starNode = SKNode()
+        var starNode = StarNode()
         // Star position
         starNode.position = position
         // Star name
         starNode.name = "STAR_NODE"
+        // Star type
+        starNode.starType = starType
         
         // Add a sprite for the star
         var sprite = SKSpriteNode(imageNamed: "Star")
