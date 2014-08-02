@@ -52,5 +52,22 @@ class GameScene: SKScene {
         
         // Add the background node to the scene
         self.addChild(backgroundNode)
+        
+        var player = self.createPlayer()
+        self.addChild(player)
+    }
+    
+    func createPlayer() -> SKNode{
+        var playerNode:SKNode = SKNode()
+        // Set the position
+        playerNode.position = CGPointMake(CGFloat(160), CGFloat(80))
+        
+        // Create the player sprite
+        var sprite :SKSpriteNode = SKSpriteNode(imageNamed: "Player")
+        
+        // Add the sprite to the player node
+        playerNode.addChild(sprite)
+        
+        return playerNode
     }
 }
