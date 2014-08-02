@@ -1,4 +1,9 @@
 import SpriteKit
+enum StarTypes:UInt32{
+    case STAR_NORMAL = 1
+    case STAR_SPECIAL = 2
+}
+
 class StarNode: GameObjectNode {
    
     override func collisionWithPlayer(player: SKNode) -> Bool {
