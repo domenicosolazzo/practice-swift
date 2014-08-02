@@ -8,7 +8,6 @@ var foregroundNode: SKNode = SKNode()
 // Hud node
 var hudNode: SKNode = SKNode()
 
-
 class GameScene: SKScene {
     init(size: CGSize) {
         super.init(size: size)
@@ -45,6 +44,10 @@ class GameScene: SKScene {
         var player = self.createPlayer()
         foregroundNode.addChild(player)
         
+        // Create tap to Start
+        self.createTapToStart()
+        self.addChild(hudNode)
+        
         // Add gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
     }
@@ -52,7 +55,7 @@ class GameScene: SKScene {
     func createBackground() -> SKNode{
         var backgroundNode: SKNode = SKNode()
         // Go through all the background images
-        for i in 0...20{
+        for i in 0..<20{
             var formatter : NSString = NSString(format: "%02d", i+1)
             var backgroundName = "Background\(formatter)"
             
@@ -95,5 +98,14 @@ class GameScene: SKScene {
         playerNode.physicsBody.linearDamping = 0.0;
         
         return playerNode
+    }
+    
+    func createTapToStart(){
+        // Sprite
+        var sprite = SKSpriteNode(imageNamed: "TapToStart")
+        sprite.position = CGPointMake(CGFloat(160), CGFloat(180))
+        
+        // Add the sprite to the hud node
+        hudNode.addChild(sprite)
     }
 }
