@@ -1,8 +1,6 @@
 
 import SpriteKit
 
-// Background node
-var backgroundNode: SKNode = SKNode()
 // Midground node
 var midgroundNode: SKNode = SKNode()
 // Foreground node
@@ -38,6 +36,15 @@ class GameScene: SKScene {
     func initialization(){
         self.backgroundColor = UIColor(red:1, green: 1, blue: 1, alpha: 1)
     
+        var backgroundNode = self.createBackground()
+        self.addChild(backgroundNode)
+        
+        var player = self.createPlayer()
+        self.addChild(player)
+    }
+    
+    func createBackground() -> SKNode{
+        var backgroundNode: SKNode = SKNode()
         // Go through all the background images
         for i in 0...20{
             var formatter : NSString = NSString(format: "%02d", i+1)
@@ -51,10 +58,7 @@ class GameScene: SKScene {
         }
         
         // Add the background node to the scene
-        self.addChild(backgroundNode)
-        
-        var player = self.createPlayer()
-        self.addChild(player)
+        return backgroundNode
     }
     
     func createPlayer() -> SKNode{
