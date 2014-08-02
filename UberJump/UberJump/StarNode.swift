@@ -5,7 +5,9 @@ enum StarTypes{
 }
 
 class StarNode: GameObjectNode {
-   
+    // Star type
+    var starType:StarTypes = StarTypes.STAR_NORMAL
+    
     override func collisionWithPlayer(player: SKNode) -> Bool {
         
         // Boost the player up
