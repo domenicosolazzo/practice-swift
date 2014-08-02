@@ -1,0 +1,3 @@
+class StarNode: GameObjectNode {
+   
+}
