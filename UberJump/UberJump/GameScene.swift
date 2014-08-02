@@ -63,8 +63,14 @@ class GameScene: SKScene {
         self.createTapToStart()
         foregroundNode.addChild(hudNode)
         
+        // Create a star
+        var star = self.createStarAtPosition(CGPointMake(160, 200))
+        foregroundNode.addChild(star)
+        
         // Add gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
+        
+        
     }
     
     func createBackground() -> SKNode{
