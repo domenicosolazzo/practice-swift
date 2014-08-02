@@ -35,6 +35,9 @@ class GameScene: SKScene {
     
     func initialization(){
         self.backgroundColor = UIColor(red:1, green: 1, blue: 1, alpha: 1)
+        
+        // Add the foreground node to the scene
+        self.addChild(foregroundNode)
     
         var backgroundNode = self.createBackground()
         self.addChild(backgroundNode)
