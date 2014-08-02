@@ -55,6 +55,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initialization(){
+        // Set the contact delegate
+        self.physicsWorld.contactDelegate = self
+        
+        // Background color
         self.backgroundColor = UIColor(red:1, green: 1, blue: 1, alpha: 1)
         
         // Add the foreground node to the scene
