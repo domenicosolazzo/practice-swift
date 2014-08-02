@@ -17,7 +17,7 @@ enum ObjectTypes:UInt32{
     case Platform = 3
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     init(size: CGSize) {
         super.init(size: size)
         self.initialization()
