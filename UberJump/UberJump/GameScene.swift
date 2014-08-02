@@ -95,6 +95,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var star = self.createStarAtPosition(CGPointMake(160, 200), starType: StarTypes.STAR_SPECIAL)
         foregroundNode.addChild(star)
         
+        // Add a platform
+        var platform = self.createPlatformAtPosition(CGPointMake(CGFloat(160), CGFloat(320)), platformType: PlatformTypes.PLATFORM_NORMAL)
+        foregroundNode.addChild(platform)
+        
         // Add gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
         
