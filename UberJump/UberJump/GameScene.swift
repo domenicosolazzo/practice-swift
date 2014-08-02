@@ -43,7 +43,7 @@ class GameScene: SKScene {
         self.addChild(backgroundNode)
         
         var player = self.createPlayer()
-        self.addChild(player)
+        foregroundNode.addChild(player)
     }
     
     func createBackground() -> SKNode{
