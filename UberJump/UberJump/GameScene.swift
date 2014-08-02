@@ -162,6 +162,10 @@ class GameScene: SKScene {
         starNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         // The star is static
         starNode.physicsBody.dynamic = false
+        // Category
+        starNode.physicsBody.categoryBitMask = ObjectTypes.Star.toRaw()
+        // No collision
+        starNode.physicsBody.collisionBitMask = 0
         
         return starNode
     }
