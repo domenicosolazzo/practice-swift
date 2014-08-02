@@ -81,6 +81,9 @@ class GameScene: SKScene {
         // Add physic body to the player node
         playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         
+        // The player is dynamic
+        playerNode.physicsBody.dynamic = true
+        
         return playerNode
     }
 }
