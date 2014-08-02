@@ -177,6 +177,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add a sprite for the star
         var sprite = SKSpriteNode(imageNamed: "Star")
+        if starType == StarTypes.STAR_SPECIAL{
+            sprite = SKSpriteNode(imageNamed: "StarSpecial")
+        }
         
         // Add the sprite to the star node
         starNode.addChild(sprite)
