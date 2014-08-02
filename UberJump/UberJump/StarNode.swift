@@ -17,11 +17,11 @@ class StarNode: GameObjectNode {
         // Boost the player up
         player.physicsBody.velocity = CGVectorMake(player.physicsBody.velocity.dx, CGFloat(400))
         
+        // play sound
+        self.parent.runAction(self.starSound)
+        
         // Remove the star from the scene
         self.removeFromParent()
-        
-        // play sound
-        self.runAction(self.starSound)
         
         // The HUD needs updating to show the new stars and score
         return true
