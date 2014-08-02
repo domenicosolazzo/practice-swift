@@ -7,6 +7,8 @@ var midgroundNode: SKNode = SKNode()
 var foregroundNode: SKNode = SKNode()
 // Hud node
 var hudNode: SKNode = SKNode()
+// Player node
+var playerNode:SKNode = SKNode()
 
 class GameScene: SKScene {
     init(size: CGSize) {
@@ -25,7 +27,20 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        // If we're already playing, ignore touches
+        if playerNode.physicsBody.dynamic {
+            return
+        }
         
+        // Remove the Tap to Start node
+        hudNode.removeFromParent();
+        
+        // Start the player by putting them into the physics simulation
+        playerNode.physicsBody.dynamic = true;
+        
+        // Give the player node an initial upward impulse to get them started
+        playerNode.physicsBody.applyImpulse(CGVectorMake(CGFloat(0), CGFloat(20)))
+
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -41,12 +56,12 @@ class GameScene: SKScene {
         var backgroundNode = self.createBackground()
         self.addChild(backgroundNode)
         
-        var player = self.createPlayer()
-        foregroundNode.addChild(player)
+        self.createPlayer()
+        foregroundNode.addChild(playerNode)
         
         // Create tap to Start
         self.createTapToStart()
-        self.addChild(hudNode)
+        foregroundNode.addChild(hudNode)
         
         // Add gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
@@ -70,8 +85,7 @@ class GameScene: SKScene {
         return backgroundNode
     }
     
-    func createPlayer() -> SKNode{
-        var playerNode:SKNode = SKNode()
+    func createPlayer(){
         // Set the position
         playerNode.position = CGPointMake(CGFloat(160), CGFloat(80))
         
@@ -97,7 +111,6 @@ class GameScene: SKScene {
         playerNode.physicsBody.angularDamping = 0.0;
         playerNode.physicsBody.linearDamping = 0.0;
         
-        return playerNode
     }
     
     func createTapToStart(){
