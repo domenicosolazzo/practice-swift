@@ -11,8 +11,7 @@ var hudNode: SKNode = SKNode()
 var playerNode:SKNode = SKNode()
 
 // Enumeration
-// Collider type
-enum ColliderType:UInt32{
+enum ObjectTypes:UInt32{
     case Hero = 1
     case Star = 2
     case Platform = 3
@@ -128,8 +127,12 @@ class GameScene: SKScene {
         // Since this is a fast-moving game, you ask Sprite Kit to use precise collision detection for the player node’s physics body.
         playerNode.physicsBody.usesPreciseCollisionDetection = true
         
-        
-        
+        // Category for the player
+        playerNode.physicsBody.categoryBitMask = ObjectTypes.Hero.toRaw()
+        // No collision for the player
+        playerNode.physicsBody.collisionBitMask = 0
+        // Contact test
+        playerNode.physicsBody.contactTestBitMask = ObjectTypes.Star.toRaw() | ObjectTypes.Platform.toRaw()
     }
     
     func createTapToStart(){
