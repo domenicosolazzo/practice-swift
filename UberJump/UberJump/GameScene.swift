@@ -1,7 +1,15 @@
 
 import SpriteKit
 
+// Background node
 var backgroundNode: SKNode = SKNode()
+// Midground node
+var midgroundNode: SKNode = SKNode()
+// Foreground node
+var foregroundNode: SKNode = SKNode()
+// Hud node
+var hudNode: SKNode = SKNode()
+
 
 class GameScene: SKScene {
     init(size: CGSize) {
