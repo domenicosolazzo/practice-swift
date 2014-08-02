@@ -54,6 +54,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called before each frame is rendered */
     }
     
+    func didBeginContact(contact: SKPhysicsContact!) {
+        var updateHUD = false
+        var other:GameObjectNode = GameObjectNode()
+        
+        if contact.bodyA.node == playerNode{
+            other = contact.bodyB.node as GameObjectNode
+        }else{
+            other = contact.bodyA.node as GameObjectNode
+        }
+        
+        updateHUD = other.collisionWithPlayer(playerNode)
+        
+        if updateHUD{
+        
+        }
+    }
+    
     func initialization(){
         // Set the contact delegate
         self.physicsWorld.contactDelegate = self
