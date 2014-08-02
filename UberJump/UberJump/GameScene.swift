@@ -44,6 +44,9 @@ class GameScene: SKScene {
         
         var player = self.createPlayer()
         foregroundNode.addChild(player)
+        
+        // Add gravity
+        self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
     }
     
     func createBackground() -> SKNode{
