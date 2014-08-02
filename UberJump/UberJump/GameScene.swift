@@ -78,6 +78,9 @@ class GameScene: SKScene {
         // Add the sprite to the player node
         playerNode.addChild(sprite)
         
+        // Add physic body to the player node
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        
         return playerNode
     }
 }
