@@ -1,6 +1,8 @@
 
 import SpriteKit
 
+var backgroundNode: SKNode = SKNode()
+
 class GameScene: SKScene {
     init(size: CGSize) {
         super.init(size: size)
