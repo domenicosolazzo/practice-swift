@@ -8,5 +8,9 @@ enum PlatformTypes{
 }
 
 class PlatformNode: GameObjectNode {
-   
+ 
+    override func collisionWithPlayer(player: SKNode) -> Bool {
+    
+        return true
+    }
 }
