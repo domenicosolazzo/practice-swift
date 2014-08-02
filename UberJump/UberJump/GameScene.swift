@@ -84,6 +84,9 @@ class GameScene: SKScene {
         // The player is dynamic
         playerNode.physicsBody.dynamic = true
         
+        // No rotation
+        playerNode.physicsBody.allowsRotation = false
+        
         return playerNode
     }
 }
