@@ -82,7 +82,7 @@ class GameScene: SKScene {
         playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
         
         // The player is dynamic
-        playerNode.physicsBody.dynamic = true
+        playerNode.physicsBody.dynamic = false
         
         // No rotation
         playerNode.physicsBody.allowsRotation = false
