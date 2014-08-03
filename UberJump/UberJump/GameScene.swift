@@ -18,6 +18,13 @@ enum ObjectTypes:UInt32{
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    // Height at which level ends
+    var endLevelY:Int  = 0
+    // Load the level
+    var levelPlist:NSString = ""
+    var levelData:NSDictionary = NSDictionary()
+    
+    
     init(size: CGSize) {
         super.init(size: size)
         self.initialization()
@@ -101,6 +108,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-0.2))
+        
+        // Load plist
+        levelPlist =  NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
         
         
     }
