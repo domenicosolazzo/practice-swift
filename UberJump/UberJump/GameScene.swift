@@ -114,6 +114,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Load the level data
         levelData = NSDictionary(contentsOfFile: levelPlist)
         
+        // Height at which the player ends the level
+        endLevelY = levelData["EndY"].integerValue
+        
     }
     
     func createBackground() -> SKNode{
