@@ -111,7 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Load plist
         levelPlist =  NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
-        
+        // Load the level data
+        levelData = NSDictionary(contentsOfFile: levelPlist)
         
     }
     
