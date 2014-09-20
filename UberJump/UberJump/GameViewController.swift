@@ -30,6 +30,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide status bar
+        UIApplication.sharedApplication().statusBarHidden = true
         
         /*if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
