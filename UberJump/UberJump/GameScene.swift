@@ -34,6 +34,10 @@ class GameScene: SKScene {
         /// Foreground Node
         _foregroundNode = SKNode()
         self.addChild(_foregroundNode!)
+        
+        /// Player node
+        var player = self.createPlayer()
+        _foregroundNode?.addChild(player)
     }
     override func didMoveToView(view: SKView) {
         
