@@ -9,10 +9,10 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var _backgroundNode:SKNode
-    var _foregroundNode:SKNode
-    var _midgroundNode:SKNode
-    var _hudNode:SKNode
+    var _backgroundNode:SKNode?
+    var _foregroundNode:SKNode?
+    var _midgroundNode:SKNode?
+    var _hudNode:SKNode?
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -29,7 +29,7 @@ class GameScene: SKScene {
         
         /// Background Node
         _backgroundNode = self.createBackgroundNode()
-        self.addChild(_backgroundNode)
+        self.addChild(_backgroundNode!)
     }
     override func didMoveToView(view: SKView) {
         
