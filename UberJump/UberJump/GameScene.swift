@@ -34,8 +34,10 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         
     }
+
+    /// Create a background node
     func createBackgroundNode() -> SKNode{
-        // Create node 1
+        
         var backgroundNode:SKNode = SKNode()
         
         for count in 0...20{
@@ -48,6 +50,17 @@ class GameScene: SKScene {
             
         }
         return backgroundNode
+    }
+    
+    /// Create a player
+    func createPlayer() -> SKNode{
+        var player: SKNode = SKNode()
+        player.position = CGPointMake(CGFloat(180), CGFloat(64))
+    
+        var sprite = SKSpriteNode(imageNamed: "Player")
+        player.addChild(sprite)
+        
+        return player
     }
    
     override func update(currentTime: CFTimeInterval) {
