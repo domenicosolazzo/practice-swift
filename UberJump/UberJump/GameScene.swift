@@ -38,6 +38,9 @@ class GameScene: SKScene {
         /// Player node
         var player = self.createPlayer()
         _foregroundNode?.addChild(player)
+        
+        // Change gravity
+        self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
     }
     override func didMoveToView(view: SKView) {
         
@@ -48,7 +51,7 @@ class GameScene: SKScene {
         
         var backgroundNode:SKNode = SKNode()
         
-        for count in 0...20{
+        for count in 0..<20{
             var backgroundImage = NSString(format:"Background%02d", count+1) as String
             var spriteNode:SKSpriteNode = SKSpriteNode(imageNamed: backgroundImage)
             spriteNode.anchorPoint = CGPointMake(CGFloat(0.5), CGFloat(0))
