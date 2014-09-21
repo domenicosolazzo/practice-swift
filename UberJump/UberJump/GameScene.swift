@@ -35,6 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func initialization(){
         self.backgroundColor = SKColor.whiteColor()
         
+        /// Contact delegate
+        self.physicsWorld.contactDelegate = self
+        
         /// Background Node
         _backgroundNode = self.createBackgroundNode()
         self.addChild(_backgroundNode!)
@@ -48,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _foregroundNode?.addChild(_playerNode!)
         
         // Add star
-        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(220)))
+        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)))
         _foregroundNode?.addChild(star)
             
         /// Hud node
