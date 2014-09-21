@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var _midgroundNode:SKNode?
     var _hudNode:SKNode?
     var _tapToStartNode:SKNode?
+    var _playerNode:SKNode?
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -37,8 +38,8 @@ class GameScene: SKScene {
         self.addChild(_foregroundNode!)
         
         /// Player node
-        var player = self.createPlayer()
-        _foregroundNode?.addChild(player)
+        _playerNode = self.createPlayer()
+        _foregroundNode?.addChild(_playerNode!)
         
         /// Hud node
         _hudNode = self.createHud()
@@ -107,6 +108,10 @@ class GameScene: SKScene {
     }
    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        /// If we are already playing, ignore touches
+        if(self._playerNode?.physicsBody?.dynamic == true){
+            return
+        }
         
     }
     override func update(currentTime: CFTimeInterval) {
