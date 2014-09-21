@@ -78,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }else{
             sprite = SKSpriteNode(imageNamed: "StarSpecial")
         }
+        /// Set the type
+        node.starType = ofType
         node.addChild(sprite)
         
         // Circular physics body
