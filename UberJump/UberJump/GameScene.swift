@@ -51,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _foregroundNode?.addChild(_playerNode!)
         
         // Add star
-        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)))
+        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)), ofType: StarType.STAR_SPECIAL)
         _foregroundNode?.addChild(star)
             
         /// Hud node
@@ -62,7 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
     }
     
-    func createStarPosition(position:CGPoint) -> StarNode{
+    func createStarPosition(position:CGPoint, ofType:StarType) -> StarNode{
         /// Instantiate your StarNode
         var node:StarNode = StarNode()
         
@@ -72,7 +72,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.name = "NODE_STAR"
         
         // Assign the star’s graphic using an SKSpriteNode
-        var sprite = SKSpriteNode(imageNamed: "Star")
+        var sprite:SKSpriteNode = SKSpriteNode()
+        if (ofType == StarType.STAR_NORMAL){
+            sprite = SKSpriteNode(imageNamed: "Star")
+        }else{
+            sprite = SKSpriteNode(imageNamed: "StarSpecial")
+        }
         node.addChild(sprite)
         
         // Circular physics body
