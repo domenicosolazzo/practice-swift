@@ -113,6 +113,9 @@ class GameScene: SKScene {
             return
         }
         
+        /// Remove the tap to start sign
+        _tapToStartNode?.removeFromParent()
+        
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
