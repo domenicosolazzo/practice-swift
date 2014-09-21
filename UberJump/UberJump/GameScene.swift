@@ -170,6 +170,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         
+        var updateHUD:Bool = false
+        
+        // Identify the GameObjectNode
+        var other:SKNode = (contact.bodyA.node != _playerNode!) ? contact.bodyA.node! : contact.bodyB.node!;
+        
+        updateHUD = (other as GameObjectNode).collisionWithPlayer(_playerNode!)
+        
+        // Update the HUD if necessary
+        if (updateHUD) {
+            // 4 TODO: Update HUD in Part 2
+        }
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
