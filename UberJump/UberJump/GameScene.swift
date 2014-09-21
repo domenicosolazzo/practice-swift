@@ -14,7 +14,7 @@ enum GameObjectType: UInt32{
     case Platform = 3
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var _backgroundNode:SKNode?
     var _foregroundNode:SKNode?
     var _midgroundNode:SKNode?
@@ -165,6 +165,10 @@ class GameScene: SKScene {
         
         //You give the player node an initial upward impulse to get them started.
         _playerNode?.physicsBody?.applyImpulse(CGVectorMake(CGFloat(0), CGFloat(20)))
+        
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
         
     }
     override func update(currentTime: CFTimeInterval) {
