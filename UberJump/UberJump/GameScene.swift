@@ -116,6 +116,12 @@ class GameScene: SKScene {
         /// Remove the tap to start sign
         _tapToStartNode?.removeFromParent()
         
+        // Start the player by putting them into the physics simulation
+        _playerNode?.physicsBody?.dynamic = true;
+        
+        //You give the player node an initial upward impulse to get them started.
+        _playerNode?.physicsBody?.applyImpulse(CGVectorMake(CGFloat(0), CGFloat(20)))
+        
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
