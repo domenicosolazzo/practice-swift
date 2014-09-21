@@ -19,6 +19,10 @@ class StarNode: GameObjectNode {
         var dx:CGFloat = player.physicsBody!.velocity.dx
         
         player.physicsBody?.velocity = CGVectorMake(dx, CGFloat(400))
+        
+        // Run the sound
+        self.runAction(self._starSound)
+        
         // Remove this star
         self.removeFromParent()
         
