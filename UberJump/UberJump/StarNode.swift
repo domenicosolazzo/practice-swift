@@ -9,6 +9,10 @@ class StarNode: GameObjectNode {
    
     // Star Type
     var starType:StarType?
+    // Sound action
+    var _starSound:SKAction = SKAction.playSoundFileNamed("StarPing.wav", waitForCompletion: false)
+    
+    
     
     override func collisionWithPlayer(player:SKNode) -> Bool{
         // Boost the player up
