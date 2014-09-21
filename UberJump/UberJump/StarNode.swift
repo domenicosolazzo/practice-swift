@@ -7,6 +7,9 @@ enum StarType:UInt32{
 }
 class StarNode: GameObjectNode {
    
+    // Star Type
+    var starType:StarType?
+    
     override func collisionWithPlayer(player:SKNode) -> Bool{
         // Boost the player up
         var dx:CGFloat = player.physicsBody!.velocity.dx
