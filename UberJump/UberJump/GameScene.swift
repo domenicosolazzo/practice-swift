@@ -42,6 +42,7 @@ class GameScene: SKScene {
         
         /// Hud node
         _hudNode = self.createHud()
+        self.addChild(_hudNode!)
         
         // Change gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
@@ -71,7 +72,7 @@ class GameScene: SKScene {
     /// Create a player
     func createPlayer() -> SKNode{
         var player: SKNode = SKNode()
-        player.position = CGPointMake(CGFloat(180), CGFloat(64))
+        player.position = CGPointMake(CGFloat(160), CGFloat(64))
     
         var sprite = SKSpriteNode(imageNamed: "Player")
         
@@ -97,14 +98,17 @@ class GameScene: SKScene {
     }
     
     func createHud() -> SKNode{
-        var huNode = SKNode()
+        var hudNode:SKNode = SKNode()
         _tapToStartNode = SKSpriteNode(imageNamed: "TapToStart")
-        _tapToStartNode?.position = CGPointMake(CGFloat(160), CGFLoat(180))
+        _tapToStartNode?.position = CGPointMake(CGFloat(160), CGFloat(180))
         
-        huNode.addChild(_tapToStartNode)
+        hudNode.addChild(_tapToStartNode!)
         return hudNode
     }
    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+    }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
