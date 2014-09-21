@@ -78,6 +78,10 @@ class GameScene: SKScene {
         // The node is static
         node.physicsBody?.dynamic = false;
         
+        // Collision detection
+        node.physicsBody?.categoryBitMask = GameObjectType.Star.toRaw()
+        node.physicsBody?.collisionBitMask = 0
+        
         return node;
     }
     
