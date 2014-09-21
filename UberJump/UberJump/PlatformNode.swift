@@ -6,4 +6,5 @@ enum PlatformType:UInt32{
 }
 class PlatformNode: GameObjectNode {
    
+    var platformType:PlatformType
 }
