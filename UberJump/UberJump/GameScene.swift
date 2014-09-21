@@ -73,8 +73,8 @@ class GameScene: SKScene {
         
         /// Add physics
         player.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(sprite.size.width/2))
-        /// Player is dynamic
-        player.physicsBody?.dynamic = true
+        /// Player is dynamic. It is false until the game starts
+        player.physicsBody?.dynamic = false
         /// Player node to remain upright at all times
         player.physicsBody?.allowsRotation = false
         /// Physics body will not lose any of its momentum during collisions
