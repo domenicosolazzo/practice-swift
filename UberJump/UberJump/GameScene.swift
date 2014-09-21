@@ -48,6 +48,29 @@ class GameScene: SKScene {
         // Change gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
     }
+    
+    func createStarPosition(position:CGPoint) -> StarNode{
+        /// Instantiate your StarNode
+        var node:StarNode = StarNode()
+        
+        /// Set the StarNode position
+        node.position = position
+        /// Set the StarNode name
+        node.name = "NODE_STAR"
+        
+        // Assign the star’s graphic using an SKSpriteNode
+        var sprite = SKSpriteNode(imageNamed: "Star")
+        node.addChild(sprite)
+        
+        // Circular physics body
+        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(sprite.size.width/2))
+        
+        // The node is static
+        node.physicsBody?.dynamic = false;
+        
+        return node;
+    }
+    
     override func didMoveToView(view: SKView) {
         
     }
