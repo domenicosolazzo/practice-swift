@@ -13,6 +13,7 @@ class GameScene: SKScene {
     var _foregroundNode:SKNode?
     var _midgroundNode:SKNode?
     var _hudNode:SKNode?
+    var _tapToStartNode:SKNode?
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -38,6 +39,9 @@ class GameScene: SKScene {
         /// Player node
         var player = self.createPlayer()
         _foregroundNode?.addChild(player)
+        
+        /// Hud node
+        _hudNode = self.createHud()
         
         // Change gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
@@ -90,6 +94,15 @@ class GameScene: SKScene {
         player.addChild(sprite)
         
         return player
+    }
+    
+    func createHud() -> SKNode{
+        var huNode = SKNode()
+        _tapToStartNode = SKSpriteNode(imageNamed: "TapToStart")
+        _tapToStartNode?.position = CGPointMake(CGFloat(160), CGFLoat(180))
+        
+        huNode.addChild(_tapToStartNode)
+        return hudNode
     }
    
     override func update(currentTime: CFTimeInterval) {
