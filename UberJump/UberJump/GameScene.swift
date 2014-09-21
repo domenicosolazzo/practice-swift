@@ -57,6 +57,7 @@ class GameScene: SKScene {
             spriteNode.anchorPoint = CGPointMake(CGFloat(0.5), CGFloat(0))
             spriteNode.position = CGPointMake(CGFloat(160), CGFloat(64 * count))
             
+            
             backgroundNode.addChild(spriteNode)
             
         }
@@ -69,6 +70,23 @@ class GameScene: SKScene {
         player.position = CGPointMake(CGFloat(180), CGFloat(64))
     
         var sprite = SKSpriteNode(imageNamed: "Player")
+        
+        /// Add physics
+        player.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(sprite.size.width/2))
+        /// Player is dynamic
+        player.physicsBody?.dynamic = true
+        /// Player node to remain upright at all times
+        player.physicsBody?.allowsRotation = false
+        /// Physics body will not lose any of its momentum during collisions
+        player.physicsBody?.restitution = CGFloat(1)
+        /// No friction
+        player.physicsBody?.friction = CGFloat(0)
+        /// No linear damping
+        player.physicsBody?.linearDamping = CGFloat(0)
+        /// No angular damping
+        player.physicsBody?.angularDamping = CGFloat(0)
+        
+        /// Add sprite to the player node
         player.addChild(sprite)
         
         return player
