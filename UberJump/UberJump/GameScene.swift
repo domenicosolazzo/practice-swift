@@ -8,6 +8,12 @@
 
 import SpriteKit
 
+enum GameObjectType: UInt32{
+    case Player = 1
+    case Star = 2
+    case Platform = 3
+}
+
 class GameScene: SKScene {
     var _backgroundNode:SKNode?
     var _foregroundNode:SKNode?
@@ -41,6 +47,10 @@ class GameScene: SKScene {
         _playerNode = self.createPlayer()
         _foregroundNode?.addChild(_playerNode!)
         
+        // Add star
+        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(220)))
+        _foregroundNode?.addChild(star)
+            
         /// Hud node
         _hudNode = self.createHud()
         self.addChild(_hudNode!)
@@ -114,6 +124,13 @@ class GameScene: SKScene {
         player.physicsBody?.linearDamping = CGFloat(0)
         /// No angular damping
         player.physicsBody?.angularDamping = CGFloat(0)
+        
+        /// Collision detection
+        player.physicsBody?.usesPreciseCollisionDetection = true
+        player.physicsBody?.categoryBitMask = GameObjectType.Player.toRaw()
+        /// Don’t want its physics engine to simulate any collisions for the player node.
+        player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.contactTestBitMask = GameObjectType.Star.toRaw() | GameObjectType.Platform.toRaw()
         
         /// Add sprite to the player node
         player.addChild(sprite)
