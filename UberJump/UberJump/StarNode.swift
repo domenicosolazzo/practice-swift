@@ -1,4 +1,5 @@
 import SpriteKit
+import AVFoundation
 
 enum StarType:UInt32{
     case STAR_NORMAL = 1
