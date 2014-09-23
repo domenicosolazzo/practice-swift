@@ -662,7 +662,7 @@
 			</dict>
 			<dict>
 				<key>pattern</key>
-				<string>single</string>
+				<string>Single</string>
 				<key>x</key>
 				<integer>200</integer>
 				<key>y</key>

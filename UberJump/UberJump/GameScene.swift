@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _tapToStartNode:SKNode?
     var _playerNode:SKNode?
     // Height at which level ends
-    var _endLevelY:Int32?
+    var _endLevelY:Int?
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -44,16 +44,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _backgroundNode = self.createBackgroundNode()
         self.addChild(_backgroundNode!)
         
-        /// Load the level
-        var path = NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
-        var dict = NSDictionary(contentsOfFile: path!)
-        
-        // Height at which the player ends the level
-        _endLevelY = levelData["EndY"].toInt()
         
         /// Foreground Node
         _foregroundNode = SKNode()
         self.addChild(_foregroundNode!)
+        
+        /// Load the level
+        var path = NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
+        var levelData = NSDictionary(contentsOfFile: path!)
+        
+        // Height at which the player ends the level
+        _endLevelY = levelData["EndY"] as Int
+        
+        // Add the platforms
+        var platforms:NSDictionary = levelData["Platforms"] as NSDictionary
+        var platformPatterns:NSDictionary = platforms["Patterns"] as NSDictionary
+        var platformPositions:NSArray = platforms["Positions"] as NSArray
+        for pp in platformPositions {
+            var platformPosition = pp as NSDictionary
+            var patternX:CGFloat = platformPosition["x"] as CGFloat
+            var patternY:CGFloat = platformPosition["y"] as CGFloat
+            var pattern:NSString = platformPosition["pattern"] as NSString
+            
+            // Look up the pattern
+            var platformPattern = platformPatterns[pattern] as NSArray
+            for platformP in platformPattern {
+                var platformPoint = platformP as NSDictionary
+                var x:CGFloat = platformPoint["x"] as CGFloat
+                var y:CGFloat = platformPoint["y"] as CGFloat
+                var type:Int = platformPoint["type"] as Int
+                
+                var platformNode:PlatformNode = self.createPlatformPosition(
+                    CGPointMake(CGFloat(x + patternX), CGFloat(y + patternY)),
+                    ofType: PlatformType.fromRaw(UInt32(type))!)
+                _foregroundNode?.addChild(platformNode)
+            }
+        }
+        
+        
         
         /// Player node
         _playerNode = self.createPlayer()
@@ -64,8 +92,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _foregroundNode?.addChild(star)
         
         // Add platform
-        var platform = self.createPlatformPosition(CGPointMake(CGFloat(160), CGFloat(320)), ofType: PlatformType.PLATFORM_NORMAL)
-        _foregroundNode?.addChild(platform)
+        //var platform = self.createPlatformPosition(CGPointMake(CGFloat(160), CGFloat(320)), ofType: PlatformType.PLATFORM_NORMAL)
+        //_foregroundNode?.addChild(platform)
         
             
         /// Hud node

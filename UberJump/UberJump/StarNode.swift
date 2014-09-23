@@ -2,8 +2,8 @@ import SpriteKit
 import AVFoundation
 
 enum StarType:UInt32{
-    case STAR_NORMAL = 1
-    case STAR_SPECIAL = 2
+    case STAR_NORMAL = 0
+    case STAR_SPECIAL = 1
 }
 class StarNode: GameObjectNode {
    

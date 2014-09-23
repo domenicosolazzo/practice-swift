@@ -1,8 +1,8 @@
 import SpriteKit
 
 enum PlatformType:UInt32{
-    case PLATFORM_NORMAL = 1
-    case PLATFORM_BREAK = 2
+    case PLATFORM_NORMAL = 0
+    case PLATFORM_BREAK = 1
 }
 class PlatformNode: GameObjectNode {
    
