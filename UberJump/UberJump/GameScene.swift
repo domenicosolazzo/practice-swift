@@ -192,6 +192,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return node;
     }
     
+    func createMidgroundNode() -> SKNode{
+        // Create the node
+        var midgroundNode:SKNode = SKNode()
+        
+        // Add some branches to the midground
+        for i in 0..<10 {
+            var spriteName:NSString?
+            
+            var r = arc4random() % 2
+            if (r > 0) {
+                spriteName = "BranchRight"
+            } else {
+                spriteName = "BranchLeft"
+            }
+            var branchNode:SKSpriteNode = SKSpriteNode(imageNamed: spriteName)
+            branchNode.position = CGPointMake(CGFloat(160), CGFloat(500 * i))
+            
+            midgroundNode?.addChild(branchNode)
+        }
+        
+        // Return the completed background node
+        return midgroundNode;
+    }
+    
     override func didMoveToView(view: SKView) {
         
     }
