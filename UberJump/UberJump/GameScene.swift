@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import CoreMotion
 
 enum GameObjectType: UInt32{
     case Player = 1
@@ -23,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _playerNode:SKNode?
     // Height at which level ends
     var _endLevelY:Int?
+    var _motionManager = CMMotionManager()
+
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -39,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /// Contact delegate
         self.physicsWorld.contactDelegate = self
+        
+        // Motion manager
+        _motionManager = CMMotionManager()
         
         /// Background Node
         _backgroundNode = self.createBackgroundNode()
