@@ -281,6 +281,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _tapToStartNode?.position = CGPointMake(CGFloat(160), CGFloat(180))
         
         hudNode.addChild(_tapToStartNode!)
+        
+        //accelerometerUpdateInterval defines the number of seconds between updates from the accelerometer. A value of 0.2 produces a smooth update rate for accelerometer changes.
+        _motionManager.accelerometerUpdateInterval = 0.2;
+    
+        _motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {
+            (data, error) in
+            var accelerometerData:CMAccelerometerData = data as CMAccelerometerData
+            var acceleration:CMAcceleration = accelerometerData.acceleration
+            /// you’ll get much smoother movement using a value derived from three quarters of the accelerometer’s x-axis acceleration (say that three times fast!) and one quarter of the current x-axis acceleration.
+            self._xAcceleration = (CGFloat(acceleration.x) * CGFloat(0.75)) + (self._xAcceleration * CGFloat(0.25))
+            
+        })
         return hudNode
     }
    
