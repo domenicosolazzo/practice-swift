@@ -44,6 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _backgroundNode = self.createBackgroundNode()
         self.addChild(_backgroundNode!)
         
+        /// Load the level
+        var path = NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
+        var dict = NSDictionary(contentsOfFile: path!)
         /// Foreground Node
         _foregroundNode = SKNode()
         self.addChild(_foregroundNode!)
