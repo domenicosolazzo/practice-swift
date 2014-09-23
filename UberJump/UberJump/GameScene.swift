@@ -81,15 +81,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        
+        // Add the stars
+        var stars:NSDictionary = levelData["Stars"] as NSDictionary
+        var starPatterns:NSDictionary = stars["Patterns"] as NSDictionary
+        var starPositions:NSArray = stars["Positions"] as NSArray
+        for starPosition in starPositions {
+            var patternX:CGFloat = starPosition["x"] as CGFloat
+            var patternY:CGFloat = starPosition["y"] as CGFloat
+            var pattern:NSString = starPosition["pattern"] as NSString
+            
+            // Look up the pattern
+            var starPattern:NSArray = starPatterns[pattern] as NSArray
+            for starP in starPattern {
+                var starPoint:NSDictionary = starP as NSDictionary
+                var x:CGFloat = starPoint["x"] as CGFloat
+                var y:CGFloat = starPoint["y"] as CGFloat
+                var type = starPoint["type"] as Int
+                
+                var starNode:StarNode = self.createStarPosition(
+                    CGPointMake(CGFloat(x + patternX), CGFloat(y + patternY)),
+                    ofType:StarType.fromRaw(UInt32(type))!)
+                _foregroundNode?.addChild(starNode)
+            }
+        }
         
         /// Player node
         _playerNode = self.createPlayer()
         _foregroundNode?.addChild(_playerNode!)
         
         // Add star
-        var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)), ofType: StarType.STAR_SPECIAL)
-        _foregroundNode?.addChild(star)
+        //var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)), ofType: StarType.STAR_SPECIAL)
+        //_foregroundNode?.addChild(star)
         
         // Add platform
         //var platform = self.createPlatformPosition(CGPointMake(CGFloat(160), CGFloat(320)), ofType: PlatformType.PLATFORM_NORMAL)
