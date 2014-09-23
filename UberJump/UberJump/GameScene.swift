@@ -21,6 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _hudNode:SKNode?
     var _tapToStartNode:SKNode?
     var _playerNode:SKNode?
+    // Height at which level ends
+    var _endLevelY:Int32?
     
     override init(size: CGSize) {
         super.init(size: size)
