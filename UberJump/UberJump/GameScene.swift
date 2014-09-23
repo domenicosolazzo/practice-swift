@@ -296,6 +296,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return hudNode
     }
    
+    override func didSimulatePhysics() {
+        // Set velocity based on x-axis acceleration
+        _playerNode?.physicsBody?.velocity = CGVectorMake(_xAcceleration * CGFloat(400.0), _playerNode!.physicsBody!.velocity.dy);
+        
+        // 2
+        // Check x bounds
+        if (_playerNode?.position.x < -CGFloat(20.0)) {
+            _playerNode?.position = CGPointMake(CGFloat(340.0), _playerNode!.position.y)
+        } else if (_playerNode?.position.x > CGFloat(340.0)) {
+            _playerNode?.position = CGPointMake(-CGFloat(20.0), _playerNode!.position.y);
+        }
+        return;
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /// If we are already playing, ignore touches
         if(self._playerNode?.physicsBody?.dynamic == true){
