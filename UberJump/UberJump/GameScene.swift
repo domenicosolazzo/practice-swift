@@ -47,6 +47,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /// Load the level
         var path = NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
         var dict = NSDictionary(contentsOfFile: path!)
+        
+        // Height at which the player ends the level
+        _endLevelY = levelData["EndY"].toInt()
+        
         /// Foreground Node
         _foregroundNode = SKNode()
         self.addChild(_foregroundNode!)
