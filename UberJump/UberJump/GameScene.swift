@@ -105,6 +105,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
+        // Adding the midground
+        _midgroundNode?.addChild(self.createMidgroundNode())
+        
         /// Player node
         _playerNode = self.createPlayer()
         _foregroundNode?.addChild(_playerNode!)
