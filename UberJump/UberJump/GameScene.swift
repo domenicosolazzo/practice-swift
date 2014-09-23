@@ -209,10 +209,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 spriteName = "BranchLeft"
             }
-            var branchNode:SKSpriteNode = SKSpriteNode(imageNamed: spriteName)
+            var branchNode:SKSpriteNode = SKSpriteNode(imageNamed: spriteName!)
             branchNode.position = CGPointMake(CGFloat(160), CGFloat(500 * i))
             
-            midgroundNode?.addChild(branchNode)
+            midgroundNode.addChild(branchNode)
         }
         
         // Return the completed background node
@@ -318,5 +318,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        // Calculate player y offset
+        if (_playerNode?.position.y > CGFloat(200)) {
+            _backgroundNode?.position = CGPointMake(CGFloat(0), -((_playerNode!.position.y - CGFloat(200))/10))
+            _midgroundNode?.position = CGPointMake(CGFloat(0), -((_playerNode!.position.y - CGFloat(200)/4)))
+            _foregroundNode?.position = CGPointMake(CGFloat(0), -(_playerNode!.position.y - CGFloat(200)))
+        }
     }
 }
