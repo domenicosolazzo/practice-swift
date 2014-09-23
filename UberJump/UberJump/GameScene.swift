@@ -120,15 +120,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _playerNode = self.createPlayer()
         _foregroundNode?.addChild(_playerNode!)
         
-        // Add star
-        //var star = self.createStarPosition(CGPointMake(CGFloat(160), CGFloat(200)), ofType: StarType.STAR_SPECIAL)
-        //_foregroundNode?.addChild(star)
-        
-        // Add platform
-        //var platform = self.createPlatformPosition(CGPointMake(CGFloat(160), CGFloat(320)), ofType: PlatformType.PLATFORM_NORMAL)
-        //_foregroundNode?.addChild(platform)
-        
-            
         /// Hud node
         _hudNode = self.createHud()
         self.addChild(_hudNode!)
