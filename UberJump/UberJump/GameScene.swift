@@ -25,6 +25,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Height at which level ends
     var _endLevelY:Int?
     var _motionManager = CMMotionManager()
+    // Acceleration value from accelerometer
+    var _xAcceleration:CGFloat = 0
 
     
     override init(size: CGSize) {
