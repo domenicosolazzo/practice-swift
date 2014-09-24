@@ -29,8 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _xAcceleration:CGFloat = 0
     
     // Labels
-    var _lblScore:SKLabelNode
-    var _lblStars:SKLabelNode
+    var _lblScore:SKLabelNode?
+    var _lblStars:SKLabelNode?
 
     
     override init(size: CGSize) {
@@ -285,6 +285,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         _tapToStartNode?.position = CGPointMake(CGFloat(160), CGFloat(180))
         
         hudNode.addChild(_tapToStartNode!)
+        
+        // Build the HUD
+        
+        // Stars
+        var star:SKSpriteNode = SKSpriteNode(imageNamed: "Star")
+        star.position = CGPointMake(25, self.size.height-30);
+        hudNode.addChild(star)
+        
+        // 2
+        _lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        _lblStars?.fontSize = 30;
+        _lblStars?.fontColor = SKColor.whiteColor()
+        _lblStars?.position = CGPointMake(50, self.size.height-40);
+        _lblStars?.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        
+        _lblStars?.text = NSString(format: "X %d", GameState.sharedInstance._stars)
+        hudNode.addChild(_lblStars!)
+        
+        // Score
+        _lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        _lblScore?.fontSize = 30;
+        _lblScore?.fontColor = SKColor.whiteColor()
+        _lblScore?.position = CGPointMake(self.size.width-20, self.size.height-40);
+        _lblScore?.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right;
+        _lblScore?.text = "0"
+        hudNode.addChild(_lblScore!)
+        
         
         //accelerometerUpdateInterval defines the number of seconds between updates from the accelerometer. A value of 0.2 produces a smooth update rate for accelerometer changes.
         _motionManager.accelerometerUpdateInterval = 0.2;
