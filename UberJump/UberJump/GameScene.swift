@@ -27,6 +27,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _motionManager = CMMotionManager()
     // Acceleration value from accelerometer
     var _xAcceleration:CGFloat = 0
+    
+    // Labels
+    var _lblScore:SKLabelNode
+    var _lblStars:SKLabelNode
 
     
     override init(size: CGSize) {
