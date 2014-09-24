@@ -32,6 +32,24 @@ class GameState: NSObject {
             _stars = y
         }
     }
+    
+    func saveGame(){
+        // Update highScore if the current score is greater
+        _highScore = max(_score, _highScore)
+        
+        
+        // Store in user defaults
+        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(_highScore, forKey: "highScore")
+        defaults.setObject(_highScore, forKey: "stars")
+        defaults.synchronize()
+        
+        
+    }
+    
+    
+
+    
 
     
 }
