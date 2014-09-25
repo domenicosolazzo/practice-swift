@@ -20,6 +20,8 @@ class StarNode: GameObjectNode {
         
         player.physicsBody?.velocity = CGVectorMake(dx, CGFloat(400))
         
+        GameState.sharedInstance._score = self.starType == StarType.STAR_NORMAL ? 20 : 100
+        
         // Run the sound
         self.parent!.runAction(self._starSound)
         
