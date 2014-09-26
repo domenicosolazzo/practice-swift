@@ -395,7 +395,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
             _maxPlayerY = Int(self._playerNode!.position.y)
         
-            self._lblScore.text = NSString(format: "%d", GameState.sharedInstance._score )
+            self._lblScore?.text = NSString(format: "%d", GameState.sharedInstance._score )
         }
     }
 }
