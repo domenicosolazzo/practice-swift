@@ -382,6 +382,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        // Remove game objects that have passed by
+        _foregroundNode?enumerateChildNodesWithName("NODE_PLATFORM", usingBlock: {
+            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            var platformNode:PlatformNode = node as PlatformNode
+            platformNode.checkNodeRemoval(self._playerNode!.position.y)
+        })
+        _foregroundNode?enumerateChildNodesWithName("NODE_STAR", usingBlock: {
+            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            var starNode:StarNode = node as StarNode
+            starNode.checkNodeRemoval(self._playerNode!.position.y)
+        })
+
         // Calculate player y offset
         if (_playerNode?.position.y > CGFloat(200)) {
             _backgroundNode?.position = CGPointMake(CGFloat(0), -((_playerNode!.position.y - CGFloat(200))/10))
