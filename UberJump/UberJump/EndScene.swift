@@ -57,4 +57,11 @@ class EndScene: SKScene {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    /// Restart the game
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        var myScene:SKScene = GameScene(size:self.size)
+        var reveal:SKTransition = SKTransition.fadeWithDuration(0.5)
+        self.view?.presentScene(myScene, transition: reveal)
+    }
 }
