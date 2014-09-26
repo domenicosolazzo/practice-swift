@@ -11,16 +11,17 @@ import SpriteKit
 
 class EndScene: SKScene {
     override init(size: CGSize) {
+        super.init(size: size)
         
         var star =   SKSpriteNode(imageNamed: "Star")
-        star.position = CGPointMake(25, self.size.height-30)
+        star.position = CGPointMake(25, size.height-30)
         self.addChild(star)
         
         
         var lblStars:SKLabelNode = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         lblStars.fontSize = 30;
         lblStars.fontColor = SKColor.whiteColor()
-        lblStars.position = CGPointMake(50, self.size.height-40);
+        lblStars.position = CGPointMake(50, size.height-40);
         lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         lblStars.text = NSString(format:"%d", GameState.sharedInstance._stars)
         self.addChild(lblStars)
@@ -51,5 +52,9 @@ class EndScene: SKScene {
         lblTryAgain.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblTryAgain.text = "Tap To Try Again"
         self.addChild(lblTryAgain)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
