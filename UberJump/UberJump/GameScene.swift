@@ -394,6 +394,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        if _gameOver{
+            return
+        }
         // Remove game objects that have passed by
         _foregroundNode?.enumerateChildNodesWithName("NODE_PLATFORM", usingBlock: {
             (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
