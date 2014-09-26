@@ -336,6 +336,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return hudNode
     }
    
+    func EndGame(){
+        self._gameOver = true;
+        
+        GameState.sharedInstance.saveGame()
+        var endGameScene:SKScene = EndScene(size: self.size)
+        var reveal:SKTransition = SKTransition.fadeWithDuration(0.5)
+        self.view?.presentScene(endGameScene, transition: reveal)
+        
+
+    }
     override func didSimulatePhysics() {
         // Set velocity based on x-axis acceleration
         _playerNode?.physicsBody?.velocity = CGVectorMake(_xAcceleration * CGFloat(400.0), _playerNode!.physicsBody!.velocity.dy);
