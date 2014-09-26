@@ -421,5 +421,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
             self._lblScore?.text = NSString(format: "%d", GameState.sharedInstance._score )
         }
+        
+        
+        // Check if we've finished the level
+        if Int(self._playerNode!.position.y) > _endLevelY {
+            self.EndGame()
+        }
+        
+        // Check if we've fallen too far
+        if Int(self._playerNode!.position.y) < (self._maxPlayerY! - 400) {
+            self.EndGame()
+        }
     }
 }
