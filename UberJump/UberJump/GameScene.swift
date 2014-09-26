@@ -29,6 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _xAcceleration:CGFloat = 0
     // Max y reached by player
     var _maxPlayerY:Int?
+    // Game over
+    var _gameOver:Bool?
     
     // Labels
     var _lblScore:SKLabelNode?
