@@ -52,6 +52,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /// Reset
         self._maxPlayerY = 80
+        GameState.sharedInstance._score = 0
+        _gameOver = false
         
         /// Contact delegate
         self.physicsWorld.contactDelegate = self
