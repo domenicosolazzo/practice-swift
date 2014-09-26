@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var _motionManager = CMMotionManager()
     // Acceleration value from accelerometer
     var _xAcceleration:CGFloat = 0
+    // Max y reached by player
+    var _maxPlayerY:Int?
     
     // Labels
     var _lblScore:SKLabelNode?
@@ -45,6 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func initialization(){
         self.backgroundColor = SKColor.whiteColor()
+        
+        /// Reset
+        self._maxPlayerY = 80
         
         /// Contact delegate
         self.physicsWorld.contactDelegate = self
@@ -127,6 +132,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /// Hud node
         _hudNode = self.createHud()
         self.addChild(_hudNode!)
+        
+        
+        //accelerometerUpdateInterval defines the number of seconds between updates from the accelerometer. A value of 0.2 produces a smooth update rate for accelerometer changes.
+        _motionManager.accelerometerUpdateInterval = 0.2;
+        
+        _motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {
+            (data, error) in
+            var accelerometerData:CMAccelerometerData = data as CMAccelerometerData
+            var acceleration:CMAcceleration = accelerometerData.acceleration
+            /// you’ll get much smoother movement using a value derived from three quarters of the accelerometer’s x-axis acceleration (say that three times fast!) and one quarter of the current x-axis acceleration.
+            self._xAcceleration = (CGFloat(acceleration.x) * CGFloat(0.75)) + (self._xAcceleration * CGFloat(0.25))
+            
+        })
         
         // Change gravity
         self.physicsWorld.gravity = CGVectorMake(CGFloat(0), CGFloat(-2))
@@ -313,17 +331,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hudNode.addChild(_lblScore!)
         
         
-        //accelerometerUpdateInterval defines the number of seconds between updates from the accelerometer. A value of 0.2 produces a smooth update rate for accelerometer changes.
-        _motionManager.accelerometerUpdateInterval = 0.2;
-    
-        _motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {
-            (data, error) in
-            var accelerometerData:CMAccelerometerData = data as CMAccelerometerData
-            var acceleration:CMAcceleration = accelerometerData.acceleration
-            /// you’ll get much smoother movement using a value derived from three quarters of the accelerometer’s x-axis acceleration (say that three times fast!) and one quarter of the current x-axis acceleration.
-            self._xAcceleration = (CGFloat(acceleration.x) * CGFloat(0.75)) + (self._xAcceleration * CGFloat(0.25))
-            
-        })
         return hudNode
     }
    
@@ -369,7 +376,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Update the HUD if necessary
         if (updateHUD) {
-            // 4 TODO: Update HUD in Part 2
+            _lblStars?.text = NSString(format: "X %d", GameState.sharedInstance._stars)
+            _lblScore?.text = NSString(format: "%d", GameState.sharedInstance._score)
         }
     }
     override func update(currentTime: CFTimeInterval) {
@@ -379,6 +387,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             _backgroundNode?.position = CGPointMake(CGFloat(0), -((_playerNode!.position.y - CGFloat(200))/10))
             _midgroundNode?.position = CGPointMake(CGFloat(0), -((_playerNode!.position.y - CGFloat(200)/4)))
             _foregroundNode?.position = CGPointMake(CGFloat(0), -(_playerNode!.position.y - CGFloat(200)))
+        }
+        
+        // New max height ?
+        // 1
+        if ((self._playerNode?.position.y > _maxPlayerY!) {
+            GameState.sharedInstance._score += self._playerNode?.position.y - _maxPlayerY!
+        
+            _maxPlayerY = self._playerNode?.position.y
+        
+            self._lblScore.text = NSString(format: "%d", GameState.sharedInstance._score )
         }
     }
 }
