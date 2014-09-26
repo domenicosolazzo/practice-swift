@@ -389,12 +389,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             _foregroundNode?.position = CGPointMake(CGFloat(0), -(_playerNode!.position.y - CGFloat(200)))
         }
         
-        // New max height ?
-        // 1
-        if ((self._playerNode?.position.y > _maxPlayerY!) {
-            GameState.sharedInstance._score += self._playerNode?.position.y - _maxPlayerY!
+        // New max height
+        if Int(self._playerNode!.position.y) > _maxPlayerY! {
+            GameState.sharedInstance._score += (Int(self._playerNode!.position.y) - _maxPlayerY!)
         
-            _maxPlayerY = self._playerNode?.position.y
+            _maxPlayerY = self._playerNode!.position.y
         
             self._lblScore.text = NSString(format: "%d", GameState.sharedInstance._score )
         }
