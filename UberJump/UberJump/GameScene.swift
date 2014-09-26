@@ -393,7 +393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if Int(self._playerNode!.position.y) > _maxPlayerY! {
             GameState.sharedInstance._score += (Int(self._playerNode!.position.y) - _maxPlayerY!)
         
-            _maxPlayerY = self._playerNode!.position.y
+            _maxPlayerY = Int(self._playerNode!.position.y)
         
             self._lblScore.text = NSString(format: "%d", GameState.sharedInstance._score )
         }
