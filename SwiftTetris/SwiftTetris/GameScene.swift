@@ -1,5 +1,9 @@
 import SpriteKit
 
+/// This variable that represent the slowest speed at which the shapes will travel. 
+/// It is setted to 600 milliseconds, which means that every 6/10ths of a second, our shape should descend by one row.
+let TickLengthLevelOne = NSTimeInterval(600)
+
 class GameScene: SKScene {
     
     override init(size: CGSize) {
