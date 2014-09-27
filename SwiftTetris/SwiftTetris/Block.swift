@@ -57,4 +57,9 @@ class Block: Hashable, Printable {
         return self.column ^ self.row
     }
     
+    /// Required from the Printable interface
+    var description: String {
+        return "\(color): [\(column), \(row)]"
+    }
+    
 }
