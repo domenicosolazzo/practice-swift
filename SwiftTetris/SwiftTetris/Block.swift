@@ -52,4 +52,9 @@ class Block: Hashable, Printable {
         return color.spriteName
     }
     
+    /// Required from the Hashable interface
+    var hashValue: Int {
+        return self.column ^ self.row
+    }
+    
 }
