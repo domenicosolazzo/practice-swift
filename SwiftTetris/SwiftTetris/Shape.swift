@@ -110,3 +110,15 @@ class Shape:Hashable, Printable{
 func ==(lhs: Shape, rhs: Shape) -> Bool {
     return lhs.row == rhs.row && lhs.column == rhs.column
 }
+
+
+class SquareShape:Shape {
+    /*
+    // #1
+    | 0•| 1 |
+    | 2 | 3 |
+    
+    • marks the row/column indicator for the shape
+    
+    */
+}
