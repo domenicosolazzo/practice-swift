@@ -62,4 +62,9 @@ class Block: Hashable, Printable {
         return "\(color): [\(column), \(row)]"
     }
     
+    init(column:Int, row:Int, color:BlockColor) {
+        self.column = column
+        self.row = row
+        self.color = color
+    }
 }
