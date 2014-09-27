@@ -52,5 +52,8 @@ class Shape{
     
     // The blocks comprising the shape
     var blocks = Array<Block>()
+    // The current orientation of the shape
+    var orientation: Orientation
+    
 
 }
