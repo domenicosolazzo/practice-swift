@@ -39,6 +39,8 @@ enum BlockColor: Int, Printable {
 
 /// Hashable allows Block to be stored in Array2D.
 class Block: Hashable, Printable {
+    // Constants
+    let color: BlockColor
 
     
 }
