@@ -47,5 +47,9 @@ class Block: Hashable, Printable {
     var row: Int
     var sprite: SKSpriteNode?
 
+    /// Shortcut for retrieving the block name
+    var spriteName: String {
+        return color.spriteName
+    }
     
 }
