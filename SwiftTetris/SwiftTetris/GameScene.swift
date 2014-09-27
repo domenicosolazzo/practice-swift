@@ -30,5 +30,15 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if lastTick == nil { // The game is paused
+            return
+        }
+        /// Recover the time passed since the last execution of update by invoking timeIntervalSinceNow on our lastTick object.
+        var timePassed = lastTick!.timeIntervalSinceNow * -1000.0
+        if timePassed > tickLengthMillis {
+            lastTick = NSDate()
+            tick?()
+        }
+
     }
 }
