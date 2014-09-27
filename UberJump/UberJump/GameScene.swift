@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  UberJump
-//
-//  Created by Domenico Solazzo on 9/20/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
-
 import SpriteKit
 import CoreMotion
 
@@ -163,19 +155,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /// Set the StarNode name
         node.name = "NODE_STAR"
         
-        // Assign the star’s graphic using an SKSpriteNode
-        var sprite:SKSpriteNode = SKSpriteNode()
+        var radius: CGFloat = 0
         if (ofType == StarType.STAR_NORMAL){
-            sprite = SKSpriteNode(imageNamed: "Star")
+            var spriteStar:SKSpriteNode? = SKSpriteNode(imageNamed: "Star")
+            spriteStar?.name = NSString(format:"%d",Int(arc4random_uniform(1000)))
+            /// Set the type
+            node.starType = ofType
+            node.addChild(spriteStar!)
+            radius = spriteStar!.size.width/2
+            spriteStar = nil
         }else{
-            sprite = SKSpriteNode(imageNamed: "StarSpecial")
+            var spriteStarSpecial:SKSpriteNode? = SKSpriteNode(imageNamed: "StarSpecial")
+            spriteStarSpecial?.name = NSString(format:"%d",Int(arc4random_uniform(1000)))
+            /// Set the type
+            node.starType = ofType
+            node.addChild(spriteStarSpecial!)
+            radius = spriteStarSpecial!.size.width/2
+            spriteStarSpecial = nil
         }
-        /// Set the type
-        node.starType = ofType
-        node.addChild(sprite)
+        
         
         // Circular physics body
-        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(sprite.size.width/2))
+        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
+        
         
         // The node is static
         node.physicsBody?.dynamic = false;
@@ -197,18 +199,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.name = "NODE_PLATFORM"
         
         // Assign the star’s graphic using an SKSpriteNode
-        var sprite:SKSpriteNode = SKSpriteNode()
+        
+        var radius:CGFloat = 0
         if (ofType == PlatformType.PLATFORM_NORMAL){
-            sprite = SKSpriteNode(imageNamed: "Platform")
+            var spritePlatform = SKSpriteNode(imageNamed: "Platform")
+            spritePlatform.name = NSString(format:"%d",Int(arc4random_uniform(1000)))
+            /// Set the type
+            node.platformType = ofType
+            node.addChild(spritePlatform)
+            radius = spritePlatform.size.width/2
         }else{
-            sprite = SKSpriteNode(imageNamed: "PlatformBreak")
+            var spritePlatformBreak = SKSpriteNode(imageNamed: "PlatformBreak")
+            spritePlatformBreak.name = NSString(format:"%d",Int(arc4random_uniform(1000)))
+            /// Set the type
+            node.platformType = ofType
+            node.addChild(spritePlatformBreak)
+            radius = spritePlatformBreak.size.width/2
         }
-        /// Set the type
-        node.platformType = ofType
-        node.addChild(sprite)
+        
         
         // Circular physics body
-        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(sprite.size.width/2))
+        node.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
         
         // The node is static
         node.physicsBody?.dynamic = false;
@@ -342,9 +353,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self._gameOver = true;
         
         GameState.sharedInstance.saveGame()
+        
         var endGameScene:SKScene = EndScene(size: self.size)
         var reveal:SKTransition = SKTransition.fadeWithDuration(0.5)
         self.view?.presentScene(endGameScene, transition: reveal)
+        
         
 
     }
