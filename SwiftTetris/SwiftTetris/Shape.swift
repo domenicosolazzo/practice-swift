@@ -36,6 +36,10 @@ enum Orientation:Int, Printable{
     }
 }
 
+// The number of total shape varieties
+let NumShapeTypes: UInt32 = 7
+
+
 class Shape{
 
 }
