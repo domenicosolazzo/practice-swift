@@ -41,4 +41,9 @@ class GameScene: SKScene {
         }
 
     }
+    /// Accessors
+    func startTicking() {
+        lastTick = NSDate()
+    }
+    
 }
