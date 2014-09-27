@@ -33,6 +33,6 @@ enum BlockColor: Int, Printable {
     
     /// This function returns a random choice among the colors found in BlockColor
     static func random() -> BlockColor {
-        return BlockColor.fromRaw(Int(arc4random_uniform(NumberOfColors)))!
+        return BlockColor(rawValue: Int(arc4random_uniform(NumberOfColors)))!
     }
 }
