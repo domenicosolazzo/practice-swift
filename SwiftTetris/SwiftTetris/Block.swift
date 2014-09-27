@@ -30,4 +30,9 @@ enum BlockColor: Int, Printable {
     var description: String {
         return self.spriteName
     }
+    
+    /// This function returns a random choice among the colors found in BlockColor
+    static func random() -> BlockColor {
+        return BlockColor.fromRaw(Int(arc4random_uniform(NumberOfColors)))!
+    }
 }
