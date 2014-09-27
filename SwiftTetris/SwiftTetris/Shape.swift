@@ -35,3 +35,7 @@ enum Orientation:Int, Printable{
         return Orientation(rawValue:rotated)!
     }
 }
+
+class Shape{
+
+}
