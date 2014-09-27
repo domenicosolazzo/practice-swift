@@ -7,5 +7,23 @@ let NumberOfColors: UInt32 = 6
 enum BlockColor: Int, Printable {
 
     case Blue = 0, Orange, Purple, Red, Teal, Yellow
+    
+    /// Computed variable for getting the sprite name
+    var spriteName: String {
+        switch self {
+        case .Blue:
+            return "blue"
+        case .Orange:
+            return "orange"
+        case .Purple:
+            return "purple"
+        case .Red:
+            return "red"
+        case .Teal:
+            return "teal"
+        case .Yellow:
+            return "yellow"
+        }
+    }
 
 }
