@@ -47,4 +47,7 @@ let FourthBlockIdx: Int = 3
 
 class Shape{
 
+    // The color of the shape
+    let color:BlockColor
+
 }
