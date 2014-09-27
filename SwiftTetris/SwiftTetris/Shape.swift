@@ -107,3 +107,7 @@ class Shape:Hashable, Printable{
         self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
     }
 }
+
+func ==(lhs: Shape, rhs: Shape) -> Bool {
+    return lhs.row == rhs.row && lhs.column == rhs.column
+}
