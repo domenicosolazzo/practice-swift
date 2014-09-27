@@ -68,3 +68,8 @@ class Block: Hashable, Printable {
         self.color = color
     }
 }
+
+/// Custom operator- == - when comparing one Block with another. It returns true if and only if both Blocks are in the same location and of the same color. This operator is required in order to support the Hashable protocol
+func ==(lhs: Block, rhs: Block) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row && lhs.color.rawValue == rhs.color.rawValue
+}
