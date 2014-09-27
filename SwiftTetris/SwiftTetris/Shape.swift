@@ -56,5 +56,21 @@ class Shape{
     var orientation: Orientation
     // The column and row representing the shape's anchor point
     var column, row:Int
+    
+    // Required Overrides
+    // Subclasses must override this property
+    var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
+        return [:]
+    }
+    // Subclasses must override this property
+    var bottomBlocksForOrientations: [Orientation: Array<Block>] {
+        return [:]
+    }
+    var bottomBlocks:Array<Block> {
+        if let bottomBlocks = bottomBlocksForOrientations[orientation] {
+            return bottomBlocks
+        }
+        return []
+    }
 
 }
