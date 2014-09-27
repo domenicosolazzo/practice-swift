@@ -54,6 +54,7 @@ class Shape{
     var blocks = Array<Block>()
     // The current orientation of the shape
     var orientation: Orientation
-    
+    // The column and row representing the shape's anchor point
+    var column, row:Int
 
 }
