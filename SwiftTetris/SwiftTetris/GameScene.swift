@@ -9,6 +9,8 @@ class GameScene: SKScene {
     var tickLengthMillis = TickLengthLevelOne
     /// Last time we experience a tick
     var lastTick:NSDate?
+    /// Closure block for each tick
+    var tick:(() -> ())?
     
     override init(size: CGSize) {
         super.init(size:size)
