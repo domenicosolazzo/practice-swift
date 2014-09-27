@@ -84,4 +84,26 @@ class Shape:Hashable, Printable{
     }
 
 
+    final func initializeBlocks() {
+        if let blockRowColumnTranslations = blockRowColumnPositions[orientation] {
+            for i in 0..<blockRowColumnTranslations.count {
+                let blockRow = row + blockRowColumnTranslations[i].rowDiff
+                let blockColumn = column + blockRowColumnTranslations[i].columnDiff
+                let newBlock = Block(column: blockColumn, row: blockRow, color: color)
+                blocks.append(newBlock)
+            }
+        }
+    }
+    
+    init(column:Int, row:Int, color: BlockColor, orientation:Orientation) {
+        self.color = color
+        self.column = column
+        self.row = row
+        self.orientation = orientation
+        initializeBlocks()
+    }
+    
+    convenience init(column:Int, row:Int) {
+        self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
+    }
 }
