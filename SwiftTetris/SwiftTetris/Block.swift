@@ -25,5 +25,9 @@ enum BlockColor: Int, Printable {
             return "yellow"
         }
     }
-
+    
+    /// This property is required if we are to adhere to the Printable protocol
+    var description: String {
+        return self.spriteName
+    }
 }
