@@ -1,6 +1,8 @@
 import Foundation
 import SpriteKit
 
+/// Number of orientations
+let NumOrientations: UInt32 = 4
 
 enum Orientation:Int, Printable{
     case Zero = 0, Ninety, OneEighty, TwoSeventy
