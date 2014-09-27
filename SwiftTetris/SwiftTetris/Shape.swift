@@ -1,4 +1,3 @@
-import Foundation
 import SpriteKit
 
 /// Number of orientations
