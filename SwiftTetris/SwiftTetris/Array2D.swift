@@ -14,5 +14,15 @@ class Array2D<T> {
         array = Array<T?>(count:rows * columns, repeatedValue: nil)
     }
     
+    ///
+    /// Custom subscript for Array2D: The subscript is capable of supporting array[column, row] 
+    subscript(column: Int, row: Int) -> T? {
+        get {
+            return array[(row * columns) + column]
+        }
+        set(newValue) {
+            array[(row * columns) + column] = newValue
+        }
+    }
     
 }
