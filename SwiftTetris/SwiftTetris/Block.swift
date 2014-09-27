@@ -36,3 +36,7 @@ enum BlockColor: Int, Printable {
         return BlockColor(rawValue: Int(arc4random_uniform(NumberOfColors)))!
     }
 }
+
+class Block: Hashable, Printable {
+
+}
