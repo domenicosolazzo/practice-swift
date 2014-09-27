@@ -5,6 +5,12 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size:size)
         
+        self.anchorPoint = CGPoint(x: 0, y: 1.0)
+        // Add background
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: 0, y: 0)
+        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+        addChild(background)
     }
     
 
