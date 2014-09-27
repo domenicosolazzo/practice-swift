@@ -7,6 +7,8 @@ let TickLengthLevelOne = NSTimeInterval(600)
 class GameScene: SKScene {
     /// GameScene's current tick length
     var tickLengthMillis = TickLengthLevelOne
+    /// Last time we experience a tick
+    var lastTick:NSDate?
     
     override init(size: CGSize) {
         super.init(size:size)
