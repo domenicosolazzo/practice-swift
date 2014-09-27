@@ -20,4 +20,8 @@ enum Orientation:Int, Printable{
             return "270"
         }
     }
+    /// Random orientation
+    static func random() -> Orientation {
+        return Orientation(rawValue:Int(arc4random_uniform(NumOrientations)))!
+    }
 }
