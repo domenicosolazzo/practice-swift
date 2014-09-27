@@ -26,6 +26,7 @@ Learning a new language: SWIFT
 - Lesson 19: [SpriteKit: Drag and Drop Sprites](http://goo.gl/5RYJzh)
 - Lesson 20: [Game Of Life](http://goo.gl/82urKd)
 - Lesson 21: [Space Invader](http://goo.gl/q5Yb0s)
+- Lesson 22: [Uber Jump](http://goo.gl/yQJqze)
 
 Apps (3)
 
@@ -33,8 +34,9 @@ Apps (3)
 - [Yet Another Todo List](http://goo.gl/FpcnA6)
 - [Calculator](http://goo.gl/NKAqLO)
 
-Games (3)
+Games (4)
 - [JumpingBall](http://goo.gl/0vgmcZi)
 - [GameOfLife](http://goo.gl/82urKd)
 - [Space Invader](http://goo.gl/q5Yb0s)
 - [Animated Bear](http://goo.gl/emjPj7)
+- [Uber Jump](http://goo.gl/yQJqze)
