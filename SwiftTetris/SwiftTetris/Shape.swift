@@ -39,6 +39,11 @@ enum Orientation:Int, Printable{
 // The number of total shape varieties
 let NumShapeTypes: UInt32 = 7
 
+// Shape indexes
+let FirstBlockIdx: Int = 0
+let SecondBlockIdx: Int = 1
+let ThirdBlockIdx: Int = 2
+let FourthBlockIdx: Int = 3
 
 class Shape{
 
