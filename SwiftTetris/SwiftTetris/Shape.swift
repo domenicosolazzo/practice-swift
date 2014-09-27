@@ -45,7 +45,7 @@ let SecondBlockIdx: Int = 1
 let ThirdBlockIdx: Int = 2
 let FourthBlockIdx: Int = 3
 
-class Shape{
+class Shape:Hashable, Printable{
 
     // The color of the shape
     let color:BlockColor
@@ -72,5 +72,16 @@ class Shape{
         }
         return []
     }
+    
+    // Hashable
+    var hashValue:Int {
+        return reduce(blocks, 0) { $0.hashValue ^ $1.hashValue }
+    }
+    
+    // Printable
+    var description:String {
+        return "\(color) block facing \(orientation): \(blocks[FirstBlockIdx]), \(blocks[SecondBlockIdx]), \(blocks[ThirdBlockIdx]), \(blocks[FourthBlockIdx])"
+    }
+
 
 }
