@@ -49,5 +49,8 @@ class Shape{
 
     // The color of the shape
     let color:BlockColor
+    
+    // The blocks comprising the shape
+    var blocks = Array<Block>()
 
 }
