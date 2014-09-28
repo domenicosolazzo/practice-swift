@@ -233,6 +233,18 @@ class Shape:Hashable, Printable{
         }
     }
     
+    
+    func moveShapeRight() {
+        if let shape = fallingShape {
+            shape.shiftRightByOneColumn()
+            if detectIllegalPlacement() {
+                shape.shiftLeftByOneColumn()
+                return
+            }
+            delegate?.gameShapeDidMove(self)
+        }
+    }
+    
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
