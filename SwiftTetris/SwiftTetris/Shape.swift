@@ -105,6 +105,16 @@ class Shape:Hashable, Printable{
     convenience init(column:Int, row:Int) {
         self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
     }
+    
+    final func rotateBlocks(orientation: Orientation) {
+        if let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] {
+            
+            for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
+                blocks[idx].column = column + columnDiff
+                blocks[idx].row = row + rowDiff
+            }
+        }
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
