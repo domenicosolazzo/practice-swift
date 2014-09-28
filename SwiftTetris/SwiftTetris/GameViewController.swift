@@ -51,6 +51,8 @@ class GameViewController: UIViewController, SwiftrisDelegate {
         }
     }
     
+    @IBAction func didTap(sender: AnyObject) {
+    }
     func gameDidBegin(swiftris: SwifTris) {
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {

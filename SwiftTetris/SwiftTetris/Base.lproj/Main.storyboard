@@ -22,9 +22,16 @@
                             <outletCollection property="gestureRecognizers" destination="edo-86-JZg" appends="YES" id="Btd-re-Mbg"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="didTap" destination="edo-86-JZg" id="wAk-0i-M2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="edo-86-JZg"/>
+                <tapGestureRecognizer id="edo-86-JZg">
+                    <connections>
+                        <action selector="didTap:" destination="LVB-YS-i5n" id="oy0-t9-yML"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
