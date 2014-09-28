@@ -38,6 +38,10 @@ class GameScene: SKScene {
         
         // Adding the game layer
         self.addChild(gameLayer)
+        
+        // Gameboard
+        let gameBoardTexture = SKTexture(imageNamed: "gameboard")
+        
     }
     
 
