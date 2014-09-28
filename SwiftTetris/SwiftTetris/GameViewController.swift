@@ -149,7 +149,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         let removedLines = swiftris.removeCompletedLines()
         if removedLines.linesRemoved.count > 0 {
-            self.scoreLabel.text = "\(swiftris.score)"
+            self.scoreLbl.text = "\(swiftris.score)"
             scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
                 
                 self.gameShapeDidLand(swiftris)
