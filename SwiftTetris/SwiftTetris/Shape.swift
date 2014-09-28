@@ -167,6 +167,18 @@ class Shape:Hashable, Printable{
         rotateBlocks(newOrientation)
         orientation = newOrientation
     }
+    
+    final func raiseShapeByOneRow() {
+        shiftBy(0, rows:-1)
+    }
+    
+    final func shiftRightByOneColumn() {
+        shiftBy(1, rows:0)
+    }
+    
+    final func shiftLeftByOneColumn() {
+        shiftBy(-1, rows:0)
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
