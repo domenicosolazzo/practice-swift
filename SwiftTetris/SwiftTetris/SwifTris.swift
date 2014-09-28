@@ -54,10 +54,18 @@ class SwifTris{
         fallingShape = nextShape
         nextShape = Shape.random(PreviewColumn, startingRow: PreviewRow)
         fallingShape?.moveTo(StartingColumn, row: StartingRow)
+        
+        /// now detect the ending of a Switris game. The game ends when a new shape located at the designated starting location collides with existing blocks. This is the case where the player no longer has enough room to move the new shape, and therefore, we must terminate their tower of terror.
+        if detectIllegalPlacement() {
+            nextShape = fallingShape
+            nextShape!.moveTo(PreviewColumn, row: PreviewRow)
+            endGame()
+            return (nil, nil)
+        }
         return (fallingShape, nextShape)
     }
     
-    /// Function for checking both block boundary conditions. This first determines whether or not a block exceeds the legal size of the game board. The second determines whether or not a block's current location overlaps with an existing block. 
+    /// Function for checking both block boundary conditions. This first determines whether or not a block exceeds the legal size of the game board. The second determines whether or not a block's current location overlaps with an existing block.
     func detectIllegalPlacement() -> Bool {
         if let shape = fallingShape {
             for block in shape.blocks {
