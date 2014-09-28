@@ -119,6 +119,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameDidEnd(swiftris: SwifTris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
+        scene.playSound("gameover.mp3")
+        scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
+            swiftris.beginGame()
+        }
     }
     
     func gameDidLevelUp(swiftris: SwifTris) {
