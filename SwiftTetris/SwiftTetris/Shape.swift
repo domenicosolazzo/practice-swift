@@ -210,6 +210,17 @@ class Shape:Hashable, Printable{
             }
         }
     }
+    
+    func rotateShape() {
+        if let shape = fallingShape {
+            shape.rotateClockwise()
+            if detectIllegalPlacement() {
+                shape.rotateCounterClockwise()
+            } else {
+                delegate?.gameShapeDidMove(self)
+            }
+        }
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
