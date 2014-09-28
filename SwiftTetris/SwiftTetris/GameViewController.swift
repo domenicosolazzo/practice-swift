@@ -50,6 +50,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             }
         }
     }
+    @IBAction func didPan(sender: UIPanGestureRecognizer) {
+    }
    
     @IBAction func didTap(sender: UITapGestureRecognizer) {
         swiftris.rotateShape()
