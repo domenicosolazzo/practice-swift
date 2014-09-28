@@ -85,6 +85,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         return true
     }
 
+    /// Pan gesture recognizer take precedence over the swipe gesture and the tap to do likewise over the pan.
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
+            if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
+                return true
+            }
+        } else if let panRec = gestureRecognizer as? UIPanGestureRecognizer {
+            if let tapRec = otherGestureRecognizer as? UITapGestureRecognizer {
+                return true
+            }
+        }
+        return false
+    }
+    
     func gameDidBegin(swiftris: SwifTris) {
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
