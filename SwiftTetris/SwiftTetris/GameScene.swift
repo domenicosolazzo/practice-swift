@@ -1,6 +1,6 @@
 import SpriteKit
 
-/// It defines the point size of each block sprite - in our case 20.0 x 20.0 - the lower of the available resolution options for each block image. 
+/// It defines the point size of each block sprite - in our case 20.0 x 20.0 - the lower of the available resolution options for each block image.
 let BlockSize:CGFloat = 20.0
 
 /// This variable that represent the slowest speed at which the shapes will travel.
@@ -15,6 +15,10 @@ class GameScene: SKScene {
     /// Closure block for each tick
     var tick:(() -> ())?
     
+    
+    /// It declares a layer position which will give us an offset from the edge of the screen.
+    let LayerPosition = CGPoint(x: 6, y: -6)
+
     override init(size: CGSize) {
         super.init(size:size)
         
