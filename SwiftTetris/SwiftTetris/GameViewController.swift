@@ -14,10 +14,10 @@ class GameViewController: UIViewController {
         skView.multipleTouchEnabled = false
         
         // Create and configure the scene.
-        var scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .AspectFill
+        self.scene = GameScene(size: skView.bounds.size)
+        self.scene.scaleMode = .AspectFill
         
-        scene.tick = didTick
+        self.scene.tick = didTick
         
         swiftris = SwifTris()
         swiftris.beginGame()
