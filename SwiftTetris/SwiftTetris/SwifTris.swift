@@ -33,6 +33,8 @@ class SwifTris{
     var blockArray:Array2D<Block>
     var nextShape:Shape?
     var fallingShape:Shape?
+    /// The delegate will be notified of several events throughout the course of the game
+    var delegate:SwiftrisDelegate?
     
     init() {
         fallingShape = nil
