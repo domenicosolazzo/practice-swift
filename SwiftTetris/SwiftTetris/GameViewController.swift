@@ -24,4 +24,11 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    /// It lowers the falling shape by one row and then asks GameScene to redraw the shape at its new location.
+    func didTick() {
+        swiftris.fallingShape?.lowerShapeByOneRow()
+        scene.redrawShape(swiftris.fallingShape!, completion: {})
+    }
+
 }
