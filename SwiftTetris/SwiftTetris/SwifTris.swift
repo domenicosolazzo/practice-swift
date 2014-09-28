@@ -80,7 +80,7 @@ class SwifTris{
         return false
     }
     
-    /// Function for detecting the end of the game
+    /// Function for ending the game
     func endGame() {
         delegate?.gameDidEnd(self)
     }

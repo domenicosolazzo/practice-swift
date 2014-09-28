@@ -154,6 +154,13 @@ class Shape:Hashable, Printable{
             return ZShape(column:startingColumn, row:startingRow)
         }
     }
+    
+    final func rotateClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: true)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
+    
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
