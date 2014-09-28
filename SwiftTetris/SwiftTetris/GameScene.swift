@@ -1,5 +1,8 @@
 import SpriteKit
 
+/// It defines the point size of each block sprite - in our case 20.0 x 20.0 - the lower of the available resolution options for each block image. 
+let BlockSize:CGFloat = 20.0
+
 /// This variable that represent the slowest speed at which the shapes will travel.
 /// It is setted to 600 milliseconds, which means that every 6/10ths of a second, our shape should descend by one row.
 let TickLengthLevelOne = NSTimeInterval(600)
