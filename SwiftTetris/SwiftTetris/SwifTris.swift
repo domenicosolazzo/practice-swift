@@ -46,6 +46,7 @@ class SwifTris{
         if (nextShape == nil) {
             nextShape = Shape.random(PreviewColumn, startingRow: PreviewRow)
         }
+        delegate?.gameDidBegin(self)
     }
     
     /// Create a new shape before moving the falling shape
