@@ -39,11 +39,16 @@ class SwifTris{
     var fallingShape:Shape?
     /// The delegate will be notified of several events throughout the course of the game
     var delegate:SwiftrisDelegate?
+    var score:Int
+    var level:Int
+
     
     init() {
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
+        score = 0
+        level = 1
     }
     
     func beginGame() {
@@ -87,6 +92,8 @@ class SwifTris{
     /// Function for ending the game
     func endGame() {
         delegate?.gameDidEnd(self)
+        score = 0
+        level = 1
     }
     
     
