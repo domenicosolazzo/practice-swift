@@ -7,6 +7,27 @@ let StartingRow = 0
 let PreviewColumn = 12
 let PreviewRow = 1
 
+// Custom protocol
+protocol SwiftrisDelegate {
+    // Invoked when the current round of Swiftris ends
+    func gameDidEnd(swiftris: SwifTris)
+    
+    // Invoked immediately after a new game has begun
+    func gameDidBegin(swiftris: SwifTris)
+    
+    // Invoked when the falling shape has become part of the game board
+    func gameShapeDidLand(swiftris: SwifTris)
+    
+    // Invoked when the falling shape has changed its location
+    func gameShapeDidMove(swiftris: SwifTris)
+    
+    // Invoked when the falling shape has changed its location after being dropped
+    func gameShapeDidDrop(swiftris: SwifTris)
+    
+    // Invoked when the game has reached a new level
+    func gameDidLevelUp(swiftris: SwifTris)
+}
+
 class SwifTris{
 
     var blockArray:Array2D<Block>
