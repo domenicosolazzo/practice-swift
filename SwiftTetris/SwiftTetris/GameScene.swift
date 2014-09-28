@@ -131,4 +131,16 @@ class GameScene: SKScene {
         runAction(SKAction.waitForDuration(0.2), completion: completion)
     }
     
+    /// Redraw shape
+    func redrawShape(shape:Shape, completion:() -> ()) {
+        for (idx, block) in enumerate(shape.blocks) {
+            let sprite = block.sprite!
+            let moveTo = pointForColumn(block.column, row:block.row)
+            let moveToAction:SKAction = SKAction.moveTo(moveTo, duration: 0.05)
+            moveToAction.timingMode = .EaseOut
+            sprite.runAction(moveToAction, completion: nil)
+        }
+        runAction(SKAction.waitForDuration(0.05), completion: completion)
+    }
+    
 }
