@@ -20,6 +20,7 @@ class GameViewController: UIViewController, SwiftrisDelegate {
         self.scene.tick = didTick
         
         swiftris = SwifTris()
+        swiftris.delegate = self
         swiftris.beginGame()
         
         // Present the scene.
