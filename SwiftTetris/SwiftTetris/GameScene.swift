@@ -15,7 +15,8 @@ class GameScene: SKScene {
     /// Closure block for each tick
     var tick:(() -> ())?
     
-    
+    /// It sits on top of the background layer
+    let gameLayer = SKNode()
     /// It declares a layer position which will give us an offset from the edge of the screen.
     let LayerPosition = CGPoint(x: 6, y: -6)
 
