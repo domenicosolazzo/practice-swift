@@ -3,7 +3,9 @@ import SpriteKit
 
 
 class GameViewController: UIViewController {
-
+    var scene: GameScene!
+    var swiftris:SwifTris!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
