@@ -50,9 +50,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             }
         }
     }
-    
-    @IBAction func didTap(sender: AnyObject) {
+   
+    @IBAction func didTap(sender: UITapGestureRecognizer) {
+        swiftris.rotateShape()
     }
+    
+    
     func gameDidBegin(swiftris: SwifTris) {
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
