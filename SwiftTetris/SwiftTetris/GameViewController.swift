@@ -2,7 +2,7 @@ import UIKit
 import SpriteKit
 
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SwiftrisDelegate {
     var scene: GameScene!
     var swiftris:SwifTris!
     
