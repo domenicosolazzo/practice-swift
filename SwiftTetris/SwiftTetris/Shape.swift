@@ -161,6 +161,12 @@ class Shape:Hashable, Printable{
         orientation = newOrientation
     }
     
+    
+    final func rotateCounterClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: false)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
