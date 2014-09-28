@@ -190,6 +190,26 @@ class Shape:Hashable, Printable{
             delegate?.gameShapeDidDrop(self)
         }
     }
+    
+    /// It lowers the shape by one row and ends the game if it fails to do so without finding legal placement for it.
+    func letShapeFall() {
+        if let shape = fallingShape {
+            shape.lowerShapeByOneRow()
+            if detectIllegalPlacement() {
+                shape.raiseShapeByOneRow()
+                if detectIllegalPlacement() {
+                    endGame()
+                } else {
+                    settleShape()
+                }
+            } else {
+                delegate?.gameShapeDidMove(self)
+                if detectTouch() {
+                    settleShape()
+                }
+            }
+        }
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
