@@ -17,8 +17,25 @@ class GameViewController: UIViewController {
         var scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
+        scene.tick = didTick
+        
+        swiftris = SwifTris()
+        swiftris.beginGame()
+        
         // Present the scene.
         skView.presentScene(scene)
+        
+        // It adds nextShape to the game layer at the preview location. When that animation completes, we reposition the underlying Shape object at the starting row and starting column before we ask GameScene to move it from the preview location to its starting position. Once that completes, we ask Swiftris for a new shape, begin ticking, and add the newly established upcoming piece to the preview area.
+        scene.addPreviewShapeToScene(swiftris.nextShape!) {
+            self.swiftris.nextShape?.moveTo(StartingColumn, row: StartingRow)
+            self.scene.movePreviewShape(self.swiftris.nextShape!) {
+                let nextShapes = self.swiftris.newShape()
+                self.scene.startTicking()
+                self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
+            }
+        }
+        
+        
     }
 
     override func prefersStatusBarHidden() -> Bool {
