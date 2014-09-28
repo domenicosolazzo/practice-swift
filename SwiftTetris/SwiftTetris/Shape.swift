@@ -119,6 +119,23 @@ class Shape:Hashable, Printable{
     final func lowerShapeByOneRow() {
         shiftBy(0, rows:1)
     }
+    
+    final func shiftBy(columns: Int, rows: Int) {
+        self.column += columns
+        self.row += rows
+        for block in blocks {
+            block.column += columns
+            block.row += rows
+        }
+    }
+    
+    final func moveTo(column: Int, row:Int) {
+        self.column = column
+        self.row = row
+        rotateBlocks(orientation)
+    }
+    
+    
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
