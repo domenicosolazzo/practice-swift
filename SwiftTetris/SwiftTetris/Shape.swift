@@ -115,6 +115,10 @@ class Shape:Hashable, Printable{
             }
         }
     }
+    
+    final func lowerShapeByOneRow() {
+        shiftBy(0, rows:1)
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
