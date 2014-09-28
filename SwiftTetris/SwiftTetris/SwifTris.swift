@@ -56,4 +56,19 @@ class SwifTris{
         fallingShape?.moveTo(StartingColumn, row: StartingRow)
         return (fallingShape, nextShape)
     }
+    
+    /// Function for checking both block boundary conditions. This first determines whether or not a block exceeds the legal size of the game board. The second determines whether or not a block's current location overlaps with an existing block. 
+    func detectIllegalPlacement() -> Bool {
+        if let shape = fallingShape {
+            for block in shape.blocks {
+                if block.column < 0 || block.column >= NumColumns
+                    || block.row < 0 || block.row >= NumRows {
+                        return true
+                } else if blockArray[block.column, block.row] != nil {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }
