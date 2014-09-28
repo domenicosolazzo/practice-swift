@@ -30,6 +30,7 @@
                 <tapGestureRecognizer id="edo-86-JZg">
                     <connections>
                         <action selector="didTap:" destination="LVB-YS-i5n" id="oy0-t9-yML"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="aKo-oI-Jo1"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
