@@ -179,6 +179,17 @@ class Shape:Hashable, Printable{
     final func shiftLeftByOneColumn() {
         shiftBy(-1, rows:0)
     }
+    
+    /// Dropping a shape is the act of sending it plummeting towards the bottom of the game board.
+    func dropShape() {
+        if let shape = fallingShape {
+            while detectIllegalPlacement() == false {
+                shape.lowerShapeByOneRow()
+            }
+            shape.raiseShapeByOneRow()
+            delegate?.gameShapeDidDrop(self)
+        }
+    }
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
