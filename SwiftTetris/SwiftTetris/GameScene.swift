@@ -22,6 +22,10 @@ class GameScene: SKScene {
     /// It declares a layer position which will give us an offset from the edge of the screen.
     let LayerPosition = CGPoint(x: 6, y: -6)
 
+    /// Dictionary of SKTexture
+    var textureCache = Dictionary<String, SKTexture>()
+
+    
     override init(size: CGSize) {
         super.init(size:size)
         
