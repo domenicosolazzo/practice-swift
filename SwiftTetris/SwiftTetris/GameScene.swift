@@ -50,10 +50,13 @@ class GameScene: SKScene {
         gameLayer.addChild(shapeLayer)
     }
     
+    
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
@@ -76,6 +79,14 @@ class GameScene: SKScene {
     
     func stopTicking() {
         lastTick = nil
+    }
+    
+    /// This function returns the precise coordinate on the screen for where a block sprite belongs based on its row and column position. 
+    /// Each sprite will be anchored at its center, therefore we need to find its center coordinate before placing it in our shapeLayer object.
+    func pointForColumn(column: Int, row: Int) -> CGPoint {
+        let x: CGFloat = LayerPosition.x + (CGFloat(column) * BlockSize) + (BlockSize / 2)
+        let y: CGFloat = LayerPosition.y - ((CGFloat(row) * BlockSize) + (BlockSize / 2))
+        return CGPointMake(x, y)
     }
     
 }
