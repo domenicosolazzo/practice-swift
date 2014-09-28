@@ -77,6 +77,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        swiftris.dropShape()
     }
     
     func gameDidBegin(swiftris: SwifTris) {
