@@ -140,6 +140,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.redrawShape(swiftris.fallingShape!) {
             swiftris.letShapeFall()
         }
+        scene.playSound("drop.mp3")
     }
     
     func gameShapeDidLand(swiftris: SwifTris) {
