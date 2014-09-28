@@ -17,6 +17,8 @@ class GameScene: SKScene {
     
     /// It sits on top of the background layer
     let gameLayer = SKNode()
+    /// It sits on top of the game layer
+    let shapeLayer = SKNode()
     /// It declares a layer position which will give us an offset from the edge of the screen.
     let LayerPosition = CGPoint(x: 6, y: -6)
 
