@@ -58,7 +58,9 @@ class GameScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    func playSound(sound:String) {
+        runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
+    }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
