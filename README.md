@@ -27,6 +27,7 @@ Learning a new language: SWIFT
 - Lesson 20: [Game Of Life](http://goo.gl/82urKd)
 - Lesson 21: [Space Invader](http://goo.gl/q5Yb0s)
 - Lesson 22: [Uber Jump](http://goo.gl/yQJqze)
+- Lesson 23: [Swift Tetris](http://goo.gl/BBD36S)
 
 Apps (3)
 
@@ -34,9 +35,10 @@ Apps (3)
 - [Yet Another Todo List](http://goo.gl/FpcnA6)
 - [Calculator](http://goo.gl/NKAqLO)
 
-Games (4)
+Games (5)
 - [JumpingBall](http://goo.gl/0vgmcZi)
 - [GameOfLife](http://goo.gl/82urKd)
 - [Space Invader](http://goo.gl/q5Yb0s)
 - [Animated Bear](http://goo.gl/emjPj7)
 - [Uber Jump](http://goo.gl/yQJqze)
+- [Swift Tetris](http://goo.gl/BBD36S)
