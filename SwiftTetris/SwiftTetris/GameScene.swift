@@ -89,4 +89,33 @@ class GameScene: SKScene {
         return CGPointMake(x, y)
     }
     
+    /// Add a shape for the first time to the scene as a preview shape
+    func addPreviewShapeToScene(shape:Shape, completion:() -> ()) {
+        for (idx, block) in enumerate(shape.blocks) {
+            // It uses a dictionary to store copies of re-usable SKTexture objects since each shape will require multiple copies of the same image.
+            var texture = textureCache[block.spriteName]
+            if texture == nil {
+                texture = SKTexture(imageNamed: block.spriteName)
+                textureCache[block.spriteName] = texture
+            }
+            let sprite = SKSpriteNode(texture: texture)
+            
+            // It uses our convenient pointForColumn(Int, Int) method to place each block's sprite in the proper location. We start it at row - 2, such that the preview piece animates smoothly into place from a higher location.
+            sprite.position = pointForColumn(block.column, row:block.row - 2)
+            shapeLayer.addChild(sprite)
+            block.sprite = sprite
+            
+            // Animation
+            sprite.alpha = 0
+            
+            // It is responsible for visually manipulating SKNode objects. Each block will fade and move into place as it appears as part of the next piece. It will move two rows down and fade from complete transparency to 70% opacity. This small design choice lets the player ignore the preview piece easily if they so choose since it will be duller than the active moving piece.
+            let moveAction = SKAction.moveTo(pointForColumn(block.column, row: block.row), duration: NSTimeInterval(0.2))
+            moveAction.timingMode = .EaseOut
+            let fadeInAction = SKAction.fadeAlphaTo(0.7, duration: 0.4)
+            fadeInAction.timingMode = .EaseOut
+            sprite.runAction(SKAction.group([moveAction, fadeInAction]))
+        }
+        runAction(SKAction.waitForDuration(0.4), completion: completion)
+    }
+    
 }
