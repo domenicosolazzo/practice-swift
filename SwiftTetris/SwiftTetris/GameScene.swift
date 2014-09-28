@@ -46,6 +46,7 @@ class GameScene: SKScene {
         gameBoard.position = LayerPosition
         
         shapeLayer.position = LayerPosition
+        shapeLayer.addChild(gameBoard)
         
     }
     
