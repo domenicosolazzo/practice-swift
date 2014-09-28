@@ -76,6 +76,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         swiftris.rotateShape()
     }
     
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+    }
     
     func gameDidBegin(swiftris: SwifTris) {
         // The following is false when restarting a new game
