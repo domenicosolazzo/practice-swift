@@ -41,6 +41,7 @@ class GameScene: SKScene {
         
         // Gameboard
         let gameBoardTexture = SKTexture(imageNamed: "gameboard")
+        let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSizeMake(BlockSize * CGFloat(NumColumns), BlockSize * CGFloat(NumRows)))
         
     }
     
