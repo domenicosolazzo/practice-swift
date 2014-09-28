@@ -118,4 +118,17 @@ class GameScene: SKScene {
         runAction(SKAction.waitForDuration(0.4), completion: completion)
     }
     
+    /// Move the preview shape
+    func movePreviewShape(shape:Shape, completion:() -> ()) {
+        for (idx, block) in enumerate(shape.blocks) {
+            let sprite = block.sprite!
+            let moveTo = pointForColumn(block.column, row:block.row)
+            let moveToAction:SKAction = SKAction.moveTo(moveTo, duration: 0.2)
+            moveToAction.timingMode = .EaseOut
+            sprite.runAction(
+                SKAction.group([moveToAction, SKAction.fadeAlphaTo(1.0, duration: 0.2)]), completion:nil)
+        }
+        runAction(SKAction.waitForDuration(0.2), completion: completion)
+    }
+    
 }
