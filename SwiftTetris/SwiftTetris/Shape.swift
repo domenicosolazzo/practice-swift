@@ -256,6 +256,20 @@ class Shape:Hashable, Printable{
         }
     }
     
+    func detectTouch() -> Bool {
+        if let shape = fallingShape {
+            for bottomBlock in shape.bottomBlocks {
+                if bottomBlock.row == NumRows - 1 ||
+                    blockArray[bottomBlock.column, bottomBlock.row + 1] != nil {
+                        return true
+                }
+            }
+        }
+        return false
+    }
+
+
+    
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
