@@ -80,6 +80,11 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         swiftris.dropShape()
     }
     
+    /// Optional delegate method found in UIGestureRecognizerDelegate which will allow each gesture recognizer to work in tandem with the others. However, at times a gesture recognizer may collide with another.
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        return true
+    }
+
     func gameDidBegin(swiftris: SwifTris) {
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
