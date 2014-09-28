@@ -6,6 +6,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var scene: GameScene!
     var swiftris:SwifTris!
     
+    /// It keeps track of the last point on the screen at which a shape movement occurred or where a pan begins.
+    var panPointReference:CGPoint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +54,22 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
     }
     @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        let currentPoint = sender.translationInView(self.view)
+        if let originalPoint = panPointReference {
+            
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                
+                if sender.velocityInView(self.view).x > CGFloat(0) {
+                    swiftris.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    swiftris.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .Began {
+            panPointReference = currentPoint
+        }
     }
    
     @IBAction func didTap(sender: UITapGestureRecognizer) {
