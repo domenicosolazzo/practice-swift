@@ -18,4 +18,10 @@ class SwifTris{
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
     }
+    
+    func beginGame() {
+        if (nextShape == nil) {
+            nextShape = Shape.random(PreviewColumn, startingRow: PreviewRow)
+        }
+    }
 }
