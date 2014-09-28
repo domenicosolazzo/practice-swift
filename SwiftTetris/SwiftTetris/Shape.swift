@@ -245,6 +245,17 @@ class Shape:Hashable, Printable{
         }
     }
     
+    /// settleShape() adds the falling shape to the collection of blocks maintained by Swiftris. Once the falling shape's blocks are part of the game board, fallingShape is nullified and the delegate is notified of a new shape settling into the game board.
+    func settleShape() {
+        if let shape = fallingShape {
+            for block in shape.blocks {
+                blockArray[block.column, block.row] = block
+            }
+            fallingShape = nil
+            delegate?.gameShapeDidLand(self)
+        }
+    }
+    
 }
 
 func ==(lhs: Shape, rhs: Shape) -> Bool {
