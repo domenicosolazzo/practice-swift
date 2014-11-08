@@ -11,5 +11,15 @@ enum CookieType: Int {
 }
 
 class Cookie{
-
+    var column:Int
+    var row:Int
+    let cookieType: CookieType
+    var sprite:SKSpriteNode?
+    
+    init(column:Int, row:Int, cookieType:CookieType){
+        self.column = column
+        self.row = row
+        self.cookieType = cookieType
+    }
+    
 }
