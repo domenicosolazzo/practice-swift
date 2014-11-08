@@ -8,6 +8,22 @@ import SpriteKit
 
 enum CookieType: Int {
     case Unknown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
+    
+    var spriteName: String {
+        let spriteNames = [
+            "Croissant",
+            "Cupcake",
+            "Danish",
+            "Donut",
+            "Macaroon",
+            "SugarCookie"]
+        
+        return spriteNames[rawValue - 1]
+    }
+    
+    var highlightedSpriteName: String {
+        return spriteName + "-Highlighted"
+    }
 }
 
 class Cookie{
