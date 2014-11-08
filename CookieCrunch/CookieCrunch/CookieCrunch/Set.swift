@@ -42,6 +42,8 @@ struct Set<T: Hashable>: SequenceType, Printable {
         return combined
     }
     
+    /// conforms to the SequenceType protocol and implements generate() to return a so-called “generator” object. 
+    /// This allows you to use the set in for-in loops.
     func generate() -> IndexingGenerator<Array<T>> {
         return allElements().generate()
     }
