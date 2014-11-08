@@ -2,41 +2,32 @@
 //  GameScene.swift
 //  CookieCrunch
 //
-//  Created by Domenico on 11/8/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
+//  Created by Domenico on 11/8/14
 
 import SpriteKit
 
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+    override init(size: CGSize) {
+        super.init(size: size)
         
-        self.addChild(myLabel)
+        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        let background = SKSpriteNode(imageNamed: "Background")
+        self.addChild(background)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToView(view: SKView) {
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        
     }
    
     override func update(currentTime: CFTimeInterval) {

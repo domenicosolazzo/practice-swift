@@ -3,8 +3,7 @@
 //  CookieCrunch
 //
 //  Created by Domenico on 11/8/14.
-//  Copyright (c) 2014 Domenico Solazzo. All rights reserved.
-//
+
 
 import UIKit
 import SpriteKit
