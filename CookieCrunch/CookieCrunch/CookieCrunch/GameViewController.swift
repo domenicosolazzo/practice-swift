@@ -26,6 +26,8 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    var level:Level!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
