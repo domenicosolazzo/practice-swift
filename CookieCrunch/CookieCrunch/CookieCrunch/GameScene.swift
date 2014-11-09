@@ -7,6 +7,14 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var level:Level!
+    
+    let TileWidth: CGFloat = 32.0
+    let TileHeight: CGFloat = 36.0
+    
+    let gameLayer: SKNode = SKNode()
+    let cookiesLayer:SKNode = SKNode()
+    
     override init(size: CGSize) {
         super.init(size: size)
         
