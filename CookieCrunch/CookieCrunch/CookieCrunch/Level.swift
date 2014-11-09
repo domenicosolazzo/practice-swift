@@ -16,6 +16,15 @@ class Level{
     /// The cookies array is private, so Level needs to provide a way for others to obtain a cookie object at a specific position in the level grid
     private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
+    /// Which part of the grid can contain a cookie
+    private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
+    
+    func tileAtColumn(column: Int, row: Int) -> Tile? {
+        assert(column >= 0 && column < NumColumns)
+        assert(row >= 0 && row < NumRows)
+        return tiles[column, row]
+    }
+    
     func cookieAtColumn(column: Int, row: Int) -> Cookie? {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
