@@ -57,16 +57,17 @@ class Level{
         // The method loops through the rows and columns of the 2-D array
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
+                if tiles[column, row] != nil {
+                    // Then the method picks a random cookie type
+                    var cookieType = CookieType.random()
                 
-                // Then the method picks a random cookie type
-                var cookieType = CookieType.random()
+                    // The method creates a new Cookie object and adds it to the 2-D array
+                    let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    cookies[column, row] = cookie
                 
-                // The method creates a new Cookie object and adds it to the 2-D array
-                let cookie = Cookie(column: column, row: row, cookieType: cookieType)
-                cookies[column, row] = cookie
-                
-                // The method adds the new Cookie object to a Set. Shuffle returns this set of cookie objects to its caller
-                set.addElement(cookie)
+                    // The method adds the new Cookie object to a Set. Shuffle returns this set of cookie objects to its caller
+                    set.addElement(cookie)
+                }
             }
         }
         return set
