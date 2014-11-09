@@ -24,6 +24,11 @@ class GameScene: SKScene {
         self.addChild(background)
         
         self.addChild(gameLayer)
+        
+        let layerPosition = CGPoint(
+            x: -TileWidth * CGFloat(NumColumns) / 2,
+            y: -TileHeight * CGFloat(NumRows) / 2)
+        self.cookiesLayer.position = layerPosition
 
     }
 
