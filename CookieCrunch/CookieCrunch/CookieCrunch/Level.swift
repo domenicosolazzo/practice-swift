@@ -40,4 +40,9 @@ class Level{
         }
         return set
     }
+    
+    // The shuffle method fills up the level with random cookies
+    func shuffle() -> Set<Cookie> {
+        return createInitialCookies()
+    }
 }
