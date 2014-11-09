@@ -25,12 +25,9 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     var level:Level!
-    var scene: GameScene
+    var scene: GameScene!
     
     func beginGame() {
         shuffle()
@@ -40,7 +37,12 @@ class GameViewController: UIViewController {
         let newCookies = level.shuffle()
         scene.addSpritesForCookies(newCookies)
     }
-    
+    required override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    override init() {
+        super.init()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,11 +59,13 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
+        level = Level()
+        scene.level = level
+        
+        
         /// Add the sprites
         beginGame()
         
-        level = Level()
-        scene.level = level
         
         skView.presentScene(scene)
         
