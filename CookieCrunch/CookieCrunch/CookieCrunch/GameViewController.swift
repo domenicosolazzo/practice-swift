@@ -27,6 +27,16 @@ extension SKNode {
 class GameViewController: UIViewController {
 
     var level:Level!
+    var scene: GameScene
+    
+    func beginGame() {
+        shuffle()
+    }
+    
+    func shuffle() {
+        let newCookies = level.shuffle()
+        scene.addSpritesForCookies(newCookies)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +51,7 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         
         /* Set the scale mode to scale to fit the window */
-        var scene = GameScene(size: skView.bounds.size)
+        scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
         skView.presentScene(scene)
