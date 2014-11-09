@@ -40,7 +40,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        /// Add the sprites
+        beginGame()
+        
         // Configure the view.
         let skView = self.view as SKView
         skView.showsFPS = true
@@ -55,6 +57,7 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         
         skView.presentScene(scene)
+        
     }
 
     override func shouldAutorotate() -> Bool {
