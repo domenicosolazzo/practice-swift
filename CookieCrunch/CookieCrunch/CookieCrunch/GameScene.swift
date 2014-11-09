@@ -22,6 +22,9 @@ class GameScene: SKScene {
         
         let background = SKSpriteNode(imageNamed: "Background")
         self.addChild(background)
+        
+        self.addChild(gameLayer)
+
     }
 
     required init?(coder aDecoder: NSCoder) {
