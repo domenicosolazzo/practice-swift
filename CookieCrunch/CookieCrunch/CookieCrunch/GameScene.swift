@@ -51,4 +51,11 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    func pointForColumn(column:Int, row:Int) -> CGPoint{
+        return CGPoint(
+            x:CGFloat(column)*TileWidth + TileWidth / 2,
+            y: CGFloat(row)*TileHeight + TileHeight / 2
+        )
+    }
 }
