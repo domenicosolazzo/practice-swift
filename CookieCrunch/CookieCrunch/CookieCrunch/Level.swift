@@ -10,9 +10,11 @@ let NumColumns = 9
 let NumRows = 9
 
 class Level{
-    /// The property cookies is the two-dimensional array that holds the Cookie objects, 81 in total 
+    init(){
+    }
+    /// The property cookies is the two-dimensional array that holds the Cookie objects, 81 in total
     /// The cookies array is private, so Level needs to provide a way for others to obtain a cookie object at a specific position in the level grid
-    private var cookies: Array2D<Cookie>(columns: NumColumns, rows:NumRows)
+    private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
     func cookieAtColumn(column: Int, row: Int) -> Cookie? {
         assert(column >= 0 && column < NumColumns)

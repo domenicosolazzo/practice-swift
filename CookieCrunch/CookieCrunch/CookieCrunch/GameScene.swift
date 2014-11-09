@@ -56,7 +56,7 @@ class GameScene: SKScene {
     func addSpritesForCookies(cookies:Set<Cookie>){
         for cookie in cookies{
             let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
-            sprite.position = pointForColumn(cookie.column, cookie.row)
+            sprite.position = pointForColumn(cookie.column, row: cookie.row)
             cookiesLayer.addChild(sprite)
             cookie.sprite = sprite
         }

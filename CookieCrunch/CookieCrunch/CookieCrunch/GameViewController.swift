@@ -26,6 +26,9 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     var level:Level!
     var scene: GameScene
     
@@ -40,8 +43,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /// Add the sprites
-        beginGame()
         
         // Configure the view.
         let skView = self.view as SKView
@@ -55,6 +56,12 @@ class GameViewController: UIViewController {
         /* Set the scale mode to scale to fit the window */
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
+        
+        /// Add the sprites
+        beginGame()
+        
+        level = Level()
+        scene.level = level
         
         skView.presentScene(scene)
         
