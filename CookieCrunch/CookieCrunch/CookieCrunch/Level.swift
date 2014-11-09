@@ -19,6 +19,26 @@ class Level{
     /// Which part of the grid can contain a cookie
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
     
+    init(filename: String) {
+        // Load the named file into a Dictionary using the loadJSONFromBundle()
+        if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename) {
+            // The dictionary has an array named “tiles”. This array contains one element for each row of the level. Each of those row elements is itself an array containing the columns for that row.
+            if let tilesArray: AnyObject = dictionary["tiles"] {
+                // Step through the rows using built-in enumerate() function, which is useful because it also returns the current row number.
+                for (row, rowArray) in enumerate(tilesArray as [[Int]]) {
+                    // The first row you read from the JSON corresponds to the last row of the 2-D grid
+                    let tileRow = NumRows - row - 1
+                    // Step through the columns in the current row. Every time it finds a 1, it creates a Tile object and places it into the tiles array.
+                    for (column, value) in enumerate(rowArray) {
+                        if value == 1 {
+                            tiles[column, tileRow] = Tile()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func tileAtColumn(column: Int, row: Int) -> Tile? {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
