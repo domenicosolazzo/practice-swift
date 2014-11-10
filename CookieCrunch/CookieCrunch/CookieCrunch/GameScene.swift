@@ -14,6 +14,7 @@ class GameScene: SKScene {
     
     let gameLayer: SKNode = SKNode()
     let cookiesLayer:SKNode = SKNode()
+    let tilesLayer = SKNode()
     
     override init(size: CGSize) {
         super.init(size: size)
