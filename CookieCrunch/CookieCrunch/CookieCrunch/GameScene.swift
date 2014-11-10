@@ -34,6 +34,20 @@ class GameScene: SKScene {
         gameLayer.addChild(cookiesLayer)
 
     }
+    
+    /// This loops through all the rows and columns. 
+    /// If there is a tile at that grid square, then it creates a new tile sprite and adds it to the tiles layer
+    func addTiles() {
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if let tile = level.tileAtColumn(column, row: row) {
+                    let tileNode = SKSpriteNode(imageNamed: "Tile")
+                    tileNode.position = pointForColumn(column, row: row)
+                    tilesLayer.addChild(tileNode)
+                }
+            }
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
