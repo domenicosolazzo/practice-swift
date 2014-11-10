@@ -65,8 +65,19 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
+        // It converts the touch location to a point relative to the cookiesLayer
+        let touch = touches.anyObject() as UITouch
+        let location = touch.locationInNode(cookiesLayer)
+        // finds out if the touch is inside a square on the level grid
+        let (success, column, row) = convertPoint(location)
+        if success {
+            // the method verifies that the touch is on a cookie rather than on an empty square
+            if let cookie = level.cookieAtColumn(column, row: row) {
+                // it records the column and row where the swipe started so you can compare them later to find the direction of the swipe
+                swipeFromColumn = column
+                swipeFromRow = row
+            }
+        }
         
     }
    
