@@ -30,7 +30,7 @@ class GameScene: SKScene {
             x: -TileWidth * CGFloat(NumColumns) / 2,
             y: -TileHeight * CGFloat(NumRows) / 2)
         self.cookiesLayer.position = layerPosition
-        
+        tilesLayer.position = layerPosition
         gameLayer.addChild(cookiesLayer)
 
     }
