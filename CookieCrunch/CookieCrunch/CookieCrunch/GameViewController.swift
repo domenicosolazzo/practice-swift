@@ -61,6 +61,8 @@ class GameViewController: UIViewController {
         
         level = Level(filename: "Level_1")
         scene.level = level
+        // Add tiles
+        scene.addTiles()
         
         
         /// Add the sprites
