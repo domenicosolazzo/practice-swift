@@ -23,6 +23,9 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        swipeFromColumn = nil
+        swipeFromRow = nil
+        
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         let background = SKSpriteNode(imageNamed: "Background")
