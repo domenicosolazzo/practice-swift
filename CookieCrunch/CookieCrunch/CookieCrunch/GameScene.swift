@@ -15,6 +15,10 @@ class GameScene: SKScene {
     let gameLayer: SKNode = SKNode()
     let cookiesLayer:SKNode = SKNode()
     let tilesLayer = SKNode()
+    /// The column and row numbers of the cookie that the player 
+    /// first touched when she started her swipe movement
+    var swipeFromColumn: Int?
+    var swipeFromRow: Int?
     
     override init(size: CGSize) {
         super.init(size: size)
