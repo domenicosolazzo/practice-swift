@@ -128,6 +128,10 @@ class GameScene: SKScene {
         swipeFromColumn = nil
         swipeFromRow = nil
     }
+    
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        touchesEnded(touches, withEvent: event)
+    }
     // Check if there are two cookies to swap
     func trySwapHorizontal(horzDelta: Int, vertical vertDelta: Int) {
         // calculate the column and row numbers of the cookie to swap with
