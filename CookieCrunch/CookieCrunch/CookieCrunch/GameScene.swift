@@ -64,6 +64,16 @@ class GameScene: SKScene {
         
     }
     
+    /// This method takes a CGPoint that is relative to the cookiesLayer and converts it into column and row numbers
+    func convertPoint(point: CGPoint) -> (success: Bool, column: Int, row: Int) {
+        if point.x >= 0 && point.x < CGFloat(NumColumns)*TileWidth &&
+            point.y >= 0 && point.y < CGFloat(NumRows)*TileHeight {
+                return (true, Int(point.x / TileWidth), Int(point.y / TileHeight))
+        } else {
+            return (false, 0, 0)  // invalid location
+        }
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         // It converts the touch location to a point relative to the cookiesLayer
         let touch = touches.anyObject() as UITouch
