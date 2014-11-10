@@ -124,6 +124,23 @@ class GameScene: SKScene {
         }
     }
    
+    // Check if there are two cookies to swap
+    func trySwapHorizontal(horzDelta: Int, vertical vertDelta: Int) {
+        // calculate the column and row numbers of the cookie to swap with
+        let toColumn = swipeFromColumn! + horzDelta
+        let toRow = swipeFromRow! + vertDelta
+        // Checking for the user swiping outside the grid
+        if toColumn < 0 || toColumn >= NumColumns { return }
+        if toRow < 0 || toRow >= NumRows { return }
+        // Check if there is a cookie in the position
+        if let toCookie = level.cookieAtColumn(toColumn, row: toRow) {
+            if let fromCookie = level.cookieAtColumn(swipeFromColumn!, row: swipeFromRow!) {
+                // valid swap!
+                println("*** swapping \(fromCookie) with \(toCookie)")
+            }
+        }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
