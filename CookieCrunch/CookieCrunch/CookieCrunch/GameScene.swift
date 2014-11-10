@@ -90,6 +90,39 @@ class GameScene: SKScene {
         }
         
     }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        // either the swipe began outside the valid area or the game has already swapped the cookies and you need to ignore the rest of the motion
+        if swipeFromColumn == nil { return }
+        
+        // calculate the row and column numbers currently under the player’s finger
+        let touch = touches.anyObject() as UITouch
+        let location = touch.locationInNode(cookiesLayer)
+        
+        let (success, column, row) = convertPoint(location)
+        if success {
+            
+            // Direction of the player’s swipe by simply comparing the new column and row numbers to the previous ones
+            var horzDelta = 0, vertDelta = 0
+            if column < swipeFromColumn! {          // swipe left
+                horzDelta = -1
+            } else if column > swipeFromColumn! {   // swipe right
+                horzDelta = 1
+            } else if row < swipeFromRow! {         // swipe down
+                vertDelta = -1
+            } else if row > swipeFromRow! {         // swipe up
+                vertDelta = 1
+            }
+            
+            // The method only performs the swap if the player swiped out of the old square
+            if horzDelta != 0 || vertDelta != 0 {
+                trySwapHorizontal(horzDelta, vertical: vertDelta)
+                
+                // By setting swipeFromColumn back to nil, the game will ignore the rest of this swipe motion
+                swipeFromColumn = nil
+            }
+        }
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
