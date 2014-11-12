@@ -64,6 +64,9 @@ class GameViewController: UIViewController {
         // Add tiles
         scene.addTiles()
         
+        // Handler for swapping cookies
+        scene.swipeHandler = handleSwipe
+        
         
         /// Add the sprites
         beginGame()
