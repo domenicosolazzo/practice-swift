@@ -112,4 +112,19 @@ class GameViewController: UIViewController {
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
     }
+    
+    // Handler for the swap
+    func handleSwipe(swap:Swap) {
+        // temporarily turn off the user interaction
+        view.userInteractionEnabled = false
+        
+        // Perform the swapping of the cookies
+        level.performSwap(swap)
+        
+        // Animate the swapping
+        scene.animateSwap(swap) {
+            // Turn on the user interaction
+            self.view.userInteractionEnabled = true
+        }
+    }
 }
