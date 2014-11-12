@@ -20,6 +20,9 @@ class GameScene: SKScene {
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
     
+    /// Closure
+    var swipeHandler: ((Swap) -> ())?
+    
     override init(size: CGSize) {
         super.init(size: size)
         
