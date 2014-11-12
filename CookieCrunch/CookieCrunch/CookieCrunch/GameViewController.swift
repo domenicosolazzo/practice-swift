@@ -93,4 +93,23 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    /// Animating the swap of two cookies
+    func animateSwap(swap: Swap, completion: () -> ()) {
+        let spriteA = swap.cookieA.sprite!
+        let spriteB = swap.cookieB.sprite!
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let Duration: NSTimeInterval = 0.3
+        
+        let moveA = SKAction.moveTo(spriteB.position, duration: Duration)
+        moveA.timingMode = .EaseOut
+        spriteA.runAction(moveA, completion: completion)
+        
+        let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
+        moveB.timingMode = .EaseOut
+        spriteB.runAction(moveB)
+    }
 }
