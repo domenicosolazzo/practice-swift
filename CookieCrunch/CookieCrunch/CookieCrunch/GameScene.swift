@@ -126,6 +126,8 @@ class GameScene: SKScene {
             // The method only performs the swap if the player swiped out of the old square
             if horzDelta != 0 || vertDelta != 0 {
                 trySwapHorizontal(horzDelta, vertical: vertDelta)
+                // Remove highlighted cookie
+                hideSelectionIndicator()
                 
                 // By setting swipeFromColumn back to nil, the game will ignore the rest of this swipe motion
                 swipeFromColumn = nil
