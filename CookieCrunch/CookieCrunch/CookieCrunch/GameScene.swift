@@ -197,4 +197,11 @@ class GameScene: SKScene {
             selectionSprite.alpha = 1.0
         }
     }
+    
+    // It removes the selection sprite by fading it out
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.3),
+            SKAction.removeFromParent()]))
+    }
 }
