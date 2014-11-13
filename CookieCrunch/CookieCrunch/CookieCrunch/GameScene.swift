@@ -9,6 +9,9 @@ import SpriteKit
 class GameScene: SKScene {
     var level:Level!
     
+    var selectionSprite = SKSpriteNode()
+
+    
     let TileWidth: CGFloat = 32.0
     let TileHeight: CGFloat = 36.0
     
@@ -175,5 +178,23 @@ class GameScene: SKScene {
             x:CGFloat(column)*TileWidth + TileWidth / 2,
             y: CGFloat(row)*TileHeight + TileHeight / 2
         )
+    }
+    
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+        
+        if let sprite = cookie.sprite {
+            // It gets the name of the highlighted sprite image from the Cookie object and puts the corresponding texture on the selection sprite
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = texture.size()
+            selectionSprite.runAction(SKAction.setTexture(texture))
+            
+            // add the selection sprite as a child of the cookie sprite so that it moves along with the cookie sprite in the swap animation
+            sprite.addChild(selectionSprite)
+            // sprite visible by setting its alpha to 1
+            selectionSprite.alpha = 1.0
+        }
     }
 }
