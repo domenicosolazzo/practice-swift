@@ -92,6 +92,9 @@ class GameScene: SKScene {
                 // it records the column and row where the swipe started so you can compare them later to find the direction of the swipe
                 swipeFromColumn = column
                 swipeFromRow = row
+                
+                // Show highlighted cookie
+                showSelectionIndicatorForCookie(cookie)
             }
         }
         
