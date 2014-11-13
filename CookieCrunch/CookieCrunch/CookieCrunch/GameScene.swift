@@ -138,6 +138,11 @@ class GameScene: SKScene {
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         swipeFromColumn = nil
         swipeFromRow = nil
+        
+        // If the user just taps on the screen rather than swipes, you want to fade out the highlighted sprite
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
     }
     
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
