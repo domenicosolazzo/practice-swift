@@ -120,14 +120,18 @@ class GameViewController: UIViewController {
     func handleSwipe(swap:Swap) {
         // temporarily turn off the user interaction
         view.userInteractionEnabled = false
+        //Check if it is possible to swap
+        if level.isPossibleSwap(swap) {
+            // Perform the swapping of the cookies
+            level.performSwap(swap)
         
-        // Perform the swapping of the cookies
-        level.performSwap(swap)
-        
-        // Animate the swapping
-        scene.animateSwap(swap) {
-            // Turn on the user interaction
-            self.view.userInteractionEnabled = true
+            // Animate the swapping
+            scene.animateSwap(swap) {
+                // Turn on the user interaction
+                self.view.userInteractionEnabled = true
+            }
+        }else{
+            view.userInteractionEnabled = true
         }
     }
 }
