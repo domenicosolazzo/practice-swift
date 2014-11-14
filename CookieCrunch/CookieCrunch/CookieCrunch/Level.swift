@@ -197,4 +197,9 @@ class Level{
         
         possibleSwaps = set
     }
+    
+    // Check if a swap is possible
+    func isPossibleSwap(swap: Swap) -> Bool {
+        return possibleSwaps.containsElement(swap)
+    }
 }
