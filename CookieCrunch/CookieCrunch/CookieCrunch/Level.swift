@@ -95,7 +95,17 @@ class Level{
     
     // The shuffle method fills up the level with random cookies
     func shuffle() -> Set<Cookie> {
-        return createInitialCookies()
+        var set: Set<Cookie>
+        do {
+            // fill up the level with random cookie objects
+            set = createInitialCookies()
+            // Detect the possible swaps
+            detectPossibleSwaps()
+            println("possible swaps: \(possibleSwaps)")
+        }
+            while possibleSwaps.count == 0
+        
+        return set
     }
     
     // Perform swap in the data model
