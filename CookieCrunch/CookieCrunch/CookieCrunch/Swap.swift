@@ -5,7 +5,7 @@
 //  Created by Domenico on 11/12/14.
 //
 
-struct Swap:Printable{
+struct Swap:Printable, Hashable{
     let cookieA: Cookie
     let cookieB: Cookie
     
@@ -16,5 +16,10 @@ struct Swap:Printable{
     
     var description: String {
         return "swap \(cookieA) with \(cookieB)"
+    }
+    
+    
+    var hashValue: Int {
+        return cookieA.hashValue ^ cookieB.hashValue
     }
 }

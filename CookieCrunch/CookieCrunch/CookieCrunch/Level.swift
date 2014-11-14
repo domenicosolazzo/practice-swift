@@ -19,6 +19,10 @@ class Level{
     /// Which part of the grid can contain a cookie
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
     
+    // List of possible swap
+    private var possibleSwaps = Set<Swap>()
+
+    
     init(filename: String) {
         // Load the named file into a Dictionary using the loadJSONFromBundle()
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename) {
