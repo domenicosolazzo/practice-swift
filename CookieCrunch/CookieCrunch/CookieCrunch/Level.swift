@@ -59,7 +59,21 @@ class Level{
             for column in 0..<NumColumns {
                 if tiles[column, row] != nil {
                     // Then the method picks a random cookie type
-                    var cookieType = CookieType.random()
+                    var cookieType: CookieType
+                    // It makes sure that it never creates a chain of three or more
+                    do {
+                        cookieType = CookieType.random()
+                    }
+                    while ( // there are already two cookies of this type to the left
+                            column >= 2 &&
+                            cookies[column - 1, row]?.cookieType == cookieType &&
+                            cookies[column - 2, row]?.cookieType == cookieType)
+                            ||
+                            // there are already two cookies of this type below
+                            (row >= 2 &&
+                            cookies[column, row - 1]?.cookieType == cookieType &&
+                            cookies[column, row - 2]?.cookieType == cookieType
+                    )
                 
                     // The method creates a new Cookie object and adds it to the 2-D array
                     let cookie = Cookie(column: column, row: row, cookieType: cookieType)
@@ -72,6 +86,8 @@ class Level{
         }
         return set
     }
+    
+    
     
     // The shuffle method fills up the level with random cookies
     func shuffle() -> Set<Cookie> {
