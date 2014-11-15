@@ -109,10 +109,7 @@ class GameViewController: UIViewController {
             level.performSwap(swap)
         
             // Animate the swapping
-            scene.animateSwap(swap) {
-                // Turn on the user interaction
-                self.view.userInteractionEnabled = true
-            }
+            scene.animateSwap(swap, completion:handleMatches)
         }else{
             scene.animateInvalidSwap(swap) {
                 self.view.userInteractionEnabled = true
