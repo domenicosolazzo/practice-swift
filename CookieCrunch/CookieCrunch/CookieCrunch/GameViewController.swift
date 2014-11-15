@@ -122,12 +122,4 @@ class GameViewController: UIViewController {
         // TODO: do something with the chains set
     }
     
-    // Remove the cookies from the level
-    private func removeCookies(chains: Set<Chain>) {
-        for chain in chains {
-            for cookie in chain.cookies {
-                cookies[cookie.column, cookie.row] = nil
-            }
-        }
-    }
 }
