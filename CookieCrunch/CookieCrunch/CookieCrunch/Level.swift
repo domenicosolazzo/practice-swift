@@ -202,4 +202,37 @@ class Level{
     func isPossibleSwap(swap: Swap) -> Bool {
         return possibleSwaps.containsElement(swap)
     }
+    
+    // find the first cookie that starts a chain.
+    private func detectHorizontalMatches() -> Set<Chain> {
+        // new set to hold the horizontal chains
+        var set = Set<Chain>()
+        // loop through the rows and columns. 
+        // Note that you don’t need to look at the last two columns because these cookies can never begin a new chain
+        for row in 0..<NumRows {
+            for var column = 0; column < NumColumns - 2 ; {
+                
+                if let cookie = cookies[column, row] {
+                    let matchType = cookie.cookieType
+                    // check whether the next two columns have the same cookie type
+                    if cookies[column + 1, row]?.cookieType == matchType &&
+                        cookies[column + 2, row]?.cookieType == matchType {
+                            // there is a chain of at least three cookies but potentially there are more. This steps through all the matching cookies until it finds a cookie that breaks the chain or it reaches the end of the grid.
+                            let chain = Chain(chainType: .Horizontal)
+                            do {
+                                chain.addCookie(cookies[column, row]!)
+                                ++column
+                            }
+                                while column < NumColumns && cookies[column, row]?.cookieType == matchType
+                            
+                            set.addElement(chain)
+                            continue
+                    }
+                }
+                // If the next two cookies don’t match the current one or if there is an empty tile, then there is no chain, so you skip over the cookie
+                ++column
+            }
+        }
+        return set
+    }
 }
