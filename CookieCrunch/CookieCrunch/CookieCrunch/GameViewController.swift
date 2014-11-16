@@ -29,6 +29,14 @@ class GameViewController: UIViewController {
     var level:Level!
     var scene: GameScene!
     
+    // Scoring
+    var movesLeft = 0
+    var score = 0
+    
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     func beginGame() {
         shuffle()
     }
