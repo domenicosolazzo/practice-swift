@@ -309,4 +309,45 @@ class GameScene: SKScene {
         // You wait until all the cookies have fallen down before allowing the gameplay to continue
         runAction(SKAction.waitForDuration(longestDuration), completion: completion)
     }
+    
+    // animate new cookies on the top
+    func animateNewCookies(columns: [[Cookie]], completion: () -> ()) {
+        
+        var longestDuration: NSTimeInterval = 0
+        
+        for array in columns {
+            // The new cookie sprite should start out just above the first tile in this column. 
+            // An easy way to find the row number of this tile is to look at the row of
+            //the first cookie in the array, which is always the top-most one for this column
+            let startRow = array[0].row + 1
+            
+            for (idx, cookie) in enumerate(array) {
+                // Create a new sprite for the cookie
+                let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
+                sprite.position = pointForColumn(cookie.column, row: startRow)
+                cookiesLayer.addChild(sprite)
+                cookie.sprite = sprite
+                // The higher the cookie, the longer you make the delay
+                let delay = 0.1 + 0.2 * NSTimeInterval(array.count - idx - 1)
+                // animation’s duration based on far the cookie has to fall
+                let duration = NSTimeInterval(startRow - cookie.row) * 0.1
+                longestDuration = max(longestDuration, duration + delay)
+                // animate the sprite falling down and fading in
+                let newPosition = pointForColumn(cookie.column, row: cookie.row)
+                let moveAction = SKAction.moveTo(newPosition, duration: duration)
+                moveAction.timingMode = .EaseOut
+                sprite.alpha = 0
+                sprite.runAction(
+                    SKAction.sequence([
+                        SKAction.waitForDuration(delay),
+                        SKAction.group([
+                            SKAction.fadeInWithDuration(0.05),
+                            moveAction,
+                            addCookieSound])
+                        ]))
+            }
+        }
+        
+        runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+    }
 }
