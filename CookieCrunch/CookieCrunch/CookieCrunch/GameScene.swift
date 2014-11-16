@@ -282,4 +282,31 @@ class GameScene: SKScene {
         runAction(matchSound)
         runAction(SKAction.waitForDuration(0.3), completion: completion)
     }
+    
+    // animate the sprites of falling cookies
+    func animateFallingCookies(columns: [[Cookie]], completion: () -> ()) {
+        
+        var longestDuration: NSTimeInterval = 0
+        for array in columns {
+            for (idx, cookie) in enumerate(array) {
+                let newPosition = pointForColumn(cookie.column, row: cookie.row)
+                // The higher up the cookie is, the bigger the delay on the animation
+                let delay = 0.05 + 0.15*NSTimeInterval(idx)
+                // the duration of the animation is based on how far the cookie has to fall (0.1 seconds per tile)
+                let sprite = cookie.sprite!
+                let duration = NSTimeInterval(((sprite.position.y - newPosition.y) / TileHeight) * 0.1)
+                // You calculate which animation is the longest
+                longestDuration = max(longestDuration, duration + delay)
+                // You perform the animation, which consists of a delay, a movement and a sound effect
+                let moveAction = SKAction.moveTo(newPosition, duration: duration)
+                moveAction.timingMode = .EaseOut
+                sprite.runAction(
+                    SKAction.sequence([
+                        SKAction.waitForDuration(delay),
+                        SKAction.group([moveAction, fallingCookieSound])]))
+            }
+        }
+        // You wait until all the cookies have fallen down before allowing the gameplay to continue
+        runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+    }
 }
