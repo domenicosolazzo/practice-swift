@@ -321,4 +321,35 @@ class Level{
         return columns
     }
     
+    // It adds new cookies to fill the columns to the top
+    func topUpCookies() -> [[Cookie]] {
+        var columns = [[Cookie]]()
+        var cookieType: CookieType = .Unknown
+        
+        for column in 0..<NumColumns {
+            var array = [Cookie]()
+            // loop through the column from top to bottom
+            for var row = NumRows - 1; row >= 0 && cookies[column, row] == nil; --row {
+                // You ignore gaps in the level, because you only need to fill up grid squares that have a tile
+                if tiles[column, row] != nil {
+                    // You randomly create a new cookie type
+                    var newCookieType: CookieType
+                    do {
+                        newCookieType = CookieType.random()
+                    } while newCookieType == cookieType
+                    cookieType = newCookieType
+                    // It creates the new Cookie object and add it to the array for this column
+                    let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    cookies[column, row] = cookie
+                    array.append(cookie)
+                }
+            }
+            
+            if !array.isEmpty {
+                columns.append(array)
+            }
+        }
+        return columns
+    }
+    
 }
