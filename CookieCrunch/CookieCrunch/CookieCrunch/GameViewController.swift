@@ -136,4 +136,8 @@ class GameViewController: UIViewController {
         }
     }
     
+    func beginNextTurn() {
+        view.userInteractionEnabled = true
+    }
+    
 }
