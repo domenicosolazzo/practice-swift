@@ -137,6 +137,8 @@ class GameViewController: UIViewController {
     }
     
     func beginNextTurn() {
+        // Update the list of valid swaps
+        level.detectPossibleSwaps()
         view.userInteractionEnabled = true
     }
     
