@@ -284,4 +284,41 @@ class Level{
         }
     }
     
+    // It detects where there are empty tiles and shifts any cookies down to fill up those tiles. 
+    // It starts at the bottom and scans upward.
+    func fillHoles() -> [[Cookie]] {
+        var columns = [[Cookie]]()
+        // loop through the rows, from bottom to top
+        for column in 0..<NumColumns {
+            var array = [Cookie]()
+            for row in 0..<NumRows {
+                // If there’s a tile at a position but no cookie, then there’s a hole
+                if tiles[column, row] != nil && cookies[column, row] == nil {
+                    // You scan upward to find the cookie that sits directly above the hole. 
+                    // Note that the hole may be bigger than one square (for example, if this was a vertical chain) and 
+                    // that there may be holes in the grid shape
+                    for lookup in (row + 1)..<NumRows {
+                        if let cookie = cookies[column, lookup] {
+                            // If you find another cookie, move that cookie to the hole
+                            cookies[column, lookup] = nil
+                            cookies[column, row] = cookie
+                            cookie.row = row
+                            // You add the cookie to the array. 
+                            // Each column gets its own array and cookies that are lower on 
+                            // the screen are first in the array
+                            array.append(cookie)
+                            // Once you’ve found a cookie, you don’t need to scan up any farther so you 
+                            // break out of the inner loop
+                            break
+                        }
+                    }
+                }
+            }
+            if !array.isEmpty {
+                columns.append(array)
+            }
+        }
+        return columns
+    }
+    
 }
