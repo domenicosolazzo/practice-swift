@@ -28,6 +28,7 @@ Learning a new language: SWIFT
 - Lesson 21: [Space Invader](http://goo.gl/q5Yb0s)
 - Lesson 22: [Uber Jump](http://goo.gl/yQJqze)
 - Lesson 23: [Swift Tetris](http://goo.gl/BBD36S)
+- Lesson 24: [Stanford class CS193P](http://goo.gl/fepOkm)
 
 Apps (3)
 
