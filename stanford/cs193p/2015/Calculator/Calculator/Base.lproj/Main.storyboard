@@ -31,6 +31,9 @@
                             <constraint firstItem="6bY-A8-ldQ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Zi3-kC-z0E"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="display" destination="6bY-A8-ldQ" id="f5p-xn-2yw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
