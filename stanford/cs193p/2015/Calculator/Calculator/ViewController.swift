@@ -22,6 +22,8 @@ class ViewController: UIViewController {
             userIsDigitingNumber = true
         }
     }
+    var operandStack = Array<Double>()
+    
     @IBAction func enter() {
         userIsDigitingNumber = false
     }
