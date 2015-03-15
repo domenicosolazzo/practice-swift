@@ -21,7 +21,9 @@ class ViewController: UIViewController {
             display.text = digit
             userIsDigitingNumber = true
         }
-        
+    }
+    @IBAction func enter() {
+        userIsDigitingNumber = false
     }
 }
 
