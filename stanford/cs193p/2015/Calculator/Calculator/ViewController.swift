@@ -12,9 +12,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
 
+    var userIsDigitingNumber: Bool = false
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
-        display.text = display.text! + digit
+        if userIsDigitingNumber{
+            display.text = display.text! + digit
+        }else{
+            display.text = digit
+            userIsDigitingNumber = true
+        }
+        
     }
 }
 
