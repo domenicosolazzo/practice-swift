@@ -25,10 +25,11 @@ class ViewController: UIViewController {
     var operandStack = Array<Double>()
     
     @IBAction func enter() {
+        operandStack.append(displayValue)
         userIsDigitingNumber = false
     }
     
-    var displayDouble: Double{
+    var displayValue: Double{
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
