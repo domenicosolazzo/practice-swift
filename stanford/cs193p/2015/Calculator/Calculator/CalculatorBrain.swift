@@ -33,6 +33,8 @@ class CalculatorBrain{
     }
     
     func performOperation(symbol:String){
-    
+        if let operation = knownOps[symbol]{
+            opStack.append(operation)
+        }
     }
 }
