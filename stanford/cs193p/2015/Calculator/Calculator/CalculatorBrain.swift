@@ -15,6 +15,9 @@ class CalculatorBrain{
         case BinaryOperation(String, (Double, Double) -> Double)
     }
     
+    // Known operations
+    var knownOps = Dictionary<String, Op>()
+    
     var opStack = [Op]()
     
     func pushOperand(operand: Double){
