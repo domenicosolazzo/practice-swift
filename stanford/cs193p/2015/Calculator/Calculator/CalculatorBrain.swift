@@ -16,15 +16,23 @@ class CalculatorBrain{
     }
     
     // Known operations
-    var knownOps = Dictionary<String, Op>()
+    var knownOps = [String:Op]()
     
     var opStack = [Op]()
+    
+    init(){
+        knownOps["+"] = Op.BinaryOperation("+", +)
+        knownOps["−"] = Op.BinaryOperation("−") {$1 - $0}
+        knownOps["×"] = Op.BinaryOperation("×", *)
+        knownOps["÷"] = Op.BinaryOperation("÷"){$1 / $0}
+        knownOps["√"] = Op.UnaryOperation("√", sqrt)
+    }
     
     func pushOperand(operand: Double){
         opStack.append(Op.Operand(operand))
     }
     
-    func performOperation(operation:String){
+    func performOperation(symbol:String){
     
     }
 }
