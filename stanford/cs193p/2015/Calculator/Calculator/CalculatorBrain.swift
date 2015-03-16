@@ -14,4 +14,6 @@ class CalculatorBrain{
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
     }
+    
+    var opStack = [Op]()
 }
