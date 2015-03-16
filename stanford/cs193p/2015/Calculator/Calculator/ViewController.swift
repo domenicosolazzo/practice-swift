@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
 
     var userIsDigitingNumber: Bool = false
+    var brainCalculator: CalculatorBrain
+    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsDigitingNumber{
