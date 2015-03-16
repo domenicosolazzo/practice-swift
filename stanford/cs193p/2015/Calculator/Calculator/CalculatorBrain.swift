@@ -53,7 +53,8 @@ class CalculatorBrain{
         return (nil, ops)
     }
     func evaluate() -> Double?{
-        return nil
+        let (result, remainder) = evaluate(opStack)
+        return result
     }
     
     func pushOperand(operand: Double){
