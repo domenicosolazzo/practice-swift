@@ -16,4 +16,8 @@ class CalculatorBrain{
     }
     
     var opStack = [Op]()
+    
+    func pushOperand(operand: Double){
+        opStack.append(Op.Operand(operand))
+    }
 }
