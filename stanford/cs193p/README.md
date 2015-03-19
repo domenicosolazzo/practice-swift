@@ -6,3 +6,4 @@ Source: [ITunes](http://goo.gl/WguwhZ)
 * Swift language
 * Calculator
 * MVC
+* Happiness project (FaceView): Drawing inside a UIView
