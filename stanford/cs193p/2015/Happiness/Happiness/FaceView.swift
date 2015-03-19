@@ -42,6 +42,10 @@ class FaceView: UIView {
         // Draw the eyes
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
+        
+        // Smiliness
+        var smiliness = 0.75
+        var smile = bezierPathForSmile(smiliness).stroke()
     }
     private enum Eye{case Left, Right}
     
