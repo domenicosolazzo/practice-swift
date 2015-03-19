@@ -16,12 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eeo-uc-tQh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eeo-uc-tQh">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Eeo-uc-tQh" secondAttribute="trailing" id="BFN-N8-bQW"/>
+                            <constraint firstItem="Eeo-uc-tQh" firstAttribute="top" secondItem="hxO-jS-fkm" secondAttribute="top" id="sOZ-lB-c8l"/>
+                            <constraint firstItem="Eeo-uc-tQh" firstAttribute="bottom" secondItem="lol-gi-dTc" secondAttribute="top" id="uCB-2m-ku2"/>
+                            <constraint firstItem="Eeo-uc-tQh" firstAttribute="leading" secondItem="hxO-jS-fkm" secondAttribute="leading" id="zH0-J3-ENU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dem-Op-ZFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
