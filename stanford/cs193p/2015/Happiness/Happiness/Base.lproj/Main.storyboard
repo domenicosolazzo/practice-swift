@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="wGr-EE-p1h"/>
                         <viewControllerLayoutGuide type="bottom" id="lol-gi-dTc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hxO-jS-fkm">
+                    <view key="view" contentMode="scaleToFill" id="hxO-jS-fkm" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
