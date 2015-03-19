@@ -30,6 +30,10 @@ class FaceView: UIView {
         color.set()
         // Draw
         facePath.stroke()
+        
+        // Draw the eyes
+        bezierPathForEye(.Left).stroke()
+        bezierPathForEye(.Right).stroke()
     }
     private enum Eye{case Left, Right}
     
