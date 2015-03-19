@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Domenico Solazzo. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class HappinessViewController: UIViewController {
 
