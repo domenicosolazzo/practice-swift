@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HappinessViewController: UIViewController {
+class HappinessViewController: UIViewController, FaceViewDataSource {
 
     var happiness: Int = 50{ // 0 = very sad, 100 = estatic
         didSet{
@@ -19,5 +19,9 @@ class HappinessViewController: UIViewController {
     }
     func updateUI(){
     
+    }
+    
+    func smilinessForFaceView(sender: FaceView) -> Double? {
+            return Double(happiness-50)/50
     }
 }
