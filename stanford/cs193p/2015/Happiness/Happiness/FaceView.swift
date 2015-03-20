@@ -7,6 +7,7 @@
 //
 import UIKit
 
+@IBDesignable
 class FaceView: UIView {
     var lineWidth: CGFloat = 3 {didSet{ setNeedsDisplay()}}
     var color:UIColor = UIColor.blueColor() {didSet{ setNeedsDisplay()}}
@@ -44,7 +45,7 @@ class FaceView: UIView {
         bezierPathForEye(.Right).stroke()
         
         // Smiliness
-        var smiliness = 0.75
+        var smiliness = 0.75 // -0.5 => sad
         var smile = bezierPathForSmile(smiliness).stroke()
     }
     private enum Eye{case Left, Right}
