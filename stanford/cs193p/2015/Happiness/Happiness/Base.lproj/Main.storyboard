@@ -29,6 +29,9 @@
                             <constraint firstItem="Eeo-uc-tQh" firstAttribute="leading" secondItem="hxO-jS-fkm" secondAttribute="leading" id="zH0-J3-ENU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="Eeo-uc-tQh" id="Urn-31-t5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dem-Op-ZFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
