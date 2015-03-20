@@ -16,6 +16,9 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
             faceView.addGestureRecognizer(UIPinchGestureRecognizer(target:faceView, action:"scale:"))
         }
     }
+    @IBAction func changeHappiness(sender: UIPanGestureRecognizer) {
+        
+    }
     var happiness: Int = 50{ // 0 = very sad, 100 = estatic
         didSet{
             happiness = min(max(happiness, 0),100)
