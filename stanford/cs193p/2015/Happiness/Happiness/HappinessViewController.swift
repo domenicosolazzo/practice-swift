@@ -13,7 +13,7 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
     @IBOutlet weak var faceView: FaceView!{
         didSet{
             faceView.dataSource = self
-            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target:faceView, action:""))
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target:faceView, action:"scale:"))
         }
     }
     var happiness: Int = 50{ // 0 = very sad, 100 = estatic
