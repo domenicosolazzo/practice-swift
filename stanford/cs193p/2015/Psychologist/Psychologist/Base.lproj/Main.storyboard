@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pdb-hX-d9L">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="391" y="-193"/>
+            <point key="canvasLocation" x="1367" y="7"/>
         </scene>
         <!--Happiness View Controller-->
         <scene sceneID="o9j-gg-dgS">
@@ -139,15 +139,20 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="418" y="896"/>
+            <point key="canvasLocation" x="1318" y="1252"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="e5L-Tc-aIy">
             <objects>
-                <splitViewController id="pdb-hX-d9L" sceneMemberID="viewController"/>
+                <splitViewController id="pdb-hX-d9L" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="q1K-jr-dg2"/>
+                        <segue destination="NtZ-3f-smR" kind="relationship" relationship="detailViewController" id="Na2-Yv-Ogp"/>
+                    </connections>
+                </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEx-nK-BEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="320"/>
+            <point key="canvasLocation" x="518" y="368"/>
         </scene>
     </scenes>
 </document>
