@@ -7,3 +7,4 @@ Source: [ITunes](http://goo.gl/WguwhZ)
 * Calculator
 * MVC
 * Happiness project (FaceView): Drawing inside a UIView
+* Psychologist: SplitViewController, Segue, Popovers
