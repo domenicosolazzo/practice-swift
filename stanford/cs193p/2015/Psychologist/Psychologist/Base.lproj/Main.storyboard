@@ -38,15 +38,32 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-gn-C0Q">
+                                <rect key="frame" x="242" y="235" width="116" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="ouq-lr-eDs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Golden Bear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ouq-lr-eDs"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jUk-ZQ-poL" firstAttribute="centerX" secondItem="3da-Zc-asf" secondAttribute="centerX" id="13w-8b-oKY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3da-Zc-asf" secondAttribute="bottom" constant="528" id="8as-h7-SWH"/>
+                            <constraint firstItem="jUk-ZQ-poL" firstAttribute="top" secondItem="dHr-gn-C0Q" secondAttribute="bottom" constant="8" symbolic="YES" id="GYM-VE-lOc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jUk-ZQ-poL" secondAttribute="bottom" constant="262" id="NG3-ys-S8z"/>
                             <constraint firstAttribute="centerX" secondItem="jUk-ZQ-poL" secondAttribute="centerX" id="NtR-FX-vSE"/>
                             <constraint firstItem="jUk-ZQ-poL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XOq-4d-J9m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3da-Zc-asf" secondAttribute="bottom" constant="533" id="Xly-e4-ZSM"/>
+                            <constraint firstItem="dHr-gn-C0Q" firstAttribute="centerX" secondItem="jUk-ZQ-poL" secondAttribute="centerX" id="kVd-jB-Nty"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mTw-mu-Mdc"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="q5R-Rt-j6G"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="r7j-w9-y9A"/>
