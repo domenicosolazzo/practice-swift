@@ -30,6 +30,8 @@ class PsychologistViewController: UIViewController {
     }
 
     @IBAction func nothing(sender: UIButton) {
+        // Prepare the segue
+        performSegueWithIdentifier("nothing", sender: sender)
     }
 
 }
