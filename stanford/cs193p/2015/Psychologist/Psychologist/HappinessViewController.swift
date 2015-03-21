@@ -39,6 +39,7 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
             happiness = min(max(happiness, 0),100)
             println("happiness: \(happiness)")
             self.updateUI()
+            self.title = "\(happiness)"
         }
     }
     func updateUI(){

@@ -10,7 +10,14 @@ import UIKit
 
 class PsychologistViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        if let hvc = segue.destinationViewController as? HappinessViewController{
+        // Check if the destination is a UIViewController
+        var destination = segue.destinationViewController as? UIViewController
+        // navCon should be a UINavigationController
+        if let navCon = destination as? UINavigationController{
+            destination = navCon.visibleViewController
+        }
+        
+        if let hvc = destination as? HappinessViewController{
             // Check if the identifier is set
             if let identifier = segue.identifier{
                 switch identifier{

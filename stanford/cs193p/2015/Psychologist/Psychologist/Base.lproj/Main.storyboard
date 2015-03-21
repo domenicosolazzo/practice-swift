@@ -38,7 +38,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="happy" id="sDV-Np-sjO"/>
+                                    <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="happy" id="sDV-Np-sjO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-gn-C0Q">
@@ -56,7 +56,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="sad" id="r51-U7-ro6"/>
+                                    <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="sad" id="r51-U7-ro6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-yb-hDo">
@@ -74,7 +74,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="meh" id="btY-H0-DVw"/>
+                                    <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="meh" id="btY-H0-DVw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -138,6 +138,7 @@
                             <constraint firstAttribute="trailing" secondItem="CiZ-lb-hng" secondAttribute="trailing" id="oDc-vZ-D3X"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="epe-cI-fDb"/>
                     <connections>
                         <outlet property="faceView" destination="CiZ-lb-hng" id="oao-7S-Xqm"/>
                     </connections>
@@ -149,7 +150,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1748" y="762"/>
+            <point key="canvasLocation" x="2560" y="762"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="e5L-Tc-aIy">
@@ -157,7 +158,7 @@
                 <splitViewController id="pdb-hX-d9L" sceneMemberID="viewController">
                     <connections>
                         <segue destination="5S7-lR-k6f" kind="relationship" relationship="masterViewController" id="q1K-jr-dg2"/>
-                        <segue destination="NtZ-3f-smR" kind="relationship" relationship="detailViewController" id="Na2-Yv-Ogp"/>
+                        <segue destination="ETY-Ao-UdI" kind="relationship" relationship="detailViewController" id="Na2-Yv-Ogp"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEx-nK-BEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,8 +183,26 @@
             </objects>
             <point key="canvasLocation" x="1367" y="7"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tbc-ef-ktY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ETY-Ao-UdI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4UD-BO-m5P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NtZ-3f-smR" kind="relationship" relationship="rootViewController" id="2Hb-gv-Bab"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NlO-CG-ia6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="762"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r51-U7-ro6"/>
+        <segue reference="sDV-Np-sjO"/>
     </inferredMetricsTieBreakers>
 </document>
