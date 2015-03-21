@@ -9,5 +9,5 @@
 import UIKit
 
 class DiagnosedHappinessViewController: HappinessViewController{
-
+    var diagnosticHistory: [Int]()
 }
