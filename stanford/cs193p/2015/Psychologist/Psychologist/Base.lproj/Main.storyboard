@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Psychologist View Controller-->
+        <!--Psychologist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PsychologistViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What do you see in your dreams?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3da-Zc-asf">
-                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you see in your dreams?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3da-Zc-asf">
+                                <rect key="frame" x="16" y="72" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,6 +37,9 @@
                                         <exclude reference="8JV-26-0Bd"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="happy" id="sDV-Np-sjO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-gn-C0Q">
                                 <rect key="frame" x="242" y="235" width="116" height="38"/>
@@ -52,6 +55,9 @@
                                         <exclude reference="ouq-lr-eDs"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="sad" id="r51-U7-ro6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-yb-hDo">
                                 <rect key="frame" x="260" y="327" width="80" height="38"/>
@@ -67,6 +73,9 @@
                                         <exclude reference="ZTE-do-Qk1"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="NtZ-3f-smR" kind="showDetail" identifier="meh" id="btY-H0-DVw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -94,7 +103,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="xDm-7S-fgd"/>
+                    <navigationItem key="navigationItem" title="Psychologist" id="xDm-7S-fgd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +149,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1318" y="1252"/>
+            <point key="canvasLocation" x="1748" y="762"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="e5L-Tc-aIy">
@@ -174,4 +183,7 @@
             <point key="canvasLocation" x="1367" y="7"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="r51-U7-ro6"/>
+    </inferredMetricsTieBreakers>
 </document>
