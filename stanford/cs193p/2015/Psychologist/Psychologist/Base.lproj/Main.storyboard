@@ -124,10 +124,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Psychologist" id="xDm-7S-fgd"/>
+                    <connections>
+                        <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="nothing" id="tX8-A9-ena"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179" y="7"/>
+            <point key="canvasLocation" x="2215" y="71"/>
         </scene>
         <!--Happiness View Controller-->
         <scene sceneID="o9j-gg-dgS">
@@ -223,6 +226,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sDV-Np-sjO"/>
+        <segue reference="tX8-A9-ena"/>
     </inferredMetricsTieBreakers>
 </document>
