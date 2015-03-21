@@ -97,6 +97,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="391" y="-193"/>
+        </scene>
+        <!--Happiness View Controller-->
+        <scene sceneID="o9j-gg-dgS">
+            <objects>
+                <viewController id="NtZ-3f-smR" customClass="HappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6PC-aE-9RN"/>
+                        <viewControllerLayoutGuide type="bottom" id="jwe-cC-1G4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FOm-be-Q3p" customClass="FaceView" customModule="Psychologist" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="CiZ-lb-hng" customClass="FaceView" customModule="Psychologist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bmP-l8-r4N" appends="YES" id="f6x-Oe-UnQ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CiZ-lb-hng" firstAttribute="leading" secondItem="FOm-be-Q3p" secondAttribute="leading" id="clR-pZ-w6Y"/>
+                            <constraint firstItem="CiZ-lb-hng" firstAttribute="bottom" secondItem="jwe-cC-1G4" secondAttribute="top" id="gFo-5a-y1D"/>
+                            <constraint firstItem="CiZ-lb-hng" firstAttribute="top" secondItem="FOm-be-Q3p" secondAttribute="top" id="nnw-Dn-SU2"/>
+                            <constraint firstAttribute="trailing" secondItem="CiZ-lb-hng" secondAttribute="trailing" id="oDc-vZ-D3X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="faceView" destination="CiZ-lb-hng" id="oao-7S-Xqm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2U2-eE-mMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bmP-l8-r4N">
+                    <connections>
+                        <action selector="changeHappiness:" destination="NtZ-3f-smR" id="UEp-fH-LS0"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="418" y="896"/>
         </scene>
     </scenes>
 </document>
