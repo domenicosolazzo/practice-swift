@@ -23,10 +23,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUk-ZQ-poL">
+                                <rect key="frame" x="240" y="281" width="121" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="8JV-26-0Bd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Dancing Tree">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8JV-26-0Bd"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jUk-ZQ-poL" firstAttribute="centerX" secondItem="3da-Zc-asf" secondAttribute="centerX" id="13w-8b-oKY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3da-Zc-asf" secondAttribute="bottom" constant="528" id="8as-h7-SWH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jUk-ZQ-poL" secondAttribute="bottom" constant="262" id="NG3-ys-S8z"/>
+                            <constraint firstAttribute="centerX" secondItem="jUk-ZQ-poL" secondAttribute="centerX" id="NtR-FX-vSE"/>
+                            <constraint firstItem="jUk-ZQ-poL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XOq-4d-J9m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3da-Zc-asf" secondAttribute="bottom" constant="533" id="Xly-e4-ZSM"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mTw-mu-Mdc"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="q5R-Rt-j6G"/>
@@ -34,7 +53,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="13w-8b-oKY"/>
                                 <exclude reference="8as-h7-SWH"/>
+                                <exclude reference="NG3-ys-S8z"/>
                                 <exclude reference="Xly-e4-ZSM"/>
                             </mask>
                         </variation>
