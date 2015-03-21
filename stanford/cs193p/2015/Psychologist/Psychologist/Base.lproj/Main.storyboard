@@ -141,5 +141,13 @@
             </objects>
             <point key="canvasLocation" x="418" y="896"/>
         </scene>
+        <!--Split View Controller-->
+        <scene sceneID="e5L-Tc-aIy">
+            <objects>
+                <splitViewController id="pdb-hX-d9L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEx-nK-BEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="320"/>
+        </scene>
     </scenes>
 </document>
