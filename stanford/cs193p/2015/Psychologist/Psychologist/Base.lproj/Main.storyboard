@@ -41,24 +41,6 @@
                                     <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="happy" id="sDV-Np-sjO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-gn-C0Q">
-                                <rect key="frame" x="242" y="235" width="116" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="153" id="ouq-lr-eDs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Golden Bear">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ouq-lr-eDs"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="sad" id="r51-U7-ro6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-yb-hDo">
                                 <rect key="frame" x="260" y="327" width="80" height="38"/>
                                 <constraints>
@@ -77,6 +59,42 @@
                                     <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="meh" id="btY-H0-DVw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-gn-C0Q">
+                                <rect key="frame" x="242" y="235" width="116" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="ouq-lr-eDs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Golden Bear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ouq-lr-eDs"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="ETY-Ao-UdI" kind="showDetail" identifier="sad" id="r51-U7-ro6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VL2-Pp-Vtq">
+                                <rect key="frame" x="264" y="373" width="73" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="IQl-Mm-YMs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Nothing">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IQl-Mm-YMs"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="nothing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u3h-at-I0n"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -91,8 +109,10 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3da-Zc-asf" secondAttribute="bottom" constant="533" id="Xly-e4-ZSM"/>
                             <constraint firstItem="dHr-gn-C0Q" firstAttribute="centerX" secondItem="jUk-ZQ-poL" secondAttribute="centerX" id="kVd-jB-Nty"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mTw-mu-Mdc"/>
+                            <constraint firstItem="VL2-Pp-Vtq" firstAttribute="top" secondItem="vTL-yb-hDo" secondAttribute="bottom" constant="8" symbolic="YES" id="oOf-Tj-x5z"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="q5R-Rt-j6G"/>
                             <constraint firstItem="3da-Zc-asf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="r7j-w9-y9A"/>
+                            <constraint firstItem="VL2-Pp-Vtq" firstAttribute="centerX" secondItem="vTL-yb-hDo" secondAttribute="centerX" id="wjL-QF-i40"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

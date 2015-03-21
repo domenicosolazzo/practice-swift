@@ -29,6 +29,8 @@ class PsychologistViewController: UIViewController {
         }
     }
 
+    @IBAction func nothing(sender: UIButton) {
+    }
 
 }
 
