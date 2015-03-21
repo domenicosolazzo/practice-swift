@@ -23,6 +23,7 @@ class PsychologistViewController: UIViewController {
                 switch identifier{
                 case "sad": hvc.happiness = 0
                 case "happy": hvc.happiness = 100
+                case "nothing": hvc.happiness = 25
                 default: hvc.happiness = 50
                 }
             }
