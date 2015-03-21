@@ -42,7 +42,8 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
         }
     }
     func updateUI(){
-        faceView.setNeedsDisplay()
+        // Check if the FaceView is set before using setNeedsDisplay
+        faceView?.setNeedsDisplay()
     }
     
     func smilinessForFaceView(sender: FaceView) -> Double? {
