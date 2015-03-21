@@ -194,7 +194,7 @@
                     <navigationItem key="navigationItem" id="epe-cI-fDb">
                         <barButtonItem key="rightBarButtonItem" title="History" id="MS4-WQ-qwC">
                             <connections>
-                                <segue destination="36M-sX-EMV" kind="popoverPresentation" identifier="history" popoverAnchorBarButtonItem="MS4-WQ-qwC" id="Wxh-AQ-ZfB">
+                                <segue destination="36M-sX-EMV" kind="popoverPresentation" identifier="Show Diagnostic History" popoverAnchorBarButtonItem="MS4-WQ-qwC" id="Wxh-AQ-ZfB">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -211,7 +211,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2560" y="762"/>
+            <point key="canvasLocation" x="2393" y="762"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="e5L-Tc-aIy">

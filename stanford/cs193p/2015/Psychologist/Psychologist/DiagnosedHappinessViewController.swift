@@ -9,7 +9,18 @@
 import UIKit
 
 class DiagnosedHappinessViewController: HappinessViewController{
-    var diagnosticHistory = [Int]()
+    
+    override var happiness: Int{
+        didSet{
+            diagnosticHistory += [happiness]
+        }
+    }
+    
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    var diagnosticHistory: Int{
+        get {}
+        set {}
+    }
     
     private struct History{
         static let SegueIdentifier = "Show Diagnostic History"
