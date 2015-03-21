@@ -180,7 +180,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="epe-cI-fDb">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="MS4-WQ-qwC"/>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="MS4-WQ-qwC">
+                            <connections>
+                                <segue destination="36M-sX-EMV" kind="popoverPresentation" identifier="history" popoverAnchorBarButtonItem="MS4-WQ-qwC" id="Wxh-AQ-ZfB">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="faceView" destination="CiZ-lb-hng" id="oao-7S-Xqm"/>
