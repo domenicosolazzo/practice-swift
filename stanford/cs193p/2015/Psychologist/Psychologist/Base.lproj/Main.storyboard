@@ -161,7 +161,9 @@
                             <constraint firstAttribute="trailing" secondItem="CiZ-lb-hng" secondAttribute="trailing" id="oDc-vZ-D3X"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="epe-cI-fDb"/>
+                    <navigationItem key="navigationItem" id="epe-cI-fDb">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="MS4-WQ-qwC"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="faceView" destination="CiZ-lb-hng" id="oao-7S-Xqm"/>
                     </connections>
