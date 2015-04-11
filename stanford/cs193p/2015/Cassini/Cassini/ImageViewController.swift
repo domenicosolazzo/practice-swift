@@ -9,6 +9,18 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-
+    
+    private var imageView = UIImageView()
+    
+    private var image: UImage?{
+        get{
+            return imageView.image
+        }
+        set{
+            imageView.image = newValue
+            // Expand the frame to fit
+            imageView.sizeToFit()
+        }
+    }
 
 }
