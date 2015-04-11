@@ -23,13 +23,22 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private func fetchImage(){
         if let url = imageURL{
-            // Very bad:it can take long time to retrieve the data
-            let imageData = NSData(contentsOfURL: url)
-            if imageData != nil{
-                image = UIImage(data: imageData!)
-            }else{
-                image = nil
+            // Get the QUEUE identifier
+            let qos = Int(QOS_CLASS_USER_INITIATED.value)
+            // Dispatch the queue
+            dispatch_async(dispatch_get_global_queue(qos, 0)){ () -> Void in
+                let imageData = NSData(contentsOfURL: url)
+                // Need to dispatch the result to the main queue because we are modifying the UI
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    if imageData != nil{
+                        self.image = UIImage(data: imageData!)
+                    }else{
+                        self.image = nil
+                    }
+                }
+                
             }
+            
         }
     }
     
