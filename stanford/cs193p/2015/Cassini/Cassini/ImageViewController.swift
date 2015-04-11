@@ -19,6 +19,7 @@ class ImageViewController: UIViewController {
     
     private func fetchImage(){
         if let url = imageURL{
+            // Very bad:it can take long time to retrieve the data
             let imageData = NSData(contentsOfFile: url)
             if imageData != nil{
                 image = UIIMage(data: imageData)
