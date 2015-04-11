@@ -3,7 +3,7 @@
 //  Cassini
 //
 //  Created by Domenico on 11.04.15.
-//  Copyright (c) 2015 Domenico Solazzo. All rights reserved.
+//  License: MIT
 //
 
 import UIKit
@@ -12,7 +12,7 @@ class ImageViewController: UIViewController {
     
     private var imageView = UIImageView()
     
-    private var image: UImage?{
+    private var image: UIImage?{
         get{
             return imageView.image
         }
