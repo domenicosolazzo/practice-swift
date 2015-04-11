@@ -15,7 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvA-Ol-rBW">
+                                <rect key="frame" x="224" y="265" width="153" height="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <state key="normal" title="Cassini">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-H3-tys">
+                                <rect key="frame" x="245" y="187" width="111" height="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <state key="normal" title="Earth">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-sv-ju6">
+                                <rect key="frame" x="231" y="343" width="139" height="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <state key="normal" title="Saturn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="mvA-Ol-rBW" secondAttribute="centerY" id="9bL-jo-3lF"/>
+                            <constraint firstItem="mvA-Ol-rBW" firstAttribute="centerX" secondItem="KLB-H3-tys" secondAttribute="centerX" id="D5T-7J-Ayk"/>
+                            <constraint firstItem="Bmi-sv-ju6" firstAttribute="top" secondItem="mvA-Ol-rBW" secondAttribute="bottom" constant="8" id="FCi-Yv-cGg"/>
+                            <constraint firstItem="mvA-Ol-rBW" firstAttribute="top" secondItem="KLB-H3-tys" secondAttribute="bottom" constant="8" id="Mtq-jl-JCe"/>
+                            <constraint firstAttribute="centerX" secondItem="mvA-Ol-rBW" secondAttribute="centerX" constant="-0.5" id="fhp-e8-nQe"/>
+                            <constraint firstItem="Bmi-sv-ju6" firstAttribute="centerX" secondItem="mvA-Ol-rBW" secondAttribute="centerX" id="ljP-SH-B4g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ous-P3-eW7"/>
                 </viewController>
