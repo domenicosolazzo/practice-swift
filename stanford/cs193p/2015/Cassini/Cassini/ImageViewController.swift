@@ -22,7 +22,7 @@ class ImageViewController: UIViewController {
             // Very bad:it can take long time to retrieve the data
             let imageData = NSData(contentsOfURL: url)
             if imageData != nil{
-                image = UIIMage(data: imageData)
+                image = UIImage(data: imageData)
             }else{
                 image = nil
             }
