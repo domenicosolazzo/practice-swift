@@ -30,11 +30,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
                 let imageData = NSData(contentsOfURL: url)
                 // Need to dispatch the result to the main queue because we are modifying the UI
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    if imageData != nil{
-                        self.image = UIImage(data: imageData!)
-                    }else{
-                        self.image = nil
+                    // Checking if this url is the last requested url
+                    if url == self.imageURL{
+                        if imageData != nil{
+                            self.image = UIImage(data: imageData!)
+                        }else{
+                            self.image = nil
+                        }
                     }
+                    
                 }
                 
             }
