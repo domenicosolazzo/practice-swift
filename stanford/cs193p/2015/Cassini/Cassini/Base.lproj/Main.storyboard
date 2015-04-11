@@ -74,8 +74,22 @@
                     <view key="view" contentMode="scaleToFill" id="i22-n5-iir">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-s6-8FB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bjs-s6-8FB" firstAttribute="leading" secondItem="i22-n5-iir" secondAttribute="leading" id="DD5-CJ-VHD"/>
+                            <constraint firstItem="Bjs-s6-8FB" firstAttribute="bottom" secondItem="z7K-YJ-B70" secondAttribute="top" id="GiH-xy-9Xn"/>
+                            <constraint firstAttribute="trailing" secondItem="Bjs-s6-8FB" secondAttribute="trailing" id="fM5-8R-Xue"/>
+                            <constraint firstItem="Bjs-s6-8FB" firstAttribute="top" secondItem="i22-n5-iir" secondAttribute="top" id="xhh-tI-IkY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Bjs-s6-8FB" id="OvN-V4-JMh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJK-Hu-aPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

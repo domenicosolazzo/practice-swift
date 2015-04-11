@@ -33,6 +33,12 @@ class ImageViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scrollView: UIScrollView!{
+        didSet{
+            // Need to set the content size of the scroll view
+            scrollView.contentSize = imageView.frame.size
+        }
+    }
     private var imageView = UIImageView()
     
     private var image: UIImage?{
@@ -43,15 +49,15 @@ class ImageViewController: UIViewController {
             imageView.image = newValue
             // Expand the frame to fit
             imageView.sizeToFit()
+            // Set the content size of the scroll view
+            scrollView?.contentSize = imageView.frame.size
         }
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
         view.addSubview(imageView)
-        if image == nil{
-            imageURL = DemoURL.Stanford
-        }
+       
     }
     
     override func viewWillAppear(animated:Bool){
