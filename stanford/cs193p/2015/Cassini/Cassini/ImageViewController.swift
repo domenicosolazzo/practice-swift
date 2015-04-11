@@ -10,7 +10,7 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
-    private var imageURL: NSURL?{
+    var imageURL: NSURL?{
         didSet{
             image = nil
             // Fetch the image if I am onscreen
