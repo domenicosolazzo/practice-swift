@@ -13,7 +13,11 @@ class ImageViewController: UIViewController {
     private var imageURL: NSURL?{
         didSet{
             image = nil
-            fetchImage()
+            // Fetch the image if I am onscreen
+            if view.window != nil{
+                fetchImage()
+            }
+            
         }
     }
     
