@@ -22,5 +22,10 @@ class ImageViewController: UIViewController {
             imageView.sizeToFit()
         }
     }
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        view.addSubview(imageView)
+    }
 
 }
