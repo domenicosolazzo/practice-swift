@@ -50,5 +50,13 @@ class ImageViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(imageView)
     }
+    
+    override func viewWillAppear(animated:Bool){
+        super.viewWillAppear(animated)
+        // If I was offscreen and the image has not been fetched before
+        if image == nil{
+            fetchImage()
+        }
+    }
 
 }
