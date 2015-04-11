@@ -23,6 +23,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private func fetchImage(){
         if let url = imageURL{
+            // Start animating the spinner
+            spinner?.startAnimating()
             // Get the QUEUE identifier
             let qos = Int(QOS_CLASS_USER_INITIATED.value)
             // Dispatch the queue
@@ -46,6 +48,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!{
         didSet{
             // Need to set the content size of the scroll view
@@ -74,6 +77,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.sizeToFit()
             // Set the content size of the scroll view
             scrollView?.contentSize = imageView.frame.size
+            // Stop animating
+            spinner?.stopAnimating()
            
         }
     }
