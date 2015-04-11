@@ -22,6 +22,9 @@
                                 <state key="normal" title="Cassini">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="a7M-oU-dTN" kind="showDetail" identifier="Cassini" id="YWm-i5-zhP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-H3-tys">
                                 <rect key="frame" x="245" y="187" width="111" height="70"/>
@@ -29,6 +32,9 @@
                                 <state key="normal" title="Earth">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="a7M-oU-dTN" kind="showDetail" identifier="Earth" id="P3q-id-22w"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-sv-ju6">
                                 <rect key="frame" x="231" y="343" width="139" height="70"/>
@@ -36,6 +42,9 @@
                                 <state key="normal" title="Saturn">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="a7M-oU-dTN" kind="showDetail" identifier="Saturn" id="ntG-3b-KT7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -75,7 +84,6 @@
         <!--Navigation Controller-->
         <scene sceneID="B6A-8r-8Pk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QJt-IS-uMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="EjM-ZQ-7CH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X5s-Dn-NZl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -85,6 +93,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SS5-Eb-Ve7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJt-IS-uMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="524"/>
         </scene>
@@ -102,4 +111,7 @@
             <point key="canvasLocation" x="-78" y="855"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="P3q-id-22w"/>
+    </inferredMetricsTieBreakers>
 </document>
