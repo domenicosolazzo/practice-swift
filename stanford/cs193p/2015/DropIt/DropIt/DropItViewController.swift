@@ -20,7 +20,7 @@ class DropItViewController: UIViewController {
         let lazilyCreatedCollider = UICollisionBehavior()
         lazilyCreatedCollider.translatesReferenceBoundsIntoBoundary = true;
         return lazilyCreatedCollider
-    }
+    }()
     
     // Dynamic Animator
     // Do not call this before self.gameView is set
@@ -39,6 +39,7 @@ class DropItViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         animator.addBehavior(gravity)
+        animator.addBehavior(collider)
     }
     @IBAction func drop(sender: UITapGestureRecognizer) {
         drop()
