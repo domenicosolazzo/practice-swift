@@ -55,6 +55,8 @@ class DropItViewController: UIViewController {
         gameView.addSubview(dropView)
         
         gravity.addItem(dropView)
+        
+        collider.addItem(dropView)
     }
 }
 
