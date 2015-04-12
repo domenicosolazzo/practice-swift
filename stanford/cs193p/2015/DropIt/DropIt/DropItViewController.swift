@@ -12,6 +12,16 @@ class DropItViewController: UIViewController {
 
     @IBOutlet weak var gameView: UIView!
     
+    // Gravity Behaviour
+    var gravity = UIGravityBehavior()
+    
+    // Dynamic Animator
+    // Do not call this before self.gameView is set
+    lazy var animator: UIDynamicAnimator = {
+       let lazilyCreatedDynamicAnimator = UIDynamicAnimator(referenceView: self.gameView)
+        return lazilyCreatedDynamicAnimator
+    }()
+    
     var dropsPerRow = 10
     
     var dropSize: CGSize{
