@@ -15,6 +15,13 @@ class DropItViewController: UIViewController {
     // Gravity Behaviour
     var gravity = UIGravityBehavior()
     
+    // Collider Behaviour
+    lazy var collider: UICollisionBehavior = {
+        let lazilyCreatedCollider = UICollisionBehavior()
+        lazilyCreatedCollider.translatesReferenceBoundsIntoBoundary = true;
+        return lazilyCreatedCollider
+    }
+    
     // Dynamic Animator
     // Do not call this before self.gameView is set
     lazy var animator: UIDynamicAnimator = {
