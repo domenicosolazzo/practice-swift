@@ -28,10 +28,11 @@ class DropItViewController: UIViewController {
         return CGSize(width: size, height: size)
     }
     
+    var dropitBehavior = DropBehavior()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        animator.addBehavior(gravity)
-        animator.addBehavior(collider)
+        animator.addBehavior(dropitBehavior)
     }
     @IBAction func drop(sender: UITapGestureRecognizer) {
         drop()
@@ -44,11 +45,7 @@ class DropItViewController: UIViewController {
         let dropView = UIView(frame:frame)
         dropView.backgroundColor = UIColor.random
         
-        gameView.addSubview(dropView)
-        
-        gravity.addItem(dropView)
-        
-        collider.addItem(dropView)
+        dropitBehavior.addDrop(dropView)
     }
 }
 
