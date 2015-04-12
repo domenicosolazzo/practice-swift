@@ -29,6 +29,8 @@ class DropItViewController: UIViewController {
         
         let dropView = UIView(frame:frame)
         dropView.backgroundColor = UIColor.random
+        
+        gameView.addSubview(dropView)
     }
 }
 
