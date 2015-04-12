@@ -20,5 +20,22 @@ class DropItViewController: UIViewController {
     }
 
     @IBAction func drop(sender: UITapGestureRecognizer) {
+        drop()
+    }
+    
+    func drop(){
+        var frame = CGRect(origin: CGPointZero, size: dropSize)
+        frame.origin.x = CGFloat.random(dropsPerRow) * dropSize.width
+        
+        let dropView = UIView(frame:frame)
     }
 }
+
+private extension CGFloat {
+    // Random float between 0 and max
+    static func random(max:Int) -> CGFloat{
+        return CGFloat(arc4random() % UInt32(max))
+    }
+}
+
+
