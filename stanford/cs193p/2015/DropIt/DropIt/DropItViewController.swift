@@ -19,4 +19,6 @@ class DropItViewController: UIViewController {
         return CGSize(width: size, height: size)
     }
 
+    @IBAction func drop(sender: UITapGestureRecognizer) {
+    }
 }

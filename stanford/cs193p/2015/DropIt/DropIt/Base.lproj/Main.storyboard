@@ -19,6 +19,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GY0-Yv-Ruz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nq6-hC-Uv4" appends="YES" id="fYK-Qg-dW0"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,6 +38,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72U-hU-iry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nq6-hC-Uv4">
+                    <connections>
+                        <action selector="drop:" destination="RXA-cO-h7c" id="dai-14-nhl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="386" y="452"/>
         </scene>
