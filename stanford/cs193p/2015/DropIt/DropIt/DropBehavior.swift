@@ -25,4 +25,16 @@ class DropBehavior: UIDynamicBehavior {
         addChildBehavior(gravity)
         addChildBehavior(collider)
     }
+    
+    func addDrop(drop: UIView){
+        dynamicAnimator?.referenceView?.addSubview(drop)
+        gravity.addItem(drop)
+        collider.addItem(drop)
+    }
+    
+    func removeDrop(drop: UIView){
+        gravity.removeItem(drop)
+        collider.removeItem(drop)
+        drop.removeFromSuperview()
+    }
 }
