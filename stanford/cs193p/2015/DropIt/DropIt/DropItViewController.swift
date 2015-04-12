@@ -10,7 +10,7 @@ import UIKit
 
 class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
 
-    @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var gameView: BezierPathsView!
     
     
     
@@ -45,6 +45,7 @@ class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
         let barrierOrigin = CGPoint(x: gameView.bounds.midX-barrierSize.width/2, y: gameView.bounds.midY-barrierSize.height/2)
         let path = UIBezierPath(ovalInRect: CGRect(origin: barrierOrigin, size: barrierSize))
         dropitBehavior.addBarrier(path, named:PathNames.MiddleBarrier)
+        gameView.setPath(path, named: PathNames.MiddleBarrier)
     }
     
     func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
