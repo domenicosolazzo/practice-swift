@@ -28,6 +28,7 @@ class DropItViewController: UIViewController {
         frame.origin.x = CGFloat.random(dropsPerRow) * dropSize.width
         
         let dropView = UIView(frame:frame)
+        dropView.backgroundColor = UIColor.random
     }
 }
 
