@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DropItViewController: UIViewController {
+class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
 
     @IBOutlet weak var gameView: UIView!
     
@@ -18,6 +18,7 @@ class DropItViewController: UIViewController {
     // Do not call this before self.gameView is set
     lazy var animator: UIDynamicAnimator = {
        let lazilyCreatedDynamicAnimator = UIDynamicAnimator(referenceView: self.gameView)
+        lazilyCreatedDynamicAnimator.delegate = self
         return lazilyCreatedDynamicAnimator
     }()
     
@@ -33,6 +34,10 @@ class DropItViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         animator.addBehavior(dropitBehavior)
+    }
+    
+    func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
+        removeCompletedRow()
     }
     @IBAction func drop(sender: UITapGestureRecognizer) {
         drop()
@@ -68,6 +73,9 @@ class DropItViewController: UIViewController {
                     }
                 }
         
+            }
+            if rowIsComplete{
+                dropsToRemove += dropsFound
             }
         }while dropsToRemove.count == 0 && dropFrame.origin.y > 0
         for drop in dropsToRemove{
