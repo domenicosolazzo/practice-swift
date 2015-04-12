@@ -47,6 +47,33 @@ class DropItViewController: UIViewController {
         
         dropitBehavior.addDrop(dropView)
     }
+    
+    func removeCompletedRow(){
+        var dropsToRemove = [UIView]()
+        var dropFrame = CGRect(x: 0, y:gameView.frame.maxY, width:dropSize.width, height: dropSize.height)
+        
+        do{
+            dropFrame.origin.y -= dropSize.height
+            dropFrame.origin.x = 0
+            
+            var dropsFound = [UIView]()
+            var rowIsComplete = true
+            
+            for _ in 0 ..< dropsPerRow{
+                if let hitView = gameView.hitTest(CGPoint(x: dropFrame.midX, y: dropFrame.midY), withEvent: nil){
+                    if hitView.superview == gameView{
+                        dropsFound.append(hitView)
+                    }else{
+                        rowIsComplete = false
+                    }
+                }
+        
+            }
+        }while dropsToRemove.count == 0 && dropFrame.origin.y > 0
+        for drop in dropsToRemove{
+            dropitBehavior.removeDrop(drop)
+        }
+    }
 }
 
 private extension CGFloat {
