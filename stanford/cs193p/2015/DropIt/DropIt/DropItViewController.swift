@@ -30,6 +30,17 @@ class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
     }
     
     var dropitBehavior = DropBehavior()
+    var attachmentBehavior: UIAttachmentBehavior?{
+        willSet{
+            animator.removeBehavior(attachmentBehavior)
+        }
+        didSet{
+            if attachmentBehavior != nil{
+                animator.addBehavior(attachmentBehavior)
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +65,23 @@ class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
     @IBAction func drop(sender: UITapGestureRecognizer) {
         drop()
     }
-    
+    @IBAction func grabDrop(sender: UIPanGestureRecognizer) {
+        let gesturePoint = sender.locationInView(gameView)
+        
+        switch sender.state{
+        case .Began:
+            if let viewToAttachTo = lastDroppedView{
+                attachmentBehavior = UIAttachmentBehavior(item:lastDroppedView!, attachedToAnchor: gesturePoint)
+                lastDroppedView = nil
+            }
+        case .Changed:
+            attachmentBehavior?.anchorPoint = gesturePoint
+        case .Ended:
+            attachmentBehavior = nil
+        default:break
+        }
+    }
+    var lastDroppedView: UIView?
     func drop(){
         var frame = CGRect(origin: CGPointZero, size: dropSize)
         frame.origin.x = CGFloat.random(dropsPerRow) * dropSize.width
@@ -62,6 +89,7 @@ class DropItViewController: UIViewController, UIDynamicAnimatorDelegate {
         let dropView = UIView(frame:frame)
         dropView.backgroundColor = UIColor.random
         
+        lastDroppedView = dropView
         dropitBehavior.addDrop(dropView)
     }
     

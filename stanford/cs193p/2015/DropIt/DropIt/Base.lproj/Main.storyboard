@@ -22,6 +22,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="nq6-hC-Uv4" appends="YES" id="fYK-Qg-dW0"/>
+                                    <outletCollection property="gestureRecognizers" destination="MrC-LC-go9" appends="YES" id="Aas-a8-a0J"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -43,6 +44,11 @@
                         <action selector="drop:" destination="RXA-cO-h7c" id="dai-14-nhl"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="MrC-LC-go9">
+                    <connections>
+                        <action selector="grabDrop:" destination="RXA-cO-h7c" id="5kE-As-qvl"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="386" y="452"/>
         </scene>
