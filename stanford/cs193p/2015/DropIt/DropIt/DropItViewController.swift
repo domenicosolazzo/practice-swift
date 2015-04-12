@@ -10,6 +10,7 @@ import UIKit
 
 class DropItViewController: UIViewController {
 
+    @IBOutlet weak var gameView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
