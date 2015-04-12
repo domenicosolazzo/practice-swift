@@ -43,5 +43,38 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeIconFiles</key>
+            <array/>
+            <key>CFBundleTypeName</key>
+            <string>GPX File</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.domenicosolazzo.cs193p.2015.trax.gpx</string>
+            </array>
+        </dict>
+    </array>
+    <key>UTImportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.xml</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>GPX File</string>
+            <key>UTTypeIdentifier</key>
+            <string>com.domenicosolazzo.cs193p.2015.trax.gpx</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array>
+                    <string>gpx</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
 </dict>
 </plist>
