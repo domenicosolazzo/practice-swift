@@ -17,7 +17,9 @@ class BezierPathsView: UIView {
         setNeedsDisplay()
     }
     override func drawRect(rect: CGRect) {
-        // Drawing code
+        for(_, path) in bezierPaths{
+            path.stroke()
+        }
     }
 
 }
