@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // Create a blur effect. The style is an UIBlurEffectStyle value
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
