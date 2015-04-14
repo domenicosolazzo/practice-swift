@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         
         // Add a UIVisualEffectView
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        // Change size and position
+        blurEffectView.frame.size = CGSize(width: 200, height: 200)
+        blurEffectView.center = view.center
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
