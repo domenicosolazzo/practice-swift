@@ -18,7 +18,8 @@ class ViewController: UIViewController {
         // Create a blur effect. The style is an UIBlurEffectStyle value
         var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         
-        
+        // Add a UIVisualEffectView
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
     }
 
     override func didReceiveMemoryWarning() {
