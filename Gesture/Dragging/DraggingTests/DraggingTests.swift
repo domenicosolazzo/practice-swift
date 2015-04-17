@@ -1,15 +1,15 @@
 //
-//  TakingPhotosTests.swift
-//  TakingPhotosTests
+//  DraggingTests.swift
+//  DraggingTests
 //
-//  Created by Domenico on 14.04.15.
+//  Created by Domenico on 17.04.15.
 //  Copyright (c) 2015 Domenico Solazzo. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class TakingPhotosTests: XCTestCase {
+class DraggingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

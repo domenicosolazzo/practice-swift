@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  TakingPhotos
+//  Dragging
 //
-//  Created by Domenico on 14.04.15.
+//  Created by Domenico on 17.04.15.
 //  Copyright (c) 2015 Domenico Solazzo. All rights reserved.
 //
 
@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func dragging(sender: UIPanGestureRecognizer) {
+        
+    }
+    
 }
 
