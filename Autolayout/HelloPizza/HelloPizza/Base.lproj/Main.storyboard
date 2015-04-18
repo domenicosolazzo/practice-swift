@@ -54,8 +54,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvc-7A-rg2">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvc-7A-rg2">
+                                <rect key="frame" x="16" y="560" width="568" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.07000666271482181" blue="0.14351650019828754" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,7 +69,10 @@
                             <constraint firstItem="RCT-nL-c5N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="3kt-Bs-1dT"/>
                             <constraint firstAttribute="centerY" secondItem="6uc-UB-hDh" secondAttribute="centerY" id="OQU-3Z-aBl"/>
                             <constraint firstItem="RCT-nL-c5N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QCk-5f-zSh"/>
+                            <constraint firstItem="yvc-7A-rg2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QuK-Ra-OjK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yvc-7A-rg2" secondAttribute="trailing" id="TGF-ka-53G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RCT-nL-c5N" secondAttribute="trailing" id="TYA-CX-hNv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yvc-7A-rg2" secondAttribute="bottom" constant="10" id="vs8-hn-E0r"/>
                         </constraints>
                     </view>
                 </viewController>
