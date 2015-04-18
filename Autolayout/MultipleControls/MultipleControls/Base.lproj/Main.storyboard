@@ -72,6 +72,9 @@
                             <constraint firstItem="ZlS-0w-gF6" firstAttribute="top" secondItem="vie-2q-pNz" secondAttribute="bottom" constant="21" id="zUR-jq-3Er"/>
                             <constraint firstItem="XcL-K8-e4D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zl7-4R-uLj"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTap:" destination="BYZ-38-t0r" eventType="touchDown" id="N36-lj-bcT"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="nameField" destination="vie-2q-pNz" id="uV1-5Y-fcJ"/>
