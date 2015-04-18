@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var sliderValue: UILabel!
+    @IBOutlet weak var rightSwitch: UISwitch!
+    @IBOutlet weak var leftSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,10 @@ class ViewController: UIViewController {
     @IBAction func sliderChanged(sender: UISlider) {
         let progress = lroundf(sender.value)
         sliderValue.text = "\(progress)"
+    }
+    @IBAction func switchChanged(sender: UISwitch) {
+    }
+    @IBAction func toggleControls(sender: UISegmentedControl) {
     }
 }
 

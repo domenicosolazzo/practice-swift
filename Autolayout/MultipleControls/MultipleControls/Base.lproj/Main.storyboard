@@ -71,12 +71,21 @@
                                     <segment title="Switches"/>
                                     <segment title="Buttons"/>
                                 </segments>
+                                <connections>
+                                    <action selector="toggleControls:" destination="BYZ-38-t0r" eventType="valueChanged" id="5vW-9Z-Ug1"/>
+                                </connections>
                             </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7e-aI-yCP">
                                 <rect key="frame" x="16" y="389" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="jGq-Wa-bRg"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBl-22-Wog">
                                 <rect key="frame" x="535" y="389" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Rwc-vK-uLE"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -121,8 +130,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="leftSwitch" destination="h7e-aI-yCP" id="JKR-z9-ZwY"/>
                         <outlet property="nameField" destination="vie-2q-pNz" id="uV1-5Y-fcJ"/>
                         <outlet property="numberField" destination="ZlS-0w-gF6" id="dct-AH-GVI"/>
+                        <outlet property="rightSwitch" destination="iBl-22-Wog" id="JT5-5M-sjC"/>
                         <outlet property="sliderValue" destination="1LT-WO-3kY" id="ZkR-DR-8Zt"/>
                     </connections>
                 </viewController>
