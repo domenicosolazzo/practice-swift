@@ -42,6 +42,9 @@ class ViewController: UIViewController {
         sliderValue.text = "\(progress)"
     }
     @IBAction func switchChanged(sender: UISwitch) {
+        let setting = sender.on
+        leftSwitch.setOn(setting, animated: true)
+        rightSwitch.setOn(setting, animated: true)
     }
     @IBAction func toggleControls(sender: UISegmentedControl) {
     }
