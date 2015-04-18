@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BasicAutolayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3P-JG-sXb">
+                                <rect key="frame" x="16" y="28" width="246" height="339"/>
+                                <color key="backgroundColor" red="0.21827977058261105" green="0.46611707123640678" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDR-IM-RCB">
+                                <rect key="frame" x="338" y="28" width="246" height="339"/>
+                                <color key="backgroundColor" red="0.21827977060000001" green="0.46611707120000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbM-TM-VlL">
+                                <rect key="frame" x="16" y="407" width="568" height="168"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bbM-TM-VlL" secondAttribute="bottom" constant="25" id="0fw-2P-45T"/>
+                            <constraint firstItem="bbM-TM-VlL" firstAttribute="top" secondItem="o3P-JG-sXb" secondAttribute="bottom" constant="40" id="0ok-Nu-7rz"/>
+                            <constraint firstItem="BDR-IM-RCB" firstAttribute="width" secondItem="o3P-JG-sXb" secondAttribute="width" id="1C0-gl-0nD"/>
+                            <constraint firstItem="BDR-IM-RCB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="28" id="1QM-pD-CJM"/>
+                            <constraint firstItem="bbM-TM-VlL" firstAttribute="height" secondItem="o3P-JG-sXb" secondAttribute="height" id="6uq-0m-dUS"/>
+                            <constraint firstItem="bbM-TM-VlL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Tr8-04-n3N"/>
+                            <constraint firstAttribute="trailing" secondItem="bbM-TM-VlL" secondAttribute="trailing" constant="16" id="Y45-PC-0VJ"/>
+                            <constraint firstItem="bbM-TM-VlL" firstAttribute="height" secondItem="BDR-IM-RCB" secondAttribute="height" id="afz-hp-h3Z"/>
+                            <constraint firstAttribute="trailing" secondItem="BDR-IM-RCB" secondAttribute="trailing" constant="16" id="c9c-1r-dx0"/>
+                            <constraint firstItem="BDR-IM-RCB" firstAttribute="leading" secondItem="o3P-JG-sXb" secondAttribute="trailing" constant="76" id="fOY-eM-8Ep"/>
+                            <constraint firstItem="o3P-JG-sXb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="j2D-s1-JOU"/>
+                            <constraint firstItem="o3P-JG-sXb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="28" id="spH-AP-b8T"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
