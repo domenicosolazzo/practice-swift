@@ -21,7 +21,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
+    @IBAction func textfieldDoneEditing(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
 
+    @IBAction func backgroundTap(sender: UIControl) {
+        nameField.resignFirstResponder()
+        numberField.resignFirstResponder()
+    }
 
 }
 
