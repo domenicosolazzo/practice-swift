@@ -23,6 +23,9 @@
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="16" y="92" width="568" height="252"/>
+                                </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkM-4A-bQI">
                                 <rect key="frame" x="16" y="46" width="279" height="36"/>
@@ -87,6 +90,14 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="D3a-ga-CDq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Dci-8u-WCH"/>
+                                <exclude reference="MhA-Db-bah"/>
+                                <exclude reference="wLr-dn-Fpb"/>
+                                <exclude reference="Z9g-TJ-1Bv"/>
                             </mask>
                         </variation>
                     </view>
