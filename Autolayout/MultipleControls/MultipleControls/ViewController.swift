@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
+    @IBOutlet weak var sliderValue: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,5 +34,9 @@ class ViewController: UIViewController {
         numberField.resignFirstResponder()
     }
 
+    @IBAction func sliderChanged(sender: UISlider) {
+        let progress = lroundf(sender.value)
+        sliderValue.text = "\(progress)"
+    }
 }
 

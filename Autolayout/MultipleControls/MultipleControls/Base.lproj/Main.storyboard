@@ -55,6 +55,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5cP-vp-es4">
                                 <rect key="frame" x="101" y="285" width="485" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="N4z-iw-YaJ"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-WO-3kY">
                                 <rect key="frame" x="16" y="289" width="67" height="21"/>
@@ -101,6 +104,7 @@
                     <connections>
                         <outlet property="nameField" destination="vie-2q-pNz" id="uV1-5Y-fcJ"/>
                         <outlet property="numberField" destination="ZlS-0w-gF6" id="dct-AH-GVI"/>
+                        <outlet property="sliderValue" destination="1LT-WO-3kY" id="ZkR-DR-8Zt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
