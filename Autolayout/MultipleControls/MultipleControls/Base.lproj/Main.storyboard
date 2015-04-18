@@ -65,16 +65,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-SF-QHK">
-                                <rect key="frame" x="239" y="344" width="139" height="29"/>
-                                <segments>
-                                    <segment title="Switches"/>
-                                    <segment title="Buttons"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggleControls:" destination="BYZ-38-t0r" eventType="valueChanged" id="5vW-9Z-Ug1"/>
-                                </connections>
-                            </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7e-aI-yCP">
                                 <rect key="frame" x="16" y="389" width="51" height="31"/>
                                 <connections>
@@ -89,12 +79,25 @@
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svp-hH-9rB">
                                 <rect key="frame" x="16" y="390" width="568" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Do Something">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jer-15-q89"/>
+                                </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-SF-QHK">
+                                <rect key="frame" x="239" y="344" width="139" height="29"/>
+                                <segments>
+                                    <segment title="Switches"/>
+                                    <segment title="Button"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleControls:" destination="BYZ-38-t0r" eventType="valueChanged" id="5vW-9Z-Ug1"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.95027101419988291" blue="0.70601529457249201" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iBl-22-Wog" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="369" id="5HR-0n-YcA"/>
                             <constraint firstItem="5cP-vp-es4" firstAttribute="leading" secondItem="1LT-WO-3kY" secondAttribute="trailing" constant="20" id="6gr-lb-R7H"/>
@@ -139,6 +142,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="doSomething" destination="svp-hH-9rB" id="yqz-ap-B5D"/>
                         <outlet property="leftSwitch" destination="h7e-aI-yCP" id="JKR-z9-ZwY"/>
                         <outlet property="nameField" destination="vie-2q-pNz" id="uV1-5Y-fcJ"/>
                         <outlet property="numberField" destination="ZlS-0w-gF6" id="dct-AH-GVI"/>

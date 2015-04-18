@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var rightSwitch: UISwitch!
     @IBOutlet weak var leftSwitch: UISwitch!
+    @IBOutlet weak var doSomething: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,17 @@ class ViewController: UIViewController {
         rightSwitch.setOn(setting, animated: true)
     }
     @IBAction func toggleControls(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            leftSwitch.hidden = false
+            rightSwitch.hidden = false
+            doSomething.hidden = true
+        } else {
+            leftSwitch.hidden = true
+            rightSwitch.hidden = true
+            doSomething.hidden = false
+        }
+    }
+    @IBAction func buttonPressed(sender: UIButton) {
     }
 }
 
