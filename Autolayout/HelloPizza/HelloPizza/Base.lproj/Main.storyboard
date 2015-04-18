@@ -39,8 +39,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtU-5V-AaV">
-                                <rect key="frame" x="96" y="0.0" width="37" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtU-5V-AaV">
+                                <rect key="frame" x="96" y="46" width="37" height="30"/>
                                 <color key="backgroundColor" red="0.21827977060000001" green="0.46611707120000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Pizza">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,6 +68,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jkM-4A-bQI" firstAttribute="top" secondItem="WtU-5V-AaV" secondAttribute="top" id="0NB-iK-gKi"/>
                             <constraint firstAttribute="centerX" secondItem="6uc-UB-hDh" secondAttribute="centerX" id="1dM-oL-Y8k"/>
                             <constraint firstItem="RCT-nL-c5N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="3kt-Bs-1dT"/>
                             <constraint firstItem="jkM-4A-bQI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7XB-rD-ADY"/>
