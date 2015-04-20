@@ -54,14 +54,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-lQ-uh0">
-                                <rect key="frame" x="0.0" y="219" width="600" height="162"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-lQ-uh0">
+                                <rect key="frame" x="140" y="20" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="451247886.57821101">
                                     <!--2015-04-20 18:38:06 +0000-->
                                 </date>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="4EU-lQ-uh0" secondAttribute="centerX" id="463-8J-bQo"/>
+                            <constraint firstItem="4EU-lQ-uh0" firstAttribute="top" secondItem="4KS-Hk-rVk" secondAttribute="bottom" id="W2Y-5a-fiY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Date" id="4j8-aQ-E0d"/>
                 </viewController>
