@@ -49,5 +49,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXp-FX-zrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Blue View Controller-->
+        <scene sceneID="B5R-8s-oBF">
+            <objects>
+                <viewController storyboardIdentifier="Blue" id="CR7-TM-qR3" customClass="BlueViewController" customModule="ViewSwitcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qjT-AX-qV6"/>
+                        <viewControllerLayoutGuide type="bottom" id="JlH-Ov-BWf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQ2-1a-kgr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szB-nr-7ZO">
+                                <rect key="frame" x="277" y="285" width="64" height="30"/>
+                                <state key="normal" title="Press me">
+                                    <color key="titleColor" white="0.18020148026315788" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blueButtonPressed:" destination="CR7-TM-qR3" eventType="touchUpInside" id="cLh-S5-3KF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1792556311770942" green="0.87058357100682482" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="szB-nr-7ZO" secondAttribute="centerX" constant="-9" id="tdM-DC-7hw"/>
+                            <constraint firstAttribute="centerY" secondItem="szB-nr-7ZO" secondAttribute="centerY" id="wS6-ed-ult"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DaZ-Cw-cCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="260"/>
+        </scene>
     </scenes>
 </document>
