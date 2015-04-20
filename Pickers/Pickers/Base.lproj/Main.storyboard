@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Single-->
         <scene sceneID="Jpa-wH-A43">
             <objects>
                 <viewController id="Hb1-db-uML" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="uWg-Mc-pZB"/>
+                    <tabBarItem key="tabBarItem" title="Single" id="uWg-Mc-pZB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ojh-BJ-Nsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="407" y="1082"/>
         </scene>
-        <!--Item 1-->
+        <!--Date-->
         <scene sceneID="MhF-S3-Pe1">
             <objects>
                 <viewController id="Sor-SU-3Hn" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4j8-aQ-E0d"/>
+                    <tabBarItem key="tabBarItem" title="Date" id="4j8-aQ-E0d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJa-sr-8j9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +45,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="UxP-ee-h0D">
             <objects>
-                <tabBarController id="2nT-C8-8qL" sceneMemberID="viewController">
+                <tabBarController autoresizesArchivedViewToFullSize="NO" id="2nT-C8-8qL" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="y9R-jg-ccu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
