@@ -10,6 +10,9 @@ import UIKit
 
 class SwitchingViewController: UIViewController {
 
+    private var blueViewController: BlueViewController!
+    private var yellowViewController: YellowViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,9 @@ class SwitchingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func switchViews(sender: UIBarButtonItem){
+        
+    }
 
     /*
     // MARK: - Navigation
