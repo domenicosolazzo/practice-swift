@@ -49,6 +49,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXp-FX-zrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Yellow View Controller-->
+        <scene sceneID="KeZ-72-NcH">
+            <objects>
+                <viewController storyboardIdentifier="Yellow" id="hMz-UF-r1x" customClass="YellowViewController" customModule="ViewSwitcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Scz-zj-P9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="ryQ-0q-mXM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CD5-yh-C0F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Oa-qK-7Cu">
+                                <rect key="frame" x="253" y="241" width="95" height="30"/>
+                                <state key="normal" title="Press me, too">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yellowButtonPressed:" destination="hMz-UF-r1x" eventType="touchUpInside" id="WRl-CV-I6D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.88547818295498526" blue="0.13217392759045665" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7Oa-qK-7Cu" secondAttribute="centerX" id="MFc-47-OlS"/>
+                            <constraint firstAttribute="centerY" secondItem="7Oa-qK-7Cu" secondAttribute="centerY" constant="44" id="lRT-hK-KrE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKT-4l-JiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="629"/>
+        </scene>
         <!--Blue View Controller-->
         <scene sceneID="B5R-8s-oBF">
             <objects>
@@ -81,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaZ-Cw-cCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="260"/>
+            <point key="canvasLocation" x="1118" y="-276"/>
         </scene>
     </scenes>
 </document>
