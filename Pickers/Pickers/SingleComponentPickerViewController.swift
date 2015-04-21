@@ -29,6 +29,22 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     
 
     @IBAction func buttonPressed(sender: UIButton) {
+        // Selected row in the picker view
+        let row = picker.selectedRowInComponent(0)
+        // Select the string in the array
+        let selected = characterNames[row]
+        
+        let title = "You selected \(selected)!"
+        
+        let alert = UIAlertController(
+            title: title,
+            message: "Thank you for choosing",
+            preferredStyle: .Alert
+        )
+        
+        let action = UIAlertAction(title: "You are welcome", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
