@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -27,6 +28,8 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
     
     @IBOutlet weak var picker: UIPickerView!
     override func didReceiveMemoryWarning() {

@@ -226,8 +226,8 @@
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
-                                    <outlet property="dataSource" destination="aLE-dc-dF8" id="afw-mc-2qr"/>
-                                    <outlet property="delegate" destination="aLE-dc-dF8" id="hmU-7n-9FM"/>
+                                    <outlet property="dataSource" destination="aLE-dc-dF8" id="cVD-fX-jZ2"/>
+                                    <outlet property="delegate" destination="aLE-dc-dF8" id="4Ey-kf-g2k"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -243,8 +243,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Custom" id="iCe-Ex-diB"/>
                     <connections>
-                        <outlet property="customPicker" destination="oSM-fe-uKG" id="cLu-3U-E2W"/>
-                        <outlet property="picker" destination="oSM-fe-uKG" id="jTx-Zk-KCN"/>
+                        <outlet property="button" destination="aih-Ta-k4J" id="6qf-z9-i0X"/>
+                        <outlet property="picker" destination="oSM-fe-uKG" id="sxH-XW-Gbn"/>
                         <outlet property="winLabel" destination="niU-Zf-vn8" id="KES-CC-XAh"/>
                     </connections>
                 </viewController>
