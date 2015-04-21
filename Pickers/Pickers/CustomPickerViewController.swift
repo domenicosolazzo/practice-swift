@@ -31,6 +31,10 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         winLabel.text = " " // Note the space between the quotes
     }
 
+    func showButton() {
+        button.hidden = false
+    }
+    
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     
