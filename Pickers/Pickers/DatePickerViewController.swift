@@ -16,6 +16,12 @@ class DatePickerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBAction func buttonPressed(sender: UIButton) {
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
