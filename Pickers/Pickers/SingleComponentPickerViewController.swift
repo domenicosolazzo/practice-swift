@@ -46,14 +46,23 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
+    // MARK: -
+    // MARK: - Picker Data Source Methods
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+        Picker can have more than one component in the spinning wheel
     */
-
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // How many row the picker view contains
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return characterNames.count
+    }
+    
+    // MARK: - Picker Delegate Methods
+    // Provide the data for a specific row in a specific component
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return characterNames[row]
+    }
 }
