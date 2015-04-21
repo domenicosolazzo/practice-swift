@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DependentComponentPickerViewController: UIViewController {
+class DependentComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ class DependentComponentPickerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var dependentPicker: UIPickerView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,4 +33,6 @@ class DependentComponentPickerViewController: UIViewController {
     }
     */
 
+    @IBAction func buttonPressed(sender: UIButton) {
+    }
 }
