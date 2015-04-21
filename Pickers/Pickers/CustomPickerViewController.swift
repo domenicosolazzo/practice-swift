@@ -12,6 +12,10 @@ import AudioToolbox
 class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     private var images:[UIImage]!
+    private var winSoundID: SystemSoundID = 0
+    private var crunchSoundID: SystemSoundID = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
