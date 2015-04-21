@@ -222,6 +222,9 @@
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSM-fe-uKG">
                                 <rect key="frame" x="140" y="44" width="320" height="162"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="dataSource" destination="aLE-dc-dF8" id="afw-mc-2qr"/>
                                     <outlet property="delegate" destination="aLE-dc-dF8" id="hmU-7n-9FM"/>
