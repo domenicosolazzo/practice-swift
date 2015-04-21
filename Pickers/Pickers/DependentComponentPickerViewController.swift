@@ -22,9 +22,11 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
         // Do any additional setup after loading the view.
         
         let bundle = NSBundle.mainBundle()
+        // It returns an URL
         let plistURL = bundle.URLForResource("statedictionary", withExtension: "plist")
         
-        stateZips = NSDictionary(contentsOfURL: plistURL!) as [String: [String]]
+        stateZips = NSDictionary(contentsOfURL: plistURL!)
+                        as! [String : [String]]
         let allStates = stateZips.keys
         states = sorted(allStates)
         
@@ -75,4 +77,49 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+    // MARK:-
+    // MARK: Picker Data Source Methods
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == stateComponent{
+            return states.count
+        }else{
+            return zips.count
+        }
+    }
+    
+    // MARK:-
+    // MARK: Picker Delegate Methods
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedState = states[row]
+        zips = stateZips[selectedState]
+        dependentPicker.reloadComponent(zipComponent)
+        dependentPicker.selectRow(0, inComponent: zipComponent,
+            animated: true)
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if component == stateComponent{
+            return states[row]
+        }else{
+            return zips[row]
+        }
+    }
+    
+    /// Check how wide should be each component in the picker
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        let pickerWidth = pickerView.bounds.size.width
+        if component == zipComponent {
+            return pickerWidth/3
+        } else {
+            return 2 * pickerWidth/3
+        }
+    }
+    
+    
+    
 }
