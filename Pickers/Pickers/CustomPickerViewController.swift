@@ -26,7 +26,27 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     @IBAction func spin(sender: UIButton) {
+        var win = false
+        var numInRow = -1
+        var lastVal = -1
         
+        for i in 0..<5 {
+            let newValue = Int(arc4random_uniform(UInt32(images.count)))
+            if newValue == lastVal {
+                numInRow++
+            } else {
+                numInRow = 1
+            }
+            lastVal = newValue
+            
+            picker.selectRow(newValue, inComponent: i, animated: true)
+            picker.reloadComponent(i)
+            if numInRow >= 3 {
+                win = true
+            }
+        }
+        
+        winLabel.text = win ? "WINNER!" : " "
     }
     
 }
