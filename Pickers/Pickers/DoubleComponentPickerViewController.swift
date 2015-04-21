@@ -16,6 +16,15 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         // Do any additional setup after loading the view.
     }
 
+    private let fillingComponent = 0
+    private let breadComponent = 1
+    private let fillingTypes = [
+        "Ham", "Turkey", "Peanut Butter", "Tuna Salad",
+        "Chicken Salad", "Roast Beef", "Vegemite"]
+    private let breadTypes = [
+        "White", "Whole Wheat", "Rye", "Sourdough",
+        "Seven Grain"]
+    
     @IBOutlet weak var doublePicker: UIPickerView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
