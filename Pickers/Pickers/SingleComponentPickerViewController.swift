@@ -17,6 +17,11 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     }
 
     @IBOutlet weak var picker: UIPickerView!
+    // Data
+    private let characterNames = [
+        "Luke", "Leia", "Han", "Chewbacca", "Artoo",
+        "Threepio", "Lando"]
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
