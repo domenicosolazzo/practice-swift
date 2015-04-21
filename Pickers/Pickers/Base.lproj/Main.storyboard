@@ -15,7 +15,16 @@
                     <view key="view" contentMode="scaleToFill" id="f2c-Ni-YqB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAf-pF-XOR">
+                                <rect key="frame" x="140" y="20" width="320" height="162"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="UAf-pF-XOR" secondAttribute="centerX" id="GPI-QD-wQm"/>
+                            <constraint firstItem="UAf-pF-XOR" firstAttribute="top" secondItem="LlY-pT-U1C" secondAttribute="bottom" id="hcD-e0-KTc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Single" id="uWg-Mc-pZB"/>
                 </viewController>
