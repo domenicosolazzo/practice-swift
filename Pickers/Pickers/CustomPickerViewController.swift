@@ -8,8 +8,9 @@
 
 import UIKit
 
-class CustomPickerViewController: UIViewController {
+class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    private var images:[UIImage]!
     override func viewDidLoad() {
         super.viewDidLoad()
 
