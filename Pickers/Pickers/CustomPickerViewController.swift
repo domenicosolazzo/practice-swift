@@ -71,6 +71,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     // MARK:-
     // MARK: Picker Delegate Methods
+    // We can supply the picker with anything that can be draw in this picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int,
         forComponent component: Int,
         reusingView view: UIView!) -> UIView {
