@@ -18,6 +18,10 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAf-pF-XOR">
                                 <rect key="frame" x="140" y="20" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hb1-db-uML" id="nZ1-tU-xjZ"/>
+                                    <outlet property="delegate" destination="Hb1-db-uML" id="coP-UC-nrr"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,6 +31,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Single" id="uWg-Mc-pZB"/>
+                    <connections>
+                        <outlet property="picker" destination="UAf-pF-XOR" id="2eq-6J-e90"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ojh-BJ-Nsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerDataSource {
+class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var picker: UIPickerView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
