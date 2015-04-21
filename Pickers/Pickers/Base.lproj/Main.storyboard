@@ -61,9 +61,36 @@
                     <view key="view" contentMode="scaleToFill" id="B89-8Z-Gjk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKO-97-ReA">
+                                <rect key="frame" x="279" y="309" width="43" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="zFa-3H-oX0" eventType="touchUpInside" id="1KF-sy-Wtz"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l47-eb-cFs">
+                                <rect key="frame" x="140" y="37" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zFa-3H-oX0" id="l9u-c9-LIk"/>
+                                    <outlet property="delegate" destination="zFa-3H-oX0" id="q6o-xm-VzX"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kKO-97-ReA" firstAttribute="top" secondItem="l47-eb-cFs" secondAttribute="bottom" constant="110" id="RT1-hG-m5q"/>
+                            <constraint firstAttribute="centerX" secondItem="kKO-97-ReA" secondAttribute="centerX" id="eOw-31-IcZ"/>
+                            <constraint firstItem="l47-eb-cFs" firstAttribute="top" secondItem="iqi-Mk-oU8" secondAttribute="bottom" constant="17" id="vVe-Cw-cWQ"/>
+                            <constraint firstAttribute="centerX" secondItem="l47-eb-cFs" secondAttribute="centerX" id="xku-T3-B89"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Double" id="nZB-gy-JuV"/>
+                    <connections>
+                        <outlet property="doublePicker" destination="l47-eb-cFs" id="gil-hC-dad"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPv-9H-Wvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

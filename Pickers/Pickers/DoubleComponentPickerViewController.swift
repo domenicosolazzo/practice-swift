@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoubleComponentPickerViewController: UIViewController {
+class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ class DoubleComponentPickerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var doublePicker: UIPickerView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,4 +33,6 @@ class DoubleComponentPickerViewController: UIViewController {
     }
     */
 
+    @IBAction func buttonPressed(sender: UIButton) {
+    }
 }
