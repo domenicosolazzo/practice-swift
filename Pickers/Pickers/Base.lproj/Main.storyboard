@@ -66,10 +66,18 @@
                                     <!--2200-12-31 11:00:00 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5I-HT-Isp">
+                                <rect key="frame" x="279" y="285" width="43" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="4EU-lQ-uh0" secondAttribute="centerX" id="463-8J-bQo"/>
+                            <constraint firstAttribute="centerX" secondItem="c5I-HT-Isp" secondAttribute="centerX" id="Cmh-N3-PMh"/>
+                            <constraint firstItem="c5I-HT-Isp" firstAttribute="top" secondItem="4EU-lQ-uh0" secondAttribute="bottom" constant="103" id="Hzb-D2-qfK"/>
                             <constraint firstItem="4EU-lQ-uh0" firstAttribute="top" secondItem="4KS-Hk-rVk" secondAttribute="bottom" id="W2Y-5a-fiY"/>
                         </constraints>
                     </view>
