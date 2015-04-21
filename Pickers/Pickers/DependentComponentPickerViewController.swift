@@ -10,19 +10,31 @@ import UIKit
 
 class DependentComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    @IBOutlet weak var dependentPicker: UIPickerView!
-    
     private let stateComponent = 0
     private let zipComponent = 1
     private var stateZips:[String : [String]]!
     private var states:[String]!
     private var zips:[String]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        let bundle = NSBundle.mainBundle()
+        let plistURL = bundle.URLForResource("statedictionary", withExtension: "plist")
+        
+        stateZips = NSDictionary(contentsOfURL: plistURL!) as [String: [String]]
+        let allStates = stateZips.keys
+        states = sorted(allStates)
+        
+        let selectedState = states[0]
+        zips = stateZips[selectedState]
+    }
+
+    @IBOutlet weak var dependentPicker: UIPickerView!
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
