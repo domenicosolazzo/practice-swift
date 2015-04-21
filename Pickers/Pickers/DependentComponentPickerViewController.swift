@@ -17,6 +17,13 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
     }
 
     @IBOutlet weak var dependentPicker: UIPickerView!
+    
+    private let stateComponent = 0
+    private let zipComponent = 1
+    private var stateZips:[String : [String]]!
+    private var states:[String]!
+    private var zips:[String]!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
