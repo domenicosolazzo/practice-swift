@@ -43,5 +43,24 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     */
 
     @IBAction func buttonPressed(sender: UIButton) {
+        let fillingRow =
+        doublePicker.selectedRowInComponent(fillingComponent)
+        let breadRow =
+        doublePicker.selectedRowInComponent(breadComponent)
+        
+        let filling = fillingTypes[fillingRow]
+        let bread = breadTypes[breadRow]
+        let message = "Your \(filling) on \(bread) bread will be right up."
+        
+        let alert = UIAlertController(
+            title: "Thank you for your order",
+            message: message,
+            preferredStyle: .Alert)
+        let action = UIAlertAction(
+            title: "Great",
+            style: .Default,
+            handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
