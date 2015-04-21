@@ -27,8 +27,8 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     @IBOutlet weak var winLabel: UILabel!
-    @IBOutlet weak var customPicker: UIPickerView!
     
+    @IBOutlet weak var picker: UIPickerView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +56,32 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
         
         winLabel.text = win ? "WINNER!" : " "
+    }
+    
+    // MARK:-
+    // MARK: Picker Data Source Methods
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 5
+    }
+    
+    func pickerView(pickerView: UIPickerView,
+        numberOfRowsInComponent component: Int) -> Int {
+            return images.count
+    }
+    
+    // MARK:-
+    // MARK: Picker Delegate Methods
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int,
+        forComponent component: Int,
+        reusingView view: UIView!) -> UIView {
+            let image = images[row]
+            let imageView = UIImageView(image: image)
+            return imageView
+    }
+    
+    func pickerView(pickerView: UIPickerView,
+        rowHeightForComponent component: Int) -> CGFloat {
+            return 64
     }
     
 }

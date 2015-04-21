@@ -241,6 +241,7 @@
                     <tabBarItem key="tabBarItem" title="Custom" id="iCe-Ex-diB"/>
                     <connections>
                         <outlet property="customPicker" destination="oSM-fe-uKG" id="cLu-3U-E2W"/>
+                        <outlet property="picker" destination="oSM-fe-uKG" id="jTx-Zk-KCN"/>
                         <outlet property="winLabel" destination="niU-Zf-vn8" id="KES-CC-XAh"/>
                     </connections>
                 </viewController>
