@@ -15,6 +15,15 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        images = [
+            UIImage(named: "seven")!,
+            UIImage(named: "bar")!,
+            UIImage(named: "crown")!,
+            UIImage(named: "cherry")!,
+            UIImage(named: "lemon")!,
+            UIImage(named: "apple")!
+        ]
+        winLabel.text = " " // Note the space between the quotes
     }
 
     @IBOutlet weak var winLabel: UILabel!
