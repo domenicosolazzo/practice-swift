@@ -17,9 +17,16 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var customPicker: UIPickerView!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func spin(sender: UIButton) {
+        
+    }
+    
 }
