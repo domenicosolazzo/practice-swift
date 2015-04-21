@@ -23,6 +23,8 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     }
     
 
+    @IBAction func buttonPressed(sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

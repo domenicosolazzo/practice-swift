@@ -23,11 +23,22 @@
                                     <outlet property="delegate" destination="Hb1-db-uML" id="coP-UC-nrr"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-ed-fJU">
+                                <rect key="frame" x="279" y="313" width="43" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="Hb1-db-uML" eventType="touchUpInside" id="TNk-3P-LQP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="UAf-pF-XOR" secondAttribute="centerX" id="GPI-QD-wQm"/>
+                            <constraint firstAttribute="centerX" secondItem="fg3-ed-fJU" secondAttribute="centerX" id="IPu-Yn-Voa"/>
                             <constraint firstItem="UAf-pF-XOR" firstAttribute="top" secondItem="LlY-pT-U1C" secondAttribute="bottom" id="hcD-e0-KTc"/>
+                            <constraint firstItem="fg3-ed-fJU" firstAttribute="top" secondItem="UAf-pF-XOR" secondAttribute="bottom" constant="131" id="jGV-vm-Y9J"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Single" id="uWg-Mc-pZB"/>
