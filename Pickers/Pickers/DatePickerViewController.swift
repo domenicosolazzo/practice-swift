@@ -19,7 +19,19 @@ class DatePickerViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func buttonPressed(sender: UIButton) {
-    
+        // Fetch the date from the date picker
+        let date = datePicker.date
+        // Set a new message
+        let message = "The date and time you selected is \(date)"
+        
+        // Create a new Alert
+        let alert = UIAlertController(title: "Date and Time selected", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        // Create an alert action
+        let action = UIAlertAction(title: "Clicked", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(action)
+        
+        // Present the alert
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
