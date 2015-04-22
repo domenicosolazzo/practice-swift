@@ -60,6 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         cell!.textLabel!.text = dwarves[indexPath.row]
+        cell!.textLabel!.font = UIFont.boldSystemFontOfSize(50)
         return cell!
         
     }
@@ -94,6 +95,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             controller.addAction(action)
             
             presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    // Customizing the row height
+    func tableView(tableView: UITableView,
+        heightForRowAtIndexPath indexPath: NSIndexPath)
+        -> CGFloat {
+            return indexPath.row == 0 ? 120 : 70
     }
 
 
