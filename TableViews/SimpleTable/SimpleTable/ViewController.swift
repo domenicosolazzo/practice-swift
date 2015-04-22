@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var cell = tableView.dequeueReusableCellWithIdentifier(simpleTableIdentifier) as? UITableViewCell
         if cell == nil{
             // Create a new cell if it does not exist
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: simpleTableIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: simpleTableIdentifier)
         }
         
         // Adding the images
@@ -51,6 +51,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell!.imageView?.image = image
         cell!.imageView?.highlightedImage = highlitedImage
+        
+        // Adding detailed text
+        if indexPath.row < 7 {
+            cell!.detailTextLabel?.text = "Mr Disney"
+        } else {
+            cell!.detailTextLabel?.text = "Mr Tolkien"
+        }
+        
         cell!.textLabel!.text = dwarves[indexPath.row]
         return cell!
         
