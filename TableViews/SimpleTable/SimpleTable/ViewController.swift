@@ -65,6 +65,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //- MARK: UITableViewDelegate
+    func tableView(tableView: UITableView,
+        indentationLevelForRowAtIndexPath
+        indexPath: NSIndexPath) -> Int {
+            return indexPath.row % 4
+    }
 
 
 }
