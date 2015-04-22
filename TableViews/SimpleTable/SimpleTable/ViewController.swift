@@ -10,6 +10,16 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    private let dwarves = [
+        "Sleepy", "Sneezy", "Bashful", "Happy",
+        "Doc", "Grumpy", "Dopey",
+        "Thorin", "Dorin", "Nori", "Ori",
+        "Balin", "Dwalin", "Fili", "Kili",
+        "Oin", "Gloin", "Bifur", "Bofur",
+        "Bombur"
+    ]
+    let simpleTableIdentifier = "SimpleTableIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
