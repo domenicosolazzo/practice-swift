@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5xo-ld-FTe">
-                                <rect key="frame" x="0.0" y="-80" width="600" height="80"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5xo-ld-FTe">
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="dMf-JX-4bC"/>
@@ -27,8 +28,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5xo-ld-FTe" secondAttribute="trailing" id="59K-td-yLK"/>
-                            <constraint firstItem="5xo-ld-FTe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ozZ-Bn-ie2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5xo-ld-FTe" secondAttribute="trailing" id="0XI-pM-HMW"/>
+                            <constraint firstItem="5xo-ld-FTe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bbb-ke-dOG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5xo-ld-FTe" secondAttribute="bottom" id="b0k-sA-4Sq"/>
+                            <constraint firstItem="5xo-ld-FTe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="n3d-tH-g8c"/>
+                            <constraint firstItem="5xo-ld-FTe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="vyM-c7-Lc1"/>
+                            <constraint firstAttribute="trailing" secondItem="5xo-ld-FTe" secondAttribute="trailing" id="ysN-ng-Hk0"/>
                         </constraints>
                     </view>
                 </viewController>

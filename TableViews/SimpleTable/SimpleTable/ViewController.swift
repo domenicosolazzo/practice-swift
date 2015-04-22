@@ -45,6 +45,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: simpleTableIdentifier)
         }
         
+        // Adding the images
+        let image = UIImage(named: "star")
+        let highlitedImage = UIImage(named: "star2")
+        
+        cell!.imageView?.image = image
+        cell!.imageView?.highlightedImage = highlitedImage
         cell!.textLabel!.text = dwarves[indexPath.row]
         return cell!
         
