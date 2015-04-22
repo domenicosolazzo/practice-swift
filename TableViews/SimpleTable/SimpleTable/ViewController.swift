@@ -29,6 +29,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //- MARK: UITableViewDataSource
+    /// Number of row in a section
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dwarves.count
+    }
+    
+    /// It is called by the table view when it needs to draw one of its rows.
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Reuse a cell of the specified type
+        var cell = tableView.dequeueReusableCellWithIdentifier(simpleTableIdentifier) as? UITableViewCell
+        if cell == nil{
+            // Create a new cell if it does not exist
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: simpleTableIdentifier)
+        }
+        
+        cell!.textLabel!.text = dwarves[indexPath.row]
+        return cell!
+        
+    }
+    
+    //- MARK: UITableViewDelegate
 
 
 }
