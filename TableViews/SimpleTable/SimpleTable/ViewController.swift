@@ -70,6 +70,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         indexPath: NSIndexPath) -> Int {
             return indexPath.row % 4
     }
+    // Before the row is selected
+    func tableView(tableView: UITableView,
+        willSelectRowAtIndexPath indexPath: NSIndexPath)
+        -> NSIndexPath? {
+            if indexPath.row == 0 {
+                return nil
+            } else {
+                return indexPath
+            }
+    }
+    
+    // After the row is selected
+    func tableView(tableView: UITableView,
+        didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            let rowValue = dwarves[indexPath.row]
+            let message = "You selected \(rowValue)"
+            
+            let controller = UIAlertController(title: "Row Selected",
+                message: message, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Yes I Did",
+                style: .Default, handler: nil)
+            controller.addAction(action)
+            
+            presentViewController(controller, animated: true, completion: nil)
+    }
 
 
 }
