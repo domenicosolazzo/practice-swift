@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
