@@ -26,4 +26,12 @@ class FontListViewController: UITableViewController {
         let fontName = fontNames[indexPath.row]
         return UIFont(name: fontName, size: cellPointSize)!
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if showsFavorites {
+            fontNames = FavoritesList.sharedFavoriteList.favorites
+            tableView.reloadData()
+        }
+    }
 }
