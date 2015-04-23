@@ -52,6 +52,31 @@ class FontListViewController: UITableViewController {
             return cell
     }
     
+    // Accepted editing
+    override func tableView(tableView: UITableView,
+        canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+            return showsFavorites
+    }
+    
+    // Deleting a row
+    override func tableView(tableView: UITableView,
+        commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
+            if !showsFavorites {
+                return
+            }
+            
+            if editingStyle == UITableViewCellEditingStyle.Delete {
+                // Delete the row from the data source
+                let favorite = fontNames[indexPath.row]
+                FavoritesList.sharedFavoriteList.removeFavorite(favorite)
+                fontNames = FavoritesList.sharedFavoriteList.favorites
+                
+                tableView.deleteRowsAtIndexPaths([indexPath],
+                    withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+    }
+    
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -66,7 +91,7 @@ class FontListViewController: UITableViewController {
             sizesVC.title = font.fontName
             sizesVC.font = font
         } else {
-            let infoVC = segue.destinationViewControlleras!s FontInfoViewController
+            let infoVC = segue.destinationViewController as! FontInfoViewController
             infoVC.font = font
             infoVC.favorite = contains(FavoritesList.sharedFavoriteList.favorites,
                 font.fontName)
