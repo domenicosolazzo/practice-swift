@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="506" y="70"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Font List View Controller-->
         <scene sceneID="grL-yP-die">
             <objects>
-                <tableViewController id="NQv-jJ-zih" sceneMemberID="viewController">
+                <tableViewController id="NQv-jJ-zih" customClass="FontListViewController" customModule="Fonts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRo-zm-aRl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
