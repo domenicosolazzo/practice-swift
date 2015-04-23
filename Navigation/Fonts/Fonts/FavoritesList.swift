@@ -21,4 +21,10 @@ class FavoritesList{
         let storedFavorites = defaults.objectForKey("favorites") as? [String]
         favorites = storedFavorites != nil ? storedFavorites! : []
     }
+    
+    private func save(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(favorites, forKey: "favorites")
+        defaults.synchronize()
+    }
 }
