@@ -22,9 +22,23 @@ class FavoritesList{
         favorites = storedFavorites != nil ? storedFavorites! : []
     }
     
-    private func save(){
+    private func saveFavorites(){
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(favorites, forKey: "favorites")
         defaults.synchronize()
+    }
+    
+    func addFavorite(fontName: String) {
+        if (!contains(favorites, fontName)) {
+            favorites.append(fontName)
+            saveFavorites()
+        }
+    }
+    
+    func removeFavorite(fontName: String) {
+        if let index = find(favorites, fontName) {
+            favorites.removeAtIndex(index)
+            saveFavorites()
+        }
     }
 }
