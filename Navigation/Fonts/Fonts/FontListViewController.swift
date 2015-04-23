@@ -20,4 +20,10 @@ class FontListViewController: UITableViewController {
         let preferredTableViewFont = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         cellPointSize = preferredTableViewFont.pointSize
     }
+    
+    // Fetch the font names
+    func fontForDisplay(atIndexPath indexPath: NSIndexPath) -> UIFont {
+        let fontName = fontNames[indexPath.row]
+        return UIFont(name: fontName, size: cellPointSize)!
+    }
 }
