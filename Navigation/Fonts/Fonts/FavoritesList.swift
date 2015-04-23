@@ -10,6 +10,14 @@ import Foundation
 
 class FavoritesList{
     
+    //  Swift does not support class properties unless they are of the computed type. (...yet!)
+    class var sharedFavoriteList : FavoritesList {
+        struct Singleton {
+            static let instance = FavoritesList()
+        }
+        return Singleton.instance;
+    }
+    
     // We want external classed to be able to get this variables, but not modifying it.
     // private(set)
     private(set) var favorites: [String]
