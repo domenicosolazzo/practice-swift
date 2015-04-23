@@ -53,7 +53,7 @@ class FontSizesViewController: UITableViewController {
         let indexPath = tableView.indexPathForCell(tableViewCell)!
         let font = fontForDisplay(atIndexPath: indexPath)
         
-        let sizesVC =  segue.destinationViewControlleras!s FontSizesViewController
+        let sizesVC =  segue.destinationViewController as! FontSizesViewController
         sizesVC.title = font.fontName
         sizesVC.font = font
     }
