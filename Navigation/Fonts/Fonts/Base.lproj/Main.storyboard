@@ -62,6 +62,32 @@
             </objects>
             <point key="canvasLocation" x="429" y="-280"/>
         </scene>
+        <!--Font Sizes View Controller-->
+        <scene sceneID="68h-UL-qGm">
+            <objects>
+                <tableViewController id="X2E-9B-H7O" customClass="FontSizesViewController" customModule="Fonts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ja5-QD-JYk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lp3-2n-EXr">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lp3-2n-EXr" id="HjX-vd-B3g">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="X2E-9B-H7O" id="OKv-94-b7y"/>
+                            <outlet property="delegate" destination="X2E-9B-H7O" id="Gt5-cY-RbG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDy-aU-WDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="-280"/>
+        </scene>
         <!--Font List View Controller-->
         <scene sceneID="grL-yP-die">
             <objects>
@@ -90,6 +116,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="X2E-9B-H7O" kind="show" id="M3f-X9-6GO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
