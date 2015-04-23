@@ -16,7 +16,9 @@ class FontListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if showsFavorites {
+            navigationItem.rightBarButtonItem = editButtonItem()
+        }
         let preferredTableViewFont = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         cellPointSize = preferredTableViewFont.pointSize
     }
@@ -75,6 +77,15 @@ class FontListViewController: UITableViewController {
                 tableView.deleteRowsAtIndexPaths([indexPath],
                     withRowAnimation: UITableViewRowAnimation.Fade)
             }
+    }
+    
+    // Reordering function
+    override func tableView(tableView: UITableView,
+        moveRowAtIndexPath sourceIndexPath: NSIndexPath,
+        toIndexPath destinationIndexPath: NSIndexPath) {
+            FavoritesList.sharedFavoriteList.moveItem(fromIndex: sourceIndexPath.row,
+                toIndex: destinationIndexPath.row)
+            fontNames = FavoritesList.sharedFavoriteList.favorites
     }
     
     // MARK: Navigation
