@@ -26,4 +26,10 @@ class RootViewController: UITableViewController {
         cellPointSize = preferredTableViewFont.pointSize
         favoritesList = FavoritesList.sharedFavoriteList
     }
+    
+    // Just before it is implemented
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
