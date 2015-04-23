@@ -48,4 +48,9 @@ class RootViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return favoritesList.favorites.isEmpty ? 1 : 2
     }
+    
+    // Number of section for row
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? familyNames.count : 1
+    }
 }
