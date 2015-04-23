@@ -32,4 +32,16 @@ class RootViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    // It tells which fonts to show in a cell
+    func fontForDisplay(atIndexPath indexPath: NSIndexPath) -> UIFont? {
+        if indexPath.section == 0 {
+            let familyName = familyNames[indexPath.row]
+            // First font name within that family
+            let fontName = UIFont.fontNamesForFamilyName(familyName).first as! String
+            return UIFont(name: fontName, size: cellPointSize)
+        } else {
+            return nil
+        }
+    }
 }
