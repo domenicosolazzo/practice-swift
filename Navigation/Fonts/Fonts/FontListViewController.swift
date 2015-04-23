@@ -34,4 +34,21 @@ class FontListViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    override func tableView(tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+            return fontNames.count
+    }
+    
+    override func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell =  tableView.dequeueReusableCellWithIdentifier(cellIdentifier,
+                forIndexPath: indexPath) as! UITableViewCell
+            
+            cell.textLabel!.font = fontForDisplay(atIndexPath: indexPath)
+            cell.textLabel!.text = fontNames[indexPath.row]
+            cell.detailTextLabel?.text = fontNames[indexPath.row]
+            
+            return cell
+    }
 }
