@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NQv-jJ-zih" kind="show" id="A7a-x3-cqY"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Favorites" textLabel="xUd-y3-BzK" style="IBUITableViewCellStyleDefault" id="3k4-ZK-r2a">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -57,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkT-19-B7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="70"/>
+            <point key="canvasLocation" x="429" y="-280"/>
         </scene>
         <!--Font List View Controller-->
         <scene sceneID="grL-yP-die">
@@ -97,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFA-iw-EKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="890"/>
+            <point key="canvasLocation" x="1196" y="-280"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NpW-sv-f9d">
