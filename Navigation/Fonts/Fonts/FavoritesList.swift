@@ -11,6 +11,14 @@ import Foundation
 class FavoritesList{
     
     // We want external classed to be able to get this variables, but not modifying it.
-    // private(set) 
+    // private(set)
     private(set) var favorites: [String]
+    
+    init(){
+        // Open the user defaults
+        let defaults = NSUserDefaults.standardUserDefaults()
+        // Look for the key 'favorites'
+        let storedFavorites = defaults.objectForKey("favorites") as? [String]
+        favorites = storedFavorites != nil ? storedFavorites! : []
+    }
 }
