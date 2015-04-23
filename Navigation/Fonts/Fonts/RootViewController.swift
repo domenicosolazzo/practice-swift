@@ -44,4 +44,8 @@ class RootViewController: UITableViewController {
             return nil
         }
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return favoritesList.favorites.isEmpty ? 1 : 2
+    }
 }
