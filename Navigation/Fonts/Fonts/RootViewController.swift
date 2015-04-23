@@ -53,4 +53,9 @@ class RootViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? familyNames.count : 1
     }
+    
+    override func tableView(tableView: UITableView,
+        titleForHeaderInSection section: Int) -> String? {
+            return section == 0 ? "All Font Families" : "My Favorite Fonts"
+    }
 }
