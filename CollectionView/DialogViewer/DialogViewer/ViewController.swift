@@ -80,6 +80,17 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             cell.text = words[indexPath.row]
             return cell
     }
+    
+    //- MARK: UICollectionViewDelegateFlowLayout
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            let words = wordsInSection(indexPath.section)
+            let size = ContentCell.sizeForContentString(words[indexPath.row],
+                forMaxWidth: collectionView.bounds.size.width)
+            return size
+    }
+    
 
 }
 
