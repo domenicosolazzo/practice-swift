@@ -36,5 +36,10 @@ class ContentCell: UICollectionViewCell {
         forMaxWidth maxWidth: CGFloat) -> CGSize {
             return CGSizeZero
     }
+    
+    class func defaultFont() -> UIFont {
+        // Preferred font for the body text
+        return UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+    }
 
 }
