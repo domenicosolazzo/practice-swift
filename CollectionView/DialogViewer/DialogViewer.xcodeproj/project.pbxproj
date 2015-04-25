@@ -13,6 +13,7 @@
 		C0610F741AEACC9B0067D26F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0610F731AEACC9B0067D26F /* Images.xcassets */; };
 		C0610F771AEACC9B0067D26F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0610F751AEACC9B0067D26F /* LaunchScreen.xib */; };
 		C0610F831AEACC9B0067D26F /* DialogViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0610F821AEACC9B0067D26F /* DialogViewerTests.swift */; };
+		C075168D1AEC0CAC00EBB473 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075168C1AEC0CAC00EBB473 /* ContentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0610F7C1AEACC9B0067D26F /* DialogViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DialogViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0610F811AEACC9B0067D26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0610F821AEACC9B0067D26F /* DialogViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewerTests.swift; sourceTree = "<group>"; };
+		C075168C1AEC0CAC00EBB473 /* ContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0610F731AEACC9B0067D26F /* Images.xcassets */,
 				C0610F751AEACC9B0067D26F /* LaunchScreen.xib */,
 				C0610F6A1AEACC9B0067D26F /* Supporting Files */,
+				C075168C1AEC0CAC00EBB473 /* ContentCell.swift */,
 			);
 			path = DialogViewer;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C075168D1AEC0CAC00EBB473 /* ContentCell.swift in Sources */,
 				C0610F6F1AEACC9B0067D26F /* ViewController.swift in Sources */,
 				C0610F6D1AEACC9B0067D26F /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +415,7 @@
 				C0610F881AEACC9B0067D26F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0610F891AEACC9B0067D26F /* Build configuration list for PBXNativeTarget "DialogViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				C0610F8B1AEACC9B0067D26F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
