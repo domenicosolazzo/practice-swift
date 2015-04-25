@@ -10,7 +10,22 @@ import UIKit
 
 class ContentCell: UICollectionViewCell {
     var label: UILabel!
-    var text: String!
+    var text: String! {
+        get {
+            return label.text
+        }
+        set(newText) {
+            label.text = newText
+            var newLabelFrame = label.frame
+            var newContentFrame = contentView.frame
+            let textSize = self.dynamicType.sizeForContentString(newText,
+                forMaxWidth: maxWidth)
+            newLabelFrame.size = textSize
+            newContentFrame.size = textSize
+            label.frame = newLabelFrame
+            contentView.frame = newContentFrame
+        }
+    }
     var maxWidth: CGFloat!
     
     override init(frame: CGRect) {
