@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // Content that we want to display
     private var sections: [[String: String]]!
@@ -34,13 +34,13 @@ class ViewController: UICollectionViewController {
         ]
         
         // Register the content cell
-        collectionView.registerClass(ContentCell.self,
+        collectionView!.registerClass(ContentCell.self,
             forCellWithReuseIdentifier: "CONTENT")
         
         // Avoid issue with the status bar
-        var contentInset = collectionView.contentInset
+        var contentInset = collectionView!.contentInset
         contentInset.top = 20
-        collectionView.contentInset = contentInset
+        collectionView!.contentInset = contentInset
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +75,7 @@ class ViewController: UICollectionViewController {
         -> UICollectionViewCell {
             let words = wordsInSection(indexPath.section)
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-                "CONTENT", forIndexPath: indexPath) as ContentCell
+                "CONTENT", forIndexPath: indexPath) as! ContentCell
             cell.maxWidth = collectionView.bounds.size.width
             cell.text = words[indexPath.row]
             return cell
