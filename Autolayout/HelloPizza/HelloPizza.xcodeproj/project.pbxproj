@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C070F5881AE29666006B4392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070F5871AE29666006B4392 /* AppDelegate.swift */; };
+		C070F58A1AE29666006B4392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070F5891AE29666006B4392 /* ViewController.swift */; };
+		C070F58D1AE29666006B4392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C070F58B1AE29666006B4392 /* Main.storyboard */; };
+		C070F58F1AE29666006B4392 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C070F58E1AE29666006B4392 /* Images.xcassets */; };
+		C070F5921AE29666006B4392 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C070F5901AE29666006B4392 /* LaunchScreen.xib */; };
+		C070F59E1AE29667006B4392 /* HelloPizzaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070F59D1AE29667006B4392 /* HelloPizzaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C070F5981AE29667006B4392 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C070F57A1AE29665006B4392 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C070F5811AE29666006B4392;
+			remoteInfo = HelloPizza;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C070F5821AE29666006B4392 /* HelloPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C070F5861AE29666006B4392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C070F5871AE29666006B4392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C070F5891AE29666006B4392 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C070F58C1AE29666006B4392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C070F58E1AE29666006B4392 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C070F5911AE29666006B4392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C070F5971AE29667006B4392 /* HelloPizzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloPizzaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C070F59C1AE29667006B4392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C070F59D1AE29667006B4392 /* HelloPizzaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloPizzaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C070F57F1AE29666006B4392 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C070F5941AE29667006B4392 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C070F5791AE29665006B4392 = {
+			isa = PBXGroup;
+			children = (
+				C070F5841AE29666006B4392 /* HelloPizza */,
+				C070F59A1AE29667006B4392 /* HelloPizzaTests */,
+				C070F5831AE29666006B4392 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C070F5831AE29666006B4392 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C070F5821AE29666006B4392 /* HelloPizza.app */,
+				C070F5971AE29667006B4392 /* HelloPizzaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C070F5841AE29666006B4392 /* HelloPizza */ = {
+			isa = PBXGroup;
+			children = (
+				C070F5871AE29666006B4392 /* AppDelegate.swift */,
+				C070F5891AE29666006B4392 /* ViewController.swift */,
+				C070F58B1AE29666006B4392 /* Main.storyboard */,
+				C070F58E1AE29666006B4392 /* Images.xcassets */,
+				C070F5901AE29666006B4392 /* LaunchScreen.xib */,
+				C070F5851AE29666006B4392 /* Supporting Files */,
+			);
+			path = HelloPizza;
+			sourceTree = "<group>";
+		};
+		C070F5851AE29666006B4392 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C070F5861AE29666006B4392 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C070F59A1AE29667006B4392 /* HelloPizzaTests */ = {
+			isa = PBXGroup;
+			children = (
+				C070F59D1AE29667006B4392 /* HelloPizzaTests.swift */,
+				C070F59B1AE29667006B4392 /* Supporting Files */,
+			);
+			path = HelloPizzaTests;
+			sourceTree = "<group>";
+		};
+		C070F59B1AE29667006B4392 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C070F59C1AE29667006B4392 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C070F5811AE29666006B4392 /* HelloPizza */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C070F5A11AE29667006B4392 /* Build configuration list for PBXNativeTarget "HelloPizza" */;
+			buildPhases = (
+				C070F57E1AE29666006B4392 /* Sources */,
+				C070F57F1AE29666006B4392 /* Frameworks */,
+				C070F5801AE29666006B4392 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloPizza;
+			productName = HelloPizza;
+			productReference = C070F5821AE29666006B4392 /* HelloPizza.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C070F5961AE29667006B4392 /* HelloPizzaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C070F5A41AE29667006B4392 /* Build configuration list for PBXNativeTarget "HelloPizzaTests" */;
+			buildPhases = (
+				C070F5931AE29667006B4392 /* Sources */,
+				C070F5941AE29667006B4392 /* Frameworks */,
+				C070F5951AE29667006B4392 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C070F5991AE29667006B4392 /* PBXTargetDependency */,
+			);
+			name = HelloPizzaTests;
+			productName = HelloPizzaTests;
+			productReference = C070F5971AE29667006B4392 /* HelloPizzaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C070F57A1AE29665006B4392 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Domenico Solazzo";
+				TargetAttributes = {
+					C070F5811AE29666006B4392 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					C070F5961AE29667006B4392 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = C070F5811AE29666006B4392;
+					};
+				};
+			};
+			buildConfigurationList = C070F57D1AE29666006B4392 /* Build configuration list for PBXProject "HelloPizza" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C070F5791AE29665006B4392;
+			productRefGroup = C070F5831AE29666006B4392 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C070F5811AE29666006B4392 /* HelloPizza */,
+				C070F5961AE29667006B4392 /* HelloPizzaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C070F5801AE29666006B4392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C070F58D1AE29666006B4392 /* Main.storyboard in Resources */,
+				C070F5921AE29666006B4392 /* LaunchScreen.xib in Resources */,
+				C070F58F1AE29666006B4392 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C070F5951AE29667006B4392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C070F57E1AE29666006B4392 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C070F58A1AE29666006B4392 /* ViewController.swift in Sources */,
+				C070F5881AE29666006B4392 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C070F5931AE29667006B4392 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C070F59E1AE29667006B4392 /* HelloPizzaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C070F5991AE29667006B4392 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C070F5811AE29666006B4392 /* HelloPizza */;
+			targetProxy = C070F5981AE29667006B4392 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C070F58B1AE29666006B4392 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C070F58C1AE29666006B4392 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C070F5901AE29666006B4392 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C070F5911AE29666006B4392 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C070F59F1AE29667006B4392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C070F5A01AE29667006B4392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C070F5A21AE29667006B4392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HelloPizza/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C070F5A31AE29667006B4392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HelloPizza/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C070F5A51AE29667006B4392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HelloPizzaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloPizza.app/HelloPizza";
+			};
+			name = Debug;
+		};
+		C070F5A61AE29667006B4392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HelloPizzaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloPizza.app/HelloPizza";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C070F57D1AE29666006B4392 /* Build configuration list for PBXProject "HelloPizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C070F59F1AE29667006B4392 /* Debug */,
+				C070F5A01AE29667006B4392 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C070F5A11AE29667006B4392 /* Build configuration list for PBXNativeTarget "HelloPizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C070F5A21AE29667006B4392 /* Debug */,
+				C070F5A31AE29667006B4392 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C070F5A41AE29667006B4392 /* Build configuration list for PBXNativeTarget "HelloPizzaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C070F5A51AE29667006B4392 /* Debug */,
+				C070F5A61AE29667006B4392 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C070F57A1AE29665006B4392 /* Project object */;
+}
