@@ -55,7 +55,31 @@ class ViewController: UICollectionViewController {
         let words = content?.componentsSeparatedByCharactersInSet(spaces)
         return words!
     }
-
+    
+    // How many sections to display
+    override func numberOfSectionsInCollectionView(
+        collectionView: UICollectionView) -> Int {
+            return sections.count
+    }
+    
+    // How many items for each section
+    override func collectionView(collectionView: UICollectionView,
+        numberOfItemsInSection section: Int) -> Int {
+            let words = wordsInSection(section)
+            return words.count
+    }
+    
+    // Returning the cell
+    override func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath indexPath: NSIndexPath)
+        -> UICollectionViewCell {
+            let words = wordsInSection(indexPath.section)
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
+                "CONTENT", forIndexPath: indexPath) as ContentCell
+            cell.maxWidth = collectionView.bounds.size.width
+            cell.text = words[indexPath.row]
+            return cell
+    }
 
 }
 
