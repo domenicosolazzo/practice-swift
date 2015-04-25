@@ -13,6 +13,22 @@ class ContentCell: UICollectionViewCell {
     var text: String!
     var maxWidth: CGFloat!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        label = UILabel(frame: self.contentView.bounds)
+        label.opaque = false
+        label.backgroundColor =
+            UIColor(red: 0.8, green: 0.9, blue: 1.0, alpha: 1.0)
+        label.textColor = UIColor.blackColor()
+        label.textAlignment = .Center
+        label.font = self.dynamicType.defaultFont()
+        contentView.addSubview(label)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     class func sizeForContentString(s: String,
         forMaxWidth maxWidth: CGFloat) -> CGSize {
             return CGSizeZero
