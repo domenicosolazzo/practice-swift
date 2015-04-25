@@ -34,7 +34,20 @@ class ContentCell: UICollectionViewCell {
     
     class func sizeForContentString(s: String,
         forMaxWidth maxWidth: CGFloat) -> CGSize {
-            return CGSizeZero
+            let maxSize = CGSizeMake(maxWidth, 1000)
+            let opts = NSStringDrawingOptions.UsesLineFragmentOrigin
+            
+            let style = NSMutableParagraphStyle()
+            style.lineBreakMode = NSLineBreakMode.ByCharWrapping
+            let attributes = [NSFontAttributeName: self.defaultFont(),
+                NSParagraphStyleAttributeName: style]
+            
+            let string = s as NSString
+            let rect = string.boundingRectWithSize(maxSize, options: opts,
+                attributes: attributes, context: nil)
+            
+            return rect.size
+
     }
     
     class func defaultFont() -> UIFont {
