@@ -21,6 +21,9 @@ class ContentCell: UICollectionViewCell {
             UIColor(red: 0.8, green: 0.9, blue: 1.0, alpha: 1.0)
         label.textColor = UIColor.blackColor()
         label.textAlignment = .Center
+        /// The defaultFont() method is a type method of the ContentCell class.
+        /// It calls the subclass’ override of defaultFont().
+        /// A reference is needed to the subclass’s type object, which is given from self.dynamicType
         label.font = self.dynamicType.defaultFont()
         contentView.addSubview(label)
     }
