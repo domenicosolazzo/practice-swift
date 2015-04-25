@@ -37,10 +37,23 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView!.registerClass(ContentCell.self,
             forCellWithReuseIdentifier: "CONTENT")
         
+        // Register the header cell
+        collectionView!.registerClass(HeaderCell.self,
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: "HEADER")
+        
         // Avoid issue with the status bar
         var contentInset = collectionView!.contentInset
         contentInset.top = 20
         collectionView!.contentInset = contentInset
+        
+        let layout = collectionView!.collectionViewLayout
+        let flow = layout as! UICollectionViewFlowLayout
+        flow.sectionInset = UIEdgeInsetsMake(10, 20, 30, 20)
+        
+        // Size for the header 
+        flow.headerReferenceSize = CGSizeMake(100, 25)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +104,21 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return size
     }
     
+    override func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath)
+        -> UICollectionReusableView {
+            if (kind == UICollectionElementKindSectionHeader) {
+                let cell =
+                collectionView.dequeueReusableSupplementaryViewOfKind(
+                    kind, withReuseIdentifier: "HEADER",
+                    forIndexPath: indexPath) as! HeaderCell
+                cell.maxWidth = collectionView.bounds.size.width
+                cell.text = sections[indexPath.section]["header"]
+                return cell
+            }
+            abort()
+    }
 
 }
 

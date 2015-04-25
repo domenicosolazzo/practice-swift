@@ -9,6 +9,25 @@
 import UIKit
 
 class HeaderCell: UICollectionViewCell {
+    var label: UILabel!
+    var text: String! {
+        get {
+            return label.text
+        }
+        set(newText) {
+            label.text = newText
+            var newLabelFrame = label.frame
+            var newContentFrame = contentView.frame
+            let textSize = self.dynamicType.sizeForContentString(newText,
+                forMaxWidth: maxWidth)
+            newLabelFrame.size = textSize
+            newContentFrame.size = textSize
+            label.frame = newLabelFrame
+            contentView.frame = newContentFrame
+        }
+    }
+    var maxWidth: CGFloat!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         label.backgroundColor = UIColor(red: 0.9, green: 0.9,
@@ -20,7 +39,24 @@ class HeaderCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    override class func defaultFont() -> UIFont {
+    class func defaultFont() -> UIFont {
         return UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    }
+    class func sizeForContentString(s: String,
+        forMaxWidth maxWidth: CGFloat) -> CGSize {
+            let maxSize = CGSizeMake(maxWidth, 1000)
+            let opts = NSStringDrawingOptions.UsesLineFragmentOrigin
+            
+            let style = NSMutableParagraphStyle()
+            style.lineBreakMode = NSLineBreakMode.ByCharWrapping
+            let attributes = [NSFontAttributeName: self.defaultFont(),
+                NSParagraphStyleAttributeName: style]
+            
+            let string = s as NSString
+            let rect = string.boundingRectWithSize(maxSize, options: opts,
+                attributes: attributes, context: nil)
+            
+            return rect.size
+            
     }
 }
