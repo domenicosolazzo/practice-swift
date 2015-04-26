@@ -45,6 +45,12 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            languageButton = UIBarButtonItem(title: "Choose Language", style: .Plain,
+                target: self, action: "toggleLanguagePopover")
+            navigationItem.rightBarButtonItem = languageButton
+        }
+        
         self.configureView()
     }
 
