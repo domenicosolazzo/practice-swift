@@ -92,8 +92,12 @@
 			<key>MaximumValue</key>
 			<integer>10</integer>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Additional Info</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
 	</array>
-	<key>StringsTable</key>
-	<string>Root</string>
 </dict>
 </plist>
