@@ -29,7 +29,7 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 let dict = detail as! [String: String]
-                let urlString = dict["url"]!
+                let urlString = modifyUrlForLanguage(url: dict["url"]!, language: languageString)
                 label.text = urlString
                 
                 let url = NSURL(string: urlString)!
