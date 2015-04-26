@@ -82,6 +82,27 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
         
         return newUrl
     }
+    
+    func toggleLanguagePopover() {
+        if languagePopoverController == nil {
+            let languageListController = LanguageListController()
+            languageListController.detailViewController = self
+            languagePopoverController =
+                UIPopoverController(contentViewController: languageListController)
+            languagePopoverController?.presentPopoverFromBarButtonItem(
+                languageButton!, permittedArrowDirections: .Any, animated: true)
+        } else {
+            languagePopoverController?.dismissPopoverAnimated(true)
+            languagePopoverController = nil
+        }
+    }
+    
+    // User taps somewhere else
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
+        if popoverController == languagePopoverController {
+            languagePopoverController = nil
+        }
+    }
 
 }
 
