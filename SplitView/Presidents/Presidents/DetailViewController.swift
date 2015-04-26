@@ -12,6 +12,9 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var webView: UIWebView!
+    private var languageButton: UIBarButtonItem?
+    private var languagePopoverController: UIPopoverController?
+    var languageString = ""
 
 
     var detailItem: AnyObject? {
