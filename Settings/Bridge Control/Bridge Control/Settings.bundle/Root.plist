@@ -72,7 +72,25 @@
 			<key>Key</key>
 			<string>warp</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Warp Factor</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>Key</key>
+			<string>warpFactor</string>
+			<key>DefaultValue</key>
+			<integer>5</integer>
+			<key>MinimumValue</key>
+			<integer>0</integer>
+			<key>MaximumValue</key>
+			<integer>10</integer>
 		</dict>
 	</array>
 	<key>StringsTable</key>
