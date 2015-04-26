@@ -14,6 +14,8 @@
 		C0F08F181AEC240D001D26E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F171AEC240D001D26E0 /* Images.xcassets */; };
 		C0F08F1B1AEC240D001D26E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F191AEC240D001D26E0 /* LaunchScreen.xib */; };
 		C0F08F271AEC240D001D26E0 /* PresidentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F261AEC240D001D26E0 /* PresidentsTests.swift */; };
+		C0F08F311AECE451001D26E0 /* PresidentList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F301AECE451001D26E0 /* PresidentList.plist */; };
+		C0F08F331AECE4FA001D26E0 /* LanguageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F321AECE4FA001D26E0 /* LanguageListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		C0F08F201AEC240D001D26E0 /* PresidentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresidentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F08F251AEC240D001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F08F261AEC240D001D26E0 /* PresidentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresidentsTests.swift; sourceTree = "<group>"; };
+		C0F08F301AECE451001D26E0 /* PresidentList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PresidentList.plist; sourceTree = "<group>"; };
+		C0F08F321AECE4FA001D26E0 /* LanguageListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		C0F08F0B1AEC240D001D26E0 /* Presidents */ = {
 			isa = PBXGroup;
 			children = (
+				C0F08F301AECE451001D26E0 /* PresidentList.plist */,
 				C0F08F0E1AEC240D001D26E0 /* AppDelegate.swift */,
 				C0F08F101AEC240D001D26E0 /* MasterViewController.swift */,
 				C0F08F121AEC240D001D26E0 /* DetailViewController.swift */,
@@ -86,6 +91,7 @@
 				C0F08F171AEC240D001D26E0 /* Images.xcassets */,
 				C0F08F191AEC240D001D26E0 /* LaunchScreen.xib */,
 				C0F08F0C1AEC240D001D26E0 /* Supporting Files */,
+				C0F08F321AECE4FA001D26E0 /* LanguageListController.swift */,
 			);
 			path = Presidents;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 				C0F08F161AEC240D001D26E0 /* Main.storyboard in Resources */,
 				C0F08F1B1AEC240D001D26E0 /* LaunchScreen.xib in Resources */,
 				C0F08F181AEC240D001D26E0 /* Images.xcassets in Resources */,
+				C0F08F311AECE451001D26E0 /* PresidentList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +226,7 @@
 				C0F08F131AEC240D001D26E0 /* DetailViewController.swift in Sources */,
 				C0F08F111AEC240D001D26E0 /* MasterViewController.swift in Sources */,
 				C0F08F0F1AEC240D001D26E0 /* AppDelegate.swift in Sources */,
+				C0F08F331AECE4FA001D26E0 /* LanguageListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
