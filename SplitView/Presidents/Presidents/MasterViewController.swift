@@ -11,8 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
-
+    var presidents = [[String:String]]!
 
     override func awakeFromNib() {
         super.awakeFromNib()
