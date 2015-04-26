@@ -53,6 +53,19 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    // Function takes as arguments a URL pointing to a Wikipedia page and a two-letter language code, and then returns a URL that combines the two.
+    private func modifyUrlForLanguage(#url: String, language lang: String?) -> String {
+        var newUrl = url
+        
+        if let langStr = lang {
+            let range = NSMakeRange(7, 2)
+            if !langStr.isEmpty && (url as NSString).substringWithRange(range) != langStr {
+                newUrl = (url as NSString).stringByReplacingCharactersInRange(range, withString: langStr)
+            }
+        }
+        
+        return newUrl
+    }
 
 }
 
