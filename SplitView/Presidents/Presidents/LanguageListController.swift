@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Domenico Solazzo. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class LanguageListController: UITableViewController {
-
+    weak var detailViewController: DetailViewController? = nil
+    private let languageNames: [String] = ["English", "French", "German", "Spanish"]
+    private let languageCodes: [String] = ["en", "fr", "de", "es"]
 }
