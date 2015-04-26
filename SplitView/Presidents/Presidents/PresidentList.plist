@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>presidents</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>George Washington</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/George_Washington</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>John Adams</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/John_Adams</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Thomas Jefferson</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Thomas_Jefferson</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>James Madison</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/James_Madison</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>James Monroe</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/James_Monroe</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>John Quincy Adams</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/John_Quincy_Adams</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Andrew Jackson</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Andrew_Jackson</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Martin Van Buren</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Martin_Van_Buren</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>William Henry Harrison</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/William_Henry_Harrison</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>John Tyler</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/John_Tyler</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>James K. Polk</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/James_K._Polk</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Zachary Taylor</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Zachary_Taylor</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Millard Fillmore</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Millard_Fillmore</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Franklin Pierce</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Franklin_Pierce</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>James Buchanan</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/James_Buchanan</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Abraham Lincoln</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Abraham_Lincoln</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Andrew Johnson</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Andrew_Johnson</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Ulysses S. Grant</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Ulysses_S._Grant</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Rutherford B. Hayes</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Rutherford_B._Hayes</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>James A. Garfield</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/James_A._Garfield</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Chester A. Arthur</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Chester_A._Arthur</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Grover Cleveland</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Grover_Cleveland</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Benjamin Harrison</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Benjamin_Harrison</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Grover Cleveland</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Grover_Cleveland</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>William McKinley</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/William_McKinley</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Theodore Roosevelt</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Theodore_Roosevelt</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>William Howard Taft</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/William_Howard_Taft</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Woodrow Wilson</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Woodrow_Wilson</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Warren G. Harding</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Warren_G._Harding</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Calvin Coolidge</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Calvin_Coolidge</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Herbert Hoover</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Herbert_Hoover</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Franklin D. Roosevelt</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Franklin_D._Roosevelt</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Harry S. Truman</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Harry_S._Truman</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Dwight D. Eisenhower</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Dwight_D._Eisenhower</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>John F. Kennedy</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/John_F._Kennedy</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Lyndon B. Johnson</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Lyndon_B._Johnson</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Richard Nixon</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Richard_Nixon</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Gerald Ford</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Gerald_Ford</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Jimmy Carter</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Jimmy_Carter</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Ronald Reagan</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Ronald_Reagan</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>George H. W. Bush</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/George_H._W._Bush</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Bill Clinton</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Bill_Clinton</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>George W. Bush</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/George_W._Bush</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Barack Obama</string>
+			<key>url</key>
+			<string>http://en.wikipedia.org/wiki/Barack_Obama</string>
+		</dict>
+	</array>
+</dict>
+</plist>
