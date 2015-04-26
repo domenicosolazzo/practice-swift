@@ -22,6 +22,48 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Authorization Code</string>
+			<key>Key</key>
+			<string>authorizationCode</string>
+			<key>IsSecure</key>
+			<true/>
+			<key>AutocapitalizationType</key>
+			<string>Words</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>Ensign</string>
+				<string>Lieutenant</string>
+				<string>Lieutenant Commander</string>
+				<string>Commander</string>
+				<string>Captain</string>
+				<string>Commodore</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>Ensign</string>
+				<string>Lieutenant</string>
+				<string>Lieutenant Commander</string>
+				<string>Commander</string>
+				<string>Captain</string>
+				<string>Commodore</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Rank</string>
+			<key>Key</key>
+			<string>rank</string>
+			<key>DefaultValue</key>
+			<string>Ensign</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
