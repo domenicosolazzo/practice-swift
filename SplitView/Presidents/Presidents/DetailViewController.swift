@@ -14,7 +14,17 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
     @IBOutlet weak var webView: UIWebView!
     private var languageButton: UIBarButtonItem?
     private var languagePopoverController: UIPopoverController?
-    var languageString = ""
+    var languageString = "" {
+        didSet {
+            if (languageString != oldValue) {
+                configureView()
+            }
+            if let popoverController = languagePopoverController {
+                popoverController.dismissPopoverAnimated(true)
+                languagePopoverController = nil
+            }
+        }
+    }
 
 
     var detailItem: AnyObject? {
