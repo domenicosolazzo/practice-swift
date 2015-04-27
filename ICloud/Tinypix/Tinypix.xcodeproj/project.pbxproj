@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0F08F791AEE065E001D26E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F781AEE065E001D26E0 /* AppDelegate.swift */; };
+		C0F08F7B1AEE065E001D26E0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F7A1AEE065E001D26E0 /* MasterViewController.swift */; };
+		C0F08F7D1AEE065E001D26E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F7C1AEE065E001D26E0 /* DetailViewController.swift */; };
+		C0F08F801AEE065E001D26E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F7E1AEE065E001D26E0 /* Main.storyboard */; };
+		C0F08F821AEE065E001D26E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F811AEE065E001D26E0 /* Images.xcassets */; };
+		C0F08F851AEE065E001D26E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */; };
+		C0F08F911AEE065F001D26E0 /* TinypixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F901AEE065F001D26E0 /* TinypixTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0F08F8B1AEE065F001D26E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0F08F6B1AEE065E001D26E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0F08F721AEE065E001D26E0;
+			remoteInfo = Tinypix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C0F08F731AEE065E001D26E0 /* Tinypix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinypix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F08F771AEE065E001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F08F781AEE065E001D26E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C0F08F7A1AEE065E001D26E0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C0F08F7C1AEE065E001D26E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C0F08F7F1AEE065E001D26E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0F08F811AEE065E001D26E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C0F08F841AEE065E001D26E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C0F08F8A1AEE065F001D26E0 /* TinypixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinypixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F08F8F1AEE065F001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F08F901AEE065F001D26E0 /* TinypixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinypixTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0F08F701AEE065E001D26E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0F08F871AEE065F001D26E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C0F08F6A1AEE065E001D26E0 = {
+			isa = PBXGroup;
+			children = (
+				C0F08F751AEE065E001D26E0 /* Tinypix */,
+				C0F08F8D1AEE065F001D26E0 /* TinypixTests */,
+				C0F08F741AEE065E001D26E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0F08F741AEE065E001D26E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0F08F731AEE065E001D26E0 /* Tinypix.app */,
+				C0F08F8A1AEE065F001D26E0 /* TinypixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0F08F751AEE065E001D26E0 /* Tinypix */ = {
+			isa = PBXGroup;
+			children = (
+				C0F08F781AEE065E001D26E0 /* AppDelegate.swift */,
+				C0F08F7A1AEE065E001D26E0 /* MasterViewController.swift */,
+				C0F08F7C1AEE065E001D26E0 /* DetailViewController.swift */,
+				C0F08F7E1AEE065E001D26E0 /* Main.storyboard */,
+				C0F08F811AEE065E001D26E0 /* Images.xcassets */,
+				C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */,
+				C0F08F761AEE065E001D26E0 /* Supporting Files */,
+			);
+			path = Tinypix;
+			sourceTree = "<group>";
+		};
+		C0F08F761AEE065E001D26E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0F08F771AEE065E001D26E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C0F08F8D1AEE065F001D26E0 /* TinypixTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0F08F901AEE065F001D26E0 /* TinypixTests.swift */,
+				C0F08F8E1AEE065F001D26E0 /* Supporting Files */,
+			);
+			path = TinypixTests;
+			sourceTree = "<group>";
+		};
+		C0F08F8E1AEE065F001D26E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0F08F8F1AEE065F001D26E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0F08F721AEE065E001D26E0 /* Tinypix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0F08F941AEE065F001D26E0 /* Build configuration list for PBXNativeTarget "Tinypix" */;
+			buildPhases = (
+				C0F08F6F1AEE065E001D26E0 /* Sources */,
+				C0F08F701AEE065E001D26E0 /* Frameworks */,
+				C0F08F711AEE065E001D26E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tinypix;
+			productName = Tinypix;
+			productReference = C0F08F731AEE065E001D26E0 /* Tinypix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C0F08F891AEE065F001D26E0 /* TinypixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0F08F971AEE065F001D26E0 /* Build configuration list for PBXNativeTarget "TinypixTests" */;
+			buildPhases = (
+				C0F08F861AEE065F001D26E0 /* Sources */,
+				C0F08F871AEE065F001D26E0 /* Frameworks */,
+				C0F08F881AEE065F001D26E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0F08F8C1AEE065F001D26E0 /* PBXTargetDependency */,
+			);
+			name = TinypixTests;
+			productName = TinypixTests;
+			productReference = C0F08F8A1AEE065F001D26E0 /* TinypixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0F08F6B1AEE065E001D26E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Domenico Solazzo";
+				TargetAttributes = {
+					C0F08F721AEE065E001D26E0 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					C0F08F891AEE065F001D26E0 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = C0F08F721AEE065E001D26E0;
+					};
+				};
+			};
+			buildConfigurationList = C0F08F6E1AEE065E001D26E0 /* Build configuration list for PBXProject "Tinypix" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C0F08F6A1AEE065E001D26E0;
+			productRefGroup = C0F08F741AEE065E001D26E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0F08F721AEE065E001D26E0 /* Tinypix */,
+				C0F08F891AEE065F001D26E0 /* TinypixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0F08F711AEE065E001D26E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F08F801AEE065E001D26E0 /* Main.storyboard in Resources */,
+				C0F08F851AEE065E001D26E0 /* LaunchScreen.xib in Resources */,
+				C0F08F821AEE065E001D26E0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0F08F881AEE065F001D26E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0F08F6F1AEE065E001D26E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F08F7D1AEE065E001D26E0 /* DetailViewController.swift in Sources */,
+				C0F08F7B1AEE065E001D26E0 /* MasterViewController.swift in Sources */,
+				C0F08F791AEE065E001D26E0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0F08F861AEE065F001D26E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F08F911AEE065F001D26E0 /* TinypixTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0F08F8C1AEE065F001D26E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0F08F721AEE065E001D26E0 /* Tinypix */;
+			targetProxy = C0F08F8B1AEE065F001D26E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C0F08F7E1AEE065E001D26E0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0F08F7F1AEE065E001D26E0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0F08F841AEE065E001D26E0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0F08F921AEE065F001D26E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0F08F931AEE065F001D26E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0F08F951AEE065F001D26E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tinypix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C0F08F961AEE065F001D26E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tinypix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C0F08F981AEE065F001D26E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TinypixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tinypix.app/Tinypix";
+			};
+			name = Debug;
+		};
+		C0F08F991AEE065F001D26E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TinypixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tinypix.app/Tinypix";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0F08F6E1AEE065E001D26E0 /* Build configuration list for PBXProject "Tinypix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0F08F921AEE065F001D26E0 /* Debug */,
+				C0F08F931AEE065F001D26E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0F08F941AEE065F001D26E0 /* Build configuration list for PBXNativeTarget "Tinypix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0F08F951AEE065F001D26E0 /* Debug */,
+				C0F08F961AEE065F001D26E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C0F08F971AEE065F001D26E0 /* Build configuration list for PBXNativeTarget "TinypixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0F08F981AEE065F001D26E0 /* Debug */,
+				C0F08F991AEE065F001D26E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0F08F6B1AEE065E001D26E0 /* Project object */;
+}
