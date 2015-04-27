@@ -15,6 +15,9 @@
 		C0F08F851AEE065E001D26E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */; };
 		C0F08F911AEE065F001D26E0 /* TinypixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F901AEE065F001D26E0 /* TinypixTests.swift */; };
 		C0F08F9B1AEE06A0001D26E0 /* TinyPixDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */; };
+		C0F08F9F1AEEA157001D26E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F9C1AEEA157001D26E0 /* Default-568h@2x.png */; };
+		C0F08FA01AEEA157001D26E0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F9D1AEEA157001D26E0 /* Default.png */; };
+		C0F08FA11AEEA157001D26E0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F9E1AEEA157001D26E0 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		C0F08F8F1AEE065F001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F08F901AEE065F001D26E0 /* TinypixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinypixTests.swift; sourceTree = "<group>"; };
 		C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyPixDocument.swift; sourceTree = "<group>"; };
+		C0F08F9C1AEEA157001D26E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C0F08F9D1AEEA157001D26E0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C0F08F9E1AEEA157001D26E0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 		C0F08F751AEE065E001D26E0 /* Tinypix */ = {
 			isa = PBXGroup;
 			children = (
+				C0F08F9C1AEEA157001D26E0 /* Default-568h@2x.png */,
+				C0F08F9D1AEEA157001D26E0 /* Default.png */,
+				C0F08F9E1AEEA157001D26E0 /* Default@2x.png */,
 				C0F08F781AEE065E001D26E0 /* AppDelegate.swift */,
 				C0F08F7A1AEE065E001D26E0 /* MasterViewController.swift */,
 				C0F08F7C1AEE065E001D26E0 /* DetailViewController.swift */,
@@ -198,9 +207,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F08FA11AEEA157001D26E0 /* Default@2x.png in Resources */,
 				C0F08F801AEE065E001D26E0 /* Main.storyboard in Resources */,
+				C0F08F9F1AEEA157001D26E0 /* Default-568h@2x.png in Resources */,
 				C0F08F851AEE065E001D26E0 /* LaunchScreen.xib in Resources */,
 				C0F08F821AEE065E001D26E0 /* Images.xcassets in Resources */,
+				C0F08FA01AEEA157001D26E0 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
