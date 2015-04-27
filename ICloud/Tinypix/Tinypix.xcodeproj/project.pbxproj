@@ -14,6 +14,7 @@
 		C0F08F821AEE065E001D26E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F811AEE065E001D26E0 /* Images.xcassets */; };
 		C0F08F851AEE065E001D26E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */; };
 		C0F08F911AEE065F001D26E0 /* TinypixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F901AEE065F001D26E0 /* TinypixTests.swift */; };
+		C0F08F9B1AEE06A0001D26E0 /* TinyPixDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0F08F8A1AEE065F001D26E0 /* TinypixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinypixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F08F8F1AEE065F001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F08F901AEE065F001D26E0 /* TinypixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinypixTests.swift; sourceTree = "<group>"; };
+		C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyPixDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0F08F811AEE065E001D26E0 /* Images.xcassets */,
 				C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */,
 				C0F08F761AEE065E001D26E0 /* Supporting Files */,
+				C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */,
 			);
 			path = Tinypix;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F08F9B1AEE06A0001D26E0 /* TinyPixDocument.swift in Sources */,
 				C0F08F7D1AEE065E001D26E0 /* DetailViewController.swift in Sources */,
 				C0F08F7B1AEE065E001D26E0 /* MasterViewController.swift in Sources */,
 				C0F08F791AEE065E001D26E0 /* AppDelegate.swift in Sources */,
