@@ -9,5 +9,6 @@
 import UIKit
 
 class TinyPixDocument: UIDocument {
-   
+    // 8x8 bitmap data
+    private var bitmap: [UInt8] = []
 }
