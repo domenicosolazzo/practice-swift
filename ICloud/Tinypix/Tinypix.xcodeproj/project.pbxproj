@@ -19,6 +19,7 @@
 		C0F08FA01AEEA157001D26E0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F9D1AEEA157001D26E0 /* Default.png */; };
 		C0F08FA11AEEA157001D26E0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F08F9E1AEEA157001D26E0 /* Default@2x.png */; };
 		C0F6E7D81AEFF8EE009678C5 /* TinyPixUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6E7D71AEFF8EE009678C5 /* TinyPixUtils.swift */; };
+		C0F6E7DA1AF0031F009678C5 /* TinyPixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6E7D91AF0031F009678C5 /* TinyPixView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		C0F08F9D1AEEA157001D26E0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C0F08F9E1AEEA157001D26E0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C0F6E7D71AEFF8EE009678C5 /* TinyPixUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyPixUtils.swift; sourceTree = "<group>"; };
+		C0F6E7D91AF0031F009678C5 /* TinyPixView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyPixView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				C0F08F831AEE065E001D26E0 /* LaunchScreen.xib */,
 				C0F08F761AEE065E001D26E0 /* Supporting Files */,
 				C0F08F9A1AEE06A0001D26E0 /* TinyPixDocument.swift */,
+				C0F6E7D91AF0031F009678C5 /* TinyPixView.swift */,
 			);
 			path = Tinypix;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				C0F08F9B1AEE06A0001D26E0 /* TinyPixDocument.swift in Sources */,
 				C0F08F7D1AEE065E001D26E0 /* DetailViewController.swift in Sources */,
+				C0F6E7DA1AF0031F009678C5 /* TinyPixView.swift in Sources */,
 				C0F6E7D81AEFF8EE009678C5 /* TinyPixUtils.swift in Sources */,
 				C0F08F7B1AEE065E001D26E0 /* MasterViewController.swift in Sources */,
 				C0F08F791AEE065E001D26E0 /* AppDelegate.swift in Sources */,
