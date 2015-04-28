@@ -16,4 +16,13 @@ class TinyPixDocument: UIDocument {
         bitmap = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80]
         super.init(fileURL: url)
     }
+    
+    /// It grabs relevant byte from our array of bytes, and then does a bit shift and 
+    /// an AND operation to determine whether the specified bit was set, 
+    /// returning true or false accordingly.
+    func stateAt(#row: Int, column: Int) -> Bool {
+        let rowByte = bitmap[row]
+        let result = UInt8(1 << column) & rowByte
+        return result != 0
+    }
 }
