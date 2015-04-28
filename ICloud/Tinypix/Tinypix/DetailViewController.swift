@@ -32,6 +32,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        
+        updateTintColor()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "onSettingsChanged:",
+            name: NSUserDefaultsDidChangeNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
