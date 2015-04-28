@@ -52,6 +52,9 @@ class DetailViewController: UIViewController {
         pixView.setNeedsDisplay()
     }
 
+    func onSettingsChanged(notification: NSNotification) {
+        updateTintColor()
+    }
 
 }
 
