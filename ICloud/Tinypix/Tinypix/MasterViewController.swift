@@ -96,5 +96,24 @@ class MasterViewController: UITableViewController {
     private func setTintColorForIndex(colorIndex: Int) {
         colorControl.tintColor = TinyPixUtils.getTintColorForIndex(colorIndex)
     }
+    
+    //- MARK: UIBarButtonItem
+    func insertNewObject() {
+        let alert = UIAlertController(title: "Choose File Name",
+            message: "Enter a name for your new TinyPix document",
+            preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler(nil)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let createAction = UIAlertAction(title: "Create", style: .Default) { action in
+            let textField = alert.textFields![0] as! UITextField
+            self.createFileNamed(textField.text)
+        };
+        
+        alert.addAction(cancelAction)
+        alert.addAction(createAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
 }
 
