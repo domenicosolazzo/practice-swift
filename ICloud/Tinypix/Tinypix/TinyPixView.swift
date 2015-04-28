@@ -35,4 +35,13 @@ class TinyPixView: UIView {
     private func commonInit() {
         calculateGridForSize(bounds.size)
     }
+    
+    private func calculateGridForSize(size: CGSize) {
+        let space = min(size.width, size.height)
+        gap = space/57
+        let cellSide = gap * 6
+        blockSize = CGSizeMake(cellSide, cellSide)
+        gridRect = CGRectMake((size.width - space)/2, (size.height - space)/2,
+            space, space)
+    }
 }
