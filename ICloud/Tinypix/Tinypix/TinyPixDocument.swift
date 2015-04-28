@@ -17,12 +17,22 @@ class TinyPixDocument: UIDocument {
         super.init(fileURL: url)
     }
     
-    /// It grabs relevant byte from our array of bytes, and then does a bit shift and 
+    /// It grabs relevant byte from our array of bytes, and then does a bit shift and
     /// an AND operation to determine whether the specified bit was set, 
     /// returning true or false accordingly.
     func stateAt(#row: Int, column: Int) -> Bool {
         let rowByte = bitmap[row]
         let result = UInt8(1 << column) & rowByte
         return result != 0
+    }
+    
+    func setState(state: Bool, atRow row: Int, column: Int) {
+        var rowByte = bitmap[row]
+        if state {
+            rowByte |= UInt8(1 << column)
+        } else {
+            rowByte &= ~UInt8(1 << column)
+        }
+        bitmap[row] = rowByte
     }
 }
