@@ -51,6 +51,20 @@ class MasterViewController: UITableViewController {
     }
     
     //- MARK: UITableView
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return documentFileNames.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath
+        indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as! UITableViewCell
+            let path = documentFileNames[indexPath.row]
+            cell.textLabel!.text = path.lastPathComponent.stringByDeletingPathExtension
+            return cell
+    }
 }
 
