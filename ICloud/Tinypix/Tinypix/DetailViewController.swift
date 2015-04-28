@@ -12,6 +12,10 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var pixView: TinyPixView!
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: NSUserDefaultsDidChangeNotification, object: nil)
+    }
 
     var detailItem: AnyObject? {
         didSet {
