@@ -117,6 +117,7 @@ class MasterViewController: UITableViewController {
     }
     
     private func createFileNamed(fileName: String) {
+        // Strips leading and trailing spaces
         let trimmedFileName = fileName.stringByTrimmingCharactersInSet(
             NSCharacterSet.whitespaceCharacterSet())
         if !trimmedFileName.isEmpty {
@@ -134,6 +135,33 @@ class MasterViewController: UITableViewController {
                         println("Failed to save!")
                     }
             })
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination =
+        segue.destinationViewController as! UINavigationController
+        let detailVC =
+        destination.topViewController as! DetailViewController
+        
+        if sender === self {
+            // if sender === self, a new document has just been created,
+            // and chosenDocument is already set.
+            detailVC.detailItem = chosenDocument
+        } else {
+            // Find the chosen document from the tableview
+            let indexPath = tableView.indexPathForSelectedRow()!
+            let filename = documentFileNames[indexPath.row]
+            let docURL = urlForFileName(filename)
+            chosenDocument = TinyPixDocument(fileURL: docURL)
+            chosenDocument?.openWithCompletionHandler() { success in
+                if success {
+                    println("Load OK")
+                    detailVC.detailItem = self.chosenDocument
+                } else {
+                    println("Failed to load!")
+                }
+            }
         }
     }
 }
