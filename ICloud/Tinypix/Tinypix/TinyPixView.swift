@@ -10,4 +10,8 @@ import UIKit
 
 class TinyPixView: UIView {
 
+    struct GridIndex {
+        var row: Int
+        var column: Int
+    }
 }
