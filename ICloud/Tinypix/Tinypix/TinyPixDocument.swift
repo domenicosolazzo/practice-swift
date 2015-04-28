@@ -35,4 +35,9 @@ class TinyPixDocument: UIDocument {
         }
         bitmap[row] = rowByte
     }
+    
+    func toggleStateAt(#row: Int, column: Int) {
+        let state = stateAt(row: row, column: column)
+        setState(!state, atRow: row, column: column)
+    }
 }
