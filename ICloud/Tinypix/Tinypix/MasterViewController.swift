@@ -13,6 +13,22 @@ class MasterViewController: UITableViewController {
     private var documentFileNames: [String] = []
     private var chosenDocument: TinyPixDocument?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let addButton = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonSystemItem.Add,
+            target: self, action: "insertNewObject")
+        navigationItem.rightBarButtonItem = addButton
+        
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let selectedColorIndex = prefs.integerForKey("selectedColorIndex")
+        setTintColorForIndex(selectedColorIndex)
+        colorControl.selectedSegmentIndex = selectedColorIndex
+        
+        reloadFiles()
+    }
+    
     //- MARK: Helper methods
     private func urlForFileName(fileName: NSString) -> NSURL {
         let fm = NSFileManager.defaultManager()
