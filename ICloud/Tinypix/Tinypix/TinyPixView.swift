@@ -8,10 +8,17 @@
 
 import UIKit
 
-class TinyPixView: UIView {
+struct GridIndex {
+    var row: Int
+    var column: Int
+}
 
-    struct GridIndex {
-        var row: Int
-        var column: Int
-    }
+class TinyPixView: UIView {
+    var document: TinyPixDocument!
+    var lastSize: CGSize = CGSizeZero
+    var gridRect: CGRect!
+    var blockSize: CGSize!
+    var gap: CGFloat = 0
+    var selectedBlockIndex: GridIndex = GridIndex(row: NSNotFound, column: NSNotFound)
+   
 }
