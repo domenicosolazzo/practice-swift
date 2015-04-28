@@ -40,4 +40,19 @@ class TinyPixDocument: UIDocument {
         let state = stateAt(row: row, column: column)
         setState(!state, atRow: row, column: column)
     }
+    
+    //- MARK: UIDocument
+    override func contentsForType(typeName: String, error outError: NSErrorPointer) -> AnyObject? {
+        println("Saving document to URL \(fileURL)")
+        let bitmapData = NSData(bytes: bitmap, length: bitmap.count)
+        return bitmapData
+    }
+    
+    override func loadFromContents(contents: AnyObject, ofType typeName: String,
+        error outError: NSErrorPointer) -> Bool {
+            println("Loading document from URL \(fileURL)")
+            let bitmapData = contents as! NSData
+            bitmapData.getBytes(UnsafeMutablePointer<UInt8>(bitmap), length: bitmap.count)
+            return true
+    }
 }
