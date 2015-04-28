@@ -66,5 +66,19 @@ class MasterViewController: UITableViewController {
             cell.textLabel!.text = path.lastPathComponent.stringByDeletingPathExtension
             return cell
     }
+    
+    //- MARK: Tint color
+    @IBAction func chooseColor(sender: UISegmentedControl) {
+        let selectedColorIndex = sender.selectedSegmentIndex
+        setTintColorForIndex(selectedColorIndex)
+        
+        let prefs = NSUserDefaults.standardUserDefaults()
+        prefs.setInteger(selectedColorIndex, forKey: "selectedColorIndex")
+        prefs.synchronize()
+    }
+    
+    private func setTintColorForIndex(colorIndex: Int) {
+        colorControl.tintColor = TinyPixUtils.getTintColorForIndex(colorIndex)
+    }
 }
 
