@@ -21,4 +21,18 @@ class TinyPixView: UIView {
     var gap: CGFloat = 0
     var selectedBlockIndex: GridIndex = GridIndex(row: NSNotFound, column: NSNotFound)
    
+    //- MARK: Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        calculateGridForSize(bounds.size)
+    }
 }
