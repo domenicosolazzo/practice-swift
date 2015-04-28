@@ -110,12 +110,12 @@ class TinyPixView: UIView {
         }
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         selectedBlockIndex = touchedGridIndexFromTouches(touches)
         toggleSelectedBlock()
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         let touched = touchedGridIndexFromTouches(touches)
         if touched.row != selectedBlockIndex.row
             && touched.column != selectedBlockIndex.column {
