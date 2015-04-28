@@ -115,5 +115,26 @@ class MasterViewController: UITableViewController {
         
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+    private func createFileNamed(fileName: String) {
+        let trimmedFileName = fileName.stringByTrimmingCharactersInSet(
+            NSCharacterSet.whitespaceCharacterSet())
+        if !trimmedFileName.isEmpty {
+            let targetName = trimmedFileName + ".tinypix"
+            let saveUrl = urlForFileName(targetName)
+            chosenDocument = TinyPixDocument(fileURL: saveUrl)
+            chosenDocument?.saveToURL(saveUrl,
+                forSaveOperation: UIDocumentSaveOperation.ForCreating,
+                completionHandler: { success in
+                    if success {
+                        println("Save OK")
+                        self.reloadFiles()
+                        self.performSegueWithIdentifier("masterToDetail", sender: self)
+                    } else {
+                        println("Failed to save!")
+                    }
+            })
+        }
+    }
 }
 
