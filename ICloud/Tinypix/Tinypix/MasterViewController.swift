@@ -31,6 +31,12 @@ class MasterViewController: UITableViewController {
         colorControl.selectedSegmentIndex = selectedColorIndex
         
         reloadFiles()
+        
+        // Notification when the user defaults change
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "onSettingsChanged:",
+            name: NSUserDefaultsDidChangeNotification ,
+            object: nil)
     }
     
     //- MARK: Helper methods
