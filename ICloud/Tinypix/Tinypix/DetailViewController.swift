@@ -27,11 +27,18 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if detailItem != nil && isViewLoaded() {
-            pixView.document = detailItem! as TinyPixDocument
+            pixView.document = detailItem! as! TinyPixDocument
             pixView.setNeedsDisplay()
         }
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let doc = detailItem as? UIDocument {
+            doc.closeWithCompletionHandler(nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

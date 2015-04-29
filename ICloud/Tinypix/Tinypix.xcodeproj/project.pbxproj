@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0CB1A5A1AF1370A00E0E2E0 /* Tinypix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Tinypix.entitlements; sourceTree = "<group>"; };
 		C0F08F731AEE065E001D26E0 /* Tinypix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinypix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F08F771AEE065E001D26E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F08F781AEE065E001D26E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		C0F08F751AEE065E001D26E0 /* Tinypix */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB1A5A1AF1370A00E0E2E0 /* Tinypix.entitlements */,
 				C0F08F9C1AEEA157001D26E0 /* Default-568h@2x.png */,
 				C0F08F9D1AEEA157001D26E0 /* Default.png */,
 				C0F08F9E1AEEA157001D26E0 /* Default@2x.png */,
@@ -182,6 +184,12 @@
 				TargetAttributes = {
 					C0F08F721AEE065E001D26E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8YWZZG9DK7;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					C0F08F891AEE065F001D26E0 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -370,9 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tinypix/Tinypix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tinypix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -380,9 +392,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tinypix/Tinypix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tinypix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
