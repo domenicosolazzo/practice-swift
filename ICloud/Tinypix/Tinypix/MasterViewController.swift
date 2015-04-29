@@ -39,6 +39,13 @@ class MasterViewController: UITableViewController {
             object: nil)
     }
     
+    func onSettingsChanged(notification: NSNotification) {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let selectedColorIndex = prefs.integerForKey("selectedColorIndex")
+        setTintColorForIndex(selectedColorIndex)
+        colorControl.selectedSegmentIndex = selectedColorIndex
+    }
+    
     //- MARK: Helper methods
     private func urlForFileName(fileName: NSString) -> NSURL {
         // Be sure to insert "Documents" into the path
