@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         let startTime = NSDate()
         self.resultsTextView.text = ""
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        dispatch_async(){
+        dispatch_async(queue){
             let fetchedData = self.fetchSomethingFromServer()
             let processedData = self.processData(fetchedData)
             let firstResult = self.calculateFirstResult(processedData)
