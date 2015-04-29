@@ -35,18 +35,19 @@ class MasterViewController: UITableViewController {
     
     //- MARK: Helper methods
     private func urlForFileName(fileName: NSString) -> NSURL {
+        // Be sure to insert "Documents" into the path
         let fm = NSFileManager.defaultManager()
-        let urls = fm.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory,
-            inDomains: NSSearchPathDomainMask.UserDomainMask) as! [NSURL]
-        let directoryURL = urls[0]
-        let fileURL = directoryURL.URLByAppendingPathComponent(fileName as String)
-        return fileURL
+        let baseURL = fm.URLForUbiquityContainerIdentifier(nil)
+        let pathURL = baseURL?.URLByAppendingPathComponent("Documents")
+        let destinationURL = pathURL?.URLByAppendingPathComponent(fileName as String)
+        return destinationURL!
     }
     
     private func reloadFiles() {
         let fileManager = NSFileManager.defaultManager()
         
         // Passing nil is OK here, matches the first entitlement
+        // It gives a base URL that will let us access the iCloud directory associated with a particular container identifier
         let cloudURL = fileManager.URLForUbiquityContainerIdentifier(nil)
         println("Got cloudURL \(cloudURL)")
         if (cloudURL != nil) {
@@ -66,6 +67,29 @@ class MasterViewController: UITableViewController {
             
             query.startQuery()
         }
+    }
+    
+    func updateUbiquitousDocuments(notification: NSNotification) {
+        documentURLs = []
+        documentFileNames = []
+        
+        println("updateUbiquitousDocuments, results = \(query.results)")
+        let results = sorted(query.results) { obj1, obj2 in
+            let item1 = obj1 as! NSMetadataItem
+            let item2 = obj2 as! NSMetadataItem
+            let item1Date =
+            item1.valueForAttribute(NSMetadataItemFSCreationDateKey) as! NSDate
+            let item2Date =
+            item2.valueForAttribute(NSMetadataItemFSCreationDateKey) as! NSDate
+            let result = item1Date.compare(item2Date)
+            return result == NSComparisonResult.OrderedAscending
+        }
+        for item in results as! [NSMetadataItem] {
+            let url = item.valueForAttribute(NSMetadataItemURLKey) as! NSURL
+            documentURLs.append(url)
+            documentFileNames.append(url.lastPathComponent!)
+        }
+        tableView.reloadData()
     }
     
     //- MARK: UITableView
