@@ -130,6 +130,12 @@ class MasterViewController: UITableViewController {
         let prefs = NSUserDefaults.standardUserDefaults()
         prefs.setInteger(selectedColorIndex, forKey: "selectedColorIndex")
         prefs.synchronize()
+        
+        // Save the tint color in iCloud
+        NSUbiquitousKeyValueStore.defaultStore()
+            .setLongLong(Int64(selectedColorIndex),
+                forKey: "selectedColorIndex")
+        NSUbiquitousKeyValueStore.defaultStore().synchronize()
     }
     
     private func setTintColorForIndex(colorIndex: Int) {
