@@ -12,6 +12,10 @@ class MasterViewController: UITableViewController {
     @IBOutlet var colorControl: UISegmentedControl!
     private var documentFileNames: [String] = []
     private var chosenDocument: TinyPixDocument?
+    // Ongoing query
+    private var query: NSMetadataQuery!
+    // Found documents
+    private var documentURLs: [NSURL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,29 +44,27 @@ class MasterViewController: UITableViewController {
     }
     
     private func reloadFiles() {
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,
-            NSSearchPathDomainMask.UserDomainMask, true) as! [String]
-        let path = paths[0]
-        let fm = NSFileManager.defaultManager()
+        let fileManager = NSFileManager.defaultManager()
         
-        var error:NSError? = nil;
-        let files = fm.contentsOfDirectoryAtPath(path, error: &error) as? [String]
-        if files != nil {
-            let sortedFileNames = sorted(files!) { fileName1, fileName2 in
-                let file1Path = path.stringByAppendingPathComponent(fileName1)
-                let file2Path = path.stringByAppendingPathComponent(fileName2)
-                let attr1 = fm.attributesOfItemAtPath(file1Path, error: nil)
-                let attr2 = fm.attributesOfItemAtPath(file2Path, error: nil)
-                let file1Date = attr1![NSFileCreationDate] as! NSDate
-                let file2Date = attr2![NSFileCreationDate] as! NSDate
-                let result = file1Date.compare(file2Date)
-                return result == NSComparisonResult.OrderedAscending
-            }
+        // Passing nil is OK here, matches the first entitlement
+        let cloudURL = fileManager.URLForUbiquityContainerIdentifier(nil)
+        println("Got cloudURL \(cloudURL)")
+        if (cloudURL != nil) {
+            query = NSMetadataQuery()
+            query.predicate = NSPredicate(format: "%K like '*.tinypix'",
+                NSMetadataItemFSNameKey)
+            query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
             
-            documentFileNames = sortedFileNames
-            tableView.reloadData()
-        } else {
-            println("Error listing files in directory \(path): \(error)")
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "updateUbiquitousDocuments:",
+                name: NSMetadataQueryDidFinishGatheringNotification,
+                object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "updateUbiquitousDocuments:",
+                name: NSMetadataQueryDidUpdateNotification,
+                object: nil)
+            
+            query.startQuery()
         }
     }
     
