@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        
+        // Register for notification of iCloud key-value changes
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "iCloudKeysChanged:",
+            name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification,
+            object: nil)
+        
+        // Start iCloud key-value updates
+        NSUbiquitousKeyValueStore.defaultStore().synchronize()
+        updateUserDefaultsFromICloud()
         return true
     }
 
@@ -57,6 +67,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
         return false
+    }
+    
+    func iCloudKeysChanged(notification: NSNotification) {
+        updateUserDefaultsFromICloud()
+    }
+    
+    private func updateUserDefaultsFromICloud() {
+        let values = NSUbiquitousKeyValueStore.defaultStore().dictionaryRepresentation
+        if values["selectedColorIndex"] != nil {
+            let selectedColorIndex =
+            Int(NSUbiquitousKeyValueStore.defaultStore().longLongForKey(
+                "selectedColorIndex"))
+            let prefs = NSUserDefaults.standardUserDefaults()
+            prefs.setInteger(selectedColorIndex, forKey: "selectedColorIndex")
+            prefs.synchronize()
+        }
     }
 
 }
