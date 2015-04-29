@@ -54,7 +54,11 @@ class ViewController: UIViewController {
             let secondResult = self.calculateSecondResult(processedData)
             let resultsSummary =
             "First: [\(firstResult)]\nSecond: [\(secondResult)]"
-            self.resultsTextView.text = resultsSummary
+            dispatch_async(dispatch_get_main_queue()){
+                // Dispatch the result to the main queue 
+                self.resultsTextView.text = resultsSummary
+            }
+            
             let endTime = NSDate()
             println(
                 "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
