@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -32,15 +31,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4V-TK-V6G" customClass="TinyPixView" customModule="Tinypix" customModuleProvider="target">
-                                <rect key="frame" x="600" y="64" width="0.0" height="93"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="W4V-TK-V6G" customClass="TinyPixView" customModule="Tinypix" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W4V-TK-V6G" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="LKM-b0-ERr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="W4V-TK-V6G" secondAttribute="trailing" constant="-16" id="RR7-hF-4sf"/>
+                            <constraint firstAttribute="trailing" secondItem="W4V-TK-V6G" secondAttribute="trailing" id="JxV-K7-oaL"/>
+                            <constraint firstItem="W4V-TK-V6G" firstAttribute="bottom" secondItem="GAO-Cl-Wes" secondAttribute="top" id="SMF-yu-u1h"/>
+                            <constraint firstItem="W4V-TK-V6G" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="YrE-ui-0FC"/>
+                            <constraint firstItem="W4V-TK-V6G" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="pLM-Pf-Kvk"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -87,7 +88,7 @@
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
