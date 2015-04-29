@@ -46,16 +46,20 @@ class ViewController: UIViewController {
     @IBAction func doWork(sender: AnyObject) {
         let startTime = NSDate()
         self.resultsTextView.text = ""
-        let fetchedData = self.fetchSomethingFromServer()
-        let processedData = self.processData(fetchedData)
-        let firstResult = self.calculateFirstResult(processedData)
-        let secondResult = self.calculateSecondResult(processedData)
-        let resultsSummary =
-        "First: [\(firstResult)]\nSecond: [\(secondResult)]"
-        self.resultsTextView.text = resultsSummary
-        let endTime = NSDate()
-        println(
-            "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        dispatch_async(){
+            let fetchedData = self.fetchSomethingFromServer()
+            let processedData = self.processData(fetchedData)
+            let firstResult = self.calculateFirstResult(processedData)
+            let secondResult = self.calculateSecondResult(processedData)
+            let resultsSummary =
+            "First: [\(firstResult)]\nSecond: [\(secondResult)]"
+            self.resultsTextView.text = resultsSummary
+            let endTime = NSDate()
+            println(
+                "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+        }
+        
     }
 
 }
