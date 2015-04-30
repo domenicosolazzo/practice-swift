@@ -27,8 +27,6 @@ class ViewController: UIViewController {
         label.backgroundColor = UIColor.clearColor()
         view.addSubview(label)
         
-        self.rotateLabelDown()
-        
         // Notification
         let center = NSNotificationCenter.defaultCenter()
         center.addObserver(self, selector: "applicationWillResignActive",
