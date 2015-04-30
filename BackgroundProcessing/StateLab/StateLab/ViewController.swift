@@ -21,6 +21,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        index = NSUserDefaults.standardUserDefaults().integerForKey("index")
+        segmentedControl.selectedSegmentIndex = index;
+        
         let bounds = view.bounds
         let labelFrame:CGRect = CGRectMake(bounds.origin.x,
             CGRectGetMidY(bounds) - 50, bounds.size.width, 100)
@@ -79,6 +82,8 @@ class ViewController: UIViewController {
         println("VC: \(__FUNCTION__)")
         self.smiley = nil;
         self.smileyView.image = nil;
+        NSUserDefaults.standardUserDefaults().setInteger(self.index,
+            forKey:"index")
     }
     
     func applicationWillEnterForeground() {
