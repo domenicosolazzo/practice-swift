@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private var label:UILabel!
+    private var animate:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,24 @@ class ViewController: UIViewController {
         view.addSubview(label)
         
         self.rotateLabelDown()
+        
+        // Notification
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "applicationWillResignActive",
+            name: UIApplicationWillResignActiveNotification, object: nil)
+        center.addObserver(self, selector: "applicationDidBecomeActive",
+            name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    func applicationWillResignActive() {
+        println("VC: \(__FUNCTION__)")
+        animate = false
+    }
+    
+    func applicationDidBecomeActive() {
+        println("VC: \(__FUNCTION__)")
+        animate = true
+        rotateLabelDown()
     }
 
     override func didReceiveMemoryWarning() {
