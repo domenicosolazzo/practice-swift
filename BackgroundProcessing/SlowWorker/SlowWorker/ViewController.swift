@@ -53,8 +53,8 @@ class ViewController: UIViewController {
         dispatch_async(queue){
             let fetchedData = self.fetchSomethingFromServer()
             let processedData = self.processData(fetchedData)
-            var firstResult: String!self.calculateFirstResult(processedData)
-            var secondResult: String! self.calculateSecondResult(processedData)
+            var firstResult: String!
+            var secondResult: String!
             
             var group = dispatch_group_create()
             
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             }
             
             dispatch_group_async(group, queue) {
-                firstResult = self.calculateSecondResult(processedData)
+                secondResult = self.calculateSecondResult(processedData)
             }
         
             dispatch_group_notify(group, queue){
