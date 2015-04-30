@@ -53,20 +53,36 @@ class ViewController: UIViewController {
         dispatch_async(queue){
             let fetchedData = self.fetchSomethingFromServer()
             let processedData = self.processData(fetchedData)
-            let firstResult = self.calculateFirstResult(processedData)
-            let secondResult = self.calculateSecondResult(processedData)
-            let resultsSummary =
-            "First: [\(firstResult)]\nSecond: [\(secondResult)]"
-            dispatch_async(dispatch_get_main_queue()){
-                // Dispatch the result to the main queue
-                self.resultsTextView.text = resultsSummary
-                self.spinner.stopAnimating()
-                self.startButton.enabled = false
+            var firstResult: String!self.calculateFirstResult(processedData)
+            var secondResult: String! self.calculateSecondResult(processedData)
+            
+            var group = dispatch_group_create()
+            
+            dispatch_group_async(group, queue) {
+                firstResult = self.calculateFirstResult(processedData)
             }
             
-            let endTime = NSDate()
-            println(
-                "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+            dispatch_group_async(group, queue) {
+                firstResult = self.calculateSecondResult(processedData)
+            }
+        
+            dispatch_group_notify(group, queue){
+                let resultsSummary =
+                "First: [\(firstResult)]\nSecond: [\(secondResult)]"
+                dispatch_async(dispatch_get_main_queue()){
+                    // Dispatch the result to the main queue
+                    self.resultsTextView.text = resultsSummary
+                    self.spinner.stopAnimating()
+                    self.startButton.enabled = false
+                }
+                
+                let endTime = NSDate()
+                println(
+                    "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+            }
+            
+            
+           
         }
         
     }
