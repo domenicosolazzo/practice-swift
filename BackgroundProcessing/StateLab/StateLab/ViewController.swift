@@ -114,6 +114,10 @@ class ViewController: UIViewController {
                 
         })
     }
+    
+    func selectionChanged(sender:UISegmentedControl) {
+        index = segmentedControl.selectedSegmentIndex;
+    }
 
 
 }
