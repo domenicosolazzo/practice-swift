@@ -25,11 +25,31 @@ class ViewController: UIViewController {
         label.textAlignment = NSTextAlignment.Center
         label.backgroundColor = UIColor.clearColor()
         view.addSubview(label)
+        
+        self.rotateLabelDown()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func rotateLabelDown() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.label.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            },
+            completion: {(bool) -> Void in
+                self.rotateLabelUp()
+        })
+    }
+    
+    func rotateLabelUp() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.label.transform = CGAffineTransformMakeRotation(0)
+            },
+            completion: {(bool) -> Void in
+                self.rotateLabelDown()
+        })
     }
 
 
