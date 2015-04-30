@@ -80,8 +80,6 @@ class ViewController: UIViewController {
     
     func applicationDidEnterBackground() {
         println("VC: \(__FUNCTION__)")
-        self.smiley = nil;
-        self.smileyView.image = nil;
         NSUserDefaults.standardUserDefaults().setInteger(self.index,
             forKey:"index")
         
