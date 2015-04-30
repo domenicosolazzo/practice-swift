@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     private var label:UILabel!
+    private var smiley:UIImage!
+    private var smileyView:UIImageView!
     private var animate:Bool = false
     
     override func viewDidLoad() {
@@ -25,6 +27,19 @@ class ViewController: UIViewController {
         label.text = "Bazinga!"
         label.textAlignment = NSTextAlignment.Center
         label.backgroundColor = UIColor.clearColor()
+        
+        // smiley.png is 84 x 84
+        let smileyFrame = CGRectMake(CGRectGetMidX(bounds) - 42,
+            CGRectGetMidY(bounds)/2 - 42, 84, 84)
+        
+        smileyView = UIImageView(frame:smileyFrame)
+        smileyView.contentMode = UIViewContentMode.Center
+        let smileyPath =
+        NSBundle.mainBundle().pathForResource("smiley", ofType: "png")!
+        smiley = UIImage(contentsOfFile: smileyPath)
+        smileyView.image = smiley
+        view.addSubview(smileyView)
+        
         view.addSubview(label)
         
         // Notification
