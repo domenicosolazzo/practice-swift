@@ -13,6 +13,7 @@
 		C0CB1A9F1AF28C1E00E0E2E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1A9E1AF28C1E00E0E2E0 /* Images.xcassets */; };
 		C0CB1AA21AF28C1E00E0E2E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1AA01AF28C1E00E0E2E0 /* LaunchScreen.xib */; };
 		C0CB1AAE1AF28C1E00E0E2E0 /* StateLabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1AAD1AF28C1E00E0E2E0 /* StateLabTests.swift */; };
+		C0CB1AB81AF2990400E0E2E0 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1AB71AF2990400E0E2E0 /* smiley.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB1AA71AF28C1E00E0E2E0 /* StateLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StateLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB1AAC1AF28C1E00E0E2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB1AAD1AF28C1E00E0E2E0 /* StateLabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLabTests.swift; sourceTree = "<group>"; };
+		C0CB1AB71AF2990400E0E2E0 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smiley.png; path = ../../../../../../../../../../Users/domenico/Downloads/smiley.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C0CB1A941AF28C1E00E0E2E0 /* StateLab */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB1AB71AF2990400E0E2E0 /* smiley.png */,
 				C0CB1A971AF28C1E00E0E2E0 /* AppDelegate.swift */,
 				C0CB1A991AF28C1E00E0E2E0 /* ViewController.swift */,
 				C0CB1A9B1AF28C1E00E0E2E0 /* Main.storyboard */,
@@ -195,6 +198,7 @@
 				C0CB1A9D1AF28C1E00E0E2E0 /* Main.storyboard in Resources */,
 				C0CB1AA21AF28C1E00E0E2E0 /* LaunchScreen.xib in Resources */,
 				C0CB1A9F1AF28C1E00E0E2E0 /* Images.xcassets in Resources */,
+				C0CB1AB81AF2990400E0E2E0 /* smiley.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

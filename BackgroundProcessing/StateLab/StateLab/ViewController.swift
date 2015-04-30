@@ -48,6 +48,10 @@ class ViewController: UIViewController {
             name: UIApplicationWillResignActiveNotification, object: nil)
         center.addObserver(self, selector: "applicationDidBecomeActive",
             name: UIApplicationDidBecomeActiveNotification, object: nil)
+        center.addObserver(self, selector: "applicationDidEnterBackground",
+            name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        center.addObserver(self, selector: "applicationWillEnterForeground",
+            name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     
     func applicationWillResignActive() {
@@ -59,6 +63,20 @@ class ViewController: UIViewController {
         println("VC: \(__FUNCTION__)")
         animate = true
         rotateLabelDown()
+    }
+    
+    func applicationDidEnterBackground() {
+        println("VC: \(__FUNCTION__)")
+        self.smiley = nil;
+        self.smileyView.image = nil;
+    }
+    
+    func applicationWillEnterForeground() {
+        println("VC: \(__FUNCTION__)")
+        let smileyPath =
+        NSBundle.mainBundle().pathForResource("smiley", ofType:"png")!
+        smiley = UIImage(contentsOfFile: smileyPath)
+        smileyView.image = smiley
     }
 
     override func didReceiveMemoryWarning() {
