@@ -84,6 +84,35 @@ class ViewController: UIViewController {
         self.smileyView.image = nil;
         NSUserDefaults.standardUserDefaults().setInteger(self.index,
             forKey:"index")
+        
+        let app = UIApplication.sharedApplication()
+        var taskId:UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+        let id = app.beginBackgroundTaskWithExpirationHandler(){
+            println("Background task ran out of time and was terminated.")
+            app.endBackgroundTask(taskId)
+        }
+        taskId = id
+        
+        if taskId == UIBackgroundTaskInvalid {
+            println("Failed to start background task!")
+            return
+        }
+        
+        dispatch_async(
+            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                println("Starting background task with " +
+                    "\(app.backgroundTimeRemaining) seconds remaining")
+                
+                self.smiley = nil;
+                self.smileyView.image = nil;
+                
+                // simulate a lengthy (25 seconds) procedure
+                NSThread.sleepForTimeInterval(25)
+                
+                println("Finishing background task with " +
+                    "\(app.backgroundTimeRemaining) seconds remaining")
+                app.endBackgroundTask(taskId)
+        });
     }
     
     func applicationWillEnterForeground() {
