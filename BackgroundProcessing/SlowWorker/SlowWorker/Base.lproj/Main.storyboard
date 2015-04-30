@@ -52,6 +52,7 @@
                     </view>
                     <connections>
                         <outlet property="resultsTextView" destination="vvG-za-jEG" id="OmO-9Y-Znd"/>
+                        <outlet property="spinner" destination="Q2z-7f-hmq" id="Igf-EL-Gsj"/>
                         <outlet property="startButton" destination="E44-bX-Meb" id="bsx-dw-adN"/>
                     </connections>
                 </viewController>
