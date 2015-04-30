@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     private var label:UILabel!
     private var smiley:UIImage!
     private var smileyView:UIImageView!
+    private var segmentedControl:UISegmentedControl!
+    private var index = 0
     private var animate:Bool = false
     
     override func viewDidLoad() {
@@ -38,8 +40,16 @@ class ViewController: UIViewController {
         NSBundle.mainBundle().pathForResource("smiley", ofType: "png")!
         smiley = UIImage(contentsOfFile: smileyPath)
         smileyView.image = smiley
-        view.addSubview(smileyView)
         
+        
+        UISegmentedControl(items: ["One","Two", "Three", "Four"])
+        segmentedControl.frame = CGRectMake(bounds.origin.x + 20, 50,
+            bounds.size.width - 40, 30)
+        segmentedControl.addTarget(self, action: "selectionChanged:",
+            forControlEvents: UIControlEvents.ValueChanged)
+        
+        view.addSubview(segmentedControl)
+        view.addSubview(smileyView)
         view.addSubview(label)
         
         // Notification
