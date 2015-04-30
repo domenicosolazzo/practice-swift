@@ -67,7 +67,10 @@ class ViewController: UIViewController {
             self.label.transform = CGAffineTransformMakeRotation(0)
             },
             completion: {(bool) -> Void in
-                self.rotateLabelDown()
+                if self.animate{
+                    self.rotateLabelDown()
+                }
+                
         })
     }
 
