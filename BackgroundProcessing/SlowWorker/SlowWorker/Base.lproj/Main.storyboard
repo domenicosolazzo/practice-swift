@@ -33,13 +33,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Q2z-7f-hmq">
+                                <rect key="frame" x="331" y="33" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vvG-za-jEG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7q9-OS-M8r"/>
+                            <constraint firstItem="Q2z-7f-hmq" firstAttribute="centerY" secondItem="E44-bX-Meb" secondAttribute="centerY" id="9hM-h7-IOc"/>
                             <constraint firstItem="E44-bX-Meb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="FiY-W2-WjX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvG-za-jEG" secondAttribute="trailing" id="JjA-fd-Fj7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vvG-za-jEG" secondAttribute="bottom" id="aRs-20-PBz"/>
+                            <constraint firstItem="Q2z-7f-hmq" firstAttribute="leading" secondItem="E44-bX-Meb" secondAttribute="trailing" constant="8" id="dbs-PV-d5Z"/>
                             <constraint firstAttribute="centerY" secondItem="E44-bX-Meb" secondAttribute="centerY" constant="257" id="hXx-0M-zeJ"/>
                             <constraint firstAttribute="centerX" secondItem="E44-bX-Meb" secondAttribute="centerX" id="rde-7v-LT9"/>
                             <constraint firstItem="vvG-za-jEG" firstAttribute="top" secondItem="E44-bX-Meb" secondAttribute="bottom" constant="20" id="yiv-6i-qHb"/>
