@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController,UIGestureRecognizerDelegate {
 
+    private var imageView:UIImageView!
+    private var scale:CGFloat = 1
+    private var previousScale:CGFloat = 1
+    private var rotation:CGFloat = 0
+    private var previousRotation:CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
