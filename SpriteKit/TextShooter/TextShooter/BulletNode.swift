@@ -45,4 +45,24 @@ class BulletNode: SKNode {
         aCoder.encodeFloat(Float(thrust.dy), forKey: "thrustY")
     }
     
+    class func bullet(from start: CGPoint, toward destination: CGPoint)
+        -> BulletNode {
+            let bullet = BulletNode()
+            bullet.position = start
+            let movement = vectorBetweenPoints(start, destination)
+            // Length
+            let magnitude = vectorLength(movement)
+            // Normalized unit vector
+            let scaledMovement = vectorMultiply(movement, 1/magnitude)
+            
+            let thrustMagnitude = CGFloat(100.0)
+            bullet.thrust = vectorMultiply(scaledMovement, thrustMagnitude)
+            
+            return bullet
+    }
+    
+    func applyRecurringForce() {
+        physicsBody!.applyForce(thrust)
+    }
+    
 }

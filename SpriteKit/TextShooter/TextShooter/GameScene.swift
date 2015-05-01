@@ -14,6 +14,7 @@ class GameScene: SKScene {
     private var finished = false
     private let playerNode: PlayerNode = PlayerNode()
     private let enemies =  SKNode()
+    private let playerBullets = SKNode()
     
     class func scene(size:CGSize, levelNumber:UInt) -> GameScene {
         return GameScene(size: size, levelNumber: levelNumber)
@@ -57,7 +58,10 @@ class GameScene: SKScene {
         
         // Enemies
         addChild(enemies)
-        spawnEnemies() 
+        spawnEnemies()
+        
+        // Player bullets
+        addChild(playerBullets)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +82,10 @@ class GameScene: SKScene {
             if location.y < CGRectGetHeight(frame) * 0.2 {
                 let target = CGPointMake(location.x, playerNode.position.y)
                 playerNode.moveToward(target)
+            } else {
+                let bullet =
+                BulletNode.bullet(from: playerNode.position, toward: location)
+                playerBullets.addChild(bullet)
             }
         }
     }
