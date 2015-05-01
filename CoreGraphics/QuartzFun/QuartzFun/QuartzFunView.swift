@@ -52,16 +52,38 @@ class QuartzFunView: UIView {
         setNeedsDisplay()
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        let touch = touches.anyObject() as UITouch
         lastTouchLocation = touch.locationInView(self)
-        setNeedsDisplay()
+        
+        if shape == .Image {
+            let horizontalOffset = image.size.width / 2
+            let verticalOffset = image.size.height / 2
+            redrawRect = CGRectUnion(redrawRect,
+                CGRectMake(lastTouchLocation.x - horizontalOffset,
+                    lastTouchLocation.y - verticalOffset,
+                    image.size.width, image.size.height))
+        } else {
+            redrawRect = CGRectUnion(redrawRect, currentRect())
+        }
+        setNeedsDisplayInRect(redrawRect)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        let touch = touches.anyObject() as UITouch
         lastTouchLocation = touch.locationInView(self)
-        setNeedsDisplay()
+        
+        if shape == .Image {
+            let horizontalOffset = image.size.width / 2
+            let verticalOffset = image.size.height / 2
+            redrawRect = CGRectUnion(redrawRect,
+                CGRectMake(lastTouchLocation.x - horizontalOffset,
+                    lastTouchLocation.y - verticalOffset,
+                    image.size.width, image.size.height))
+        } else {
+            redrawRect = CGRectUnion(redrawRect, currentRect())
+        }
+        setNeedsDisplayInRect(redrawRect)
     }
     
     func currentRect() -> CGRect {
