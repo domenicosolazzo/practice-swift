@@ -18,6 +18,16 @@ extension UIColor {
     }
 }
 
+
+enum Shape : UInt {
+    case Line = 0, Rect, Ellipse, Image
+}
+
+// The color tab indices
+enum DrawingColor : UInt {
+    case Red = 0, Blue, Yellow, Green, Random
+}
+
 class QuartzFunView: UIView {
 
 }
