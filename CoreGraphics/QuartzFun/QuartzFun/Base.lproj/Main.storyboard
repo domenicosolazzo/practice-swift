@@ -32,11 +32,25 @@
                                     <action selector="changeColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="jhB-ld-ycD"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bDa-2e-a7Z">
+                                <rect key="frame" x="192" y="552" width="220" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="hPR-xx-mIu"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Line"/>
+                                    <segment title="Rect"/>
+                                    <segment title="Ellipse"/>
+                                    <segment title="Image"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="stl-kQ-rNB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="VRX-GN-5qL"/>
                             <constraint firstAttribute="centerX" secondItem="stl-kQ-rNB" secondAttribute="centerX" constant="-0.5" id="im1-J4-T6d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bDa-2e-a7Z" secondAttribute="bottom" constant="20" id="lv6-rU-A8n"/>
+                            <constraint firstAttribute="centerX" secondItem="bDa-2e-a7Z" secondAttribute="centerX" constant="-1.5" id="yi9-SC-d2S"/>
                         </constraints>
                     </view>
                     <connections>
