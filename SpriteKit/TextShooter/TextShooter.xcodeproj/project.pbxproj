@@ -24,6 +24,7 @@
 		C0CB1B5B1AF3C91200E0E2E0 /* MissileExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */; };
 		C0CB1B5C1AF3C91200E0E2E0 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B5A1AF3C91200E0E2E0 /* spark.png */; };
 		C0CB1B5E1AF3CA9F00E0E2E0 /* EnemyExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */; };
+		C0CB1B601AF3CBC600E0E2E0 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B5F1AF3CBC600E0E2E0 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MissileExplosion.sks; sourceTree = "<group>"; };
 		C0CB1B5A1AF3C91200E0E2E0 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnemyExplosion.sks; sourceTree = "<group>"; };
+		C0CB1B5F1AF3CBC600E0E2E0 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */,
 				C0CB1B5A1AF3C91200E0E2E0 /* spark.png */,
 				C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */,
+				C0CB1B5F1AF3CBC600E0E2E0 /* GameOverScene.swift */,
 			);
 			path = TextShooter;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CB1B601AF3CBC600E0E2E0 /* GameOverScene.swift in Sources */,
 				C0CB1B2E1AF389F800E0E2E0 /* GameScene.swift in Sources */,
 				C0CB1B561AF3A95500E0E2E0 /* BulletNode.swift in Sources */,
 				C0CB1B301AF389F800E0E2E0 /* GameViewController.swift in Sources */,
