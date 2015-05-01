@@ -13,6 +13,7 @@ class GameScene: SKScene {
     private var playerLives: Int
     private var finished = false
     private let playerNode: PlayerNode = PlayerNode()
+    private let enemies =  SKNode()
     
     class func scene(size:CGSize, levelNumber:UInt) -> GameScene {
         return GameScene(size: size, levelNumber: levelNumber)
