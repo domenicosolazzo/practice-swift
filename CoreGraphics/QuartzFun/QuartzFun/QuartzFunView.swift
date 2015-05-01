@@ -52,8 +52,8 @@ class QuartzFunView: UIView {
         setNeedsDisplay()
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        let touch = touches.anyObject() as UITouch
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
         lastTouchLocation = touch.locationInView(self)
         
         if shape == .Image {
@@ -69,8 +69,8 @@ class QuartzFunView: UIView {
         setNeedsDisplayInRect(redrawRect)
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        let touch = touches.anyObject() as UITouch
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
         lastTouchLocation = touch.locationInView(self)
         
         if shape == .Image {
