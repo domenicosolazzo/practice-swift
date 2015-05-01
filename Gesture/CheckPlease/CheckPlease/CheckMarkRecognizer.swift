@@ -16,4 +16,28 @@ class CheckMarkRecognizer: UIGestureRecognizer {
     private var lastPreviousPoint = CGPointZero
     private var lastCurrentPoint = CGPointZero
     private var lineLengthSoFar = CGFloat(0)
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        let touch = touches.first as! UITouch
+        let point = touch.locationInView(view)
+        lastPreviousPoint = point
+        lastCurrentPoint = point
+        lineLengthSoFar = 0;
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesMoved(touches, withEvent: event)
+        let touch = touches.first as! UITouch
+        let previousPoint = touch.previousLocationInView(view)
+        let currentPoint = touch.locationInView(view)
+        let angle = angleBetweenLines(lastPreviousPoint, lastCurrentPoint,
+            previousPoint,  currentPoint)
+        if angle >= minimumCheckMarkAngle && angle <= maximumCheckMarkAngle && lineLengthSoFar > minimumCheckMarkLength {
+            self.state = .Ended
+        }
+        lineLengthSoFar += distanceBetweenPoints(previousPoint, currentPoint)
+        lastPreviousPoint = previousPoint
+        lastCurrentPoint = currentPoint
+    }
 }
