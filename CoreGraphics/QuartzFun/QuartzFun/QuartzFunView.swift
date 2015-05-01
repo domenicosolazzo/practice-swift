@@ -33,6 +33,7 @@ class QuartzFunView: UIView {
     var shape = Shape.Line
     var currentColor = UIColor.redColor()
     var useRandomColor = false
+    private var redrawRect:CGRect = CGRectZero
     
     // Internal properties
     private let image = UIImage(named:"iphone")!
@@ -63,15 +64,18 @@ class QuartzFunView: UIView {
         setNeedsDisplay()
     }
     
+    func currentRect() -> CGRect {
+        return CGRectMake(firstTouchLocation.x,
+            firstTouchLocation.y,
+            lastTouchLocation.x - firstTouchLocation.x,
+            lastTouchLocation.y - firstTouchLocation.y)
+    }
+    
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 2.0)
         CGContextSetStrokeColorWithColor(context, currentColor.CGColor)
         CGContextSetFillColorWithColor(context, currentColor.CGColor)
-        let currentRect = CGRectMake(firstTouchLocation.x,
-            firstTouchLocation.y,
-            lastTouchLocation.x - firstTouchLocation.x,
-            lastTouchLocation.y - firstTouchLocation.y)
         
         switch shape {
         case .Line:
@@ -82,11 +86,11 @@ class QuartzFunView: UIView {
             CGContextStrokePath(context)
             
         case .Rect:
-            CGContextAddRect(context,  currentRect)
+            CGContextAddRect(context,  currentRect())
             CGContextDrawPath(context, kCGPathFillStroke)
             
         case .Ellipse:
-            CGContextAddEllipseInRect(context, currentRect)
+            CGContextAddEllipseInRect(context, currentRect())
             CGContextDrawPath(context, kCGPathFillStroke)
             
         case .Image:
