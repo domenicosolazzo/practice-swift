@@ -30,4 +30,14 @@ class PlayerNode: SKNode {
         label.name = "label"
         self.addChild(label)
     }
+    
+    func moveToward(location: CGPoint) {
+        removeActionForKey("movement")
+        let distance = pointDistance(position, location)
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let duration = NSTimeInterval(2 * distance/screenWidth)
+        
+        runAction(SKAction.moveTo(location, duration: duration),
+            withKey:"movement")
+    }
 }

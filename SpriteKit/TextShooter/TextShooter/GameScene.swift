@@ -70,6 +70,10 @@ class GameScene: SKScene {
         /* Called when a touch begins */
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
+            if location.y < CGRectGetHeight(frame) * 0.2 {
+                let target = CGPointMake(location.x, playerNode.position.y)
+                playerNode.moveToward(target)
+            }
         }
     }
    

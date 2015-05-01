@@ -16,6 +16,7 @@
 		C0CB1B381AF389F800E0E2E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B361AF389F800E0E2E0 /* LaunchScreen.xib */; };
 		C0CB1B441AF389F800E0E2E0 /* TextShooterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B431AF389F800E0E2E0 /* TextShooterTests.swift */; };
 		C0CB1B4E1AF39E5F00E0E2E0 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */; };
+		C0CB1B501AF3A1F600E0E2E0 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B4F1AF3A1F600E0E2E0 /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		C0CB1B421AF389F800E0E2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB1B431AF389F800E0E2E0 /* TextShooterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextShooterTests.swift; sourceTree = "<group>"; };
 		C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		C0CB1B4F1AF3A1F600E0E2E0 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				C0CB1B2D1AF389F800E0E2E0 /* GameScene.swift */,
 				C0CB1B2F1AF389F800E0E2E0 /* GameViewController.swift */,
 				C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */,
+				C0CB1B4F1AF3A1F600E0E2E0 /* Geometry.swift */,
 				C0CB1B311AF389F800E0E2E0 /* Main.storyboard */,
 				C0CB1B341AF389F800E0E2E0 /* Images.xcassets */,
 				C0CB1B361AF389F800E0E2E0 /* LaunchScreen.xib */,
@@ -226,6 +229,7 @@
 				C0CB1B301AF389F800E0E2E0 /* GameViewController.swift in Sources */,
 				C0CB1B4E1AF39E5F00E0E2E0 /* PlayerNode.swift in Sources */,
 				C0CB1B2A1AF389F800E0E2E0 /* AppDelegate.swift in Sources */,
+				C0CB1B501AF3A1F600E0E2E0 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
