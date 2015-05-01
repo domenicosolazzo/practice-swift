@@ -23,6 +23,7 @@
 		C0CB1B581AF3C65800E0E2E0 /* SKNode+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */; };
 		C0CB1B5B1AF3C91200E0E2E0 /* MissileExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */; };
 		C0CB1B5C1AF3C91200E0E2E0 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B5A1AF3C91200E0E2E0 /* spark.png */; };
+		C0CB1B5E1AF3CA9F00E0E2E0 /* EnemyExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SKNode+Extra.swift"; path = "../SKNode+Extra.swift"; sourceTree = "<group>"; };
 		C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MissileExplosion.sks; sourceTree = "<group>"; };
 		C0CB1B5A1AF3C91200E0E2E0 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnemyExplosion.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				C0CB1B271AF389F800E0E2E0 /* Supporting Files */,
 				C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */,
 				C0CB1B5A1AF3C91200E0E2E0 /* spark.png */,
+				C0CB1B5D1AF3CA9F00E0E2E0 /* EnemyExplosion.sks */,
 			);
 			path = TextShooter;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				C0CB1B5C1AF3C91200E0E2E0 /* spark.png in Resources */,
 				C0CB1B5B1AF3C91200E0E2E0 /* MissileExplosion.sks in Resources */,
 				C0CB1B351AF389F800E0E2E0 /* Images.xcassets in Resources */,
+				C0CB1B5E1AF3CA9F00E0E2E0 /* EnemyExplosion.sks in Resources */,
 				C0CB1B2C1AF389F800E0E2E0 /* GameScene.sks in Resources */,
 				C0CB1B331AF389F800E0E2E0 /* Main.storyboard in Resources */,
 			);
