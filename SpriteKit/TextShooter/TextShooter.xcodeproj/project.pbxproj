@@ -18,6 +18,7 @@
 		C0CB1B4E1AF39E5F00E0E2E0 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */; };
 		C0CB1B501AF3A1F600E0E2E0 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B4F1AF3A1F600E0E2E0 /* Geometry.swift */; };
 		C0CB1B521AF3A36300E0E2E0 /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */; };
+		C0CB1B541AF3A6EE00E0E2E0 /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		C0CB1B4F1AF3A1F600E0E2E0 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
+		C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				C0CB1B291AF389F800E0E2E0 /* AppDelegate.swift */,
 				C0CB1B2B1AF389F800E0E2E0 /* GameScene.sks */,
 				C0CB1B2D1AF389F800E0E2E0 /* GameScene.swift */,
+				C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */,
 				C0CB1B2F1AF389F800E0E2E0 /* GameViewController.swift */,
 				C0CB1B4D1AF39E5F00E0E2E0 /* PlayerNode.swift */,
 				C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */,
@@ -232,6 +235,7 @@
 				C0CB1B301AF389F800E0E2E0 /* GameViewController.swift in Sources */,
 				C0CB1B4E1AF39E5F00E0E2E0 /* PlayerNode.swift in Sources */,
 				C0CB1B2A1AF389F800E0E2E0 /* AppDelegate.swift in Sources */,
+				C0CB1B541AF3A6EE00E0E2E0 /* PhysicsCategories.swift in Sources */,
 				C0CB1B521AF3A36300E0E2E0 /* EnemyNode.swift in Sources */,
 				C0CB1B501AF3A1F600E0E2E0 /* Geometry.swift in Sources */,
 			);

@@ -57,7 +57,7 @@ class GameScene: SKScene {
         
         // Enemies
         addChild(enemies)
-        spawnEnemies()
+        spawnEnemies() 
     }
     
     required init?(coder aDecoder: NSCoder) {
