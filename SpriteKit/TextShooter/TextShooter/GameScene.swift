@@ -91,7 +91,24 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        updateBullets()
+    }
+    
+    private func updateBullets() {
+        var bulletsToRemove:[BulletNode] = []
+        for bullet in playerBullets.children as! [BulletNode] {
+            // Remove any bullets that have moved off-screen
+            if !CGRectContainsPoint(frame, bullet.position) {
+                // Mark bullet for removal
+                bulletsToRemove.append(bullet)
+                continue
+            }
+            
+            // Apply thrust to remaining bullets
+            bullet.applyRecurringForce()
+        }
+        
+        playerBullets.removeChildrenInArray(bulletsToRemove)
     }
     
     // Spawn a sequence of enemies
@@ -108,4 +125,6 @@ class GameScene: SKScene {
             enemies.addChild(enemy)
         }
     }
+    
+    
 }
