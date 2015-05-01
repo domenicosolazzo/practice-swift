@@ -20,6 +20,7 @@
 		C0CB1B521AF3A36300E0E2E0 /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */; };
 		C0CB1B541AF3A6EE00E0E2E0 /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */; };
 		C0CB1B561AF3A95500E0E2E0 /* BulletNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B551AF3A95500E0E2E0 /* BulletNode.swift */; };
+		C0CB1B581AF3C65800E0E2E0 /* SKNode+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 		C0CB1B551AF3A95500E0E2E0 /* BulletNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletNode.swift; sourceTree = "<group>"; };
+		C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		C0CB1B1B1AF389F800E0E2E0 = {
 			isa = PBXGroup;
 			children = (
+				C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */,
 				C0CB1B261AF389F800E0E2E0 /* TextShooter */,
 				C0CB1B401AF389F800E0E2E0 /* TextShooterTests */,
 				C0CB1B251AF389F800E0E2E0 /* Products */,
@@ -242,6 +245,7 @@
 				C0CB1B541AF3A6EE00E0E2E0 /* PhysicsCategories.swift in Sources */,
 				C0CB1B521AF3A36300E0E2E0 /* EnemyNode.swift in Sources */,
 				C0CB1B501AF3A1F600E0E2E0 /* Geometry.swift in Sources */,
+				C0CB1B581AF3C65800E0E2E0 /* SKNode+Extra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

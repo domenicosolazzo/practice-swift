@@ -62,6 +62,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Player bullets
         addChild(playerBullets)
+        
+        // Physics body delegate
+        physicsWorld.gravity = CGVectorMake(0, -1)
+        physicsWorld.contactDelegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -165,6 +169,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         nextLevel.playerLives = playerLives
         view!.presentScene(nextLevel, transition:
             SKTransition.flipHorizontalWithDuration(1.0))
+    }
+    
+    //- MARK: SKPhysicsBodyContactDelegate
+    func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == contact.bodyB.categoryBitMask {
+            // Both bodies are in the same category
+            let nodeA = contact.bodyA.node!
+            let nodeB = contact.bodyB.node!
+            nodeA.friendlyBumpFrom(nodeB)
+            nodeB.friendlyBumpFrom(nodeA)
+        } else {
+            var attacker: SKNode
+            var attackee: SKNode
+            
+            if contact.bodyA.categoryBitMask
+                > contact.bodyB.categoryBitMask {
+                    // Body A is attacking Body B
+                    attacker = contact.bodyA.node!
+                    attackee = contact.bodyB.node!
+            } else {
+                // Body B is attacking Body A
+                attacker = contact.bodyB.node!
+                attackee = contact.bodyA.node!
+            }
+            
+            if attackee is PlayerNode {
+                playerLives--
+            }
+            attackee.receiveAttacker(attacker, contact: contact)
+            playerBullets.removeChildrenInArray([attacker])
+            enemies.removeChildrenInArray([attacker])
+        }
     }
     
     
