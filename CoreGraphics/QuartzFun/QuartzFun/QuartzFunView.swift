@@ -29,5 +29,13 @@ enum DrawingColor : UInt {
 }
 
 class QuartzFunView: UIView {
-
+    // Application-settable properties
+    var shape = Shape.Line
+    var currentColor = UIColor.redColor()
+    var useRandomColor = false
+    
+    // Internal properties
+    private let image = UIImage(named:"iphone")!
+    private var firstTouchLocation:CGPoint = CGPointZero
+    private var lastTouchLocation:CGPoint = CGPointZero
 }
