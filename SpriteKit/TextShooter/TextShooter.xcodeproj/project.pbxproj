@@ -21,6 +21,8 @@
 		C0CB1B541AF3A6EE00E0E2E0 /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */; };
 		C0CB1B561AF3A95500E0E2E0 /* BulletNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B551AF3A95500E0E2E0 /* BulletNode.swift */; };
 		C0CB1B581AF3C65800E0E2E0 /* SKNode+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */; };
+		C0CB1B5B1AF3C91200E0E2E0 /* MissileExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */; };
+		C0CB1B5C1AF3C91200E0E2E0 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1B5A1AF3C91200E0E2E0 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 		C0CB1B551AF3A95500E0E2E0 /* BulletNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletNode.swift; sourceTree = "<group>"; };
 		C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SKNode+Extra.swift"; path = "../SKNode+Extra.swift"; sourceTree = "<group>"; };
+		C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MissileExplosion.sks; sourceTree = "<group>"; };
+		C0CB1B5A1AF3C91200E0E2E0 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				C0CB1B341AF389F800E0E2E0 /* Images.xcassets */,
 				C0CB1B361AF389F800E0E2E0 /* LaunchScreen.xib */,
 				C0CB1B271AF389F800E0E2E0 /* Supporting Files */,
+				C0CB1B591AF3C91200E0E2E0 /* MissileExplosion.sks */,
+				C0CB1B5A1AF3C91200E0E2E0 /* spark.png */,
 			);
 			path = TextShooter;
 			sourceTree = "<group>";
@@ -217,6 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CB1B381AF389F800E0E2E0 /* LaunchScreen.xib in Resources */,
+				C0CB1B5C1AF3C91200E0E2E0 /* spark.png in Resources */,
+				C0CB1B5B1AF3C91200E0E2E0 /* MissileExplosion.sks in Resources */,
 				C0CB1B351AF389F800E0E2E0 /* Images.xcassets in Resources */,
 				C0CB1B2C1AF389F800E0E2E0 /* GameScene.sks in Resources */,
 				C0CB1B331AF389F800E0E2E0 /* Main.storyboard in Resources */,
