@@ -19,6 +19,19 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let image = UIImage(named: "yosemite-meadows")
+        imageView = UIImageView(image: image)
+        imageView.userInteractionEnabled = true
+        imageView.center = view.center
+        view.addSubview(imageView)
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: "doPinch:")
+        pinchGesture.delegate = self
+        imageView.addGestureRecognizer(pinchGesture)
+        
+        let rotationGesture = UIRotationGestureRecognizer(target: self, action: "doRotate:")
+        rotationGesture.delegate = self
+        imageView.addGestureRecognizer(rotationGesture)
     }
 
     override func didReceiveMemoryWarning() {
