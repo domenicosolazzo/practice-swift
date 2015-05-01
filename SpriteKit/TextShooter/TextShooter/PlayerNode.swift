@@ -62,6 +62,8 @@ class PlayerNode: SKNode {
         body.categoryBitMask = PlayerCategory
         body.contactTestBitMask = EnemyCategory
         body.collisionBitMask = 0
+        // Not affected from gravity
+        body.fieldBitMask = 0
         physicsBody = body
     }
     

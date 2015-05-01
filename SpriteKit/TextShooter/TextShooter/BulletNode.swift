@@ -27,6 +27,7 @@ class BulletNode: SKNode {
         body.contactTestBitMask = EnemyCategory
         body.collisionBitMask = EnemyCategory
         body.mass = 0.01
+        body.fieldBitMask = GravityFieldCategory
         
         physicsBody = body
         name = "Bullet \(self)"

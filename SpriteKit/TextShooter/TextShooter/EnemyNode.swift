@@ -51,6 +51,8 @@ class EnemyNode: SKNode {
         body.mass = 0.2
         body.angularDamping = 0
         body.linearDamping = 0
+        //Not affected from gravity
+        body.fieldBitMask = 0
         physicsBody = body
     }
     
