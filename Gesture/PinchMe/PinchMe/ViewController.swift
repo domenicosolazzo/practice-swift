@@ -34,12 +34,14 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         imageView.addGestureRecognizer(rotationGesture)
     }
 
+    // It will allow both gesture recognizer to work together
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer
         otherGestureRecognizer: UIGestureRecognizer) -> Bool {
             return true
     }
     
+    // Helper method
     func transformImageView() {
         var t = CGAffineTransformMakeScale(scale * previousScale, scale * previousScale)
         t = CGAffineTransformRotate(t, rotation + previousRotation)
