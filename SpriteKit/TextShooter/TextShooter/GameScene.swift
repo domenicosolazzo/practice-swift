@@ -247,10 +247,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let size = frame.size
         let sectionWidth = Int(size.width)/fieldCount
         for var i = 0; i < fieldCount; i++ {
-            let x = CGFloat(i * sectionWidth +
-                arc4random_uniform(UInt32(sectionWidth)))
-            let y = CGFloat(arc4random_uniform(UInt32(size.height * 0.25))
-                + UInt32(size.height * 0.25))
+            
+            let x = CGFloat(UInt32(i) * UInt32(sectionWidth) + arc4random_uniform(UInt32(sectionWidth)))
+            let y = CGFloat(arc4random_uniform(UInt32(size.height * 0.25)) + UInt32(size.height * 0.25))
             
             let gravityField = SKFieldNode.radialGravityField()
             gravityField.position = CGPointMake(x, y)

@@ -35,7 +35,7 @@ class StartScene: SKScene {
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(touches: NSSet,
+    override func touchesBegan(touches: Set<NSObject>,
         withEvent event: UIEvent) {
             let transition = SKTransition.doorwayWithDuration(1.0)
             let game = GameScene(size:frame.size)
