@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let playerNode: PlayerNode = PlayerNode()
     private let enemies =  SKNode()
     private let playerBullets = SKNode()
+    private let forceFields = SKNode()
     
     class func scene(size:CGSize, levelNumber:UInt) -> GameScene {
         return GameScene(size: size, levelNumber: levelNumber)
@@ -67,6 +68,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Player bullets
         addChild(playerBullets)
+        
+        // Force Fields
+        addChild(forceFields)
+        createForceFields()
         
         // Physics body delegate
         physicsWorld.gravity = CGVectorMake(0, -1)
@@ -235,6 +240,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let transition = SKTransition.doorsOpenVerticalWithDuration(1)
         let gameOver = GameOverScene(size: frame.size)
         view!.presentScene(gameOver, transition: transition)
+    }
+    
+    private func createForceFields() {
+        let fieldCount = 3
+        let size = frame.size
+        let sectionWidth = Int(size.width)/fieldCount
+        for var i = 0; i < fieldCount; i++ {
+            let x = CGFloat(i * sectionWidth +
+                arc4random_uniform(UInt32(sectionWidth)))
+            let y = CGFloat(arc4random_uniform(UInt32(size.height * 0.25))
+                + UInt32(size.height * 0.25))
+            
+            let gravityField = SKFieldNode.radialGravityField()
+            gravityField.position = CGPointMake(x, y)
+            gravityField.categoryBitMask = GravityFieldCategory
+            gravityField.strength = 4
+            gravityField.falloff = 2
+            gravityField.region = SKRegion(size: CGSizeMake(size.width * 0.3,
+                size.height * 0.1))
+            forceFields.addChild(gravityField)
+            
+            let fieldLocationNode = SKLabelNode(fontNamed: "Courier")
+            fieldLocationNode.fontSize = 16
+            fieldLocationNode.fontColor = SKColor.redColor()
+            fieldLocationNode.name = "GravityField"
+            fieldLocationNode.text = "*"
+            fieldLocationNode.position = CGPointMake(x, y)
+            forceFields.addChild(fieldLocationNode)
+        }
     }
     
     
