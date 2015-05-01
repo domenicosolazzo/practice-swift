@@ -51,7 +51,7 @@
 		C0CB1B511AF3A36300E0E2E0 /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		C0CB1B531AF3A6EE00E0E2E0 /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 		C0CB1B551AF3A95500E0E2E0 /* BulletNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletNode.swift; sourceTree = "<group>"; };
-		C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extra.swift"; sourceTree = "<group>"; };
+		C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SKNode+Extra.swift"; path = "../SKNode+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,6 @@
 		C0CB1B1B1AF389F800E0E2E0 = {
 			isa = PBXGroup;
 			children = (
-				C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */,
 				C0CB1B261AF389F800E0E2E0 /* TextShooter */,
 				C0CB1B401AF389F800E0E2E0 /* TextShooterTests */,
 				C0CB1B251AF389F800E0E2E0 /* Products */,
@@ -94,6 +93,7 @@
 		C0CB1B261AF389F800E0E2E0 /* TextShooter */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB1B571AF3C65800E0E2E0 /* SKNode+Extra.swift */,
 				C0CB1B291AF389F800E0E2E0 /* AppDelegate.swift */,
 				C0CB1B2B1AF389F800E0E2E0 /* GameScene.sks */,
 				C0CB1B2D1AF389F800E0E2E0 /* GameScene.swift */,

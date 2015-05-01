@@ -53,4 +53,19 @@ class EnemyNode: SKNode {
         body.linearDamping = 0
         physicsBody = body
     }
+    
+    //- MARK: SKNode extensions
+    override func friendlyBumpFrom(node: SKNode) {
+        physicsBody!.affectedByGravity = true
+    }
+    
+    override func receiveAttacker(attacker: SKNode,
+        contact: SKPhysicsContact) {
+            physicsBody!.affectedByGravity = true
+            let force = vectorMultiply(attacker.physicsBody!.velocity,
+                contact.collisionImpulse)
+            let myContact =
+            scene!.convertPoint(contact.contactPoint, toNode: self)
+            physicsBody!.applyForce(force, atPoint: myContact)
+    }
 }
