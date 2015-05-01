@@ -38,4 +38,28 @@ class QuartzFunView: UIView {
     private let image = UIImage(named:"iphone")!
     private var firstTouchLocation:CGPoint = CGPointZero
     private var lastTouchLocation:CGPoint = CGPointZero
+    
+    //- MARK: Touches
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if useRandomColor {
+            currentColor = UIColor.randomColor()
+        }
+        
+        let touch = touches.first as! UITouch
+        firstTouchLocation = touch.locationInView(self)
+        lastTouchLocation = firstTouchLocation
+        setNeedsDisplay()
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        lastTouchLocation = touch.locationInView(self)
+        setNeedsDisplay()
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        lastTouchLocation = touch.locationInView(self)
+        setNeedsDisplay()
+    }
 }
