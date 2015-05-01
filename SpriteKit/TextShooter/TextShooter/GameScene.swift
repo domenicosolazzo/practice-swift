@@ -54,6 +54,10 @@ class GameScene: SKScene {
         // Create a new player
         playerNode.position = CGPointMake(CGRectGetMidX(frame), CGRectGetHeight(frame) * 0.1)
         addChild(playerNode)
+        
+        // Enemies
+        addChild(enemies)
+        spawnEnemies()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -80,5 +84,20 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
+    // Spawn a sequence of enemies
+    private func spawnEnemies() {
+        let count = UInt(log(Float(levelNumber))) + levelNumber
+        for var i: UInt = 0; i < count; i++ {
+            let enemy = EnemyNode()
+            let size = frame.size;
+            let x = arc4random_uniform(UInt32(size.width * 0.8))
+                + UInt32(size.width * 0.1)
+            let y = arc4random_uniform(UInt32(size.height * 0.5))
+                + UInt32(size.height * 0.5)
+            enemy.position = CGPointMake(CGFloat(x), CGFloat(y))
+            enemies.addChild(enemy)
+        }
     }
 }
