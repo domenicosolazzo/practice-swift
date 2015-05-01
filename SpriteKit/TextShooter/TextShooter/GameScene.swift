@@ -106,6 +106,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         updateBullets()
         updateEnemies()
         checkForNextLevel()
+        
+        if (!checkForGameOver()) {
+            checkForNextLevel()
+        }
     }
     
     private func updateBullets() {
@@ -206,6 +210,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerBullets.removeChildrenInArray([attacker])
             enemies.removeChildrenInArray([attacker])
         }
+    }
+    
+    private func checkForGameOver() -> Bool {
+        if playerLives == 0 {
+            triggerGameOver()
+            return true
+        }
+        return false
+    }
+    
+    private func triggerGameOver() {
+        finished = true
+        
+        let path = NSBundle.mainBundle().pathForResource("EnemyExplosion",
+            ofType: "sks")
+        let explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!)
+            as! SKEmitterNode
+        explosion.numParticlesToEmit = 200
+        explosion.position = playerNode.position
+        scene!.addChild(explosion)
+        playerNode.removeFromParent()
+        
+        let transition = SKTransition.doorsOpenVerticalWithDuration(1)
+        let gameOver = GameOverScene(size: frame.size)
+        view!.presentScene(gameOver, transition: transition)
     }
     
     
