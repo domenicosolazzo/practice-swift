@@ -28,6 +28,9 @@
                                     <segment title="Green"/>
                                     <segment title="Random"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="jhB-ld-ycD"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,6 +39,9 @@
                             <constraint firstAttribute="centerX" secondItem="stl-kQ-rNB" secondAttribute="centerX" constant="-0.5" id="im1-J4-T6d"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorControl" destination="stl-kQ-rNB" id="ngK-kN-anJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
