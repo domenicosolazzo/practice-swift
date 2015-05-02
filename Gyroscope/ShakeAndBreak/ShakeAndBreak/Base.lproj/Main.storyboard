@@ -29,6 +29,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AkT-Sg-UvF" secondAttribute="bottom" id="U0K-iO-XgR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="AkT-Sg-UvF" id="GSG-Te-riy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

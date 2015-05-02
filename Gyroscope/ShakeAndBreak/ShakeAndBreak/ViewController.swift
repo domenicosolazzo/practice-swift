@@ -10,7 +10,11 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    @IBOutlet var imageView:UIImageView
+    @IBOutlet var imageView:UIImageView?
+    private var fixed:UIImage!
+    private var broken:UIImage!
+    private var brokenScreenShowing = false
+    private var crashPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
