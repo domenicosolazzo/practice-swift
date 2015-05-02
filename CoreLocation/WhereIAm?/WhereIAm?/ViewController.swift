@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -21,6 +22,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var altitudeLabel:UILabel!
     @IBOutlet var verticalAccuracyLabel:UILabel!
     @IBOutlet var distanceTraveledLabel:UILabel!
+    
+    @IBOutlet var mapView:MKMapView
     
     override func viewDidLoad() {
         super.viewDidLoad()
