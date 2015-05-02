@@ -35,6 +35,11 @@ class ViewController: UIViewController {
         imageView!.image = fixed
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        imageView!.image = fixed
+        brokenScreenShowing = false
+    }
+    
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if !brokenScreenShowing && motion == .MotionShake {
             imageView!.image = broken;
