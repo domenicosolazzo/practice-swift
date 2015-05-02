@@ -45,9 +45,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             switch status {
             case CLAuthorizationStatus.AuthorizedAlways, CLAuthorizationStatus.AuthorizedWhenInUse:
                 locationManager.startUpdatingLocation()
-                
+                 mapView.showsUserLocation = true
             default:
                 locationManager.stopUpdatingLocation()
+                 mapView.showsUserLocation = false
             }
     }
     
