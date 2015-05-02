@@ -120,7 +120,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96594854797979801" green="0.96594854797979801" blue="0.96594854797979801" alpha="0.63" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="cTJ-JO-PBL" firstAttribute="leading" secondItem="LG6-f5-M6x" secondAttribute="leading" constant="8" id="06s-H8-u8e"/>
                                     <constraint firstItem="hTF-nw-3aZ" firstAttribute="leading" secondItem="LG6-f5-M6x" secondAttribute="leading" constant="8" id="1Uk-dl-tAi"/>
@@ -177,6 +177,7 @@
                         <outlet property="horizontalAccuracyLabel" destination="S8F-wF-r3Y" id="fEj-ot-2gs"/>
                         <outlet property="latitudeLabel" destination="ffl-JH-EV2" id="q68-Rq-D1r"/>
                         <outlet property="longitudeLabel" destination="7sH-up-X7u" id="KGB-bU-zad"/>
+                        <outlet property="mapView" destination="yLr-b8-5nA" id="YXD-sR-nS9"/>
                         <outlet property="verticalAccuracyLabel" destination="YRB-QW-m5T" id="yyN-u5-6m9"/>
                     </connections>
                 </viewController>
