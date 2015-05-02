@@ -23,13 +23,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3t-1C-nT8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3t-1C-nT8">
                                 <rect key="frame" x="16" y="213" width="568" height="186"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-Rc-ceY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-Rc-ceY">
                                 <rect key="frame" x="16" y="407" width="568" height="185"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,9 +53,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accelerometerLabel" destination="Z3t-1C-nT8" id="N8Z-NJ-HcU"/>
-                        <outlet property="attitudeLabel" destination="zT9-Rc-ceY" id="aQA-yc-4gY"/>
-                        <outlet property="gyroscopeLabel" destination="SDy-SA-Jgn" id="kJS-Ic-AWy"/>
+                        <outlet property="accelerometerLabel" destination="Z3t-1C-nT8" id="RQB-0O-FiF"/>
+                        <outlet property="attitudeLabel" destination="zT9-Rc-ceY" id="D4Y-5q-pxl"/>
+                        <outlet property="gyroscopeLabel" destination="SDy-SA-Jgn" id="wga-cM-0E9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
