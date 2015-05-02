@@ -52,6 +52,11 @@
                             <constraint firstItem="SDy-SA-Jgn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qii-sc-ZNa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accelerometerLabel" destination="Z3t-1C-nT8" id="N8Z-NJ-HcU"/>
+                        <outlet property="attitudeLabel" destination="zT9-Rc-ceY" id="aQA-yc-4gY"/>
+                        <outlet property="gyroscopeLabel" destination="SDy-SA-Jgn" id="kJS-Ic-AWy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
