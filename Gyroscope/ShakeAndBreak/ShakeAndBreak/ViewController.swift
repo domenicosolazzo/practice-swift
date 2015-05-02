@@ -34,12 +34,14 @@ class ViewController: UIViewController {
         broken = UIImage(named:"homebroken")
         imageView!.image = fixed
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if !brokenScreenShowing && motion == .MotionShake {
+            imageView!.image = broken;
+            crashPlayer.play()
+            brokenScreenShowing = true;
+        }
     }
 
 
 }
-
