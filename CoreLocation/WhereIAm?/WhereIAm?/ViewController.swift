@@ -35,6 +35,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    // User clicked on the authorization popup
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+            println("Authorization status changed to \(status.rawValue)")
+            switch status {
+            case CLAuthorizationStatus.AuthorizedAlways, CLAuthorizationStatus.AuthorizedWhenInUse:
+                locationManager.startUpdatingLocation()
+                
+            default:
+                locationManager.stopUpdatingLocation()
+            }
+    }
+    
+    // In case of error
+    func locationManager(manager: CLLocationManager!,
+        didFailWithError error: NSError!) {
+            let errorType = error.code == CLError.Denied.rawValue
+                ? "Access Denied": "Error \(error.code)"
+            let alertController = UIAlertController(title: "Location Manager Error",
+                message: errorType, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Cancel,
+                handler: { action in })
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true,
+                completion: nil)
+    }
 
 }
 
