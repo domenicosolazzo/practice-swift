@@ -13,6 +13,7 @@
 		C0CB1D211AF546F600E0E2E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1D201AF546F600E0E2E0 /* Images.xcassets */; };
 		C0CB1D241AF546F600E0E2E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1D221AF546F600E0E2E0 /* LaunchScreen.xib */; };
 		C0CB1D301AF546F600E0E2E0 /* ShakeAndBreakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1D2F1AF546F600E0E2E0 /* ShakeAndBreakTests.swift */; };
+		C0CB1D3A1AF547AF00E0E2E0 /* glass.wav in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1D391AF547AF00E0E2E0 /* glass.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB1D291AF546F600E0E2E0 /* ShakeAndBreakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakeAndBreakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB1D2E1AF546F600E0E2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB1D2F1AF546F600E0E2E0 /* ShakeAndBreakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAndBreakTests.swift; sourceTree = "<group>"; };
+		C0CB1D391AF547AF00E0E2E0 /* glass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = glass.wav; path = ../../../../../../../../../../Users/domenico/Downloads/glass.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C0CB1D161AF546F600E0E2E0 /* ShakeAndBreak */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB1D391AF547AF00E0E2E0 /* glass.wav */,
 				C0CB1D191AF546F600E0E2E0 /* AppDelegate.swift */,
 				C0CB1D1B1AF546F600E0E2E0 /* ViewController.swift */,
 				C0CB1D1D1AF546F600E0E2E0 /* Main.storyboard */,
@@ -195,6 +198,7 @@
 				C0CB1D1F1AF546F600E0E2E0 /* Main.storyboard in Resources */,
 				C0CB1D241AF546F600E0E2E0 /* LaunchScreen.xib in Resources */,
 				C0CB1D211AF546F600E0E2E0 /* Images.xcassets in Resources */,
+				C0CB1D3A1AF547AF00E0E2E0 /* glass.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
