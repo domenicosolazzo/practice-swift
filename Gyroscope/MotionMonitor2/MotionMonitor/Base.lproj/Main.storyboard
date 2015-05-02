@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MotionMonitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDy-SA-Jgn">
+                                <rect key="frame" x="16" y="20" width="568" height="185"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3t-1C-nT8">
+                                <rect key="frame" x="16" y="213" width="568" height="186"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-Rc-ceY">
+                                <rect key="frame" x="16" y="407" width="568" height="185"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zT9-Rc-ceY" secondAttribute="bottom" constant="8" id="8Au-RB-uKp"/>
+                            <constraint firstItem="zT9-Rc-ceY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="C67-bf-cpS"/>
+                            <constraint firstItem="SDy-SA-Jgn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="E7W-Qg-72u"/>
+                            <constraint firstItem="zT9-Rc-ceY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NpB-JN-dUk"/>
+                            <constraint firstItem="Z3t-1C-nT8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="S8m-od-0J9"/>
+                            <constraint firstItem="SDy-SA-Jgn" firstAttribute="height" secondItem="zT9-Rc-ceY" secondAttribute="height" id="U1z-70-T4I"/>
+                            <constraint firstItem="SDy-SA-Jgn" firstAttribute="height" secondItem="Z3t-1C-nT8" secondAttribute="height" id="WcL-Tr-Ejc"/>
+                            <constraint firstItem="zT9-Rc-ceY" firstAttribute="top" secondItem="Z3t-1C-nT8" secondAttribute="bottom" constant="8" id="aiT-AL-fGY"/>
+                            <constraint firstItem="SDy-SA-Jgn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="g90-hE-7We"/>
+                            <constraint firstItem="Z3t-1C-nT8" firstAttribute="top" secondItem="SDy-SA-Jgn" secondAttribute="bottom" constant="8" id="hi0-Qf-ZrZ"/>
+                            <constraint firstItem="Z3t-1C-nT8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oY9-gt-fbH"/>
+                            <constraint firstItem="SDy-SA-Jgn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qii-sc-ZNa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accelerometerLabel" destination="Z3t-1C-nT8" id="N8Z-NJ-HcU"/>
+                        <outlet property="attitudeLabel" destination="zT9-Rc-ceY" id="aQA-yc-4gY"/>
+                        <outlet property="gyroscopeLabel" destination="SDy-SA-Jgn" id="kJS-Ic-AWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
