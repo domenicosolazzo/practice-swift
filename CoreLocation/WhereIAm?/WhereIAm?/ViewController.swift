@@ -61,6 +61,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             presentViewController(alertController, animated: true,
                 completion: nil)
     }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations
+        locations: [AnyObject]!) {
+            let newLocation = (locations as! [CLLocation])[locations.count - 1]
+            
+            let latitudeString = String(format: "%g\u{00B0}",
+                newLocation.coordinate.latitude)
+            latitudeLabel.text = latitudeString
+            
+            let longitudeString = String(format: "%g\u{00B0}",
+                newLocation.coordinate.longitude)
+            longitudeLabel.text = longitudeString
+            
+            let horizontalAccuracyString = String(format:"%gm",
+                newLocation.horizontalAccuracy)
+            horizontalAccuracyLabel.text = horizontalAccuracyString
+            
+            let altitudeString = String(format:"%gm", newLocation.altitude)
+            altitudeLabel.text = altitudeString
+            
+            let verticalAccuracyString = String(format:"%gm",
+                newLocation.verticalAccuracy)
+            verticalAccuracyLabel.text = verticalAccuracyString
+            
+            if newLocation.horizontalAccuracy < 0 {
+                // invalid accuracy
+                return
+            }
+            
+            if newLocation.horizontalAccuracy > 100 ||
+                newLocation.verticalAccuracy > 50 {
+                    // accuracy radius is so large, we don't want to use it
+                    return
+            }
+            
+            if previousPoint == nil {
+                totalMovementDistance = 0
+            } else {
+                println("movement distance: " +
+                    "\(newLocation.distanceFromLocation(previousPoint))")
+                totalMovementDistance +=
+                    newLocation.distanceFromLocation(previousPoint)
+            }
+            previousPoint = newLocation
+            
+            let distanceString = String(format:"%gm", totalMovementDistance)
+            distanceTraveledLabel.text = distanceString
+    }
 
 }
 
