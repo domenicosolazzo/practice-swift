@@ -18,7 +18,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let url =
+        NSBundle.mainBundle().URLForResource("glass", withExtension:"wav")
+        
+        var createError:NSError?
+        crashPlayer = AVAudioPlayer(contentsOfURL: url, error: &createError)
+        if crashPlayer == nil {
+            if let error = createError {
+                println("Audio error! \(error.localizedDescription)")
+            }
+        }
+        
+        fixed = UIImage(named:"home")
+        broken = UIImage(named:"homebroken")
+        imageView!.image = fixed
     }
 
     override func didReceiveMemoryWarning() {
