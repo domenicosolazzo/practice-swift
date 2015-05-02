@@ -14,6 +14,7 @@
 		C0CB1C941AF503BC00E0E2E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB1C921AF503BC00E0E2E0 /* LaunchScreen.xib */; };
 		C0CB1CA01AF503BC00E0E2E0 /* WhereIAm_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1C9F1AF503BC00E0E2E0 /* WhereIAm_Tests.swift */; };
 		C0CB1CAA1AF5287000E0E2E0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1CA91AF5287000E0E2E0 /* Place.swift */; };
+		C0CB1CAC1AF529AF00E0E2E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB1CAB1AF529AF00E0E2E0 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0CB1C9E1AF503BC00E0E2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB1C9F1AF503BC00E0E2E0 /* WhereIAm_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereIAm_Tests.swift; sourceTree = "<group>"; };
 		C0CB1CA91AF5287000E0E2E0 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		C0CB1CAB1AF529AF00E0E2E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CB1CAC1AF529AF00E0E2E0 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 		C0CB1C7B1AF503BC00E0E2E0 = {
 			isa = PBXGroup;
 			children = (
+				C0CB1CAB1AF529AF00E0E2E0 /* MapKit.framework */,
 				C0CB1C861AF503BC00E0E2E0 /* WhereIAm? */,
 				C0CB1C9C1AF503BC00E0E2E0 /* WhereIAm?Tests */,
 				C0CB1C851AF503BC00E0E2E0 /* Products */,
@@ -164,6 +168,11 @@
 				TargetAttributes = {
 					C0CB1C831AF503BC00E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C0CB1C981AF503BC00E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
