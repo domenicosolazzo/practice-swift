@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-b8-5nA">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-b8-5nA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-f5-M6x" userLabel="LowerView">
@@ -165,6 +165,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LG6-f5-M6x" secondAttribute="trailing" constant="-16" id="9Ng-vq-yMI"/>
                             <constraint firstItem="LG6-f5-M6x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="X4c-tz-9cW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LG6-f5-M6x" secondAttribute="bottom" id="f7K-T7-QDb"/>
+                            <constraint firstItem="yLr-b8-5nA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="iia-OU-grD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yLr-b8-5nA" secondAttribute="trailing" constant="-16" id="qC0-VK-bfT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yLr-b8-5nA" secondAttribute="bottom" constant="-5" id="rDq-SS-4nM"/>
+                            <constraint firstItem="yLr-b8-5nA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="vCP-Hi-dsn"/>
                         </constraints>
                     </view>
                     <connections>
