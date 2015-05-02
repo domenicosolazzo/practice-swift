@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var gyroscopeLabel:UILabel!
+    @IBOutlet var accelerometerLabel:UILabel!
+    @IBOutlet var attitudeLabel:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
