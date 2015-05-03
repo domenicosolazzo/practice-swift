@@ -70,6 +70,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
             }
         }
     }
+    
+    func setMoviePlayerLayoutConstraints() {
+        let moviePlayerView = moviePlayerController!.view
+        moviePlayerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let views = ["moviePlayerView": moviePlayerView,
+            "takePictureButton": takePictureButton]
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[moviePlayerView]|", options:NSLayoutFormatOptions(0),
+            metrics:nil, views:views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|[moviePlayerView]-0-[takePictureButton]",
+            options:NSLayoutFormatOptions(0), metrics:nil, views:views))
+    }
+    
+    func pickMediaFromSource(sourceType:UIImagePickerControllerSourceType) {
+        let mediaTypes =
+        UIImagePickerController.availableMediaTypesForSourceType(sourceType)!
+        if UIImagePickerController.isSourceTypeAvailable(sourceType)
+            && mediaTypes.count > 0 {
+                let picker = UIImagePickerController()
+                picker.mediaTypes = mediaTypes
+                picker.delegate = self
+                picker.allowsEditing = true
+                picker.sourceType = sourceType
+                presentViewController(picker, animated: true, completion: nil)
+        } else {
+            let alertController = UIAlertController(title:"Error accessing media",
+                message: "Unsupported media source.",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK",
+                style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
 
 
 }
