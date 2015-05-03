@@ -107,6 +107,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    //- MARK: UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        lastChosenMediaType = info[UIImagePickerControllerMediaType] as! NSString as String
+        if let mediaType = lastChosenMediaType {
+            if mediaType == kUTTypeImage as NSString {
+                image = info[UIImagePickerControllerEditedImage] as? UIImage
+            } else if mediaType == kUTTypeMovie as NSString {
+                movieURL = info[UIImagePickerControllerMediaURL] as? NSURL
+            }
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion:nil)
+    }
 
 
 }
