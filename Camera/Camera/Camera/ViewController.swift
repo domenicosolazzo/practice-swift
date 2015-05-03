@@ -39,9 +39,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     @IBAction func shootPictureOrVideo(sender: UIButton) {
+        pickMediaFromSource(UIImagePickerControllerSourceType.Camera)
     }
     
     @IBAction func selectExistingPictureOrVideo(sender: UIButton) {
+        pickMediaFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     func updateDisplay() {
