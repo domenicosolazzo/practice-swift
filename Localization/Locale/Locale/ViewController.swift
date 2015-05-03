@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  Locale
 //
-//  Created by Domenico on 03/05/15.
-//  Copyright (c) 2015 Domenico. All rights reserved.
+//  Created by Domenico Solazzo
 //
 
 import UIKit
