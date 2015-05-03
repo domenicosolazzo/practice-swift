@@ -63,6 +63,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="ZeY-cd-c4A" id="jkh-W8-5hh"/>
+                        <outlet property="takePictureButton" destination="lCD-7D-6Gj" id="pom-fk-Vzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
