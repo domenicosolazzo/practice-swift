@@ -15,6 +15,27 @@
 		C0CB1D8E1AF6426400E0E2E0 /* LocaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB1D8D1AF6426400E0E2E0 /* LocaleTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		C0CB1D971AF64B1500E0E2E0 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+		C0CB1D981AF64B1700E0E2E0 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		C0CB1D881AF6426400E0E2E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -36,6 +57,8 @@
 		C0CB1D871AF6426400E0E2E0 /* LocaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB1D8C1AF6426400E0E2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB1D8D1AF6426400E0E2E0 /* LocaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTests.swift; sourceTree = "<group>"; };
+		C0CB1D991AF656D300E0E2E0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		C0CB1D9A1AF656D300E0E2E0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +147,8 @@
 				C0CB1D701AF6426400E0E2E0 /* Resources */,
 			);
 			buildRules = (
+				C0CB1D981AF64B1700E0E2E0 /* PBXBuildRule */,
+				C0CB1D971AF64B1500E0E2E0 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -240,6 +265,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C0CB1D7C1AF6426400E0E2E0 /* Base */,
+				C0CB1D991AF656D300E0E2E0 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,6 +274,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C0CB1D811AF6426400E0E2E0 /* Base */,
+				C0CB1D9A1AF656D300E0E2E0 /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
