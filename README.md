@@ -23,14 +23,12 @@ Learning a new language: SWIFT
   - [CoreData: Custom objects](http://goo.gl/hqqDle)
   
 Apps (3)
-
 - [TodoList app](http://goo.gl/sQHnj6)
 - [Yet Another Todo List](http://goo.gl/FpcnA6)
 - [Calculator](http://goo.gl/NKAqLO)
 
-
-- Tutorials
-  - iOS development with Swift
+Tutorials (1)
+- Developing iOS apps with Swift
   
 
 Games (5)
