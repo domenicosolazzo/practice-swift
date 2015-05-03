@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Locale/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.3.1" build-num="6D1002"/>
+    </header>
+    <body>
+      <trans-unit id="8ie-xW-0ye.text">
+        <source>  Copyright (c) 2015 Domenico. All rights reserved.</source>
+        <note>Class = "UILabel"; text = "  Copyright (c) 2015 Domenico. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+      </trans-unit>
+      <trans-unit id="kId-c2-rCX.text">
+        <source>Locale</source>
+        <note>Class = "UILabel"; text = "Locale"; ObjectID = "kId-c2-rCX";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Locale/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.3.1" build-num="6D1002"/>
+    </header>
+    <body>
+      <trans-unit id="94M-Ba-iz9.text">
+        <source>Second</source>
+        <note>Class = "UILabel"; text = "Second"; ObjectID = "94M-Ba-iz9";</note>
+      </trans-unit>
+      <trans-unit id="GNU-gs-R0M.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "GNU-gs-R0M";</note>
+      </trans-unit>
+      <trans-unit id="Hff-QE-hiF.text">
+        <source>Fifth</source>
+        <note>Class = "UILabel"; text = "Fifth"; ObjectID = "Hff-QE-hiF";</note>
+      </trans-unit>
+      <trans-unit id="TpE-di-xkN.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "TpE-di-xkN";</note>
+      </trans-unit>
+      <trans-unit id="azU-yH-Xpq.text">
+        <source>Fourth</source>
+        <note>Class = "UILabel"; text = "Fourth"; ObjectID = "azU-yH-Xpq";</note>
+      </trans-unit>
+      <trans-unit id="d78-jq-SOT.text">
+        <source>Third</source>
+        <note>Class = "UILabel"; text = "Third"; ObjectID = "d78-jq-SOT";</note>
+      </trans-unit>
+      <trans-unit id="dXM-ni-MUh.text">
+        <source>First</source>
+        <note>Class = "UILabel"; text = "First"; ObjectID = "dXM-ni-MUh";</note>
+      </trans-unit>
+      <trans-unit id="kft-E9-HvD.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "kft-E9-HvD";</note>
+      </trans-unit>
+      <trans-unit id="n27-ov-8he.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "n27-ov-8he";</note>
+      </trans-unit>
+      <trans-unit id="ps6-eN-9Pz.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "ps6-eN-9Pz";</note>
+      </trans-unit>
+      <trans-unit id="qwp-7K-98k.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "qwp-7K-98k";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Locale/Info.plist" source-language="en" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.3.1" build-num="6D1002"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Locale/Localizable.strings" source-language="en" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.3.1" build-num="6D1002"/>
+    </header>
+    <body>
+      <trans-unit id="FLAG_FILE">
+        <source>FLAG_FILE</source>
+        <note>Name of the flag</note>
+        <target>flag_usa</target>
+      </trans-unit>
+      <trans-unit id="LABEL_FIVE">
+        <source>LABEL_FIVE</source>
+        <note>The number 5</note>
+        <target>five</target>
+      </trans-unit>
+      <trans-unit id="LABEL_FOUR">
+        <source>LABEL_FOUR</source>
+        <note>The number 4</note>
+        <target>four</target>
+      </trans-unit>
+      <trans-unit id="LABEL_ONE">
+        <source>LABEL_ONE</source>
+        <note>The number 1</note>
+        <target>one</target>
+      </trans-unit>
+      <trans-unit id="LABEL_THREE">
+        <source>LABEL_THREE</source>
+        <note>The number 3</note>
+        <target>three</target>
+      </trans-unit>
+      <trans-unit id="LABEL_TWO">
+        <source>LABEL_TWO</source>
+        <note>The number 2</note>
+        <target>two</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="LocaleTests/Info.plist" source-language="en" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.3.1" build-num="6D1002"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
