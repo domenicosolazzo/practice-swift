@@ -22,6 +22,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func shootPictureOrVideo(sender: UIButton) {
+    }
+    
+    @IBAction func selectExistingPictureOrVideo(sender: UIButton) {
+    }
 
 
 }
