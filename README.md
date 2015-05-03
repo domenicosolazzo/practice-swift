@@ -5,36 +5,32 @@ Learning a new language: SWIFT
 
 
 - Playground: Basic language reference with Swift
-- Lesson 1: Hello World
-- Lesson 2: A simple TableView
-- Lesson 3: A JSON request
-- Lesson 4: Refactoring of the previous lesson
-- Lesson 5: Table View optimization and Alerts
-- Lesson 6: Async image loading and caching
-- Lesson 7: Multiple Views
-- Lesson 8: Animations, Audio, and Custom Table View Cells
-- Lesson 9: [TodoList app](http://goo.gl/sQHnj6)
-- Lesson 10: [Yet Another Todo List](http://goo.gl/FpcnA6)
-- Lesson 11: [Calculator](http://goo.gl/NKAqLO)
-- Lesson 12: [CoreData: Small introduction](http://goo.gl/VqRLkE)
-- Lesson 13: [CoreData: The file manager](http://goo.gl/0FxURE)
-- Lesson 14: [CoreData: Custom objects](http://goo.gl/hqqDle)
-- Lesson 15: [MapKit: A small introduction](http://goo.gl/ZwhN6Z)
-- Lesson 16: [MapKit: Finding the user location](http://goo.gl/rPg7tS)
-- Lesson 17: [SpriteKit: JumpingBall, a full game using SpriteKit](http://goo.gl/0vgmcZ)
-- Lesson 18: [SpriteKit: Animated Bear, animatations and texture atlases](http://goo.gl/emjPj7)
-- Lesson 19: [SpriteKit: Drag and Drop Sprites](http://goo.gl/5RYJzh)
-- Lesson 20: [Game Of Life](http://goo.gl/82urKd)
-- Lesson 21: [Space Invader](http://goo.gl/q5Yb0s)
-- Lesson 22: [Uber Jump](http://goo.gl/yQJqze)
-- Lesson 23: [Swift Tetris](http://goo.gl/BBD36S)
-- Lesson 24: [Stanford class CS193P](http://goo.gl/fepOkm)
+
+Core Location
+- [MapKit: A small introduction](http://goo.gl/ZwhN6Z)
+- [MapKit: Finding the user location](http://goo.gl/rPg7tS)
+
+Core Graphics
+- [SpriteKit: Animated Bear]()
+- [SpriteKit: Drag and Drop Sprites](http://goo.gl/5RYJzh)
+
+Core Data
+- [CoreData: Small introduction](http://goo.gl/VqRLkE)
+- [CoreData: The file manager](http://goo.gl/0FxURE)
+- [CoreData: Custom objects](http://goo.gl/hqqDle)
+  
 
 Apps (3)
-
 - [TodoList app](http://goo.gl/sQHnj6)
 - [Yet Another Todo List](http://goo.gl/FpcnA6)
 - [Calculator](http://goo.gl/NKAqLO)
+
+Tutorials (1)
+- Developing iOS apps with Swift
+
+Courses (1)
+- [Stanford CS193p - 2015]()
+  
 
 Games (5)
 - [JumpingBall](http://goo.gl/0vgmcZi)
