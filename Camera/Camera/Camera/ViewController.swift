@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import MediaPlayer
+import MobileCoreServices
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
             UINavigationControllerDelegate {
     @IBOutlet var imageView:UIImageView!
     @IBOutlet var takePictureButton:UIButton!
+    
+    // In case the user want to take a new video
+    var moviePlayerController:MPMoviePlayerController?
+    var image:UIImage?
+    var movieURL:NSURL?
+    var lastChosenMediaType:String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
