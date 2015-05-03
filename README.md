@@ -3,27 +3,6 @@ practice-swift
 
 Learning a new language: SWIFT
 
-
-### Playground
-- Strings
-- Array
-- Dictionary
-- Closure
-- Enumerations
-- Optionals
-- Classes
-- Subscripts
-- Inheritance
-- Generics
-- Advanced Operators
-- Extensions
-- Protocols
-- Algorithms
-- Drawing
-- UIKit
-- Camera
-- SceneKit
-
 ### AutoLayout
 - Basic 
 - Basic autolayout - Another example
@@ -88,6 +67,25 @@ Learning a new language: SWIFT
 - SplitView examples
 - ViewSwitcher: Simple example about how to switch between views
   
+### Playground
+- Strings
+- Array
+- Dictionary
+- Closure
+- Enumerations
+- Optionals
+- Classes
+- Subscripts
+- Inheritance
+- Generics
+- Advanced Operators
+- Extensions
+- Protocols
+- Algorithms
+- Drawing
+- UIKit
+- Camera
+- SceneKit
 
 ### Apps
 - [TodoList app](http://goo.gl/sQHnj6)
