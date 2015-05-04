@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // PickerView
     var uiPicker: UIPickerView?
@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIPickerViewDataSource {
         uiPicker = UIPickerView()
         // Setting the data source
         uiPicker?.dataSource = self
+        // Setting the delegate
+        uiPicker?.delegate = self
         // Setting the picker in the center of the screen
         uiPicker?.center = view.center
         // Adding a subview
