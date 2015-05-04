@@ -29,6 +29,18 @@ class ViewController: UIViewController {
         var actionDeleted = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
             println("Message deleted!")
         }
+        
+        // Connecting the actions to the controller
+        controller!.addAction(actionViaEmail)
+        controller!.addAction(actionViaIMessage)
+        controller!.addAction(actionDeleted)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Presenting the actionSheet
+        self.presentViewController(controller!, animated: true, completion: nil)
     }
 
     
