@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         // Switch is changed
         uiSwitch.addTarget(self, action: "switchIsChanged", forControlEvents: UIControlEvents.ValueChanged)
         
+        /* Adjust the off-mode tint color */
+        uiSwitch.tintColor = UIColor.redColor()
+        /* Adjust the on-mode tint color */
+        uiSwitch.onTintColor = UIColor.brownColor()
+        /* Also change the knob's tint color */
+        uiSwitch.thumbTintColor = UIColor.greenColor()
+        
         // Adding the subview
         self.view.addSubview(uiSwitch)
     }
