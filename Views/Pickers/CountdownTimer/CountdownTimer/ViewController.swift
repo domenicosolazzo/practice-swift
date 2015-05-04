@@ -10,8 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // DatePicker
+    var datePicker: UIDatePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker = UIDatePicker()
+        datePicker?.center = self.view.center
+        datePicker?.datePickerMode = UIDatePickerMode.CountDownTimer
+        
+        let interval = (2 * 60) as NSTimeInterval
+        datePicker?.countDownDuration = interval
+        
+        self.view.addSubview(datePicker!)
         
     }
 }
