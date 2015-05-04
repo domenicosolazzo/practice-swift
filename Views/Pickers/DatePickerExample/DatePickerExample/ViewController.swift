@@ -18,6 +18,16 @@ class ViewController: UIViewController {
         datePicker = UIDatePicker()
         datePicker!.center = self.view.center
         self.view.addSubview(datePicker!)
+        
+        // Add a target
+        datePicker?.addTarget(self,
+            action: "datePickerDateChanged:",
+            forControlEvents: .ValueChanged)
+    }
+    
+    // Fetch the current date
+    func datePickerDateChanged(picker:UIDatePicker){
+        println("Selected date: \(picker.date)")
     }
 }
 
