@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         datePicker = UIDatePicker()
-        datePicker.center = self.view.center
-        self.view.addSubview(datePicker)
+        datePicker!.center = self.view.center
+        self.view.addSubview(datePicker!)
     }
 }
 
