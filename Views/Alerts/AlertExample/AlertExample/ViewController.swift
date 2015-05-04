@@ -17,11 +17,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Initializing the AlertController
         controller = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        // Creating an action
+        var action = UIAlertAction(title: "My action", style: UIAlertActionStyle.Default){ (paramAction: UIAlertAction!) in
+                println("The button was tapped")
+        }
+        
+        controller!.addAction(action)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        self.presentViewController(controller!, animated: true, completion: nil)
     }
 
 
