@@ -42,5 +42,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         return 0
     }
+    
+    //- MARK: UIPickerDelegate
+    // Showing the text for each item
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return "\(row + 1)"
+    }
 }
 
