@@ -20,7 +20,9 @@ class ViewController: UIViewController {
         uiSwitch = UISwitch(frame: CGRect(x: 100, y: 100, width: 0, height: 0))
         
         // Switch is changed
-        uiSwitch.addTarget(self, action: "switchIsChanged", forControlEvents: UIControlEvents.ValueChanged)
+        uiSwitch.addTarget(self,
+            action: "switchIsChanged:",
+            forControlEvents: .ValueChanged)
         
         /* Adjust the off-mode tint color */
         uiSwitch.tintColor = UIColor.redColor()
