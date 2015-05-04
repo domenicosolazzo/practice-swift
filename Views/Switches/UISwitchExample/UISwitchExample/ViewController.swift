@@ -18,10 +18,22 @@ class ViewController: UIViewController {
         
         // Creating a switch
         uiSwitch = UISwitch(frame: CGRect(x: 100, y: 100, width: 0, height: 0))
+        
+        // Switch is changed
+        uiSwitch.addTarget(self, action: "switchIsChanged", forControlEvents: UIControlEvents.ValueChanged)
+        
         // Adding the subview
         self.view.addSubview(uiSwitch)
+    }
+    
+    func switchIsChanged(sender: UISwitch){
+        println("Sender is = \(sender)")
         
-        
+        if sender.on{
+            println("The switch is turned on")
+        } else {
+            println("The switch is turned off")
+        }
     }
 
 
