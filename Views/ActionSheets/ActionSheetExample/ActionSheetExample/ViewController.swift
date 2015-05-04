@@ -18,6 +18,17 @@ class ViewController: UIViewController {
         
         // Creating a new action sheet
         controller = UIAlertController(title: "My action sheet", message: "How do you want to send a message", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        // Creating the actions
+        var actionViaEmail = UIAlertAction(title: "Via Email", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+            println("Message sent by email")
+        }
+        var actionViaIMessage = UIAlertAction(title: "Via iMessage", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+            println("Message sent by IMessage")
+        }
+        var actionDeleted = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+            println("Message deleted!")
+        }
     }
 
     
