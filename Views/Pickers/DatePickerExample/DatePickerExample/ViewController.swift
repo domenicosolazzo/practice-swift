@@ -23,6 +23,17 @@ class ViewController: UIViewController {
         datePicker?.addTarget(self,
             action: "datePickerDateChanged:",
             forControlEvents: .ValueChanged)
+        
+        // Limit the date time picker
+        let oneYearTime:NSTimeInterval = 365 * 24 * 60 * 60
+        let todayDate = NSDate()
+        
+        let oneYearFromToday = todayDate.dateByAddingTimeInterval(oneYearTime)
+        
+        let twoYearsFromToday = todayDate.dateByAddingTimeInterval(2 * oneYearTime)
+        
+        datePicker!.minimumDate = oneYearFromToday
+        datePicker!.maximumDate = twoYearsFromToday
     }
     
     // Fetch the current date
