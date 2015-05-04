@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.view.addSubview(uiPicker!)
     }
     
+    //- MARK: UIPickerDataSource
     // How many components you want the picker to render
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         if pickerView == uiPicker{
@@ -46,7 +47,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //- MARK: UIPickerDelegate
     // Showing the text for each item
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        
         return "\(row + 1)"
     }
+    
+    
+    
 }
 
