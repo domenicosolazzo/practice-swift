@@ -10,14 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // UISwitch
+    var uiSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // Creating a switch
+        uiSwitch = UISwitch(frame: CGRect(x: 100, y: 100, width: 0, height: 0))
+        // Adding the subview
+        self.view.addSubview(uiSwitch)
+        
+        
     }
 
 
