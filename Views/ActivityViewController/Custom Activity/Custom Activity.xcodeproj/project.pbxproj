@@ -13,6 +13,7 @@
 		C0D98D0E1AF928E500A0E666 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0D98D0D1AF928E500A0E666 /* Images.xcassets */; };
 		C0D98D111AF928E500A0E666 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D98D0F1AF928E500A0E666 /* LaunchScreen.xib */; };
 		C0D98D1D1AF928E500A0E666 /* Custom_ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D98D1C1AF928E500A0E666 /* Custom_ActivityTests.swift */; };
+		C0D98D271AF92A8200A0E666 /* StringReverserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D98D261AF92A8200A0E666 /* StringReverserActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0D98D161AF928E500A0E666 /* Custom ActivityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Custom ActivityTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D98D1B1AF928E500A0E666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D98D1C1AF928E500A0E666 /* Custom_ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_ActivityTests.swift; sourceTree = "<group>"; };
+		C0D98D261AF92A8200A0E666 /* StringReverserActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReverserActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0D98D0D1AF928E500A0E666 /* Images.xcassets */,
 				C0D98D0F1AF928E500A0E666 /* LaunchScreen.xib */,
 				C0D98D041AF928E500A0E666 /* Supporting Files */,
+				C0D98D261AF92A8200A0E666 /* StringReverserActivity.swift */,
 			);
 			path = "Custom Activity";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D98D271AF92A8200A0E666 /* StringReverserActivity.swift in Sources */,
 				C0D98D091AF928E500A0E666 /* ViewController.swift in Sources */,
 				C0D98D071AF928E500A0E666 /* AppDelegate.swift in Sources */,
 			);
