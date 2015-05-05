@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var textField: UITextField!
     var buttonShare: UIButton!
@@ -24,7 +24,12 @@ class ViewController: UIViewController {
         textField.placeholder = "Enter the text to share..."
         textField.delegate = self
         self.view.addSubview(textField)
-        
+    }
+    
+    //- MARK: UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
