@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         // Add a target
         segmentedControl.addTarget(self, action: "segmentedControlValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
         
+        
+        // Return the control to the original state
+        segmentedControl.momentary = true
+        
         self.view.addSubview(segmentedControl)
         
     }
