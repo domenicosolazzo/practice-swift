@@ -9,6 +9,11 @@
 import UIKit
 
 class StringReverserActivity: UIActivity {
-
+    // Items that will be sent to this activity
+    var activityItems = [NSString]()
     
+    // Activity type
+    override func activityType() -> String? {
+        return NSBundle.mainBundle().bundleIdentifier! + ".StringReverseActivity"
+    }
 }
