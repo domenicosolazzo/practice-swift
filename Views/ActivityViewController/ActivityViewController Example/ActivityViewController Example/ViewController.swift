@@ -10,8 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var textField: UITextField!
+    var buttonShare: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func createTextField(){
+        textField = UITextField(frame:
+            CGRect(x: 20, y: 35, width: 280, height: 30))
+        textField.borderStyle = .RoundedRect
+        textField.placeholder = "Enter the text to share..."
+        textField.delegate = self
+        self.view.addSubview(textField)
+        
     }
 }
 
