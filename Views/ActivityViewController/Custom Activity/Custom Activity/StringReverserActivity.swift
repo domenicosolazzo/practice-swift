@@ -72,7 +72,7 @@ class StringReverserActivity: UIActivity {
         var reversedStrings = ""
         
         for string in activityItems{
-            reversedStrings += reverseOfString(string) + "\n"
+            reversedStrings += (reverseOfString(string) as String) + "\n"
         }
         
         /* Do whatever you need to do with all these
