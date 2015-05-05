@@ -50,5 +50,34 @@ class StringReverserActivity: UIActivity {
         }
     }
     
+    func reverseOfString(string: NSString) -> NSString{
+        
+        var result = ""
+        var characters = [Character]()
+        
+        for character in string as String{
+            characters.append(character)
+        }
+        
+        for character in characters.reverse(){
+            result += "\(character)"
+        }
+        
+        return result
+        
+    }
+
+    
+    override func performActivity() {
+        var reversedStrings = ""
+        
+        for string in activityItems{
+            reversedStrings += reverseOfString(string) + "\n"
+        }
+        
+        /* Do whatever you need to do with all these
+        reversed strings */
+        println(reversedStrings)
+    }
     
 }
