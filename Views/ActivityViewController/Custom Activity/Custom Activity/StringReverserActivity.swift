@@ -26,4 +26,19 @@ class StringReverserActivity: UIActivity {
     override func activityImage() -> UIImage? {
         return UIImage(named: "Reverse")
     }
+    
+    // Check if can perform this activity
+    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+        for object in activityItems{
+            if object is String{
+                // At least an object is a string and can use this activity
+                return true
+            }
+        }
+        
+        // No object was valid for this activity
+        return false
+    }
+    
+    
 }
