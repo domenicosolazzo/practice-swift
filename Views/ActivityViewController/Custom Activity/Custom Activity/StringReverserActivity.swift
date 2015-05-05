@@ -40,5 +40,15 @@ class StringReverserActivity: UIActivity {
         return false
     }
     
+    // Saving the items that we need to use. This method is called
+    // if canPerformWithActivityItems returns true
+    override func prepareWithActivityItems(paramActivityItems: [AnyObject]) {
+        for object in paramActivityItems{
+            if object is String{
+                activityItems.append(object as! String)
+            }
+        }
+    }
+    
     
 }
