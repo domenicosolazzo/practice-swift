@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var imageView: UIImageView!
+    var scrollView: UIScrollView!
+    var image = UIImage(named: "earth")
     override func viewDidLoad() {
         super.viewDidLoad()
     }
