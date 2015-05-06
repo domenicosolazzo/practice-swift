@@ -37,9 +37,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
             
             // Adding the web view to the main view
             view.addSubview(theWebView)
-            
         }
-        
+    }
+    
+    //- MARK: WKNavigationDelegate
+    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        /* Start the network activity indicator when the web view is loading */
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        /* Stop the network activity indicator when the loading finishes */
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 }
 
