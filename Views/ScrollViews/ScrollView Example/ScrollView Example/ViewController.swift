@@ -30,5 +30,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
         }
     }
+    
+    //- MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(scrollView: UIScrollView){
+        /* Gets called when user scrolls or drags */
+        scrollView.alpha = 0.50
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        /* Gets called only after scrolling */
+        scrollView.alpha = 1
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView,
+        willDecelerate decelerate: Bool){
+            scrollView.alpha = 1
+    }
 }
 
