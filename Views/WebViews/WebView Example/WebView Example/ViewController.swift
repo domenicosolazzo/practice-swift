@@ -26,6 +26,20 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         
+        if let theWebView = webView{
+            var url = NSURL(string: "http://www.domenicosolazzo.com")
+            var request = NSURLRequest(URL: url!)
+            
+            // Load the request
+            theWebView.loadRequest(request)
+            // Adding the delegate
+            theWebView.navigationDelegate = self
+            
+            // Adding the web view to the main view
+            view.addSubview(theWebView)
+            
+        }
+        
     }
 }
 
