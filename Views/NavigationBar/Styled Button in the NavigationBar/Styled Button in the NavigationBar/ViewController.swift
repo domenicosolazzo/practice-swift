@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    func performAdd(){
+    func performAdd(sender: UIBarButtonItem){
         println("AAAS => Add As A Service :)")
     }
     
