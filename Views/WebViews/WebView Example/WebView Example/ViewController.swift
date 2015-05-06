@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
 
+    var webView: WKWebView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Adding preferences
+        var preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        
+        // Adding configuration
+        var configuration = WKWebViewConfiguration()
+        configuration.preferences = preferences
+        
+        
+        
     }
 }
 
