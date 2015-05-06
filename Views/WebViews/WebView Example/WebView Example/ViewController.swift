@@ -50,5 +50,21 @@ class ViewController: UIViewController, WKNavigationDelegate {
         /* Stop the network activity indicator when the loading finishes */
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
+    
+    func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
+        
+        // We do not allow clicking on a link
+        if navigationAction.navigationType == WKNavigationType.LinkActivated{
+            var alertController = UIAlertController(title: nil, message: "Sorry, you can click any link.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            // Present the alert
+            self.presentViewController(alertController, animated: true, completion:nil)
+                
+            return
+        }
+        // Allow all the other actions
+        decisionHandler(WKNavigationActionPolicy.Allow)
+    }
 }
 
