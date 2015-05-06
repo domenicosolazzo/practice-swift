@@ -24,7 +24,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         var configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
         
-        
+        webView = WKWebView(frame: view.bounds, configuration: configuration)
         
     }
 }
