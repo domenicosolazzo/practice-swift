@@ -60,7 +60,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
             
             // Present the alert
             self.presentViewController(alertController, animated: true, completion:nil)
-                
+            
+            decisionHandler(WKNavigationActionPolicy.Cancel)
             return
         }
         // Allow all the other actions
