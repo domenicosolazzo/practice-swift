@@ -10,7 +10,8 @@ import UIKit
 import Social
 import MobileCoreServices
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: SLComposeServiceViewController,
+AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
 
 
 }
