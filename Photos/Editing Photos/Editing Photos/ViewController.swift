@@ -88,6 +88,61 @@ class ViewController: UIViewController {
                 return false
             }
         }
+        
+        /* Now ask the system if we are allowed to edit the given asset */
+        asset.requestContentEditingInputWithOptions(requestOptions,
+            completionHandler: {[weak self](input: PHContentEditingInput!,
+                info: [NSObject : AnyObject]!) in
+                
+                /* Get the required information from the asset */
+                let url = input.fullSizeImageURL
+                let orientation = input.fullSizeImageOrientation
+                
+                /* Retrieve an instance of CIImage to apply our filter */
+                let inputImage = CIImage(contentsOfURL: url, options:nil)
+                    .imageByApplyingOrientation(orientation)
+                
+                /* Apply the filter to our image */
+                let filter = CIFilter(name: self!.filterName)
+                filter.setDefaults()
+                filter.setValue(inputImage, forKey: kCIInputImageKey)
+                let outputImage = filter.outputImage
+                
+                /* Get the data of our edited image */
+                let editedImageData = self!.dataFromCIImage(outputImage)
+                
+                /* The results of editing our image are encapsulated here */
+                let output = PHContentEditingOutput(contentEditingInput: input)
+                
+                /* Here we are saving our edited image to the URL that is dictated
+                by the content editing output class */
+                editedImageData.writeToURL(output.renderedContentURL, atomically: true)
+                
+                output.adjustmentData = PHAdjustmentData(
+                    formatIdentifier: self!.editFormatIdentifier,
+                    formatVersion: self!.editFormatVersion,
+                    data: self!.filterName.dataUsingEncoding(
+                        NSUTF8StringEncoding,
+                        allowLossyConversion: false)
+                )
+                
+                /* Now perform our changes */
+                PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+                    /* This is the change object and its output is the output object
+                        that we created previously */
+                    let change = PHAssetChangeRequest(forAsset: asset)
+                    change.contentEditingOutput = output
+                    }, completionHandler: {[weak self](success:Bool, error: NSError) in
+                        self!.performOnMainThread{
+                            if success{
+                                self!.displayAlertWithTitle("Succeeded", message: "Successfully edited the image")
+                            }else{
+                                self!.displayAlertWithTitle("Failed", message: "Could not edit the image. Error = \(error)")
+                            }
+                        }
+                    })
+            
+        })
     }
     
     /*
