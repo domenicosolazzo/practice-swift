@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+import OpenGLES
 
 class ViewController: UIViewController {
 
