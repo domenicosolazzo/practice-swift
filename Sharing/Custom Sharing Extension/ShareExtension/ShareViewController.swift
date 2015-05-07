@@ -68,4 +68,32 @@ AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
         }
         
     }
+    
+    // Whenever the user click the Post button
+    override func didSelectPost() {
+        
+        let identifier = NSBundle.mainBundle().bundleIdentifier! + "." +
+            NSUUID().UUIDString
+        
+        let configuration =
+        NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(
+            identifier)
+        
+        let session = NSURLSession(configuration: configuration,
+            delegate: self,
+            delegateQueue: nil)
+        
+        let url = NSURL(string: "https://www.domenicosolazzo.com/&text=" +
+            self.contentText)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = imageData!
+        
+        let task = session.uploadTaskWithRequest(request,
+            fromData: request.HTTPBody)
+        
+        task.resume()
+        
+        extensionContext!.completeRequestReturningItems([], completionHandler: nil)
+    }
 }
