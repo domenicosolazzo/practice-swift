@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     }
     
     //- MARK: Helpers
+    // Fetch NSData from an image. It uses OpenGL
     func dataFromCIImage(image:CIImage) -> NSData{
         let glContext = EAGLContext(API: EAGLRenderingAPI.OpenGLES2)
         let context = CIContext(EAGLContext: glContext)
