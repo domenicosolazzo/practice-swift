@@ -96,4 +96,17 @@ AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
         
         extensionContext!.completeRequestReturningItems([], completionHandler: nil)
     }
+    
+    // what the sharing extension displays as extra configuration items
+    lazy var audienceConfigurationItem: SLComposeSheetConfigurationItem = {
+        let item = SLComposeSheetConfigurationItem()
+        item.title = "Audience"
+        item.value = AudienceSelectionViewController.defaultAudience()
+        item.tapHandler = self.showAudienceSelection
+        return item
+        }()
+    
+    override func configurationItems() -> [AnyObject]! {
+        return [audienceConfigurationItem]
+    }
 }
