@@ -53,8 +53,8 @@ class ViewController: UIViewController {
     library, it will attempt to edit it */
     func retrieveNewestImage(){
         let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "CreationDate", ascending: true)]
-        
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+            ascending: true)]
         /* 
             Then get an object of type PHFetchResult that will contain
             all of our image assets 
@@ -76,6 +76,7 @@ class ViewController: UIViewController {
     }
     
     func editAsset(asset: PHAsset){
+        
         /* Can we handle previous edits on this asset? */
         let requestOptions = PHContentEditingInputRequestOptions()
         requestOptions.canHandleAdjustmentData = {
@@ -83,8 +84,8 @@ class ViewController: UIViewController {
             /* Yes, but only if they are our edits */
             if data.formatIdentifier == self!.editFormatIdentifier &&
                 data.formatVersion == self!.editFormatVersion{
-                return true
-            }else{
+                    return true
+            } else {
                 return false
             }
         }
@@ -98,9 +99,10 @@ class ViewController: UIViewController {
                 let url = input.fullSizeImageURL
                 let orientation = input.fullSizeImageOrientation
                 
-                /* Retrieve an instance of CIImage to apply our filter */
-                let inputImage = CIImage(contentsOfURL: url, options:nil)
-                    .imageByApplyingOrientation(orientation)
+                /* Retrieve an instance of CIImage to apply our filter to */
+                let inputImage =
+                CIImage(contentsOfURL: url,
+                    options: nil).imageByApplyingOrientation(orientation)
                 
                 /* Apply the filter to our image */
                 let filter = CIFilter(name: self!.filterName)
@@ -113,36 +115,39 @@ class ViewController: UIViewController {
                 
                 /* The results of editing our image are encapsulated here */
                 let output = PHContentEditingOutput(contentEditingInput: input)
-                
                 /* Here we are saving our edited image to the URL that is dictated
                 by the content editing output class */
-                editedImageData.writeToURL(output.renderedContentURL, atomically: true)
-                
-                output.adjustmentData = PHAdjustmentData(
-                    formatIdentifier: self!.editFormatIdentifier,
-                    formatVersion: self!.editFormatVersion,
-                    data: self!.filterName.dataUsingEncoding(
-                        NSUTF8StringEncoding,
-                        allowLossyConversion: false)
-                )
+                editedImageData.writeToURL(output.renderedContentURL,
+                    atomically: true)
+                output.adjustmentData =
+                    PHAdjustmentData(formatIdentifier: self!.editFormatIdentifier,
+                        formatVersion: self!.editFormatVersion,
+                        data: self!.filterName.dataUsingEncoding(NSUTF8StringEncoding,
+                            allowLossyConversion: false))
                 
                 /* Now perform our changes */
                 PHPhotoLibrary.sharedPhotoLibrary().performChanges({
                     /* This is the change object and its output is the output object
-                        that we created previously */
+                    that we created previously */
                     let change = PHAssetChangeRequest(forAsset: asset)
                     change.contentEditingOutput = output
-                    }, completionHandler: {[weak self](success:Bool, error: NSError) in
+                    }, completionHandler: {[weak self] (success: Bool, error: NSError!) in
+                        
                         self!.performOnMainThread{
                             if success{
-                                self!.displayAlertWithTitle("Succeeded", message: "Successfully edited the image")
-                            }else{
-                                self!.displayAlertWithTitle("Failed", message: "Could not edit the image. Error = \(error)")
+                                self!.displayAlertWithTitle("Succeeded",
+                                    message: "Successfully edited the image")
+                            } else {
+                                self!.displayAlertWithTitle("Failed",
+                                    message: "Could not edit the image. Error = \(error)")
                             }
                         }
+                        
                     })
-            
-        })
+                
+                
+            })
+        
     }
     
     /*
