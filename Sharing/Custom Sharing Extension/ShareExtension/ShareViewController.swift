@@ -16,6 +16,14 @@ AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
     
     var imageData: NSData?
     
+    // When the user is done picking the audience
+    func audienceSelectionViewController(sender: AudienceSelectionViewController,
+        selectedValue: String) {
+            audienceConfigurationItem.value = selectedValue
+            popConfigurationViewController()
+    }
+  
+    
     // Used from to iOS to ask to your view controller if it must enable the 
     // Post button
     override func isContentValid() -> Bool {
@@ -108,5 +116,12 @@ AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
     
     override func configurationItems() -> [AnyObject]! {
         return [audienceConfigurationItem]
+    }
+    
+    func showAudienceSelection(){
+        let controller = AudienceSelectionViewController(style: .Plain)
+        controller.audience = audienceConfigurationItem.value
+        controller.delegate = self
+        pushConfigurationViewController(controller)
     }
 }
