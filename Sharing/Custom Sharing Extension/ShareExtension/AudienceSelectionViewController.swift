@@ -7,6 +7,14 @@
 //
 
 import UIKit
+
+@objc(AudienceSelectionViewControllerDelegate)
+protocol AudienceSelectionViewControllerDelegate{
+    optional func audienceSelectionViewController(
+        sender: AudienceSelectionViewController,
+        selectedValue: String)
+}
+
 class AudienceSelectionViewController: UITableViewController {
     
     struct TableViewValues{
