@@ -13,5 +13,6 @@ import MobileCoreServices
 class ShareViewController: SLComposeServiceViewController,
 AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
 
-
+    
+    var imageData: NSData?
 }
