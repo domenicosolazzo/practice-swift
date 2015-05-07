@@ -48,5 +48,31 @@ class ViewController: UIViewController {
         let image = UIImage(CGImage: imageRef, scale: 1.0, orientation: .Up)
         return UIImageJPEGRepresentation(image, 1.0)
     }
+    
+    /* After this method retrieves the newest image from the user's assets
+    library, it will attempt to edit it */
+    func retrieveNewestImage(){
+        let options = PHFetchOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "CreationDate", ascending: true)]
+        
+        /* 
+            Then get an object of type PHFetchResult that will contain
+            all of our image assets 
+        */
+        let assetResults = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: options)
+        
+        if assetResults == nil{
+            println("Found no results")
+            return
+        } else{
+            println("Found \(assetResults.count) results")
+        }
+        
+        let imageManager = PHCachingImageManager()
+        
+        if let asset = assetResults[0] as? PHAsset{
+            editAsset(asset)
+        }
+    }
 }
 
