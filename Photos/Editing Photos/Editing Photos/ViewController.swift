@@ -74,5 +74,13 @@ class ViewController: UIViewController {
             editAsset(asset)
         }
     }
+    
+    /*
+        A little handy method that allows us to perform a block object
+        on the main thread
+    */
+    func performOnMainThread(block: dispatch_block_t){
+        dispatch_async(dispatch_get_main_queue(), block)
+    }
 }
 
