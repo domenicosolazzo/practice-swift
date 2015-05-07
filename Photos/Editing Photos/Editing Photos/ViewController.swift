@@ -23,5 +23,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //- MARK: Helpers
+    func dataFromCIImage(image:CIImage) -> NSData{
+        let glContext = EAGLContext(API: EAGLRenderingAPI.OpenGLES2)
+        let context = CIContext(EAGLContext: glContext)
+        let imageRef = context.createCGImage(image, fromRect: image.extent())
+        let image = UIImage(CGImage: imageRef, scale: 1.0, orientation: .Up)
+        return UIImageJPEGRepresentation(image, 1.0)
+    }
 }
 
