@@ -152,5 +152,20 @@ class ViewController: UIViewController {
     func performOnMainThread(block: dispatch_block_t){
         dispatch_async(dispatch_get_main_queue(), block)
     }
+    
+    
+    /* Just a little method to help us display alert dialogs to the user */
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
+        
+    }
 }
 
