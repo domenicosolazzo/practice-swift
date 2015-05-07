@@ -16,6 +16,7 @@
 		C0CB6F6D1AFBD8BA00D4268A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB6F6C1AFBD8BA00D4268A /* ShareViewController.swift */; };
 		C0CB6F6F1AFBD8BA00D4268A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CB6F6E1AFBD8BA00D4268A /* MainInterface.storyboard */; };
 		C0CB6F721AFBD8BA00D4268A /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C0CB6F681AFBD8BA00D4268A /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C0CB6F781AFBDA4700D4268A /* AudienceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB6F771AFBDA4700D4268A /* AudienceSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		C0CB6F6B1AFBD8BA00D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB6F6C1AFBD8BA00D4268A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C0CB6F6E1AFBD8BA00D4268A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		C0CB6F771AFBDA4700D4268A /* AudienceSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudienceSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				C0CB6F6C1AFBD8BA00D4268A /* ShareViewController.swift */,
 				C0CB6F6E1AFBD8BA00D4268A /* MainInterface.storyboard */,
 				C0CB6F6A1AFBD8BA00D4268A /* Supporting Files */,
+				C0CB6F771AFBDA4700D4268A /* AudienceSelectionViewController.swift */,
 			);
 			path = ShareExtension;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CB6F6D1AFBD8BA00D4268A /* ShareViewController.swift in Sources */,
+				C0CB6F781AFBDA4700D4268A /* AudienceSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
