@@ -22,6 +22,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /* Pick the newest photo in the photo library */
+        PHPhotoLibrary.requestAuthorization{
+            [weak self](status: PHAuthorizationStatus) in
+            
+            dispatch_async(dispatch_get_main_queue()){
+                switch status{
+                case .Authorized:
+                    self!.retrieveNewestImage()
+                default:
+                    self!.displayAlertWithTitle("Access",
+                        message: "I could not access the Photo Library")
+                }
+            }
+        }
     }
     
     //- MARK: Helpers
