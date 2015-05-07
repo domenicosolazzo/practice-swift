@@ -75,6 +75,21 @@ class ViewController: UIViewController {
         }
     }
     
+    func editAsset(asset: PHAsset){
+        /* Can we handle previous edits on this asset? */
+        let requestOptions = PHContentEditingInputRequestOptions()
+        requestOptions.canHandleAdjustmentData = {
+            [weak self] (data: PHAdjustmentData!) -> Bool in
+            /* Yes, but only if they are our edits */
+            if data.formatIdentifier == self!.editFormatIdentifier &&
+                data.formatVersion == self!.editFormatVersion{
+                return true
+            }else{
+                return false
+            }
+        }
+    }
+    
     /*
         A little handy method that allows us to perform a block object
         on the main thread
