@@ -29,4 +29,43 @@ AudienceSelectionViewControllerDelegate, NSURLSessionDelegate  {
         
         return false
     }
+    
+    // It gets called just as our view controller is fully displayed on the screen.
+    override func presentationAnimationDidFinish() {
+        super.presentationAnimationDidFinish()
+        
+        placeholder = "Your comments"
+        
+        let content = extensionContext!.inputItems[0] as! NSExtensionItem
+        let contentType = kUTTypeImage as! String
+        
+        for attachment in content.attachments as! [NSItemProvider]{
+            if attachment.hasItemConformingToTypeIdentifier(contentType){
+                
+                let dispatchQueue =
+                dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                
+                dispatch_async(dispatchQueue, {[weak self] in
+                    
+                    let strongSelf = self!
+                    
+                    attachment.loadItemForTypeIdentifier(contentType,
+                        options: nil,
+                        completionHandler: {(content: NSSecureCoding!, error: NSError!) in
+                            if let data = content as? NSData{
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    strongSelf.imageData = data
+                                    strongSelf.validateContent()
+                                })
+                            }
+                    })
+                    
+                    })
+                
+            }
+            
+            break
+        }
+        
+    }
 }
