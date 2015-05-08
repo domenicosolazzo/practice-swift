@@ -10,7 +10,16 @@ import UIKit
 import HealthKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    /*
+        This is the label that shows the user's weight unit (Kilograms)
+        the righthand side of our text field
+    */
+    let textFieldRightLabel = UILabel(frame: CGRectZero)
+    
     // Height
     let heightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
     // Weight
