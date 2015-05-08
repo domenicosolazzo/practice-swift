@@ -20,12 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     */
     let textFieldRightLabel = UILabel(frame: CGRectZero)
     
-    // Height
-    let heightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
     // Weight
-    let weightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-    // Hearth rate
-    let hearthRateQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
+    let weightQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
     
     // Health kit store
     lazy var healthStore = HKHealthStore()
@@ -39,14 +35,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Information that we would write into the HealthKit
     lazy var typesToShare: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.heightQuantity, self.weightQuantity)
+        return Set<NSObject>(arrayLiteral: self.weightQuantity)
         }()
     
     // We want to read these types of data */
     lazy var typesToRead: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.heightQuantity,
-            self.weightQuantity,
-            self.hearthRateQuantity
+        return Set<NSObject>(arrayLiteral:
+            self.weightQuantity
         )
         }()
     
@@ -129,6 +124,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
             })
         // Execute the query
         healthStore.executeQuery(query)
+    }
+    
+    // Saving
+    @IBAction func saveUserWeight(){
+        let kilogramUnit = HKUnit.gramUnitWithMetricPrefix(HKMetricPrefix.Kilo)
+        let weightQuantity = HKQuantity(unit: kilogramUnit,
+            doubleValue: (textField.text as NSString).doubleValue)
+        let now = NSDate()
+        let sample = HKQuantitySample(type: weightQuantityType,
+            quantity: weightQuantity,
+            startDate: now,
+            endDate: now)
+        
+        healthStore.saveObject(sample, withCompletion: {
+            (succeeded: Bool, error: NSError!) in
+            
+            if error == nil{
+                println("Successfully saved the user's weight")
+            } else {
+                println("Failed to save the user's weight")
+            }
+            
+        })
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
