@@ -35,13 +35,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Information that we would write into the HealthKit
     lazy var typesToShare: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.weightQuantity)
+        return Set<NSObject>(arrayLiteral: self.weightQuantityType)
         }()
     
     // We want to read these types of data */
     lazy var typesToRead: Set<NSObject> = {
         return Set<NSObject>(arrayLiteral:
-            self.weightQuantity
+            self.weightQuantityType
         )
         }()
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         
         // Set the query
-        let query = HKSampleQuery(sampleType: weightQuantity,
+        let query = HKSampleQuery(sampleType: weightQuantityType,
             predicate: nil,
             limit: 1,
             sortDescriptors: [sortDescriptor],
