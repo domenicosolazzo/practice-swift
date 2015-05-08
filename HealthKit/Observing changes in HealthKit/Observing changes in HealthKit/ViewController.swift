@@ -66,5 +66,27 @@ class ViewController: UIViewController {
             println("Health data is not available")
         }
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopObservingWeightChanges()
+    }
+    
+    func startObservingWeightChanges(){
+        healthStore.executeQuery(query)
+        healthStore.enableBackgroundDeliveryForType(weightQuantityType,
+            frequency: HKUpdateFrequency.Immediate) { (succeeded:Bool, error:NSError!) -> Void in
+                if succeeded{
+                    println("Enabled background delivery of weight changes")
+                }else{
+                    if let theError = error{
+                        print("Failed to enabled background changes")
+                        println("Error \(theError)")
+                    }
+                }
+        }
+    }
+    
+    
 }
 
