@@ -21,21 +21,37 @@ class ViewController: UIViewController {
     // Health kit store
     lazy var healthStore = HKHealthStore()
     
-    // Information that we wouldn't write into the HealthKit
-    lazy var typesToShare: NSSet = {
-        return NSSet(objects: self.heightQuantity, self.weightQuantity)
+    // Information that we would write into the HealthKit
+    lazy var typesToShare: Set<NSObject> = {
+        return Set<NSObject>(arrayLiteral: self.heightQuantity, self.weightQuantity)
     }()
     
     // We want to read these types of data */
-    lazy var typesToRead: NSSet = {
-        return NSSet(objects: self.heightQuantity,
+    lazy var typesToRead: Set<NSObject> = {
+        return Set<NSObject>(arrayLiteral: self.heightQuantity,
             self.weightQuantity,
             self.hearthRateQuantity
         )
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Check if the HealthKit is available
+        if HKHealthStore.isHealthDataAvailable(){
+            // Request authorization
+            healthStore.requestAuthorizationToShareTypes(typesToShare, readTypes: typesToRead){ (succeeded: Bool, error: NSError!) in
+                if succeeded && error == nil{
+                    println("Authorization succeeded")
+                }else{
+                    if let theError = error{
+                        println("Error \(theError)")
+                    }
+                }
+            }
+        }else{
+            println("HealthData is not available")
+        }
     }
 }
 
