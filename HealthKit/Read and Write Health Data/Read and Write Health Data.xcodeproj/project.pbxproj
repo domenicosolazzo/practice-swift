@@ -13,6 +13,7 @@
 		C0CB6FC01AFD280C00D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB6FBF1AFD280C00D4268A /* Images.xcassets */; };
 		C0CB6FC31AFD280C00D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB6FC11AFD280C00D4268A /* LaunchScreen.xib */; };
 		C0CB6FCF1AFD280C00D4268A /* Read_and_Write_Health_DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB6FCE1AFD280C00D4268A /* Read_and_Write_Health_DataTests.swift */; };
+		C0CB6FD91AFD316A00D4268A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB6FD81AFD316A00D4268A /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		C0CB6FC81AFD280C00D4268A /* Read and Write Health DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Read and Write Health DataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB6FCD1AFD280C00D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB6FCE1AFD280C00D4268A /* Read_and_Write_Health_DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_Write_Health_DataTests.swift; sourceTree = "<group>"; };
+		C0CB6FD81AFD316A00D4268A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		C0CB6FDA1AFD316A00D4268A /* Read and Write Health Data.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Read and Write Health Data.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CB6FD91AFD316A00D4268A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 		C0CB6FAA1AFD280C00D4268A = {
 			isa = PBXGroup;
 			children = (
+				C0CB6FD81AFD316A00D4268A /* HealthKit.framework */,
 				C0CB6FB51AFD280C00D4268A /* Read and Write Health Data */,
 				C0CB6FCB1AFD280C00D4268A /* Read and Write Health DataTests */,
 				C0CB6FB41AFD280C00D4268A /* Products */,
@@ -77,6 +82,7 @@
 		C0CB6FB51AFD280C00D4268A /* Read and Write Health Data */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB6FDA1AFD316A00D4268A /* Read and Write Health Data.entitlements */,
 				C0CB6FB81AFD280C00D4268A /* AppDelegate.swift */,
 				C0CB6FBA1AFD280C00D4268A /* ViewController.swift */,
 				C0CB6FBC1AFD280C00D4268A /* Main.storyboard */,
@@ -161,6 +167,12 @@
 				TargetAttributes = {
 					C0CB6FB21AFD280C00D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8YWZZG9DK7;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					C0CB6FC71AFD280C00D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -342,9 +354,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Read and Write Health Data/Read and Write Health Data.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Read and Write Health Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -352,9 +368,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Read and Write Health Data/Read and Write Health Data.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Read and Write Health Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
