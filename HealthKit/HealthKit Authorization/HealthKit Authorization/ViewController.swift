@@ -11,6 +11,12 @@ import HealthKit
 
 class ViewController: UIViewController {
 
+    // Height
+    let heightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+    // Weight
+    let weightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+    // Hearth rate
+    let hearthRateQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
