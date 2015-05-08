@@ -103,5 +103,49 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    // Fetching the changes
+    func fetchRecordedWeightsInLastDay(){
+        // Sorting
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)
+        
+        // Query
+        let query = HKSampleQuery(sampleType: weightQuantityType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {[weak self]
+            (query:HKSampleQuery!, results:[AnyObject]!, error: NSError!) -> Void in
+            if results.count > 0{
+                for sample in results as! [HKQuantitySample]{
+                    // Get the weight in kilograms from the quantity
+                    let weightInKilograms = sample.quantity.doubleValueForUnit(
+                        HKUnit.gramUnitWithMetricPrefix(.Kilo)
+                    )
+                    
+                    // Get the value of KG, localized for the user
+                    let formatter = NSMassFormatter()
+                    let kilogramSuffix = formatter.unitStringFromValue(weightInKilograms, unit:.Kilogram)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {[weak self] in
+                        let strongSelf = self!
+                        
+                        println("Weight has been changed to " +
+                            "\(weightInKilograms) \(kilogramSuffix)")
+                        println("Change date = \(sample.startDate)")
+                    })
+                }
+                
+                
+            }else{
+                print("Could not read the user's weight ")
+                println("or no weight data was available")
+            }
+        }
+        
+        healthStore.executeQuery(query)
+    }
+    
+    func weightChangedHandler(query: HKObserverQuery!,
+        completionHandler: HKObserverQueryCompletionHandler!,
+        error: NSError!){
+    
+    }
 }
 
