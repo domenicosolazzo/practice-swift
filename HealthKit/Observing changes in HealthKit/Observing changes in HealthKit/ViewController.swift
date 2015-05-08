@@ -19,5 +19,21 @@ class ViewController: UIViewController {
     
     // Health store
     lazy var healthStore = HKHealthStore()
+    
+    // Predicate
+    lazy var predicate: NSPredicate = {
+        let now = NSDate()
+        
+        let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(
+            unit: NSCalendarUnit.DayCalendarUnit,
+            value: -1,
+            toDate: now,
+            options: NSCalendarOptions.WrapComponents)
+        
+        return HKQuery.predicateForSamplesWithStartDate(
+            yesterday,
+            endDate: now,
+            options: HKQueryOptions.StrictEndDate)
+    }
 }
 
