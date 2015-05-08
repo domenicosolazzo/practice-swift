@@ -35,5 +35,14 @@ class ViewController: UIViewController {
             endDate: now,
             options: HKQueryOptions.StrictEndDate)
     }
+    
+    // Observer Query
+    lazy var query: HKObserverQuery = {[weak self] in
+        let strongSelf = self!
+        return HKObserverQuery(sampleType: strongSelf.weightQuantityType,
+            predicate: strongSelf.predicate,
+            updateHandler: strongSelf.weightChangedHandler
+        )
+    }
 }
 
