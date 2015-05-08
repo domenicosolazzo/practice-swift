@@ -32,6 +32,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.rightView = textFieldRightLabel
+        textField.rightViewMode = .Always
     }
     
     
