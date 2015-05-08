@@ -11,59 +11,73 @@ import HealthKit
 
 class ViewController: UIViewController {
 
-    // Date of birth characteristic type
-    let dateOfBirthType = HKCharacteristicType.quantityTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)
+    // User characteristic: you cannot write user characteristics
+    let dateOfBirthCharacteristicType =
+    HKCharacteristicType.characteristicTypeForIdentifier(
+        HKCharacteristicTypeIdentifierDateOfBirth)
     
-    // Types that you want to read
-    lazy var types: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.dateOfBirthType)
-    }()
+    lazy var types: NSSet = {
+        return NSSet(object: self.dateOfBirthCharacteristicType)
+        }()
     
-    // HealthKit store
+    // The health store
     lazy var healthStore = HKHealthStore()
 
     /* Ask for permission to access the health store */
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         if HKHealthStore.isHealthDataAvailable(){
-            healthStore.requestAuthorizationToShareTypes(nil, readTypes: types, completion: {[weak self]
-                (succeeded:Bool, error:NSError!) -> Void in
-                let strongSelf = self!
-                if succeeded && error == nil{
-                    dispatch_async(dispatch_get_main_queue(), strongSelf.readDateOfBirthInformation)
-                }else{
-                    if let theError = error{
-                        println("Error occurred \(theError)")
+            
+            healthStore.requestAuthorizationToShareTypes(nil,
+                readTypes: types as Set<NSObject>,
+                completion: {[weak self]
+                    (succeeded: Bool, error: NSError!) in
+                    
+                    let strongSelf = self!
+                    if succeeded && error == nil{
+                        dispatch_async(dispatch_get_main_queue(),
+                            strongSelf.readDateOfBirthInformation)
+                    } else {
+                        if let theError = error{
+                            println("Error occurred = \(theError)")
+                        }
                     }
-                }
-            })
-        }else{
+                    
+                })
+            
+        } else {
             println("Health data is not available")
         }
     }
     
     func readDateOfBirthInformation(){
+        
         var dateOfBirthError: NSError?
-        let birthDate = healthStore.dateOfBirthWithError(&dateOfBirthError) as NSDate?
+        let birthDate = healthStore.dateOfBirthWithError(&dateOfBirthError)
+            as NSDate?
         
         if let error = dateOfBirthError{
             println("Could not read user's date of birth")
-        }else{
+        } else {
+            
             if let dateOfBirth = birthDate{
                 let formatter = NSNumberFormatter()
                 let now = NSDate()
                 let components = NSCalendar.currentCalendar().components(
-                    NSCalendarUnit.YearCalendarUnit,
-                    fromDate: birthDate!,
+                    .YearCalendarUnit,
+                    fromDate: dateOfBirth,
                     toDate: now,
-                    options: NSCalendarOptions.WrapComponents)
+                    options: .WrapComponents)
                 
                 let age = components.year
                 
                 println("The user is \(age) years old")
-            }else{
-                println("User has not specified the date of birth")
+            } else {
+                println("User has not specified her date of birth yet")
             }
+            
         }
+        
     }
 }
 
