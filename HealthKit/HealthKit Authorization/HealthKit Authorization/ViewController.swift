@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     // Hearth rate
     let hearthRateQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
     
+    // Health kit store
+    lazy var healthStore = HKHealthStore()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
