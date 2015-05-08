@@ -44,5 +44,27 @@ class ViewController: UIViewController {
             updateHandler: strongSelf.weightChangedHandler
         )
     }()
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if HKHealthStore.isHealthDataAvailable(){
+            healthStore.requestAuthorizationToShareTypes(nil, readTypes: types, completion: {[weak self]
+                (succeeded:Bool, error:NSError!) -> Void in
+                let strongSelf = self!
+                
+                if succeeded && error != nil{
+                    dispatch_async(dispatch_get_main_queue(),
+                        strongSelf.startObservingWeightChanges)
+                }else{
+                    if let theError = error{
+                        println("Error \(theError)")
+                    }
+                }
+            })
+        }else{
+            println("Health data is not available")
+        }
+    }
 }
 
