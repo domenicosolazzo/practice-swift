@@ -87,6 +87,21 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    func stopObservingWeightChanges(){
+        healthStore.stopQuery(query)
+        healthStore.disableAllBackgroundDeliveryWithCompletion{
+            (succeeded: Bool, error: NSError!) in
+            
+            if succeeded{
+                println("Disabled background delivery of weight changes")
+            } else {
+                if let theError = error{
+                    print("Failed to disable background delivery of weight changes. ")
+                    println("Error = \(theError)")
+                }
+            }
+            
+        }
+    }
 }
 
