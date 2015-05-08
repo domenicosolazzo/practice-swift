@@ -10,6 +10,14 @@ import UIKit
 import HealthKit
 
 class ViewController: UIViewController {
+    // Body mass
+    let weightQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
     
+    lazy var types: Set<NSObject> = {
+        return Set<NSObject>(arrayLiteral: self.weightQuantityType)
+    }()
+    
+    // Health store
+    lazy var healthStore = HKHealthStore()
 }
 
