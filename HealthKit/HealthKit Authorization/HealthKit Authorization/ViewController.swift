@@ -21,6 +21,18 @@ class ViewController: UIViewController {
     // Health kit store
     lazy var healthStore = HKHealthStore()
     
+    // Information that we wouldn't write into the HealthKit
+    lazy var typesToShare: NSSet = {
+        return NSSet(objects: self.heightQuantity, self.weightQuantity)
+    }()
+    
+    // We want to read these types of data */
+    lazy var typesToRead: NSSet = {
+        return NSSet(objects: self.heightQuantity,
+            self.weightQuantity,
+            self.hearthRateQuantity
+        )
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
