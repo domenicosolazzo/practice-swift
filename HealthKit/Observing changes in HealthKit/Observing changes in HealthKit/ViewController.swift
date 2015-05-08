@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let now = NSDate()
         
         let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(
-            unit: NSCalendarUnit.DayCalendarUnit,
+            NSCalendarUnit.DayCalendarUnit,
             value: -1,
             toDate: now,
             options: NSCalendarOptions.WrapComponents)
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             yesterday,
             endDate: now,
             options: HKQueryOptions.StrictEndDate)
-    }
+    }()
     
     // Observer Query
     lazy var query: HKObserverQuery = {[weak self] in
@@ -43,6 +43,6 @@ class ViewController: UIViewController {
             predicate: strongSelf.predicate,
             updateHandler: strongSelf.weightChangedHandler
         )
-    }
+    }()
 }
 
