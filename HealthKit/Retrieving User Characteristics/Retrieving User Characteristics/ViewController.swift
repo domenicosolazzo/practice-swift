@@ -40,5 +40,30 @@ class ViewController: UIViewController {
             println("Health data is not available")
         }
     }
+    
+    func readDateOfBirthInformation(){
+        var dateOfBirthError: NSError?
+        let birthDate = healthStore.dateOfBirthWithError(&dateOfBirthError) as NSDate?
+        
+        if let error = dateOfBirthError{
+            println("Could not read user's date of birth")
+        }else{
+            if let dateOfBirth = birthDate{
+                let formatter = NSNumberFormatter()
+                let now = NSDate()
+                let components = NSCalendar.currentCalendar().components(
+                    NSCalendarUnit.YearCalendarUnit,
+                    fromDate: birthDate!,
+                    toDate: now,
+                    options: NSCalendarOptions.WrapComponents)
+                
+                let age = components.year
+                
+                println("The user is \(age) years old")
+            }else{
+                println("User has not specified the date of birth")
+            }
+        }
+    }
 }
 
