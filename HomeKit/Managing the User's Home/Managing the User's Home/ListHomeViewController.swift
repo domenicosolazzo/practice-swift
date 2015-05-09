@@ -61,6 +61,29 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         return cell
     }
     
+    // Intercept the delete action
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            // Take the home in that row
+            let home = homeManager.homes[indexPath.row] as! HMHome
+            
+            // Remove the home
+            homeManager.removeHome(home, completionHandler: {[weak self]
+                (error:NSError!) -> Void in
+                let strongSelf = self!
+                
+                if error != nil{
+                    UIAlertController.showAlertControllerOnHostController(strongSelf,
+                        title: "Error happened",
+                        message: "\(error)",
+                        buttonTitle: "OK")
+                }else{
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                }
+            })
+        }
+    }
+    
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         /* Don't let the user add another home while they are editing
