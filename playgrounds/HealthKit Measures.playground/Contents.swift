@@ -55,3 +55,6 @@ let feetString = lengthFormatter.stringFromValue(feetValue, unit: NSLengthFormat
 
 println("You've driven \(metersString)")
 println("You've driven \(feetString)")
+
+println(NSUUID().UUIDString)
+
