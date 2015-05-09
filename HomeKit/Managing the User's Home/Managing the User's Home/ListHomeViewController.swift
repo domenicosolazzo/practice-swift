@@ -38,4 +38,10 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         cell.textLabel.text = home.name
         return cell
     }
+    
+    //- MARK: HomeKit
+    func homeManagerDidUpdateHomes(manager: HMHomeManager) {
+        // As soon the home manager has loaded the list of homes, we will reload the table view
+        tableView.reloadData()
+    }
 }
