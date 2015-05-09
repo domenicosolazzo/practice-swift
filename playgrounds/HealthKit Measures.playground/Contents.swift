@@ -1,9 +1,9 @@
 import UIKit
 import HealthKit
 
-/*
- Convert grams to Kilograms
-*/
+/**
+** Convert grams to Kilograms
+**/
 let gramUnit = HKUnit(fromMassFormatterUnit: NSMassFormatterUnit.Gram)
 let kilogramUnit = HKUnit(fromMassFormatterUnit: NSMassFormatterUnit.Kilogram)
 
@@ -18,5 +18,21 @@ let weightInKilograms = weightQuantity.doubleValueForUnit(kilogramUnit)
 println("Your wieght is \(weightInKilograms) kilograms")
 println("Your weight is \(weightInGrams) grams")
 
+/** 
+**  Convert an exercise from 1500 calories to kilojaules
+**/
+let caloriesValue:Double = 1_500
 
+// Calories unit
+let caloriesUnit = HKQuantity(unit: HKUnit.calorieUnit(), doubleValue: caloriesValue)
 
+let kilojoulesValue = caloriesUnit.doubleValueForUnit(HKUnit.jouleUnitWithMetricPrefix(HKMetricPrefix.Kilo))
+
+// Energy formatter
+let energyFormatter = NSEnergyFormatter()
+
+let caloriesString = energyFormatter.stringFromValue(caloriesValue, unit: NSEnergyFormatterUnit.Calorie)
+let kilojoulesString = energyFormatter.stringFromValue(kilojoulesValue, unit: NSEnergyFormatterUnit.Kilojoule)
+
+println("You've burned \(caloriesString)")
+println("You've burned \(kilojoulesString)")
