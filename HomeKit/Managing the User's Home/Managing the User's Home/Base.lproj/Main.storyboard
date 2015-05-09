@@ -27,9 +27,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Homes" id="5Cd-TM-Z0a">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="Jft-Up-OGU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jft-Up-OGU">
                             <connections>
-                                <segue destination="L83-gJ-UUB" kind="show" identifier="addHome" id="gOB-R1-slx"/>
+                                <segue destination="L83-gJ-UUB" kind="show" identifier="addHome" id="rwa-4E-4cg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -38,7 +38,7 @@
             </objects>
             <point key="canvasLocation" x="1170" y="315"/>
         </scene>
-        <!--Add Home View Controller-->
+        <!--Add Home-->
         <scene sceneID="R1k-lb-mKj">
             <objects>
                 <viewController id="L83-gJ-UUB" customClass="AddHomeViewController" customModule="Managing_the_User_s_Home" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,18 +58,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HxB-xl-APA" firstAttribute="leading" secondItem="QMt-ig-joS" secondAttribute="leadingMargin" constant="75" id="IMn-NW-IKP"/>
-                            <constraint firstItem="HxB-xl-APA" firstAttribute="top" secondItem="fJF-tK-FvI" secondAttribute="bottom" constant="16" id="Ost-TN-OvI"/>
-                            <constraint firstItem="HxB-xl-APA" firstAttribute="centerX" secondItem="QMt-ig-joS" secondAttribute="centerX" id="mF9-KN-YUO"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="centerX" secondItem="QMt-ig-joS" secondAttribute="centerX" id="9ag-Xt-yTv"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="top" secondItem="fJF-tK-FvI" secondAttribute="bottom" constant="16" id="GLM-MK-Bd3"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="leading" secondItem="QMt-ig-joS" secondAttribute="leadingMargin" constant="75" id="Png-bI-qks"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Home" id="j2q-Hu-6ls">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="vhF-JC-XzQ"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textField" destination="HxB-xl-APA" id="L1I-XW-BUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyj-J3-TbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="315"/>
+            <point key="canvasLocation" x="1817" y="333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gVd-MZ-pZg">
