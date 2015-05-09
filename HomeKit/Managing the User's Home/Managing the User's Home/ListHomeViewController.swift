@@ -54,6 +54,14 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         return cell
     }
     
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        /* Don't let the user add another home while they are editing
+        the list of homes. This makes sure the user focuses on the task
+        at hand */
+        self.navigationItem.rightBarButtonItem?.enabled = !editing
+    }
+    
     //- MARK: HomeKit
     func homeManagerDidUpdateHomes(manager: HMHomeManager) {
         // As soon the home manager has loaded the list of homes, we will reload the table view
