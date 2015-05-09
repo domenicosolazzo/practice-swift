@@ -15,5 +15,8 @@ let weightQuantity = HKQuantity(unit: gramUnit, doubleValue: weightInGrams)
 // Convert the quantity to Kilograms
 let weightInKilograms = weightQuantity.doubleValueForUnit(kilogramUnit)
 
+println("Your wieght is \(weightInKilograms) kilograms")
+println("Your weight is \(weightInGrams) grams")
+
 
 
