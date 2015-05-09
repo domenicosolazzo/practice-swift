@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C0CB70491AFE696600D4268A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB70481AFE696600D4268A /* AppDelegate.swift */; };
-		C0CB704B1AFE696600D4268A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB704A1AFE696600D4268A /* ViewController.swift */; };
 		C0CB704E1AFE696600D4268A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CB704C1AFE696600D4268A /* Main.storyboard */; };
 		C0CB70501AFE696600D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB704F1AFE696600D4268A /* Images.xcassets */; };
 		C0CB70531AFE696600D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB70511AFE696600D4268A /* LaunchScreen.xib */; };
 		C0CB705F1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */; };
+		C0CB70691AFE6A2600D4268A /* ListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		C0CB70431AFE696600D4268A /* Managing the User's Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Managing the User's Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB70471AFE696600D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB70481AFE696600D4268A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0CB704A1AFE696600D4268A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0CB704D1AFE696600D4268A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0CB704F1AFE696600D4268A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C0CB70521AFE696600D4268A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C0CB70581AFE696600D4268A /* Managing the User's HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Managing the User's HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB705D1AFE696600D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managing_the_User_s_HomeTests.swift; sourceTree = "<group>"; };
+		C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				C0CB70481AFE696600D4268A /* AppDelegate.swift */,
-				C0CB704A1AFE696600D4268A /* ViewController.swift */,
 				C0CB704C1AFE696600D4268A /* Main.storyboard */,
+				C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */,
 				C0CB704F1AFE696600D4268A /* Images.xcassets */,
 				C0CB70511AFE696600D4268A /* LaunchScreen.xib */,
 				C0CB70461AFE696600D4268A /* Supporting Files */,
@@ -212,8 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CB704B1AFE696600D4268A /* ViewController.swift in Sources */,
 				C0CB70491AFE696600D4268A /* AppDelegate.swift in Sources */,
+				C0CB70691AFE6A2600D4268A /* ListHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
