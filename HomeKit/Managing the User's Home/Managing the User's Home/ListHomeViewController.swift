@@ -30,12 +30,12 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewValues.identifier, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewValues.identifier, forIndexPath: indexPath) as! UITableViewCell
         
         // Home
-        let home = homeManager.homes[indexPath.row] as HMHome
+        let home = homeManager.homes[indexPath.row] as! HMHome
         
-        cell.textLabel.text = home.name
+        cell.textLabel!.text = home.name
         return cell
     }
     
@@ -48,7 +48,7 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     //- MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueIdentifier{
-            let controller = segue.destinationViewController as AddHomeViewController
+            let controller = segue.destinationViewController as! AddHomeViewController
             controller.homeManager = homeManager
         }
         super.prepareForSegue(segue, sender: sender)
