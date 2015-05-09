@@ -9,6 +9,21 @@
 import UIKit
 import HomeKit
 
+extension UIAlertController{
+    class func showAlertControllerOnHostController(
+        hostViewController: UIViewController,
+        title:String,
+        message: String,
+        buttonTitle: String){
+            let controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            controller.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.Default, handler: nil))
+            
+            hostViewController.presentViewController(controller, animated: true, completion: nil)
+    }
+}
+
+
 class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     // Segue identifier
     let segueIdentifier = "addHome"
