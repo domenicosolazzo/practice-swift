@@ -108,6 +108,10 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         tableView.reloadData()
     }
     
+    func homeManagerDidUpdatePrimaryHome(manager: HMHomeManager) {
+        tableView.reloadData()
+    }
+    
     //- MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueIdentifier{
