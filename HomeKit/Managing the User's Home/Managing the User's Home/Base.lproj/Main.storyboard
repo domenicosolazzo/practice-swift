@@ -65,7 +65,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Home" id="j2q-Hu-6ls">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="vhF-JC-XzQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="vhF-JC-XzQ">
+                            <connections>
+                                <action selector="addHome" destination="L83-gJ-UUB" id="71j-wj-3FY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

@@ -20,6 +20,24 @@ class AddHomeViewController: UIViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
+    @IBAction func addHome(){
+        if count(textField.text) == 0{
+            displayAlertWithTitle("Home name", message: "Please enter the home name")
+            return
+        }
+        // Add the home to the Home Manager
+        homeManager.addHomeWithName(textField.text, completionHandler: {[weak self]
+            (home:HMHome!, error:NSError!) -> Void in
+            let strongSelf = self!
+            
+            if error != nil{
+                strongSelf.displayAlertWithTitle("Error", message: "\(error)")
+            }else{
+                strongSelf.navigationController?.popViewControllerAnimated(true)
+            }
+        })
+    }
+    
     //- MARK: Helpers
     func displayAlertWithTitle(title:String, message:String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -27,4 +45,6 @@ class AddHomeViewController: UIViewController, UITextFieldDelegate {
         
         presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    
 }
