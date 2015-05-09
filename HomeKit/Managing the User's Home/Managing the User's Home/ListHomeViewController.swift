@@ -39,6 +39,13 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         return manager
     }()
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Adding the edit button
+        self.navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
     //- MARK: TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return homeManager.homes.count
