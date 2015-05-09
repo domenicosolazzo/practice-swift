@@ -19,4 +19,12 @@ class AddHomeViewController: UIViewController, UITextFieldDelegate {
         
         textField.becomeFirstResponder()
     }
+    
+    //- MARK: Helpers
+    func displayAlertWithTitle(title:String, message:String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
 }
