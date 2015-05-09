@@ -36,3 +36,22 @@ let kilojoulesString = energyFormatter.stringFromValue(kilojoulesValue, unit: NS
 
 println("You've burned \(caloriesString)")
 println("You've burned \(kilojoulesString)")
+
+
+/**
+** Converting meters to feet
+**/
+let distanceInMeters:Double = 1_234
+
+let metersUnit = HKQuantity(unit: HKUnit.meterUnit(),
+    doubleValue: distanceInMeters)
+
+let feetValue = metersUnit.doubleValueForUnit(HKUnit.footUnit())
+
+let lengthFormatter = NSLengthFormatter()
+
+let metersString = lengthFormatter.stringFromValue(distanceInMeters, unit: NSLengthFormatterUnit.Meter)
+let feetString = lengthFormatter.stringFromValue(feetValue, unit: NSLengthFormatterUnit.Foot)
+
+println("You've driven \(metersString)")
+println("You've driven \(feetString)")
