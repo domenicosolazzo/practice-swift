@@ -48,7 +48,15 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     
     //- MARK: TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeManager.homes.count
+        // Disable the edit button when there are no rows
+        let numberOfRows =  homeManager.homes.count
+        
+        if numberOfRows == 0 && editing{
+            setEditing(!editing, animated: true)
+        }
+        
+        editButtonItem().enabled = (numberOfRows > 0)
+        return numberOfRows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
