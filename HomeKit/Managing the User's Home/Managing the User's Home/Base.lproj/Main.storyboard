@@ -30,5 +30,40 @@
             </objects>
             <point key="canvasLocation" x="358" y="315"/>
         </scene>
+        <!--Add Home View Controller-->
+        <scene sceneID="R1k-lb-mKj">
+            <objects>
+                <viewController id="L83-gJ-UUB" customClass="AddHomeViewController" customModule="Managing_the_User_s_Home" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJF-tK-FvI"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgz-7w-fDx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QMt-ig-joS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add the home name here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-xl-APA">
+                                <rect key="frame" x="168" y="28" width="265" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="Xu0-P3-JGE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="centerX" secondItem="QMt-ig-joS" secondAttribute="centerX" id="Ekp-XR-Q2i"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="top" secondItem="fJF-tK-FvI" secondAttribute="bottom" constant="8" symbolic="YES" id="hiL-Qy-xhy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="HxB-xl-APA" id="L1I-XW-BUi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyj-J3-TbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="315"/>
+        </scene>
     </scenes>
 </document>
