@@ -2,12 +2,15 @@
 //  AddHomeViewController.swift
 //  Managing the User's Home
 //
-//  Created by Domenico on 09/05/15.
-//  Copyright (c) 2015 Domenico. All rights reserved.
+//  Created by Domenico Solazzo on 09/05/15.
+//  License MIT
 //
 
-import Cocoa
+import UIKit
+import HomeKit
 
 class AddHomeViewController: UIViewController {
-
+    
+    @IBOutlet var textField:UITextField!
+    var homeManager: HMHomeManager!
 }
