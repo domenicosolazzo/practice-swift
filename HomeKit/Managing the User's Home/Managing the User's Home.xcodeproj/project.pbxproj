@@ -14,6 +14,7 @@
 		C0CB705F1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */; };
 		C0CB70691AFE6A2600D4268A /* ListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */; };
 		C0CB706B1AFE6AEE00D4268A /* AddHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB706A1AFE6AEE00D4268A /* AddHomeViewController.swift */; };
+		C0CB706D1AFE7B9900D4268A /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB706C1AFE7B9900D4268A /* HomeKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managing_the_User_s_HomeTests.swift; sourceTree = "<group>"; };
 		C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHomeViewController.swift; sourceTree = "<group>"; };
 		C0CB706A1AFE6AEE00D4268A /* AddHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHomeViewController.swift; sourceTree = "<group>"; };
+		C0CB706C1AFE7B9900D4268A /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		C0CB706E1AFE7B9900D4268A /* Managing the User's Home.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Managing the User's Home.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CB706D1AFE7B9900D4268A /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +65,7 @@
 		C0CB703A1AFE696600D4268A = {
 			isa = PBXGroup;
 			children = (
+				C0CB706C1AFE7B9900D4268A /* HomeKit.framework */,
 				C0CB70451AFE696600D4268A /* Managing the User's Home */,
 				C0CB705B1AFE696600D4268A /* Managing the User's HomeTests */,
 				C0CB70441AFE696600D4268A /* Products */,
@@ -79,6 +84,7 @@
 		C0CB70451AFE696600D4268A /* Managing the User's Home */ = {
 			isa = PBXGroup;
 			children = (
+				C0CB706E1AFE7B9900D4268A /* Managing the User's Home.entitlements */,
 				C0CB70481AFE696600D4268A /* AppDelegate.swift */,
 				C0CB704C1AFE696600D4268A /* Main.storyboard */,
 				C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */,
@@ -164,6 +170,12 @@
 				TargetAttributes = {
 					C0CB70421AFE696600D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8YWZZG9DK7;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
 					};
 					C0CB70571AFE696600D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -346,9 +358,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Managing the User's Home/Managing the User's Home.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Managing the User's Home/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -356,9 +372,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Managing the User's Home/Managing the User's Home.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Managing the User's Home/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

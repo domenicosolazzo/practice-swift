@@ -44,6 +44,8 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         
         // Adding the edit button
         self.navigationItem.leftBarButtonItem = editButtonItem()
+        // Reload the data
+        tableView.reloadData()
     }
     
     //- MARK: TableView
