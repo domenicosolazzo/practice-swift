@@ -9,8 +9,14 @@
 import UIKit
 import HomeKit
 
-class AddHomeViewController: UIViewController {
+class AddHomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var textField:UITextField!
     var homeManager: HMHomeManager!
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        textField.becomeFirstResponder()
+    }
 }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4KV-iy-Tzl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--List Home View Controller-->
+        <!--All Homes-->
         <scene sceneID="344-dc-fpJ">
             <objects>
                 <tableViewController id="h1S-5V-SLe" customClass="ListHomeViewController" customModule="Managing_the_User_s_Home" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,10 +26,17 @@
                             <outlet property="delegate" destination="h1S-5V-SLe" id="Q1O-Xd-h82"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="All Homes" id="5Cd-TM-Z0a">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Jft-Up-OGU">
+                            <connections>
+                                <segue destination="L83-gJ-UUB" kind="show" identifier="addHome" id="gOB-R1-slx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ukz-o2-2om" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="315"/>
+            <point key="canvasLocation" x="1170" y="315"/>
         </scene>
         <!--Add Home View Controller-->
         <scene sceneID="R1k-lb-mKj">
@@ -43,18 +51,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add the home name here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-xl-APA">
-                                <rect key="frame" x="168" y="28" width="265" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="Xu0-P3-JGE"/>
-                                </constraints>
+                                <rect key="frame" x="91" y="80" width="419" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HxB-xl-APA" firstAttribute="centerX" secondItem="QMt-ig-joS" secondAttribute="centerX" id="Ekp-XR-Q2i"/>
-                            <constraint firstItem="HxB-xl-APA" firstAttribute="top" secondItem="fJF-tK-FvI" secondAttribute="bottom" constant="8" symbolic="YES" id="hiL-Qy-xhy"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="leading" secondItem="QMt-ig-joS" secondAttribute="leadingMargin" constant="75" id="IMn-NW-IKP"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="top" secondItem="fJF-tK-FvI" secondAttribute="bottom" constant="16" id="Ost-TN-OvI"/>
+                            <constraint firstItem="HxB-xl-APA" firstAttribute="centerX" secondItem="QMt-ig-joS" secondAttribute="centerX" id="mF9-KN-YUO"/>
                         </constraints>
                     </view>
                     <connections>
@@ -63,7 +69,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyj-J3-TbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="315"/>
+            <point key="canvasLocation" x="1824" y="315"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gVd-MZ-pZg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4KV-iy-Tzl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JTf-OJ-xvT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h1S-5V-SLe" kind="relationship" relationship="rootViewController" id="Pmu-mZ-8St"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vaf-ji-uNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="315"/>
         </scene>
     </scenes>
 </document>
