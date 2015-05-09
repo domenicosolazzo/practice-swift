@@ -13,6 +13,7 @@
 		C0CB70531AFE696600D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB70511AFE696600D4268A /* LaunchScreen.xib */; };
 		C0CB705F1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */; };
 		C0CB70691AFE6A2600D4268A /* ListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */; };
+		C0CB706B1AFE6AEE00D4268A /* AddHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB706A1AFE6AEE00D4268A /* AddHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB705D1AFE696600D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB705E1AFE696600D4268A /* Managing_the_User_s_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managing_the_User_s_HomeTests.swift; sourceTree = "<group>"; };
 		C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHomeViewController.swift; sourceTree = "<group>"; };
+		C0CB706A1AFE6AEE00D4268A /* AddHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				C0CB70481AFE696600D4268A /* AppDelegate.swift */,
 				C0CB704C1AFE696600D4268A /* Main.storyboard */,
 				C0CB70681AFE6A2600D4268A /* ListHomeViewController.swift */,
+				C0CB706A1AFE6AEE00D4268A /* AddHomeViewController.swift */,
 				C0CB704F1AFE696600D4268A /* Images.xcassets */,
 				C0CB70511AFE696600D4268A /* LaunchScreen.xib */,
 				C0CB70461AFE696600D4268A /* Supporting Files */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CB706B1AFE6AEE00D4268A /* AddHomeViewController.swift in Sources */,
 				C0CB70491AFE696600D4268A /* AppDelegate.swift in Sources */,
 				C0CB70691AFE6A2600D4268A /* ListHomeViewController.swift in Sources */,
 			);
