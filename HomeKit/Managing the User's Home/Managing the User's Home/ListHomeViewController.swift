@@ -12,4 +12,8 @@ import HomeKit
 class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     // Segue identifier
     let segueIdentifier = "addHome"
+    
+    struct TableViewValues {
+        static let identifier = "Cell"
+    }
 }
