@@ -16,4 +16,11 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     struct TableViewValues {
         static let identifier = "Cell"
     }
+    
+    // Home manager
+    lazy var homeManager: HMHomeManager = {
+        let manager = HMHomeManager()
+        manager.delegate = self
+        return manager
+    }()
 }
