@@ -44,4 +44,13 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         // As soon the home manager has loaded the list of homes, we will reload the table view
         tableView.reloadData()
     }
+    
+    //- MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == segueIdentifier{
+            let controller = segue.destinationViewController as AddHomeViewController
+            controller.homeManager = homeManager
+        }
+        super.prepareForSegue(segue, sender: sender)
+    }
 }
