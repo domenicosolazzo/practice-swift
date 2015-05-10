@@ -19,6 +19,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <connections>
+                <outlet property="imageViewBackgroundImage" destination="lCG-z2-ytz" id="hMy-dW-0SP"/>
+            </connections>
             <point key="canvasLocation" x="333" y="275"/>
         </collectionViewCell>
     </objects>
