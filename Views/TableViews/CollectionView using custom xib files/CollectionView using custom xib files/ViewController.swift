@@ -55,5 +55,18 @@ class ViewController: UICollectionViewController {
             /* Each section has between 10 to 15 cells */
             return Int(10 + arc4random_uniform(6))
     }
+    
+    override func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+            
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
+                "cell", forIndexPath: indexPath) as! MyCollectionViewCell
+            
+            cell.imageViewBackgroundImage.image = randomImage()
+            cell.imageViewBackgroundImage.contentMode = .ScaleAspectFit
+            
+            return cell
+            
+    }
 }
 
