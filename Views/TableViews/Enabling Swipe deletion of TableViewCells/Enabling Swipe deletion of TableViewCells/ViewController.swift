@@ -41,9 +41,17 @@ class ViewController: UIViewController,
         }
     }
     
+    //- MARK: UITableViewDataSource
     // Number of rows for section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allRows.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        
+        cell.textLabel!.text = "Row \(indexPath.row)"
+        return cell
     }
 }
 
