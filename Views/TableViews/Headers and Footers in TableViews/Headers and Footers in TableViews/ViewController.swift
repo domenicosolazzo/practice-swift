@@ -31,5 +31,17 @@ class ViewController: UIViewController, UITableViewDataSource,
             self.view.addSubview(theTableView)
         }
     }
+    
+    //- MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        
+        cell.textLabel!.text = "Cell \(indexPath.row)"
+        return cell
+    }
 }
 
