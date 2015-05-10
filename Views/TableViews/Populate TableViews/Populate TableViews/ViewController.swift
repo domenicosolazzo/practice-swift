@@ -48,5 +48,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             return 0
         }
     }
+    
+    // Return each cell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        
+        cell.textLabel.text = "Section \(indexPath.section) -> Row \(indexPath.row)"
+        return cell
+    }
 }
 
