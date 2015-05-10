@@ -56,12 +56,12 @@ class ViewController: UIViewController, UITableViewDataSource,
     //- MARK: UITableViewDelegate
     // The view returned from this method will be displayed as the header of the section specified
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return newLabelWithTitle("Section \(section) Header")
+        return newViewForHeaderOrFooterWithText("Section \(section) Header")
     }
     
     // The view returned from this method will be displayed as the footer of the section specified
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return newLabelWithTitle("Section \(section) Footer")
+        return newViewForHeaderOrFooterWithText("Section \(section) Footer")
     }
     
     //- MARK: Helpers
@@ -71,6 +71,27 @@ class ViewController: UIViewController, UITableViewDataSource,
         label.backgroundColor = UIColor.clearColor()
         label.sizeToFit()
         return label
+    }
+    
+    func newViewForHeaderOrFooterWithText(text: String) -> UIView{
+        let headerLabel = newLabelWithTitle(text)
+        
+        /* Move the label 10 points to the right */
+        headerLabel.frame.origin.x += 10
+        /* Go 5 points down in y axis */
+        headerLabel.frame.origin.y = 5
+        
+        /* Give the container view 10 points more in width than our label
+        because the label needs a 10 extra points left-margin */
+        let resultFrame = CGRect(x: 0,
+            y: 0,
+            width: headerLabel.frame.size.width + 10,
+            height: headerLabel.frame.size.height)
+        
+        let headerView = UIView(frame: resultFrame)
+        headerView.addSubview(headerLabel)
+        
+        return headerView
     }
     
 }
