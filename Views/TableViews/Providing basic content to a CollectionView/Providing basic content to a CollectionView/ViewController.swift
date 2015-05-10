@@ -49,5 +49,15 @@ class ViewController: UICollectionViewController {
          /* Generate between 20 to 40 cells for each section */
         return Int(arc4random_uniform(21)) + 20
     }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            "cell",
+            forIndexPath: indexPath) as! UICollectionViewCell
+        
+        cell.backgroundColor = allSectionColors[indexPath.section]
+        
+        return cell
+    }
 }
 
