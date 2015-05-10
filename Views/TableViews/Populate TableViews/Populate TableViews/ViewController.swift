@@ -56,5 +56,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.textLabel.text = "Section \(indexPath.section) -> Row \(indexPath.row)"
         return cell
     }
+    
+    // Prefers status bar hidden
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
 
