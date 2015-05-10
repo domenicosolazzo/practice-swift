@@ -43,5 +43,26 @@ class ViewController: UIViewController, UITableViewDataSource,
         cell.textLabel!.text = "Cell \(indexPath.row)"
         return cell
     }
+    
+    //- MARK: UITableViewDelegate
+    // The view returned from this method will be displayed as the header of the section specified
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+    }
+    
+    // The view returned from this method will be displayed as the footer of the section specified
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        <#code#>
+    }
+    
+    //- MARK: Helpers
+    func newLabelWithTitle(title:String) -> UILabel{
+        var label = UILabel()
+        label.text = title
+        label.backgroundColor = UIColor.clearColor()
+        label.sizeToFit()
+        return label
+    }
+    
 }
 
