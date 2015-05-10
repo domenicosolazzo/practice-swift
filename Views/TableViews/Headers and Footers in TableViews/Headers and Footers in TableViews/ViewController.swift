@@ -53,6 +53,19 @@ class ViewController: UIViewController, UITableViewDataSource,
         return 30
     }
     
+    /**
+    **  You could use the following methods for setting a title to headers and footers
+    func tableView(tableView: UITableView,
+        titleForHeaderInSection section: Int) -> String?{
+            return "Section \(section) Header"
+    }
+    
+    func tableView(tableView: UITableView,
+        titleForFooterInSection section: Int) -> String?{
+            return "Section \(section) Footer"
+    }
+    **/
+    
     //- MARK: UITableViewDelegate
     // The view returned from this method will be displayed as the header of the section specified
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
