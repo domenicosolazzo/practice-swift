@@ -16,4 +16,10 @@ class MyCollectionViewCell: UICollectionViewCell {
         UIImage(named: "2"),
         UIImage(named: "3")
     ]
+    
+    func randomImage() -> UIImage{
+        let randomNumber = arc4random_uniform(UInt32(allImages.count))
+        let randomImage = allImages[Int(randomNumber)]
+        return randomImage
+    }
 }
