@@ -20,9 +20,10 @@ class ViewController: UICollectionViewController {
         super.init(collectionViewLayout: layout)
         
         
-        self.collectionView?.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "Cell")
+        collectionView!.registerClass(UICollectionViewCell.classForCoder(),
+            forCellWithReuseIdentifier: "cell")
         
-        self.collectionView?.backgroundColor = UIColor.whiteColor()
+        collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
     convenience required init(coder aDecoder: NSCoder) {
