@@ -29,5 +29,24 @@ class ViewController: UIViewController, UITableViewDataSource {
             view.addSubview(theTableView)
         }
     }
+    
+    // Number of sections in the table view
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3 // Default is 1
+    }
+    
+    // How many rows for each section
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch(section){
+        case 0:
+            return 3
+        case 1:
+            return 5
+        case 2:
+            return 8
+        default:
+            return 0
+        }
+    }
 }
 
