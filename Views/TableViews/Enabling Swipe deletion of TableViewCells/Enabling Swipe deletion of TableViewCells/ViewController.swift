@@ -9,6 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var tableView: UITableView?
+    
+    var allRows:[String] = [String]()
+    
+    // ViewDidLoad
+    override func viewDidLoad() {
+        // Mock data
+        for index in 1..<10{
+            allRows.append("Row at index \(index)")
+        }
+    }
 }
 
