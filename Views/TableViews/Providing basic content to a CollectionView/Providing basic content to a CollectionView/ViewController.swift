@@ -43,5 +43,11 @@ class ViewController: UICollectionViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return allSectionColors.count
     }
+    
+    // Number of items in each section
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+         /* Generate between 20 to 40 cells for each section */
+        return Int(arc4random_uniform(21)) + 20
+    }
 }
 
