@@ -24,6 +24,11 @@ class ViewController: UIViewController {
         
         // Set the edit button 
         self.navigationItem.setLeftBarButtonItem(editButtonItem(), animated: true)
+        
+        // Create the table view
+        tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Plain)
+        
+        
     }
 }
 
