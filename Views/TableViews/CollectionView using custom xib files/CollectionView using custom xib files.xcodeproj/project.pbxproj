@@ -13,6 +13,8 @@
 		C0CB716B1AFFEA3500D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB716A1AFFEA3500D4268A /* Images.xcassets */; };
 		C0CB716E1AFFEA3500D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB716C1AFFEA3500D4268A /* LaunchScreen.xib */; };
 		C0CB717A1AFFEA3500D4268A /* CollectionView_using_custom_xib_filesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71791AFFEA3500D4268A /* CollectionView_using_custom_xib_filesTests.swift */; };
+		C0CB71841AFFEACA00D4268A /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB71831AFFEACA00D4268A /* MyCollectionViewCell.xib */; };
+		C0CB71861AFFEB1700D4268A /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71851AFFEB1700D4268A /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C0CB71731AFFEA3500D4268A /* CollectionView using custom xib filesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CollectionView using custom xib filesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB71781AFFEA3500D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB71791AFFEA3500D4268A /* CollectionView_using_custom_xib_filesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView_using_custom_xib_filesTests.swift; sourceTree = "<group>"; };
+		C0CB71831AFFEACA00D4268A /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		C0CB71851AFFEB1700D4268A /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C0CB716A1AFFEA3500D4268A /* Images.xcassets */,
 				C0CB716C1AFFEA3500D4268A /* LaunchScreen.xib */,
 				C0CB71611AFFEA3500D4268A /* Supporting Files */,
+				C0CB71831AFFEACA00D4268A /* MyCollectionViewCell.xib */,
+				C0CB71851AFFEB1700D4268A /* MyCollectionViewCell.swift */,
 			);
 			path = "CollectionView using custom xib files";
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			files = (
 				C0CB71691AFFEA3500D4268A /* Main.storyboard in Resources */,
 				C0CB716E1AFFEA3500D4268A /* LaunchScreen.xib in Resources */,
+				C0CB71841AFFEACA00D4268A /* MyCollectionViewCell.xib in Resources */,
 				C0CB716B1AFFEA3500D4268A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +221,7 @@
 			files = (
 				C0CB71661AFFEA3500D4268A /* ViewController.swift in Sources */,
 				C0CB71641AFFEA3500D4268A /* AppDelegate.swift in Sources */,
+				C0CB71861AFFEB1700D4268A /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
