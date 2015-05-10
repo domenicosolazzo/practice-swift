@@ -38,5 +38,10 @@ class ViewController: UICollectionViewController {
 
         self.init(collectionViewLayout: flowLayout)
     }
+    
+    // Number of sections in the collection view
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return allSectionColors.count
+    }
 }
 
