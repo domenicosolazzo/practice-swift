@@ -53,5 +53,29 @@ class ViewController: UIViewController,
         cell.textLabel!.text = "Row \(indexPath.row)"
         return cell
     }
+    
+    //- MARK: UITableViewDelegate
+    // It indicates if it is possible to insert or delete rows
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    // Get notified if a deletion has occurred
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // Check if it is a delete
+        if editingStyle == .Delete{
+            // Remove the object from the source
+            allRows.removeAtIndex(indexPath.row)
+            // Remove the object from the table view using a Left animation
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        }
+    }
+    
+    // Set editing
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        tableView!.setEditing(editing, animated: animated)
+    }
 }
 
