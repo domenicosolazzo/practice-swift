@@ -48,5 +48,25 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //- MARK: Refresh Control
+    func handleRefresh(paramSender: AnyObject){
+        /* Put a bit of delay between when the refresh control is released
+        and when we actually do the refreshing to make the UI look a bit
+        smoother than just doing the update without the animation */
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC))
+        
+        // Dispatch after..
+        dispatch_after(popTime, dispatch_get_main_queue()){
+            /* Add the current date to the list of dates that we have
+            so that when the table view is refreshed, a new item appears
+            on the screen so that the user sees the difference between
+            the before and the after of the refresh */
+            self.allTimes.append(NSDate())
+            self.refreshControl!.endRefreshing()
+            let indexPathOfNewRow = NSIndexPath(forRow: self.allTimes.count - 1, inSection: 0)
+            self.tableView!.insertRowsAtIndexPaths([indexPathOfNewRow], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
 }
 
