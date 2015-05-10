@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel.text = "Section \(indexPath.section) -> Row \(indexPath.row)"
+        cell.textLabel!.text = "Section \(indexPath.section) -> Row \(indexPath.row)"
         return cell
     }
     
