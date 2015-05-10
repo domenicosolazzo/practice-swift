@@ -32,6 +32,10 @@ class ViewController: UIViewController, UITableViewDataSource,
         }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     //- MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
