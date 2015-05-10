@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
     
     var tableView: UITableView?
     var refreshControl: UIRefreshControl?
@@ -35,6 +35,17 @@ class ViewController: UIViewController {
             
             self.view.addSubview(theTableView)
         }
+    }
+    
+    //- MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel!.text = "Cell \(indexPath.row)"
+        return cell
     }
     
 }
