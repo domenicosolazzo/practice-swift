@@ -49,5 +49,11 @@ class ViewController: UICollectionViewController {
             /* Between 3 to 6 sections */
             return Int(3 + arc4random_uniform(4))
     }
+    
+    override func collectionView(collectionView: UICollectionView,
+        numberOfItemsInSection section: Int) -> Int {
+            /* Each section has between 10 to 15 cells */
+            return Int(10 + arc4random_uniform(6))
+    }
 }
 
