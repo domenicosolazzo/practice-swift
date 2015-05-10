@@ -47,12 +47,12 @@ class ViewController: UIViewController, UITableViewDataSource,
     //- MARK: UITableViewDelegate
     // The view returned from this method will be displayed as the header of the section specified
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+        return newLabelWithTitle("Section \(section) Header")
     }
     
     // The view returned from this method will be displayed as the footer of the section specified
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        <#code#>
+        return newLabelWithTitle("Section \(section) Footer")
     }
     
     //- MARK: Helpers
