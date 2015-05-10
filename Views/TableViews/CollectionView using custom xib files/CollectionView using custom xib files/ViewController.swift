@@ -43,5 +43,11 @@ class ViewController: UICollectionViewController {
         
         self.init(collectionViewLayout: flowLayout)
     }
+    
+    override func numberOfSectionsInCollectionView(
+        collectionView: UICollectionView) -> Int {
+            /* Between 3 to 6 sections */
+            return Int(3 + arc4random_uniform(4))
+    }
 }
 
