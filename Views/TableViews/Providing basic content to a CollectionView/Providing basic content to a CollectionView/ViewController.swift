@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UICollectionViewController {
-
+    // Section colors
+    let allSectionColors = [
+        UIColor.redColor(),
+        UIColor.greenColor(),
+        UIColor.blueColor()
+    ]
 }
 
