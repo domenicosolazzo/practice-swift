@@ -44,6 +44,11 @@ class ViewController: UIViewController, UITableViewDataSource,
         return cell
     }
     
+    // Height for each Header
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     //- MARK: UITableViewDelegate
     // The view returned from this method will be displayed as the header of the section specified
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
