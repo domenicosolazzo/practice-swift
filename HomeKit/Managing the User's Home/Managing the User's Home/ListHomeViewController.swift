@@ -108,6 +108,8 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         tableView.reloadData()
     }
     
+    
+    
     func homeManagerDidUpdatePrimaryHome(manager: HMHomeManager) {
         tableView.reloadData()
     }
