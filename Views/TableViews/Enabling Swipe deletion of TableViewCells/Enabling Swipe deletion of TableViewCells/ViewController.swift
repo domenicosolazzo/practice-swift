@@ -40,5 +40,10 @@ class ViewController: UIViewController,
             // Add the table view as subview
         }
     }
+    
+    // Number of rows for section
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allRows.count
+    }
 }
 
