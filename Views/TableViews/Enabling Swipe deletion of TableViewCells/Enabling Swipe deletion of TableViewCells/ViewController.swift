@@ -38,6 +38,7 @@ class ViewController: UIViewController,
             theTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
             
             // Add the table view as subview
+            view.addSubview(theTableView)
         }
     }
     
