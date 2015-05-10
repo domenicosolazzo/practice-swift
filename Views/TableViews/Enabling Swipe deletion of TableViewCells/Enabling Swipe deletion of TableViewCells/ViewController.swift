@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+        UITableViewDelegate, UITableViewDataSource {
     var tableView: UITableView?
     
     var allRows:[String] = [String]()
@@ -28,7 +29,16 @@ class ViewController: UIViewController {
         // Create the table view
         tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Plain)
         
-        
+        if let theTableView = tableView{
+            // Register the TableViewCell
+            theTableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "identifier")
+            
+            theTableView.dataSource = self
+            theTableView.delegate = self
+            theTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+            
+            // Add the table view as subview
+        }
     }
 }
 
