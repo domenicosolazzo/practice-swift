@@ -17,6 +17,8 @@
 		C0CB71EA1B0104BC00D4268A /* Footer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB71E91B0104BC00D4268A /* Footer.xib */; };
 		C0CB71EC1B0106FC00D4268A /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71EB1B0106FC00D4268A /* Header.swift */; };
 		C0CB71EE1B01070600D4268A /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71ED1B01070600D4268A /* Footer.swift */; };
+		C0CB71F01B010AC000D4268A /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71EF1B010AC000D4268A /* MyCollectionViewCell.swift */; };
+		C0CB71F21B010ACD00D4268A /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB71F11B010ACD00D4268A /* MyCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		C0CB71E91B0104BC00D4268A /* Footer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Footer.xib; sourceTree = "<group>"; };
 		C0CB71EB1B0106FC00D4268A /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		C0CB71ED1B01070600D4268A /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
+		C0CB71EF1B010AC000D4268A /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0CB71F11B010ACD00D4268A /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				C0CB71E91B0104BC00D4268A /* Footer.xib */,
 				C0CB71EB1B0106FC00D4268A /* Header.swift */,
 				C0CB71ED1B01070600D4268A /* Footer.swift */,
+				C0CB71EF1B010AC000D4268A /* MyCollectionViewCell.swift */,
+				C0CB71F11B010ACD00D4268A /* MyCollectionViewCell.xib */,
 			);
 			path = "Providing Header and Footer in a CollectionView";
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			files = (
 				C0CB71E81B0104B300D4268A /* Header.xib in Resources */,
 				C0CB71CD1B01046400D4268A /* Main.storyboard in Resources */,
+				C0CB71F21B010ACD00D4268A /* MyCollectionViewCell.xib in Resources */,
 				C0CB71EA1B0104BC00D4268A /* Footer.xib in Resources */,
 				C0CB71D21B01046400D4268A /* LaunchScreen.xib in Resources */,
 				C0CB71CF1B01046400D4268A /* Images.xcassets in Resources */,
@@ -227,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CB71CA1B01046400D4268A /* ViewController.swift in Sources */,
+				C0CB71F01B010AC000D4268A /* MyCollectionViewCell.swift in Sources */,
 				C0CB71EC1B0106FC00D4268A /* Header.swift in Sources */,
 				C0CB71EE1B01070600D4268A /* Footer.swift in Sources */,
 				C0CB71C81B01046400D4268A /* AppDelegate.swift in Sources */,
