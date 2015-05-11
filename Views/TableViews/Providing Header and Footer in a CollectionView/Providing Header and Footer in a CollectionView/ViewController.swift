@@ -81,5 +81,34 @@ class ViewController: UICollectionViewController {
             return cell
             
     }
+    
+    override func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            
+            var identifier = "header"
+            if kind == UICollectionElementKindSectionFooter{
+                identifier = "footer"
+            }
+            
+            let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                withReuseIdentifier: identifier,
+                forIndexPath: indexPath) as! UICollectionReusableView
+            
+            if kind == UICollectionElementKindSectionHeader{
+                if let header = view as? Header{
+                    header.label.text = "Section Header \(indexPath.section+1)"
+                }
+            }
+            else if kind == UICollectionElementKindSectionFooter{
+                if let footer = view as? Footer{
+                    let title = "Section Footer \(indexPath.section+1)"
+                    footer.button.setTitle(title, forState: .Normal)
+                }
+            }
+            
+            return view
+            
+    }
 }
 
