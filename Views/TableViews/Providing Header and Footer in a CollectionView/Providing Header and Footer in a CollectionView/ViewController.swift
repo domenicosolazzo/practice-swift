@@ -54,6 +54,10 @@ class ViewController: UICollectionViewController {
         flowLayout.sectionInset =
             UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         
+        /* Set the reference size for the header and the footer views */
+        flowLayout.headerReferenceSize = CGSize(width: 300, height: 50)
+        flowLayout.footerReferenceSize = CGSize(width: 300, height: 50)
+        
         self.init(collectionViewLayout: flowLayout)
     }
     
