@@ -20,4 +20,6 @@ class MyCollectionViewCell: UICollectionViewCell {
         self.selectedBackgroundView = UIView(frame: bounds)
         self.selectedBackgroundView.backgroundColor = UIColor.blueColor()
     }
+    
+    
 }

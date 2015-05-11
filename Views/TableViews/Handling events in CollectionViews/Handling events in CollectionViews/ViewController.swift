@@ -68,5 +68,20 @@ class ViewController: UICollectionViewController {
             return cell
             
     }
+    
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Fade-in / out of a cell when selected
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+        var animationDuration = 0.5;
+        // Animation 
+        UIView.animateWithDuration(animationDuration, animations: {
+            selectedCell!.alpha = 0;
+            }, completion:{[weak self](succeeded:Bool) in
+                UIView.animateWithDuration(animationDuration, animations: {
+                    selectedCell!.alpha = 1;
+                })
+            })
+    }
 }
 
