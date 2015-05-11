@@ -13,6 +13,7 @@
 		C0CB719D1B00F8D200D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB719C1B00F8D200D4268A /* Images.xcassets */; };
 		C0CB71A01B00F8D200D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB719E1B00F8D200D4268A /* LaunchScreen.xib */; };
 		C0CB71AC1B00F8D200D4268A /* Handling_events_in_CollectionViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71AB1B00F8D200D4268A /* Handling_events_in_CollectionViewsTests.swift */; };
+		C0CB71B61B00F9B100D4268A /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB71B51B00F9B100D4268A /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB71A51B00F8D200D4268A /* Handling events in CollectionViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Handling events in CollectionViewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB71AA1B00F8D200D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB71AB1B00F8D200D4268A /* Handling_events_in_CollectionViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handling_events_in_CollectionViewsTests.swift; sourceTree = "<group>"; };
+		C0CB71B51B00F9B100D4268A /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0CB719C1B00F8D200D4268A /* Images.xcassets */,
 				C0CB719E1B00F8D200D4268A /* LaunchScreen.xib */,
 				C0CB71931B00F8D200D4268A /* Supporting Files */,
+				C0CB71B51B00F9B100D4268A /* MyCollectionViewCell.swift */,
 			);
 			path = "Handling events in CollectionViews";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				C0CB71981B00F8D200D4268A /* ViewController.swift in Sources */,
 				C0CB71961B00F8D200D4268A /* AppDelegate.swift in Sources */,
+				C0CB71B61B00F9B100D4268A /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
