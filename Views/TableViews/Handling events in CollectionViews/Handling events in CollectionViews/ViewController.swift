@@ -73,7 +73,7 @@ class ViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // Fade-in / out of a cell when selected
         let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
-        var animationDuration = 0.5;
+        var animationDuration = 1.5;
         // Animation 
         UIView.animateWithDuration(animationDuration, animations: {
             selectedCell!.alpha = 0;
@@ -82,6 +82,22 @@ class ViewController: UICollectionViewController {
                     selectedCell!.alpha = 1;
                 })
             })
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+        
+        UIView.animateWithDuration(1, animations: {
+            selectedCell?.transform = CGAffineTransformMakeScale(2, 2)
+        })
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+        
+        UIView.animateWithDuration(1, animations: {
+            selectedCell?.transform = CGAffineTransformIdentity
+        })
     }
 }
 
