@@ -10,7 +10,17 @@ import UIKit
 
 class ViewController: UICollectionViewController {
     
+    let allImages = [
+        UIImage(named: "1"),
+        UIImage(named: "2"),
+        UIImage(named: "3")
+    ]
     
+    func randomImage() -> UIImage{
+        let randomNumber = arc4random_uniform(UInt32(allImages.count))
+        let randomImage = allImages[Int(randomNumber)]
+        return randomImage!
+    }
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         
