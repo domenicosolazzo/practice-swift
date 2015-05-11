@@ -21,6 +21,23 @@ class ViewController: UICollectionViewController {
         return randomImage!
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let pinch = UIPinchGestureRecognizer(target: self,
+            action: "handlePinches:")
+        
+        for recognizer in collectionView!.gestureRecognizers as!
+            [UIGestureRecognizer]{
+                if recognizer is UIPinchGestureRecognizer{
+                    recognizer.requireGestureRecognizerToFail(pinch)
+                }
+        }
+        
+        collectionView!.addGestureRecognizer(pinch)
+        
+    }
+    
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         
@@ -67,6 +84,21 @@ class ViewController: UICollectionViewController {
             
             return cell
             
+    }
+    
+    func handlePinches(pinch: UIPinchGestureRecognizer){
+        
+        let defaultLayoutItemSize = CGSize(width: 80, height: 120)
+        
+        let layout = collectionView!.collectionViewLayout
+            as! UICollectionViewFlowLayout
+        
+        layout.itemSize =
+            CGSize(width: defaultLayoutItemSize.width * pinch.scale,
+                height: defaultLayoutItemSize.height * pinch.scale)
+        
+        layout.invalidateLayout()
+        
     }
 
 }
