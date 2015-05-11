@@ -13,6 +13,8 @@
 		C0CB72091B0110F300D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB72081B0110F300D4268A /* Images.xcassets */; };
 		C0CB720C1B0110F300D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB720A1B0110F300D4268A /* LaunchScreen.xib */; };
 		C0CB72181B0110F300D4268A /* Interaction_with_CollectionViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB72171B0110F300D4268A /* Interaction_with_CollectionViewsTests.swift */; };
+		C0CB72221B01127E00D4268A /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB72211B01127E00D4268A /* MyCollectionViewCell.xib */; };
+		C0CB72241B01129600D4268A /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB72231B01129600D4268A /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C0CB72111B0110F300D4268A /* Interaction with CollectionViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interaction with CollectionViewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB72161B0110F300D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB72171B0110F300D4268A /* Interaction_with_CollectionViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interaction_with_CollectionViewsTests.swift; sourceTree = "<group>"; };
+		C0CB72211B01127E00D4268A /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		C0CB72231B01129600D4268A /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C0CB72081B0110F300D4268A /* Images.xcassets */,
 				C0CB720A1B0110F300D4268A /* LaunchScreen.xib */,
 				C0CB71FF1B0110F300D4268A /* Supporting Files */,
+				C0CB72211B01127E00D4268A /* MyCollectionViewCell.xib */,
+				C0CB72231B01129600D4268A /* MyCollectionViewCell.swift */,
 			);
 			path = "Interaction with CollectionViews";
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			files = (
 				C0CB72071B0110F300D4268A /* Main.storyboard in Resources */,
 				C0CB720C1B0110F300D4268A /* LaunchScreen.xib in Resources */,
+				C0CB72221B01127E00D4268A /* MyCollectionViewCell.xib in Resources */,
 				C0CB72091B0110F300D4268A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +221,7 @@
 			files = (
 				C0CB72041B0110F300D4268A /* ViewController.swift in Sources */,
 				C0CB72021B0110F300D4268A /* AppDelegate.swift in Sources */,
+				C0CB72241B01129600D4268A /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
