@@ -16,6 +16,17 @@ class ViewController: UIViewController {
             NSSearchPathDirectory.DocumentDirectory,
             NSSearchPathDomainMask.UserDomainMask,
             true)
+        
+        // Did we find anything?
+        if folders.count == 0{
+            return nil
+        }
+        
+        // Get the first folder
+        let folder = folders[0]
+        
+        /* Append the filename to the end of the documents path */
+        return folder.stringByAppendingPathComponent("list.txt")
     }
 }
 
