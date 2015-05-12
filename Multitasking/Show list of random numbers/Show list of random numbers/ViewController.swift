@@ -18,20 +18,21 @@ class ViewController: UIViewController {
         /* If we have not already saved an array of 10,000
         random numbers to the disk before, generate these numbers now
         and then save them to the disk in an array */
-        dispatch_async(concurrentQueue, {
+        dispatch_async(concurrentQueue, {[weak self] in
         
+            /* Read the numbers from disk and sort them in an
+            ascending fashion */
+            dispatch_sync(concurrentQueue, {
+                
+            })
+            
+            /* Show the numbers in the main queue */
+            dispatch_async(dispatch_get_main_queue(), {
+                
+            })
         })
         
-        /* Read the numbers from disk and sort them in an
-        ascending fashion */
-        dispatch_sync(concurrentQueue, {
         
-        })
-        
-        /* Show the numbers in the main queue */
-        dispatch_async(dispatch_get_main_queue(), {
-        
-        })
     }
     
     //- MARK: Helpers
