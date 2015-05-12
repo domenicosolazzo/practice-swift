@@ -19,7 +19,9 @@ class ViewController: UIViewController {
         random numbers to the disk before, generate these numbers now
         and then save them to the disk in an array */
         dispatch_async(concurrentQueue, {[weak self] in
-        
+            
+            let numberOfValuesRequired = 10000
+            
             /* Read the numbers from disk and sort them in an
             ascending fashion */
             dispatch_sync(concurrentQueue, {
