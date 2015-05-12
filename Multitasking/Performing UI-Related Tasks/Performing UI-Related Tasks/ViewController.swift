@@ -13,6 +13,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         dispatch_async(dispatch_get_main_queue(), {[weak self] in
+            println("Current thread: \(NSThread.currentThread())")
+            println("Main thread: \(NSThread.mainThread())")
+            
             let alertController = UIAlertController(
                 title: "GCD",
                 message: "GCD is amazing",
