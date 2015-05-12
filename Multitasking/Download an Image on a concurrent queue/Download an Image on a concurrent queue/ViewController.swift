@@ -55,6 +55,13 @@ class ViewController: UIViewController {
             dispatch_sync(dispatch_get_main_queue(), {
                 // Show the image in the UI
                 println("Current queue: \(NSThread.currentThread())")
+                if let theImage = image{
+                    // Create the image view
+                    var imageView = UIImageView(frame: self!.view.bounds)
+                    imageView.contentMode = UIViewContentMode.ScaleAspectFit
+                    imageView.image = theImage
+                    self!.view.addSubview(imageView)
+                }
             })
         
         })
