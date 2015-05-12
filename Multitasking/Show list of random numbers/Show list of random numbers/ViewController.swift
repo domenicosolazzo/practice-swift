@@ -28,5 +28,13 @@ class ViewController: UIViewController {
         /* Append the filename to the end of the documents path */
         return folder.stringByAppendingPathComponent("list.txt")
     }
+    
+    func hasFileAlreadyBeenCreated() -> Bool{
+        let fileManager = NSFileManager()
+        if let theLocation = findLocation(){
+            return fileManager.fileExistsAtPath(theLocation)
+        }
+        return false
+    }
 }
 
