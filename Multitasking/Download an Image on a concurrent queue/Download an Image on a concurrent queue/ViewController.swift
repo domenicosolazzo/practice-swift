@@ -20,10 +20,36 @@ class ViewController: UIViewController {
         // Sending a block object to the queue
         dispatch_async(queue, {
             
+            var image: UIImage?
+            
             dispatch_sync(queue, {
                 println("Downloading the image...")
                 println("Current queue: \(NSThread.currentThread())")
                 // Download the picture here
+                
+                let urlAsString = "https://www.apple.com/iphone-5s/features/images/wireless_hero.jpg"
+                
+                // Creating a NSURL
+                let url = NSURL(string: urlAsString)
+                // Creating the NSURLRequest
+                let request = NSURLRequest(URL: url!)
+                // Download error
+                var downloadError: NSError?
+                
+                // Image data
+                let imageData = NSURLConnection.sendSynchronousRequest(request,
+                    returningResponse: nil, error: &downloadError)
+                
+                if let error = downloadError{
+                    println("Error happened: \(error)")
+                }else{
+                    if imageData?.length > 0{
+                        image = UIImage(data: imageData!)
+                    }else{
+                        println("No data could get downloaded from the URL")
+                    }
+                }
+                
             })
             
             dispatch_sync(dispatch_get_main_queue(), {
