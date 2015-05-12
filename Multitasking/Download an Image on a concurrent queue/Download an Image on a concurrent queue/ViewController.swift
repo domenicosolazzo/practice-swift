@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
+        // Printing the current thread and main queue
+        println("Current queue: \(NSThread.currentThread())")
+        println("Main queue: \(NSThread.mainThread())")
         
         // Get the concurrent queue
         println("Fetching the queue: DISPATCH_QUEUE_PRIORITY_DEFAULT")
@@ -18,11 +21,14 @@ class ViewController: UIViewController {
         dispatch_async(queue, {
             
             dispatch_sync(queue, {
+                println("Downloading the image...")
+                println("Current queue: \(NSThread.currentThread())")
                 // Download the picture here
             })
             
             dispatch_sync(dispatch_get_main_queue(), {
                 // Show the image in the UI
+                println("Current queue: \(NSThread.currentThread())")
             })
         
         })
