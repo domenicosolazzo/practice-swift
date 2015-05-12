@@ -50,8 +50,8 @@ class ViewController: UIViewController {
                     // Sort the array
                     randomNumbers!.sortUsingComparator({
                         (obj1: AnyObject!, obj2: AnyObject!) -> NSComparisonResult in
-                        let number1 = obj1 as NSNumber
-                        let number2 = obj2 as NSNumber
+                        let number1 = obj1 as! NSNumber
+                        let number2 = obj2 as! NSNumber
                         return number1.compare(number2)
                     })
                 }
