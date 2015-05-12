@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         println("Fetching the queue: DISPATCH_QUEUE_PRIORITY_DEFAULT")
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         // Sending a block object to the queue
-        dispatch_async(queue, {
+        dispatch_async(queue, {[weak self] in
             
             var image: UIImage?
             
