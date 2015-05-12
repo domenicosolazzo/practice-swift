@@ -59,7 +59,15 @@ class ViewController: UIViewController {
             
             /* Show the numbers in the main queue */
             dispatch_async(dispatch_get_main_queue(), {
-                
+                if let numbers = randomNumbers{
+                    if numbers.count > 0{
+                        /* Refresh the UI here using the numbers in the
+                        randomNumbers array */
+                        println("The sorted array was read back from disk = \(numbers)")
+                    } else {
+                        println("The numbers array is emtpy")
+                    }
+                }
             })
         })
         
