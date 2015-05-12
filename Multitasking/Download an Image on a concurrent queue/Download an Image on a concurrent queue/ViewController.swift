@@ -27,7 +27,7 @@ class ViewController: UIViewController {
                 println("Current queue: \(NSThread.currentThread())")
                 // Download the picture here
                 
-                let urlAsString = "https://www.apple.com/iphone-5s/features/images/wireless_hero.jpg"
+                let urlAsString = "http://upload.wikimedia.org/wikipedia/commons/7/7e/Saturn_with_auroras.jpg"
                 
                 // Creating a NSURL
                 let url = NSURL(string: urlAsString)
