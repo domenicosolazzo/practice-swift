@@ -43,7 +43,18 @@ class ViewController: UIViewController {
             /* Read the numbers from disk and sort them in an
             ascending fashion */
             dispatch_sync(concurrentQueue, {
-                
+                /* If the file has been created, we have to read it */
+                if self!.hasFileAlreadyBeenCreated() {
+                    let randomNumbers = NSMutableArray(contentsOfFile: self!.findLocation()!)
+                    
+                    // Sort the array
+                    randomNumbers!.sortUsingComparator({
+                        (obj1: AnyObject!, obj2: AnyObject!) -> NSComparisonResult in
+                        let number1 = obj1 as NSNumber
+                        let number2 = obj2 as NSNumber
+                        return number1.compare(number2)
+                    })
+                }
             })
             
             /* Show the numbers in the main queue */
