@@ -23,8 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        // Dispatching the request
         dispatch_once(&token, executedOnlyOnce)
         dispatch_once(&token, executedOnlyOnce) // It will not be executed
     }
