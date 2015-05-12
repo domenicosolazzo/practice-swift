@@ -22,6 +22,24 @@ class ViewController: UIViewController {
             
             let numberOfValuesRequired = 10000
             
+            // Check if the file has been already created
+            if self!.hasFileAlreadyBeenCreated() == false{
+                // Creating the file 
+                dispatch_sync(concurrentQueue, {
+                    var arrayOfRandomNumbers = [Int]()
+                    
+                    for _ in 0..<numberOfValuesRequired{
+                        // Random number
+                        let num = Int(arc4random())
+                        arrayOfRandomNumbers.append(num)
+                    }
+                    
+                    // Write the file to disk
+                    let array = arrayOfRandomNumbers as NSArray
+                    array.writeToFile(self!.findLocation()!, atomically: true)
+                })
+            }
+            
             /* Read the numbers from disk and sort them in an
             ascending fashion */
             dispatch_sync(concurrentQueue, {
