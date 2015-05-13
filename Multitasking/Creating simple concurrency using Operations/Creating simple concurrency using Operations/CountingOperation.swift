@@ -27,8 +27,7 @@ class CountingOperation: NSOperation {
         var isTaskFinished = false
         
         if isTaskFinished == false &&
-            self.finished{
-                
+            self.finished == false{
                 for i in startingCount..<endingCount{
                     println("Printing the number \(i)")
                     println("Current Thread: \(NSThread.currentThread())")

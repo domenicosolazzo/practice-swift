@@ -10,5 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Convenience constructor
+        let countingOperation = CountingOperation()
+        // Create the NSOperationQueue
+        let queue = NSOperationQueue()
+        // Add the operation to the queue
+        queue.addOperation(countingOperation)
+    }
 }
 
