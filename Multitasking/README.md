@@ -6,3 +6,4 @@
 - [Create, sort and show a list of random numbers](#): How to create, sort and show a list of random numbers in a concurrent queue
 - [Performing a task after a delay](#): Performing a task after a delay
 - [Performing a task only once](#): Performing a task only once
+- [Grouping tasks together](#): Grouping tasks together
