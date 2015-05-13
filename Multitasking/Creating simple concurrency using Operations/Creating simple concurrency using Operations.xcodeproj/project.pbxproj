@@ -13,6 +13,7 @@
 		C0CB734F1B03BAFD00D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB734E1B03BAFD00D4268A /* Images.xcassets */; };
 		C0CB73521B03BAFD00D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB73501B03BAFD00D4268A /* LaunchScreen.xib */; };
 		C0CB735E1B03BAFD00D4268A /* Creating_simple_concurrency_using_OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB735D1B03BAFD00D4268A /* Creating_simple_concurrency_using_OperationsTests.swift */; };
+		C0CB73681B03BF5B00D4268A /* CountingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB73671B03BF5B00D4268A /* CountingOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB73571B03BAFD00D4268A /* Creating simple concurrency using OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Creating simple concurrency using OperationsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB735C1B03BAFD00D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB735D1B03BAFD00D4268A /* Creating_simple_concurrency_using_OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creating_simple_concurrency_using_OperationsTests.swift; sourceTree = "<group>"; };
+		C0CB73671B03BF5B00D4268A /* CountingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0CB734E1B03BAFD00D4268A /* Images.xcassets */,
 				C0CB73501B03BAFD00D4268A /* LaunchScreen.xib */,
 				C0CB73451B03BAFD00D4268A /* Supporting Files */,
+				C0CB73671B03BF5B00D4268A /* CountingOperation.swift */,
 			);
 			path = "Creating simple concurrency using Operations";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				C0CB734A1B03BAFD00D4268A /* ViewController.swift in Sources */,
 				C0CB73481B03BAFD00D4268A /* AppDelegate.swift in Sources */,
+				C0CB73681B03BF5B00D4268A /* CountingOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
