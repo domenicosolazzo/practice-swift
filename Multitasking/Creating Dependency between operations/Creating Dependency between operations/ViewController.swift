@@ -16,7 +16,29 @@ class ViewController: UIViewController {
         var firstNumber = 111
         var secondNumber = 222
         
+        // Create the first NSBlockOperation
+        let firstOperation = NSBlockOperation {[weak self] () -> Void in
+            if let strongSelf = self{
+                strongSelf.firstOperationEntry(firstNumber)
+            }
+        }
         
+        let secondOperation = NSBlockOperation {[weak self] () -> Void in
+            if let strongSelf = self{
+                strongSelf.secondOperationEntry(secondNumber)
+            }
+        }
+        
+        // Creating a dependency between the two operations
+        // secondOperation will finish before firstOperation
+        firstOperation.addDependency(secondOperation)
+        
+        // Create a queeu
+        let queue = NSOperationQueue()
+        queue.addOperation(firstOperation)
+        queue.addOperation(secondOperation)
+        
+        println("Main thread is here")
     }
     
     //- MARK: Helpers
