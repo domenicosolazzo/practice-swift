@@ -67,6 +67,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AVAudioPlayerDelegate {
         return true
     }
     
+    func handleInterruption(notification: NSNotification){
+        /* Audio Session is interrupted. The player will be paused here */
+        
+        let interruptionTypeAsObject =
+        notification.userInfo![AVAudioSessionInterruptionTypeKey] as! NSNumber
+        
+        let interruptionType = AVAudioSessionInterruptionType(rawValue:
+            interruptionTypeAsObject.unsignedLongValue)
+        
+        if let type = interruptionType{
+            if type == .Ended{
+                
+                /* resume the audio if needed */
+                
+            }
+        }
+        
+    }
+    
+    
+    
 
 }
 
