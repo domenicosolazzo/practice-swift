@@ -52,5 +52,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
+    func applicationDidEnterBackground(application: UIApplication) {
+        if isMultitaskingSupported() == false{
+            return
+        }
+        
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target: self,
+            selector: "timerMethod:",
+            userInfo: nil,
+            repeats: true
+        )
+        
+        backgroundTaskIdentifier = application.beginBackgroundTaskWithName(
+            "task1",
+            expirationHandler: {[weak self] in
+                self!.endBackgroundTask()
+            }
+        )
+    }
+    
 }
 
