@@ -25,5 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIDevice.currentDevice().multitaskingSupported
     }
     
+    func timerMethod(sender: NSTimer){
+        // The amount of time that the app can run in background
+        let backgroundTimeRemaining = UIApplication.sharedApplication().backgroundTimeRemaining
+        
+        if backgroundTimeRemaining == DBL_MAX{
+            println("Background Time Remaining = Undetermined")
+        } else {
+            println("Background Time Remaining = " +
+                "\(backgroundTimeRemaining) Seconds")
+        }
+    }
+    
 }
 
