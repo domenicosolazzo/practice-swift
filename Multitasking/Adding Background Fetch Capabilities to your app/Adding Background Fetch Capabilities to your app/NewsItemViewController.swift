@@ -55,4 +55,16 @@ class NewsItemViewController: UITableViewController {
             mustReloadView = true
         }
     }
+    
+    //- MARK: TableView
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newsItems.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel!.text = newsItems[indexPath.row].text
+        cell.detailTextLabel!.text = "\(newsItems[indexPath.row].date)"
+        return cell
+    }
 }
