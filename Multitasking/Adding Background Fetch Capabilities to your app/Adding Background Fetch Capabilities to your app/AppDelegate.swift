@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    // Name of the notification when a news item is available
+    func newsItemsChangedNotification() -> String{
+        return "\(__FUNCTION__)"
+    }
+    
     /* Mock function: Returns true if it could get some news items from the server */
     func fetchItems() -> Bool{
         if(arc4random_uniform(2) != 1){
@@ -36,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /* Send a notification to observers telling them that a news item
         is now available */
-        let notificationName = ""
+        let notificationName = self.newsItemsChangedNotification()
         NSNotificationCenter.defaultCenter().postNotificationName(notificationName, object: nil)
         return true
         
