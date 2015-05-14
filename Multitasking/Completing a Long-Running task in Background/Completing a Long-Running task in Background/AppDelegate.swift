@@ -20,5 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Timer
     var myTimer: NSTimer?
     
+    // Check if multitasking is supported
+    func isMultitaskingSupported() -> Bool{
+        return UIDevice.currentDevice().multitaskingSupported
+    }
+    
 }
 
