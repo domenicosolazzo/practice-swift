@@ -11,3 +11,4 @@
 - [Downloading urls using NSBlockOperation](#): How to use operations with NSBlockOperation for downloading a list of urls
 - [Creating Dependency between NSBlockOperation](#): Creating Dependency between operations
 - [Completing a long-running task in background](#): Completing a long-running task in background
+- [Adding background fetch capabilities in the app](#): Adding background fetch capabilities 
