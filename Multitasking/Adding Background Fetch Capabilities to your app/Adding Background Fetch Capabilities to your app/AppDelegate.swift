@@ -21,6 +21,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set the background interval for fetching new content
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+    }
+    
+    /* Mock function: Returns true if it could get some news items from the server */
+    func fetchItems() -> Bool{
+        if(arc4random_uniform(2) != 1){
+            return false
+        }
+        
+        // Generate new item
+        let item = NewsItem(date: NSDate(), text: "News Item \(newsItems.count + 1)")
+        newsItems.append(item)
+        
+        /* Send a notification to observers telling them that a news item
+        is now available */
+        let notificationName = ""
+        NSNotificationCenter.defaultCenter().postNotificationName(notificationName, object: nil)
+        return true
+        
     }
 }
 
