@@ -16,5 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var locationManager: CLLocationManager! = nil
     var isExecutingInBackground = false
 
+    func application(application: UIApplication,
+        didFinishLaunchingWithOptions
+        launchOptions: [NSObject : AnyObject]?) -> Bool {
+            locationManager = CLLocationManager()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            return true
+    }
 }
 
