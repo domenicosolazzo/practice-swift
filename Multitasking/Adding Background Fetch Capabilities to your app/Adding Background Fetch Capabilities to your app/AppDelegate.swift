@@ -12,5 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    // News items
+    var newsItems = [NewsItem]()
 }
 
