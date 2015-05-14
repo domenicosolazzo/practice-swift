@@ -72,5 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
     }
     
+    func applicationWillEnterForeground(application: UIApplication) {
+        if backgroundTaskIdentifier != UIBackgroundTaskInvalid{
+            self.endBackgroundTask()
+        }
+    }
+    
 }
 
