@@ -13,6 +13,7 @@
 		C0CB74371B049AD400D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB74361B049AD400D4268A /* Images.xcassets */; };
 		C0CB743A1B049AD400D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB74381B049AD400D4268A /* LaunchScreen.xib */; };
 		C0CB74461B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB74451B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift */; };
+		C0FF790D1B050CEF00BEB1C7 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0CB743F1B049AD500D4268A /* Adding Background Fetch Capabilities to your appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adding Background Fetch Capabilities to your appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB74441B049AD500D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB74451B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adding_Background_Fetch_Capabilities_to_your_appTests.swift; sourceTree = "<group>"; };
+		C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0CB74361B049AD400D4268A /* Images.xcassets */,
 				C0CB74381B049AD400D4268A /* LaunchScreen.xib */,
 				C0CB742D1B049AD400D4268A /* Supporting Files */,
+				C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */,
 			);
 			path = "Adding Background Fetch Capabilities to your app";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CB74321B049AD400D4268A /* ViewController.swift in Sources */,
+				C0FF790D1B050CEF00BEB1C7 /* NewsItem.swift in Sources */,
 				C0CB74301B049AD400D4268A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +420,7 @@
 				C0CB744B1B049AD500D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB744C1B049AD500D4268A /* Build configuration list for PBXNativeTarget "Adding Background Fetch Capabilities to your appTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				C0CB744E1B049AD500D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
