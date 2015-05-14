@@ -25,5 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             locationManager.startUpdatingLocation()
             return true
     }
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        isExecutingInBackground = true
+        
+        /* Reduce the accuracy to ease the strain on
+        iOS while we are in the background */
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    }
+    
+    func applicationWillEnterForeground(application: UIApplication) {
+        isExecutingInBackground = false
+        
+        /* Now that our app is in the foreground again, let's increase the location
+        detection accuracy */
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
 }
 
