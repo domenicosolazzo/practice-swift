@@ -17,5 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier =
     UIBackgroundTaskInvalid
     
+    // Timer
+    var myTimer: NSTimer?
+    
 }
 
