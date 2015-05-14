@@ -20,6 +20,10 @@ class NewsItemViewController: UITableViewController {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
