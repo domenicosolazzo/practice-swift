@@ -13,6 +13,7 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var audioPlayer: AVPlayer?
 
 }
 
