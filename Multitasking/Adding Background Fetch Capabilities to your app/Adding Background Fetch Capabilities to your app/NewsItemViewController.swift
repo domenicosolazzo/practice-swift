@@ -46,6 +46,7 @@ class NewsItemViewController: UITableViewController {
     do it here */
     func handleAppIsBroughtToForeground(notification: NSNotification){
         if mustReloadView{
+            println("\(__FUNCTION__): Need to reload the table view")
             tableView.reloadData()
         }
     }
@@ -54,8 +55,10 @@ class NewsItemViewController: UITableViewController {
     Reload the table view */
     func handleNewsItemsChanged(notification: NSNotification) {
         if self.isBeingPresented(){
+            println("\(__FUNCTION__): Need to reload the table view")
             tableView.reloadData()
         } else {
+            println("\(__FUNCTION__): Need to reload the table view when it will come back in foreground")
             mustReloadView = true
         }
     }

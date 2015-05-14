@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Call the completion handler when you are done.
     **/
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        println("\(__FUNCTION__): Trying to fetch new items...")
         if (self.fetchItems()){
+        
             completionHandler(UIBackgroundFetchResult.NewData)
         }else{
             // If there is not data, you need to call it with .NoData parameter.
@@ -45,10 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /* Mock function: Returns true if it could get some news items from the server */
     func fetchItems() -> Bool{
-        if(arc4random_uniform(2) != 1){
+        println("\(__FUNCTION__): Looking for new items...")
+        var coin = arc4random_uniform(2) // 0 or 1
+        if(coin != 1){
+            println("\(__FUNCTION__): No data")
             return false
         }
         
+        println("\(__FUNCTION__): New data is available...")
         // Generate new item
         let item = NewsItem(date: NSDate(), text: "News Item \(newsItems.count + 1)")
         newsItems.append(item)
