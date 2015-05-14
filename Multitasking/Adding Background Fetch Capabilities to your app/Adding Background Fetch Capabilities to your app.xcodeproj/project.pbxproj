@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C0CB74301B049AD400D4268A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB742F1B049AD400D4268A /* AppDelegate.swift */; };
-		C0CB74321B049AD400D4268A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB74311B049AD400D4268A /* ViewController.swift */; };
 		C0CB74351B049AD400D4268A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CB74331B049AD400D4268A /* Main.storyboard */; };
 		C0CB74371B049AD400D4268A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CB74361B049AD400D4268A /* Images.xcassets */; };
 		C0CB743A1B049AD400D4268A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CB74381B049AD400D4268A /* LaunchScreen.xib */; };
 		C0CB74461B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB74451B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift */; };
 		C0FF790D1B050CEF00BEB1C7 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */; };
+		C0FF790F1B05170B00BEB1C7 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF790E1B05170B00BEB1C7 /* NewsItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,6 @@
 		C0CB742A1B049AD400D4268A /* Adding Background Fetch Capabilities to your app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adding Background Fetch Capabilities to your app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CB742E1B049AD400D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB742F1B049AD400D4268A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0CB74311B049AD400D4268A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0CB74341B049AD400D4268A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0CB74361B049AD400D4268A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C0CB74391B049AD400D4268A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		C0CB74441B049AD500D4268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CB74451B049AD500D4268A /* Adding_Background_Fetch_Capabilities_to_your_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adding_Background_Fetch_Capabilities_to_your_appTests.swift; sourceTree = "<group>"; };
 		C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		C0FF790E1B05170B00BEB1C7 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				C0CB742F1B049AD400D4268A /* AppDelegate.swift */,
-				C0CB74311B049AD400D4268A /* ViewController.swift */,
 				C0CB74331B049AD400D4268A /* Main.storyboard */,
 				C0CB74361B049AD400D4268A /* Images.xcassets */,
 				C0CB74381B049AD400D4268A /* LaunchScreen.xib */,
 				C0CB742D1B049AD400D4268A /* Supporting Files */,
 				C0FF790C1B050CEF00BEB1C7 /* NewsItem.swift */,
+				C0FF790E1B05170B00BEB1C7 /* NewsItemViewController.swift */,
 			);
 			path = "Adding Background Fetch Capabilities to your app";
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CB74321B049AD400D4268A /* ViewController.swift in Sources */,
+				C0FF790F1B05170B00BEB1C7 /* NewsItemViewController.swift in Sources */,
 				C0FF790D1B050CEF00BEB1C7 /* NewsItem.swift in Sources */,
 				C0CB74301B049AD400D4268A /* AppDelegate.swift in Sources */,
 			);
