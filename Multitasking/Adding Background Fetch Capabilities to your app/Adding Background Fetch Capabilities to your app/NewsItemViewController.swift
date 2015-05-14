@@ -36,4 +36,13 @@ class NewsItemViewController: UITableViewController {
             name: UIApplicationWillEnterForegroundNotification,
             object: nil)
     }
+    
+    //- MARK: Helpers
+    /* If there is need to reload after we come back to the foreground,
+    do it here */
+    func handleAppIsBroughtToForeground(notification: NSNotification){
+        if mustReloadView{
+            tableView.reloadData()
+        }
+    }
 }
