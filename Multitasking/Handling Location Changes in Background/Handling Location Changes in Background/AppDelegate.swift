@@ -26,6 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             return true
     }
     
+    func locationManager(manager: CLLocationManager!,
+        didUpdateToLocation newLocation: CLLocation!,
+        fromLocation oldLocation: CLLocation!){
+            if isExecutingInBackground{
+                /* We are in the background. Do not do any heavy processing */
+                println("The app is in background")
+            } else {
+                /* We are in the foreground. Do any processing that you wish */
+                println("The app is in foreground")
+            }
+    }
+    
     func applicationDidEnterBackground(application: UIApplication) {
         isExecutingInBackground = true
         
