@@ -13,6 +13,8 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    var locationManager: CLLocationManager! = nil
+    var isExecutingInBackground = false
 
 }
 
