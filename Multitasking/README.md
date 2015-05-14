@@ -12,3 +12,6 @@
 - [Creating Dependency between NSBlockOperation](#): Creating Dependency between operations
 - [Completing a long-running task in background](#): Completing a long-running task in background
 - [Adding background fetch capabilities in the app](#): Adding background fetch capabilities 
+- [Playing an audio file in background](#): Playing an audio file in background
+- [Handling location changes in background](#): Handling location changes in background
+- [Handling network connections in background](#): Handling network connections in background
