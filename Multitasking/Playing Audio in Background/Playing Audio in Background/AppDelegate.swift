@@ -86,7 +86,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AVAudioPlayerDelegate {
         
     }
     
-    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!,
+        successfully flag: Bool){
+            
+            println("Finished playing the song")
+            
+            /* The flag parameter tells us if the playback was successfully
+            finished or not */
+            if player == audioPlayer{
+                audioPlayer = nil
+            }
+            
+    }
     
 
 }
