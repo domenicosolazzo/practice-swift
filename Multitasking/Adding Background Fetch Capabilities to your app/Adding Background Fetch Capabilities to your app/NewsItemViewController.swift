@@ -12,8 +12,28 @@ class NewsItemViewController: UITableViewController {
     var mustReloadView = false
     
     /* News items are coming from the app delegate */
-    let newsItems: [NewsItem]{
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var newsItems: [NewsItem]{
         return appDelegate.newsItems
+    }
+    
+    var appDelegate: AppDelegate{
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /* Listen when news items are changed */
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "handleNewsItemsChanged:",
+            name: appDelegate.newsItemsChangedNotification(),
+            object: nil)
+        
+        /* Handle what we need to do when the app comes back to the
+        foreground */
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "handleAppIsBroughtToForeground:",
+            name: UIApplicationWillEnterForegroundNotification,
+            object: nil)
     }
 }
