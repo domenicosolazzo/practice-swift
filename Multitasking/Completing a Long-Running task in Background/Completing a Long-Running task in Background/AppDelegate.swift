@@ -13,5 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    // Background task identifier
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier =
+    UIBackgroundTaskInvalid
+    
 }
 
