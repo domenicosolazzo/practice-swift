@@ -45,4 +45,14 @@ class NewsItemViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    /* We are being told that new news items are available.
+    Reload the table view */
+    func handleNewsItemsChanged(notification: NSNotification) {
+        if self.isBeingPresented(){
+            tableView.reloadData()
+        } else {
+            mustReloadView = true
+        }
+    }
 }
