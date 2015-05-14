@@ -24,6 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    /**
+        It gets called in your app delegate when iOS wants your app 
+        to fetch new content in the background. 
+        Call the completion handler when you are done.
+    **/
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        if (self.fetchItems()){
+            completionHandler(UIBackgroundFetchResult.NewData)
+        }else{
+            // If there is not data, you need to call it with .NoData parameter.
+            completionHandler(UIBackgroundFetchResult.NoData)
+        }
+    }
+    
     // Name of the notification when a news item is available
     func newsItemsChangedNotification() -> String{
         return "\(__FUNCTION__)"
