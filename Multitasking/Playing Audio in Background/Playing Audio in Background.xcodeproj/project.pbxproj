@@ -13,6 +13,7 @@
 		C0FF79261B05244600BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF79251B05244600BEB1C7 /* Images.xcassets */; };
 		C0FF79291B05244600BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF79271B05244600BEB1C7 /* LaunchScreen.xib */; };
 		C0FF79351B05244600BEB1C7 /* Playing_Audio_in_BackgroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF79341B05244600BEB1C7 /* Playing_Audio_in_BackgroundTests.swift */; };
+		C0FF793F1B0524FE00BEB1C7 /* MySong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0FF793E1B0524FE00BEB1C7 /* MySong.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0FF792E1B05244600BEB1C7 /* Playing Audio in BackgroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Playing Audio in BackgroundTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF79331B05244600BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF79341B05244600BEB1C7 /* Playing_Audio_in_BackgroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playing_Audio_in_BackgroundTests.swift; sourceTree = "<group>"; };
+		C0FF793E1B0524FE00BEB1C7 /* MySong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MySong.mp3; path = ../../../../../../../../../../Users/domenico/Downloads/MySong.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C0FF791B1B05244600BEB1C7 /* Playing Audio in Background */ = {
 			isa = PBXGroup;
 			children = (
+				C0FF793E1B0524FE00BEB1C7 /* MySong.mp3 */,
 				C0FF791E1B05244600BEB1C7 /* AppDelegate.swift */,
 				C0FF79201B05244600BEB1C7 /* ViewController.swift */,
 				C0FF79221B05244600BEB1C7 /* Main.storyboard */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0FF79241B05244600BEB1C7 /* Main.storyboard in Resources */,
+				C0FF793F1B0524FE00BEB1C7 /* MySong.mp3 in Resources */,
 				C0FF79291B05244600BEB1C7 /* LaunchScreen.xib in Resources */,
 				C0FF79261B05244600BEB1C7 /* Images.xcassets in Resources */,
 			);
