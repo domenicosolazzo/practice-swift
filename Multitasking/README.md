@@ -10,3 +10,4 @@
 - [Creating simple concurrency using Operations](#): How to use operations for simple concurrency tasks
 - [Downloading urls using NSBlockOperation](#): How to use operations with NSBlockOperation for downloading a list of urls
 - [Creating Dependency between NSBlockOperation](#): Creating Dependency between operations
+- [Completing a long-running task in background](#): Completing a long-running task in background
