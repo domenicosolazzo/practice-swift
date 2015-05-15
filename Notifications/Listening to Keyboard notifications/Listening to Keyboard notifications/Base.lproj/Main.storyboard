@@ -34,7 +34,7 @@
                                             </mask>
                                         </variation>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ne3-Ob-yGd" userLabel="Background">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Ne3-Ob-yGd" userLabel="Background">
                                         <rect key="frame" x="165" y="8" width="238" height="414"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="414" id="gJW-y4-41y"/>
@@ -84,10 +84,18 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="bottom" id="pcg-a2-vSC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ne3-Ob-yGd" id="38A-V6-PJo"/>
+                        <outlet property="scrollView" destination="hb5-ll-SIc" id="V7s-ea-maJ"/>
+                        <outlet property="textField" destination="2Gu-Ax-Xc0" id="HcE-W8-bI1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="268" y="372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="280" height="490"/>
+    </resources>
 </document>
