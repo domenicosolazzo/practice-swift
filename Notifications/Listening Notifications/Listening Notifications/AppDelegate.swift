@@ -25,5 +25,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func personInfoKeyLastName() -> String{
         return "lastName"
     }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        let person = Person()
+        
+        // Dictionary to be sent with the notification
+        let userInfo = [
+            self.classForCoder.personInfoKeyFirstName(), "Domenico",
+            self.classForCoder.personInfoKeyLastName(), "Solazzo"
+        ]
+        
+        // Notification
+        let notification = NSNotification(
+            name: self.classForCoder.notificationName(),
+            object: self,
+            userInfo: userInfo
+        )
+        
+        
+        
+        return true
+    }
 }
 
