@@ -25,10 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     as? UILocalNotification
                 
                 if let notification = value{
+                    println("Opening the app because of a notification...")
                     self.application(application ,
                         didReceiveLocalNotification: notification)
                 }
             } else {
+                println("Asking for permission...")
                 askForNotificationPermissionForApplication(application)
             }
             
@@ -43,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if key1Value != nil && key2Value != nil{
                 /* We got our notification */
+                println("We got the notification")
             } else {
                 /* This is not the notification that we composed */
             }
