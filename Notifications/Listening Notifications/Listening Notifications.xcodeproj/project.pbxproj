@@ -13,6 +13,7 @@
 		C0FF79E01B05E66C00BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF79DF1B05E66C00BEB1C7 /* Images.xcassets */; };
 		C0FF79E31B05E66C00BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF79E11B05E66C00BEB1C7 /* LaunchScreen.xib */; };
 		C0FF79EF1B05E66C00BEB1C7 /* Listening_NotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF79EE1B05E66C00BEB1C7 /* Listening_NotificationsTests.swift */; };
+		C0FF79F91B05E6E800BEB1C7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF79F81B05E6E800BEB1C7 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0FF79E81B05E66C00BEB1C7 /* Listening NotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Listening NotificationsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF79ED1B05E66C00BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF79EE1B05E66C00BEB1C7 /* Listening_NotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listening_NotificationsTests.swift; sourceTree = "<group>"; };
+		C0FF79F81B05E6E800BEB1C7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				C0FF79D81B05E66C00BEB1C7 /* AppDelegate.swift */,
 				C0FF79DA1B05E66C00BEB1C7 /* ViewController.swift */,
+				C0FF79F81B05E6E800BEB1C7 /* Person.swift */,
 				C0FF79DC1B05E66C00BEB1C7 /* Main.storyboard */,
 				C0FF79DF1B05E66C00BEB1C7 /* Images.xcassets */,
 				C0FF79E11B05E66C00BEB1C7 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FF79F91B05E6E800BEB1C7 /* Person.swift in Sources */,
 				C0FF79DB1B05E66C00BEB1C7 /* ViewController.swift in Sources */,
 				C0FF79D91B05E66C00BEB1C7 /* AppDelegate.swift in Sources */,
 			);
