@@ -32,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let notification = UILocalNotification()
         
+        
+        // This is a property of type NSDate that dictates to iOS
+        // when the instance of the local notification has to be fired. This is required.
+        notification.fireDate = NSDate(timeIntervalSinceNow: 8)
+        
+        // The time zone in which the given fire-date is specified
+        notification.timeZone = NSCalendar.currentCalendar().timeZone
+        
     }
 }
 
