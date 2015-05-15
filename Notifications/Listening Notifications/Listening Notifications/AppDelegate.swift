@@ -43,7 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userInfo: userInfo
         )
         
-        
+        /* The person class is currently listening for this
+        notification. That class will extract the first name and last name
+        from it and set its own first name and last name based on the
+        userInfo dictionary of the notification. */
+        NSNotificationCenter.defaultCenter().postNotification(notification)
         
         return true
     }
