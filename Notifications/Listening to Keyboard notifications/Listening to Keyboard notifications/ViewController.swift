@@ -14,6 +14,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let center = NSNotificationCenter.defaultCenter()
+        
+        center.addObserver(
+            self,
+            selector: "handleKeyboardWillShow:",
+            name: UIKeyboardWillShowNotification,
+            object: nil
+        )
+        
+        center.addObserver(
+            self,
+            selector: "handleKeyboardWillHide:",
+            name: UIKeyboardWillHideNotification,
+            object: nil
+        )
+    }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
