@@ -31,17 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let person = Person()
         
         // Dictionary to be sent with the notification
-        let userInfo = [
-            self.classForCoder.personInfoKeyFirstName(), "Domenico",
-            self.classForCoder.personInfoKeyLastName(), "Solazzo"
+        let additionalInfo = [
+            self.classForCoder.personInfoKeyFirstName(): "Domenico",
+            self.classForCoder.personInfoKeyLastName(): "Solazzo"
         ]
         
         // Notification
-        let notification = NSNotification(
-            name: self.classForCoder.notificationName(),
+        let notification = NSNotification(name: self.classForCoder.notificationName(),
             object: self,
-            userInfo: userInfo
-        )
+            userInfo: additionalInfo)
         
         /* The person class is currently listening for this
         notification. That class will extract the first name and last name
