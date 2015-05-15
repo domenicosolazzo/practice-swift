@@ -17,37 +17,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb5-ll-SIc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hb5-ll-SIc">
                                 <rect key="frame" x="16" y="20" width="568" height="580"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gu-Ax-Xc0" userLabel="Please enter a name">
+                                        <rect key="frame" x="165" y="440" width="238" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="238" id="GPz-px-km2"/>
+                                            <constraint firstAttribute="width" constant="238" id="TbO-Lr-OPY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="GPz-px-km2"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ne3-Ob-yGd" userLabel="Background">
+                                        <rect key="frame" x="165" y="8" width="238" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="414" id="gJW-y4-41y"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="gJW-y4-41y"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Ne3-Ob-yGd" secondAttribute="centerX" id="4BP-Cf-1Nh"/>
+                                    <constraint firstItem="Ne3-Ob-yGd" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="top" id="BC2-GL-bk4"/>
+                                    <constraint firstItem="2Gu-Ax-Xc0" firstAttribute="width" secondItem="Ne3-Ob-yGd" secondAttribute="width" id="D4F-1Y-cfh"/>
+                                    <constraint firstAttribute="centerX" secondItem="2Gu-Ax-Xc0" secondAttribute="centerX" id="DDI-Vj-rsP"/>
+                                    <constraint firstItem="2Gu-Ax-Xc0" firstAttribute="top" secondItem="Ne3-Ob-yGd" secondAttribute="bottom" constant="18" id="NSS-xI-hnN"/>
+                                    <constraint firstItem="Ne3-Ob-yGd" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="top" constant="8" id="PSt-8c-eyh"/>
+                                    <constraint firstItem="2Gu-Ax-Xc0" firstAttribute="top" secondItem="Ne3-Ob-yGd" secondAttribute="bottom" constant="16" id="TTa-l9-WZy"/>
+                                    <constraint firstItem="2Gu-Ax-Xc0" firstAttribute="width" secondItem="Ne3-Ob-yGd" secondAttribute="width" id="WYJ-ZV-Hvb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ne3-Ob-yGd" secondAttribute="trailing" id="Wlm-Qd-8T8"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Gu-Ax-Xc0" secondAttribute="bottom" constant="16" id="Ydl-p7-ROF"/>
+                                    <constraint firstAttribute="centerY" secondItem="2Gu-Ax-Xc0" secondAttribute="centerY" constant="-165" id="hpO-ND-PoI"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Gu-Ax-Xc0" secondAttribute="bottom" id="p6m-bv-ZJI"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ne3-Ob-yGd" secondAttribute="centerY" constant="75" id="x7d-Kn-pSw"/>
+                                    <constraint firstItem="Ne3-Ob-yGd" firstAttribute="leading" secondItem="hb5-ll-SIc" secondAttribute="leading" id="y2b-aG-HUT"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BC2-GL-bk4"/>
+                                        <exclude reference="Wlm-Qd-8T8"/>
+                                        <exclude reference="y2b-aG-HUT"/>
+                                        <exclude reference="TTa-l9-WZy"/>
+                                        <exclude reference="WYJ-ZV-Hvb"/>
+                                        <exclude reference="Ydl-p7-ROF"/>
+                                        <exclude reference="hpO-ND-PoI"/>
+                                        <exclude reference="p6m-bv-ZJI"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3MB-Y8-LLy"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4MV-jg-6Sz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="bottom" id="HRH-WG-6OS"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="KYc-b4-T6W"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="M6a-A4-FOX"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="RfF-2Y-eXi"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Zjs-cj-4s5"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jVl-pi-sDm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hb5-ll-SIc" secondAttribute="trailing" id="khE-Od-re0"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vSI-IF-yYS"/>
-                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z31-Sj-aHg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="bottom" id="zEg-WZ-mwr"/>
+                            <constraint firstItem="hb5-ll-SIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0UB-cA-tc1"/>
+                            <constraint firstItem="hb5-ll-SIc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4mA-sl-ZOM"/>
+                            <constraint firstItem="hb5-ll-SIc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6Ak-3r-HJb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hb5-ll-SIc" secondAttribute="bottom" id="pcg-a2-vSC"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="M6a-A4-FOX"/>
-                                <exclude reference="RfF-2Y-eXi"/>
-                                <exclude reference="Zjs-cj-4s5"/>
-                                <exclude reference="jVl-pi-sDm"/>
-                                <exclude reference="khE-Od-re0"/>
-                                <exclude reference="vSI-IF-yYS"/>
-                                <exclude reference="z31-Sj-aHg"/>
-                                <exclude reference="HRH-WG-6OS"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
