@@ -20,5 +20,11 @@ class Person: NSObject {
         
     }
     
+    //- MARK: Notification selectors
+    // Listening for the notification for setting the object's properties
+    func handleSetPersonInfoNotification(notification:NSNotification){
+        self.firstName = notification.userInfo![AppDelegate.personInfoKeyFirstName()] as? String
+        self.lastName = notification.userInfo![AppDelegate.personInfoKeyLastName()] as? String
+    }
     
 }
