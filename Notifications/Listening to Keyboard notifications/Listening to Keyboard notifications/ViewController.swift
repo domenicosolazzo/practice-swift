@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
@@ -33,6 +33,12 @@ class ViewController: UIViewController {
             object: nil
         )
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -83,23 +89,25 @@ class ViewController: UIViewController {
             })
         }
         
-        func handleKeyboardWillHide(notification: NSNotification){
-            let userInfo = notification.userInfo
+        
+    }
+    
+    func handleKeyboardWillHide(notification: NSNotification){
+        let userInfo = notification.userInfo
+        
+        if let info = userInfo{
+            let animationDurationObject =
+            info[UIKeyboardAnimationDurationUserInfoKey]
+                as! NSValue
             
-            if let info = userInfo{
-                let animationDurationObject =
-                info[UIKeyboardAnimationDurationUserInfoKey]
-                    as! NSValue
-                
-                var animationDuration = 0.0;
-                
-                animationDurationObject.getValue(&animationDuration)
-                
-                UIView.animateWithDuration(animationDuration, animations: {
-                    [weak self] in
-                    self!.scrollView.contentInset = UIEdgeInsetsZero
-                    })
-            }
+            var animationDuration = 0.0;
+            
+            animationDurationObject.getValue(&animationDuration)
+            
+            UIView.animateWithDuration(animationDuration, animations: {
+                [weak self] in
+                self!.scrollView.contentInset = UIEdgeInsetsZero
+                })
         }
     }
 }
