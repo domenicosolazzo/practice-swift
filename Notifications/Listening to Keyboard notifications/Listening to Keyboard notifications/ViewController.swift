@@ -82,6 +82,25 @@ class ViewController: UIViewController {
                 
             })
         }
+        
+        func handleKeyboardWillHide(notification: NSNotification){
+            let userInfo = notification.userInfo
+            
+            if let info = userInfo{
+                let animationDurationObject =
+                info[UIKeyboardAnimationDurationUserInfoKey]
+                    as! NSValue
+                
+                var animationDuration = 0.0;
+                
+                animationDurationObject.getValue(&animationDuration)
+                
+                UIView.animateWithDuration(animationDuration, animations: {
+                    [weak self] in
+                    self!.scrollView.contentInset = UIEdgeInsetsZero
+                    })
+            }
+        }
     }
 }
 
