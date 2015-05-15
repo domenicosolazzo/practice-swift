@@ -14,6 +14,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //- MARK: Helper methods
+    // Scheduling a new notification
+    func scheduleLocalNotification(){
+        
+        let notification = UILocalNotification()
+        
+        /* Time and timezone settings */
+        notification.fireDate = NSDate(timeIntervalSinceNow: 8.0)
+        notification.timeZone = NSCalendar.currentCalendar().timeZone
+        
+        notification.alertBody = "A new item is downloaded."
+        
+        /* Action settings */
+        notification.hasAction = true
+        notification.alertAction = "View"
+        
+        /* Badge settings */
+        notification.applicationIconBadgeNumber =
+            UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+        
+        /* Additional information, user info */
+        notification.userInfo = [
+            "Key 1" : "Value 1",
+            "Key 2" : "Value 2"
+        ]
+        
+        /* Schedule the notification */
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+    }
 
 
 }
