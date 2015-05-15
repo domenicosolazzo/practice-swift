@@ -6,8 +6,19 @@
 //  License MIT
 //
 
-import Cocoa
+import UIKit
 
 class Person: NSObject {
 
+    // Properties
+    var firstName: String?
+    var lastName: String?
+    
+    //- MARK: Initializer
+    override init(){
+        super.init()
+        
+    }
+    
+    
 }
