@@ -40,6 +40,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The time zone in which the given fire-date is specified
         notification.timeZone = NSCalendar.currentCalendar().timeZone
         
+        // The text that has to be displayed to the user when 
+        // your notification is displayed on screen
+        notification.alertBody = "A new item has been downloaded"
+        
+        notification.hasAction = true
+        // It represents the action that the user can take on your local notification
+        notification.alertAction = "View"
+        
+        // The badge number for your app icon
+        notification.applicationIconBadgeNumber++
+        
+        // More additional information about the local notification
+        notification.userInfo = [
+            "Key 1": "Value1",
+            "Key 2": "Value2"
+        ]
+        
+        /* Schedule the notification */
+        application.scheduleLocalNotification(notification)
     }
 }
 
