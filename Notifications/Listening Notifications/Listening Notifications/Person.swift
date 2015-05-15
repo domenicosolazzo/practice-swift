@@ -18,6 +18,17 @@ class Person: NSObject {
     override init(){
         super.init()
         
+        NSNotificationCenter.defaultCenter().addObserver(
+            // Object observing for this notification
+            self,
+            // Method that should handle this notification
+            selector: "handleSetPersonInfoNotification:",
+            // Notification name
+            name: AppDelegate.notificationName(),
+            // Object where the notification is coming from
+            object: UIApplication.sharedApplication().delegate
+        )
+        
     }
     
     //- MARK: Notification selectors
