@@ -49,6 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userInfo dictionary of the notification. */
         NSNotificationCenter.defaultCenter().postNotification(notification)
         
+        
+        if let firstName = person.firstName{
+            println("Person's first name is: \(firstName)")
+        }
+        if let lastName = person.lastName{
+            println("Person's last name is: \(lastName)")
+        }
         return true
     }
 }
