@@ -44,6 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
     }
+    
+    func askForNotificationPermissionForApplication(application: UIApplication){
+        /* First ask the user if we are
+        allowed to perform local notifications */
+        let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge,
+            categories: nil)
+        
+        application.registerUserNotificationSettings(settings)
+        
+    }
 
 
 }
