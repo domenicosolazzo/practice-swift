@@ -13,6 +13,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    func application(application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+            
+            if let options = launchOptions{
+                
+                /* Do we have a value? */
+                let value =
+                options[UIApplicationLaunchOptionsLocalNotificationKey]
+                    as? UILocalNotification
+                
+                if let notification = value{
+                    self.application(application ,
+                        didReceiveLocalNotification: notification)
+                }
+            } else {
+                askForNotificationPermissionForApplication(application)
+            }
+            
+            return true
+    }
+    
+    func application(application: UIApplication,
+        didReceiveLocalNotification notification: UILocalNotification) {
+            
+            let key1Value = notification.userInfo!["Key 1"] as? NSString
+            let key2Value = notification.userInfo!["Key 2"] as? NSString
+            
+            if key1Value != nil && key2Value != nil{
+                /* We got our notification */
+            } else {
+                /* This is not the notification that we composed */
+            }
+            
+    }
+    
     func application(application: UIApplication,
         didRegisterUserNotificationSettings
         notificationSettings: UIUserNotificationSettings){
