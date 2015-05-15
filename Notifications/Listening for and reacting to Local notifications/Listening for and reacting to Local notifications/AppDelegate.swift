@@ -13,6 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(application: UIApplication,
+        didRegisterUserNotificationSettings
+        notificationSettings: UIUserNotificationSettings){
+            
+            if notificationSettings.types == nil{
+                /* The user did not allow us to send notifications */
+                return
+            }
+            
+            scheduleLocalNotification()
+            
+    }
 
     //- MARK: Helper methods
     // Scheduling a new notification
