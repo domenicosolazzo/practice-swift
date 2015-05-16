@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NSURLSessionDelegate,
+        NSURLSessionDownloadDelegate, NSURLSessionTaskDelegate {
 
     // Session object
     var session: NSURLSession!
