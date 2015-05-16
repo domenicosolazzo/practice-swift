@@ -13,6 +13,28 @@ class ViewController: UIViewController {
     // Session object
     var session: NSURLSession!
     
+    //- MARK: Computer properties
+    /* This computed property will generate a unique identifier for our
+    background session configuration. The first time it is used, it will get
+    the current date and time and return that as a string to you. It will
+    also save that string into the system defaults so that it can retrieve
+    it the next time it is called. This computed property's value
+    is persistent between launches of this app.
+    */
+    var configurationIdentifier: String{
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let key = "configurationIdentifier"
+        let previousValue = NSUserDefaults.stringForKey(key) as String?
+        
+        if previousValue != nil{
+            return previousValue!
+        }else{
+            let newValue = NSDate().description
+            userDefaults.setObject(newValue, forKey: key)
+            userDefaults.synchronize()
+            return newValue
+        }
+    }
     //- MARK: Helper Methods
     func showAlertWithTitle(title:String, message:String){
         var controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
