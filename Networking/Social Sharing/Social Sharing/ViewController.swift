@@ -20,7 +20,15 @@ class ViewController: UIViewController {
             let controller = SLComposeViewController(forServiceType: serviceType)
             // Set the initial text
             controller.setInitialText("Testing #swift social framework! #coding #dev")
+            // Add the image
+            controller.addImage("swift")
+            // Add an url
+            controller.addURL(NSURL(string: "http://goo.gl/cEnUaQ"))
             
+            
+            self.presentViewController(controller, animated: true, completion: nil)
+        }else{
+            println("Twitter service is not available")
         }
     }
 }
