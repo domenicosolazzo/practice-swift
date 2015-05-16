@@ -11,7 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     
     // Session object
-    var session: NSURLSession?
+    var session: NSURLSession!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        /* Let's create the session configuration first */
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 15
+        
+        // Create the session object
+        session = NSURLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+    }
 
 }
 
