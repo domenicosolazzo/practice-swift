@@ -37,6 +37,18 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         // Start the task
         task.resume()
     }
+    //- MARK: URLSessionDataDelegate
+    /* This method will get called on a random thread because
+    we have not provided an operation queue to our session */
+    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+        data.enumerateByteRangesUsingBlock {[weak self]
+            (pointer:UnsafePointer<Void>,
+            range:NSRange,
+            stop:UnsafeMutablePointer<ObjCBool>) in
+                let newData = NSData(bytes: pointer, length: range.length)
+                self!.mutableData.appendData(newData)
+        }
+    }
     
     //- MARK: Helper methods
     func showAlertWithTitle(title:String, message:String){
