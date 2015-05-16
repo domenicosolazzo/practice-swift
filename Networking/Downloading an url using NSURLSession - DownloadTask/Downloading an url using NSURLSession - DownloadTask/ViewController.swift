@@ -26,7 +26,7 @@ class ViewController: UIViewController, NSURLSessionDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        var urlString = "http://www.domenicosolazzo.com/swiftcode"
+        var urlString = "http://goo.gl/mf9xj3"
         var url = NSURL(string: urlString)
         
         var task = session.downloadTaskWithURL(url!, completionHandler: {[weak self]
@@ -61,7 +61,8 @@ class ViewController: UIViewController, NSURLSessionDelegate {
                 self!.showAlertWithTitle("Saved", message: message)
                 
             }else{
-                self!.showAlertWithTitle("Error", message: "Could not download the data!")
+                println("Error: \(error)")
+                self!.showAlertWithTitle("Error", message: "Could not download the data! Error: \(error)")
             }
         })
         
