@@ -22,6 +22,14 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         
         session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var url = NSURL(string: "http://goo.gl/mf9xj3")
+        var task = session.downloadTaskWithURL(url!)
+        task.resume()
+    }
     //- MARK: Computer properties
     /* This computed property will generate a unique identifier for our
     background session configuration. The first time it is used, it will get
@@ -32,7 +40,7 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     */
     var configurationIdentifier: String{
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let key = "configurationIdentifier"
+        let key = "configurationIdentifier" as NSString
         let previousValue = NSUserDefaults.stringForKey(key) as String?
         
         if previousValue != nil{
