@@ -26,7 +26,17 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var url = NSURL(string: "http://goo.gl/mf9xj3")
+        // When the completion handler is nil, a method from NSURLSessionDataDelegate
+        // will be called to show the progress of the download
+        var task = session.dataTaskWithURL(url!, completionHandler: nil)
+        
+        // Start the task
+        task.resume()
+    }
     
 }
 
