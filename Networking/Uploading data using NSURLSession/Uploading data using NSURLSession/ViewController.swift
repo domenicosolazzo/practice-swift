@@ -22,5 +22,20 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         
         session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let dataToUpload = "Hello World".dataUsingEncoding(
+            NSUTF8StringEncoding,
+            allowLossyConversion: false)
+        
+        let url = NSURL(string: "http://www.domenicosolazzo.com/swiftcode")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        var task = session.uploadTaskWithRequest(request, fromData: dataToUpload)
+        task.resume()
+    }
 }
 
