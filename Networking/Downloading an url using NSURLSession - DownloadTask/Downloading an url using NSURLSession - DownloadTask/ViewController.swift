@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // Session object
+    var session: NSURLSession!
+    
 
 }
 
