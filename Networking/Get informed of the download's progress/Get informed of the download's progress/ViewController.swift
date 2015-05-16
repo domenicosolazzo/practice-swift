@@ -13,7 +13,9 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     
     // Session object
     var session: NSURLSession!
-    
+    /* We will download a URL one chunk at a time and append the downloaded
+    data to this mutable data */
+    var mutableData: NSMutableData = NSMutableData()
     
 }
 
