@@ -41,6 +41,7 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     /* This method will get called on a random thread because
     we have not provided an operation queue to our session */
     func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+        println("New chunck of data...")
         data.enumerateByteRangesUsingBlock {[weak self]
             (pointer:UnsafePointer<Void>,
             range:NSRange,
@@ -48,6 +49,22 @@ class ViewController: UIViewController, NSURLSessionDelegate,
                 let newData = NSData(bytes: pointer, length: range.length)
                 self!.mutableData.appendData(newData)
         }
+    }
+    
+    // The data have been downloaded
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        println("Finished downloading...")
+        session.finishTasksAndInvalidate()
+        
+        dispatch_async(dispatch_get_main_queue(), {[weak self] in
+            var message = "Finished downloading the content"
+            
+            if error != nil{
+                message = "Error downloading the content"
+            }
+            
+            self!.showAlertWithTitle("Download content", message: message)
+        })
     }
     
     //- MARK: Helper methods
