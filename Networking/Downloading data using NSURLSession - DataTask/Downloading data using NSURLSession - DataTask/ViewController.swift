@@ -23,6 +23,25 @@ class ViewController: UIViewController {
         // Create the session object
         session = NSURLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var urlString = "http://www.domenicosolazzo.com/swiftcode"
+        var url = NSURL(string: urlString)
+        
+        var task = session.dataTaskWithURL(url!, completionHandler: {[weak self]
+            (data:NSData!, response:NSURLResponse!, error:NSError!) in
+            println("Data: \(data)")
+            println("Response: \(response)")
+            println("Error: \(error)")
+            
+            println("Done!")
+            // End the session
+            self!.session.finishTasksAndInvalidate()
+        })
+    
+    }
 
 }
 
