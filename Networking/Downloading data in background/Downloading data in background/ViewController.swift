@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // Session object
+    var session: NSURLSession!
+    
     //- MARK: Helper Methods
     func showAlertWithTitle(title:String, message:String){
         var controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
