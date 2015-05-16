@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     // Session object
     var session: NSURLSession!
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let configuration = NSURLSessionConfiguration.backgroundSessionConfiguration(configurationIdentifier)
+        configuration.timeoutIntervalForRequest = 15
+        
+        session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }
     //- MARK: Computer properties
     /* This computed property will generate a unique identifier for our
     background session configuration. The first time it is used, it will get
