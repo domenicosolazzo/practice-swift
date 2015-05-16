@@ -37,5 +37,16 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         var task = session.uploadTaskWithRequest(request, fromData: dataToUpload)
         task.resume()
     }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        println("Finished to upload...")
+        
+        session.finishTasksAndInvalidate()
+        if error == nil{
+            println("Data uploaded successfully")
+        }else{
+            println("Error uloading data: \(error)")
+        }
+    }
 }
 
