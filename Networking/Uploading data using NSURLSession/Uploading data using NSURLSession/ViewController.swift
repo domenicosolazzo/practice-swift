@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, NSURLSessionDelegate,
         NSURLSessionDataDelegate {
 
-    
+    // Session object
+    var session: NSURLSession!
 }
 
