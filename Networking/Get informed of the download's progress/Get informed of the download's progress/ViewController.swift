@@ -17,5 +17,16 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     data to this mutable data */
     var mutableData: NSMutableData = NSMutableData()
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 15
+        
+        session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }
+    
+    
+    
 }
 
