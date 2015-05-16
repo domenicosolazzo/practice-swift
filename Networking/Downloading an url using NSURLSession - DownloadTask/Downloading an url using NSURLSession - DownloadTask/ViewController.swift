@@ -29,7 +29,7 @@ class ViewController: UIViewController, NSURLSessionDelegate {
         var urlString = "http://www.domenicosolazzo.com/swiftcode"
         var url = NSURL(string: urlString)
         
-        session.downloadTaskWithURL(url!, completionHandler: {[weak self]
+        var task = session.downloadTaskWithURL(url!, completionHandler: {[weak self]
             (url:NSURL!, response:NSURLResponse!, error:NSError!) in
             if error == nil{
                 
@@ -64,6 +64,9 @@ class ViewController: UIViewController, NSURLSessionDelegate {
                 self!.showAlertWithTitle("Error", message: "Could not download the data!")
             }
         })
+        
+        // Start the task
+        task.resume()
     }
     
     //- MARK: Helper methods
