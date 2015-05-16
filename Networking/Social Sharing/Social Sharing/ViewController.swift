@@ -10,5 +10,18 @@ import UIKit
 import Social
 
 class ViewController: UIViewController {
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let serviceType = SLServiceTypeTwitter
+        
+        if SLComposeViewController.isAvailableForServiceType(serviceType){
+            let controller = SLComposeViewController(forServiceType: serviceType)
+            // Set the initial text
+            controller.setInitialText("Testing #swift social framework! #coding #dev")
+            
+        }
+    }
 }
 
