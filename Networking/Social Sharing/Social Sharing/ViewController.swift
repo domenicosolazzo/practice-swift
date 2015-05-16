@@ -24,7 +24,11 @@ class ViewController: UIViewController {
             controller.addImage("swift")
             // Add an url
             controller.addURL(NSURL(string: "http://goo.gl/cEnUaQ"))
-            
+            // Completion Handler
+            controller.completionHandler = {(result: SLComposeViewControllerResult) in
+                println("Completed")
+                println("Result: \(result)")
+            }
             
             self.presentViewController(controller, animated: true, completion: nil)
         }else{
