@@ -30,6 +30,30 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         var task = session.downloadTaskWithURL(url!)
         task.resume()
     }
+    
+    //- MARK: URLSession delegates
+    // This method indicates if we received new data
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        println("Received data")
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        print("Finished...")
+        
+        if error == nil{
+            println("...without error")
+        }else{
+            println("...with error. Error \(error)")
+        }
+        
+        session.finishTasksAndInvalidate()
+    }
+    
+    func URLSession(session: NSURLSession,
+        downloadTask: NSURLSessionDownloadTask,
+        didFinishDownloadingToURL location: NSURL){
+            println("Finished writing the downloaded content to URL = \(location)")
+    }
     //- MARK: Computer properties
     /* This computed property will generate a unique identifier for our
     background session configuration. The first time it is used, it will get
@@ -40,8 +64,8 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     */
     var configurationIdentifier: String{
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let key = "configurationIdentifier" as NSString
-        let previousValue = NSUserDefaults.stringForKey(key) as String?
+        var key = "configurationIdentifier"
+        let previousValue = userDefaults.stringForKey(key) as String?
         
         if previousValue != nil{
             return previousValue!
