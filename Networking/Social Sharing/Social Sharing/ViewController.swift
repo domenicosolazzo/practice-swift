@@ -21,7 +21,7 @@ class ViewController: UIViewController {
             // Set the initial text
             controller.setInitialText("Testing #swift social framework! #coding #dev")
             // Add the image
-            controller.addImage("swift")
+            controller.addImage(UIImage(named: "swift"))
             // Add an url
             controller.addURL(NSURL(string: "http://goo.gl/cEnUaQ"))
             // Completion Handler
