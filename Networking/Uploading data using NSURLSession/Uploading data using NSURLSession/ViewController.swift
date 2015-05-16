@@ -13,5 +13,14 @@ class ViewController: UIViewController, NSURLSessionDelegate,
 
     // Session object
     var session: NSURLSession!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 15
+        
+        session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }
 }
 
