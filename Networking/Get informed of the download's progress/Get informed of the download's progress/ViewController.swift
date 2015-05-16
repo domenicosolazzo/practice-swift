@@ -38,5 +38,12 @@ class ViewController: UIViewController, NSURLSessionDelegate,
         task.resume()
     }
     
+    //- MARK: Helper methods
+    func showAlertWithTitle(title:String, message:String){
+        var controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(controller, animated: true, completion: nil)
+    }
+    
 }
 
