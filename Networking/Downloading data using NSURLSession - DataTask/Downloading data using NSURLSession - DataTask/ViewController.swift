@@ -40,6 +40,9 @@ class ViewController: UIViewController {
             // End the session
             self!.session.finishTasksAndInvalidate()
         })
+        
+        // Start the task
+        task.resume();
     
     }
 
