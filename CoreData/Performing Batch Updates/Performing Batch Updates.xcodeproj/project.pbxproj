@@ -14,6 +14,7 @@
 		C0FF7C971B089B2F00BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7C961B089B2F00BEB1C7 /* Images.xcassets */; };
 		C0FF7C9A1B089B2F00BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7C981B089B2F00BEB1C7 /* LaunchScreen.xib */; };
 		C0FF7CA61B089B2F00BEB1C7 /* Performing_Batch_UpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7CA51B089B2F00BEB1C7 /* Performing_Batch_UpdatesTests.swift */; };
+		C0FF7CB01B089C8A00BEB1C7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7CAF1B089C8A00BEB1C7 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0FF7C9F1B089B2F00BEB1C7 /* Performing Batch UpdatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Performing Batch UpdatesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7CA41B089B2F00BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF7CA51B089B2F00BEB1C7 /* Performing_Batch_UpdatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performing_Batch_UpdatesTests.swift; sourceTree = "<group>"; };
+		C0FF7CAF1B089C8A00BEB1C7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0FF7C981B089B2F00BEB1C7 /* LaunchScreen.xib */,
 				C0FF7C8E1B089B2F00BEB1C7 /* Performing_Batch_Updates.xcdatamodeld */,
 				C0FF7C8A1B089B2F00BEB1C7 /* Supporting Files */,
+				C0FF7CAF1B089C8A00BEB1C7 /* Person.swift */,
 			);
 			path = "Performing Batch Updates";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				C0FF7C921B089B2F00BEB1C7 /* ViewController.swift in Sources */,
 				C0FF7C901B089B2F00BEB1C7 /* Performing_Batch_Updates.xcdatamodeld in Sources */,
+				C0FF7CB01B089C8A00BEB1C7 /* Person.swift in Sources */,
 				C0FF7C8D1B089B2F00BEB1C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
