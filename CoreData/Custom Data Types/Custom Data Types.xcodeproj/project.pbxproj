@@ -14,6 +14,7 @@
 		C0FF7E451B08EE7000BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7E441B08EE7000BEB1C7 /* Images.xcassets */; };
 		C0FF7E481B08EE7000BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7E461B08EE7000BEB1C7 /* LaunchScreen.xib */; };
 		C0FF7E541B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7E531B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift */; };
+		C0FF7E5E1B08EED300BEB1C7 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7E5D1B08EED300BEB1C7 /* ColorTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0FF7E4D1B08EE7000BEB1C7 /* Custom Data TypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Custom Data TypesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7E521B08EE7000BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF7E531B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Data_TypesTests.swift; sourceTree = "<group>"; };
+		C0FF7E5D1B08EED300BEB1C7 /* ColorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0FF7E461B08EE7000BEB1C7 /* LaunchScreen.xib */,
 				C0FF7E3C1B08EE7000BEB1C7 /* Custom_Data_Types.xcdatamodeld */,
 				C0FF7E381B08EE6F00BEB1C7 /* Supporting Files */,
+				C0FF7E5D1B08EED300BEB1C7 /* ColorTransformer.swift */,
 			);
 			path = "Custom Data Types";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				C0FF7E401B08EE7000BEB1C7 /* ViewController.swift in Sources */,
 				C0FF7E3E1B08EE7000BEB1C7 /* Custom_Data_Types.xcdatamodeld in Sources */,
 				C0FF7E3B1B08EE6F00BEB1C7 /* AppDelegate.swift in Sources */,
+				C0FF7E5E1B08EED300BEB1C7 /* ColorTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
