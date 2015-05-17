@@ -15,6 +15,7 @@
 		C0FF7E481B08EE7000BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7E461B08EE7000BEB1C7 /* LaunchScreen.xib */; };
 		C0FF7E541B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7E531B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift */; };
 		C0FF7E5E1B08EED300BEB1C7 /* ColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7E5D1B08EED300BEB1C7 /* ColorTransformer.swift */; };
+		C0FF7E601B08F09000BEB1C7 /* Laptop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7E5F1B08F09000BEB1C7 /* Laptop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C0FF7E521B08EE7000BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF7E531B08EE7000BEB1C7 /* Custom_Data_TypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Data_TypesTests.swift; sourceTree = "<group>"; };
 		C0FF7E5D1B08EED300BEB1C7 /* ColorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTransformer.swift; sourceTree = "<group>"; };
+		C0FF7E5F1B08F09000BEB1C7 /* Laptop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Laptop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		C0FF7E371B08EE6F00BEB1C7 /* Custom Data Types */ = {
 			isa = PBXGroup;
 			children = (
+				C0FF7E5F1B08F09000BEB1C7 /* Laptop.swift */,
 				C0FF7E3A1B08EE6F00BEB1C7 /* AppDelegate.swift */,
 				C0FF7E3F1B08EE7000BEB1C7 /* ViewController.swift */,
 				C0FF7E411B08EE7000BEB1C7 /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				C0FF7E3E1B08EE7000BEB1C7 /* Custom_Data_Types.xcdatamodeld in Sources */,
 				C0FF7E3B1B08EE6F00BEB1C7 /* AppDelegate.swift in Sources */,
 				C0FF7E5E1B08EED300BEB1C7 /* ColorTransformer.swift in Sources */,
+				C0FF7E601B08F09000BEB1C7 /* Laptop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
