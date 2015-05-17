@@ -14,4 +14,8 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     struct TableConstants{
         static let cellIdentifier = "Cell"
     }
+    
+    //- MARK: Private variables
+    var barButtonAddPerson: UIBarButtonItem!
+    var frc: NSFetchedResultsController!
 }
