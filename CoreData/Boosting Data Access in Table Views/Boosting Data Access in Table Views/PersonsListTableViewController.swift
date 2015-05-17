@@ -91,6 +91,25 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     }
     
     
+    //- MARK: TableView
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionInfo = frc.sections![section] as! NSFetchedResultsSectionInfo
+        return sectionInfo.numberOfObjects
+    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(
+            TableConstants.cellIdentifier,
+            forIndexPath: indexPath) as! UITableViewCell
+        
+        let person = frc.objectAtIndexPath(indexPath) as! Person
+        
+        cell.textLabel!.text = person.firstName + " " + person.lastName
+        cell.detailTextLabel!.text = "Age: \(person.age)"
+        
+        return cell
+    }
+    
+    
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
     var frc: NSFetchedResultsController!
