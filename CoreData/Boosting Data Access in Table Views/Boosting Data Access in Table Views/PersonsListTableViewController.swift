@@ -36,5 +36,11 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         
     }
     
-    
+    //- MARK: UIBarButton
+    func addNewPerson(sender: AnyObject){
+        /* This is a custom segue identifier that we defined in our
+        storyboard that simply does a "Show" segue from our view controller
+        to the "Add New Person" view controller */
+        performSegueWithIdentifier("addPerson", sender: nil)
+    }
 }
