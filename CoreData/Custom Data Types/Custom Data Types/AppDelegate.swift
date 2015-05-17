@@ -16,7 +16,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        /* Save the laptop with a given color first */
+        let laptop = NSEntityDescription.insertNewObjectForEntityForName(
+            NSStringFromClass(Laptop.classForCoder()),
+            inManagedObjectContext: managedObjectContext!) as! Laptop
+        
+        laptop.model = "model name"
+        laptop.color = UIColor.redColor()
+        
+        var savingError: NSError?
+        if managedObjectContext!.save(&savingError) == false{
+            if let error = savingError{
+                println("Failed to save the laptop. Error = \(error)")
+            }
+        }
+        
+        /* Now find the same laptop */
+        let fetch = NSFetchRequest(entityName:
+            NSStringFromClass(Laptop.classForCoder()))
+        fetch.fetchLimit = 1
+        fetch.predicate = NSPredicate(format: "color == %@", UIColor.redColor())
+        
+        var fetchingError: NSError?
+        let laptops = managedObjectContext!.executeFetchRequest(fetch,
+            error: &fetchingError) as [AnyObject]!
+        
+        /* Check for 1 because out fetch limit is 1 */
+        if laptops.count == 1 && fetchingError == nil{
+            
+            let fetchedLaptop = laptops[0] as! Laptop
+            
+            if fetchedLaptop.color == UIColor.redColor(){
+                println("Right colored laptop was fetched")
+            } else {
+                println("Could not find the laptop with the given color")
+            }
+            
+        } else {
+            if let error = fetchingError{
+                println("Could not fetch the laptop with the given color. " +
+                    "Error = \(error)")
+            }
+        }
         return true
     }
 
