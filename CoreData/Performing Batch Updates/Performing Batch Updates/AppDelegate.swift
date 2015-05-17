@@ -16,6 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let entityName = NSStringFromClass(Person.classForCoder())
 
 
+    //- MARK: Helper methods
+    func populateDatabase(){
+        for counter in 0..<1000{
+            let person = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext!) as! Person
+            person.firstName = "First Name \(counter)"
+            person.lastName = "Last Name \(counter)"
+            person.age = NSNumber(unsignedInt: arc4random_uniform(120))
+        }
+        
+        var savingError: NSError?
+        if managedObjectContext!.save(&savingError){
+            println("Managed to populate the database")
+        }else{
+            if let error = savingError{
+                println("Error populating the database. Error \(error)")
+            }
+        }
+    }
+    
+    //- MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
