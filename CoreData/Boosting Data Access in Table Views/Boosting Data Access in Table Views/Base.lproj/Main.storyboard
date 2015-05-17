@@ -51,7 +51,7 @@
         <!--Add Person View Controller-->
         <scene sceneID="AKL-8M-k2j">
             <objects>
-                <viewController id="AxT-jI-LRT" userLabel="Add Person View Controller" sceneMemberID="viewController">
+                <viewController id="AxT-jI-LRT" userLabel="Add Person View Controller" customClass="AddPersonViewController" customModule="Boosting_Data_Access_in_Table_Views" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RWR-hZ-R7y"/>
                         <viewControllerLayoutGuide type="bottom" id="PDw-Ma-8c0"/>
