@@ -109,6 +109,24 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         return cell
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let personToDelete = self.frc.objectAtIndexPath(indexPath) as! Person
+        
+        managedObjectContext!.deleteObject(personToDelete)
+        
+        if personToDelete.deleted{
+            var savingError: NSError?
+            
+            if managedObjectContext!.save(&savingError){
+                println("Successfully deleted the object")
+            } else {
+                if let error = savingError{
+                    println("Failed to save the context with error = \(error)")
+                }
+            }
+        }
+    }
+    
     
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
