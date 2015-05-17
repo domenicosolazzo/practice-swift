@@ -9,5 +9,10 @@
 import UIKit
 
 class AddPersonViewController: UIViewController {
+    //- MARK: Private variables
+    var textFieldFirstName: UITextField!
+    var textFieldLastName: UITextField!
+    var textFieldAge: UITextField!
+    var barButtonAdd: UIBarButtonItem!
 
 }
