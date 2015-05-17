@@ -14,6 +14,7 @@
 		C0FF7CFD1B08A85200BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7CFC1B08A85200BEB1C7 /* Images.xcassets */; };
 		C0FF7D001B08A85200BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7CFE1B08A85200BEB1C7 /* LaunchScreen.xib */; };
 		C0FF7D0C1B08A85200BEB1C7 /* Reading_data_from_CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7D0B1B08A85200BEB1C7 /* Reading_data_from_CoreDataTests.swift */; };
+		C0FF7D181B08A8E300BEB1C7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7D171B08A8E300BEB1C7 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0FF7D051B08A85200BEB1C7 /* Reading data from CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reading data from CoreDataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7D0A1B08A85200BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF7D0B1B08A85200BEB1C7 /* Reading_data_from_CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading_data_from_CoreDataTests.swift; sourceTree = "<group>"; };
+		C0FF7D171B08A8E300BEB1C7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0FF7CFE1B08A85200BEB1C7 /* LaunchScreen.xib */,
 				C0FF7CF41B08A85200BEB1C7 /* Reading_data_from_CoreData.xcdatamodeld */,
 				C0FF7CF01B08A85200BEB1C7 /* Supporting Files */,
+				C0FF7D171B08A8E300BEB1C7 /* Person.swift */,
 			);
 			path = "Reading data from CoreData";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				C0FF7CF81B08A85200BEB1C7 /* ViewController.swift in Sources */,
 				C0FF7CF31B08A85200BEB1C7 /* AppDelegate.swift in Sources */,
+				C0FF7D181B08A8E300BEB1C7 /* Person.swift in Sources */,
 				C0FF7CF61B08A85200BEB1C7 /* Reading_data_from_CoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
