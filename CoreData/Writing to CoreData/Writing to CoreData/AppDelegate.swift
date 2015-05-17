@@ -17,6 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let entityName = NSStringFromClass(Person.classForCoder())
+        
+        let person = NSEntityDescription.insertNewObjectForEntityForName(
+            entityName,
+            inManagedObjectContext: managedObjectContext!) as! Person
+        
+        // Current year
+        let now = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let calendarComponents = calendar.components(NSCalendarUnit.CalendarUnitYear, fromDate: now)
+        let year = calendarComponents.year
+        println("Year \(year)")
+        
+        person.firstName = "Domenico"
+        person.lastName = "Solazzo"
+        person.age = NSNumber(unsignedInteger: (year - 1982))
+        println("Current age: \((year - 1982))")
+        
+        var savingError: NSError?
+        if managedObjectContext!.save(&savingError){
+            println("Successfully saved the person")
+        }else{
+            if let error = savingError{
+                println("Error saving the person. Error: \(savingError)")
+            }
+        }
         return true
     }
 
