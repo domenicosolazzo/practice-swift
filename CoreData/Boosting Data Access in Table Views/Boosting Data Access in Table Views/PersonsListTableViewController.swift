@@ -24,4 +24,17 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         return (UIApplication.sharedApplication().delegate
             as! AppDelegate).managedObjectContext
     }
+    
+    //- MARK: Constructors
+    required init!(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+        
+        barButtonAddPerson = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonSystemItem.Add,
+            target: self,
+            action: "addPerson:")
+        
+    }
+    
+    
 }
