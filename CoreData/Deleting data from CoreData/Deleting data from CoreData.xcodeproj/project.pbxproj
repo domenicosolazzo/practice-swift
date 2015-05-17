@@ -14,6 +14,7 @@
 		C0FF7D321B08AB6A00BEB1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7D311B08AB6A00BEB1C7 /* Images.xcassets */; };
 		C0FF7D351B08AB6A00BEB1C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7D331B08AB6A00BEB1C7 /* LaunchScreen.xib */; };
 		C0FF7D411B08AB6A00BEB1C7 /* Deleting_data_from_CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7D401B08AB6A00BEB1C7 /* Deleting_data_from_CoreDataTests.swift */; };
+		C0FF7D4B1B08AC2800BEB1C7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7D4A1B08AC2800BEB1C7 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0FF7D3A1B08AB6A00BEB1C7 /* Deleting data from CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deleting data from CoreDataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7D3F1B08AB6A00BEB1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF7D401B08AB6A00BEB1C7 /* Deleting_data_from_CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deleting_data_from_CoreDataTests.swift; sourceTree = "<group>"; };
+		C0FF7D4A1B08AC2800BEB1C7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0FF7D331B08AB6A00BEB1C7 /* LaunchScreen.xib */,
 				C0FF7D291B08AB6A00BEB1C7 /* Deleting_data_from_CoreData.xcdatamodeld */,
 				C0FF7D251B08AB6A00BEB1C7 /* Supporting Files */,
+				C0FF7D4A1B08AC2800BEB1C7 /* Person.swift */,
 			);
 			path = "Deleting data from CoreData";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				C0FF7D2D1B08AB6A00BEB1C7 /* ViewController.swift in Sources */,
 				C0FF7D2B1B08AB6A00BEB1C7 /* Deleting_data_from_CoreData.xcdatamodeld in Sources */,
+				C0FF7D4B1B08AC2800BEB1C7 /* Person.swift in Sources */,
 				C0FF7D281B08AB6A00BEB1C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
