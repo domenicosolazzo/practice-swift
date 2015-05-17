@@ -52,9 +52,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return request
         
     }
+    
+    func processPersons(){
+        
+        /* Do your work here using the mutablePersons property of our app*/
+        println("Some processing .....")
+        
+    }
     //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        /* Set up the background context */
+        let backgroundContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
+        
+        backgroundContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        /* Issue a block on the background context */
+        backgroundContext.performBlock{[weak self] in
+            
+            var fetchError: NSError?
+            let personIds = backgroundContext.executeFetchRequest(
+                self!.newFetchRequest(),
+                error: &fetchError) as! [NSManagedObjectID]
+            
+            if fetchError == nil{
+                
+                let mainContext = self!.managedObjectContext
+                
+                /* Now go on the main context and get the objects on that
+                context using their IDs */
+                dispatch_async(dispatch_get_main_queue(), {
+                    for personId in personIds{
+                        let person = mainContext!.objectWithID(personId) as! Person
+                        self!.mutablePersons.append(person)
+                    }
+                    self!.processPersons()
+                })
+            } else {
+                println("Failed to execute the fetch request")
+            }
+            
+        }
         return true
     }
 
