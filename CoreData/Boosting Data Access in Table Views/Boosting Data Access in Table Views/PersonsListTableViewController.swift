@@ -49,7 +49,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
             cacheName: nil)
         self.frc.delegate = self
         
-        var fetchingError: NSError?
+        var fetchError: NSError?
         if self.frc.performFetch(&fetchError){
             println("Success")
         }else{
@@ -89,6 +89,8 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.endUpdates()
     }
+    
+    
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
     var frc: NSFetchedResultsController!
