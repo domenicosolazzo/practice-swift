@@ -38,7 +38,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        /* Create the entities first */
+        createNewPerson("Anthony", lastName: "Robbins", age: 52)
+        createNewPerson("Richard", lastName: "Branson", age: 62)
+        
+        /* Create the fetch request first */
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Sorting
+        let ageSort = NSSortDescriptor(key: "age", ascending: true)
+        let firstNameSort = NSSortDescriptor(key: "firstName", ascending: true)
+        fetchRequest.sortDescriptors = [ageSort, firstNameSort]
+        
+        
+        //Execute the request
+        var requestError: NSError?
+        /* And execute the fetch request on the context */
+        let persons = managedObjectContext!.executeFetchRequest(fetchRequest,
+            error:&requestError) as! [Person!]
+        
+        for person in persons{
+            
+            println("First Name = \(person.firstName)")
+            println("Last Name = \(person.lastName)")
+            println("Age = \(person.age)")
+            
+        }
+        
         return true
     }
 
