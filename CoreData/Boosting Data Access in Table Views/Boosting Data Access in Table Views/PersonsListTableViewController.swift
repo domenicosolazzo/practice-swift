@@ -32,8 +32,63 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         
         navigationItem.leftBarButtonItem = editButtonItem()
         navigationItem.rightBarButtonItem = barButtonAddPerson
+        
+        // Create the fetch request
+        var fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Sort descriptor
+        var ageDescriptor = NSSortDescriptor(key: "age", ascending: true)
+        var firstNameDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
+        
+        fetchRequest.sortDescriptors = [ageDescriptor, firstNameDescriptor]
+        
+        self.frc = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: managedObjectContext!,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        self.frc.delegate = self
+        
+        var fetchingError: NSError?
+        if self.frc.performFetch(&fetchError){
+            println("Success")
+        }else{
+            if let error = fetchError{
+                println("Error: \(error)")
+            }
+        }
     }
     
+    //- MARK: NSFetchedResultsControllerDelegate
+    /*
+        Gets called on the delegate to let it know that the context that is backing 
+        the fetched results controller has changed and that 
+        the fetched results controller is about to change its contents
+    */
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    /*
+        Gets called on the delegate to inform the delegate of specific changes made 
+        to an object on the context.
+    */
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        if type == NSFetchedResultsChangeType.Delete{
+            tableView.deleteRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        
+        if type == NSFetchedResultsChangeType.Insert{
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    /*
+        Gets called on the delegate to inform it that the fetched results controller 
+        was refreshed and updated as a result of an update to a managed object context.
+    */
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
     var frc: NSFetchedResultsController!
