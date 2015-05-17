@@ -38,6 +38,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //- MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let batch = NSBatchUpdateRequest(entityName: entityName)
+        // Properties to Update
+        batch.propertiesToUpdate = ["age":18]
+        // Predicate
+        batch.predicate = NSPredicate(format:"age < %@", 18 as NSNumber)
+        // Result type
+        batch.resultType = NSBatchUpdateRequestResultType.UpdatedObjectsCountResultType
+        
+        var batchError: NSError?
+        let result = managedObjectContext!.executeFetchRequest(batch, error: &batchError)
+        if result != nil{
+            if let theResult = result as? NSBatchUpdateResult{
+                if let numberOfAffectedPersons = theResult.result as? Int{
+                    println("Number of people who were previously younger than " +
+                        "18 years old and whose age is now set to " +
+                        "18 is \(numberOfAffectedPersons)")
+                }
+            }
+        }else{
+            if let error = batchError{
+                println("Could not perform batch request. Error = \(error)")
+            }
+        }
+        
         return true
     }
 
