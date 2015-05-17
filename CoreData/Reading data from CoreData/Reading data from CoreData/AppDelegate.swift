@@ -40,8 +40,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Creating new person
+        self.createNewPerson("Domenico", lastName: "Solazzo", age: 33)
+        self.createNewPerson("Steve", lastName: "Jobs", age: 55)
         
+        /* Tell the request that we want to read the contents from the Person entity */
+        // Create the fetch request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
         
+        var requestError: NSError?
+        let persons = managedObjectContext!.executeFetchRequest(fetchRequest, error: &requestError) as! [Person]
+        
+        /* Make sure we get the array */
+        if persons.count > 0{
+            
+            var counter = 1
+            for person in persons{
+                
+                println("Person \(counter) first name = \(person.firstName)")
+                println("Person \(counter) last name = \(person.lastName)")
+                println("Person \(counter) age = \(person.age)")
+                
+                counter++
+            }
+            
+        } else {
+            println("Could not find any Person entities in the context")
+        }
         
         return true
     }
