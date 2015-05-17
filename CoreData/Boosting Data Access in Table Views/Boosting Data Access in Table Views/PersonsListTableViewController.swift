@@ -14,6 +14,25 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     struct TableConstants{
         static let cellIdentifier = "Cell"
     }
+    //- MARK: ViewController
+    required init!(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+        
+        barButtonAddPerson = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonSystemItem.Add,
+            target: self,
+            action: "addPerson:")
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Persons"
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.rightBarButtonItem = barButtonAddPerson
+    }
     
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
@@ -23,17 +42,6 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     var managedObjectContext: NSManagedObjectContext?{
         return (UIApplication.sharedApplication().delegate
             as! AppDelegate).managedObjectContext
-    }
-    
-    //- MARK: Constructors
-    required init!(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
-        
-        barButtonAddPerson = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add,
-            target: self,
-            action: "addPerson:")
-        
     }
     
     //- MARK: UIBarButton

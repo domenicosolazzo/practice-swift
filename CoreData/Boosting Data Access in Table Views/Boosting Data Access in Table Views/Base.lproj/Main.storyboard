@@ -7,7 +7,7 @@
         <!--Persons List Table View Controller-->
         <scene sceneID="Yfr-w2-Jgt">
             <objects>
-                <tableViewController id="bRx-ng-pYP" userLabel="Persons List Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="bRx-ng-pYP" userLabel="Persons List Table View Controller" customClass="PersonsListTableViewController" customModule="Boosting_Data_Access_in_Table_Views" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fkp-6A-Yv2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
