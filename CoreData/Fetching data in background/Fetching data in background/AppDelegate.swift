@@ -38,6 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func newFetchRequest() -> NSFetchRequest{
+        
+        let request = NSFetchRequest(entityName:
+            NSStringFromClass(Person.classForCoder()))
+        
+        request.fetchBatchSize = 20
+        request.predicate = NSPredicate(format: "(age >= 100) AND (age <= 200)")
+        
+        // Returns only the IDs
+        request.resultType = .ManagedObjectIDResultType
+        return request
+        
+    }
     //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
