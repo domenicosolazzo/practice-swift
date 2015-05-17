@@ -15,6 +15,7 @@
 		C0FF7DA71B08D52200BEB1C7 /* Boosting_Data_Access_in_Table_ViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7DA61B08D52200BEB1C7 /* Boosting_Data_Access_in_Table_ViewsTests.swift */; };
 		C0FF7DB11B08D62200BEB1C7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7DB01B08D62200BEB1C7 /* Person.swift */; };
 		C0FF7DB31B08D7D500BEB1C7 /* PersonsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7DB21B08D7D500BEB1C7 /* PersonsListTableViewController.swift */; };
+		C0FF7DB51B08E07100BEB1C7 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7DB41B08E07100BEB1C7 /* AddPersonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C0FF7DA61B08D52200BEB1C7 /* Boosting_Data_Access_in_Table_ViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boosting_Data_Access_in_Table_ViewsTests.swift; sourceTree = "<group>"; };
 		C0FF7DB01B08D62200BEB1C7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C0FF7DB21B08D7D500BEB1C7 /* PersonsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonsListTableViewController.swift; sourceTree = "<group>"; };
+		C0FF7DB41B08E07100BEB1C7 /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				C0FF7D8B1B08D52200BEB1C7 /* Supporting Files */,
 				C0FF7DB01B08D62200BEB1C7 /* Person.swift */,
 				C0FF7DB21B08D7D500BEB1C7 /* PersonsListTableViewController.swift */,
+				C0FF7DB41B08E07100BEB1C7 /* AddPersonViewController.swift */,
 			);
 			path = "Boosting Data Access in Table Views";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				C0FF7DB11B08D62200BEB1C7 /* Person.swift in Sources */,
 				C0FF7D911B08D52200BEB1C7 /* Boosting_Data_Access_in_Table_Views.xcdatamodeld in Sources */,
 				C0FF7DB31B08D7D500BEB1C7 /* PersonsListTableViewController.swift in Sources */,
+				C0FF7DB51B08E07100BEB1C7 /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
