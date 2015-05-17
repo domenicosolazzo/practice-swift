@@ -18,4 +18,10 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
     var frc: NSFetchedResultsController!
+    
+    //- MARK: Computed variables
+    var managedObjectContext: NSManagedObjectContext?{
+        return (UIApplication.sharedApplication().delegate
+            as! AppDelegate).managedObjectContext
+    }
 }
