@@ -21,7 +21,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         barButtonAddPerson = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: self,
-            action: "addPerson:")
+            action: "addNewPerson:")
         
     }
     
@@ -75,7 +75,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     */
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         if type == NSFetchedResultsChangeType.Delete{
-            tableView.deleteRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
         if type == NSFetchedResultsChangeType.Insert{
