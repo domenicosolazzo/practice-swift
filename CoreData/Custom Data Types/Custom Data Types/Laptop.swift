@@ -8,10 +8,11 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(Laptop) class Laptop: NSManagedObject {
 
     @NSManaged var model: String
-    @NSManaged var color: AnyObject
+    @NSManaged var color: UIColor
 
 }
