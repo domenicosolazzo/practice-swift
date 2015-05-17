@@ -11,4 +11,7 @@ import CoreData
 
 class PersonsListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    struct TableConstants{
+        static let cellIdentifier = "Cell"
+    }
 }
