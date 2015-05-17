@@ -40,6 +40,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /* Create the entities first */
+        createNewPerson("Anthony", lastName: "Robbins", age: 52)
+        createNewPerson("Richard", lastName: "Branson", age: 62)
+        
+        /* Tell the request that we want to read the
+        contents of the Person entity */
+        /* Create the fetch request first */
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        var requestError: NSError?
+        
+        /* And execute the fetch request on the context */
+        let persons = managedObjectContext!.executeFetchRequest(fetchRequest,
+            error: &requestError) as! [Person]
+        
+        if persons.count > 0{
+            /* Delete the last person in the array */
+            let lastPerson = (persons as NSArray).lastObject as! Person
+            
+            managedObjectContext!.deleteObject(lastPerson)
+            
+            // .deleted check if an entity has been deleted in the context
+            if lastPerson.deleted{
+                println("Successfully deleted the last person...")
+                
+                var savingError: NSError?
+                if managedObjectContext!.save(&savingError){
+                    println("Successfully saved the context")
+                } else {
+                    if let error = savingError{
+                        println("Failed to save the context. Error = \(error)")
+                    }
+                }
+                
+            } else {
+                println("Failed to delete the last person")
+            }
+            
+        }else{
+            println("Could not find any Person entity in the context")
+        }
+        
+        
         return true
     }
 
