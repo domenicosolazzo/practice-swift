@@ -9,6 +9,6 @@
 import UIKit
 import CoreData
 
-class PersonsListTableViewController: UITableViewController {
+class PersonsListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
 }
