@@ -58,4 +58,9 @@ class AddPersonViewController: UIViewController {
         navigationItem.rightBarButtonItem = barButtonAdd
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        textFieldFirstName.becomeFirstResponder()
+    }
 }
