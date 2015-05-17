@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         batch.resultType = NSBatchUpdateRequestResultType.UpdatedObjectsCountResultType
         
         var batchError: NSError?
-        let result = managedObjectContext!.executeFetchRequest(batch, error: &batchError)
+        let result = managedObjectContext!.executeRequest(batch, error: &batchError)
         if result != nil{
             if let theResult = result as? NSBatchUpdateResult{
                 if let numberOfAffectedPersons = theResult.result as? Int{
