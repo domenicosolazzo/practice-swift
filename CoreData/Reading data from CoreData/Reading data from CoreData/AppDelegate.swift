@@ -15,8 +15,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //- MARK: Helper methods
+    func createNewPerson(firstName: String, lastName: String, age:Int) -> Bool{
+        let entityName = NSStringFromClass(Person.classForCoder())
+        let newPerson = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext!) as! Person
+        
+        (newPerson.firstName, newPerson.lastName, newPerson.age) =
+                (firstName, lastName, age)
+        
+        var savingError: NSError?
+        if managedObjectContext!.save(&savingError){
+            println("Successfully saved...")
+        }else{
+            if let error = savingError{
+                println("Failed to save the new person. Error = \(error)")
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
+    //- MARK: Application Delegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        
         return true
     }
 
