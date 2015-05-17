@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddPersonViewController: UIViewController {
     //- MARK: Private variables
@@ -62,5 +63,40 @@ class AddPersonViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         textFieldFirstName.becomeFirstResponder()
+    }
+    
+    //- Helper methods
+    func createNewPerson(sender: AnyObject){
+        
+        let appDelegate = UIApplication.sharedApplication().delegate
+            as! AppDelegate
+        
+        let managedObjectContext = appDelegate.managedObjectContext
+        
+        let newPerson =
+        NSEntityDescription.insertNewObjectForEntityForName("Person",
+            inManagedObjectContext: managedObjectContext!) as? Person
+        
+        if let person = newPerson{
+            person.firstName = textFieldFirstName.text
+            person.lastName = textFieldLastName.text
+            if let age = textFieldAge.text.toInt(){
+                person.age = age
+            } else {
+                person.age = 18
+            }
+            
+            var savingError: NSError?
+            
+            if managedObjectContext!.save(&savingError){
+                navigationController!.popViewControllerAnimated(true)
+            } else {
+                println("Failed to save the managed object context")
+            }
+            
+        } else {
+            println("Failed to create the new person object")
+        }
+        
     }
 }
