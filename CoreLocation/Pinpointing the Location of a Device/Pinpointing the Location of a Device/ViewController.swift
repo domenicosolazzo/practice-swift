@@ -31,6 +31,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Failure retrieving the user's location. Error: \(error)")
+    }
 }
 
