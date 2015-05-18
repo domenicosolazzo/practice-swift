@@ -1,16 +1,18 @@
 Practice Swift
 ==============
-An alternative learning guide: an updated list of projects in Swift.
+Practice does make perfect: an alternative way to learn Swift
 
 ## WHY?
-I am learning mobile development using Swift and during the past months, I read many books, tutorials and examples. 
+I am new to iOS development and I started learning Swift some months ago.
 
-In this list, you will find all the exercise, tutorial, code examples that I have found in the web.
-
-Hope that this material will be useful to other people with the same passion for mobile development and Swift.
+This is my list of iOS projects following all the tutorials, book tutorials and code examples that I have found around the web.
+Hope that this material will be useful to other people and will help you to get a better understanding about Swift.
 
 ## Note
 I try to keep this list updated. Adding new projects every day. Still learning:) 
+
+## Feedback?
+Always welcome!
 
 ## Projects
 ### AutoLayout
