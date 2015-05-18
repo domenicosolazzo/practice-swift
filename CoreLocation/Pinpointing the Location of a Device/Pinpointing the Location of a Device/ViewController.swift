@@ -31,8 +31,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    // It is called when there is an error fetching the user's location
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Failure retrieving the user's location. Error: \(error)")
+    }
+    
+    // System got a location update
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        println("Location - Latitude: \(newLocation.coordinate.latitude)")
+        println("Location - Longitude: \(newLocation.coordinate.longitude)")
     }
 }
 
