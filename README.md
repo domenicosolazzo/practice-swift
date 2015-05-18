@@ -2,8 +2,19 @@ Practice Swift
 ==============
 An alternative learning guide: an updated list of projects in Swift.
 
-(I am trying to keep this list updated. Still learning... :) )
+## WHY?
+=======
+I am learning mobile development using Swift and during the past months, I read many books, tutorials and examples. 
 
+In this list, you will find all the exercise, tutorial, code examples that I have found in the web.
+
+Hope that this material will be useful to other people with the same passion for mobile development and Swift.
+
+## Note
+I try to keep this list updated. Adding new projects every day. Still learning:) 
+
+## Projects
+===========
 ### AutoLayout
 - Basic 
 - Basic autolayout - Another example
