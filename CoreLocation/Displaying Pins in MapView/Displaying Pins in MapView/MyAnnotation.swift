@@ -12,4 +12,6 @@ import MapKit
 
 class MyAnnotation: NSObject {
     let coordinate: CLLocationCoordinate2D
+    let title:String!
+    let subtitle:String!
 }
