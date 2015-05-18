@@ -44,5 +44,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         println("Location - Latitude: \(newLocation.coordinate.latitude)")
         println("Location - Longitude: \(newLocation.coordinate.longitude)")
     }
+    
+    //- MARK: Helper methods
+    func displayAlertWithTitle(title:String, message:String){
+        var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
+    }
 }
 
