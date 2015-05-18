@@ -6,7 +6,8 @@ Practice does make perfect: an alternative way to learn Swift
 I am new to iOS development and I started learning Swift some months ago.
 
 This is my list of iOS projects following all the tutorials, book tutorials and code examples that I have found around the web.
-Hope that this material will be useful to other people and will help you to get a better understanding about Swift.
+
+Hope this material will be useful to other people and will help you to get a better understanding about Swift.
 
 ## Note
 I try to keep this list updated. Adding new projects every day. Still learning:) 
