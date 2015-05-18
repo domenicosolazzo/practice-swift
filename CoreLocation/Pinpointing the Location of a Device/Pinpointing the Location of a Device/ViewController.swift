@@ -45,6 +45,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         println("Location - Longitude: \(newLocation.coordinate.longitude)")
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /* Are location services available on this device? */
+        if CLLocationManager.locationServicesEnabled(){
+            
+            /* Do we have authorization to access location services? */
+            switch CLLocationManager.authorizationStatus(){
+            case .AuthorizedAlways:
+                /* Yes, always */
+                createLocationManager(true)
+            case .AuthorizedWhenInUse:
+                /* Yes, only when our app is in use */
+                createLocationManager(true)
+            case .Denied:
+                /* No */
+                displayAlertWithTitle("Not Determined",
+                    message: "Location services are not allowed for this app")
+            case .NotDetermined:
+                /* We don't know yet, we have to ask */
+                createLocationManager(false)
+                if let manager = self.locationManager{
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .Restricted:
+                /* Restrictions have been applied, we have no access
+                to location services */
+                displayAlertWithTitle("Restricted",
+                    message: "Location services are not allowed for this app")
+            }
+            
+            
+        } else {
+            /* Location services are not enabled.
+            Take appropriate action: for instance, prompt the
+            user to enable the location services */
+            println("Location services are not enabled")
+        }
+    }
+    
     //- MARK: Helper methods
     func displayAlertWithTitle(title:String, message:String){
         var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
