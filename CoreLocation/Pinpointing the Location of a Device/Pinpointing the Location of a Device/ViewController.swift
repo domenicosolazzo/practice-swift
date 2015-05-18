@@ -11,6 +11,9 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    // Private variables
+    var locationManager: CLLocationManager?
+    
     // It is called when the authorization status of your location manager is changed by the user
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         print("The authorization status of location services is changed to: ")
