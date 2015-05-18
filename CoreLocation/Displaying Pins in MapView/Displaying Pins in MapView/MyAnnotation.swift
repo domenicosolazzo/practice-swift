@@ -11,5 +11,5 @@ import UIKit
 import MapKit
 
 class MyAnnotation: NSObject {
-
+    let coordinate: CLLocationCoordinate2D
 }
