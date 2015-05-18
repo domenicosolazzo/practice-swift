@@ -25,6 +25,25 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
+    
+    func addPinToMapView(){
+        
+        /* This is just a sample location */
+        let location = CLLocationCoordinate2D(latitude: 58.592737,
+            longitude: 16.185898)
+        
+        /* Create the annotation using the location */
+        let annotation = MyAnnotation(coordinate: location,
+            title: "My Title",
+            subtitle: "My Sub Title")
+        
+        /* And eventually add it to the map */
+        mapView.addAnnotation(annotation)
+        
+        /* And now center the map around the point */
+        setCenterOfMapToLocation(location)
+        
+    }
 
 }
 
