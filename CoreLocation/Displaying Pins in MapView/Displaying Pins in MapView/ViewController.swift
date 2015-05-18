@@ -53,6 +53,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         view.addSubview(mapView)
     }
+    
+    /* Add the pin to the map and center the map around the pin */
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        addPinToMapView()
+    }
 
 }
 
