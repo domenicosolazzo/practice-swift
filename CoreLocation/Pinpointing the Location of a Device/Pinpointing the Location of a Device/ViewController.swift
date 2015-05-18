@@ -51,5 +51,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    func createLocationManager(startImmediately:Bool){
+        locationManager = CLLocationManager()
+        if let manager = locationManager{
+            println("Successfully created a location manager!")
+            manager.delegate = self
+            if startImmediately{
+                manager.startUpdatingLocation()
+            }
+        }
+    
+    }
 }
 
