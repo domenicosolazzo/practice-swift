@@ -13,6 +13,7 @@
 		C07EC1FB1B0A6CCF00FC9789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07EC1FA1B0A6CCF00FC9789 /* Images.xcassets */; };
 		C07EC1FE1B0A6CCF00FC9789 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07EC1FC1B0A6CCF00FC9789 /* LaunchScreen.xib */; };
 		C07EC20A1B0A6CCF00FC9789 /* Displaying_Pins_in_MapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07EC2091B0A6CCF00FC9789 /* Displaying_Pins_in_MapViewTests.swift */; };
+		C07EC2141B0A6D8600FC9789 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07EC2131B0A6D8600FC9789 /* MyAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C07EC2031B0A6CCF00FC9789 /* Displaying Pins in MapViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Displaying Pins in MapViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07EC2081B0A6CCF00FC9789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07EC2091B0A6CCF00FC9789 /* Displaying_Pins_in_MapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displaying_Pins_in_MapViewTests.swift; sourceTree = "<group>"; };
+		C07EC2131B0A6D8600FC9789 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C07EC1FA1B0A6CCF00FC9789 /* Images.xcassets */,
 				C07EC1FC1B0A6CCF00FC9789 /* LaunchScreen.xib */,
 				C07EC1F11B0A6CCF00FC9789 /* Supporting Files */,
+				C07EC2131B0A6D8600FC9789 /* MyAnnotation.swift */,
 			);
 			path = "Displaying Pins in MapView";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				C07EC1F61B0A6CCF00FC9789 /* ViewController.swift in Sources */,
 				C07EC1F41B0A6CCF00FC9789 /* AppDelegate.swift in Sources */,
+				C07EC2141B0A6D8600FC9789 /* MyAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
