@@ -10,8 +10,8 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, MKMapViewDelegate {
+    
 
 }
 
