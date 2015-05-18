@@ -1,6 +1,7 @@
 Practice Swift
 ==============
 An alternative learning guide: an updated list of projects in Swift.
+
 (I am trying to keep this list updated. Still learning... :) )
 
 ### AutoLayout
