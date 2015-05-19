@@ -74,6 +74,49 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
     }
     
+    func mapView(mapView: MKMapView!,
+        viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!{
+            
+            if annotation is MyAnnotation == false{
+                return nil
+            }
+            
+            /* First typecast the annotation for which the Map View has
+            fired this delegate message */
+            let senderAnnotation = annotation as! MyAnnotation
+            
+            /* We will attempt to get a reusable
+            identifier for the pin we are about to create */
+            let pinReusableIdentifier = senderAnnotation.pinColor.rawValue
+            
+            /* Using the identifier we retrieved above, we will
+            attempt to reuse a pin in the sender Map View */
+            var annotationView =
+            mapView.dequeueReusableAnnotationViewWithIdentifier(
+                pinReusableIdentifier) as? MKPinAnnotationView
+            
+            if annotationView == nil{
+                /* If we fail to reuse a pin, then we will create one */
+                annotationView = MKPinAnnotationView(annotation: senderAnnotation,
+                    reuseIdentifier: pinReusableIdentifier)
+                
+                /* Make sure we can see the callouts on top of
+                each pin in case we have assigned title and/or
+                subtitle to each pin */
+                annotationView!.canShowCallout = true
+            }
+            
+            if senderAnnotation.pinColor == .Blue{
+                let pinImage = UIImage(named:"BluePin")
+                annotationView!.image = pinImage
+            } else {
+                annotationView!.pinColor = senderAnnotation.pinColor.toPinColor()
+            }
+            
+            return annotationView
+            
+    }
+    
     /* Set up the map and add it to our view */
     override func viewDidLoad() {
         super.viewDidLoad()
