@@ -65,6 +65,60 @@ class ViewController: UIViewController,
             
     }
     
+    func provideDirections(){
+        let destination = "Godsgatan, Norrköping, Sweden"
+        CLGeocoder().geocodeAddressString(destination,
+            completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
+                
+                if error != nil{
+                    /* Handle the error here perhaps by displaying an alert */
+                } else {
+                    let request = MKDirectionsRequest()
+                    request.setSource(MKMapItem.mapItemForCurrentLocation())
+                    
+                    /* Convert the CoreLocation destination
+                    placemark to a MapKit placemark */
+                    let placemark = placemarks[0] as! CLPlacemark
+                    let destinationCoordinates =
+                    placemark.location.coordinate
+                    /* Get the placemark of the destination address */
+                    let destination = MKPlacemark(coordinate:
+                        destinationCoordinates,
+                        addressDictionary: nil)
+                    
+                    request.setDestination(MKMapItem(placemark: destination))
+                    
+                    /* Set the transportation method to automobile */
+                    request.transportType = .Automobile
+                    
+                    /* Get the directions */
+                    let directions = MKDirections(request: request)
+                    directions.calculateDirectionsWithCompletionHandler{
+                        (response: MKDirectionsResponse!, error: NSError!) in
+                        
+                        /* You can manually parse the response, but in
+                        here we will take a shortcut and use the Maps app
+                        to display our source and
+                        destination. We didn't have to make this API call at all,
+                        as we already had the map items before, but this is to
+                        demonstrate that the directions response contains more
+                        information than just the source and the destination. */
+                        
+                        /* Display the directions on the Maps app */
+                        let launchOptions = [
+                            MKLaunchOptionsDirectionsModeKey:
+                        MKLaunchOptionsDirectionsModeDriving]
+                        
+                        MKMapItem.openMapsWithItems(
+                            [response.source, response.destination],
+                            launchOptions: launchOptions)
+                    }
+                    
+                }
+                
+        })
+    }
+    
     
 }
 
