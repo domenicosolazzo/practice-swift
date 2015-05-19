@@ -15,6 +15,13 @@ class ViewController: UIViewController,
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        mapView = MKMapView()
+    }
+    
+    
+    
     //- MARK: Helper methods
     /* Just a little method to help us display alert dialogs to the user */
     func displayAlertWithTitle(title: String, message: String){
