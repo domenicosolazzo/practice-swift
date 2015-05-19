@@ -64,5 +64,12 @@ class ViewController: UIViewController,
             }
             
     }
+    
+    /* We will call this method when we are sure that the user has given
+    us access to her location */
+    func showUserLocationOnMapView(){
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .Follow
+    }
 }
 
