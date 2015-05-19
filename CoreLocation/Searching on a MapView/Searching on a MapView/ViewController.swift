@@ -29,6 +29,43 @@ class ViewController: UIViewController,
         view.addSubview(mapView)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /* Are location services available on this device? */
+        if CLLocationManager.locationServicesEnabled(){
+            
+            /* Do we have authorization to access location services? */
+            switch CLLocationManager.authorizationStatus(){
+            case .Denied:
+                /* No */
+                displayAlertWithTitle("Not Determined",
+                    message: "Location services are not allowed for this app")
+            case .NotDetermined:
+                /* We don't know yet, we have to ask */
+                locationManager = CLLocationManager()
+                if let manager = locationManager{
+                    manager.delegate = self
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .Restricted:
+                /* Restrictions have been applied, we have no access
+                to location services */
+                displayAlertWithTitle("Restricted",
+                    message: "Location services are not allowed for this app")
+            default:
+                showUserLocationOnMapView()
+            }
+            
+            
+        } else {
+            /* Location services are not enabled.
+            Take appropriate action: for instance, prompt the
+            user to enable the location services */
+            println("Location services are not enabled")
+        }
+    }
+    
     //- MARK: Location Manager
     func locationManager(manager: CLLocationManager!,
         didUpdateToLocation newLocation: CLLocation!,
