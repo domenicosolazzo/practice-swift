@@ -119,6 +119,45 @@ class ViewController: UIViewController,
         })
     }
     
+    /* Add the pin to the map and center the map around the pin */
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /* Are location services available on this device? */
+        if CLLocationManager.locationServicesEnabled(){
+            
+            /* Do we have authorization to access location services? */
+            switch CLLocationManager.authorizationStatus(){
+            case .Denied:
+                /* No */
+                displayAlertWithTitle("Not Determined",
+                    message: "Location services are not allowed for this app")
+            case .NotDetermined:
+                /* We don't know yet, we have to ask */
+                locationManager = CLLocationManager()
+                if let manager = self.locationManager{
+                    manager.delegate = self
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .Restricted:
+                /* Restrictions have been applied, we have no access
+                to location services */
+                displayAlertWithTitle("Restricted",
+                    message: "Location services are not allowed for this app")
+            default:
+                provideDirections()
+            }
+            
+            
+        } else {
+            /* Location services are not enabled.
+            Take appropriate action: for instance, prompt the
+            user to enable the location services */
+            println("Location services are not enabled")
+        }
+        
+    }
+    
     
 }
 
