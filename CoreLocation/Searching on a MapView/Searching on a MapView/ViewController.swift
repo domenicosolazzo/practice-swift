@@ -9,8 +9,11 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController,
+        MKMapViewDelegate, CLLocationManagerDelegate {
+    
     var mapView: MKMapView!
+    var locationManager: CLLocationManager?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
