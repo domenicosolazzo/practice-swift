@@ -30,5 +30,20 @@ class ViewController: UIViewController,
     }
     
     
+    //- MARK: Helper methods
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
+    
 }
 
