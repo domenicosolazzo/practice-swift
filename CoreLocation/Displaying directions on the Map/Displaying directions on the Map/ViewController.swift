@@ -44,6 +44,27 @@ class ViewController: UIViewController,
         
     }
     
+    //- MARK: LocationManager
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus){
+            
+            print("The authorization status of location " +
+                "services is changed to: ")
+            
+            switch CLLocationManager.authorizationStatus(){
+            case .Denied:
+                println("Denied")
+            case .NotDetermined:
+                println("Not determined")
+            case .Restricted:
+                println("Restricted")
+            default:
+                println("Authorized")
+                provideDirections()
+            }
+            
+    }
+    
     
 }
 
