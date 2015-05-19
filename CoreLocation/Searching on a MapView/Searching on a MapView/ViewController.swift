@@ -11,5 +11,10 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
     var mapView: MKMapView!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        mapView = MKMapView()
+    }
 }
 
