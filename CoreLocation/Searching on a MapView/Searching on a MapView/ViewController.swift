@@ -71,5 +71,41 @@ class ViewController: UIViewController,
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .Follow
     }
+    
+    //- MARK: MapView
+    func mapView(mapView: MKMapView!,
+        didFailToLocateUserWithError error: NSError!) {
+            displayAlertWithTitle("Failed",
+                message: "Could not get the user's location")
+    }
+    
+    func mapView(mapView: MKMapView!,
+        didUpdateUserLocation userLocation: MKUserLocation!) {
+            
+            let request = MKLocalSearchRequest()
+            request.naturalLanguageQuery = "restaurants";
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            
+            request.region = MKCoordinateRegion(
+                center: userLocation.location.coordinate,
+                span: span)
+            
+            let search = MKLocalSearch(request: request)
+            
+            search.startWithCompletionHandler{
+                (response: MKLocalSearchResponse!, error: NSError!) in
+                
+                for item in response.mapItems as! [MKMapItem]{
+                    
+                    println("Item name = \(item.name)")
+                    println("Item phone number = \(item.phoneNumber)")
+                    println("Item url = \(item.url)")
+                    println("Item location = \(item.placemark.location)")
+                    
+                }
+                
+            }
+    }
 }
 
