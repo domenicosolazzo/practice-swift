@@ -94,6 +94,35 @@ class ViewController: UIViewController,
             
     }
     
+    //- MARK: MapView
+    func mapView(mapView: MKMapView!,
+        didFailToLocateUserWithError error: NSError!) {
+            displayAlertWithTitle("Failed",
+                message: "Could not get the user's location")
+    }
+    
+    func mapView(mapView: MKMapView!,
+        didUpdateUserLocation userLocation: MKUserLocation!){
+            
+            println("Setting the camera for our map view...")
+            
+            let userCoordinate = userLocation.coordinate
+            
+            /* Assuming my location is hardcoded to
+            lat: 58.592725 and long:16.185962, the following camera
+            angle works perfectly for me */
+            let eyeCoordinate = CLLocationCoordinate2D(
+                latitude: 58.571647,
+                longitude: 16.234660)
+            
+            let camera = MKMapCamera(
+                lookingAtCenterCoordinate: userCoordinate,
+                fromEyeCoordinate: eyeCoordinate,
+                eyeAltitude: 400.0)
+            
+            mapView.setCamera(camera, animated: true)
+    }
+    
     //- MARK: Helper methods
     /* Just a little method to help us display alert dialogs to the user */
     func displayAlertWithTitle(title: String, message: String){
