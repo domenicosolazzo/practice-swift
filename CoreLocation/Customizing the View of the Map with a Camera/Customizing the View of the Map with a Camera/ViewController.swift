@@ -21,6 +21,15 @@ class ViewController: UIViewController,
     }
     
     
+    /* Set up the map and add it to our view */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mapView.mapType = .Standard
+        mapView.frame = view.frame
+        mapView.delegate = self
+        view.addSubview(mapView)
+    }
+    
     
     //- MARK: Helper methods
     /* Just a little method to help us display alert dialogs to the user */
