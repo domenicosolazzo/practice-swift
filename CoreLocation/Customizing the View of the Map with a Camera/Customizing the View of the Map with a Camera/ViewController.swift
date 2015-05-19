@@ -12,5 +12,7 @@ import MapKit
 class ViewController: UIViewController,
     MKMapViewDelegate, CLLocationManagerDelegate{
 
+    var mapView: MKMapView!
+    var locationManager: CLLocationManager?
 }
 
