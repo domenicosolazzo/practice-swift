@@ -15,5 +15,10 @@ class ViewController: UIViewController,
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        mapView = MKMapView()
+        
+    }
 }
 
