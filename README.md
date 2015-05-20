@@ -10,7 +10,7 @@ This is my list of iOS projects following all the tutorials, book tutorials and 
 Hope this material will be useful to other people and will help you to get a better understanding about Swift.
 
 ## Note
-I try to keep this list updated. Adding new projects every day. Still learning:) 
+I try to keep this list updated. Adding new projects every day. Still learning :) 
 
 ## Feedback?
 Always welcome!
