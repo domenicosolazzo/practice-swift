@@ -15,7 +15,11 @@ extension NSDate{
     }
     
     class func yesterday() -> NSDate{
-        return NSDate(timeIntervalSinceNow: -(24 * 60 * 60))
+       return NSDate(timeIntervalSinceNow: -(24 * 60 * 60))
+    }
+    
+    class func tenMinutesAgo() -> NSDate{
+        return NSDate(timeIntervalSinceNow: -(10 * 60))
     }
 }
 
