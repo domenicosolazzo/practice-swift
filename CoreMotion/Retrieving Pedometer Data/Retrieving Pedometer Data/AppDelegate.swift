@@ -13,6 +13,7 @@ import CoreMotion
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    lazy var pedometer = CMPedometer()
 
 }
 
