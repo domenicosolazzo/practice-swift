@@ -9,6 +9,16 @@
 import UIKit
 import CoreMotion
 
+extension NSDate{
+    class func now() -> NSDate{
+        return NSDate()
+    }
+    
+    class func yesterday() -> NSDate{
+        return NSDate(timeIntervalSinceNow: -(24 * 60 * 60))
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
