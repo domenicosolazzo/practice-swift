@@ -18,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         return true
     }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Check if the step count is available
+        if CMPedometer.isStepCountingAvailable() {
+            let date = NSDate()// Since when you want to start to measure the number of steps
+            pedometer.startPedometerUpdatesFromDate(date, withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                println("Number of steps: \(data.numberOfSteps)")
+            })
+        }else{
+            println("Steps are not available")
+        }
+    }
 
 }
 
