@@ -22,5 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         return true
     }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Check if altimeter data is available
+        if CMAltimeter.isRelativeAltitudeAvailable(){
+            // Start updating altimeter data
+            altimeter.startRelativeAltitudeUpdatesToQueue(queue, withHandler:
+                { (data:CMAltitudeData!, error:NSError!) -> Void in
+                println("Got the altitude. Data: \(data.relativeAltitude)")
+            })
+        }
+    }
+    
+    func applicationWillResignActive(application: UIApplication) {
+        // Stop receiving updates
+        altimeter.stopRelativeAltitudeUpdates()
+    }
 }
 
