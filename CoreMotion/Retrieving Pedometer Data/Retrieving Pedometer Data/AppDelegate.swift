@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("Steps are not available")
         }
     }
+    
+    func applicationWillResignActive(application: UIApplication) {
+        pedometer.stopPedometerUpdates()
+    }
 
 }
 
