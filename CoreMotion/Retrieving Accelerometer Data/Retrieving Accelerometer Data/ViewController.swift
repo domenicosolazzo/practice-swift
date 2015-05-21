@@ -11,6 +11,7 @@ import CoreMotion
 
 class ViewController: UIViewController {
 
+    lazy var motionManager = CMMotionManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         
