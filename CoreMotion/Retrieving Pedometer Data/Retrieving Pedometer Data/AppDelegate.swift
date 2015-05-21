@@ -48,6 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             println("No distance data")
         }
+        
+        // Check for Floor count
+        if CMPedometer.isFloorCountingAvailable(){
+            pedometer.queryPedometerDataFromDate(NSDate.tenMinutesAgo(), toDate: NSDate.now(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                println("Floor ascended: \(data.floorsAscended)")
+                println("Floor descended: \(data.floorsDescended)")
+            })
+        }else{
+            println("No floors data")
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {
