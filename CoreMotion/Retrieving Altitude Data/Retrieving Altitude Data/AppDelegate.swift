@@ -13,5 +13,8 @@ import CoreMotion
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    /* The altimeter instance that will deliver our altitude updates if they
+    are available on the host device */
+    lazy var altimeter = CMAltimeter()
 }
 
