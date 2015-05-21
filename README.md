@@ -32,6 +32,11 @@ Always welcome!
 ### Camera 
 - TakePic: Taking pictures/videos with iOS
 
+### Core Data
+- [CoreData: Small introduction](http://goo.gl/VqRLkE)
+- [CoreData: The file manager](http://goo.gl/0FxURE)
+- [CoreData: Custom objects](http://goo.gl/hqqDle)
+
 ### Core Location
 - [MapKit: A small introduction](http://goo.gl/ZwhN6Z)
 - [MapKit: Finding the user location](http://goo.gl/rPg7tS)
@@ -43,10 +48,11 @@ Always welcome!
 - [SpriteKit: Animated Bear]()
 - [SpriteKit: Drag and Drop Sprites](http://goo.gl/5RYJzh)
 
-### Core Data
-- [CoreData: Small introduction](http://goo.gl/VqRLkE)
-- [CoreData: The file manager](http://goo.gl/0FxURE)
-- [CoreData: Custom objects](http://goo.gl/hqqDle)
+### Core Motion
+- Ball: Moving a marble using the gyroscope
+- Motion Monitor: Monitoring the accelerator and the gyroscope
+- Motion Monitor(2): Monitoring the accelerator and the gyroscope. Different way to code this feature.
+- Shake & Break: How to intercept the shake movement
 
 ### Gesture
 - Check Please: Advanced Gesture recognizer
@@ -55,12 +61,6 @@ Always welcome!
 - Swipes: How to swipe with iOS
 - TapTaps: Intercept the tap event
 - Touch Explorer: A list of touch examples
-
-### Gyroscope / Accelerator
-- Ball: Moving a marble using the gyroscope
-- Motion Monitor: Monitoring the accelerator and the gyroscope
-- Motion Monitor(2): Monitoring the accelerator and the gyroscope. Different way to code this feature.
-- Shake & Break: How to intercept the shake movement
 
 ### iCloud
 - TinyPix: How to save and retrieve information with iCloud
