@@ -16,5 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /* The altimeter instance that will deliver our altitude updates if they
     are available on the host device */
     lazy var altimeter = CMAltimeter()
+    /* A private queue on which altitude updates will be delivered to us */
+    lazy var queue = NSOperationQueue()
 }
 
