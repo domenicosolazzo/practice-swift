@@ -39,6 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             println("Steps are not available")
         }
+        
+        // Check for distance 
+        if CMPedometer.isDistanceAvailable(){
+            pedometer.queryPedometerDataFromDate(NSDate.now(), toDate: NSDate.yesterday(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                println("Distance: \(data.distance) m")
+            })
+        }else{
+            println("No distance data")
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {
