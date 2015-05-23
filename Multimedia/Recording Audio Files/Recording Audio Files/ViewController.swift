@@ -74,6 +74,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         }else{
             println("Failed to stop the audio recording")
         }
+        
+        self.audioRecorder = nil
     }
     //- MARK: Helper methods
     // Where the recording file will be saved
