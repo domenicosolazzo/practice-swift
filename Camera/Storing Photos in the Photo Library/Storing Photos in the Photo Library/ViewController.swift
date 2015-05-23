@@ -11,6 +11,10 @@ import MobileCoreServices
 
 class ViewController: UIViewController,
     UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+    /* We will use this variable to determine if the viewDidAppear:
+    method of our view controller is already called or not. If not, we will
+    display the camera view */
+    var beenHereBefore = false
+    var controller: UIImagePickerController?
 }
 
