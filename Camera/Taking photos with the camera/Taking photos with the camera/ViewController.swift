@@ -50,6 +50,12 @@ class ViewController: UIViewController,
         
     }
     
+    //- MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        println("Picker was cancelled")
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     //- MARK: Helper methods
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
