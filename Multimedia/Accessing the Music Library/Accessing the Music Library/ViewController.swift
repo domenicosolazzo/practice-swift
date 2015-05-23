@@ -13,6 +13,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
     var mediaPicker: MPMediaPickerController?
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        displayMediaPicker()
+    }
     func displayMediaPicker(){
         
         mediaPicker = MPMediaPickerController(mediaTypes: .Any)
