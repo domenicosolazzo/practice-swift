@@ -46,6 +46,24 @@ class ViewController: UIViewController {
         
     }
 
+    func videoThumbnailIsAvailable(notification: NSNotification){
+        
+        if let player = moviePlayer{
+            println("Thumbnail is available")
+            
+            /* Now get the thumbnail out of the user info dictionary */
+            let thumbnail =
+            notification.userInfo![MPMoviePlayerThumbnailImageKey] as? UIImage
+            
+            if let image = thumbnail{
+                
+                /* We got the thumbnail image. You can now use it here */
+                println("Thumbnail image = \(image)")
+                
+            }
+        }
+        
+    }
     
     func stopPlayingVideo() {
         
