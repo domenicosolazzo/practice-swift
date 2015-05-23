@@ -16,5 +16,10 @@ class ViewController: UIViewController,
     display the camera view */
     var beenHereBefore = false
     var controller: UIImagePickerController?
+    
+    //- MARK: Helper methods
+    func isCameraAvailable() -> Bool{
+        return UIImagePickerController.isSourceTypeAvailable(.Camera)
+    }
 }
 
