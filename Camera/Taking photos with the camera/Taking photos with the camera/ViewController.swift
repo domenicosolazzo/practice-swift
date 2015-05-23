@@ -51,6 +51,52 @@ class ViewController: UIViewController,
     }
     
     //- MARK: UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+            
+        println("Picker returned successfully")
+            
+        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            
+        if let type:AnyObject = mediaType{
+                
+            if type is String{
+                let stringType = type as! String
+                
+                if stringType == kUTTypeMovie as! String{
+                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                    if let url = urlOfVideo{
+                        println("Video URL = \(url)")
+                    }
+                }
+                else if stringType == kUTTypeImage as! String{
+                    /* Let's get the metadata. This is only for images. Not videos */
+                    let metadata = info[UIImagePickerControllerMediaMetadata]
+                        as? NSDictionary
+                    if let theMetaData = metadata{
+                        // original image
+                        let image = info[UIImagePickerControllerOriginalImage]
+                            as? UIImage
+                        // crop rect
+                        let cropRect = info[UIImagePickerControllerCropRect]
+                        // edited image
+                        let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
+                        
+                        if let theImage = image{
+                            println("Image Metadata = \(theMetaData)")
+                            println("Image = \(theImage)")
+                            println("Edited image = \(editedImage)")
+                            println("Crop Rect = \(cropRect)")
+                        }
+                    }
+                }
+                
+            }
+        }
+            
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         println("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
