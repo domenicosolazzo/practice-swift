@@ -38,6 +38,44 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         ]
         
     }
+    
+    func startRecordingAudio(){
+        var error: NSError?
+        
+        // File recording path
+        let audioRecordingURL = self.audioRecordingPath()
+        
+        audioRecorder = AVAudioRecorder(
+            URL: audioRecordingURL,
+            settings: self.audioRecordingSettings() as [NSObject : AnyObject],
+            error: &error)
+        
+        if let recorder = audioRecorder{
+            // Set the delegate
+            recorder.delegate = self
+            
+            // Prepare to record
+            if recorder.prepareToRecord() && recorder.record(){
+                println("Successfully started to record")
+                
+                // After 5 seconds, let's stop the recording process
+                let delay = 5.0
+                let delayInNanoSeconds = dispatch_time(DISPATCH_TIME_NOW,
+                    Int64(delay * Double(NSEC_PER_SEC)))
+                
+                dispatch_after(
+                    delayInNanoSeconds,
+                    dispatch_get_main_queue(), {[weak self] in
+                        self!.audioRecorder!.stop()
+                })
+            }else{
+                println("Failed to record...")
+                audioRecorder = nil
+            }
+        }else{
+            println("Error creating a new instance of the audio recorder")
+        }
+    }
 
 }
 
