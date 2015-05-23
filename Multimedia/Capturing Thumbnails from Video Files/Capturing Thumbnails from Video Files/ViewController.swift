@@ -12,5 +12,15 @@ import MediaPlayer
 class ViewController: UIViewController {
     var moviePlayer: MPMoviePlayerController?
     var playButton: UIButton?
+    
+    func stopPlayingVideo() {
+        
+        if let player = moviePlayer{
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            player.stop()
+            player.view.removeFromSuperview()
+        }
+        
+    }
 }
 
