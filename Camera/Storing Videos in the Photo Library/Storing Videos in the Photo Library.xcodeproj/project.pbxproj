@@ -13,6 +13,7 @@
 		C009AF131B11012B00C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009AF121B11012B00C44B10 /* Images.xcassets */; };
 		C009AF161B11012B00C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009AF141B11012B00C44B10 /* LaunchScreen.xib */; };
 		C009AF221B11012B00C44B10 /* Storing_Videos_in_the_Photo_LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AF211B11012B00C44B10 /* Storing_Videos_in_the_Photo_LibraryTests.swift */; };
+		C009AF2C1B11025A00C44B10 /* sample_iTunes.mov in Resources */ = {isa = PBXBuildFile; fileRef = C009AF2B1B11025A00C44B10 /* sample_iTunes.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C009AF1B1B11012B00C44B10 /* Storing Videos in the Photo LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Storing Videos in the Photo LibraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009AF201B11012B00C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009AF211B11012B00C44B10 /* Storing_Videos_in_the_Photo_LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storing_Videos_in_the_Photo_LibraryTests.swift; sourceTree = "<group>"; };
+		C009AF2B1B11025A00C44B10 /* sample_iTunes.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample_iTunes.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C009AF0B1B11012B00C44B10 /* AppDelegate.swift */,
+				C009AF2B1B11025A00C44B10 /* sample_iTunes.mov */,
 				C009AF0D1B11012B00C44B10 /* ViewController.swift */,
 				C009AF0F1B11012B00C44B10 /* Main.storyboard */,
 				C009AF121B11012B00C44B10 /* Images.xcassets */,
@@ -194,6 +197,7 @@
 			files = (
 				C009AF111B11012B00C44B10 /* Main.storyboard in Resources */,
 				C009AF161B11012B00C44B10 /* LaunchScreen.xib in Resources */,
+				C009AF2C1B11025A00C44B10 /* sample_iTunes.mov in Resources */,
 				C009AF131B11012B00C44B10 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
