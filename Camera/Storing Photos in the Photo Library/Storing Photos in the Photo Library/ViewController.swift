@@ -9,7 +9,8 @@
 import UIKit
 import MobileCoreServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
 }
 
