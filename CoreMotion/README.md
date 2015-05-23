@@ -3,3 +3,10 @@
 - Motion Monitor: Monitoring the accelerator and the gyroscope
 - Motion Monitor(2): Monitoring the accelerator and the gyroscope. Different way to code this feature.
 - Shake & Break: How to intercept the shake movement
+- [Retrieving Altitude data](#): Retrieving altitude data
+- [Retrieving Pedometer data](#): Retrieving pedometer data
+- [Detecting the availability of an Accelerometer](#): Checking the availability of an accelerometer
+- [Detecting the availability of a Gyroscope](#): Checking the availability of a gyroscope
+- [Retrieving Accelerometer data](#): Retrieving the accelerometer data
+- [Detecting shakes in an iOS device](#): Detecting shakes in an iOS device
+- [Retrieving Gyroscope data](#): Retrieving gyroscope data
