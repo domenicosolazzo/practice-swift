@@ -36,6 +36,7 @@
 		C009AE051B10859900C44B10 /* Playing Video FilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Playing Video FilesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009AE0A1B10859900C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009AE0B1B10859900C44B10 /* Playing_Video_FilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playing_Video_FilesTests.swift; sourceTree = "<group>"; };
+		C009AE151B10862200C44B10 /* Sample.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sample.m4v; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				C009ADF51B10859900C44B10 /* AppDelegate.swift */,
+				C009AE151B10862200C44B10 /* Sample.m4v */,
 				C009ADF71B10859900C44B10 /* ViewController.swift */,
 				C009ADF91B10859900C44B10 /* Main.storyboard */,
 				C009ADFC1B10859900C44B10 /* Images.xcassets */,
