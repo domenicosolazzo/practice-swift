@@ -14,6 +14,38 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
     var audioRecorder: AVAudioRecorder?
     var audioPlayer: AVAudioPlayer?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var error: NSError?
+        
+        let session = AVAudioSession.sharedInstance()
+        
+        if session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DuckOthers, error: &error){
+        
+            if session.setActive(true, error: nil){
+                println("Successfully activated the audio session")
+                
+                session.requestRecordPermission{[weak self](allowed: Bool) in
+                    
+                    if allowed{
+                        self!.startRecordingAudio()
+                    } else {
+                        println("We don't have permission to record audio");
+                    }
+                    
+                }
+            } else {
+                println("Could not activate the audio session")
+            }
+        }else{
+            if let theError = error{
+                println("An error occurred in setting the audio " +
+                    "session category. Error = \(theError)")
+            }
+        }
+    }
+    
     //- MARK: Helper methods
     // Where the recording file will be saved
     func audioRecordingPath() -> NSURL{
