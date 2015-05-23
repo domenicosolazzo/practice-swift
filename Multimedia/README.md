@@ -1,0 +1,5 @@
+- [Accessing the Music Library](#): Accessing the music library
+- [Capturing Thumbnails from Video Files](#): How to capture thumbnails from video files
+- [Playing Audio Files](#): How to play audio files
+- [Playing Video Files](#): How to play video files
+- [Recording Audio Files](#): How to record audio files
