@@ -23,6 +23,14 @@ class ViewController: UIViewController {
         return UIImagePickerController.isCameraDeviceAvailable(.Rear)
     }
     
+    func isFlashAvailableOnFrontCamera() -> Bool{
+        return UIImagePickerController.isFlashAvailableForCameraDevice(.Front)
+    }
+    
+    func isFlashAvailableOnRearCamera() -> Bool{
+        return UIImagePickerController.isFlashAvailableForCameraDevice(.Front)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
