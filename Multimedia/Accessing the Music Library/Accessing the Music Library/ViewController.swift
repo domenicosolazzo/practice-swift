@@ -17,6 +17,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         super.viewDidAppear(animated)
         displayMediaPicker()
     }
+    
     func displayMediaPicker(){
         
         mediaPicker = MPMediaPickerController(mediaTypes: .Any)
@@ -33,6 +34,47 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
             println("Could not instantiate a media picker")
         }
         
+    }
+    
+    //- MARK: MPMediaPickerControllerDelegate
+    func mediaPicker(mediaPicker: MPMediaPickerController!, didPickMediaItems mediaItemCollection: MPMediaItemCollection!) {
+        for thisItem in mediaItemCollection.items as! [MPMediaItem]{
+            
+            let itemUrl = thisItem.valueForProperty(MPMediaItemPropertyAssetURL)
+                as? NSURL
+            
+            let itemTitle =
+            thisItem.valueForProperty(MPMediaItemPropertyTitle)
+                as? String
+            
+            let itemArtist =
+            thisItem.valueForProperty(MPMediaItemPropertyArtist)
+                as? String
+            
+            let itemArtwork =
+            thisItem.valueForProperty(MPMediaItemPropertyArtwork)
+                as? MPMediaItemArtwork
+            
+            
+            if let url = itemUrl{
+                println("Item URL = \(url)")
+            }
+            
+            if let title = itemTitle{
+                println("Item Title = \(title)")
+            }
+            
+            if let artist = itemArtist{
+                println("Item Artist = \(artist)")
+            }
+            
+            if let artwork = itemArtwork{
+                println("Item Artwork = \(artwork)")
+            }
+            
+        }
+        
+        mediaPicker.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
