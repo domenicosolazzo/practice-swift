@@ -4,3 +4,4 @@
 - [Detecting and Probing the Camera](#): Detecting the camera
 - [Taking Photos with the Camera](#): How to take photos with the camera
 - [Storing Photos in the Photo Library](#): Storing photos in the photo library
+- [Storing Videos in the Photo Library](#): Storing videos in the photo library
