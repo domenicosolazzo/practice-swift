@@ -11,8 +11,19 @@ import UIKit
 class ViewController: UIViewController {
 
     func isCameraAvailable() -> Bool{
-        
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Camera is ")
+        
+        if isCameraAvailable() == false{
+            print("not ")
+        }
+        
+        println("available")
         
     }
 
