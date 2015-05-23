@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, AVAudioPlayerDelegate {
-
+    var audioPlayer: AVAudioPlayer?
+    
     //- MARK: AVAudioPlayerDelegate
     // This delegate method will let us know when the audio player will finish playing
     // the file
