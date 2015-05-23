@@ -11,5 +11,6 @@ import MediaPlayer
 
 class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
+    var mediaPicker: MPMediaPickerController?
 }
 
