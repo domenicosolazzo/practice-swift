@@ -11,7 +11,36 @@ import MediaPlayer
 
 class ViewController: UIViewController {
     var moviePlayer = MPMoviePlayerController?()
-    var playerButton = UIButton?()
+    var playButton = UIButton?()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        playButton = UIButton.buttonWithType(.System) as? UIButton
+        
+        if let button = playButton{
+            
+            /* Add our button to the screen. Pressing this button
+            will start the video playback */
+            button.frame = CGRect(x: 0, y: 0, width: 70, height: 37)
+            button.center = view.center
+            
+            button.autoresizingMask =
+                .FlexibleTopMargin |
+                .FlexibleLeftMargin |
+                .FlexibleBottomMargin |
+                .FlexibleRightMargin
+            
+            button.addTarget(self,
+                action: "startPlayingVideo",
+                forControlEvents: .TouchUpInside)
+            
+            button.setTitle("Play", forState: .Normal)
+            
+            view.addSubview(button)
+            
+        }
+    }
     
     //- MARK: Video player
     func stopPlayingVideo() {
