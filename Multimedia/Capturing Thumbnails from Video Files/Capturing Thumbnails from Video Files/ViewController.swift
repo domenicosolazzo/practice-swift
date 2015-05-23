@@ -74,5 +74,63 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func startPlayingVideo(){
+        
+        /* First let's construct the URL of the file in our application bundle
+        that needs to get played by the movie player */
+        let mainBundle = NSBundle.mainBundle()
+        
+        let url = mainBundle.URLForResource("Sample", withExtension: "m4v")
+        
+        /* If we have already created a movie player before,
+        let's try to stop it */
+        if let player = moviePlayer{
+            stopPlayingVideo()
+        }
+        
+        /* Now create a new movie player using the URL */
+        moviePlayer = MPMoviePlayerController(contentURL: url)
+        
+        if let player = moviePlayer{
+            
+            /* Listen for the notification that the movie player sends us
+            whenever it finishes playing */
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "videoHasFinishedPlaying:",
+                name: MPMoviePlayerPlaybackDidFinishNotification,
+                object: nil)
+            
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: "videoThumbnailIsAvailable:",
+                name: MPMoviePlayerThumbnailImageRequestDidFinishNotification,
+                object: nil)
+            
+            println("Successfully instantiated the movie player")
+            
+            /* Scale the movie player to fit the aspect ratio */
+            player.scalingMode = .AspectFit
+            
+            view.addSubview(player.view)
+            
+            player.setFullscreen(true, animated: true)
+            
+            /* Let's start playing the video in full screen mode */
+            player.play()
+            
+            /* Capture the frame at the third second into the movie */
+            let thirdSecondThumbnail = 3.0
+            
+            /* We can ask to capture as many frames as we
+            want. But for now, we are just asking to capture one frame
+            Ask the movie player to capture this frame for us */
+            player.requestThumbnailImagesAtTimes([thirdSecondThumbnail],
+                timeOption: .NearestKeyFrame)
+            
+        } else {
+            println("Failed to instantiate the movie player")
+        }
+        
+    }
 }
 
