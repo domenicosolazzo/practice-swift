@@ -10,8 +10,8 @@ import UIKit
 import MediaPlayer
 
 class ViewController: UIViewController {
-    var moviePlayer = MPMoviePlayerController?()
-    var playButton = UIButton?()
+    var moviePlayer: MPMoviePlayerController?
+    var playButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,13 +86,23 @@ class ViewController: UIViewController {
         
     }
     
-    func startPlayingVideo(){
-        
+    func videoFilePath() -> NSURL?{
         /* First let's construct the URL of the file in our application bundle
         that needs to get played by the movie player */
         let mainBundle = NSBundle.mainBundle()
         
         let url = mainBundle.URLForResource("Sample", withExtension: "m4v")
+        return url
+    }
+    
+    func videoStarted(notification:NSNotification){
+        println("Started...")
+        println("User info: \(notification.userInfo!)")
+    }
+    
+    func startPlayingVideo(){
+        
+        let url = self.videoFilePath()
         
         /* If we have already created a movie player before,
         let's try to stop it */
@@ -112,6 +122,8 @@ class ViewController: UIViewController {
                 name: MPMoviePlayerPlaybackDidFinishNotification,
                 object: nil)
             
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoStarted:", name: MPMoviePlayerNowPlayingMovieDidChangeNotification, object: nil)
+            
             println("Successfully instantiated the movie player")
             
             /* Scale the movie player to fit the aspect ratio */
@@ -122,6 +134,8 @@ class ViewController: UIViewController {
             player.setFullscreen(true, animated: false)
             
             /* Let's start playing the video in full screen mode */
+            player.prepareToPlay()
+            
             player.play()
             
         } else {
