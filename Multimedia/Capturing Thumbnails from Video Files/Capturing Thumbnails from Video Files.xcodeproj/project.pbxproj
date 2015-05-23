@@ -36,6 +36,7 @@
 		C009AE341B1092B200C44B10 /* Capturing Thumbnails from Video FilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capturing Thumbnails from Video FilesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009AE391B1092B200C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009AE3A1B1092B200C44B10 /* Capturing_Thumbnails_from_Video_FilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capturing_Thumbnails_from_Video_FilesTests.swift; sourceTree = "<group>"; };
+		C009AE441B1092F500C44B10 /* Sample.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sample.m4v; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 				C009AE241B1092B100C44B10 /* AppDelegate.swift */,
 				C009AE261B1092B100C44B10 /* ViewController.swift */,
 				C009AE281B1092B100C44B10 /* Main.storyboard */,
+				C009AE441B1092F500C44B10 /* Sample.m4v */,
 				C009AE2B1B1092B100C44B10 /* Images.xcassets */,
 				C009AE2D1B1092B100C44B10 /* LaunchScreen.xib */,
 				C009AE221B1092B100C44B10 /* Supporting Files */,
