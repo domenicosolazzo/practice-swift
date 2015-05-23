@@ -10,5 +10,7 @@ import UIKit
 import MediaPlayer
 
 class ViewController: UIViewController {
+    var moviePlayer: MPMoviePlayerController?
+    var playButton: UIButton?
 }
 
