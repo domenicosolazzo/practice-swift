@@ -13,6 +13,7 @@
 		C009AD9F1B106C1100C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009AD9E1B106C1100C44B10 /* Images.xcassets */; };
 		C009ADA21B106C1100C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009ADA01B106C1100C44B10 /* LaunchScreen.xib */; };
 		C009ADAE1B106C1100C44B10 /* Playing_Audio_FilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009ADAD1B106C1100C44B10 /* Playing_Audio_FilesTests.swift */; };
+		C009ADB81B10702000C44B10 /* MySong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C009ADB71B10702000C44B10 /* MySong.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C009ADA71B106C1100C44B10 /* Playing Audio FilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Playing Audio FilesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009ADAC1B106C1100C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009ADAD1B106C1100C44B10 /* Playing_Audio_FilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playing_Audio_FilesTests.swift; sourceTree = "<group>"; };
+		C009ADB71B10702000C44B10 /* MySong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MySong.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C009AD941B106C1100C44B10 /* Playing Audio Files */ = {
 			isa = PBXGroup;
 			children = (
+				C009ADB71B10702000C44B10 /* MySong.mp3 */,
 				C009AD971B106C1100C44B10 /* AppDelegate.swift */,
 				C009AD991B106C1100C44B10 /* ViewController.swift */,
 				C009AD9B1B106C1100C44B10 /* Main.storyboard */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C009AD9D1B106C1100C44B10 /* Main.storyboard in Resources */,
+				C009ADB81B10702000C44B10 /* MySong.mp3 in Resources */,
 				C009ADA21B106C1100C44B10 /* LaunchScreen.xib in Resources */,
 				C009AD9F1B106C1100C44B10 /* Images.xcassets in Resources */,
 			);
