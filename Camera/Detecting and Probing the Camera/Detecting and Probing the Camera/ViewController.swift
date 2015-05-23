@@ -10,5 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    func isCameraAvailable() -> Bool{
+        
+        return UIImagePickerController.isSourceTypeAvailable(.Camera)
+        
+    }
+
 }
 
