@@ -18,6 +18,38 @@ class ViewController: UIViewController,
     var beenHereBefore = false
     var controller: UIImagePickerController?
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if beenHereBefore{
+            /* Only display the picker once as the viewDidAppear: method gets
+            called whenever the view of our view controller gets displayed */
+            return;
+        } else {
+            beenHereBefore = true
+        }
+        
+        if isCameraAvailable() && doesCameraSupportTakingPhotos(){
+            
+            controller = UIImagePickerController()
+            
+            if let theController = controller{
+                theController.sourceType = .Camera
+                
+                theController.mediaTypes = [kUTTypeImage as! String]
+                
+                theController.allowsEditing = true
+                theController.delegate = self
+                
+                presentViewController(theController, animated: true, completion: nil)
+            }
+            
+        } else {
+            println("Camera is not available")
+        }
+        
+    }
+    
     //- MARK: Helper methods
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
