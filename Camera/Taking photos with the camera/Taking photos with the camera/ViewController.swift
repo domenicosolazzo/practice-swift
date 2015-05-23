@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class ViewController: UIViewController,
        UINavigationControllerDelegate, UIImagePickerControllerDelegate{
@@ -38,6 +39,10 @@ class ViewController: UIViewController,
         }
             
         return false
+    }
+    
+    func doesCameraSupportTakingPhotos() -> Bool{
+        return cameraSupportsMedia(kUTTypeImage as! String, sourceType: .Camera)
     }
 }
 
