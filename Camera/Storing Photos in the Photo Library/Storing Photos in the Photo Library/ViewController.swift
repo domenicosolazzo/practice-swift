@@ -57,6 +57,17 @@ class ViewController: UIViewController,
         
     }
     
+    func imageWasSavedSuccessfully(image: UIImage,
+        didFinishSavingWithError error: NSError!,
+        context: UnsafeMutablePointer<()>){
+            
+        if let theError = error{
+            println("An error happened while saving the image = \(theError)")
+        } else {
+            println("Image was saved successfully")
+        }
+    }
+    
     //- MARK: Helper methods
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
