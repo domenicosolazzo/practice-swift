@@ -46,6 +46,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         }
     }
     
+    //- MARK: AVAudioPlayerDelegate
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+        if flag{
+            println("Successfully finished playing the file")
+        }else{
+            println("Failed to stop playing the file")
+        }
+    }
+    
     //- MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if flag{
