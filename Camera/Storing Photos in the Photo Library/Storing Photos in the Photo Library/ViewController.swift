@@ -68,6 +68,47 @@ class ViewController: UIViewController,
         }
     }
     
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+            
+            println("Picker returned successfully")
+            
+            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            
+            if let type:AnyObject = mediaType{
+                
+                if type is String{
+                    let stringType = type as! String
+                    
+                    if stringType == kUTTypeImage as! String{
+                        
+                        var theImage: UIImage!
+                        
+                        if picker.allowsEditing{
+                            theImage = info[UIImagePickerControllerEditedImage] as! UIImage
+                        } else {
+                            theImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                        }
+                        
+                        
+                        let selectorAsString =
+                        "imageWasSavedSuccessfully:didFinishSavingWithError:context:"
+                        
+                        let selectorToCall = Selector(selectorAsString)
+                        
+                        UIImageWriteToSavedPhotosAlbum(theImage,
+                            self,
+                            selectorToCall,
+                            nil)
+                        
+                    }
+                    
+                }
+            }
+            
+            picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     //- MARK: Helper methods
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
