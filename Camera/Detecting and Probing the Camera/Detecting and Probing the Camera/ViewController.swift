@@ -14,6 +14,14 @@ class ViewController: UIViewController {
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
     
+    func isFrontCameraAvailable() -> Bool{
+        return UIImagePickerController.isCameraDeviceAvailable(.Front)
+    }
+    
+    func isRearCameraAvailable() -> Bool{
+        return UIImagePickerController.isCameraDeviceAvailable(.Rear)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
