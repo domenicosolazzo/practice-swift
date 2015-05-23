@@ -40,6 +40,8 @@ class ViewController: UIViewController,
             return false
     }
     
-    
+    func doesCameraSupportTakingPhotos() -> Bool{
+        return cameraSupportsMedia(kUTTypeImage as! String, sourceType: .Camera)
+    }
 }
 
