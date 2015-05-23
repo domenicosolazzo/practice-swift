@@ -46,6 +46,35 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         }
     }
     
+    //- MARK: AVAudioRecorderDelegate
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+        if flag{
+            println("Successfully stopped the recording session")
+            
+            /* Let's try to retrieve the data from the recorded file */
+            var playbackError: NSError?
+            var readingError: NSError?
+            
+            let fileData = NSData(contentsOfURL: self.audioRecordingPath(), options: NSDataReadingOptions.MappedRead, error: &readingError)
+            
+            self.audioPlayer = AVAudioPlayer(data: fileData, error: &playbackError)
+            
+            if let player = self.audioPlayer{
+                // Set the delegate
+                player.delegate = self
+                
+                if player.prepareToPlay() && player.play(){
+                    println("Started playing the recorded audio")
+                }else{
+                    println("Failed playing the recorded audio")
+                }
+            }else{
+                println("Failed to create the audio player")
+            }
+        }else{
+            println("Failed to stop the audio recording")
+        }
+    }
     //- MARK: Helper methods
     // Where the recording file will be saved
     func audioRecordingPath() -> NSURL{
