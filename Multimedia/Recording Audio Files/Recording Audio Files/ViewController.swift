@@ -13,6 +13,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
                     AVAudioRecorderDelegate{
     var audioRecorder: AVAudioRecorder?
     var audioPlayer: AVAudioPlayer?
+    
+    //- MARK: Helper methods
+    // Where the recording file will be saved
+    func audioRecordingPath() -> NSURL{
+        let fileManager = NSFileManager()
+        
+        let documentFoldersUrl = fileManager.URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)
+        return documentFoldersUrl!.URLByAppendingPathComponent("Recording.m4a")
+    }
 
 }
 
