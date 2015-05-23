@@ -55,6 +55,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         }
     }
     
+    func audioPlayerBeginInterruption(player: AVAudioPlayer!) {
+        /* The audio session is deactivated here */
+    }
+    
+    func audioPlayerEndInterruption(player: AVAudioPlayer!,
+        withOptions flags: Int) {
+            if flags == AVAudioSessionInterruptionFlags_ShouldResume{
+                player.play()
+            }
+    }
+    
     //- MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if flag{
