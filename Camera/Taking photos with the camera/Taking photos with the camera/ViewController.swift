@@ -21,5 +21,23 @@ class ViewController: UIViewController,
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
+    
+    func cameraSupportsMedia(mediaType: String,
+        sourceType: UIImagePickerControllerSourceType) -> Bool{
+            
+        let availableMediaTypes =
+        UIImagePickerController.availableMediaTypesForSourceType(sourceType) as!
+                [String]?
+            
+        if let types = availableMediaTypes{
+            for type in types{
+                if type == mediaType{
+                    return true
+                }
+            }
+        }
+            
+        return false
+    }
 }
 
