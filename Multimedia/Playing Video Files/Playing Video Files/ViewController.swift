@@ -23,5 +23,38 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func videoHasFinishedPlaying(notification: NSNotification){
+        
+        println("Video finished playing")
+        
+        /* Find out what the reason was for the player to stop */
+        let reason =
+        notification.userInfo![MPMoviePlayerPlaybackDidFinishReasonUserInfoKey]
+            as! NSNumber?
+        
+        if let theReason = reason{
+            
+            let reasonValue = MPMovieFinishReason(rawValue: theReason.integerValue)
+            
+            switch reasonValue!{
+            case .PlaybackEnded:
+                /* The movie ended normally */
+                println("Playback Ended")
+            case .PlaybackError:
+                /* An error happened and the movie ended */
+                println("Error happened")
+            case .UserExited:
+                /* The user exited the player */
+                println("User exited")
+            default:
+                println("Another event happened")
+            }
+            
+            println("Finish Reason = \(theReason)")
+            stopPlayingVideo()
+        }
+        
+    }
 }
 
