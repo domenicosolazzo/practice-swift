@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AssetsLibrary
 
 class ViewController: UIViewController {
 
