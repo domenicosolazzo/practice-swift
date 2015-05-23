@@ -11,6 +11,8 @@ import AVFoundation
 
 class ViewController: UIViewController, AVAudioPlayerDelegate,
                     AVAudioRecorderDelegate{
+    var audioRecorder: AVAudioRecorder?
+    var audioPlayer: AVAudioPlayer?
 
 }
 
