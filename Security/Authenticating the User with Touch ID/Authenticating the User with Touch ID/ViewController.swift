@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class ViewController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
