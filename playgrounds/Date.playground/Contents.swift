@@ -36,11 +36,21 @@ println("Now: \(now) and ten minutes after: \(tenMinutesAfter)")
 
 // Retrieving date components
 now = NSDate()
-let components = NSCalendar.currentCalendar().componentsInTimeZone(
+var components = NSCalendar.currentCalendar().componentsInTimeZone(
     NSTimeZone.localTimeZone(), fromDate: now)
 
 dump(components)
 
+// Create date from components
+components = NSDateComponents()
+components.year = 2015
+components.month = 8
+components.day = 25
+components.hour = 10
+components.minute = 20
+components.second = 30
+var birthday = NSCalendar.currentCalendar().dateFromComponents(components)
+println(date)
 
 
 
