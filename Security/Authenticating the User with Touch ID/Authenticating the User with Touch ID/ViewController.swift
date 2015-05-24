@@ -9,6 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var useButton: UIButton!
 
+    @IBAction func checkAvailability(sender: UIButton) {
+    }
+    @IBAction func useTouchID(sender: UIButton) {
+    }
 }
 
