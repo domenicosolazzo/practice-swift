@@ -14,6 +14,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        askingForPermissions()
+        return true
+    }
+    
+    func askingForPermissions(){
+        
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+            
+        case .Authorized:
+            extractEventEntityCalendarsOutOfStore(eventStore)
+        case .Denied:
+            displayAccessDenied()
+        case .NotDetermined:
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted{
+                        self!.extractEventEntityCalendarsOutOfStore(eventStore)
+                    } else {
+                        self!.displayAccessDenied()
+                    }
+                })
+        case .Restricted:
+            displayAccessRestricted()
+        }
+        
+        
+    }
+    
     // Extract the events from an event store
     func extractEventEntityCalendarsOutOfStore(eventStore: EKEventStore){
         // Calendar types
