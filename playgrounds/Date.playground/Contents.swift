@@ -27,6 +27,12 @@ if date != nil{
     println("Error")
 }
 
+// Adding 10 minutes to the current date
+let now = NSDate()
+
+let tenMinutesAfter = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMinute, value: 10, toDate: now, options: NSCalendarOptions.MatchNextTime)
+println("Now: \(now) and ten minutes after: \(tenMinutesAfter)")
+
 
 
 
