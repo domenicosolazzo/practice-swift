@@ -46,6 +46,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    
+    func findIcloudEventSource(){
+        var icloudEventSource: EKSource?
+        
+        let eventStore = EKEventStore()
+        for source in eventStore.sources() as! [EKSource]{
+            if source.sourceType.value == EKSourceTypeCalDAV.value &&
+                source.title.lowercaseString == "icloud"{
+                    icloudEventSource = source
+            }
+        }
+        
+        if let source = icloudEventSource{
+            println("The iCloud event source was found = \(source)")
+            
+            let calendars = source.calendarsForEntityType(EKEntityTypeEvent)
+            
+            for calendar in calendars as! Set<EKCalendar>{
+                println(calendar)
+            }
+            
+        } else {
+            println("Could not find the iCloud event source")
+        }
+        
+    }
+  
+    
     //- MARK: Helper methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
