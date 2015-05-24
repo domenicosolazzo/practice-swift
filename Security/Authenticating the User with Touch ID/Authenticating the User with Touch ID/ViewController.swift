@@ -23,6 +23,21 @@ class ViewController: UIViewController {
             error: &error)
         
         useButton.enabled = isTouchIDAvailable
+        
+        if isTouchIDAvailable == false{
+            let alertController = UIAlertController(
+                title: "TouchID error",
+                message: "Sorry! TouchID is not available",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: UIAlertActionStyle.Default,
+                    handler: nil
+                )
+            )
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     @IBAction func useTouchID(sender: UIButton) {
     }
