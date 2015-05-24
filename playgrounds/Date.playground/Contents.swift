@@ -28,10 +28,18 @@ if date != nil{
 }
 
 // Adding 10 minutes to the current date
-let now = NSDate()
+var now = NSDate()
 
 let tenMinutesAfter = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMinute, value: 10, toDate: now, options: NSCalendarOptions.MatchNextTime)
 println("Now: \(now) and ten minutes after: \(tenMinutesAfter)")
+
+
+// Retrieving date components
+now = NSDate()
+let components = NSCalendar.currentCalendar().componentsInTimeZone(
+    NSTimeZone.localTimeZone(), fromDate: now)
+
+dump(components)
 
 
 
