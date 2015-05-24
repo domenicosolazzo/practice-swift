@@ -25,21 +25,46 @@ class ViewController: UIViewController {
         useButton.enabled = isTouchIDAvailable
         
         if isTouchIDAvailable == false{
-            let alertController = UIAlertController(
-                title: "TouchID error",
-                message: "Sorry! TouchID is not available",
-                preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(
-                UIAlertAction(
-                    title: "OK",
-                    style: UIAlertActionStyle.Default,
-                    handler: nil
-                )
-            )
-            self.presentViewController(alertController, animated: true, completion: nil)
+            displayAlertWithTitle("TouchID error", message: "Sorry! TouchID is not available");
         }
     }
     @IBAction func useTouchID(sender: UIButton) {
+        let context = LAContext()
+        var error: NSError?
+        
+        let reason = "Please authenticate with TouchID"
+        context.evaluatePolicy(
+            LAPolicy.DeviceOwnerAuthenticationWithBiometrics,
+            localizedReason: reason) {[weak self](success:Bool, error:NSError!) -> Void in
+                var title = "Touch ID Result";
+                var message = "You have been authenticated"
+                
+                if success == false{
+                    message = "Failed to authenticate you."
+                    if let theError = error{
+                        message = "\(message). Error: \(theError)"
+                    }
+                }
+                
+                self!.displayAlertWithTitle(title, message: message);
+                
+                
+        }
+    }
+    
+    func displayAlertWithTitle(title: String, message: String){
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: UIAlertActionStyle.Default,
+                handler: nil
+            )
+        )
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
