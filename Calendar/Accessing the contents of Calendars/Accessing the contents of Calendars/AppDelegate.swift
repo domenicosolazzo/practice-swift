@@ -62,6 +62,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayAccessRestricted(){
         println("Access to the event store is restricted.")
     }
+    
+    func readEvents(){
+        
+        /* Instantiate the event store */
+        let eventStore = EKEventStore()
+        
+        let icloudSource = sourceInEventStore(eventStore,
+            type: EKSourceTypeCalDAV,
+            title: "iCloud")
+        
+        if icloudSource == nil{
+            println("You have not configured iCloud for your device.")
+            return
+        }
+        
+        let calendar = calendarWithTitle("Calendar",
+            type: EKCalendarTypeCalDAV,
+            source: icloudSource!,
+            eventType: EKEntityTypeEvent)
+        
+        if calendar == nil{
+            println("Could not find the calendar we were looking for.")
+            return
+        }
+        
+        /* The event starts from today, right now */
+        let startDate = NSDate()
+        
+        /* The end date will be 1 day from today */
+        let endDate = startDate.dateByAddingTimeInterval(24 * 60 * 60)
+        
+        /* Create the predicate that we can later pass to the
+        event store in order to fetch the events */
+        let searchPredicate = eventStore.predicateForEventsWithStartDate(
+            startDate,
+            endDate: endDate,
+            calendars: [calendar!])
+        
+        /* Fetch all the events that fall between
+        the starting and the ending dates */
+        let events = eventStore.eventsMatchingPredicate(searchPredicate)
+            as! [EKEvent]
+        
+        if events.count == 0{
+            println("No events could be found")
+        } else {
+            
+            /* Go through all the events and print their information
+            out to the console */
+            for event in events{
+                println("Event title = \(event.title)")
+                println("Event start date = \(event.startDate)")
+                println("Event end date = \(event.endDate)")
+            }
+        }
+        
+    }
 
 }
 
