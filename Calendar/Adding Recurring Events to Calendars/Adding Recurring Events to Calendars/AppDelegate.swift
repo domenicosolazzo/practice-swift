@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
