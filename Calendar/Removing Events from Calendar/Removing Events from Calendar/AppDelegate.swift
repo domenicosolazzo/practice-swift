@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.requestAuthorization()
         return true
     }
     
@@ -204,6 +205,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             println("Failed to delete the event")
         }
+    }
+    
+    func requestAuthorization(){
+        
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+            
+        case .Authorized:
+            createAndDeleteEventInStore(eventStore)
+        case .Denied:
+            displayAccessDenied()
+        case .NotDetermined:
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted{
+                        self!.createAndDeleteEventInStore(eventStore)
+                    } else {
+                        self!.displayAccessDenied()
+                    }
+                })
+        case .Restricted:
+            displayAccessRestricted()
+        }
+        
     }
     
     //- MARK: Helper methods
