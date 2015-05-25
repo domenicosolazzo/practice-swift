@@ -16,7 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.requestAuthorization()
         return true
+    }
+    
+    // Request calendar authorization
+    func requestAuthorization(){
+        
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+            
+        case .Authorized:
+            addAlarmToCalendarWithStore(eventStore)
+        case .Denied:
+            displayAccessDenied()
+        case .NotDetermined:
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted{
+                        self!.addAlarmToCalendarWithStore(eventStore)
+                    } else {
+                        self!.displayAccessDenied()
+                    }
+                })
+        case .Restricted:
+            displayAccessRestricted()
+        }
+        
     }
     
     // Find source in the event store
