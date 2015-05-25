@@ -153,6 +153,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
+    func createAndDeleteEventInStore(store: EKEventStore){
+        
+        let icloudSource = sourceInEventStore(store,
+            type: EKSourceTypeCalDAV,
+            title: "iCloud")
+        
+        if icloudSource == nil{
+            println("You have not configured iCloud for your device.")
+            return
+        }
+        
+        let calendar = calendarWithTitle("Calendar",
+            type: EKCalendarTypeCalDAV,
+            source: icloudSource!,
+            eventType: EKEntityTypeEvent)
+        
+        if calendar == nil{
+            println("Could not find the calendar we were looking for.")
+            return
+        }
+        
+        /* The event starts from today, right now */
+        let startDate = NSDate()
+        
+        /* The end date will be 1 day from today */
+        let endDate = startDate.dateByAddingTimeInterval(24 * 60 * 60)
+        
+        let eventTitle = "My Event"
+        
+        if createEventWithTitle(eventTitle,
+            startDate: startDate,
+            endDate: endDate,
+            inCalendar: calendar!,
+            inEventStore: store,
+            notes: ""){
+                println("Successfully created the event")
+        } else {
+            println("Could not create the event")
+            return
+        }
+        
+        if removeEventWithTitle(eventTitle,
+            startDate: startDate,
+            endDate: endDate,
+            store: store,
+            calendar: calendar!,
+            notes: ""){
+                println("Successfully created and deleted the event")
+        } else {
+            println("Failed to delete the event")
+        }
+    }
+    
     //- MARK: Helper methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
