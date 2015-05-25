@@ -55,6 +55,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil
     }
     
+    func addAlarmToCalendarWithStore(store: EKEventStore, calendar: EKCalendar){
+        
+        /* The event starts 60 seconds from now */
+        let startDate = NSDate(timeIntervalSinceNow: 60.0)
+        
+        /* And end the event 20 seconds after its start date */
+        let endDate = startDate.dateByAddingTimeInterval(20.0)
+        
+        let eventWithAlarm = EKEvent(eventStore: store)
+        eventWithAlarm.calendar = calendar
+        eventWithAlarm.startDate = startDate
+        eventWithAlarm.endDate = endDate
+        
+        /* The alarm goes off 2 seconds before the event happens */
+        let alarm = EKAlarm(relativeOffset: -2.0)
+        
+        eventWithAlarm.title = "Event with Alarm"
+        eventWithAlarm.addAlarm(alarm)
+        
+        var error:NSError?
+        if store.saveEvent(eventWithAlarm, span: EKSpanThisEvent, error: &error){
+            println("Saved an event that fires 60 seconds from now.")
+        } else if let theError = error{
+            println("Failed to save the event. Error = \(theError)")
+        }
+        
+    }
+    
+    func addAlarmToCalendarWithStore(store: EKEventStore){
+        
+        let icloudSource = sourceInEventStore(store,
+            type: EKSourceTypeCalDAV,
+            title: "iCloud")
+        
+        if icloudSource == nil{
+            println("You have not configured iCloud for your device.")
+            return
+        }
+        
+        let calendar = calendarWithTitle("Calendar",
+            type: EKCalendarTypeCalDAV,
+            source: icloudSource!,
+            eventType: EKEntityTypeEvent)
+        
+        if calendar == nil{
+            println("Could not find the calendar we were looking for.")
+            return
+        }
+        
+        addAlarmToCalendarWithStore(store, calendar: calendar!)
+        
+    }
+    
     //- MARK: Helper methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
