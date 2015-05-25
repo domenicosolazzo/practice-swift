@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        self.requestCalendarAuthorization()
+        return true
+    }
     // Find the source in the eventStore
     func sourceInEventStore(
         eventStore: EKEventStore,
