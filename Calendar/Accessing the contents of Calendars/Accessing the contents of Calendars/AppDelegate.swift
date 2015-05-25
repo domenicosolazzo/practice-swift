@@ -54,6 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return nil
     }
+    
+    func displayAccessDenied(){
+        println("Access to the event store is denied.")
+    }
+    
+    func displayAccessRestricted(){
+        println("Access to the event store is restricted.")
+    }
 
 }
 
