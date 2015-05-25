@@ -142,6 +142,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    
+    func enumerateTodayEventsInStore(store: EKEventStore){
+        
+        let icloudSource = sourceInEventStore(store,
+            type: EKSourceTypeCalDAV,
+            title: "iCloud")
+        
+        if icloudSource == nil{
+            println("You have not configured iCloud for your device.")
+            return
+        }
+        
+        let calendar = calendarWithTitle("Calendar",
+            type: EKCalendarTypeCalDAV,
+            source: icloudSource!,
+            eventType: EKEntityTypeEvent)
+        
+        if calendar == nil{
+            println("Could not find the calendar we were looking for.")
+            return
+        }
+        
+        enumerateTodayEventsInStore(store, calendar: calendar!)
+        
+    }
+    
     //- MARK: Helper methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
