@@ -119,6 +119,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    // Request access to the calendar
+    func requestAuthorization(){
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+            
+        case .Authorized:
+            readEvents()
+        case .Denied:
+            displayAccessDenied()
+        case .NotDetermined:
+            EKEventStore().requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted{
+                        self!.readEvents()
+                    } else {
+                        self!.displayAccessDenied()
+                    }
+                })
+        case .Restricted:
+            displayAccessRestricted()
+        }
+        
+    }
+    
 
 }
 
