@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Request Calendar authorization
-    func example1(){
+    func requestCalendarAuthorization(){
         
         let eventStore = EKEventStore()
         
