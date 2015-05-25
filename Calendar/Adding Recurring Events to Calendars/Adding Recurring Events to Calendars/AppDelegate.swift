@@ -54,5 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return nil
     }
+    
+    
+    //- MARK: Helper Methods
+    func displayAccessDenied(){
+        println("Access to the event store is denied.")
+    }
+    
+    func displayAccessRestricted(){
+        println("Access to the event store is restricted.")
+    }
 }
 
