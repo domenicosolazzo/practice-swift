@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        self.requestAuthorization()
         return true
     }
     
@@ -165,6 +165,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         enumerateTodayEventsInStore(store, calendar: calendar!)
+        
+    }
+    
+    func requestAuthorization(){
+        
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+            
+        case .Authorized:
+            enumerateTodayEventsInStore(eventStore)
+        case .Denied:
+            displayAccessDenied()
+        case .NotDetermined:
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted{
+                        self!.enumerateTodayEventsInStore(eventStore)
+                    } else {
+                        self!.displayAccessDenied()
+                    }
+                })
+        case .Restricted:
+            displayAccessRestricted()
+        }
         
     }
     
