@@ -164,5 +164,86 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayAccessRestricted(){
         println("Access to the event store is restricted.")
     }
+    
+    /* This method finds the calendar as well */
+    func createRecurringEventInStore(store: EKEventStore){
+        
+        let icloudSource = sourceInEventStore(store,
+            type: EKSourceTypeCalDAV,
+            title: "iCloud")
+        
+        if icloudSource == nil{
+            println("You have not configured iCloud for your device.")
+            return
+        }
+        
+        let calendar = calendarWithTitle("Calendar",
+            type: EKCalendarTypeCalDAV,
+            source: icloudSource!,
+            eventType: EKEntityTypeEvent)
+        
+        if calendar == nil{
+            println("Could not find the calendar we were looking for.")
+            return
+        }
+        
+        createRecurringEventInStore(store, calendar: calendar!)
+        
+    }
+    
+    func createRecurringEventInStore(store: EKEventStore, calendar: EKCalendar)
+        -> Bool{
+            
+            let event = EKEvent(eventStore: store)
+            
+            /* Create an event that happens today and happens
+            every month for a year from now */
+            let startDate = NSDate()
+            
+            /* The event's end date is one hour from the moment it is created */
+            let oneHour:NSTimeInterval = 1 * 60 * 60
+            let endDate = startDate.dateByAddingTimeInterval(oneHour)
+            
+            /* Assign the required properties, especially
+            the target calendar */
+            event.calendar = calendar
+            event.title = "My Event"
+            event.startDate = startDate
+            event.endDate = endDate
+            
+            /* The end date of the recurring rule
+            is one year from now */
+            let oneYear:NSTimeInterval = 365 * 24 * 60 * 60;
+            let oneYearFromNow = startDate.dateByAddingTimeInterval(oneYear)
+            
+            /* Create an Event Kit date from this date */
+            let recurringEnd = EKRecurrenceEnd.recurrenceEndWithEndDate(
+                oneYearFromNow) as! EKRecurrenceEnd
+            
+            /* And the recurring rule. This event happens every
+            month (EKRecurrenceFrequencyMonthly), once a month (interval:1)
+            and the recurring rule ends a year from now (end:RecurringEnd) */
+            
+            let recurringRule = EKRecurrenceRule(
+                recurrenceWithFrequency: EKRecurrenceFrequencyMonthly,
+                interval: 1,
+                end: recurringEnd)
+            
+            /* Set the recurring rule for the event */
+            event.recurrenceRules = [recurringRule]
+            
+            var error:NSError?
+            
+            if store.saveEvent(event, span: EKSpanFutureEvents, error: &error){
+                println("Successfully created the recurring event.")
+                return true
+            } else if let theError = error{
+                println("Failed to create the recurring " +
+                    "event with error = \(theError)")
+            }
+            
+            return false
+            
+    }
 }
 
