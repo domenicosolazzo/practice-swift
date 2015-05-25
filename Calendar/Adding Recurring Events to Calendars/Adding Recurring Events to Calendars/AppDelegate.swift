@@ -98,6 +98,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return result
     }
     
+    // Remove an event∂∂
+    func removeEventWithTitle(
+        title: String,
+        startDate: NSDate,
+        endDate: NSDate,
+        store: EKEventStore,
+        calendar: EKCalendar,
+        notes: String) -> Bool{
+            
+            var result = false
+            
+            /* If a calendar does not allow modification of its contents
+            then we cannot insert an event into it */
+            if calendar.allowsContentModifications == false{
+                println("The selected calendar does not allow modifications.")
+                return false
+            }
+            
+            let predicate = store.predicateForEventsWithStartDate(startDate,
+                endDate: endDate,
+                calendars: [calendar])
+            
+            /* Get all the events that match the parameters */
+            let events = store.eventsMatchingPredicate(predicate)
+                as! [EKEvent]
+            
+            if events.count > 0{
+                
+                /* Delete them all */
+                for event in events{
+                    var error:NSError?
+                    
+                    if store.removeEvent(event,
+                        span: EKSpanThisEvent,
+                        commit: false,
+                        error: &error) == false{
+                            if let theError = error{
+                                println("Failed to remove \(event) with error = \(theError)")
+                            }
+                    }
+                }
+                
+                var error:NSError?
+                if store.commit(&error){
+                    println("Successfully committed")
+                    result = true
+                } else if let theError = error{
+                    println("Failed to commit the event store with error = \(theError)")
+                }
+                
+            } else {
+                println("No events matched your input.")
+            }
+            
+            return result
+            
+    }
+    
     //- MARK: Helper Methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
