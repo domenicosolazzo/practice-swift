@@ -55,6 +55,93 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil
     }
     
+    func enumerateTodayEventsInStore(store: EKEventStore, calendar: EKCalendar){
+        
+        /* The event starts from today, right now */
+        let startDate = NSDate()
+        
+        /* The end date will be 1 day from now */
+        let endDate = startDate.dateByAddingTimeInterval(24 * 60 * 60)
+        
+        /* Create the predicate that we can later pass to
+        the event store in order to fetch the events */
+        let searchPredicate = store.predicateForEventsWithStartDate(
+            startDate,
+            endDate: endDate,
+            calendars: [calendar])
+        
+        /* Fetch all the events that fall between the
+        starting and the ending dates */
+        let events = store.eventsMatchingPredicate(searchPredicate)
+            as! [EKEvent]
+        
+        /* Array of NSString equivalents of the values
+        in the EKParticipantRole enumeration */
+        let attendeeRole = [
+            "Unknown",
+            "Required",
+            "Optional",
+            "Chair",
+            "Non Participant",
+        ]
+        
+        /* Array of NSString equivalents of the values
+        in the EKParticipantStatus enumeration */
+        let attendeeStatus = [
+            "Unknown",
+            "Pending",
+            "Accepted",
+            "Declined",
+            "Tentative",
+            "Delegated",
+            "Completed",
+            "In Process",
+        ]
+        
+        /* Array of NSString equivalents of the values
+        in the EKParticipantType enumeration */
+        let attendeeType = [
+            "Unknown",
+            "Person",
+            "Room",
+            "Resource",
+            "Group"
+        ]
+        
+        /* Go through all the events and print their information
+        out to the console */
+        
+        for event in events{
+            
+            println("Event title = \(event.title)")
+            println("Event start date = \(event.startDate)")
+            println("Event end date = \(event.endDate)")
+            
+            if event.attendees.count == 0{
+                println("This event has no attendees")
+                continue
+            }
+            
+            for attendee in event.attendees as! [EKParticipant]{
+                println("Attendee name = \(attendee.name)")
+                
+                let role = attendeeRole[Int(attendee.participantRole.value)]
+                println("Attendee role = \(role)")
+                
+                let status = attendeeStatus[Int(attendee.participantStatus.value)]
+                println("Attendee status = \(status)")
+                
+                let type = attendeeStatus[Int(attendee.participantType.value)]
+                println("Attendee type = \(type)")
+                
+                println("Attendee URL = \(attendee.URL)")
+                
+            }
+            
+        }
+        
+    }
+    
     //- MARK: Helper methods
     func displayAccessDenied(){
         println("Access to the event store is denied.")
