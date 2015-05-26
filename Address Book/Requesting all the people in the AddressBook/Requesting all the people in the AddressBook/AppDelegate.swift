@@ -50,6 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func readFromAddressBook(addressBook: ABAddressBookRef){
+        
+        /* Get all the people in the address book */
+        let allPeople = ABAddressBookCopyArrayOfAllPeople(
+            addressBook).takeRetainedValue() as NSArray
+        
+        for person: ABRecordRef in allPeople{
+            println(person)
+        }
+        
+    }
+    
     func createAddressBook(){
         var error: Unmanaged<CFError>?
         
@@ -64,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 &error).takeRetainedValue()
             
             /* You can use the address book here */
+            self.readFromAddressBook(addressBook!)
             
         }
     }
