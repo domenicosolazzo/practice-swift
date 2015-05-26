@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
+            addPersonsAndGroupsToAddressBook(addressBook!)
+
         case .Denied:
             println("You are denied access to address book")
             
@@ -65,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 &error).takeRetainedValue()
             
             /* You can use the address book here */
-            
+            addPersonsAndGroupsToAddressBook(addressBook!)
             
         }
     }
