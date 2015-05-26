@@ -77,8 +77,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        return true
+    func application(application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+            
+            switch ABAddressBookGetAuthorizationStatus(){
+            case .Authorized:
+                println("Already authorized")
+                if doesPersonExistWithFullName("Richard Branson",
+                    inAddressBook: addressBook){
+                        println("This person exists")
+                } else {
+                    println("This person doesn't exist")
+                }
+            case .Denied:
+                println("You are denied access to address book")
+                
+            case .NotDetermined:
+                ABAddressBookRequestAccessWithCompletion(addressBook,
+                    {[weak self] (granted: Bool, error: CFError!) in
+                        
+                        if granted{
+                            let strongSelf = self!
+                            println("Access is granted")
+                            if strongSelf.doesPersonExistWithFullName("Richard Branson",
+                                inAddressBook: strongSelf.addressBook){
+                                    println("This person exists")
+                            } else {
+                                println("This person doesn't exist")
+                            }
+                        } else {
+                            println("Access is not granted")
+                        }
+                        
+                    })
+            case .Restricted:
+                println("Access is restricted")
+                
+            default:
+                println("Unhandled")
+            }
+            
+            return true
     }
+    
 }
 
