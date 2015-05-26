@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
+            self.readFromAddressBook(addressBook!)
         case .Denied:
             println("You are denied access to address book")
             
