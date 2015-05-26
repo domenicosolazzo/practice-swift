@@ -32,5 +32,9 @@ class ViewController: UIViewController,
     func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
         println("User selected a contact")
     }
+    
+    @IBAction func performPickPerson(sender: UIButton) {
+        self.presentViewController(personPicker, animated: true, completion: nil)
+    }
 }
 
