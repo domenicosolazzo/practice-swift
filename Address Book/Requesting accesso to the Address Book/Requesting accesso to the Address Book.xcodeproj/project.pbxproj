@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C009B1081B14E10100C44B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B1071B14E10100C44B10 /* AppDelegate.swift */; };
+		C009B10A1B14E10100C44B10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B1091B14E10100C44B10 /* ViewController.swift */; };
+		C009B10D1B14E10100C44B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C009B10B1B14E10100C44B10 /* Main.storyboard */; };
+		C009B10F1B14E10100C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009B10E1B14E10100C44B10 /* Images.xcassets */; };
+		C009B1121B14E10100C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009B1101B14E10100C44B10 /* LaunchScreen.xib */; };
+		C009B11E1B14E10100C44B10 /* Requesting_accesso_to_the_Address_BookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B11D1B14E10100C44B10 /* Requesting_accesso_to_the_Address_BookTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C009B1181B14E10100C44B10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C009B0FA1B14E10100C44B10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C009B1011B14E10100C44B10;
+			remoteInfo = "Requesting accesso to the Address Book";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C009B1021B14E10100C44B10 /* Requesting accesso to the Address Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Requesting accesso to the Address Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C009B1061B14E10100C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C009B1071B14E10100C44B10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C009B1091B14E10100C44B10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C009B10C1B14E10100C44B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C009B10E1B14E10100C44B10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C009B1111B14E10100C44B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C009B1171B14E10100C44B10 /* Requesting accesso to the Address BookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Requesting accesso to the Address BookTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C009B11C1B14E10100C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C009B11D1B14E10100C44B10 /* Requesting_accesso_to_the_Address_BookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requesting_accesso_to_the_Address_BookTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C009B0FF1B14E10100C44B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B1141B14E10100C44B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C009B0F91B14E10100C44B10 = {
+			isa = PBXGroup;
+			children = (
+				C009B1041B14E10100C44B10 /* Requesting accesso to the Address Book */,
+				C009B11A1B14E10100C44B10 /* Requesting accesso to the Address BookTests */,
+				C009B1031B14E10100C44B10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C009B1031B14E10100C44B10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C009B1021B14E10100C44B10 /* Requesting accesso to the Address Book.app */,
+				C009B1171B14E10100C44B10 /* Requesting accesso to the Address BookTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C009B1041B14E10100C44B10 /* Requesting accesso to the Address Book */ = {
+			isa = PBXGroup;
+			children = (
+				C009B1071B14E10100C44B10 /* AppDelegate.swift */,
+				C009B1091B14E10100C44B10 /* ViewController.swift */,
+				C009B10B1B14E10100C44B10 /* Main.storyboard */,
+				C009B10E1B14E10100C44B10 /* Images.xcassets */,
+				C009B1101B14E10100C44B10 /* LaunchScreen.xib */,
+				C009B1051B14E10100C44B10 /* Supporting Files */,
+			);
+			path = "Requesting accesso to the Address Book";
+			sourceTree = "<group>";
+		};
+		C009B1051B14E10100C44B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C009B1061B14E10100C44B10 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C009B11A1B14E10100C44B10 /* Requesting accesso to the Address BookTests */ = {
+			isa = PBXGroup;
+			children = (
+				C009B11D1B14E10100C44B10 /* Requesting_accesso_to_the_Address_BookTests.swift */,
+				C009B11B1B14E10100C44B10 /* Supporting Files */,
+			);
+			path = "Requesting accesso to the Address BookTests";
+			sourceTree = "<group>";
+		};
+		C009B11B1B14E10100C44B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C009B11C1B14E10100C44B10 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C009B1011B14E10100C44B10 /* Requesting accesso to the Address Book */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C009B1211B14E10100C44B10 /* Build configuration list for PBXNativeTarget "Requesting accesso to the Address Book" */;
+			buildPhases = (
+				C009B0FE1B14E10100C44B10 /* Sources */,
+				C009B0FF1B14E10100C44B10 /* Frameworks */,
+				C009B1001B14E10100C44B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Requesting accesso to the Address Book";
+			productName = "Requesting accesso to the Address Book";
+			productReference = C009B1021B14E10100C44B10 /* Requesting accesso to the Address Book.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C009B1161B14E10100C44B10 /* Requesting accesso to the Address BookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C009B1241B14E10100C44B10 /* Build configuration list for PBXNativeTarget "Requesting accesso to the Address BookTests" */;
+			buildPhases = (
+				C009B1131B14E10100C44B10 /* Sources */,
+				C009B1141B14E10100C44B10 /* Frameworks */,
+				C009B1151B14E10100C44B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C009B1191B14E10100C44B10 /* PBXTargetDependency */,
+			);
+			name = "Requesting accesso to the Address BookTests";
+			productName = "Requesting accesso to the Address BookTests";
+			productReference = C009B1171B14E10100C44B10 /* Requesting accesso to the Address BookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C009B0FA1B14E10100C44B10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Domenico;
+				TargetAttributes = {
+					C009B1011B14E10100C44B10 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					C009B1161B14E10100C44B10 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = C009B1011B14E10100C44B10;
+					};
+				};
+			};
+			buildConfigurationList = C009B0FD1B14E10100C44B10 /* Build configuration list for PBXProject "Requesting accesso to the Address Book" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C009B0F91B14E10100C44B10;
+			productRefGroup = C009B1031B14E10100C44B10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C009B1011B14E10100C44B10 /* Requesting accesso to the Address Book */,
+				C009B1161B14E10100C44B10 /* Requesting accesso to the Address BookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C009B1001B14E10100C44B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B10D1B14E10100C44B10 /* Main.storyboard in Resources */,
+				C009B1121B14E10100C44B10 /* LaunchScreen.xib in Resources */,
+				C009B10F1B14E10100C44B10 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B1151B14E10100C44B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C009B0FE1B14E10100C44B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B10A1B14E10100C44B10 /* ViewController.swift in Sources */,
+				C009B1081B14E10100C44B10 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B1131B14E10100C44B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B11E1B14E10100C44B10 /* Requesting_accesso_to_the_Address_BookTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C009B1191B14E10100C44B10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C009B1011B14E10100C44B10 /* Requesting accesso to the Address Book */;
+			targetProxy = C009B1181B14E10100C44B10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C009B10B1B14E10100C44B10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C009B10C1B14E10100C44B10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C009B1101B14E10100C44B10 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C009B1111B14E10100C44B10 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C009B11F1B14E10100C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C009B1201B14E10100C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C009B1221B14E10100C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Requesting accesso to the Address Book/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C009B1231B14E10100C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Requesting accesso to the Address Book/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C009B1251B14E10100C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Requesting accesso to the Address BookTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Requesting accesso to the Address Book.app/Requesting accesso to the Address Book";
+			};
+			name = Debug;
+		};
+		C009B1261B14E10100C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Requesting accesso to the Address BookTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Requesting accesso to the Address Book.app/Requesting accesso to the Address Book";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C009B0FD1B14E10100C44B10 /* Build configuration list for PBXProject "Requesting accesso to the Address Book" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B11F1B14E10100C44B10 /* Debug */,
+				C009B1201B14E10100C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C009B1211B14E10100C44B10 /* Build configuration list for PBXNativeTarget "Requesting accesso to the Address Book" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B1221B14E10100C44B10 /* Debug */,
+				C009B1231B14E10100C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C009B1241B14E10100C44B10 /* Build configuration list for PBXNativeTarget "Requesting accesso to the Address BookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B1251B14E10100C44B10 /* Debug */,
+				C009B1261B14E10100C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C009B0FA1B14E10100C44B10 /* Project object */;
+}
