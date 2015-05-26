@@ -13,6 +13,6 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var addressBook: ABAddressBookRef?
 }
 
