@@ -9,7 +9,9 @@
 import UIKit
 import AddressBookUI
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,
+            ABPeoplePickerNavigationControllerDelegate{
+    
+    
 }
 
