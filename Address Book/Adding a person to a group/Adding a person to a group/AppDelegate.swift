@@ -68,6 +68,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
     }
+    
+    //- MARK: Groups
+    func newGroupWithName(name: String, inAddressBook: ABAddressBookRef) ->
+        ABRecordRef?{
+            
+            let group: ABRecordRef = ABGroupCreate().takeRetainedValue()
+            
+            var error: Unmanaged<CFError>?
+            let couldSetGroupName = ABRecordSetValue(group,
+                kABGroupNameProperty, name, &error)
+            
+            if couldSetGroupName{
+                
+                error = nil
+                let couldAddRecord = ABAddressBookAddRecord(inAddressBook,
+                    group,
+                    &error)
+                
+                if couldAddRecord{
+                    
+                    println("Successfully added the new group")
+                    
+                    if ABAddressBookHasUnsavedChanges(inAddressBook){
+                        error = nil
+                        let couldSaveAddressBook =
+                        ABAddressBookSave(inAddressBook, &error)
+                        if couldSaveAddressBook{
+                            println("Successfully saved the address book")
+                        } else {
+                            println("Failed to save the address book")
+                            return nil
+                        }
+                    } else {
+                        println("No unsaved changes")
+                        return nil
+                    }
+                } else {
+                    println("Could not add a new group")
+                    return nil
+                }
+            } else {
+                println("Failed to set the name of the group")
+                return nil
+            }
+            
+            return group
+            
+    }
+    
+    func createNewGroupInAddressBook(addressBook: ABAddressBookRef){
+        
+        let personalCoachesGroup: ABRecordRef? =
+        newGroupWithName("Personal Coaches",
+            inAddressBook: addressBook)
+        
+        if let group: ABRecordRef = personalCoachesGroup{
+            println("Successfully created the group")
+        } else {
+            println("Could not create the group")
+        }
+        
+    }
+
 
     
 }
