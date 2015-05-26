@@ -22,5 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return true
     }
+    
+    func imageForPerson(person: ABRecordRef) -> UIImage?{
+        
+        let data = ABPersonCopyImageData(person).takeRetainedValue() as NSData
+        
+        let image = UIImage(data: data)
+        return image
+    }
 }
 
