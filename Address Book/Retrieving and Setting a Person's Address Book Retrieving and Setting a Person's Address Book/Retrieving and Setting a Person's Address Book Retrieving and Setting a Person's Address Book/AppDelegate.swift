@@ -114,5 +114,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
             
     }
+    
+    func performExample(){
+        let person: ABRecordRef? = newPersonWithFirstName("Richard",
+            lastName: "Branson", inAddressBook: addressBook)
+        
+        if let richard: ABRecordRef = person{
+            
+            let newImage = UIImage(named: "image")
+            let newImageData = UIImageJPEGRepresentation(newImage, 1.0)
+            
+            if setImageForPerson(richard, inAddressBook: addressBook,
+                imageData: newImageData){
+                    
+                    println("Successfully set the person's image")
+                    
+                    let image = imageForPerson(richard)
+                    
+                    if let currentImage = image{
+                        println("Found the image")
+                    } else {
+                        println("This person has no image")
+                    }
+                    
+            } else {
+                println("Could not set the person's image")
+            }
+            
+        }
+        
+    }
+    
 }
 
