@@ -18,6 +18,11 @@ class ViewController: UIViewController,
     //- MARK: Constructors
     required init(coder aDecoder: NSCoder) {
         personPicker = ABPeoplePickerNavigationController()
+        // Which properties of each contact the user can see in the people picker
+        personPicker.displayedProperties = [
+            Int(kABPersonAddressProperty),
+            Int(kABPersonPhoneProperty)
+        ]
         super.init(coder: aDecoder)
         personPicker.peoplePickerDelegate = self
     }
@@ -48,6 +53,23 @@ class ViewController: UIViewController,
             println(phone)
             
         }
+        
+        // If selected an address
+        let addresses: ABMultiValueRef = ABRecordCopyValue(person,
+            property).takeRetainedValue()
+        
+        let index = Int(identifier) as CFIndex
+        
+        let address: NSDictionary = ABMultiValueCopyValueAtIndex(addresses,
+            index).takeRetainedValue() as! NSDictionary
+        
+        let country = address[kABPersonAddressCountryKey as String] as! String
+        let city = address[kABPersonAddressCityKey as String] as! String
+        let street = address[kABPersonAddressStreetKey as String] as! String
+        
+        println("Country = \(country)")
+        println("City = \(city)")
+        println("Street = \(street)")
     }
     
     @IBAction func performPickPerson(sender: UIButton) {
