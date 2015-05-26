@@ -14,5 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var addressBook: ABAddressBookRef?
+    
+    func createAddressBook(){
+        var error: Unmanaged<CFError>?
+        
+        addressBook = ABAddressBookCreateWithOptions(nil,
+            &error).takeRetainedValue()
+        
+        /* You can use the address book here */
+        func createAddressBook(){
+            var error: Unmanaged<CFError>?
+            
+            addressBook = ABAddressBookCreateWithOptions(nil,
+                &error).takeRetainedValue()
+            
+            /* You can use the address book here */
+            
+        }
+    }
 }
 
