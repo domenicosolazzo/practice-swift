@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             /* You can use the address book here */
             
+            
         }
     }
     
@@ -181,6 +182,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return person
             
+    }
+    
+    func addPerson(person: ABRecordRef,
+        toGroup: ABRecordRef,
+        saveToAddressBook: ABAddressBookRef) -> Bool{
+            
+            var error: Unmanaged<CFErrorRef>? = nil
+            var added = false
+            
+            /* Now attempt to add the person entry to the group */
+            added = ABGroupAddMember(toGroup,
+                person,
+                &error)
+            
+            if added == false{
+                println("Could not add the person to the group")
+                return false
+            }
+            
+            /* Make sure we save any unsaved changes */
+            if ABAddressBookHasUnsavedChanges(saveToAddressBook){
+                error = nil
+                let couldSaveAddressBook = ABAddressBookSave(saveToAddressBook,
+                    &error)
+                if couldSaveAddressBook{
+                    println("Successfully added the person to the group")
+                    added = true
+                } else {
+                    println("Failed to save the address book")
+                }
+            } else {
+                println("No changes were saved")
+            }
+            
+            return added
+            
+    }
+    
+    func addPersonsAndGroupsToAddressBook(addressBook: ABAddressBookRef){
+        
+        let richardBranson: ABRecordRef? = newPersonWithFirstName("Richard",
+            lastName: "Branson",
+            inAddressBook: addressBook)
+        
+        if let richard: ABRecordRef = richardBranson{
+            let entrepreneursGroup: ABRecordRef? = newGroupWithName("Entrepreneurs",
+                inAddressBook: addressBook)
+            
+            if let group: ABRecordRef = entrepreneursGroup{
+                if addPerson(richard, toGroup: group, saveToAddressBook: addressBook){
+                    println("Successfully added Richard Branson to the group")
+                } else {
+                    println("Failed to add Richard Branson to the group")
+                }
+                
+            } else {
+                println("Failed to create the group")
+            }
+            
+        } else {
+            println("Failed to create an entity for Richard Branson")
+        }
+        
     }
 
 
