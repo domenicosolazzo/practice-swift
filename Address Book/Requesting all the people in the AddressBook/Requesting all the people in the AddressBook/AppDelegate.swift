@@ -58,7 +58,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             addressBook).takeRetainedValue() as NSArray
         
         for person: ABRecordRef in allPeople{
-            println(person)
+            
+            let firstName = ABRecordCopyValue(person,
+                kABPersonFirstNameProperty).takeRetainedValue() as! String
+            
+            let lastName = ABRecordCopyValue(person,
+                kABPersonLastNameProperty).takeRetainedValue()as! String
+            
+            let email: ABMultiValueRef = ABRecordCopyValue(person,
+                kABPersonEmailProperty).takeRetainedValue()
+            
+            println("First name = \(firstName)")
+            println("Last name = \(lastName)")
+            println("Email = \(email)")
+            
         }
         
     }
