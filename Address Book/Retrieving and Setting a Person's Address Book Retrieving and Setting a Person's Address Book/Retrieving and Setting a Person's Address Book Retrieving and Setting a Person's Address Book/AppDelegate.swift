@@ -81,5 +81,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return person
             
     }
+    
+    func setImageForPerson(person: ABRecordRef,
+        inAddressBook addressBook: ABAddressBookRef,
+        imageData: NSData) -> Bool{
+            
+            var error: Unmanaged<CFErrorRef>? = nil
+            
+            let couldSetPersonImage =
+            ABPersonSetImageData(person, imageData as CFDataRef, &error)
+            
+            if couldSetPersonImage{
+                println("Successfully set the person's image. Saving...")
+                if ABAddressBookHasUnsavedChanges(addressBook){
+                    error = nil
+                    
+                    let couldSaveAddressBook = ABAddressBookSave(addressBook, &error)
+                    
+                    if couldSaveAddressBook{
+                        println("Successfully saved the address book")
+                        return true
+                    } else {
+                        println("Failed to save the address book")
+                    }
+                } else {
+                    println("There are no changes to be saved!")
+                }
+            } else {
+                println("Failed to set the person's image")
+            }
+            
+            return false
+            
+    }
 }
 
