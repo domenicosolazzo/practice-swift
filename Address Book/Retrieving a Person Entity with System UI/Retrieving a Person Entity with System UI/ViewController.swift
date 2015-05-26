@@ -12,6 +12,13 @@ import AddressBookUI
 class ViewController: UIViewController,
             ABPeoplePickerNavigationControllerDelegate{
     
+    //- MARK: Private variables
+    let personPicker: ABPeoplePickerNavigationController
     
+    required init(coder aDecoder: NSCoder) {
+        personPicker = ABPeoplePickerNavigationController()
+        super.init(coder: aDecoder)
+        personPicker.peoplePickerDelegate = self
+    }
 }
 
