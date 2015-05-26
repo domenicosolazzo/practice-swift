@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
-            self.newGroupWithName("My Group", inAddressBook: addressBook!)
+            self.createNewGroupInAddressBook(addressBook!)
         case .Denied:
             println("You are denied access to address book")
             
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 &error).takeRetainedValue()
             
             /* You can use the address book here */
-            self.newGroupWithName("My Group", inAddressBook: addressBook!)
+            self.createNewGroupInAddressBook(addressBook!)
             
         }
     }
