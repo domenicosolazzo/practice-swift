@@ -65,12 +65,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let lastName = ABRecordCopyValue(person,
                 kABPersonLastNameProperty).takeRetainedValue()as! String
             
-            let email: ABMultiValueRef = ABRecordCopyValue(person,
-                kABPersonEmailProperty).takeRetainedValue()
             
             println("First name = \(firstName)")
             println("Last name = \(lastName)")
-            println("Email = \(email)")
+            self.readEmailsForPerson(person)
+        }
+        
+    }
+    
+    func readEmailsForPerson(person: ABRecordRef){
+        
+        let emails: ABMultiValueRef = ABRecordCopyValue(person,
+            kABPersonEmailProperty).takeRetainedValue()
+        
+        for counter in 0..<ABMultiValueGetCount(emails){
+            
+            let email = ABMultiValueCopyValueAtIndex(emails,
+                counter).takeRetainedValue() as! String
+            
+            println(email)
             
         }
         
