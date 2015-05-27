@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C009B2781B16254B00C44B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B2771B16254B00C44B10 /* AppDelegate.swift */; };
+		C009B27A1B16254B00C44B10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B2791B16254B00C44B10 /* ViewController.swift */; };
+		C009B27D1B16254B00C44B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C009B27B1B16254B00C44B10 /* Main.storyboard */; };
+		C009B27F1B16254B00C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009B27E1B16254B00C44B10 /* Images.xcassets */; };
+		C009B2821B16254B00C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009B2801B16254B00C44B10 /* LaunchScreen.xib */; };
+		C009B28E1B16254B00C44B10 /* Writing_to_and_Reading_from_FilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B28D1B16254B00C44B10 /* Writing_to_and_Reading_from_FilesTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C009B2881B16254B00C44B10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C009B26A1B16254B00C44B10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C009B2711B16254B00C44B10;
+			remoteInfo = "Writing to and Reading from Files";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C009B2721B16254B00C44B10 /* Writing to and Reading from Files.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Writing to and Reading from Files.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C009B2761B16254B00C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C009B2771B16254B00C44B10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C009B2791B16254B00C44B10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C009B27C1B16254B00C44B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C009B27E1B16254B00C44B10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C009B2811B16254B00C44B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C009B2871B16254B00C44B10 /* Writing to and Reading from FilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Writing to and Reading from FilesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C009B28C1B16254B00C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C009B28D1B16254B00C44B10 /* Writing_to_and_Reading_from_FilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writing_to_and_Reading_from_FilesTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C009B26F1B16254B00C44B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B2841B16254B00C44B10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C009B2691B16254B00C44B10 = {
+			isa = PBXGroup;
+			children = (
+				C009B2741B16254B00C44B10 /* Writing to and Reading from Files */,
+				C009B28A1B16254B00C44B10 /* Writing to and Reading from FilesTests */,
+				C009B2731B16254B00C44B10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C009B2731B16254B00C44B10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C009B2721B16254B00C44B10 /* Writing to and Reading from Files.app */,
+				C009B2871B16254B00C44B10 /* Writing to and Reading from FilesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C009B2741B16254B00C44B10 /* Writing to and Reading from Files */ = {
+			isa = PBXGroup;
+			children = (
+				C009B2771B16254B00C44B10 /* AppDelegate.swift */,
+				C009B2791B16254B00C44B10 /* ViewController.swift */,
+				C009B27B1B16254B00C44B10 /* Main.storyboard */,
+				C009B27E1B16254B00C44B10 /* Images.xcassets */,
+				C009B2801B16254B00C44B10 /* LaunchScreen.xib */,
+				C009B2751B16254B00C44B10 /* Supporting Files */,
+			);
+			path = "Writing to and Reading from Files";
+			sourceTree = "<group>";
+		};
+		C009B2751B16254B00C44B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C009B2761B16254B00C44B10 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C009B28A1B16254B00C44B10 /* Writing to and Reading from FilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				C009B28D1B16254B00C44B10 /* Writing_to_and_Reading_from_FilesTests.swift */,
+				C009B28B1B16254B00C44B10 /* Supporting Files */,
+			);
+			path = "Writing to and Reading from FilesTests";
+			sourceTree = "<group>";
+		};
+		C009B28B1B16254B00C44B10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C009B28C1B16254B00C44B10 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C009B2711B16254B00C44B10 /* Writing to and Reading from Files */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C009B2911B16254B00C44B10 /* Build configuration list for PBXNativeTarget "Writing to and Reading from Files" */;
+			buildPhases = (
+				C009B26E1B16254B00C44B10 /* Sources */,
+				C009B26F1B16254B00C44B10 /* Frameworks */,
+				C009B2701B16254B00C44B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Writing to and Reading from Files";
+			productName = "Writing to and Reading from Files";
+			productReference = C009B2721B16254B00C44B10 /* Writing to and Reading from Files.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C009B2861B16254B00C44B10 /* Writing to and Reading from FilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C009B2941B16254B00C44B10 /* Build configuration list for PBXNativeTarget "Writing to and Reading from FilesTests" */;
+			buildPhases = (
+				C009B2831B16254B00C44B10 /* Sources */,
+				C009B2841B16254B00C44B10 /* Frameworks */,
+				C009B2851B16254B00C44B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C009B2891B16254B00C44B10 /* PBXTargetDependency */,
+			);
+			name = "Writing to and Reading from FilesTests";
+			productName = "Writing to and Reading from FilesTests";
+			productReference = C009B2871B16254B00C44B10 /* Writing to and Reading from FilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C009B26A1B16254B00C44B10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Domenico;
+				TargetAttributes = {
+					C009B2711B16254B00C44B10 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					C009B2861B16254B00C44B10 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = C009B2711B16254B00C44B10;
+					};
+				};
+			};
+			buildConfigurationList = C009B26D1B16254B00C44B10 /* Build configuration list for PBXProject "Writing to and Reading from Files" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C009B2691B16254B00C44B10;
+			productRefGroup = C009B2731B16254B00C44B10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C009B2711B16254B00C44B10 /* Writing to and Reading from Files */,
+				C009B2861B16254B00C44B10 /* Writing to and Reading from FilesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C009B2701B16254B00C44B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B27D1B16254B00C44B10 /* Main.storyboard in Resources */,
+				C009B2821B16254B00C44B10 /* LaunchScreen.xib in Resources */,
+				C009B27F1B16254B00C44B10 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B2851B16254B00C44B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C009B26E1B16254B00C44B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B27A1B16254B00C44B10 /* ViewController.swift in Sources */,
+				C009B2781B16254B00C44B10 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C009B2831B16254B00C44B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C009B28E1B16254B00C44B10 /* Writing_to_and_Reading_from_FilesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C009B2891B16254B00C44B10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C009B2711B16254B00C44B10 /* Writing to and Reading from Files */;
+			targetProxy = C009B2881B16254B00C44B10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C009B27B1B16254B00C44B10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C009B27C1B16254B00C44B10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C009B2801B16254B00C44B10 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C009B2811B16254B00C44B10 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C009B28F1B16254B00C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C009B2901B16254B00C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C009B2921B16254B00C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Writing to and Reading from Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C009B2931B16254B00C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Writing to and Reading from Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C009B2951B16254B00C44B10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Writing to and Reading from FilesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Writing to and Reading from Files.app/Writing to and Reading from Files";
+			};
+			name = Debug;
+		};
+		C009B2961B16254B00C44B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Writing to and Reading from FilesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Writing to and Reading from Files.app/Writing to and Reading from Files";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C009B26D1B16254B00C44B10 /* Build configuration list for PBXProject "Writing to and Reading from Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B28F1B16254B00C44B10 /* Debug */,
+				C009B2901B16254B00C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C009B2911B16254B00C44B10 /* Build configuration list for PBXNativeTarget "Writing to and Reading from Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B2921B16254B00C44B10 /* Debug */,
+				C009B2931B16254B00C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C009B2941B16254B00C44B10 /* Build configuration list for PBXNativeTarget "Writing to and Reading from FilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C009B2951B16254B00C44B10 /* Debug */,
+				C009B2961B16254B00C44B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C009B26A1B16254B00C44B10 /* Project object */;
+}
