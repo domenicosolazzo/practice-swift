@@ -115,5 +115,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         deleteFolderAtPath(txtFolder)
         
     }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        self.createAndDelete()
+        return true
+    }
 }
 
