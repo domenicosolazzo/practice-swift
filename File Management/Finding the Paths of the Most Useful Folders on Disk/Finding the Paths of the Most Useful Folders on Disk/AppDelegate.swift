@@ -32,10 +32,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func getCacheFolder() -> NSURL?{
+        let fileManager = NSFileManager()
+        let urls = fileManager.URLsForDirectory(
+            NSSearchPathDirectory.CachesDirectory,
+            inDomains: NSSearchPathDomainMask.UserDomainMask)
+        if urls.count > 0{
+            let url = urls[0] as! NSURL
+            println(url)
+            return url
+        }
+        
+        return nil
+        
+    }
+    
     func getTemporaryFolder() -> NSURL? {
         if let tempDirectory = NSTemporaryDirectory(){
             println("\(tempDirectory)")
-            return tempDirectory as! NSURL
+            return tempDirectory as? NSURL
         } else {
             println("Could not find the temp directory")
         }
