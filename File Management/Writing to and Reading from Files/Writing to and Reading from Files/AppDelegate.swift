@@ -70,6 +70,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    func saveAndReadData(){
+        let path = NSTemporaryDirectory() + "MyFile.txt"
+        let chars = [CUnsignedChar(ascii: "a"), CUnsignedChar(ascii: "b")]
+        let data = NSData(bytes: chars, length: 2)
+        if data.writeToFile(path, atomically: true){
+            println("Wrote the data")
+            let readData = NSData(contentsOfFile: path)
+            if readData!.isEqualToData(data){
+                println("Read the same data")
+            } else {
+                println("Not the same data")
+            }
+        } else {
+            println("Could not write the data")
+        }
+    }
 
 }
 
