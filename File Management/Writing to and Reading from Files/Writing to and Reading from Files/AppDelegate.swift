@@ -47,6 +47,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    func saveAndReadDictionary(){
+        
+        let path = NSTemporaryDirectory() + "MyFile.txt"
+        let dict:NSDictionary = [
+            "first name" : "Steven",
+            "middle name" : "Paul",
+            "last name" : "Jobs",
+        ]
+        
+        if dict.writeToFile(path, atomically: true){
+            
+            let readDict:NSDictionary? = NSDictionary(contentsOfFile: path)
+            if let dict = readDict{
+                println("Read the dictionary back from disk = \(dict)")
+            } else {
+                println("Failed to read the dictionary back from disk")
+            }
+        } else {
+            println("Failed to write the dictionary to disk")
+        }
+        
+    }
 
 }
 
