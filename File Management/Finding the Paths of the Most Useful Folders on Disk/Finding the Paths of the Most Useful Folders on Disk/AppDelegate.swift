@@ -28,7 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return url
         }
         
-        return null
+        return nil
+        
+    }
+    
+    func getTemporaryFolder() -> NSURL? {
+        if let tempDirectory = NSTemporaryDirectory(){
+            println("\(tempDirectory)")
+            return tempDirectory as! NSURL
+        } else {
+            println("Could not find the temp directory")
+        }
+        
+        return nil
     }
 }
 
