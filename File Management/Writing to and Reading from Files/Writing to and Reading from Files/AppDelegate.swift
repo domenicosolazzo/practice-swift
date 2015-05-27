@@ -31,6 +31,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func saveAndReadArray(){
+        
+        let path = NSTemporaryDirectory() + "MyFile.txt"
+        let arrayOfNames:NSArray = ["Steve", "John", "Edward"]
+        
+        if arrayOfNames.writeToFile(path, atomically: true){
+            let readArray:NSArray? = NSArray(contentsOfFile: path)
+            if let array = readArray{
+                println("Could read the array back = \(array)")
+            } else {
+                println("Failed to read the array back")
+            }
+        }
+        
+    }
 
 }
 
