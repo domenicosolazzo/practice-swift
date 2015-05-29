@@ -24,5 +24,37 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    /* Start listening for iCloud user change notifications */
+    func applicationBecameActive(notification: NSNotification){
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "handleIdentityChanged:",
+            name: NSUbiquityIdentityDidChangeNotification,
+            object: nil)
+    }
+    
+    /* Stop listening for those notifications when the app becomes inactive */
+    func applicationBecameInactive(notification: NSNotification){
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: NSUbiquityIdentityDidChangeNotification,
+            object: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /* Find out when the app is becoming active and inactive
+        so that we can find out when the user's iCloud logging status changes.*/
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameActive:",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameInactive:",
+            name: UIApplicationWillResignActiveNotification,
+            object: nil)
+        
+    }
 }
 
