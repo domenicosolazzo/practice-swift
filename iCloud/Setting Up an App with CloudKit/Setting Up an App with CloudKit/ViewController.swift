@@ -11,5 +11,18 @@ import CloudKit
 
 class ViewController: UIViewController {
     let container = CKContainer.defaultContainer()
+    
+    // Fetch the current logged-in user in iCloud
+    func handleIdentityChanged(notification: NSNotification){
+        
+        let fileManager = NSFileManager()
+        
+        if let token = fileManager.ubiquityIdentityToken{
+            println("The new token is \(token)")
+        } else {
+            println("User has logged out of iCloud")
+        }
+        
+    }
 }
 
