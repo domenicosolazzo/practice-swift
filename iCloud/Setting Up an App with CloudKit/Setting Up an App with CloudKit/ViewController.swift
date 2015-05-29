@@ -56,5 +56,21 @@ class ViewController: UIViewController {
             object: nil)
         
     }
+    
+    
+    
+    /* Just a little method to help us display alert dialogs to the user */
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
+        
+    }
 }
 
