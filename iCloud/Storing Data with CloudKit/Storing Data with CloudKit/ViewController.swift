@@ -37,5 +37,22 @@ class ViewController: UIViewController {
         return car
     }
     
+    func carWithType(type: CarType,
+        maker: String,
+        model: String,
+        numberOfDoors: Int,
+        year: Int) -> CKRecord{
+            
+            let record = carWithType(type)
+            
+            record.setValue(maker, forKey: "maker")
+            record.setValue(model, forKey: "model")
+            record.setValue(numberOfDoors, forKey: "numberOfDoors")
+            record.setValue(year, forKey: "year")
+            
+            return record
+            
+    }
+    
 }
 
