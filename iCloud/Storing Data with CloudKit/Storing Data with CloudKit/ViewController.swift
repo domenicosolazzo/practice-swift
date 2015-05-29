@@ -173,6 +173,46 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isIcloudAvailable(){
+            displayAlertWithTitle("iCloud", message: "iCloud is not available." +
+                " Please sign into your iCloud account and restart this app")
+            return
+        }
+        
+        database.fetchAllRecordZonesWithCompletionHandler{[weak self]
+            (zones:[AnyObject]!, error: NSError!) in
+            
+            if error != nil{
+                println("Could not retrieve the zones")
+            } else {
+                
+                var foundEstateZone = false
+                var foundHatchbackZone = false
+                
+                for zone in zones as! [CKRecordZone]{
+                    
+                    if zone.zoneID.zoneName == CarType.Hatchback.rawValue{
+                        foundHatchbackZone = true
+                    }
+                    else if zone.zoneID.zoneName == CarType.Estate.rawValue{
+                        foundEstateZone = true
+                    }
+                }
+                
+                self!.useOrSaveZone(zoneIsCreatedAlready: foundEstateZone,
+                    forCarType: .Estate)
+                
+                self!.useOrSaveZone(zoneIsCreatedAlready: foundHatchbackZone,
+                    forCarType: .Hatchback)
+                
+            }
+            
+        }
+        
+    }
     
     /* Just a little method to help us display alert dialogs to the user */
     func displayAlertWithTitle(title: String, message: String){
