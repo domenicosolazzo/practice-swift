@@ -32,5 +32,38 @@ class ViewController: UIViewController {
             return false
         }
     }
+    
+    /* This method generates a record ID and keeps it in the system defaults
+    so that the second time it is called, it will generate the exact same record
+    ID like before which we can use to find the stored record in the database */
+    func recordId() -> CKRecordID{
+        
+        /* The key into NSUserDefaults */
+        let key = "recordId"
+        
+        var recordName =
+        NSUserDefaults.standardUserDefaults().stringForKey(key)
+        
+        func createNewRecordName(){
+            println("No record name was previously generated")
+            println("Creating a new one...")
+            recordName = NSUUID().UUIDString
+            NSUserDefaults.standardUserDefaults().setValue(recordName, forKey: key)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
+        if let name = recordName{
+            if count(name) == 0{
+                createNewRecordName()
+            } else {
+                println("The previously generated record ID was recovered")
+            }
+        } else {
+            createNewRecordName()
+        }
+        
+        return CKRecordID(recordName: recordName, zoneID: CarType.Estate.zoneId())
+        
+    }
 }
 
