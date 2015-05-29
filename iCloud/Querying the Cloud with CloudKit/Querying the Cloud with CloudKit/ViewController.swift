@@ -11,5 +11,7 @@ import CloudKit
 
 class ViewController: UIViewController {
 
+    let database = CKContainer.defaultContainer().privateCloudDatabase
+    lazy var operationQueue = NSOperationQueue()
 }
 
