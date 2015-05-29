@@ -25,5 +25,14 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    /* Checks if the user has logged into her iCloud account or not */
+    func isIcloudAvailable() -> Bool{
+        if let token = NSFileManager.defaultManager().ubiquityIdentityToken{
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
