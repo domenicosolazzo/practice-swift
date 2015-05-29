@@ -165,5 +165,13 @@ class ViewController: UIViewController {
         
     }
     
+    func isIcloudAvailable() -> Bool{
+        if let token = NSFileManager.defaultManager().ubiquityIdentityToken{
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
