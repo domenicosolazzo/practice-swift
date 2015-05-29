@@ -11,6 +11,7 @@ import CloudKit
 
 class ViewController: UIViewController {
 
-   let database = CKContainer.defaultContainer().publicCloudDatabase
+   let database = CKContainer.defaultContainer().privateCloudDatabase
+    
 }
 
