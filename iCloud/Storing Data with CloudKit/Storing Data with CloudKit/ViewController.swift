@@ -54,5 +54,27 @@ class ViewController: UIViewController {
             
     }
     
+    func hatchbackCarWithMaker(maker: String,
+        model: String,
+        numberOfDoors: Int,
+        year: Int) -> CKRecord{
+            return carWithType(.Hatchback,
+                maker: maker,
+                model: model,
+                numberOfDoors: numberOfDoors,
+                year: year)
+    }
+    
+    func estateCarWithMaker(maker: String,
+        model: String,
+        numberOfDoors: Int,
+        year: Int) -> CKRecord{
+            return carWithType(.Estate,
+                maker: maker,
+                model: model,
+                numberOfDoors: numberOfDoors,
+                year: year)
+    }
+    
 }
 
