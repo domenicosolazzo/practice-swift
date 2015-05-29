@@ -57,6 +57,48 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        container.accountStatusWithCompletionHandler{
+            [weak self] (status: CKAccountStatus, error: NSError!) in
+            
+            /* Be careful, we might be on a different thread now so make sure that
+            your UI operations go on the main thread */
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                var title: String!
+                var message: String!
+                
+                if error != nil{
+                    title = "Error"
+                    message = "An error occurred = \(error)"
+                } else {
+                    
+                    title = "No errors occurred"
+                    
+                    switch status{
+                    case .Available:
+                        message = "The user is logged in to iCloud"
+                    case .CouldNotDetermine:
+                        message = "Could not determine if the user is logged" +
+                        " into iCloud or not"
+                    case .NoAccount:
+                        message = "User is not logged into iCloud"
+                    case .Restricted:
+                        message = "Could not access user's iCloud account information"
+                    }
+                    
+                    self!.displayAlertWithTitle(title, message: message)
+                    
+                }
+                
+            })
+            
+        }
+        
+    }
+    
     
     
     /* Just a little method to help us display alert dialogs to the user */
