@@ -29,5 +29,13 @@ class ViewController: UIViewController {
         
     }
     
+    // Return a record that represents a car with type
+    func carWithType(type: CarType) -> CKRecord{
+        let uuid = NSUUID().UUIDString
+        let recordId = CKRecordID(recordName: uuid, zoneID: type.zoneId())
+        let car = CKRecord(recordType: "MyCar", recordID: recordId)
+        return car
+    }
+    
 }
 
