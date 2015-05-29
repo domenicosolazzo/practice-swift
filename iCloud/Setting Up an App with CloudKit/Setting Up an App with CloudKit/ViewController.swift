@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 
 class ViewController: UIViewController {
-
+    let container = CKContainer.defaultContainer()
 }
 
