@@ -76,5 +76,23 @@ class ViewController: UIViewController {
                 year: year)
     }
     
+    func saveCarClosure(record: CKRecord!, error: NSError!){
+        
+        /* Be careful, we might be on a non-UI thread */
+        
+        if error != nil{
+            println("Failed to save the car. Error = \(error)")
+        } else {
+            println("Successfully saved the car with type \(record.recordType)")
+        }
+        
+    }
+    
+    func saveCars(cars: [CKRecord]){
+        for car in cars{
+            database.saveRecord(car, completionHandler: saveCarClosure)
+        }
+    }
+    
 }
 
