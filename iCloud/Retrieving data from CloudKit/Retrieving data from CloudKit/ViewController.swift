@@ -65,5 +65,71 @@ class ViewController: UIViewController {
         return CKRecordID(recordName: recordName, zoneID: CarType.Estate.zoneId())
         
     }
+    
+    func saveRecordWithCompletionHandler(completionHandler:
+        (succeeded: Bool, error: NSError!) -> Void){
+            
+            /* Store information about a Volvo V50 car */
+            let volvoV50 = CKRecord(recordType: "MyCar", recordID: recordId())
+            volvoV50.setObject("Volvo", forKey: "maker")
+            volvoV50.setObject("V50", forKey: "model")
+            volvoV50.setObject(5, forKey: "numberOfDoors")
+            volvoV50.setObject(2015, forKey: "year")
+            
+            /* Save this record publicly */
+            database.saveRecord(volvoV50, completionHandler: {
+                (record: CKRecord!, error: NSError!) in
+                completionHandler(succeeded: (error == nil), error: error)
+            })
+            
+    }
+    
+    
+      override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    
+        if isIcloudAvailable(){
+          displayAlertWithTitle("iCloud", message: "iCloud is not available." +
+            " Please sign into your iCloud account and restart this app")
+          return
+        }
+    
+        println("Fetching the record to see if it exists already...")
+    
+        /* Attempt to find the record if we have saved it already */
+        database.fetchRecordWithID(recordId(), completionHandler:{[weak self]
+          (record: CKRecord!, error: NSError!) in
+    
+          if error != nil{
+            println("An error occurred")
+    
+            if error.code == CKErrorCode.UnknownItem.rawValue{
+              println("This error means that the record was not found.")
+              println("Saving the record...")
+    
+              self!.saveRecordWithCompletionHandler{
+                (succeeded: Bool, error: NSError!) in
+    
+                if succeeded{
+                  println("Successfully saved the record")
+                } else {
+                  println("Failed to save the record. Error = \(error)")
+                }
+    
+              }
+    
+            } else {
+              println("I don't understand this error. Error = \(error)")
+            }
+    
+          } else {
+            println("Seems like we had previously stored the record. Great!")
+            println("Retrieved record = \(record)")
+          }
+    
+          })
+    
+      }
+    
 }
 
