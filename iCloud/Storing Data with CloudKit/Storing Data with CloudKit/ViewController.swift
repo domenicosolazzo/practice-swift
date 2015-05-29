@@ -139,5 +139,31 @@ class ViewController: UIViewController {
         }
     }
     
+    func performOnMainThread(block: dispatch_block_t){
+        dispatch_async(dispatch_get_main_queue(), block)
+    }
+    
+    // Create a new record zone or fetch the existing one
+    func useOrSaveZone(#zoneIsCreatedAlready: Bool, forCarType: CarType){
+        
+        if zoneIsCreatedAlready{
+            println("Found the \(forCarType.rawValue) zone. " +
+                "It's been created already")
+            saveCarsForType(forCarType)
+        } else {
+            database.saveRecordZone(forCarType.zone(),
+                completionHandler: {[weak self]
+                    (zone: CKRecordZone!, error: NSError!) in
+                    if error != nil{
+                        println("Could not save the hatchback zone. Error = \(error)")
+                    } else {
+                        println("Successfully saved the hatchback zone")
+                        self!.performOnMainThread{self!.saveCarsForType(forCarType)}
+                    }
+                })
+        }
+        
+    }
+    
 }
 
