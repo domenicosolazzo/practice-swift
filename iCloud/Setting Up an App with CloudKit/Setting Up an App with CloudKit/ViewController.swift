@@ -99,7 +99,9 @@ class ViewController: UIViewController {
         
     }
     
-    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     /* Just a little method to help us display alert dialogs to the user */
     func displayAlertWithTitle(title: String, message: String){
