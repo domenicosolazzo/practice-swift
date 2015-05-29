@@ -94,5 +94,50 @@ class ViewController: UIViewController {
         }
     }
     
+    func saveEstateCars(){
+        
+        let volvoV50 = estateCarWithMaker("Volvo",
+            model: "V50",
+            numberOfDoors: 5,
+            year: 2016)
+        
+        let audiA6 = estateCarWithMaker("Audi",
+            model: "A6",
+            numberOfDoors: 5,
+            year: 2018)
+        
+        let skodaOctavia = estateCarWithMaker("Skoda",
+            model: "Octavia",
+            numberOfDoors: 5,
+            year: 2016)
+        
+        println("Saving estate cars...")
+        saveCars([volvoV50, audiA6, skodaOctavia])
+        
+    }
+    
+    func saveHatchbackCars(){
+        
+        let fordFocus = hatchbackCarWithMaker("Ford",
+            model: "Focus",
+            numberOfDoors: 6,
+            year: 2018)
+        
+        println("Saving hatchback cars...")
+        saveCars([fordFocus])
+        
+    }
+    
+    func saveCarsForType(type: CarType){
+        switch type{
+        case .Hatchback:
+            saveHatchbackCars()
+        case .Estate:
+            saveEstateCars()
+        default:
+            println("Unknown car state is given")
+        }
+    }
+    
 }
 
