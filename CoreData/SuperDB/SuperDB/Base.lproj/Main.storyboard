@@ -68,8 +68,8 @@
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="sNw-Qe-Wnp"/>
-                                    <tabBarItem systemItem="more" id="m0m-e5-rQt"/>
+                                    <tabBarItem title="By Name" image="name_icon" id="sNw-Qe-Wnp"/>
+                                    <tabBarItem title="By Secret Identity" image="secret_icon" id="m0m-e5-rQt"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="huW-KX-775" id="GOi-4r-y2M"/>
@@ -105,4 +105,8 @@
             <point key="canvasLocation" x="508" y="333"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="name_icon" width="24" height="24"/>
+        <image name="secret_icon" width="24" height="24"/>
+    </resources>
 </document>
