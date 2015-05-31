@@ -54,16 +54,20 @@ class HeroListController: UIViewController, UITableViewDataSource,
         let items: NSArray = heroTabBar.items!
         let tabIndex = items.indexOfObject(item)
         defaults.setInteger(tabIndex, forKey: kSelectedTabDefaultsKey)
-    }
-    
-    //- MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HeroListCell", forIndexPath: indexPath) as! UITableViewCell
-        return cell
+        
+        NSFetchedResultsController.deleteCacheWithName("Hero")
+        _fetchedResultsController = nil
+        
+        var error: NSError?
+        if !fetchedResultsController.performFetch(&error) {
+            let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
+            let message = NSLocalizedString("Error was : \(error?.description), quitting",
+                comment: "Error was : \(error?.description), quitting")
+            showAlertWithCompletion("title", message:"message", buttonTitle:"Aw nuts",
+                completion:{_ in exit(-1)})
+        } else {
+            self.heroTableView.reloadData()
+        }
     }
     
     // MARK:- FetchedResultsController Property
@@ -199,4 +203,27 @@ class HeroListController: UIViewController, UITableViewDataSource,
         
         return cell
     }
+    
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let managedObjectContext = fetchedResultsController.managedObjectContext as NSManagedObjectContext!
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            managedObjectContext.deleteObject(fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
+            var error:NSError?
+            if managedObjectContext?.save(&error) == nil {
+                let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
+                let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
+                showAlertWithCompletion(title, message: message, buttonTitle: "Aw Nuts",
+                    completion: {_ in exit(-1)})
+            }
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    
+    
 }
