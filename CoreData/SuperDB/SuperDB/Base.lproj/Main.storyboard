@@ -84,7 +84,9 @@
                             <constraint firstItem="w4a-xU-dx5" firstAttribute="top" secondItem="av4-rk-TIR" secondAttribute="bottom" id="gFa-3T-QNR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4pP-4h-QkG"/>
+                    <navigationItem key="navigationItem" id="4pP-4h-QkG">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="add" id="Dpm-st-dt5"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="heroTabBar" destination="av4-rk-TIR" id="Kzg-Wl-n4V"/>
                         <outlet property="heroTableView" destination="NL8-qJ-BZF" id="b9Q-CS-LaI"/>
