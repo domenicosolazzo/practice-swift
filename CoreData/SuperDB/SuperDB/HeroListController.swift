@@ -160,4 +160,43 @@ class HeroListController: UIViewController, UITableViewDataSource,
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return fetchedResultsController.sections?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        return sectionInfo.numberOfObjects
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "HeroListCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        
+        // Configure the cell...
+        
+        let aHero = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        let tabArray = self.heroTabBar.items as NSArray!
+        let tab = tabArray.indexOfObject(self.heroTabBar.selectedItem!)
+        
+        switch (tab){
+        case tabBarKeys.ByName.rawValue:
+            cell.textLabel?.text = aHero.valueForKey("name") as! String!
+            cell.detailTextLabel?.text = aHero.valueForKey("secretIdentity") as! String!
+        case tabBarKeys.BySecretIdentity.rawValue:
+            cell.detailTextLabel?.text = aHero.valueForKey("name") as! String!
+            cell.textLabel?.text = aHero.valueForKey("secretIdentity") as! String!
+        default:
+            ()
+        }
+        
+        return cell
+    }
 }
