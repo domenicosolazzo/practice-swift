@@ -22,6 +22,10 @@ class HeroListController: UIViewController, UITableViewDataSource,
         case BySecretIdentity
     }
     
+    @IBAction func addHero(sender: UIBarButtonItem) {
+    
+    }
+    
     override func viewDidLoad() {
         // Adding the editing button
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -98,5 +102,50 @@ class HeroListController: UIViewController, UITableViewDataSource,
             
             
         }
+    }
+    
+    // MARK: - NSFetchedResultsController Delegate Methods
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.heroTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.heroTableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch(type) {
+        case .Insert:
+            self.heroTableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .Delete:
+            self.heroTableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        default:
+            ()
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch(type) {
+        case .Insert:
+            self.heroTableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            self.heroTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        default:
+            ()
+        }
+    }
+    //- MARK: Navigation
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        addButton.enabled = !editing
+        heroTableView.setEditing(editing, animated: animated)
+    }
+    
+    func showAlertWithCompletion(title:String, message:String, buttonTitle:String = "OK", completion:((UIAlertAction!)->Void)!){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: buttonTitle, style: .Default, handler: completion)
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }

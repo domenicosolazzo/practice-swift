@@ -88,7 +88,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4pP-4h-QkG">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="add" id="Dpm-st-dt5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="add" id="Dpm-st-dt5">
+                            <connections>
+                                <action selector="addHero:" destination="huW-KX-775" id="r7v-YC-VNW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="heroTabBar" destination="av4-rk-TIR" id="Kzg-Wl-n4V"/>
