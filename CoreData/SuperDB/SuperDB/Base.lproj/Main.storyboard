@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-203" y="333"/>
         </scene>
-        <!--View Controller-->
+        <!--Hero List Controller-->
         <scene sceneID="q1J-oe-gNr">
             <objects>
-                <viewController id="huW-KX-775" sceneMemberID="viewController">
+                <viewController id="huW-KX-775" customClass="HeroListController" customModule="SuperDB" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Or-1L-OZl"/>
                         <viewControllerLayoutGuide type="bottom" id="w4a-xU-dx5"/>
@@ -75,6 +75,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4pP-4h-QkG"/>
+                    <connections>
+                        <outlet property="heroTabBar" destination="OL0-xZ-RLE" id="h44-YF-Ogq"/>
+                        <outlet property="heroTableView" destination="NL8-qJ-BZF" id="iNl-lt-l3i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utf-B3-UQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,4 +11,6 @@ import UIKit
 class HeroListController: UITableViewController, UITableViewDataSource,
             UITableViewDelegate{
 
+    @IBOutlet weak var heroTableView: UITableView!
+    @IBOutlet weak var heroTabBar: UITabBar!
 }
