@@ -34,7 +34,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
             
-            showAlertWithCompletion("title", message:"message", buttonTitle:"Aw nuts", completion:{_ in exit(-1)})
+            showAlertWithCompletion(title, message:message, buttonTitle:"Ok", completion:{_ in exit(-1)})
         }
     }
     
@@ -55,7 +55,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
             let message = NSLocalizedString("Error was : \(error?.description), quitting",
                 comment: "Error was : \(error?.description), quitting")
             showAlertWithCompletion(title, message: message,
-                buttonTitle: "Aw nuts", completion: { _ in exit(-1)})
+                buttonTitle: "Ok", completion: { _ in exit(-1)})
         }
     }
     //- MARK: UITabBarDelegate
@@ -73,7 +73,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting",
                 comment: "Error was : \(error?.description), quitting")
-            showAlertWithCompletion("title", message:"message", buttonTitle:"Aw nuts",
+            showAlertWithCompletion(title, message:message, buttonTitle:"Ok",
                 completion:{_ in exit(-1)})
         } else {
             self.heroTableView.reloadData()
@@ -226,7 +226,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
             if managedObjectContext?.save(&error) == nil {
                 let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
                 let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
-                showAlertWithCompletion(title, message: message, buttonTitle: "Aw Nuts",
+                showAlertWithCompletion(title, message: message, buttonTitle: "Ok",
                     completion: {_ in exit(-1)})
             }
         } else if editingStyle == .Insert {

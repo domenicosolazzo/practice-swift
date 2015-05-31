@@ -4,7 +4,7 @@
         <attribute name="birthDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Untitled Hero" indexed="YES" syncable="YES"/>
         <attribute name="secretIdentity" attributeType="String" defaultValueString="Unknown" indexed="YES" syncable="YES"/>
-        <attribute name="sex" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" defaultValueString="Male" syncable="YES"/>
     </entity>
     <elements>
         <element name="Hero" positionX="-63" positionY="-18" width="128" height="105"/>
