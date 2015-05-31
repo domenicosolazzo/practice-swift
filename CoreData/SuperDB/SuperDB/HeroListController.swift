@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Domenico. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
-class HeroListController: UITableViewController {
+class HeroListController: UITableViewController, UITableViewDataSource,
+            UITableViewDelegate{
 
 }
