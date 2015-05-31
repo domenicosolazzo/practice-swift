@@ -95,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Dpm-st-dt5" id="D3g-AR-Rg5"/>
                         <outlet property="heroTabBar" destination="av4-rk-TIR" id="Kzg-Wl-n4V"/>
                         <outlet property="heroTableView" destination="NL8-qJ-BZF" id="b9Q-CS-LaI"/>
                     </connections>

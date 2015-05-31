@@ -14,6 +14,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
 
     @IBOutlet weak var heroTableView: UITableView!
     @IBOutlet weak var heroTabBar: UITabBar!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     let kSelectedTabDefaultsKey = "SelectedTab"
     private var _fetchedResultsController: NSFetchedResultsController!
     
@@ -23,7 +24,18 @@ class HeroListController: UIViewController, UITableViewDataSource,
     }
     
     @IBAction func addHero(sender: UIBarButtonItem) {
-    
+        let  managedObjectContext = fetchedResultsController.managedObjectContext as NSManagedObjectContext
+        let entity:NSEntityDescription = fetchedResultsController.fetchRequest.entity!
+        NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: managedObjectContext)
+        
+        var error: NSError?
+        
+        if !managedObjectContext.save(&error) {
+            let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
+            let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
+            
+            showAlertWithCompletion("title", message:"message", buttonTitle:"Aw nuts", completion:{_ in exit(-1)})
+        }
     }
     
     override func viewDidLoad() {
