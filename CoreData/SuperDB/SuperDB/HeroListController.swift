@@ -12,6 +12,12 @@ class HeroListController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var heroTableView: UITableView!
     @IBOutlet weak var heroTabBar: UITabBar!
+    let kSelectedTabDefaultsKey = "SelectedTab"
+    
+    enum tabBarKeys: Int{
+        case ByName
+        case BySecretIdentity
+    }
     
     override func viewDidLoad() {
         // Adding the editing button
