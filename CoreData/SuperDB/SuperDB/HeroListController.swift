@@ -24,7 +24,9 @@ class HeroListController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Select the TabBar item
-        let item = heroTabBar.items?[0] as! UITabBarItem
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let selectedTab = userDefaults.integerForKey(kSelectedTabDefaultsKey)
+        let item = heroTabBar.items?[selectedTab] as! UITabBarItem
         heroTabBar.selectedItem = item
     }
     //- MARK: UITableViewDataSource
