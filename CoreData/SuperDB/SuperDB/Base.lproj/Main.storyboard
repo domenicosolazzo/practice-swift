@@ -66,6 +66,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="huW-KX-775" id="Rht-Li-pOy"/>
+                                    <outlet property="delegate" destination="huW-KX-775" id="V4E-Dy-tve"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
