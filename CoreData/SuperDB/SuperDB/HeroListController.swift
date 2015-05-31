@@ -47,6 +47,16 @@ class HeroListController: UIViewController, UITableViewDataSource,
         let selectedTab = userDefaults.integerForKey(kSelectedTabDefaultsKey)
         let item = heroTabBar.items?[selectedTab] as! UITabBarItem
         heroTabBar.selectedItem = item
+        
+        //Fetch any existing entities
+        var error: NSError?
+        if !fetchedResultsController.performFetch(&error) {
+            let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
+            let message = NSLocalizedString("Error was : \(error?.description), quitting",
+                comment: "Error was : \(error?.description), quitting")
+            showAlertWithCompletion(title, message: message,
+                buttonTitle: "Aw nuts", completion: { _ in exit(-1)})
+        }
     }
     //- MARK: UITabBarDelegate
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
