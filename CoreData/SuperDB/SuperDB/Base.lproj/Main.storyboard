@@ -71,6 +71,9 @@
                                     <tabBarItem systemItem="favorites" id="sNw-Qe-Wnp"/>
                                     <tabBarItem systemItem="more" id="m0m-e5-rQt"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="huW-KX-775" id="GOi-4r-y2M"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
