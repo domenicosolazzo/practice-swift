@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Qg-eS-xt8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,15 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-xZ-RLE">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="By Name" image="name_icon" id="xnO-wR-xAZ"/>
-                                    <tabBarItem title="By Secret Identity" image="secret_icon" id="5ur-tc-8pg"/>
-                                </items>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-qJ-BZF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-qJ-BZF">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -67,17 +60,34 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="huW-KX-775" id="Rht-Li-pOy"/>
+                                    <outlet property="dataSource" destination="huW-KX-775" id="hXG-rd-LO6"/>
                                     <outlet property="delegate" destination="huW-KX-775" id="V4E-Dy-tve"/>
                                 </connections>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av4-rk-TIR">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="sNw-Qe-Wnp"/>
+                                    <tabBarItem systemItem="more" id="m0m-e5-rQt"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="av4-rk-TIR" firstAttribute="leading" secondItem="aab-ze-U4M" secondAttribute="leadingMargin" constant="-16" id="7RV-BO-KcZ"/>
+                            <constraint firstItem="NL8-qJ-BZF" firstAttribute="top" secondItem="7Or-1L-OZl" secondAttribute="bottom" id="8aP-Hz-sDH"/>
+                            <constraint firstItem="NL8-qJ-BZF" firstAttribute="bottom" secondItem="av4-rk-TIR" secondAttribute="top" id="Aj0-Rm-HBj"/>
+                            <constraint firstItem="NL8-qJ-BZF" firstAttribute="leading" secondItem="aab-ze-U4M" secondAttribute="leadingMargin" constant="-16" id="GZi-ln-6bd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="av4-rk-TIR" secondAttribute="trailing" constant="-16" id="Zgt-HJ-Iuv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NL8-qJ-BZF" secondAttribute="trailing" constant="-16" id="fMT-gG-KtJ"/>
+                            <constraint firstItem="w4a-xU-dx5" firstAttribute="top" secondItem="av4-rk-TIR" secondAttribute="bottom" id="gFa-3T-QNR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4pP-4h-QkG"/>
                     <connections>
-                        <outlet property="heroTabBar" destination="OL0-xZ-RLE" id="h44-YF-Ogq"/>
-                        <outlet property="heroTableView" destination="NL8-qJ-BZF" id="iNl-lt-l3i"/>
+                        <outlet property="heroTabBar" destination="av4-rk-TIR" id="Kzg-Wl-n4V"/>
+                        <outlet property="heroTableView" destination="NL8-qJ-BZF" id="b9Q-CS-LaI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utf-B3-UQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,8 +95,4 @@
             <point key="canvasLocation" x="508" y="333"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="name_icon" width="24" height="24"/>
-        <image name="secret_icon" width="24" height="24"/>
-    </resources>
 </document>

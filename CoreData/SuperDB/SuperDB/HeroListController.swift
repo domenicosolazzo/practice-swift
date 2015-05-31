@@ -8,13 +8,17 @@
 
 import UIKit
 
-class HeroListController: UITableViewController, UITableViewDataSource,
-            UITableViewDelegate{
+class HeroListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var heroTableView: UITableView!
     @IBOutlet weak var heroTabBar: UITabBar!
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    //- MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HeroListCell", forIndexPath: indexPath) as! UITableViewCell
         return cell
     }

@@ -13,7 +13,7 @@
 		C009B4551B19D3A000C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009B4541B19D3A000C44B10 /* Images.xcassets */; };
 		C009B4581B19D3A000C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009B4561B19D3A000C44B10 /* LaunchScreen.xib */; };
 		C009B4641B19D3A000C44B10 /* SuperDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4631B19D3A000C44B10 /* SuperDBTests.swift */; };
-		C009B46E1B1B535A00C44B10 /* HeroListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B46D1B1B535A00C44B10 /* HeroListController.swift */; };
+		C009B4701B1B71EB00C44B10 /* HeroListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B46F1B1B71EB00C44B10 /* HeroListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		C009B45D1B19D3A000C44B10 /* SuperDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009B4621B19D3A000C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009B4631B19D3A000C44B10 /* SuperDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperDBTests.swift; sourceTree = "<group>"; };
-		C009B46D1B1B535A00C44B10 /* HeroListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroListController.swift; sourceTree = "<group>"; };
+		C009B46F1B1B71EB00C44B10 /* HeroListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 				C009B4561B19D3A000C44B10 /* LaunchScreen.xib */,
 				C009B44C1B19D3A000C44B10 /* SuperDB.xcdatamodeld */,
 				C009B4481B19D3A000C44B10 /* Supporting Files */,
-				C009B46D1B1B535A00C44B10 /* HeroListController.swift */,
+				C009B46F1B1B71EB00C44B10 /* HeroListController.swift */,
 			);
 			path = SuperDB;
 			sourceTree = "<group>";
@@ -215,8 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C009B46E1B1B535A00C44B10 /* HeroListController.swift in Sources */,
 				C009B44B1B19D3A000C44B10 /* AppDelegate.swift in Sources */,
+				C009B4701B1B71EB00C44B10 /* HeroListController.swift in Sources */,
 				C009B44E1B19D3A000C44B10 /* SuperDB.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
