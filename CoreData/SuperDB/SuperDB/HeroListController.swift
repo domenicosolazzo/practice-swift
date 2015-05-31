@@ -13,4 +13,9 @@ class HeroListController: UITableViewController, UITableViewDataSource,
 
     @IBOutlet weak var heroTableView: UITableView!
     @IBOutlet weak var heroTabBar: UITabBar!
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("HeroListCell", forIndexPath: indexPath) as! UITableViewCell
+        return cell
+    }
 }
