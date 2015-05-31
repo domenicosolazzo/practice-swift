@@ -13,6 +13,10 @@ class HeroListController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var heroTableView: UITableView!
     @IBOutlet weak var heroTabBar: UITabBar!
     
+    override func viewDidLoad() {
+        // Adding the editing button
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
     //- MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
