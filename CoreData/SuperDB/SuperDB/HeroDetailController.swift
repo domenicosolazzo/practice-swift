@@ -21,6 +21,8 @@ class HeroDetailController: UITableViewController {
         var plist = NSDictionary(contentsOfURL: plistURL!)
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "save")
+        self.backButton = self.navigationItem.leftBarButtonItem
+        self.cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
