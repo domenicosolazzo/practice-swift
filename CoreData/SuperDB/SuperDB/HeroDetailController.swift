@@ -44,12 +44,17 @@ class HeroDetailController: UITableViewController {
             switch cellClassName{
             case "SuperDBDateCell":
                 cell = SuperDBDateCell(style: .Value2, reuseIdentifier: cellIdentifier)
+            case "SuperDBPickerCell":
+                cell = SuperDBPickerCell(style: .Value2, reuseIdentifier: cellIdentifier)
             default:
                 cell = SuperDBEditCell(style: .Value2, reuseIdentifier: cellIdentifier)
             }
             
         }
-
+        
+        if let _values = row["values"] as? NSArray {
+            (cell as! SuperDBPickerCell).values = _values as NSArray as [AnyObject]
+        }
         
         var dataKey = row.objectForKey("key") as! String!
         
