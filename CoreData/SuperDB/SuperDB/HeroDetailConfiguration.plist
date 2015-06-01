@@ -37,8 +37,13 @@
 					<string>birthDate</string>
 				</dict>
 				<dict>
+					<key>values</key>
+					<array>
+						<string>Male</string>
+						<string>Female</string>
+					</array>
 					<key>class</key>
-					<string>SuperDBEditCell</string>
+					<string>SuperDBPickerCell</string>
 					<key>label</key>
 					<string>Sex</string>
 					<key>key</key>
