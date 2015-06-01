@@ -49,5 +49,10 @@ class SuperDBEditCell: UITableViewCell {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.textField.enabled = editing
+    }
 
 }
