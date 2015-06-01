@@ -60,6 +60,11 @@ class HeroListController: UIViewController, UITableViewDataSource,
                 buttonTitle: "Ok", completion: { _ in exit(-1)})
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.heroTableView.reloadData()
+    }
     //- MARK: UITabBarDelegate
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
         let defaults = NSUserDefaults.standardUserDefaults()

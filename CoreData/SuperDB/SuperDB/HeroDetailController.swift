@@ -59,9 +59,9 @@ class HeroDetailController: UITableViewController {
         
         var dataKey = row.objectForKey("key") as! String!
         
-        cell?.label.text = row.objectForKey("label") as! String!
-        cell?.textField.text = self.hero.valueForKey(dataKey) as! String!
         cell?.key = dataKey
+        cell?.value = self.hero.valueForKey(dataKey)
+        cell?.label.text = row.objectForKey("label") as! String!
         
         return cell!
     }
