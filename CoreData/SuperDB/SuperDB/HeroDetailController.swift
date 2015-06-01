@@ -26,11 +26,11 @@ class HeroDetailController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "HeroDetailCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        let cellIdentifier = "SuperDBEditCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SuperDBEditCell
         
         if cell == nil {
-            cell = UITableViewCell(style: .Value2, reuseIdentifier: cellIdentifier)
+            cell = SuperDBEditCell(style: .Value2, reuseIdentifier: cellIdentifier)
         }
         
         // Configure the cell...
@@ -40,11 +40,10 @@ class HeroDetailController: UITableViewController {
         var section = _sections.objectAtIndex(sectionIndex) as! NSDictionary
         var rows = section.objectForKey("rows") as! NSArray
         var row = rows.objectAtIndex(rowIndex) as! NSDictionary
-        
-        cell?.textLabel?.text = row.objectForKey("label") as? String
         var dataKey = row.objectForKey("key") as! String!
         
-        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey)?.description
+        cell?.label.text = row.objectForKey("label") as! String!
+        cell?.textField.text = self.hero.valueForKey(dataKey) as! String!
         
         return cell!
     }

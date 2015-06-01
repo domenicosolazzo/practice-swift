@@ -132,13 +132,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="XIK-2o-GNd" customClass="SuperDBEditCell" customModule="SuperDB" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SuperDBEditCell" id="XIK-2o-GNd" customClass="SuperDBEditCell" customModule="SuperDB" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XIK-2o-GNd" id="FLe-sr-mWr">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="uuJ-cm-JHY" customClass="SuperDBEditCell" customModule="SuperDB" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SuperDBEditCell" id="uuJ-cm-JHY" customClass="SuperDBEditCell" customModule="SuperDB" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuJ-cm-JHY" id="Hdg-Ch-lPn">
                                             <autoresizingMask key="autoresizingMask"/>
