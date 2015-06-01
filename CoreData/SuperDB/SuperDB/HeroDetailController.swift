@@ -53,6 +53,7 @@ class HeroDetailController: UITableViewController {
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         self.navigationItem.rightBarButtonItem = editing ? self.saveButton : self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = editing ? self.cancelButton : self.backButton
     }
     
     //MARK: - (Private) Instance Methods
