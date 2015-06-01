@@ -18,4 +18,6 @@ class HeroDetailController: UITableViewController {
         var plist = NSDictionary(contentsOfURL: plistURL!)
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
     }
+    
+    
 }

@@ -241,6 +241,23 @@ class HeroListController: UIViewController, UITableViewDataSource,
         }
     }
     
+    //- MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "HeroDetailSegue"{
+            if let _sender = sender as? NSManagedObject{
+                var detailController:HeroDetailController = segue.destinationViewController as! HeroDetailController
+                detailController.hero = sender as! NSManagedObject
+            } else {
+                let title = NSLocalizedString("Hero Detail Error", comment: "Hero Detail Error")
+                let message = NSLocalizedString("Error trying to show Hero detail",
+                    comment: "Error trying to show Hero detail")
+                showAlertWithCompletion(title, message:"message", buttonTitle:"Aw nuts",
+                    completion:{_ in exit(-1)})
+            }
+        }
+    }
     
     
 }
