@@ -13,6 +13,8 @@ class HeroDetailController: UITableViewController {
     var sections: [AnyObject]!
     var hero: NSManagedObject!
     var saveButton: UIBarButtonItem!
+    var backButton: UIBarButtonItem!
+    var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         var plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
