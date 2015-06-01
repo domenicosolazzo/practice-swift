@@ -36,6 +36,8 @@ class HeroListController: UIViewController, UITableViewDataSource,
             
             showAlertWithCompletion(title, message:message, buttonTitle:"Ok", completion:{_ in exit(-1)})
         }
+        
+        self.performSegueWithIdentifier("HeroDetailSegue", sender: newHero)
     }
     
     override func viewDidLoad() {
