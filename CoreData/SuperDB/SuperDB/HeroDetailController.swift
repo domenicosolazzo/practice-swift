@@ -10,22 +10,12 @@ import UIKit
 import CoreData
 
 class HeroDetailController: UITableViewController {
-
-    enum HeroEditControllerSections:Int {
-        case Name
-        case General
-        case Count
-    }
+    var sections: [AnyObject]!
+    var hero: NSManagedObject!
     
-    enum HeroEditControllerName:Int {
-        case Row
-        case Count
-    }
-    
-    enum HeroEditControllerGeneralSection:Int {
-        case SecretIdentityRow
-        case BirthdateRow
-        case SexRow
-        case Count
+    override func viewDidLoad() {
+        var plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
+        var plist = NSDictionary(contentsOfURL: plistURL!)
+        self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
     }
 }
