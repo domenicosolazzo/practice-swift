@@ -216,6 +216,11 @@ class HeroListController: UIViewController, UITableViewDataSource,
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedHero = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        self.performSegueWithIdentifier("HeroDetailSegue", sender: selectedHero)
+    }
+    
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
