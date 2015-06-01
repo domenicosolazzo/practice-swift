@@ -55,5 +55,16 @@ class SuperDBEditCell: UITableViewCell {
         super.setEditing(editing, animated: animated)
         self.textField.enabled = editing
     }
+    
+    //MARK: - Property Overrides
+    var value: AnyObject! {
+        get{
+            return self.textField.text as String
+        }
+        
+        set {
+            self.textField.text = newValue as? String
+        }
+    }
 
 }
