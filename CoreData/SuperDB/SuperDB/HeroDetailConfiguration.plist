@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>sections</key>
+	<array>
+		<dict>
+			<key>rows</key>
+			<array>
+				<dict>
+					<key>label</key>
+					<string>Name</string>
+					<key>key</key>
+					<string>name</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>rows</key>
+			<array>
+				<dict>
+					<key>label</key>
+					<string>Identity</string>
+					<key>key</key>
+					<string>secretIdentity</string>
+				</dict>
+				<dict>
+					<key>label</key>
+					<string>BirthDate</string>
+					<key>key</key>
+					<string>birthDate</string>
+				</dict>
+				<dict>
+					<key>label</key>
+					<string>Sex</string>
+					<key>key</key>
+					<string>sex</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
 </plist>
