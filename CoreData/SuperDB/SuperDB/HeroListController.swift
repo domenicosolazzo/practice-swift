@@ -26,7 +26,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
     @IBAction func addHero(sender: UIBarButtonItem) {
         let  managedObjectContext = fetchedResultsController.managedObjectContext as NSManagedObjectContext
         let entity:NSEntityDescription = fetchedResultsController.fetchRequest.entity!
-        NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: managedObjectContext)
+        var newHero = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: managedObjectContext) as! NSManagedObject
         
         var error: NSError?
         
