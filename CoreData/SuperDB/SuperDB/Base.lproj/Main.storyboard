@@ -57,9 +57,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="yqJ-QQ-JzZ" kind="showDetail" id="9Wo-VT-bDV"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -101,6 +98,7 @@
                         <outlet property="addButton" destination="Dpm-st-dt5" id="D3g-AR-Rg5"/>
                         <outlet property="heroTabBar" destination="av4-rk-TIR" id="Kzg-Wl-n4V"/>
                         <outlet property="heroTableView" destination="NL8-qJ-BZF" id="b9Q-CS-LaI"/>
+                        <segue destination="yqJ-QQ-JzZ" kind="show" identifier="HeroDetailSegue" id="j2x-ia-uDe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utf-B3-UQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe0-vr-aeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="326"/>
+            <point key="canvasLocation" x="1260" y="340"/>
         </scene>
     </scenes>
     <resources>
