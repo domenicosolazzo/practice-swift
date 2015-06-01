@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="508" y="333"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Hero Detail Controller-->
         <scene sceneID="tSx-DI-xgf">
             <objects>
-                <tableViewController id="yqJ-QQ-JzZ" sceneMemberID="viewController">
+                <tableViewController id="yqJ-QQ-JzZ" customClass="HeroDetailController" customModule="SuperDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fI9-Ie-c4p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
