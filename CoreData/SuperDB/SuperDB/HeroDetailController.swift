@@ -11,4 +11,21 @@ import CoreData
 
 class HeroDetailController: UITableViewController {
 
+    enum HeroEditControllerSections:Int {
+        case Name
+        case General
+        case Count
+    }
+    
+    enum HeroEditControllerName:Int {
+        case Row
+        case Count
+    }
+    
+    enum HeroEditControllerGeneralSection:Int {
+        case SecretIdentityRow
+        case BirthdateRow
+        case SexRow
+        case Count
+    }
 }
