@@ -27,11 +27,6 @@ class HeroDetailController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "SuperDBEditCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SuperDBEditCell
-        
-        if cell == nil {
-            cell = SuperDBEditCell(style: .Value2, reuseIdentifier: cellIdentifier)
-        }
         
         // Configure the cell...
         var sectionIndex = indexPath.section
@@ -40,6 +35,22 @@ class HeroDetailController: UITableViewController {
         var section = _sections.objectAtIndex(sectionIndex) as! NSDictionary
         var rows = section.objectForKey("rows") as! NSArray
         var row = rows.objectAtIndex(rowIndex) as! NSDictionary
+        
+        // Cell type
+        var cellClassName = row.valueForKey("class") as! String
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellClassName) as? SuperDBEditCell
+        
+        if cell == nil {
+            switch cellClassName{
+            case "SuperDBDateCell":
+                cell = SuperDBDateCell(style: .Value2, reuseIdentifier: cellIdentifier)
+            default:
+                cell = SuperDBEditCell(style: .Value2, reuseIdentifier: cellIdentifier)
+            }
+            
+        }
+
+        
         var dataKey = row.objectForKey("key") as! String!
         
         cell?.label.text = row.objectForKey("label") as! String!

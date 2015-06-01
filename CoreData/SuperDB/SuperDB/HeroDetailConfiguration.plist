@@ -8,6 +8,8 @@
 			<key>rows</key>
 			<array>
 				<dict>
+					<key>class</key>
+					<string>SuperDBEditCell</string>
 					<key>label</key>
 					<string>Name</string>
 					<key>key</key>
@@ -19,18 +21,24 @@
 			<key>rows</key>
 			<array>
 				<dict>
+					<key>class</key>
+					<string>SuperDBEditCell</string>
 					<key>label</key>
 					<string>Identity</string>
 					<key>key</key>
 					<string>secretIdentity</string>
 				</dict>
 				<dict>
+					<key>class</key>
+					<string>SuperDBDateCell</string>
 					<key>label</key>
 					<string>BirthDate</string>
 					<key>key</key>
 					<string>birthDate</string>
 				</dict>
 				<dict>
+					<key>class</key>
+					<string>SuperDBEditCell</string>
 					<key>label</key>
 					<string>Sex</string>
 					<key>key</key>
