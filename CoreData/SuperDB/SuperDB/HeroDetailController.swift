@@ -18,7 +18,7 @@ class HeroDetailController: UITableViewController {
         var plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
         var plist = NSDictionary(contentsOfURL: plistURL!)
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "save")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,5 +43,17 @@ class HeroDetailController: UITableViewController {
         cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey)!.description as String
         
         return cell!
+    }
+    
+    //- MARK: Bar Button
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.navigationItem.rightBarButtonItem = editing ? self.saveButton : self.editButtonItem()
+    }
+    
+    //MARK: - (Private) Instance Methods
+    
+    func save() {
+        self.setEditing(false, animated: true)
     }
 }
