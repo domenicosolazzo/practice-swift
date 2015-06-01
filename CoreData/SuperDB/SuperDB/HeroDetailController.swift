@@ -19,5 +19,27 @@ class HeroDetailController: UITableViewController {
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
     }
     
-    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "HeroDetailCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        
+        if cell == nil {
+            cell = UITableViewCell(style: .Value2, reuseIdentifier: cellIdentifier)
+        }
+        
+        // Configure the cell...
+        var sectionIndex = indexPath.section
+        var rowIndex = indexPath.row
+        var _sections = self.sections as NSArray
+        var section = _sections.objectAtIndex(sectionIndex) as! NSDictionary
+        var rows = section.objectForKey("rows") as! NSArray
+        var row = rows.objectAtIndex(rowIndex) as! NSDictionary
+        
+        cell?.textLabel?.text = row.objectForKey("label") as? String
+        var dataKey = row.objectForKey("key") as! String!
+        
+        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey) as? String
+        
+        return cell!
+    }
 }
