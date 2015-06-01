@@ -17,6 +17,7 @@ class HeroDetailController: UITableViewController {
         var plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
         var plist = NSDictionary(contentsOfURL: plistURL!)
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,7 +39,7 @@ class HeroDetailController: UITableViewController {
         cell?.textLabel?.text = row.objectForKey("label") as? String
         var dataKey = row.objectForKey("key") as! String!
         
-        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey) as? String
+        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey)!.description as String
         
         return cell!
     }
