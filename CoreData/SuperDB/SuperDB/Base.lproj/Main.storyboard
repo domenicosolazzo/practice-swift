@@ -137,7 +137,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="778-G5-bcH">
+                            <tableViewSection headerTitle="General" id="778-G5-bcH">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7CJ-iD-Ede">
                                         <autoresizingMask key="autoresizingMask"/>
