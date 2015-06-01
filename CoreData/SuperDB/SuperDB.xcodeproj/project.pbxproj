@@ -18,6 +18,7 @@
 		C009B4741B1CC9E900C44B10 /* HeroDetailConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = C009B4731B1CC9E900C44B10 /* HeroDetailConfiguration.plist */; };
 		C009B4761B1CD90500C44B10 /* SuperDBEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4751B1CD90500C44B10 /* SuperDBEditCell.swift */; };
 		C009B4781B1CDD4A00C44B10 /* SuperDBDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4771B1CDD4A00C44B10 /* SuperDBDateCell.swift */; };
+		C009B47A1B1CDFC700C44B10 /* SuperDBPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4791B1CDFC700C44B10 /* SuperDBPickerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		C009B4731B1CC9E900C44B10 /* HeroDetailConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HeroDetailConfiguration.plist; sourceTree = "<group>"; };
 		C009B4751B1CD90500C44B10 /* SuperDBEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDBEditCell.swift; sourceTree = "<group>"; };
 		C009B4771B1CDD4A00C44B10 /* SuperDBDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDBDateCell.swift; sourceTree = "<group>"; };
+		C009B4791B1CDFC700C44B10 /* SuperDBPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDBPickerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				C009B4711B1CC5BC00C44B10 /* HeroDetailController.swift */,
 				C009B4751B1CD90500C44B10 /* SuperDBEditCell.swift */,
 				C009B4771B1CDD4A00C44B10 /* SuperDBDateCell.swift */,
+				C009B4791B1CDFC700C44B10 /* SuperDBPickerCell.swift */,
 			);
 			path = SuperDB;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				C009B44B1B19D3A000C44B10 /* AppDelegate.swift in Sources */,
 				C009B4781B1CDD4A00C44B10 /* SuperDBDateCell.swift in Sources */,
+				C009B47A1B1CDFC700C44B10 /* SuperDBPickerCell.swift in Sources */,
 				C009B4761B1CD90500C44B10 /* SuperDBEditCell.swift in Sources */,
 				C009B4701B1B71EB00C44B10 /* HeroListController.swift in Sources */,
 				C009B4721B1CC5BC00C44B10 /* HeroDetailController.swift in Sources */,
