@@ -15,6 +15,7 @@
 		C009B4641B19D3A000C44B10 /* SuperDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4631B19D3A000C44B10 /* SuperDBTests.swift */; };
 		C009B4701B1B71EB00C44B10 /* HeroListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B46F1B1B71EB00C44B10 /* HeroListController.swift */; };
 		C009B4721B1CC5BC00C44B10 /* HeroDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4711B1CC5BC00C44B10 /* HeroDetailController.swift */; };
+		C009B4741B1CC9E900C44B10 /* HeroDetailConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = C009B4731B1CC9E900C44B10 /* HeroDetailConfiguration.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C009B4631B19D3A000C44B10 /* SuperDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperDBTests.swift; sourceTree = "<group>"; };
 		C009B46F1B1B71EB00C44B10 /* HeroListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroListController.swift; sourceTree = "<group>"; };
 		C009B4711B1CC5BC00C44B10 /* HeroDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDetailController.swift; sourceTree = "<group>"; };
+		C009B4731B1CC9E900C44B10 /* HeroDetailConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HeroDetailConfiguration.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C009B4491B19D3A000C44B10 /* Info.plist */,
+				C009B4731B1CC9E900C44B10 /* HeroDetailConfiguration.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C009B4741B1CC9E900C44B10 /* HeroDetailConfiguration.plist in Resources */,
 				C009B4531B19D3A000C44B10 /* Main.storyboard in Resources */,
 				C009B4581B19D3A000C44B10 /* LaunchScreen.xib in Resources */,
 				C009B4551B19D3A000C44B10 /* Images.xcassets in Resources */,
