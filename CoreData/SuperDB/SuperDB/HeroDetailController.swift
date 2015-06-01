@@ -44,11 +44,14 @@ class HeroDetailController: UITableViewController {
         cell?.textLabel?.text = row.objectForKey("label") as? String
         var dataKey = row.objectForKey("key") as! String!
         
-        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey)!.description as String
+        cell?.detailTextLabel?.text = self.hero.valueForKey(dataKey)?.description
         
         return cell!
     }
     
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.None
+    }
     //- MARK: Bar Button
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
