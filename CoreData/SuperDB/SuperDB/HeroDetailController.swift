@@ -61,4 +61,8 @@ class HeroDetailController: UITableViewController {
     func save() {
         self.setEditing(false, animated: true)
     }
+    
+    func cancel() {
+        self.setEditing(false, animated:true)
+    }
 }
