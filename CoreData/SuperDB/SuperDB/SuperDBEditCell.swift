@@ -13,6 +13,7 @@ class SuperDBEditCell: UITableViewCell {
     var label: UILabel!
     var textField: UITextField!
     let kLabelTextColor = UIColor(red: 0.321569, green: 0.4, blue: 0.568627, alpha: 1)
+    var key: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
