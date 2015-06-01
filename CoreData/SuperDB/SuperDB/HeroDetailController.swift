@@ -63,6 +63,18 @@ class HeroDetailController: UITableViewController {
     
     func save() {
         self.setEditing(false, animated: true)
+        for cell in self.tableView.visibleCells() {
+            let _cell = cell as! SuperDBEditCell
+            self.hero!.setValue(_cell.value, forKey: _cell.key)
+            
+            var error: NSError?
+            self.hero!.managedObjectContext?.save(&error)
+            if error != nil{
+                println("Error saving : \(error?.localizedDescription)")
+            }
+        }
+        
+        self.tableView.reloadData()
     }
     
     func cancel() {
