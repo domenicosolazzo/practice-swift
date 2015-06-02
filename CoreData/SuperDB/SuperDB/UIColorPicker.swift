@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIControlPicker: UIControl {
+class UIColorPicker: UIControl {
 
     var _color: UIColor!
     private var _redSlider: UISlider!

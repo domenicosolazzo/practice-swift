@@ -10,12 +10,11 @@ import UIKit
 
 class SuperDBColorCell: SuperDBEditCell {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    var colorPicker: UIColorPicker!
+    var attributedColorString: NSAttributedString!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
-    */
 
 }
