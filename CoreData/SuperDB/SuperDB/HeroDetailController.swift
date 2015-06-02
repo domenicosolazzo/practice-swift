@@ -55,29 +55,31 @@ class HeroDetailController: UITableViewController {
             
         }
         
-        if let _values = row["values"] as? NSArray {
-            (cell as! SuperDBPickerCell).values = _values as NSArray as [AnyObject]
-        }
         
         var dataKey = row.objectForKey("key") as! String!
-        cell?.hero = hero
         cell?.key = dataKey
-        var theData: String! = self.hero.valueForKey(dataKey)?.description
-        cell?.value = theData
         cell?.label.text = row.objectForKey("label") as! String!
         
+        
+        if let _values = row["values"] as? NSArray {
+            (cell as! SuperDBPickerCell).values = _values as [AnyObject]
+        }
+        
+        var theData:AnyObject? = self.hero.valueForKey(dataKey)
+        cell?.value = theData
         
         if let _theDate = theData as? NSDate {
             cell?.textField.text = __dateFormatter.stringFromDate(_theDate)
         }else if let _color = theData as? UIColor {
             if let _cell = cell as? SuperDBColorCell {
                 _cell.value = _color
-                //_cell.textField.text = nil
                 _cell.textField.attributedText = _cell.attributedColorString
             }
         } else {
-            cell?.textField.text = theData!
+            cell?.textField.text = theData?.description
         }
+        
+        cell?.hero = self.hero
         
         return cell!
     }
@@ -96,13 +98,15 @@ class HeroDetailController: UITableViewController {
     
     func save() {
         self.setEditing(false, animated: true)
+        
         for cell in self.tableView.visibleCells() {
             let _cell = cell as! SuperDBEditCell
             if _cell.isEditable() {
                 self.hero.setValue(_cell.value, forKey: _cell.key)
             }
+            
             var error: NSError?
-            self.hero!.managedObjectContext?.save(&error)
+            self.hero.managedObjectContext?.save(&error)
             if error != nil{
                 println("Error saving : \(error?.localizedDescription)")
             }

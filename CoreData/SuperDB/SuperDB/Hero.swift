@@ -13,7 +13,6 @@ let kHeroValidationDomain = "com.oz-apps.SuperDB.HeroValidationDomain"
 let kHeroValidationBirthdateCode = 1000
 let kHeroValidationNameOrSecretIdentityCode = 1001
 
-@objc(Hero)
 class Hero: NSManagedObject {
     
     @NSManaged var birthDate: NSDate
@@ -22,7 +21,7 @@ class Hero: NSManagedObject {
     @NSManaged var sex: String
     @NSManaged var favoriteColor: UIColor
     
-    var age:Int {
+    var age:NSNumber {
         get {
             if self.birthDate != NSNull() {
                 var gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -42,18 +41,6 @@ class Hero: NSManagedObject {
         self.birthDate = NSDate()
     }
     
-    //    override func validateValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String, error: NSErrorPointer) -> Bool {
-    //        println("Key: \(key)")
-    //
-    //        if key == "secretIdentity" {
-    //            println(">> We validate this to true and reject the rest")
-    //        } else {
-    //            var theErr:NSError? = NSError(domain: kHeroValidationDomain, code: 1007, userInfo: nil)
-    //            error.memory = theErr
-    //            return false
-    //        }
-    //        return true
-    //    }
     
     
     func validateBirthDate(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, error:NSErrorPointer) -> Bool {
@@ -70,17 +57,6 @@ class Hero: NSManagedObject {
         }
         return true
     }
-    
-    
-    //    override func willAccessValueForKey(key: String?) {
-    //        println(">> accessing \(key)")
-    //        if key == "age" {
-    //            //age = theAge
-    //        }
-    //    }
-    
-    
-    
     
     func validateNameOrSecretIdentity(error :NSErrorPointer) -> Bool{
         if count(self.name) < 2 && count(self.secretIdentity) == 0 {

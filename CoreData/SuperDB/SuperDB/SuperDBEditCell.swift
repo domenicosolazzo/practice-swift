@@ -38,7 +38,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.textField.delegate = self
+        
         
         self.selectionStyle = .None
         
@@ -55,7 +55,11 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
         self.textField.enabled = false
         self.textField.font = UIFont.boldSystemFontOfSize(UIFont.systemFontSize())
         self.textField.text = "Title"
+        
+        self.textField.delegate = self
         self.contentView.addSubview(self.textField)
+        
+        
     }
     
     required init(coder aDecoder: NSCoder) {
