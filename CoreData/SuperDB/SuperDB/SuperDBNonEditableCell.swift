@@ -10,12 +10,17 @@ import UIKit
 
 class SuperDBNonEditableCell: SuperDBEditCell {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    override func isEditable() -> Bool {
+        return false
     }
-    */
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier:reuseIdentifier)
+        self.textField.enabled = false
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
 }

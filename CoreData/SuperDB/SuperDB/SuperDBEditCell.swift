@@ -56,7 +56,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        self.textField.enabled = editing
+        self.textField.enabled = editing && self.isEditable()
     }
     
     //MARK: - Property Overrides
@@ -114,6 +114,10 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.validate()
+    }
+    
+    func isEditable() -> Bool {
+        return true
     }
     
 
