@@ -14,6 +14,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     var textField: UITextField!
     let kLabelTextColor = UIColor(red: 0.321569, green: 0.4, blue: 0.568627, alpha: 1)
     var key: String!
+    var hero: NSManagedObject!
     
     override func awakeFromNib() {
         super.awakeFromNib()
