@@ -11,5 +11,9 @@ import UIKit
 class UIControlPicker: UIControl {
 
     var _color: UIColor!
+    private var _redSlider: UISlider!
+    private var _greenSlider: UISlider!
+    private var _blueSlider: UISlider!
+    private var _alphaSlider: UISlider!
 
 }
