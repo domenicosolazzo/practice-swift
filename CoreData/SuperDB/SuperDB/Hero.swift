@@ -9,6 +9,10 @@
 import Foundation
 import CoreData
 
+let kHeroValidationDomain = "com.domenicosolazzo.superDB.HeroValidationDomain"
+let kHeroValidationBirthday = 1000
+let kHeroValidationNameOrSecretIdentityCode = 1001
+
 class Hero: NSManagedObject {
 
     @NSManaged var age: NSNumber
