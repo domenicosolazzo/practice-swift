@@ -42,7 +42,7 @@
 					<key>label</key>
 					<string>Age</string>
 					<key>class</key>
-					<string>SuperDBEditCell</string>
+					<string>SuperDBNonEditableCell</string>
 				</dict>
 				<dict>
 					<key>values</key>

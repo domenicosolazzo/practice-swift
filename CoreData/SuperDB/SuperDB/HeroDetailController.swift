@@ -83,8 +83,9 @@ class HeroDetailController: UITableViewController {
         self.setEditing(false, animated: true)
         for cell in self.tableView.visibleCells() {
             let _cell = cell as! SuperDBEditCell
-            self.hero!.setValue(_cell.value, forKey: _cell.key)
-            
+            if _cell.isEditable() {
+                self.hero.setValue(_cell.value, forKey: _cell.key)
+            }
             var error: NSError?
             self.hero!.managedObjectContext?.save(&error)
             if error != nil{
