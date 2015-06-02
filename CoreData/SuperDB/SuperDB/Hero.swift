@@ -17,7 +17,7 @@ class Hero: NSManagedObject {
 
     @NSManaged var age: NSNumber
     @NSManaged var birthDate: NSDate
-    @NSManaged var favoriteColor: AnyObject
+    @NSManaged var favoriteColor: UIColor
     @NSManaged var name: String
     @NSManaged var secretIdentity: String
     @NSManaged var sex: String
