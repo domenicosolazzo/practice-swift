@@ -37,5 +37,23 @@ class Hero: NSManagedObject {
         self.favoriteColor = UIColor(red:1, green:1, blue:1, alpha:1)
         self.birthDate = NSDate()
     }
+    
+    func validateBirthDate(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>,
+        error:NSErrorPointer) -> Bool {
+            var date = ioValue.memory as NSDate
+            if date.compare(NSDate()) == .OrderedDescending {
+                if error != nil {
+                    var errorStr = NSLocalizedString("Birthdate cannot be in the future",
+                        comment: "Birthdate cannot be in the future")
+                    var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
+                    var outError = NSError(domain: kHeroValidationDomain,
+                        code: kHeroValidationBirthdateCode,
+                        userInfo: userInfo)
+                    error.memory = outError
+                }
+                return false
+            }
+            return true
+    }
 
 }
