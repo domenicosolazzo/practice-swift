@@ -11,7 +11,17 @@ import UIKit
 class SuperDBColorCell: SuperDBEditCell {
 
     var colorPicker: UIColorPicker!
-    var attributedColorString: NSAttributedString!
+    var attributedColorString: NSAttributedString!{
+        get{
+            var block = NSString(UTF8String: "\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}\u{2588}")
+            var color:UIColor = self.colorPicker.color
+            var attrs:NSDictionary = [
+                NSForegroundColorAttributeName:color,
+                NSFontAttributeName:UIFont.boldSystemFontOfSize(UIFont.systemFontSize())]
+            var attributedString = NSAttributedString(string: block! as String, attributes:attrs as [NSObject : AnyObject])
+            return attributedString
+        }
+    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
