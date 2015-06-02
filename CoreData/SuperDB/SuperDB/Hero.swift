@@ -15,7 +15,7 @@ let kHeroValidationNameOrSecretIdentityCode = 1001
 
 class Hero: NSManagedObject {
 
-    @NSManaged var age: NSNumber
+    var age:Int
     @NSManaged var birthDate: NSDate
     @NSManaged var favoriteColor: UIColor
     @NSManaged var name: String
