@@ -53,4 +53,18 @@ class UIControlPicker: UIControl {
         
         return _slider
     }
+    
+    //MARK: - Property Overrides
+    var color: UIColor{
+        get { return _color}
+        set {
+            _color = newValue
+            let components = CGColorGetComponents(_color.CGColor)
+            
+            _redSlider.setValue(Float(components[0]), animated: true)
+            _greenSlider.setValue(Float(components[1]), animated: true)
+            _blueSlider.setValue(Float(components[2]), animated: true)
+            _alphaSlider.setValue(Float(components[3]), animated: true)
+        }
+    }
 }
