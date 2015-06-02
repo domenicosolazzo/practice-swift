@@ -103,7 +103,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
         }
     }
 
-    func setValue(aValue:AnyObject){
+     func setValue(aValue:AnyObject){
         if let _aValue = aValue as? NSString{
             self.textField.text = _aValue as String
         } else {

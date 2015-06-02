@@ -49,10 +49,5 @@ class SuperDBDateCell: SuperDBEditCell {
         }
     }
     
-    //MARK: (Private) Instance Methods
-    @IBAction func datePickerChanged(sender: AnyObject){
-        var date = self.datePicker.date
-        self.value = date
-        self.textField.text = __dateFormatter.stringFromDate(date)
-    }
+    
 }
