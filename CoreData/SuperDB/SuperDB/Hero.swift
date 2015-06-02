@@ -16,12 +16,21 @@ let kHeroValidationNameOrSecretIdentityCode = 1001
 
 class Hero: NSManagedObject {
 
-    var age:Int
+    
     @NSManaged var birthDate: NSDate
     @NSManaged var favoriteColor: UIColor
     @NSManaged var name: String
     @NSManaged var secretIdentity: String
     @NSManaged var sex: String
+    var age:Int{
+        get{
+            var gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+            var today = NSDate()
+            var components = gregorian?.components(unitFlags: NSCalendarUnit.YearCalendarUnit, fromDate: self.birthDate, toDate: NSDate(), options: .AllZeros)
+            var year = components?.year
+            return year!
+        }
+    }
     
     override func awakeFromInsert() {
         super.awakeFromInsert()
