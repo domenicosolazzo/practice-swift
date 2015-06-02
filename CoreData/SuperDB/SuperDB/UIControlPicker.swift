@@ -67,4 +67,13 @@ class UIControlPicker: UIControl {
             _alphaSlider.setValue(Float(components[3]), animated: true)
         }
     }
+    
+    //MARK: - (Private) Instance Methods
+    @IBAction func sliderChanged(sender: AnyObject){
+        color = UIColor(red: CGFloat(_redSlider.value),
+            green: CGFloat(_greenSlider.value),
+            blue: CGFloat(_blueSlider.value),
+            alpha: CGFloat(_alphaSlider.value))
+        self.sendActionsForControlEvents(.ValueChanged)
+    }
 }
