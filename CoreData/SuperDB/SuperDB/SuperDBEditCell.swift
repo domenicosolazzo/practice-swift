@@ -93,9 +93,8 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
                 var result = self.textField.becomeFirstResponder()
             })
             alert.addAction(fixAction)
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
-                _ in
-                self.setValue(self.hero.valueForKey(self.key)!)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){[weak self] _ in
+                self!.setValue(self!.hero.valueForKey(self!.key)!)
             }
             alert.addAction(cancelAction)
             
@@ -104,7 +103,13 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
         }
     }
 
-    
+    func setValue(aValue:AnyObject){
+        if let _aValue = aValue as? NSString{
+            self.textField.text = _aValue as String
+        } else {
+            self.textField.text = aValue.description
+        }
+    }
     //MARK: - UITextFieldDelegate Methods
     
     func textFieldDidEndEditing(textField: UITextField) {

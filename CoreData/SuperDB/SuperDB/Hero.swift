@@ -14,7 +14,7 @@ let kHeroValidationDomain = "com.domenicosolazzo.superDB.HeroValidationDomain"
 let kHeroValidationBirthdateCode = 1000
 let kHeroValidationNameOrSecretIdentityCode = 1001
 
-class Hero: NSManagedObject {
+@objc(Hero) class Hero: NSManagedObject {
 
     @NSManaged var birthDate: NSDate
     @NSManaged var favoriteColor: UIColor
