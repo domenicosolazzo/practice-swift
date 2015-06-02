@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Hero" syncable="YES">
-        <attribute name="age" optional="YES" transient="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="age" transient="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="birthDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Untitled Hero" indexed="YES" syncable="YES"/>
         <attribute name="secretIdentity" attributeType="String" defaultValueString="Unknown" indexed="YES" syncable="YES"/>
