@@ -22,6 +22,7 @@
 		C009B4811B1E163700C44B10 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4801B1E163700C44B10 /* Hero.swift */; };
 		C009B4851B1E16C300C44B10 /* SuperDBNonEditableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4841B1E16C300C44B10 /* SuperDBNonEditableCell.swift */; };
 		C009B4871B1E1B2F00C44B10 /* UIControlPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4861B1E1B2F00C44B10 /* UIControlPicker.swift */; };
+		C009B4891B1E1C7500C44B10 /* SuperDBColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4881B1E1C7500C44B10 /* SuperDBColorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C009B4801B1E163700C44B10 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		C009B4841B1E16C300C44B10 /* SuperDBNonEditableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDBNonEditableCell.swift; sourceTree = "<group>"; };
 		C009B4861B1E1B2F00C44B10 /* UIControlPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPicker.swift; sourceTree = "<group>"; };
+		C009B4881B1E1C7500C44B10 /* SuperDBColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDBColorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				C009B4801B1E163700C44B10 /* Hero.swift */,
 				C009B4841B1E16C300C44B10 /* SuperDBNonEditableCell.swift */,
 				C009B4861B1E1B2F00C44B10 /* UIControlPicker.swift */,
+				C009B4881B1E1C7500C44B10 /* SuperDBColorCell.swift */,
 			);
 			path = SuperDB;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C009B4811B1E163700C44B10 /* Hero.swift in Sources */,
 				C009B4761B1CD90500C44B10 /* SuperDBEditCell.swift in Sources */,
 				C009B4701B1B71EB00C44B10 /* HeroListController.swift in Sources */,
+				C009B4891B1E1C7500C44B10 /* SuperDBColorCell.swift in Sources */,
 				C009B4721B1CC5BC00C44B10 /* HeroDetailController.swift in Sources */,
 				C009B44E1B19D3A000C44B10 /* SuperDB.xcdatamodeld in Sources */,
 			);

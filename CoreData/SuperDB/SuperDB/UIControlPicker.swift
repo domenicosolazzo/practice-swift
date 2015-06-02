@@ -76,4 +76,5 @@ class UIControlPicker: UIControl {
             alpha: CGFloat(_alphaSlider.value))
         self.sendActionsForControlEvents(.ValueChanged)
     }
+    
 }
