@@ -24,5 +24,26 @@ class SuperDBColorCell: SuperDBEditCell {
         self.colorPicker.addTarget(self, action: "colorPickerChanged:", forControlEvents: .ValueChanged)
         self.textField.inputView = self.colorPicker
     }
+    
+    //MARK: - SuperDBEditCell Overrides
+    
+    override var value: AnyObject!{
+        get{
+            return self.colorPicker.color
+        }
+        set{
+            if let _color = newValue as? UIColor {
+                self.setValue(newValue)
+                self.colorPicker.color = newValue as! UIColor
+            } else {
+                self.colorPicker.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            }
+            self.textField.attributedText = self.attributedColorString
+        }
+    }
+    
+    func colorPickerChanged(sender: AnyObject){
+        self.textField.attributedText = self.attributedColorString
+    }
 
 }
