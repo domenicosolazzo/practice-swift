@@ -11,12 +11,11 @@ import CoreData
 import UIKit
 
 let kHeroValidationDomain = "com.domenicosolazzo.superDB.HeroValidationDomain"
-let kHeroValidationBirthday = 1000
+let kHeroValidationBirthdateCode = 1000
 let kHeroValidationNameOrSecretIdentityCode = 1001
 
 class Hero: NSManagedObject {
 
-    
     @NSManaged var birthDate: NSDate
     @NSManaged var favoriteColor: UIColor
     @NSManaged var name: String
@@ -26,7 +25,7 @@ class Hero: NSManagedObject {
         get{
             var gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
             var today = NSDate()
-            var components = gregorian?.components(unitFlags: NSCalendarUnit.YearCalendarUnit, fromDate: self.birthDate, toDate: NSDate(), options: .AllZeros)
+            var components = gregorian?.components(NSCalendarUnit.YearCalendarUnit, fromDate: self.birthDate, toDate: NSDate(), options: NSCalendarOptions.allZeros)
             var year = components?.year
             return year!
         }
@@ -40,7 +39,7 @@ class Hero: NSManagedObject {
     
     func validateBirthDate(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>,
         error:NSErrorPointer) -> Bool {
-            var date = ioValue.memory as NSDate
+            var date = ioValue.memory as! NSDate
             if date.compare(NSDate()) == .OrderedDescending {
                 if error != nil {
                     var errorStr = NSLocalizedString("Birthdate cannot be in the future",
@@ -48,7 +47,7 @@ class Hero: NSManagedObject {
                     var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
                     var outError = NSError(domain: kHeroValidationDomain,
                         code: kHeroValidationBirthdateCode,
-                        userInfo: userInfo)
+                        userInfo: userInfo as [NSObject : AnyObject])
                     error.memory = outError
                 }
                 return false
