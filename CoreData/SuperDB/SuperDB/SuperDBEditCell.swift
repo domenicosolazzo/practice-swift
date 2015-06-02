@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuperDBEditCell: UITableViewCell {
+class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
 
     var label: UILabel!
     var textField: UITextField!
