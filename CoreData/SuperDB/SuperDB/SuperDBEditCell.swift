@@ -9,6 +9,14 @@
 import UIKit
 import CoreData
 
+let kLabelTextColor = UIColor(red: 0.321569, green: 0.4, blue: 0.568627, alpha: 1)
+
+let __CoreDataErrors: NSDictionary = {
+    var pList:NSURL = NSBundle.mainBundle().URLForResource("CoreDataErrors", withExtension:"plist")!
+    var dict = NSDictionary(contentsOfURL: pList)
+    return dict!
+    }()
+
 class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
 
     var label: UILabel!
@@ -62,24 +70,29 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     //MARK: - Property Overrides
     var value: AnyObject! {
         get{
-            return self.textField.text as String
+            return self.textField.text
         }
         
         set {
-            self.textField.text = newValue as? String
+            if let _value = newValue as? String {
+                self.textField.text = newValue as? String
+            }else if let _value = newValue as? NSDate {
+                self.textField.text = __dateFormatter.stringFromDate(newValue as! NSDate)
+            }
         }
     }
     
     //MARK: - Instance Methods
     @IBAction func validate(){
-        var val: AnyObject? = self.value
-        var error: NSError?
+        var val:AnyObject? = self.value
+        var error: NSError? = nil
         if !self.hero.validateValue(&val, forKey: self.key, error: &error) {
             var message: String!
             if error?.domain == "NSCocoaErrorDomain" {
                 var userInfo:NSDictionary? = error?.userInfo
                 var errorKey = userInfo?.valueForKey("NSValidationErrorKey") as! String
-                var reason = error?.localizedFailureReason
+                var errorCode:Int = error!.code
+                var reason = __CoreDataErrors.valueForKey("\(errorCode)") as! String
                 message = NSLocalizedString("Validation error on \(errorKey)\rFailure Reason: \(reason)",
                     comment: "Validation error on \(errorKey)\rFailure Reason: \(reason)")
             } else {
@@ -93,23 +106,19 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
                 var result = self.textField.becomeFirstResponder()
             })
             alert.addAction(fixAction)
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){[weak self] _ in
-                self!.setValue(self!.hero.valueForKey(self!.key)!)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){
+                _ in
+                self.value = self.hero.valueForKey(self.key)
             }
+            
             alert.addAction(cancelAction)
             
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(
-                alert, animated: true, completion: nil)
+            
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
         }
     }
 
-    func setValue(aValue:AnyObject){
-        if let _aValue = aValue as? String{
-            self.textField.text = _aValue
-        } else {
-            self.textField.text = aValue.description
-        }
-    }
+    
     //MARK: - UITextFieldDelegate Methods
     
     func textFieldDidEndEditing(textField: UITextField) {

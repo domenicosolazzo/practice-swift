@@ -44,12 +44,13 @@ class SuperDBColorCell: SuperDBEditCell {
         }
         set{
             if let _color = newValue as? UIColor {
-                self.setValue(newValue)
-                self.colorPicker.color = newValue as! UIColor
+                //self.value  = _color
+                self.colorPicker.color = _color //newValue as! UIColor
             } else {
                 self.colorPicker.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             }
             self.textField.attributedText = self.attributedColorString
+            self.textField.text = nil
         }
     }
     
