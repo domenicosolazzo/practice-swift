@@ -30,6 +30,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.textField.delegate = self
         
         self.selectionStyle = .None
         
@@ -68,5 +69,47 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
             self.textField.text = newValue as? String
         }
     }
+    
+    //MARK: - Instance Methods
+    @IBAction func validate(){
+        var val: AnyObject? = self.value
+        var error: NSError?
+        if !self.hero.validateValue(&val, forKey: self.key, error: &error) {
+            var message: String!
+            if error?.domain == "NSCocoaErrorDomain" {
+                var userInfo:NSDictionary? = error?.userInfo
+                var errorKey = userInfo?.valueForKey("NSValidationErrorKey") as! String
+                var reason = error?.localizedFailureReason
+                message = NSLocalizedString("Validation error on \(errorKey)\rFailure Reason: \(reason)",
+                    comment: "Validation error on \(errorKey)\rFailure Reason: \(reason)")
+            } else {
+                message = error?.localizedDescription
+            }
+            var title = NSLocalizedString("Validation Error",
+                comment: "Validation Error")
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+            let fixAction = UIAlertAction(title: "Fix", style: .Default, handler: {
+                _ in
+                var result = self.textField.becomeFirstResponder()
+            })
+            alert.addAction(fixAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
+                _ in
+                self.setValue(self.hero.valueForKey(self.key)!)
+            }
+            alert.addAction(cancelAction)
+            
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(
+                alert, animated: true, completion: nil)
+        }
+    }
+
+    
+    //MARK: - UITextFieldDelegate Methods
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.validate()
+    }
+    
 
 }
