@@ -33,6 +33,7 @@ class SuperDBColorCell: SuperDBEditCell {
         self.colorPicker = UIColorPicker(frame: CGRectMake(0, 0, 320, 216))
         self.colorPicker.addTarget(self, action: "colorPickerChanged:", forControlEvents: .ValueChanged)
         self.textField.inputView = self.colorPicker
+        self.textField.clearButtonMode = .Never
     }
     
     //MARK: - SuperDBEditCell Overrides

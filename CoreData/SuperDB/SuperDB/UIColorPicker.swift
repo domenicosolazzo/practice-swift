@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import QuartzCore
 
+let kTopBackgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+let kBottomBackgroundColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1)
 class UIColorPicker: UIControl {
 
     var _color: UIColor!
@@ -52,6 +55,13 @@ class UIColorPicker: UIControl {
         self.addSubview(_slider)
         
         return _slider
+    }
+    
+    override func drawRect(rect: CGRect) {
+        var gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [kTopBackgroundColor.CGColor, kBottomBackgroundColor.CGColor]
+        self.layer.insertSublayer(gradient, atIndex: 0)
     }
     
     //MARK: - Property Overrides

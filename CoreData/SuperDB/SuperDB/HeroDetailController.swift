@@ -66,6 +66,19 @@ class HeroDetailController: UITableViewController {
         cell?.value = theData
         cell?.label.text = row.objectForKey("label") as! String!
         
+        
+        if let _theDate = theData as? NSDate {
+            cell?.textField.text = __dateFormatter.stringFromDate(_theDate)
+        }else if let _color = theData as? UIColor {
+            if let _cell = cell as? SuperDBColorCell {
+                _cell.value = _color
+                //_cell.textField.text = nil
+                _cell.textField.attributedText = _cell.attributedColorString
+            }
+        } else {
+            cell?.textField.text = theData!
+        }
+        
         return cell!
     }
     
