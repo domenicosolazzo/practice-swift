@@ -26,6 +26,7 @@ class Hero: NSManagedObject {
     override func awakeFromInsert() {
         super.awakeFromInsert()
         self.favoriteColor = UIColor(red:1, green:1, blue:1, alpha:1)
+        self.birthDate = NSDate()
     }
 
 }
