@@ -47,6 +47,8 @@ class HeroDetailController: UITableViewController {
                 cell = SuperDBDateCell(style: .Value2, reuseIdentifier: cellIdentifier)
             case "SuperDBPickerCell":
                 cell = SuperDBPickerCell(style: .Value2, reuseIdentifier: cellIdentifier)
+            case "SuperDBColorCell":
+                cell = SuperDBColorCell(style: .Value2, reuseIdentifier: cellClassName)
             default:
                 cell = SuperDBEditCell(style: .Value2, reuseIdentifier: cellIdentifier)
             }
