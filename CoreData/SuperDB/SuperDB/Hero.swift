@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 let kHeroValidationDomain = "com.domenicosolazzo.superDB.HeroValidationDomain"
 let kHeroValidationBirthday = 1000
@@ -21,5 +22,10 @@ class Hero: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var secretIdentity: String
     @NSManaged var sex: String
+    
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.favoriteColor = UIColor(red:1, green:1, blue:1, alpha:1)
+    }
 
 }
