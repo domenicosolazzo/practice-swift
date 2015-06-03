@@ -20,7 +20,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCell" id="rBT-UM-vDN">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCell" id="rBT-UM-vDN" customClass="FlickrPhotoCell" customModule="FlickrSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -39,6 +39,9 @@
                                     <constraint firstItem="r3c-lf-3Am" firstAttribute="top" secondItem="rBT-UM-vDN" secondAttribute="topMargin" constant="5" id="JrN-At-cFX"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="r3c-lf-3Am" secondAttribute="trailing" constant="5" id="WUH-X5-rZ0"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="r3c-lf-3Am" id="3a4-hG-FHR"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
