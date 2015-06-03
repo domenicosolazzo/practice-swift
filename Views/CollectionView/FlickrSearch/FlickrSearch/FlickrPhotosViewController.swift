@@ -63,6 +63,34 @@ extension FlickrPhotosViewController : UICollectionViewDataSource {
     }
 }
 
+extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
+    /**
+    *  It is responsible for telling the layout the size of a given cell. 
+    *  To do this, you must first determine which FlickrPhoto you are looking at, since each photo could
+    *  have different dimensions.
+    */
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            
+            let flickrPhoto =  photoForIndexPath(indexPath)
+            
+            if var size = flickrPhoto.thumbnail?.size {
+                size.width += 10
+                size.height += 10
+                return size
+            }
+            return CGSize(width: 100, height: 100)
+    }
+    
+    // It returns the spacing between the cells, headers, and footers.
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return sectionInsets
+    }
+}
+
 class FlickrPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]() // List of searches
     private let flickr = Flickr() // Singleton
