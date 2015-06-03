@@ -11,6 +11,8 @@ import UIKit
 let reuseIdentifier = "FlickrCell"
 
 class FlickrPhotosViewController: UICollectionViewController {
+    private var searches = [FlickrSearchResults]() // List of searches
+    private let flickr = Flickr() // Singleton
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
     override func viewDidLoad() {
@@ -30,6 +32,13 @@ class FlickrPhotosViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //- MARK: Flickr
+    
+    // Convenience method that will get a specific photo related to 
+    // an index path in your collection view.
+    func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto {
+        return searches[indexPath.section].searchResults[indexPath.row]
+    }
     /*
     // MARK: - Navigation
 
