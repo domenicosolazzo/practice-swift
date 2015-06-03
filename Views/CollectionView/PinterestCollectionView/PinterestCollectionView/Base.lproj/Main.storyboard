@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="246" height="338"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-Hs-Slb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dna" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-Hs-Slb">
                                             <rect key="frame" x="0.0" y="0.0" width="246" height="304"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-Xg-iHO">
@@ -51,4 +51,7 @@
             <point key="canvasLocation" x="400" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dna" width="301" height="399"/>
+    </resources>
 </document>
