@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reuseIdentifier = "collCell"
+let reuseIdentifier = "colCell"
 
 class LayoutController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -24,13 +24,6 @@ class LayoutController: UICollectionViewController, UICollectionViewDelegateFlow
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +55,9 @@ class LayoutController: UICollectionViewController, UICollectionViewDelegateFlow
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
         
+        println(self.titles[indexPath.row % 5])
         cell.title.text = self.titles[indexPath.row % 5]
         let curr = indexPath.row % 5  + 1
         let imgName = "pin\(curr).jpg"

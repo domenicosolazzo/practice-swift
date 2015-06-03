@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ehu-IL-YRd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Layout Controller-->
@@ -12,7 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.9803922176361084" green="0.9803922176361084" blue="0.94117653369903564" alpha="1" colorSpace="deviceRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wmP-pM-mzz">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wmP-pM-mzz">
                             <size key="itemSize" width="246" height="338"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -26,11 +27,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="246" height="338"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dna" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-Hs-Slb">
-                                            <rect key="frame" x="0.0" y="0.0" width="246" height="304"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dna" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-Hs-Slb">
+                                            <rect key="frame" x="0.0" y="0.0" width="246" height="276"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-Xg-iHO">
-                                            <rect key="frame" x="8" y="312" width="230" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-Xg-iHO">
+                                            <rect key="frame" x="8" y="280" width="230" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="NWB-IE-cdT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -38,6 +42,19 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="JMa-Xg-iHO" firstAttribute="top" secondItem="0d7-Hs-Slb" secondAttribute="bottom" constant="8" id="HyL-T9-AlQ"/>
+                                    <constraint firstItem="JMa-Xg-iHO" firstAttribute="trailing" secondItem="Xbx-Vd-8dc" secondAttribute="trailingMargin" id="MZ1-dG-TRa"/>
+                                    <constraint firstItem="JMa-Xg-iHO" firstAttribute="leading" secondItem="0d7-Hs-Slb" secondAttribute="leading" constant="8" id="RZN-hq-yex"/>
+                                    <constraint firstItem="JMa-Xg-iHO" firstAttribute="leading" secondItem="Xbx-Vd-8dc" secondAttribute="leadingMargin" id="ZSn-Kj-mmo"/>
+                                    <constraint firstItem="JMa-Xg-iHO" firstAttribute="bottom" secondItem="Xbx-Vd-8dc" secondAttribute="bottomMargin" id="dGb-Xk-YZc"/>
+                                    <constraint firstAttribute="centerX" secondItem="0d7-Hs-Slb" secondAttribute="centerX" id="rVU-0P-7Bd"/>
+                                    <constraint firstAttribute="centerY" secondItem="0d7-Hs-Slb" secondAttribute="centerY" constant="31" id="v66-Yc-fw0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="pinImage" destination="0d7-Hs-Slb" id="BrW-jT-Jbm"/>
+                                    <outlet property="title" destination="JMa-Xg-iHO" id="GJQ-8g-8EX"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
