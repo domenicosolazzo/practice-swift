@@ -10,6 +10,38 @@ import UIKit
 
 let reuseIdentifier = "FlickrCell"
 
+extension FlickrPhotosViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // 1
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        textField.addSubview(activityIndicator)
+        activityIndicator.frame = textField.bounds
+        activityIndicator.startAnimating()
+        flickr.searchFlickrForTerm(textField.text) {
+            results, error in
+            
+            //2
+            activityIndicator.removeFromSuperview()
+            if error != nil {
+                println("Error searching : \(error)")
+            }
+            
+            if results != nil {
+                //3
+                println("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
+                self.searches.insert(results!, atIndex: 0)
+                
+                //4
+                self.collectionView?.reloadData()
+            }
+        }
+        
+        textField.text = nil
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 class FlickrPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]() // List of searches
     private let flickr = Flickr() // Singleton
