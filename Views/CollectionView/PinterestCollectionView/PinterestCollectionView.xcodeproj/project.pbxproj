@@ -14,6 +14,7 @@
 		C009B4A31B1F5C7700C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009B4A21B1F5C7700C44B10 /* Images.xcassets */; };
 		C009B4A61B1F5C7700C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009B4A41B1F5C7700C44B10 /* LaunchScreen.xib */; };
 		C009B4B21B1F5C7800C44B10 /* PinterestCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4B11B1F5C7800C44B10 /* PinterestCollectionViewTests.swift */; };
+		C009B4BC1B1F62D500C44B10 /* LayoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B4BB1B1F62D500C44B10 /* LayoutController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C009B4AB1B1F5C7800C44B10 /* PinterestCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinterestCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009B4B01B1F5C7800C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009B4B11B1F5C7800C44B10 /* PinterestCollectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestCollectionViewTests.swift; sourceTree = "<group>"; };
+		C009B4BB1B1F62D500C44B10 /* LayoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C009B4A41B1F5C7700C44B10 /* LaunchScreen.xib */,
 				C009B49A1B1F5C7700C44B10 /* PinterestCollectionView.xcdatamodeld */,
 				C009B4961B1F5C7700C44B10 /* Supporting Files */,
+				C009B4BB1B1F62D500C44B10 /* LayoutController.swift */,
 			);
 			path = PinterestCollectionView;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				C009B49E1B1F5C7700C44B10 /* ViewController.swift in Sources */,
 				C009B4991B1F5C7700C44B10 /* AppDelegate.swift in Sources */,
 				C009B49C1B1F5C7700C44B10 /* PinterestCollectionView.xcdatamodeld in Sources */,
+				C009B4BC1B1F62D500C44B10 /* LayoutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
