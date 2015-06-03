@@ -34,7 +34,18 @@
                             <outlet property="delegate" destination="sup-zC-zAB" id="6jw-K0-tkN"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Wty-Rf-yLM"/>
+                    <navigationItem key="navigationItem" id="Wty-Rf-yLM">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" id="5mX-Yb-WQd">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="sup-zC-zAB" id="giZ-Ce-2cb"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbP-5e-1sC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
