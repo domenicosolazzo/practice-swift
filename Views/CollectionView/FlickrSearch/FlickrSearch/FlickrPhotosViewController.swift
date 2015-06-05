@@ -206,6 +206,28 @@ class FlickrPhotosViewController: UICollectionViewController {
         
     }
     
+    var sharing : Bool = false {
+        didSet {
+            collectionView?.allowsMultipleSelection = sharing
+            collectionView?.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
+            selectedPhotos.removeAll(keepCapacity: false)
+            if sharing && largePhotoIndexPath != nil {
+                largePhotoIndexPath = nil
+            }
+            
+            let shareButton =
+            self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem
+            if sharing {
+                updateSharedPhotoCount()
+                let sharingDetailItem = UIBarButtonItem(customView: shareTextLabel)
+                navigationItem.setRightBarButtonItems([shareButton,sharingDetailItem], animated: true)
+            }
+            else {
+                navigationItem.setRightBarButtonItems([shareButton], animated: true)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
