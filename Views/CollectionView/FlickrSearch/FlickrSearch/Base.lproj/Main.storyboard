@@ -45,6 +45,7 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="r3c-lf-3Am" secondAttribute="trailing" constant="5" id="WUH-X5-rZ0"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="I4l-Zo-bOB" id="H7M-XO-XMh"/>
                                     <outlet property="imageView" destination="r3c-lf-3Am" id="3a4-hG-FHR"/>
                                 </connections>
                             </collectionViewCell>
