@@ -90,6 +90,24 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
             return sectionInsets
     }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+            //2
+        case UICollectionElementKindSectionHeader:
+            //3
+            let headerView =
+            collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                withReuseIdentifier: "FlickrPhotoHeaderView",
+                forIndexPath: indexPath)
+                as! FlickrPhotoHeaderView
+            headerView.label.text = searches[indexPath.section].searchTerm
+            return headerView
+        default:
+            //4
+            assert(false, "Unexpected element kind")
+        }
+    }
 }
 
 class FlickrPhotosViewController: UICollectionViewController {
@@ -113,6 +131,8 @@ class FlickrPhotosViewController: UICollectionViewController {
     func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto {
         return searches[indexPath.section].searchResults[indexPath.row]
     }
+    
+    
     
 
     /*
