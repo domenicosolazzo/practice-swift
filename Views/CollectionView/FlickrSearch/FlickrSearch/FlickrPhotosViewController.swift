@@ -161,6 +161,26 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
         }
         return false
     }
+    // Add photos in sharing mode
+    override func collectionView(collectionView: UICollectionView,
+        didSelectItemAtIndexPath indexPath: NSIndexPath) {
+            if sharing {
+                let photo = photoForIndexPath(indexPath)
+                selectedPhotos.append(photo)
+                updateSharedPhotoCount()
+            }
+    }
+    
+    // Remove photos in sharing mode
+    override func collectionView(collectionView: UICollectionView!,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath!) {
+            if sharing {
+                if let foundIndex = find(selectedPhotos, photoForIndexPath(indexPath)) {
+                    selectedPhotos.removeAtIndex(foundIndex)
+                    updateSharedPhotoCount()
+                }
+            }
+    }
 }
 
 class FlickrPhotosViewController: UICollectionViewController {
