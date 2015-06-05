@@ -131,11 +131,13 @@ class FlickrPhotosViewController: UICollectionViewController {
                 indexPaths.append(oldValue!)
             }
             
+            // Animate any changes to the collection view performed inside the block
             collectionView?.performBatchUpdates({
                 self.collectionView?.reloadItemsAtIndexPaths(indexPaths)
                 return
                 }){ completed in
                     if self.largePhotoIndexPath != nil{
+                        // Scroll the enlarged cell to the middle of the screen
                         self.collectionView?.scrollToItemAtIndexPath(
                             self.largePhotoIndexPath!,
                             atScrollPosition: UICollectionViewScrollPosition.CenteredVertically,
