@@ -119,6 +119,34 @@ class FlickrPhotosViewController: UICollectionViewController {
         super.viewDidLoad()
     }
 
+    // Keep track of the tapped cell
+    var largePhotoIndexPath: NSIndexPath? {
+        didSet{
+            var indexPaths = [NSIndexPath]()
+            if self.largePhotoIndexPath != nil{
+                indexPaths.append(self.largePhotoIndexPath!)
+            }
+            
+            if oldValue != nil{
+                indexPaths.append(oldValue!)
+            }
+            
+            collectionView?.performBatchUpdates({
+                self.collectionView?.reloadItemsAtIndexPaths(indexPaths)
+                return
+                }){ completed in
+                    if self.largePhotoIndexPath != nil{
+                        self.collectionView?.scrollToItemAtIndexPath(
+                            self.largePhotoIndexPath!,
+                            atScrollPosition: UICollectionViewScrollPosition.CenteredVertically,
+                            animated: true
+                        )
+                    }
+                }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
