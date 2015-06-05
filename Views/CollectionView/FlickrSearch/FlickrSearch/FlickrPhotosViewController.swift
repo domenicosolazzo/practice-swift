@@ -56,9 +56,41 @@ extension FlickrPhotosViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlickrPhotoCell
         
         let flickrPhoto = photoForIndexPath(indexPath)
-        cell.backgroundColor = UIColor.blackColor()
+        
+        cell.activityIndicator.stopAnimating()
+        
+        if indexPath != largePhotoIndexPath {
+            cell.imageView.image = flickrPhoto.thumbnail
+            return cell
+        }
+        
+        if flickrPhoto.largeImage != nil {
+            cell.imageView.image = flickrPhoto.largeImage
+            return cell
+        }
         
         cell.imageView.image = flickrPhoto.thumbnail
+        cell.activityIndicator.startAnimating()
+        
+        flickrPhoto.loadLargeImage {
+            loadedFlickrPhoto, error in
+            
+            cell.activityIndicator.stopAnimating()
+            
+            if error != nil {
+                return
+            }
+            
+            if loadedFlickrPhoto.largeImage == nil {
+                return
+            }
+            
+            if indexPath == self.largePhotoIndexPath {
+                if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? FlickrPhotoCell {
+                    cell.imageView.image = loadedFlickrPhoto.largeImage
+                }
+            }
+        }
         
         return cell
     }
