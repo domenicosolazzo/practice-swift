@@ -163,6 +163,14 @@ class FlickrPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]() // List of searches
     private let flickr = Flickr() // Singleton
     private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    private var selectedPhotos = [FlickrPhoto]()
+    private let shareTextLabel = UILabel()
+    
+    func updateSharedPhotoCount() {
+        shareTextLabel.textColor = self.themeColor
+        shareTextLabel.text = "\(selectedPhotos.count) photos selected"
+        shareTextLabel.sizeToFit()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
