@@ -258,10 +258,20 @@ class FlickrPhotosViewController: UICollectionViewController {
         }
         
         if !selectedPhotos.isEmpty {
-            // TODO
+            var imageArray = [UIImage]()
+            for photo in self.selectedPhotos {
+                imageArray.append(photo.thumbnail!);
+            }
+            
+            let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
+            let popover = UIPopoverController(contentViewController: shareScreen)
+            popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
+                permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
         
         sharing = !sharing
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
