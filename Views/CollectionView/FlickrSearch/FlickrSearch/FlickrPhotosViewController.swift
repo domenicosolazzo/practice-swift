@@ -75,6 +75,14 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             
             let flickrPhoto =  photoForIndexPath(indexPath)
+            // Larged tapped photo
+            if indexPath == largePhotoIndexPath {
+                var size = collectionView.bounds.size
+                size.height -= topLayoutGuide.length
+                size.height -= (sectionInsets.top + sectionInsets.right)
+                size.width -= (sectionInsets.left + sectionInsets.right)
+                return flickrPhoto.sizeToFillWidthOfSize(size)
+            }
             
             if var size = flickrPhoto.thumbnail?.size {
                 size.width += 10
