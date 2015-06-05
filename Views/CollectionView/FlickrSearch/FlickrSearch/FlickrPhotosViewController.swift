@@ -150,6 +150,10 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     }
     // Selected cell
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if sharing {
+            return true
+        }
+        
         if largePhotoIndexPath == indexPath{
             largePhotoIndexPath = nil
         }else{
