@@ -228,6 +228,18 @@ class FlickrPhotosViewController: UICollectionViewController {
         }
     }
     
+    @IBAction func share(sender: AnyObject) {
+        if searches.isEmpty {
+            return
+        }
+        
+        if !selectedPhotos.isEmpty {
+            // TODO
+        }
+        
+        sharing = !sharing
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
