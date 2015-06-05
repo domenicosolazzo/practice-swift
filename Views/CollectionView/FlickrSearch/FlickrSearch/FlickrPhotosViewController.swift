@@ -81,7 +81,7 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
                 size.height += 10
                 return size
             }
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: 20, height: 20)
     }
     
     // It returns the spacing between the cells, headers, and footers.
@@ -95,18 +95,10 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
 class FlickrPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]() // List of searches
     private let flickr = Flickr() // Singleton
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

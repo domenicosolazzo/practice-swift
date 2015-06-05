@@ -29,10 +29,12 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r3c-lf-3Am">
                                             <rect key="frame" x="13" y="13" width="174" height="174"/>
+                                            <color key="backgroundColor" red="0.96062184340000001" green="0.96062184340000001" blue="0.96062184340000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstItem="r3c-lf-3Am" firstAttribute="leading" secondItem="rBT-UM-vDN" secondAttribute="leadingMargin" constant="5" id="05j-hl-PSS"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="r3c-lf-3Am" secondAttribute="bottom" constant="5" id="GCQ-u7-9io"/>
