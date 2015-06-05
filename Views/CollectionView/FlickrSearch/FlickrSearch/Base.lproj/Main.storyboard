@@ -61,6 +61,9 @@
                                 <constraint firstAttribute="centerY" secondItem="oTX-iE-Wls" secondAttribute="centerY" id="M8W-Zq-sA3"/>
                                 <constraint firstAttribute="centerX" secondItem="oTX-iE-Wls" secondAttribute="centerX" id="SKp-1T-15R"/>
                             </constraints>
+                            <connections>
+                                <outlet property="label" destination="oTX-iE-Wls" id="qPs-fv-QnR"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="sup-zC-zAB" id="5MV-mX-ttk"/>
