@@ -31,6 +31,9 @@
                                             <rect key="frame" x="13" y="13" width="174" height="174"/>
                                             <color key="backgroundColor" red="0.96062184340000001" green="0.96062184340000001" blue="0.96062184340000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="I4l-Zo-bOB">
+                                            <rect key="frame" x="82" y="81" width="37" height="37"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
