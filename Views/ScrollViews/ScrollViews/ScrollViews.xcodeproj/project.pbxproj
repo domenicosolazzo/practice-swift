@@ -21,6 +21,7 @@
 		C0F523111B233D57002FD907 /* slow.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F5230B1B233D57002FD907 /* slow.png */; };
 		C0F523131B234982002FD907 /* CustomScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523121B234982002FD907 /* CustomScrollViewController.swift */; };
 		C0F523151B234C67002FD907 /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523141B234C67002FD907 /* PagedScrollViewController.swift */; };
+		C0F523171B2354C0002FD907 /* PeekPagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C0F5230B1B233D57002FD907 /* slow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slow.png; sourceTree = "<group>"; };
 		C0F523121B234982002FD907 /* CustomScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollViewController.swift; sourceTree = "<group>"; };
 		C0F523141B234C67002FD907 /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
+		C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekPagedScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				C0F522E41B233C5D002FD907 /* Supporting Files */,
 				C0F523121B234982002FD907 /* CustomScrollViewController.swift */,
 				C0F523141B234C67002FD907 /* PagedScrollViewController.swift */,
+				C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */,
 			);
 			path = ScrollViews;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				C0F522E91B233C5D002FD907 /* ViewController.swift in Sources */,
 				C0F523151B234C67002FD907 /* PagedScrollViewController.swift in Sources */,
 				C0F522E71B233C5D002FD907 /* AppDelegate.swift in Sources */,
+				C0F523171B2354C0002FD907 /* PeekPagedScrollViewController.swift in Sources */,
 				C0F523131B234982002FD907 /* CustomScrollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
