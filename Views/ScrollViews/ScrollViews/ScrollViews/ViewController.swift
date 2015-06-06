@@ -64,6 +64,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         imageView.frame = contentsFrame
     }
+    // When the tap gesture detects double tap
+    func scrollViewDoubleTapped(recognizer: UITapGestureRecognizer) {
+        // Where the tap occurred within the image view. 
+        let pointInView = recognizer.locationInView(imageView)
+        
+        // Calculate a zoom scale that’s zoomed in 150%, but capped at the maximum zoom scale
+        var newZoomScale = scrollView.zoomScale * 1.5
+        newZoomScale = min(newZoomScale, scrollView.maximumZoomScale)
+        
+        // Calculate a CGRect rectangle that you want to zoom in on
+        let scrollViewSize = scrollView.bounds.size
+        let w = scrollViewSize.width / newZoomScale
+        let h = scrollViewSize.height / newZoomScale
+        let x = pointInView.x - (w / 2.0)
+        let y = pointInView.y - (h / 2.0)
+        
+        let rectToZoomTo = CGRectMake(x, y, w, h);
+        
+        //  Tell the scroll view to zoom in
+        scrollView.zoomToRect(rectToZoomTo, animated: true)
+    }
     
 }
 
