@@ -10,16 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    let pageTitles = ["Title 1", "Title 2", "Title 3", "Title 4"]
+    var images = ["long3.png","long4.png","long1.png","long2.png"]
+    var count = 0
 
 }
 
