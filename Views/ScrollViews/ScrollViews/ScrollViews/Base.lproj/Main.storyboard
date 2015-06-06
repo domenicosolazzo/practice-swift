@@ -72,11 +72,11 @@
                                             <segue destination="WVM-Kx-gvb" kind="push" id="YJB-Rj-meH"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="6xy-Kd-438" style="IBUITableViewCellStyleDefault" id="khD-Hv-s1O">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="6xy-Kd-438" style="IBUITableViewCellStyleDefault" id="khD-Hv-s1O">
                                         <rect key="frame" x="0.0" y="218" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khD-Hv-s1O" id="OSz-8X-nLD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Paged with Peeking" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6xy-Kd-438">
@@ -87,6 +87,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eq2-qf-f04" kind="push" id="gmj-PW-lUd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -127,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhN-WX-l1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="115"/>
+            <point key="canvasLocation" x="1201" y="-273"/>
         </scene>
         <!--Paged Scroll View Controller-->
         <scene sceneID="hIu-3M-mRB">
@@ -159,7 +162,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esd-nf-tkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="739"/>
+            <point key="canvasLocation" x="1201" y="346"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eWh-0Q-tlk">
+            <objects>
+                <viewController id="eq2-qf-f04" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qyM-BC-m0t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M5K-is-lUa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8IV-Ru-371" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="1026"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CLe-R7-du0">
@@ -186,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68c-22-CNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="-495"/>
+            <point key="canvasLocation" x="1226" y="-895"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LSr-3c-m9m">
