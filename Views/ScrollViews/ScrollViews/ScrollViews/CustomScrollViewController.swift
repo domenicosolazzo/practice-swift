@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomScrollViewController: UIViewController {
+class CustomScrollViewController: UIViewController, UIScrollViewDelegate {
 
     
 
