@@ -43,6 +43,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
             height: pagesScrollViewSize.height)
         
         // need some pages shown initially
+        loadVisiblePages()
     }
     
     func loadPage(page: Int) {
@@ -81,6 +82,34 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         if let pageView = pageViews[page] {
             pageView.removeFromSuperview()
             pageViews[page] = nil
+        }
+    }
+    
+    func loadVisiblePages() {
+        // First, determine which page is currently visible
+        let pageWidth = scrollView.frame.size.width
+        let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        
+        // Update the page control
+        pageControl.currentPage = page
+        
+        // Work out which pages you want to load
+        let firstPage = page - 1
+        let lastPage = page + 1
+        
+        // Purge anything before the first page
+        for var index = 0; index < firstPage; ++index {
+            purgePage(index)
+        }
+        
+        // Load pages in our range
+        for index in firstPage...lastPage {
+            loadPage(index)
+        }
+        
+        // Purge anything after the last page
+        for var index = lastPage+1; index < pageImages.count; ++index {
+            purgePage(index)
         }
     }
 }
