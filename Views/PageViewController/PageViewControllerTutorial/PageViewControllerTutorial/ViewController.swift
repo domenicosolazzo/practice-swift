@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     let pageTitles = ["Title 1", "Title 2", "Title 3", "Title 4"]
-    var images = ["long3.png","long4.png","long1.png","long2.png"]
+    var images = ["1","2","3","4"]
     var count = 0
     var pageViewController : UIPageViewController!
 
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     func reset() {
         /* Getting the page View controller */
-        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as UIPageViewController
+        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
         let pageContentViewController = self.viewControllerAtIndex(0)
