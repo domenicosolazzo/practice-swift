@@ -86,5 +86,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.zoomToRect(rectToZoomTo, animated: true)
     }
     
+    // Which view should be made bigger and smaller when the scroll view is pinched.
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
+    // The scroll view will call this method after the user finishes zooming
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        centerScrollViewContents()
+    }
+    
 }
 
