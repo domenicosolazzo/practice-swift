@@ -50,7 +50,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="VGh-Xk-kE7" kind="push" identifier="customScrollView" id="AGJ-wQ-9bH"/>
+                                            <segue destination="VGh-Xk-kE7" kind="push" id="wCK-HD-ArU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cJu-4Q-abn" style="IBUITableViewCellStyleDefault" id="gSl-4R-FRz">
@@ -110,11 +110,17 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="v9w-0q-cpA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VGh-Xk-kE7" id="naD-qO-gIT"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="WWd-MB-fh0"/>
+                    <connections>
+                        <outlet property="scrollView" destination="v9w-0q-cpA" id="gzI-gP-a0u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhN-WX-l1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
