@@ -71,4 +71,12 @@ class CustomScrollViewController: UIViewController, UIScrollViewDelegate {
         
         containerView.frame = contentsFrame
     }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return containerView
+    }
+    
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        centerScrollViewContents()
+    }
 }
