@@ -138,9 +138,19 @@
                                 <rect key="frame" x="16" y="511" width="288" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9vH-YJ-CtR">
+                                <rect key="frame" x="-5" y="0.0" width="325" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WVM-Kx-gvb" id="9yQ-lx-0Yb"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="9vH-YJ-CtR" id="MIb-1k-qh8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esd-nf-tkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
