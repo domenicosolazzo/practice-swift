@@ -15,11 +15,11 @@
                         <sections>
                             <tableViewSection headerTitle="Photos" id="wn2-53-NNk">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="GDd-gG-H1C" style="IBUITableViewCellStyleDefault" id="DrK-St-ZDz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="GDd-gG-H1C" style="IBUITableViewCellStyleDefault" id="DrK-St-ZDz">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DrK-St-ZDz" id="p58-E6-Ydy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Image Scroll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GDd-gG-H1C">
@@ -30,6 +30,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ifB-hi-ZgO" kind="push" identifier="imageScroll" id="Hn3-Hr-CYD"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="izW-5j-Wz3" style="IBUITableViewCellStyleDefault" id="Nb6-2b-jHD">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
@@ -102,10 +105,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oyi-3H-cCf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68c-22-CNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="311"/>
+            <point key="canvasLocation" x="1267" y="215"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LSr-3c-m9m">
