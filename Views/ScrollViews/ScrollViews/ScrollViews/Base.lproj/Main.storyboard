@@ -164,16 +164,33 @@
             </objects>
             <point key="canvasLocation" x="1201" y="346"/>
         </scene>
-        <!--View Controller-->
+        <!--Peek Paged Scroll View Controller-->
         <scene sceneID="eWh-0Q-tlk">
             <objects>
-                <viewController id="eq2-qf-f04" sceneMemberID="viewController">
+                <viewController id="eq2-qf-f04" customClass="PeekPagedScrollViewController" customModule="ScrollViews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qyM-BC-m0t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="CdT-Tq-Czf">
+                                <rect key="frame" x="40" y="128" width="240" height="312"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eq2-qf-f04" id="hVT-dt-uUa"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="QOf-u8-wUZ">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="M5K-is-lUa"/>
+                    <connections>
+                        <outlet property="pageControl" destination="QOf-u8-wUZ" id="cCJ-0r-njo"/>
+                        <outlet property="scrollView" destination="CdT-Tq-Czf" id="I5w-Zb-zwT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IV-Ru-371" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
