@@ -9,6 +9,6 @@
 import UIKit
 
 class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
-
-
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
 }
