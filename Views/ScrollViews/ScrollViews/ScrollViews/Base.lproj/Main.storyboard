@@ -124,7 +124,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhN-WX-l1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="477"/>
+            <point key="canvasLocation" x="1223" y="115"/>
+        </scene>
+        <!--Paged Scroll View Controller-->
+        <scene sceneID="hIu-3M-mRB">
+            <objects>
+                <viewController id="WVM-Kx-gvb" customClass="PagedScrollViewController" customModule="ScrollViews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xh-qy-XQT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="Ozn-EL-bMY">
+                                <rect key="frame" x="16" y="511" width="288" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="esd-nf-tkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="739"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CLe-R7-du0">
@@ -151,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68c-22-CNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="-136"/>
+            <point key="canvasLocation" x="1223" y="-495"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LSr-3c-m9m">
