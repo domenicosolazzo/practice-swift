@@ -9,7 +9,5 @@
 import UIKit
 
 class CustomScrollViewController: UIViewController, UIScrollViewDelegate {
-
-    
-
+    @IBOutlet var scrollView: UIScrollView!
 }
