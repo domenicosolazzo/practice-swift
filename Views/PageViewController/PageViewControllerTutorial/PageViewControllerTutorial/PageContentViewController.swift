@@ -10,5 +10,7 @@ import UIKit
 
 class PageContentViewController: UIViewController {
 
+    @IBOutlet weak var heading: UILabel!
+    @IBOutlet weak var bkImageView: UIImageView!
 
 }
