@@ -103,9 +103,21 @@
                     <view key="view" contentMode="scaleToFill" id="828-0R-1wO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ffk-pP-sy2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ifB-hi-ZgO" id="ajc-KY-lMQ"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="oyi-3H-cCf"/>
+                    <connections>
+                        <outlet property="scrollView" destination="ffk-pP-sy2" id="dJW-W0-Ylz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68c-22-CNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
