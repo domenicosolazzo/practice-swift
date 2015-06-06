@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
+    var imageView: UIImageView!
     
 }
 
