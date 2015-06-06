@@ -186,7 +186,7 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
 class FlickrPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]() // List of searches
     private let flickr = Flickr() // Singleton
-    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    private let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     private var selectedPhotos = [FlickrPhoto]()
     private let shareTextLabel = UILabel()
     
