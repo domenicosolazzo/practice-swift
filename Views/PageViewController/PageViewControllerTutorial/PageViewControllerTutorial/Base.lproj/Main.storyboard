@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="692" y="-65"/>
         </scene>
-        <!--View Controller-->
+        <!--Page Content View Controller-->
         <scene sceneID="axg-30-9YC">
             <objects>
-                <viewController id="lde-jw-6hg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="lde-jw-6hg" customClass="PageContentViewController" customModule="PageViewControllerTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iod-Z3-pKO"/>
                         <viewControllerLayoutGuide type="bottom" id="ffx-kG-9Fw"/>
