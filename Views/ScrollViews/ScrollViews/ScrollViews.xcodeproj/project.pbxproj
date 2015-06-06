@@ -22,6 +22,7 @@
 		C0F523131B234982002FD907 /* CustomScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523121B234982002FD907 /* CustomScrollViewController.swift */; };
 		C0F523151B234C67002FD907 /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523141B234C67002FD907 /* PagedScrollViewController.swift */; };
 		C0F523171B2354C0002FD907 /* PeekPagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */; };
+		C0F523191B235845002FD907 /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523181B235845002FD907 /* ScrollViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C0F523121B234982002FD907 /* CustomScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollViewController.swift; sourceTree = "<group>"; };
 		C0F523141B234C67002FD907 /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
 		C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekPagedScrollViewController.swift; sourceTree = "<group>"; };
+		C0F523181B235845002FD907 /* ScrollViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				C0F523121B234982002FD907 /* CustomScrollViewController.swift */,
 				C0F523141B234C67002FD907 /* PagedScrollViewController.swift */,
 				C0F523161B2354C0002FD907 /* PeekPagedScrollViewController.swift */,
+				C0F523181B235845002FD907 /* ScrollViewContainer.swift */,
 			);
 			path = ScrollViews;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C0F522E71B233C5D002FD907 /* AppDelegate.swift in Sources */,
 				C0F523171B2354C0002FD907 /* PeekPagedScrollViewController.swift in Sources */,
 				C0F523131B234982002FD907 /* CustomScrollViewController.swift in Sources */,
+				C0F523191B235845002FD907 /* ScrollViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
