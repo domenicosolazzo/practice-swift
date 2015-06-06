@@ -50,7 +50,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qtf-im-zsm" customClass="FlickrPhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrPhotoHeaderView" id="qtf-im-zsm" customClass="FlickrPhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="64" width="600" height="90"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>

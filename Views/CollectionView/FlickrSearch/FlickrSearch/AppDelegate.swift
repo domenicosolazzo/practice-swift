@@ -8,9 +8,10 @@
 
 import UIKit
 
+let themeColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let themeColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
     var window: UIWindow?
 
 

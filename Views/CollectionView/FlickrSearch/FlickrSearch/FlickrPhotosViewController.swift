@@ -172,8 +172,8 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     }
     
     // Remove photos in sharing mode
-    override func collectionView(collectionView: UICollectionView!,
-        didDeselectItemAtIndexPath indexPath: NSIndexPath!) {
+    override func collectionView(collectionView: UICollectionView,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath) {
             if sharing {
                 if let foundIndex = find(selectedPhotos, photoForIndexPath(indexPath)) {
                     selectedPhotos.removeAtIndex(foundIndex)
@@ -191,7 +191,7 @@ class FlickrPhotosViewController: UICollectionViewController {
     private let shareTextLabel = UILabel()
     
     func updateSharedPhotoCount() {
-        shareTextLabel.textColor = self.themeColor
+        shareTextLabel.textColor = themeColor
         shareTextLabel.text = "\(selectedPhotos.count) photos selected"
         shareTextLabel.sizeToFit()
     }
@@ -264,9 +264,10 @@ class FlickrPhotosViewController: UICollectionViewController {
             }
             
             let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
-            let popover = UIPopoverController(contentViewController: shareScreen)
-            popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
-                permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+            //let popover = UIPopoverController(contentViewController: shareScreen)
+            self.presentViewController(shareScreen, animated: true, completion: nil)
+            //popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
+               // permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
         
         sharing = !sharing
