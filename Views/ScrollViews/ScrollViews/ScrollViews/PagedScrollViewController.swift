@@ -44,4 +44,30 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         
         // need some pages shown initially
     }
+    
+    func loadPage(page: Int) {
+        if page < 0 || page >= pageImages.count {
+            // If it's outside the range of what you have to display, then do nothing
+            return
+        }
+        
+        // Using optional binding to check if you’ve already loaded the view
+        if let pageView = pageViews[page] {
+            // Do nothing. The view is already loaded.
+        } else {
+            // Need to create a page
+            var frame = scrollView.bounds
+            frame.origin.x = frame.size.width * CGFloat(page)
+            frame.origin.y = 0.0
+            
+            // It creates a new UIImageView, sets it up and adds it to the scroll view
+            let newPageView = UIImageView(image: pageImages[page])
+            newPageView.contentMode = .ScaleAspectFit
+            newPageView.frame = frame
+            scrollView.addSubview(newPageView)
+            
+            // Replace the nil in the pageViews array with the view you’ve just created
+            pageViews[page] = newPageView
+        }
+    }
 }
