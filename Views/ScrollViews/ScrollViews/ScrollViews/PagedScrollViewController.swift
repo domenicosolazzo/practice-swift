@@ -112,4 +112,9 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
             purgePage(index)
         }
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        // Load the pages that are now on screen
+        loadVisiblePages()
+    }
 }
