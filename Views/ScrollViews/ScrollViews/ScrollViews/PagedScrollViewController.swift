@@ -70,4 +70,17 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
             pageViews[page] = newPageView
         }
     }
+    
+    func purgePage(page: Int) {
+        if page < 0 || page >= pageImages.count {
+            // If it's outside the range of what you have to display, then do nothing
+            return
+        }
+        
+        // Remove a page from the scroll view and reset the container array
+        if let pageView = pageViews[page] {
+            pageView.removeFromSuperview()
+            pageViews[page] = nil
+        }
+    }
 }
