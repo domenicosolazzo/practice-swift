@@ -50,6 +50,7 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
     @IBAction func postPressed(sender: UIBarButtonItem) {
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true , completion: nil)
     }
     
     //- MARK: Core Location
