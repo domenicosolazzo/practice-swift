@@ -12,6 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    var searchActive : Bool = false
+    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
+    var filtered:[String] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
