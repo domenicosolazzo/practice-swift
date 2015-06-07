@@ -129,7 +129,7 @@
                                 <action selector="cancelPressed:" destination="ryB-em-pIh" id="9I4-5o-ktc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Nx-oZT">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="ggU-Nx-oZT">
                             <connections>
                                 <action selector="postPressed:" destination="ryB-em-pIh" id="QSG-JX-KT1"/>
                             </connections>
