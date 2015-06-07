@@ -1,0 +1,13 @@
+PODS:
+  - Bolts/Tasks (1.2.0)
+  - Parse (1.7.4):
+    - Bolts/Tasks (>= 1.1.5)
+
+DEPENDENCIES:
+  - Parse (~> 1.7)
+
+SPEC CHECKSUMS:
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  Parse: 6ca512c6e860b66739c95151b2f76ac4712b7842
+
+COCOAPODS: 0.37.2

@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabbar.tintColor = UIColor.whiteColor()
         
         // Parse authentication
-        Parse.setApplicationId("xxxxx", clientKey: "xxxxx")
+        var applicationId = "xxx"
+        var clientKey = "xx"
+        Parse.setApplicationId(applicationId, clientKey: clientKey)
         return true
     }
 

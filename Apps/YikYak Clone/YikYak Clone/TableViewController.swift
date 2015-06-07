@@ -67,28 +67,21 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return self.yaks.count
-    }
-
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
-        cell.yakText.text = object.valueForKey("text") as? String
+        var message = ""
+        var score = 0
+        var replyCount = 0
+        if let obj = object {
+            message = (obj.valueForKey("text") as? String)!
+            score = obj.valueForKey("count") as! Int
+            replyCount = object.objectForKey("replies") as! Int
+        }
+        cell.yakText.text = message
         cell.yakText.numberOfLines = 0
-        let score = object.valueForKey("count") as! Int
         cell.count.text = "\(score)"
         cell.time.text = "\((indexPath.row + 1) * 3)m ago"
-        let replycnt = object.objectForKey("replies") as! Int
-        cell.replies.text = "\(replycnt) replies"
+        cell.replies.text = "\(replyCount) replies"
         return cell
     }
     
@@ -143,11 +136,14 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
 
     override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject? {
         var obj : PFObject? = nil
-        if(indexPath.row < self.objects!.count){
-            obj = self.objects![indexPath.row] as? PFObject
+        if let objects = self.objects{
+            if(indexPath.row < self.objects!.count){
+                obj = self.objects![indexPath.row] as? PFObject
+            }
+            
+            return obj
         }
-        
-        return obj
+        return nil
     }
 
     

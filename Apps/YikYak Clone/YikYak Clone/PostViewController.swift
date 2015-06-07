@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class PostViewController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate {
 
@@ -39,6 +38,20 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        locationManager.stopUpdatingLocation()
+        if(locations.count > 0){
+            let location = locations[0] as! CLLocation
+            currLocation = location.coordinate
+        } else {
+            alert()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println(error)
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,18 +88,5 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         }
     }
     
-    //- MARK: Core Location
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        locationManager.stopUpdatingLocation()
-        if(locations.count > 0){
-            let location = locations[0] as! CLLocation
-            currLocation = location.coordinate
-        } else {
-            alert()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println(error)
-    }
+   
 }

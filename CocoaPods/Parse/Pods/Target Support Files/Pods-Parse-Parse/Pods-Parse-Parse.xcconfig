@@ -1,0 +1,2 @@
+PODS_PARSE_PARSE_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Parse"
+PODS_PARSE_PARSE_OTHER_LDFLAGS = -l"Parse" -l"sqlite3" -l"z" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "StoreKit" -framework "SystemConfiguration" -weak_framework "Accounts" -weak_framework "Social"

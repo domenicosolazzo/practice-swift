@@ -1,0 +1,7 @@
+#include "Pods-Parse-Parse.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Parse" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/Parse"
+LIBRARY_SEARCH_PATHS = ${PODS_PARSE_PARSE_LIBRARY_SEARCH_PATHS}
+OTHER_LDFLAGS = ${PODS_PARSE_PARSE_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
