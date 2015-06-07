@@ -11,6 +11,11 @@ import CoreLocation
 
 class PostViewController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var postView: UITextView!
+    var currLocation: CLLocationCoordinate2D?
+    var reset:Bool = false
+    let locationManager = CLLocationManager()
+    
     @IBAction func postPressed(sender: UIBarButtonItem) {
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
