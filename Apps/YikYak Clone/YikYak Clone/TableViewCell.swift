@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class TableViewCell: PFTableViewCell {
 
     @IBOutlet weak var yakText: UILabel!
     @IBOutlet weak var time: UILabel!

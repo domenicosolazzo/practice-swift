@@ -10,7 +10,7 @@
 import UIKit
 
 
-class TableViewController: UITableViewController {
+class TableViewController: PFQueryTableViewController {
 
     let yaks = ["Getting Started with building a Yik Yak Clone in Swift","Xcode 6 Tutorial using Autolayouts",
         "In this tutorial you will also learn how to talk to Parse Backend", "Learning Swift by building real world applications", "Subscribe to get more info"]
