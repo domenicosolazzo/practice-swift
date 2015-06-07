@@ -19,10 +19,10 @@ class Data {
     }
     
     let places = [
-        Entry(fname: "first", heading: "Heading 1"),
-        Entry(fname: "second", heading: "Heading 2"),
-        Entry(fname: "third", heading: "Heading 3"),
-        Entry(fname: "fourth", heading: "Heading 4")
+        Entry(fname: "first.jpeg", heading: "Heading 1"),
+        Entry(fname: "second.jpeg", heading: "Heading 2"),
+        Entry(fname: "third.jpeg", heading: "Heading 3"),
+        Entry(fname: "fourth.jpeg", heading: "Heading 4")
     ]
     
 }
