@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbar = UITabBar.appearance()
         tabbar.barTintColor = UIColor(red: 168.0/255, green: 215.0/255, blue: 111.0/255, alpha: 1)
         tabbar.tintColor = UIColor.whiteColor()
+        
+        // Parse authentication
+        Parse.setApplicationId("xxxxx", clientKey: "xxxxx")
         return true
     }
 
