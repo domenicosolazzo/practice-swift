@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate {
 
     @IBAction func postPressed(sender: UIBarButtonItem) {
     }
