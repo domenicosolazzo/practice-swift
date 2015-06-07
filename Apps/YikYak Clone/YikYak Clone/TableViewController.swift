@@ -92,12 +92,14 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         return cell
     }
     
-
     @IBAction func topButton(sender: AnyObject) {
         // identify the point in the tableview the touch happened and convert it to indexPath using indexPathForRowAtPoint function.
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
-        
+        let object = objectAtIndexPath(hitIndex)
+        object.incrementKey("count")
+        object.saveInBackground()
+        self.tableView.reloadData()
         NSLog("Top Index Path \(hitIndex?.row)")
     }
     
@@ -105,6 +107,10 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         // identify the point in the tableview the touch happened and convert it to indexPath using indexPathForRowAtPoint function.
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
+        let object = objectAtIndexPath(hitIndex)
+        object.incrementKey("count", byAmount: -1)
+        object.saveInBackground()
+        self.tableView.reloadData()
         NSLog("Bottom Index Path \(hitIndex?.row)")
     }
     
