@@ -31,6 +31,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //- MARK: SearchBar 
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
 
 
 }
