@@ -124,7 +124,7 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     
     override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject! {
         var obj : PFObject? = nil
-        if(indexPath.row &lt; self.objects.count){
+        if(indexPath.row < self.objects.count){
             obj = self.objects[indexPath.row] as PFObject
         }
     
