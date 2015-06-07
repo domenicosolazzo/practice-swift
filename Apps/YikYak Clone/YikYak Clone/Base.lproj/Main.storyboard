@@ -49,6 +49,12 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVm-dU-ctu">
+                                            <rect key="frame" x="546" y="68" width="30" height="22"/>
+                                            <state key="normal" image="down">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -84,6 +90,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="down" width="30" height="15"/>
         <image name="up" width="30" height="15"/>
     </resources>
 </document>
