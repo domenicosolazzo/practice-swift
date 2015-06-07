@@ -13,6 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let AFHTTPManager = AFHTTPRequestOperationManager()
+        AFHTTPManager.GET(
+            "http://sample.com/data.php",
+            parameters: nil,
+            success: {(operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+                println("Data is : " + responseObject.description)
+            },
+            failure: { (operation: AFHTTPRequestOperation!,error: NSError!)in
+                println("Error: " + error.localizedDescription)
+        })
     }
 
     override func didReceiveMemoryWarning() {
