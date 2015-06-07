@@ -106,6 +106,23 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         NSLog("Bottom Index Path \(hitIndex?.row)")
     }
     
+    override func queryForTable() -> PFQuery! {
+        let query = PFQuery(className: "Yak")
+        if let queryLoc = currLocation {
+            query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: queryLoc.latitude, longitude: queryLoc.longitude), withinMiles: 10)
+            query.limit = 200;
+            query.orderByDescending("createdAt")
+        } else {
+            /* Decide on how the application should react if there is no location available */
+            query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: 37.411822, longitude: -121.941125), withinMiles: 10)
+            query.limit = 200;
+            query.orderByDescending("createdAt")
+    }
+    
+    return query
+    }
+    
+    //- MARK: Core Location
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         alert("Cannot fetch your location")
     }
