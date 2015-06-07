@@ -8,7 +8,7 @@
         <!--Table View Controller-->
         <scene sceneID="ARN-FJ-YK0">
             <objects>
-                <tableViewController id="EyE-On-4jd" sceneMemberID="viewController">
+                <tableViewController id="EyE-On-4jd" customClass="TableViewController" customModule="YikYak_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="B8O-cH-MGS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="MLk-za-DOd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="MLk-za-DOd" customClass="TableViewCell" customModule="YikYak_Clone" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLk-za-DOd" id="pxO-Sx-peJ">
                                     <autoresizingMask key="autoresizingMask"/>
