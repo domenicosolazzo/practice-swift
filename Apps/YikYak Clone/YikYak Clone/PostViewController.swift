@@ -21,7 +21,7 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         let alert = UIAlertController(title: "Cannot fetch your location", message: "Please enable location in the settings menu", preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -&gt; Void in
+        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -> Void in
             UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
             return
         }
@@ -54,7 +54,9 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
             testObject["count"] = 0
             testObject["replies"] = 0
             testObject["location"] = PFGeoPoint(latitude: currLocation!.latitude , longitude: currLocation!.longitude)
-            testObject.saveInBackground()
+            testObject.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                // Log
+            })
             self.dismissViewControllerAnimated(true , completion: nil)
         } else {
             alert()
@@ -77,7 +79,7 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locationManager.stopUpdatingLocation()
         if(locations.count > 0){
-            let location = locations[0] as CLLocation
+            let location = locations[0] as! CLLocation
             currLocation = location.coordinate
         } else {
             alert()

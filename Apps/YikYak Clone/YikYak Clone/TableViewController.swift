@@ -19,10 +19,9 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     let locationManager = CLLocationManager()
     var currLocation : CLLocationCoordinate2D?
     
-    override init!(style: UITableViewStyle, className: String!) {
+    override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
     }
-    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -81,14 +80,15 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TableViewCell
-        cell.yakText.text = object.valueForKey("text") as String
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
+        cell.yakText.text = object.valueForKey("text") as? String
         cell.yakText.numberOfLines = 0
-        let score = object.valueForKey("count") as Int
+        let score = object.valueForKey("count") as! Int
         cell.count.text = "\(score)"
         cell.time.text = "\((indexPath.row + 1) * 3)m ago"
-        cell.replies.text = "\((indexPath.row + 1) * 1) replies"
+        let replycnt = object.objectForKey("replies") as! Int
+        cell.replies.text = "\(replycnt) replies"
         return cell
     }
     
@@ -97,8 +97,13 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
         let object = objectAtIndexPath(hitIndex)
-        object.incrementKey("count")
-        object.saveInBackground()
+        object!.incrementKey("count")
+        object?.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            if let theError = error{
+                NSLog("Error saving: \(theError)")
+                
+            }
+        })
         self.tableView.reloadData()
         NSLog("Top Index Path \(hitIndex?.row)")
     }
@@ -108,14 +113,18 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
         let object = objectAtIndexPath(hitIndex)
-        object.incrementKey("count", byAmount: -1)
-        object.saveInBackground()
+        object!.incrementKey("count", byAmount: -1)
+        object!.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            if let theError = error{
+                NSLog("Error saving: \(theError)")
+            }
+        }
         self.tableView.reloadData()
         NSLog("Bottom Index Path \(hitIndex?.row)")
     }
     
     //- MARK: Parse
-    override func queryForTable() -> PFQuery! {
+    override func queryForTable() -> PFQuery {
         let query = PFQuery(className: "Yak")
         if let queryLoc = currLocation {
             query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: queryLoc.latitude, longitude: queryLoc.longitude), withinMiles: 10)
@@ -127,16 +136,17 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
             query.limit = 200;
             query.orderByDescending("createdAt")
         }
-    
+        
         return query
     }
     
-    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject! {
+
+    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject? {
         var obj : PFObject? = nil
-        if(indexPath.row < self.objects.count){
-            obj = self.objects[indexPath.row] as PFObject
+        if(indexPath.row < self.objects!.count){
+            obj = self.objects![indexPath.row] as? PFObject
         }
-    
+        
         return obj
     }
 
@@ -149,7 +159,7 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locationManager.stopUpdatingLocation()
         if(locations.count > 0){
-            let location = locations[0] as CLLocation
+            let location = locations[0] as! CLLocation
             println(location.coordinate)
             currLocation = location.coordinate
         } else {
