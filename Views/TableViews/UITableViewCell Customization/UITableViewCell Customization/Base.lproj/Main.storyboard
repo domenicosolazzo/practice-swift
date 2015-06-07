@@ -44,6 +44,11 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellImageView" destination="Wh6-O2-3N8" id="hII-Xc-Rqz"/>
+                                    <outlet property="cellLabel" destination="Wh6-O2-3N8" id="88J-ib-gdY"/>
+                                    <outlet property="imageView" destination="Wh6-O2-3N8" id="IDe-BH-HnM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
