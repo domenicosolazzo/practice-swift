@@ -16,6 +16,20 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
     var reset:Bool = false
     let locationManager = CLLocationManager()
     
+    
+    private func  alert() {
+        let alert = UIAlertController(title: "Cannot fetch your location", message: "Please enable location in the settings menu", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -&gt; Void in
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            return
+        }
+        alert.addAction(settings)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func postPressed(sender: UIBarButtonItem) {
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
