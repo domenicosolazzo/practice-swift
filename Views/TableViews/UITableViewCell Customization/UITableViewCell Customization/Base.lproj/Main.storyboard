@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ayc-AO-jpj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8WU-9s-grY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -56,8 +56,27 @@
                             <outlet property="delegate" destination="Ayc-AO-jpj" id="XjD-Gk-OTH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="K9i-M0-NHy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ba9-N6-umJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232" y="363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FSL-Rc-zhc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8WU-9s-grY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GT9-Aq-i03">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ayc-AO-jpj" kind="relationship" relationship="rootViewController" id="oTc-aU-Al9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9k9-Qy-Fv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="363"/>
         </scene>
