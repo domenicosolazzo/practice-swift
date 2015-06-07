@@ -48,6 +48,18 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
 
     
     @IBAction func postPressed(sender: UIBarButtonItem) {
+        if(currLocation != nil){
+            let testObject = PFObject(className: "Yak")
+            testObject["text"] = self.postView.text
+            testObject["count"] = 0
+            testObject["replies"] = 0
+            testObject["location"] = PFGeoPoint(latitude: currLocation!.latitude , longitude: currLocation!.longitude)
+            testObject.saveInBackground()
+            self.dismissViewControllerAnimated(true , completion: nil)
+        } else {
+            alert()
+        }
+
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true , completion: nil)
