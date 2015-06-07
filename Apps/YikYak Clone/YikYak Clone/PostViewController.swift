@@ -10,4 +10,8 @@ import UIKit
 
 class PostViewController: UIViewController {
 
+    @IBAction func postPressed(sender: UIBarButtonItem) {
+    }
+    @IBAction func cancelPressed(sender: UIBarButtonItem) {
+    }
 }

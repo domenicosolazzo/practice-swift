@@ -124,8 +124,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Cd-gM-1c9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qpl-4R-1w6"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Nx-oZT"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qpl-4R-1w6">
+                            <connections>
+                                <action selector="cancelPressed:" destination="ryB-em-pIh" id="9I4-5o-ktc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Nx-oZT">
+                            <connections>
+                                <action selector="postPressed:" destination="ryB-em-pIh" id="QSG-JX-KT1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8l-me-grC" userLabel="First Responder" sceneMemberID="firstResponder"/>
