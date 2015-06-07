@@ -13,6 +13,8 @@
 		C071A8B31B24890900C4F7DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C071A8B21B24890900C4F7DC /* Images.xcassets */; };
 		C071A8B61B24890900C4F7DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C071A8B41B24890900C4F7DC /* LaunchScreen.xib */; };
 		C071A8C21B24890900C4F7DC /* YikYak_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8C11B24890900C4F7DC /* YikYak_CloneTests.swift */; };
+		C071A8CC1B248FF600C4F7DC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8CB1B248FF600C4F7DC /* TableViewCell.swift */; };
+		C071A8CE1B248FFF00C4F7DC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C071A8BB1B24890900C4F7DC /* YikYak CloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YikYak CloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C071A8C01B24890900C4F7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C071A8C11B24890900C4F7DC /* YikYak_CloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YikYak_CloneTests.swift; sourceTree = "<group>"; };
+		C071A8CB1B248FF600C4F7DC /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C071A8B21B24890900C4F7DC /* Images.xcassets */,
 				C071A8B41B24890900C4F7DC /* LaunchScreen.xib */,
 				C071A8A91B24890900C4F7DC /* Supporting Files */,
+				C071A8CB1B248FF600C4F7DC /* TableViewCell.swift */,
+				C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */,
 			);
 			path = "YikYak Clone";
 			sourceTree = "<group>";
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C071A8CC1B248FF600C4F7DC /* TableViewCell.swift in Sources */,
 				C071A8AE1B24890900C4F7DC /* ViewController.swift in Sources */,
 				C071A8AC1B24890900C4F7DC /* AppDelegate.swift in Sources */,
+				C071A8CE1B248FFF00C4F7DC /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
