@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="1063" y="321"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="t0J-ll-Mej">
             <objects>
-                <viewController id="ryB-em-pIh" sceneMemberID="viewController">
+                <viewController id="ryB-em-pIh" customClass="PostViewController" customModule="YikYak_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xLu-W0-WLq"/>
                         <viewControllerLayoutGuide type="bottom" id="v9Z-4z-pik"/>
@@ -123,7 +123,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Cd-gM-1c9"/>
+                    <navigationItem key="navigationItem" id="1Cd-gM-1c9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qpl-4R-1w6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Nx-oZT"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8l-me-grC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
