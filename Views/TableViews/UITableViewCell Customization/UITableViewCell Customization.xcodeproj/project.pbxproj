@@ -13,6 +13,8 @@
 		C0F523BF1B245DE1002FD907 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F523BE1B245DE1002FD907 /* Images.xcassets */; };
 		C0F523C21B245DE1002FD907 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F523C01B245DE1002FD907 /* LaunchScreen.xib */; };
 		C0F523CE1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523CD1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift */; };
+		C0F523D81B246043002FD907 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523D71B246043002FD907 /* PlacesTableViewController.swift */; };
+		C0F523DA1B246061002FD907 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C0F523C71B245DE1002FD907 /* UITableViewCell CustomizationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableViewCell CustomizationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F523CC1B245DE1002FD907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F523CD1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell_CustomizationTests.swift; sourceTree = "<group>"; };
+		C0F523D71B246043002FD907 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C0F523BE1B245DE1002FD907 /* Images.xcassets */,
 				C0F523C01B245DE1002FD907 /* LaunchScreen.xib */,
 				C0F523B51B245DE1002FD907 /* Supporting Files */,
+				C0F523D71B246043002FD907 /* PlacesTableViewController.swift */,
+				C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */,
 			);
 			path = "UITableViewCell Customization";
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 			files = (
 				C0F523BA1B245DE1002FD907 /* ViewController.swift in Sources */,
 				C0F523B81B245DE1002FD907 /* AppDelegate.swift in Sources */,
+				C0F523D81B246043002FD907 /* PlacesTableViewController.swift in Sources */,
+				C0F523DA1B246061002FD907 /* PlacesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

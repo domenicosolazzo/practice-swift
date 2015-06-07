@@ -33,11 +33,16 @@
                                         <constraint firstItem="Wh6-O2-3N8" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="top" id="3WB-cY-S6a"/>
                                         <constraint firstAttribute="trailing" secondItem="Wh6-O2-3N8" secondAttribute="trailing" id="4vk-7I-amg"/>
                                         <constraint firstAttribute="bottom" secondItem="Wh6-O2-3N8" secondAttribute="bottom" id="JFX-n8-aI1"/>
-                                        <constraint firstItem="L3D-aV-rAQ" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="topMargin" constant="40" id="SgW-j6-OT3"/>
+                                        <constraint firstItem="L3D-aV-rAQ" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="topMargin" constant="60" id="SgW-j6-OT3"/>
                                         <constraint firstAttribute="centerX" secondItem="L3D-aV-rAQ" secondAttribute="centerX" id="eCw-FP-xLN"/>
                                         <constraint firstAttribute="centerY" secondItem="L3D-aV-rAQ" secondAttribute="centerY" constant="91" id="iZe-wI-kax"/>
                                         <constraint firstItem="Wh6-O2-3N8" firstAttribute="leading" secondItem="hmm-5e-3FJ" secondAttribute="leading" id="mKw-pM-A7e"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="SgW-j6-OT3"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
