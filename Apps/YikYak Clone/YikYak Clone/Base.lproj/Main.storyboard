@@ -92,7 +92,7 @@
                     <navigationItem key="navigationItem" id="rmF-lk-lOd">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="VAX-9r-i4e">
                             <connections>
-                                <segue destination="ryB-em-pIh" kind="presentation" id="sFk-Bh-gj0"/>
+                                <segue destination="oMe-nk-2Ut" kind="presentation" id="sFk-Bh-gj0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,12 +112,22 @@
                     <view key="view" contentMode="scaleToFill" id="U4M-O5-sRR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's in your mind?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rys-3G-Fxc">
+                                <rect key="frame" x="10" y="0.0" width="578" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1Cd-gM-1c9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8l-me-grC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="321"/>
+            <point key="canvasLocation" x="2632" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R7Y-ak-nK5">
@@ -136,6 +146,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0PA-8I-mNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="251" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dYN-Oc-Ayw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oMe-nk-2Ut" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6nE-cf-PTD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ryB-em-pIh" kind="relationship" relationship="rootViewController" id="g3E-7h-3My"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYD-Q1-plh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="321"/>
         </scene>
     </scenes>
     <resources>
