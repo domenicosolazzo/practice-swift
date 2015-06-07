@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="KBX-rN-Hmf">
             <objects>
-                <viewController id="ruX-nA-6VL" sceneMemberID="viewController">
+                <viewController id="ruX-nA-6VL" customClass="ViewController" customModule="SearchBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CVw-FR-ovS"/>
                         <viewControllerLayoutGuide type="bottom" id="Wqj-Ns-jfa"/>
@@ -44,6 +44,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zgb-Be-Jtv"/>
+                    <connections>
+                        <outlet property="searchBar" destination="wdF-yG-xeO" id="zli-zm-nqz"/>
+                        <outlet property="tableView" destination="Ips-7s-VS9" id="pg3-XJ-8Et"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeQ-6T-txM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
