@@ -17,6 +17,17 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a4j-rM-ZOh" id="hmm-5e-3FJ">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-O2-3N8">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wh6-O2-3N8" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="top" id="3WB-cY-S6a"/>
+                                        <constraint firstAttribute="trailing" secondItem="Wh6-O2-3N8" secondAttribute="trailing" id="4vk-7I-amg"/>
+                                        <constraint firstAttribute="bottom" secondItem="Wh6-O2-3N8" secondAttribute="bottom" id="JFX-n8-aI1"/>
+                                        <constraint firstItem="Wh6-O2-3N8" firstAttribute="leading" secondItem="hmm-5e-3FJ" secondAttribute="leading" id="mKw-pM-A7e"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
