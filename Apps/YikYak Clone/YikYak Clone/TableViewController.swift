@@ -60,7 +60,7 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -105,5 +105,10 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
         NSLog("Bottom Index Path \(hitIndex?.row)")
     }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        alert("Cannot fetch your location")
+    }
+
 
 }
