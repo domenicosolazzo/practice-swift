@@ -34,6 +34,19 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         
     }
 
+    private func alert(message : String) {
+        let alert = UIAlertController(title: "Oops something went wrong.", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -&gt; Void in
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            return
+        }
+        alert.addAction(settings)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
