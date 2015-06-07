@@ -63,6 +63,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         self.tableView.reloadData()
     }
+    
+    //- MARK: TableView
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(searchActive) {
+            return filtered.count
+        }
+        return data.count;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell;
+        if(searchActive){
+            cell.textLabel?.text = filtered[indexPath.row]
+        } else {
+            cell.textLabel?.text = data[indexPath.row];
+        }
+        
+        return cell;
+    }
+
 
 
 
