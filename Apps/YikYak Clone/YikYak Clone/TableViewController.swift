@@ -82,9 +82,11 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
-        cell.yakText.text = yaks[indexPath.row]
-        cell.count.text = "\((indexPath.row + 1) * 5)"
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TableViewCell
+        cell.yakText.text = object.valueForKey("text") as String
+        cell.yakText.numberOfLines = 0
+        let score = object.valueForKey("count") as Int
+        cell.count.text = "\(score)"
         cell.time.text = "\((indexPath.row + 1) * 3)m ago"
         cell.replies.text = "\((indexPath.row + 1) * 1) replies"
         return cell
@@ -106,6 +108,7 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         NSLog("Bottom Index Path \(hitIndex?.row)")
     }
     
+    //- MARK: Parse
     override func queryForTable() -> PFQuery! {
         let query = PFQuery(className: "Yak")
         if let queryLoc = currLocation {
