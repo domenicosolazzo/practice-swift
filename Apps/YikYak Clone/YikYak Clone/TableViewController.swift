@@ -53,6 +53,7 @@ class TableViewController: PFQueryTableViewController {
     
 
     @IBAction func topButton(sender: AnyObject) {
+        // identify the point in the tableview the touch happened and convert it to indexPath using indexPathForRowAtPoint function.
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
         
@@ -60,6 +61,7 @@ class TableViewController: PFQueryTableViewController {
     }
     
     @IBAction func bottomButton(sender: AnyObject) {
+        // identify the point in the tableview the touch happened and convert it to indexPath using indexPathForRowAtPoint function.
         let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
         NSLog("Bottom Index Path \(hitIndex?.row)")
