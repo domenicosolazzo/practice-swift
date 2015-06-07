@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ayc-AO-jpj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -21,11 +22,20 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-O2-3N8">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3D-aV-rAQ">
+                                            <rect key="frame" x="279" y="48" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Wh6-O2-3N8" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="top" id="3WB-cY-S6a"/>
                                         <constraint firstAttribute="trailing" secondItem="Wh6-O2-3N8" secondAttribute="trailing" id="4vk-7I-amg"/>
                                         <constraint firstAttribute="bottom" secondItem="Wh6-O2-3N8" secondAttribute="bottom" id="JFX-n8-aI1"/>
+                                        <constraint firstItem="L3D-aV-rAQ" firstAttribute="top" secondItem="hmm-5e-3FJ" secondAttribute="topMargin" constant="40" id="SgW-j6-OT3"/>
+                                        <constraint firstAttribute="centerX" secondItem="L3D-aV-rAQ" secondAttribute="centerX" id="eCw-FP-xLN"/>
+                                        <constraint firstAttribute="centerY" secondItem="L3D-aV-rAQ" secondAttribute="centerY" constant="91" id="iZe-wI-kax"/>
                                         <constraint firstItem="Wh6-O2-3N8" firstAttribute="leading" secondItem="hmm-5e-3FJ" secondAttribute="leading" id="mKw-pM-A7e"/>
                                     </constraints>
                                 </tableViewCellContentView>
