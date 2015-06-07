@@ -15,6 +15,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /* Setup delegates */
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
