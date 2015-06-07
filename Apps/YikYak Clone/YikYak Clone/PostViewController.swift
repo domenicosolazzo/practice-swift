@@ -65,6 +65,14 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         self.dismissViewControllerAnimated(true , completion: nil)
     }
     
+    //- MARK: TextView delegate
+    func textViewDidChange(textView: UITextView) {
+        if(reset == false){
+            self.postView.text = String(Array(self.postView.text)[0])
+            reset = true
+        }
+    }
+    
     //- MARK: Core Location
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locationManager.stopUpdatingLocation()
