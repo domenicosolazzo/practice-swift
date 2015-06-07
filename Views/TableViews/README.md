@@ -11,5 +11,6 @@ How to use table views
 - [Providing Header and Footer in a CollectionView](#): Constructing header and footer in CollectionViews
 - [CollectionView using custom xib files](#): Creating custom cell using .xib files
 - [Interaction with CollectionViews](#): Adding interaction to a collection view
+- [TableView Customization](#): How to customize table view cell with big images
 
 
