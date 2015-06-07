@@ -89,7 +89,9 @@
                             <outlet property="delegate" destination="EyE-On-4jd" id="25s-Mk-vFh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rmF-lk-lOd"/>
+                    <navigationItem key="navigationItem" id="rmF-lk-lOd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="VAX-9r-i4e"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKi-qd-kf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
