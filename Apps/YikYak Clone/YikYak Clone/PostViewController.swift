@@ -30,6 +30,17 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.postView.selectedRange = NSMakeRange(0, 0);
+        self.postView.delegate = self
+        self.postView.becomeFirstResponder()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
     @IBAction func postPressed(sender: UIBarButtonItem) {
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
