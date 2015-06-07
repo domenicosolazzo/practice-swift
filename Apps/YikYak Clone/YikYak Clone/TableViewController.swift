@@ -117,10 +117,20 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
             query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: 37.411822, longitude: -121.941125), withinMiles: 10)
             query.limit = 200;
             query.orderByDescending("createdAt")
+        }
+    
+        return query
     }
     
-    return query
+    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject! {
+        var obj : PFObject? = nil
+        if(indexPath.row &lt; self.objects.count){
+            obj = self.objects[indexPath.row] as PFObject
+        }
+    
+        return obj
     }
+
     
     //- MARK: Core Location
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
