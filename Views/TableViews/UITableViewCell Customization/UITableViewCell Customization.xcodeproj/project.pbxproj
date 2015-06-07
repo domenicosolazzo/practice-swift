@@ -15,6 +15,7 @@
 		C0F523CE1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523CD1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift */; };
 		C0F523D81B246043002FD907 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523D71B246043002FD907 /* PlacesTableViewController.swift */; };
 		C0F523DA1B246061002FD907 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */; };
+		C0F523DC1B2464F4002FD907 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F523DB1B2464F4002FD907 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C0F523CD1B245DE1002FD907 /* UITableViewCell_CustomizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell_CustomizationTests.swift; sourceTree = "<group>"; };
 		C0F523D71B246043002FD907 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
+		C0F523DB1B2464F4002FD907 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				C0F523B51B245DE1002FD907 /* Supporting Files */,
 				C0F523D71B246043002FD907 /* PlacesTableViewController.swift */,
 				C0F523D91B246061002FD907 /* PlacesTableViewCell.swift */,
+				C0F523DB1B2464F4002FD907 /* Data.swift */,
 			);
 			path = "UITableViewCell Customization";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F523BA1B245DE1002FD907 /* ViewController.swift in Sources */,
+				C0F523DC1B2464F4002FD907 /* Data.swift in Sources */,
 				C0F523B81B245DE1002FD907 /* AppDelegate.swift in Sources */,
 				C0F523D81B246043002FD907 /* PlacesTableViewController.swift in Sources */,
 				C0F523DA1B246061002FD907 /* PlacesTableViewCell.swift in Sources */,
