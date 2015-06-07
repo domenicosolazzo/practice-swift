@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Places Table View Controller-->
+        <!--Discover-->
         <scene sceneID="UHt-sz-vkL">
             <objects>
                 <tableViewController id="Ayc-AO-jpj" customClass="PlacesTableViewController" customModule="UITableViewCell_Customization" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                             <outlet property="delegate" destination="Ayc-AO-jpj" id="XjD-Gk-OTH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K9i-M0-NHy"/>
+                    <navigationItem key="navigationItem" title="Discover" id="K9i-M0-NHy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ba9-N6-umJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
