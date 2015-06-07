@@ -19,12 +19,30 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     let locationManager = CLLocationManager()
     var currLocation : CLLocationCoordinate2D?
     
+    override init!(style: UITableViewStyle, className: String!) {
+        super.init(style: style, className: className)
+    }
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.parseClassName = "Yak"
+        self.textKey = "text"
+        self.pullToRefreshEnabled = true
+        self.objectsPerPage = 200
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
