@@ -45,4 +45,19 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
     }
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
     }
+    
+    //- MARK: Core Location
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        locationManager.stopUpdatingLocation()
+        if(locations.count > 0){
+            let location = locations[0] as CLLocation
+            currLocation = location.coordinate
+        } else {
+            alert()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println(error)
+    }
 }
