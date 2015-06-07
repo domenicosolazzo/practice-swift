@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 class TableViewController: PFQueryTableViewController {
