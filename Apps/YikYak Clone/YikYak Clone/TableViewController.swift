@@ -38,7 +38,7 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
         let alert = UIAlertController(title: "Oops something went wrong.", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -&gt; Void in
+        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) -> Void in
             UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
             return
         }
@@ -53,6 +53,10 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
     
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        locationManager.desiredAccuracy = 1000
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     
