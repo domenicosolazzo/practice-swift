@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's in your mind?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rys-3G-Fxc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's in your mind?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rys-3G-Fxc">
                                 <rect key="frame" x="10" y="0.0" width="578" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
@@ -128,6 +128,13 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rys-3G-Fxc" firstAttribute="top" secondItem="xLu-W0-WLq" secondAttribute="bottom" constant="-64" id="Mrr-mq-Rop"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rys-3G-Fxc" secondAttribute="trailing" constant="-4" id="fTg-IP-9Qw"/>
+                            <constraint firstItem="rys-3G-Fxc" firstAttribute="leading" secondItem="U4M-O5-sRR" secondAttribute="leadingMargin" constant="-6" id="pL4-UO-PA1"/>
+                            <constraint firstAttribute="centerX" secondItem="rys-3G-Fxc" secondAttribute="centerX" constant="1" id="sr3-pa-jRX"/>
+                            <constraint firstAttribute="centerY" secondItem="rys-3G-Fxc" secondAttribute="centerY" constant="200" id="ydU-Ez-z4s"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Cd-gM-1c9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qpl-4R-1w6">
