@@ -87,6 +87,7 @@
                                     <outlet property="replies" destination="m0w-mv-NCU" id="Kx2-KO-cAb"/>
                                     <outlet property="time" destination="8sg-sd-14T" id="nko-TR-ya2"/>
                                     <outlet property="yakText" destination="EMw-GC-Fju" id="BYa-Pn-TUz"/>
+                                    <segue destination="nJA-cc-ZoM" kind="show" identifier="showYak" id="CpW-4F-zvR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -276,7 +277,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZf-mU-Quj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250" y="998"/>
+            <point key="canvasLocation" x="1818" y="516"/>
         </scene>
     </scenes>
     <resources>
