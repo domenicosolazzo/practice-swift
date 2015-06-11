@@ -17,6 +17,8 @@
 		C071A8CC1B248FF600C4F7DC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8CB1B248FF600C4F7DC /* TableViewCell.swift */; };
 		C071A8CE1B248FFF00C4F7DC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */; };
 		C071A8D31B24A71C00C4F7DC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8D21B24A71C00C4F7DC /* PostViewController.swift */; };
+		C071A8D51B29E3B700C4F7DC /* CommentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8D41B29E3B700C4F7DC /* CommentTableView.swift */; };
+		C071A8D71B29E3C400C4F7DC /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8D61B29E3C400C4F7DC /* CommentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C071A8CF1B24A1A600C4F7DC /* YikYak Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YikYak Clone-Bridging-Header.h"; sourceTree = "<group>"; };
 		C071A8D21B24A71C00C4F7DC /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		C071A8D41B29E3B700C4F7DC /* CommentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableView.swift; sourceTree = "<group>"; };
+		C071A8D61B29E3C400C4F7DC /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 				C071A8CD1B248FFF00C4F7DC /* TableViewController.swift */,
 				C071A8CF1B24A1A600C4F7DC /* YikYak Clone-Bridging-Header.h */,
 				C071A8D21B24A71C00C4F7DC /* PostViewController.swift */,
+				C071A8D41B29E3B700C4F7DC /* CommentTableView.swift */,
+				C071A8D61B29E3C400C4F7DC /* CommentTableViewCell.swift */,
 			);
 			path = "YikYak Clone";
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C071A8CC1B248FF600C4F7DC /* TableViewCell.swift in Sources */,
+				C071A8D51B29E3B700C4F7DC /* CommentTableView.swift in Sources */,
 				C071A8AE1B24890900C4F7DC /* ViewController.swift in Sources */,
 				C071A8AC1B24890900C4F7DC /* AppDelegate.swift in Sources */,
+				C071A8D71B29E3C400C4F7DC /* CommentTableViewCell.swift in Sources */,
 				C071A8CE1B248FFF00C4F7DC /* TableViewController.swift in Sources */,
 				C071A8D31B24A71C00C4F7DC /* PostViewController.swift in Sources */,
 			);
