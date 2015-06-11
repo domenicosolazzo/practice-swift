@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Domenico. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class CommentTableViewCell: UITableViewCell {
 
