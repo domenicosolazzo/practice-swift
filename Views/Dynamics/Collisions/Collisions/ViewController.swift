@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         animator.addBehavior(gravity)
         
         collision = UICollisionBehavior(items: [firstView, secondView])
-        
+        collision.collisionMode = UICollisionBehaviorMode.Boundaries
         animator.addBehavior(collision)
         
         
