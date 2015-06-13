@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         collision.collisionMode = UICollisionBehaviorMode.Boundaries
         // Set a boundary
         collision.translatesReferenceBoundsIntoBoundary = true
+        // Set the delegate
+        collision.collisionDelegate = self
         animator.addBehavior(collision)
         
         
