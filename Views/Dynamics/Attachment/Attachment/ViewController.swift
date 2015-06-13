@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
+    var attachment: UIAttachmentBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,12 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         // Set the delegate
         collision.collisionDelegate = self
         animator.addBehavior(collision)
+        
+        var centerPoint = CGPointMake(firstView.center.x, firstView.center.y)
+        attachment = UIAttachmentBehavior(item: secondView, attachedToAnchor: centerPoint)
+        
+        animator.addBehavior(attachment)
+        
         
         
     }
