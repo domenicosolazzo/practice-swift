@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UICollisionBehaviorDelegate {
 
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
@@ -34,6 +34,17 @@ class ViewController: UIViewController {
         
         
     }
+    
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint) {
+        println("Item1: \(item1)")
+        println("Item2: \(item2)")
+    }
+    
+    func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem) {
+        println("Collision ended")
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
