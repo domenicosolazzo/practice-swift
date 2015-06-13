@@ -8,11 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
+        firstView.backgroundColor = UIColor.redColor()
+        var secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        secondView.backgroundColor = UIColor.blueColor()
+        self.view.addSubview(firstView)
+        self.view.addSubview(secondView)
+        
+        animator = UIDynamicAnimator(referenceView: self.view)
+        gravity = UIGravityBehavior(items: [firstView, secondView])
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: [firstView, secondView])
+        collision.collisionMode = UICollisionBehaviorMode.Boundaries
+        // Set a boundary
+        collision.translatesReferenceBoundsIntoBoundary = true
+        // Set the delegate
+        collision.collisionDelegate = self
+        animator.addBehavior(collision)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
