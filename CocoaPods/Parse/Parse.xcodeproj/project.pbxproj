@@ -14,6 +14,7 @@
 		C071A8821B2486B300C4F7DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C071A8811B2486B300C4F7DC /* Images.xcassets */; };
 		C071A8851B2486B300C4F7DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C071A8831B2486B300C4F7DC /* LaunchScreen.xib */; };
 		C071A8911B2486B300C4F7DC /* ParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071A8901B2486B300C4F7DC /* ParseTests.swift */; };
+		C071A8DC1B2A0C0D00C4F7DC /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C071A8DB1B2A0C0D00C4F7DC /* PassKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		C071A88F1B2486B300C4F7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C071A8901B2486B300C4F7DC /* ParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseTests.swift; sourceTree = "<group>"; };
 		C071A89A1B2487BD00C4F7DC /* Parse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parse-Bridging-Header.h"; sourceTree = "<group>"; };
+		C071A8DA1B2A0BC300C4F7DC /* Parse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Parse.entitlements; sourceTree = "<group>"; };
+		C071A8DB1B2A0C0D00C4F7DC /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		DAA11CD729A49FF190932CE9 /* Pods-Parse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parse/Pods-Parse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C071A8DC1B2A0C0D00C4F7DC /* PassKit.framework in Frameworks */,
 				7B4507303B05764DD5669942 /* libPods-Parse.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +90,7 @@
 		C071A8771B2486B300C4F7DC /* Parse */ = {
 			isa = PBXGroup;
 			children = (
+				C071A8DA1B2A0BC300C4F7DC /* Parse.entitlements */,
 				C071A87A1B2486B300C4F7DC /* AppDelegate.swift */,
 				C071A87C1B2486B300C4F7DC /* ViewController.swift */,
 				C071A87E1B2486B300C4F7DC /* Main.storyboard */,
@@ -124,6 +129,7 @@
 		D631BBAAFC2F59D1D02D57E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C071A8DB1B2A0C0D00C4F7DC /* PassKit.framework */,
 				86B620941934D4AACF6A3288 /* libPods-Parse.a */,
 			);
 			name = Frameworks;
@@ -189,6 +195,18 @@
 				TargetAttributes = {
 					C071A8741B2486B300C4F7DC = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 8YWZZG9DK7;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Passbook = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					C071A8891B2486B300C4F7DC = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -405,9 +423,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Parse/Parse.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Parse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Parse-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -419,9 +441,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Parse/Parse.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Parse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Parse-Bridging-Header.h";
 			};
 			name = Release;
