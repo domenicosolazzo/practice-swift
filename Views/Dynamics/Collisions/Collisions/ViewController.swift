@@ -18,7 +18,9 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
         super.viewDidLoad()
         
         var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
-        var secondView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        firstView.backgroundColor = UIColor.redColor()
+        var secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        secondView.backgroundColor = UIColor.blueColor()
         self.view.addSubview(firstView)
         self.view.addSubview(secondView)
             
