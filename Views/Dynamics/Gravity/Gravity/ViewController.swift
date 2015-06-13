@@ -14,7 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         var dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        var gravityBehaviour = UIGravityBehavior()
+        gravityBehaviour.setAngle(CGFloat(30), magnitude: CGFloat(2))
         
+        dynamicAnimator.addBehavior(gravityBehaviour)
     }
 
     override func didReceiveMemoryWarning() {
