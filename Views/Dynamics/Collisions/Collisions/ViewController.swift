@@ -10,9 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
+        var secondView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+            
+        animator = UIDynamicAnimator(referenceView: self.view)
+        gravity = UIGravityBehavior(items: [firstView, secondView])
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: [firstView, secondView])
+        
+        animator.addBehavior(collision)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
