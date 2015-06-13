@@ -19,6 +19,8 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
         
         var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
         var secondView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        self.view.addSubview(firstView)
+        self.view.addSubview(secondView)
             
         animator = UIDynamicAnimator(referenceView: self.view)
         gravity = UIGravityBehavior(items: [firstView, secondView])
