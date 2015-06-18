@@ -9,6 +9,15 @@
 import UIKit
 import ResearchKit
 
+extension ViewController : ORKTaskViewControllerDelegate {
+    
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        //Handle results with taskViewController.result
+        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
