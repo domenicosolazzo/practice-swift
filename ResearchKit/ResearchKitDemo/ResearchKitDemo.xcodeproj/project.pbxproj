@@ -15,6 +15,7 @@
 		C0F33C401B33502600485957 /* ResearchKitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33C3F1B33502600485957 /* ResearchKitDemoTests.swift */; };
 		C0F33C5E1B33508100485957 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F33C5B1B33507900485957 /* ResearchKit.framework */; };
 		C0F33C5F1B33508100485957 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0F33C5B1B33507900485957 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0F33C641B3351B200485957 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33C631B3351B200485957 /* ConsentDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		C0F33C3E1B33502600485957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F33C3F1B33502600485957 /* ResearchKitDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchKitDemoTests.swift; sourceTree = "<group>"; };
 		C0F33C541B33507900485957 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		C0F33C631B3351B200485957 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				C0F33C301B33502600485957 /* Images.xcassets */,
 				C0F33C321B33502600485957 /* LaunchScreen.xib */,
 				C0F33C271B33502600485957 /* Supporting Files */,
+				C0F33C631B3351B200485957 /* ConsentDocument.swift */,
 			);
 			path = ResearchKitDemo;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F33C2C1B33502600485957 /* ViewController.swift in Sources */,
+				C0F33C641B3351B200485957 /* ConsentDocument.swift in Sources */,
 				C0F33C2A1B33502600485957 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
