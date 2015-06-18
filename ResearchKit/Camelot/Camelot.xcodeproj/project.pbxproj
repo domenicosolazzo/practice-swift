@@ -7,52 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54030B7A51E856C88F27EC3F /* libPods-Camelot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 357666B43061D6AD1FC2E28C /* libPods-Camelot.a */; };
-		C02C7D271B332F1200688927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C7D261B332F1200688927 /* AppDelegate.swift */; };
-		C02C7D291B332F1200688927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C7D281B332F1200688927 /* ViewController.swift */; };
-		C02C7D2C1B332F1200688927 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C7D2A1B332F1200688927 /* Main.storyboard */; };
-		C02C7D2E1B332F1200688927 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02C7D2D1B332F1200688927 /* Images.xcassets */; };
-		C02C7D311B332F1200688927 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C02C7D2F1B332F1200688927 /* LaunchScreen.xib */; };
-		C02C7D3D1B332F1200688927 /* CamelotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C7D3C1B332F1200688927 /* CamelotTests.swift */; };
+		C0F33B821B33371400485957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33B811B33371400485957 /* AppDelegate.swift */; };
+		C0F33B841B33371400485957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33B831B33371400485957 /* ViewController.swift */; };
+		C0F33B871B33371400485957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F33B851B33371400485957 /* Main.storyboard */; };
+		C0F33B891B33371400485957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F33B881B33371400485957 /* Images.xcassets */; };
+		C0F33B8C1B33371400485957 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F33B8A1B33371400485957 /* LaunchScreen.xib */; };
+		C0F33B981B33371400485957 /* CamelotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33B971B33371400485957 /* CamelotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C02C7D371B332F1200688927 /* PBXContainerItemProxy */ = {
+		C0F33B921B33371400485957 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C02C7D191B332F1200688927 /* Project object */;
+			containerPortal = C0F33B741B33371400485957 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C02C7D201B332F1200688927;
+			remoteGlobalIDString = C0F33B7B1B33371400485957;
 			remoteInfo = Camelot;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26C62DC54C7F83AF4100F03C /* Pods-Camelot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camelot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Camelot/Pods-Camelot.release.xcconfig"; sourceTree = "<group>"; };
-		357666B43061D6AD1FC2E28C /* libPods-Camelot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Camelot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59F72B120976E01022D001A9 /* Pods-Camelot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camelot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camelot/Pods-Camelot.debug.xcconfig"; sourceTree = "<group>"; };
-		C02C7D211B332F1200688927 /* Camelot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camelot.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C02C7D251B332F1200688927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02C7D261B332F1200688927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C02C7D281B332F1200688927 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C02C7D2B1B332F1200688927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C02C7D2D1B332F1200688927 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C02C7D301B332F1200688927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C02C7D361B332F1200688927 /* CamelotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamelotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C02C7D3B1B332F1200688927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02C7D3C1B332F1200688927 /* CamelotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamelotTests.swift; sourceTree = "<group>"; };
-		C02C7D461B33324600688927 /* Camelot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camelot-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0F33B7C1B33371400485957 /* Camelot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camelot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F33B801B33371400485957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F33B811B33371400485957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C0F33B831B33371400485957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0F33B861B33371400485957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0F33B881B33371400485957 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C0F33B8B1B33371400485957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C0F33B911B33371400485957 /* CamelotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamelotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F33B961B33371400485957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F33B971B33371400485957 /* CamelotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamelotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C02C7D1E1B332F1200688927 /* Frameworks */ = {
+		C0F33B791B33371400485957 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54030B7A51E856C88F27EC3F /* libPods-Camelot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C02C7D331B332F1200688927 /* Frameworks */ = {
+		C0F33B8E1B33371400485957 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,78 +56,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		149F3DF020EDF9C4D36F087D /* Pods */ = {
+		C0F33B731B33371400485957 = {
 			isa = PBXGroup;
 			children = (
-				59F72B120976E01022D001A9 /* Pods-Camelot.debug.xcconfig */,
-				26C62DC54C7F83AF4100F03C /* Pods-Camelot.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		AA21B3B78F60A06AC55FD0FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				357666B43061D6AD1FC2E28C /* libPods-Camelot.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C02C7D181B332F1200688927 = {
-			isa = PBXGroup;
-			children = (
-				C02C7D231B332F1200688927 /* Camelot */,
-				C02C7D391B332F1200688927 /* CamelotTests */,
-				C02C7D221B332F1200688927 /* Products */,
-				149F3DF020EDF9C4D36F087D /* Pods */,
-				AA21B3B78F60A06AC55FD0FC /* Frameworks */,
-				C02C7D461B33324600688927 /* Camelot-Bridging-Header.h */,
+				C0F33B7E1B33371400485957 /* Camelot */,
+				C0F33B941B33371400485957 /* CamelotTests */,
+				C0F33B7D1B33371400485957 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C02C7D221B332F1200688927 /* Products */ = {
+		C0F33B7D1B33371400485957 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C02C7D211B332F1200688927 /* Camelot.app */,
-				C02C7D361B332F1200688927 /* CamelotTests.xctest */,
+				C0F33B7C1B33371400485957 /* Camelot.app */,
+				C0F33B911B33371400485957 /* CamelotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C02C7D231B332F1200688927 /* Camelot */ = {
+		C0F33B7E1B33371400485957 /* Camelot */ = {
 			isa = PBXGroup;
 			children = (
-				C02C7D261B332F1200688927 /* AppDelegate.swift */,
-				C02C7D281B332F1200688927 /* ViewController.swift */,
-				C02C7D2A1B332F1200688927 /* Main.storyboard */,
-				C02C7D2D1B332F1200688927 /* Images.xcassets */,
-				C02C7D2F1B332F1200688927 /* LaunchScreen.xib */,
-				C02C7D241B332F1200688927 /* Supporting Files */,
+				C0F33B811B33371400485957 /* AppDelegate.swift */,
+				C0F33B831B33371400485957 /* ViewController.swift */,
+				C0F33B851B33371400485957 /* Main.storyboard */,
+				C0F33B881B33371400485957 /* Images.xcassets */,
+				C0F33B8A1B33371400485957 /* LaunchScreen.xib */,
+				C0F33B7F1B33371400485957 /* Supporting Files */,
 			);
 			path = Camelot;
 			sourceTree = "<group>";
 		};
-		C02C7D241B332F1200688927 /* Supporting Files */ = {
+		C0F33B7F1B33371400485957 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C02C7D251B332F1200688927 /* Info.plist */,
+				C0F33B801B33371400485957 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C02C7D391B332F1200688927 /* CamelotTests */ = {
+		C0F33B941B33371400485957 /* CamelotTests */ = {
 			isa = PBXGroup;
 			children = (
-				C02C7D3C1B332F1200688927 /* CamelotTests.swift */,
-				C02C7D3A1B332F1200688927 /* Supporting Files */,
+				C0F33B971B33371400485957 /* CamelotTests.swift */,
+				C0F33B951B33371400485957 /* Supporting Files */,
 			);
 			path = CamelotTests;
 			sourceTree = "<group>";
 		};
-		C02C7D3A1B332F1200688927 /* Supporting Files */ = {
+		C0F33B951B33371400485957 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C02C7D3B1B332F1200688927 /* Info.plist */,
+				C0F33B961B33371400485957 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -141,15 +115,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C02C7D201B332F1200688927 /* Camelot */ = {
+		C0F33B7B1B33371400485957 /* Camelot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C02C7D401B332F1200688927 /* Build configuration list for PBXNativeTarget "Camelot" */;
+			buildConfigurationList = C0F33B9B1B33371400485957 /* Build configuration list for PBXNativeTarget "Camelot" */;
 			buildPhases = (
-				7403FD00379E6B0F0929866F /* Check Pods Manifest.lock */,
-				C02C7D1D1B332F1200688927 /* Sources */,
-				C02C7D1E1B332F1200688927 /* Frameworks */,
-				C02C7D1F1B332F1200688927 /* Resources */,
-				08A82C93AB20720B80501759 /* Copy Pods Resources */,
+				C0F33B781B33371400485957 /* Sources */,
+				C0F33B791B33371400485957 /* Frameworks */,
+				C0F33B7A1B33371400485957 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -157,47 +129,46 @@
 			);
 			name = Camelot;
 			productName = Camelot;
-			productReference = C02C7D211B332F1200688927 /* Camelot.app */;
+			productReference = C0F33B7C1B33371400485957 /* Camelot.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C02C7D351B332F1200688927 /* CamelotTests */ = {
+		C0F33B901B33371400485957 /* CamelotTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C02C7D431B332F1200688927 /* Build configuration list for PBXNativeTarget "CamelotTests" */;
+			buildConfigurationList = C0F33B9E1B33371400485957 /* Build configuration list for PBXNativeTarget "CamelotTests" */;
 			buildPhases = (
-				C02C7D321B332F1200688927 /* Sources */,
-				C02C7D331B332F1200688927 /* Frameworks */,
-				C02C7D341B332F1200688927 /* Resources */,
+				C0F33B8D1B33371400485957 /* Sources */,
+				C0F33B8E1B33371400485957 /* Frameworks */,
+				C0F33B8F1B33371400485957 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C02C7D381B332F1200688927 /* PBXTargetDependency */,
+				C0F33B931B33371400485957 /* PBXTargetDependency */,
 			);
 			name = CamelotTests;
 			productName = CamelotTests;
-			productReference = C02C7D361B332F1200688927 /* CamelotTests.xctest */;
+			productReference = C0F33B911B33371400485957 /* CamelotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C02C7D191B332F1200688927 /* Project object */ = {
+		C0F33B741B33371400485957 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
-					C02C7D201B332F1200688927 = {
+					C0F33B7B1B33371400485957 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
-					C02C7D351B332F1200688927 = {
+					C0F33B901B33371400485957 = {
 						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = C02C7D201B332F1200688927;
+						TestTargetID = C0F33B7B1B33371400485957;
 					};
 				};
 			};
-			buildConfigurationList = C02C7D1C1B332F1200688927 /* Build configuration list for PBXProject "Camelot" */;
+			buildConfigurationList = C0F33B771B33371400485957 /* Build configuration list for PBXProject "Camelot" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -205,29 +176,29 @@
 				en,
 				Base,
 			);
-			mainGroup = C02C7D181B332F1200688927;
-			productRefGroup = C02C7D221B332F1200688927 /* Products */;
+			mainGroup = C0F33B731B33371400485957;
+			productRefGroup = C0F33B7D1B33371400485957 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C02C7D201B332F1200688927 /* Camelot */,
-				C02C7D351B332F1200688927 /* CamelotTests */,
+				C0F33B7B1B33371400485957 /* Camelot */,
+				C0F33B901B33371400485957 /* CamelotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C02C7D1F1B332F1200688927 /* Resources */ = {
+		C0F33B7A1B33371400485957 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C02C7D2C1B332F1200688927 /* Main.storyboard in Resources */,
-				C02C7D311B332F1200688927 /* LaunchScreen.xib in Resources */,
-				C02C7D2E1B332F1200688927 /* Images.xcassets in Resources */,
+				C0F33B871B33371400485957 /* Main.storyboard in Resources */,
+				C0F33B8C1B33371400485957 /* LaunchScreen.xib in Resources */,
+				C0F33B891B33371400485957 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C02C7D341B332F1200688927 /* Resources */ = {
+		C0F33B8F1B33371400485957 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,80 +207,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		08A82C93AB20720B80501759 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Camelot/Pods-Camelot-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7403FD00379E6B0F0929866F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C02C7D1D1B332F1200688927 /* Sources */ = {
+		C0F33B781B33371400485957 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C02C7D291B332F1200688927 /* ViewController.swift in Sources */,
-				C02C7D271B332F1200688927 /* AppDelegate.swift in Sources */,
+				C0F33B841B33371400485957 /* ViewController.swift in Sources */,
+				C0F33B821B33371400485957 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C02C7D321B332F1200688927 /* Sources */ = {
+		C0F33B8D1B33371400485957 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C02C7D3D1B332F1200688927 /* CamelotTests.swift in Sources */,
+				C0F33B981B33371400485957 /* CamelotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C02C7D381B332F1200688927 /* PBXTargetDependency */ = {
+		C0F33B931B33371400485957 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C02C7D201B332F1200688927 /* Camelot */;
-			targetProxy = C02C7D371B332F1200688927 /* PBXContainerItemProxy */;
+			target = C0F33B7B1B33371400485957 /* Camelot */;
+			targetProxy = C0F33B921B33371400485957 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C02C7D2A1B332F1200688927 /* Main.storyboard */ = {
+		C0F33B851B33371400485957 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C02C7D2B1B332F1200688927 /* Base */,
+				C0F33B861B33371400485957 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C02C7D2F1B332F1200688927 /* LaunchScreen.xib */ = {
+		C0F33B8A1B33371400485957 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C02C7D301B332F1200688927 /* Base */,
+				C0F33B8B1B33371400485957 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -317,7 +255,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C02C7D3E1B332F1200688927 /* Debug */ = {
+		C0F33B991B33371400485957 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -362,7 +300,7 @@
 			};
 			name = Debug;
 		};
-		C02C7D3F1B332F1200688927 /* Release */ = {
+		C0F33B9A1B33371400485957 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -400,34 +338,27 @@
 			};
 			name = Release;
 		};
-		C02C7D411B332F1200688927 /* Debug */ = {
+		C0F33B9C1B33371400485957 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59F72B120976E01022D001A9 /* Pods-Camelot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Camelot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Camelot-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		C02C7D421B332F1200688927 /* Release */ = {
+		C0F33B9D1B33371400485957 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26C62DC54C7F83AF4100F03C /* Pods-Camelot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Camelot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Camelot-Bridging-Header.h";
 			};
 			name = Release;
 		};
-		C02C7D441B332F1200688927 /* Debug */ = {
+		C0F33B9F1B33371400485957 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -446,7 +377,7 @@
 			};
 			name = Debug;
 		};
-		C02C7D451B332F1200688927 /* Release */ = {
+		C0F33BA01B33371400485957 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -464,34 +395,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C02C7D1C1B332F1200688927 /* Build configuration list for PBXProject "Camelot" */ = {
+		C0F33B771B33371400485957 /* Build configuration list for PBXProject "Camelot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C02C7D3E1B332F1200688927 /* Debug */,
-				C02C7D3F1B332F1200688927 /* Release */,
+				C0F33B991B33371400485957 /* Debug */,
+				C0F33B9A1B33371400485957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C02C7D401B332F1200688927 /* Build configuration list for PBXNativeTarget "Camelot" */ = {
+		C0F33B9B1B33371400485957 /* Build configuration list for PBXNativeTarget "Camelot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C02C7D411B332F1200688927 /* Debug */,
-				C02C7D421B332F1200688927 /* Release */,
+				C0F33B9C1B33371400485957 /* Debug */,
+				C0F33B9D1B33371400485957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		C02C7D431B332F1200688927 /* Build configuration list for PBXNativeTarget "CamelotTests" */ = {
+		C0F33B9E1B33371400485957 /* Build configuration list for PBXNativeTarget "CamelotTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C02C7D441B332F1200688927 /* Debug */,
-				C02C7D451B332F1200688927 /* Release */,
+				C0F33B9F1B33371400485957 /* Debug */,
+				C0F33BA01B33371400485957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C02C7D191B332F1200688927 /* Project object */;
+	rootObject = C0F33B741B33371400485957 /* Project object */;
 }
