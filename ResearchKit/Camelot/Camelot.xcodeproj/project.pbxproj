@@ -13,6 +13,7 @@
 		C0F33B891B33371400485957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F33B881B33371400485957 /* Images.xcassets */; };
 		C0F33B8C1B33371400485957 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F33B8A1B33371400485957 /* LaunchScreen.xib */; };
 		C0F33B981B33371400485957 /* CamelotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33B971B33371400485957 /* CamelotTests.swift */; };
+		E29B1B158904CAA5C655996E /* libPods-Camelot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A068EA9EDB1914782DF595DD /* libPods-Camelot.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16D72321CBAAA802A2FC7930 /* Pods-Camelot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camelot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camelot/Pods-Camelot.debug.xcconfig"; sourceTree = "<group>"; };
+		A068EA9EDB1914782DF595DD /* libPods-Camelot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Camelot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4666CBF28B75AF0189F60CF /* Pods-Camelot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camelot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Camelot/Pods-Camelot.release.xcconfig"; sourceTree = "<group>"; };
 		C0F33B7C1B33371400485957 /* Camelot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camelot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F33B801B33371400485957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F33B811B33371400485957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29B1B158904CAA5C655996E /* libPods-Camelot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +62,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		708CEC827F0DC6A67B9514D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A068EA9EDB1914782DF595DD /* libPods-Camelot.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0D8FD197E569746C65645D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16D72321CBAAA802A2FC7930 /* Pods-Camelot.debug.xcconfig */,
+				A4666CBF28B75AF0189F60CF /* Pods-Camelot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C0F33B731B33371400485957 = {
 			isa = PBXGroup;
 			children = (
 				C0F33B7E1B33371400485957 /* Camelot */,
 				C0F33B941B33371400485957 /* CamelotTests */,
 				C0F33B7D1B33371400485957 /* Products */,
+				C0D8FD197E569746C65645D0 /* Pods */,
+				708CEC827F0DC6A67B9514D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0F33B9B1B33371400485957 /* Build configuration list for PBXNativeTarget "Camelot" */;
 			buildPhases = (
+				0601D943C0D52D85D9B0DFD5 /* Check Pods Manifest.lock */,
 				C0F33B781B33371400485957 /* Sources */,
 				C0F33B791B33371400485957 /* Frameworks */,
 				C0F33B7A1B33371400485957 /* Resources */,
+				EF02158E8CF883407A19CB48 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +234,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0601D943C0D52D85D9B0DFD5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EF02158E8CF883407A19CB48 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Camelot/Pods-Camelot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0F33B781B33371400485957 /* Sources */ = {
@@ -342,6 +401,7 @@
 		};
 		C0F33B9C1B33371400485957 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16D72321CBAAA802A2FC7930 /* Pods-Camelot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -355,6 +415,7 @@
 		};
 		C0F33B9D1B33371400485957 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4666CBF28B75AF0189F60CF /* Pods-Camelot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -418,6 +479,7 @@
 				C0F33B9D1B33371400485957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F33B9E1B33371400485957 /* Build configuration list for PBXNativeTarget "CamelotTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +488,7 @@
 				C0F33BA01B33371400485957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
