@@ -19,7 +19,12 @@ public var SurveyTask: ORKOrderedTask{
     
     steps += [instructionStep]
     
-    //TODO: add name question
+    // Name question
+    let nameAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
+    nameAnswerFormat.multipleLines = false
+    let nameQuestionStepTitle = "What is your name?"
+    let nameQuestionStep = ORKQuestionStep(identifier: "NameQuestion", title: nameQuestionStepTitle, answer: nameAnswerFormat)
+    steps += [nameQuestionStep]
     
     //TODO: add 'what is your quest' question
     
