@@ -15,6 +15,7 @@ public var SurveyTask: ORKOrderedTask{
     var instructionStep = ORKInstructionStep(identifier: "InstructionStep")
     instructionStep.title = "The Three Questions"
     instructionStep.text = "Who would cross the Bridge of Death must answer me these questions three, ere the other side they see."
+    //instructionStep.image = UIImage(named: "Image")
     
     steps += [instructionStep]
     
