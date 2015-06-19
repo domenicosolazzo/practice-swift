@@ -17,6 +17,7 @@
 		C0F33C5F1B33508100485957 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0F33C5B1B33507900485957 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0F33C641B3351B200485957 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33C631B3351B200485957 /* ConsentDocument.swift */; };
 		C0F33C661B33663800485957 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33C651B33663800485957 /* ConsentTask.swift */; };
+		C0F33C681B33DB0200485957 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33C671B33DB0200485957 /* SurveyTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C0F33C541B33507900485957 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		C0F33C631B3351B200485957 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		C0F33C651B33663800485957 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
+		C0F33C671B33DB0200485957 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				C0F33C271B33502600485957 /* Supporting Files */,
 				C0F33C631B3351B200485957 /* ConsentDocument.swift */,
 				C0F33C651B33663800485957 /* ConsentTask.swift */,
+				C0F33C671B33DB0200485957 /* SurveyTask.swift */,
 			);
 			path = ResearchKitDemo;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				C0F33C2C1B33502600485957 /* ViewController.swift in Sources */,
 				C0F33C661B33663800485957 /* ConsentTask.swift in Sources */,
+				C0F33C681B33DB0200485957 /* SurveyTask.swift in Sources */,
 				C0F33C641B3351B200485957 /* ConsentDocument.swift in Sources */,
 				C0F33C2A1B33502600485957 /* AppDelegate.swift in Sources */,
 			);
