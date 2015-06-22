@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="consentTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zGb-99-KQ5"/>
+                                    <action selector="surveyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Uj-fV-krT"/>
                                 </connections>
                             </button>
                         </subviews>
