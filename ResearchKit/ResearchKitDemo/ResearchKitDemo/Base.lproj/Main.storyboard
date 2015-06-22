@@ -34,6 +34,15 @@
                                     <action selector="surveyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Uj-fV-krT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45v-nq-0lw">
+                                <rect key="frame" x="260" y="361" width="82" height="30"/>
+                                <state key="normal" title="Microphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gN7-EH-xq4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -41,7 +50,10 @@
                             <constraint firstAttribute="centerX" secondItem="1VJ-LJ-Far" secondAttribute="centerX" id="JMk-N9-mk0"/>
                             <constraint firstAttribute="centerY" secondItem="1VJ-LJ-Far" secondAttribute="centerY" id="LhK-hD-D2a"/>
                             <constraint firstAttribute="centerX" secondItem="LHi-bB-n16" secondAttribute="centerX" constant="-0.5" id="Xuy-XK-iSO"/>
+                            <constraint firstItem="45v-nq-0lw" firstAttribute="top" secondItem="LHi-bB-n16" secondAttribute="bottom" constant="8" id="eiW-vt-dgI"/>
+                            <constraint firstAttribute="centerY" secondItem="45v-nq-0lw" secondAttribute="centerY" constant="-76" id="qSj-bs-7um"/>
                             <constraint firstAttribute="centerY" secondItem="LHi-bB-n16" secondAttribute="centerY" constant="-38" id="u9L-bD-kZJ"/>
+                            <constraint firstAttribute="centerX" secondItem="45v-nq-0lw" secondAttribute="centerX" constant="-1" id="xXk-rL-EjC"/>
                         </constraints>
                     </view>
                 </viewController>
