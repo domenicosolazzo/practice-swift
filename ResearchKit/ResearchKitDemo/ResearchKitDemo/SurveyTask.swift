@@ -26,11 +26,22 @@ public var SurveyTask: ORKOrderedTask{
     let nameQuestionStep = ORKQuestionStep(identifier: "NameQuestion", title: nameQuestionStepTitle, answer: nameAnswerFormat)
     steps += [nameQuestionStep]
     
-    //TODO: add 'what is your quest' question
+    // What is your quest question
+    let questQuestionStepTitle = "What is your quest?"
+    let textChoices = [
+        ORKTextChoice(text: "Create a ResearchKit App", value: 0),
+        ORKTextChoice(text: "Seek the Holy Grail", value: 1),
+        ORKTextChoice(text: "Find a shrubbery", value: 2)
+    ]
+    let questAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    let questQuestionStep = ORKQuestionStep(identifier: "TextChoiceQuestionStep", title: questQuestionStepTitle, answer: questAnswerFormat)
+    steps += [questQuestionStep]
     
-    //TODO: add color question step
-    
-    //TODO: add summary step
+    // Summary
+    let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
+    summaryStep.title = "Right. Off you go!"
+    summaryStep.text = "That was easy!"
+    steps += [summaryStep]
     
     
     return ORKOrderedTask(identifier: "SurveyTask", steps: steps)

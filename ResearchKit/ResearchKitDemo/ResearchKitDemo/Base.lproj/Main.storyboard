@@ -25,11 +25,23 @@
                                     <action selector="consentTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2q-pZ-mUC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-bB-n16">
+                                <rect key="frame" x="277" y="323" width="48" height="30"/>
+                                <state key="normal" title="Survey">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="consentTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zGb-99-KQ5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LHi-bB-n16" firstAttribute="top" secondItem="1VJ-LJ-Far" secondAttribute="bottom" constant="8" id="Ij3-Ap-2eO"/>
                             <constraint firstAttribute="centerX" secondItem="1VJ-LJ-Far" secondAttribute="centerX" id="JMk-N9-mk0"/>
                             <constraint firstAttribute="centerY" secondItem="1VJ-LJ-Far" secondAttribute="centerY" id="LhK-hD-D2a"/>
+                            <constraint firstAttribute="centerX" secondItem="LHi-bB-n16" secondAttribute="centerX" constant="-0.5" id="Xuy-XK-iSO"/>
+                            <constraint firstAttribute="centerY" secondItem="LHi-bB-n16" secondAttribute="centerY" constant="-38" id="u9L-bD-kZJ"/>
                         </constraints>
                     </view>
                 </viewController>
