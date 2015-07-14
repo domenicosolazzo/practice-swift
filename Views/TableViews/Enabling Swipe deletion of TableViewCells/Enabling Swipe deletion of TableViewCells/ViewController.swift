@@ -58,7 +58,7 @@ class ViewController: UIViewController,
     //- MARK: UITableViewDelegate
     // It indicates if it is possible to insert or delete rows
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.Delete
+        return UITableViewCellEditingStyle.None
     }
     
     // Get notified if a deletion has occurred
