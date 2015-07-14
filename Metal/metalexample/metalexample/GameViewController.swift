@@ -14,5 +14,13 @@ import QuartzCore
 
 class GameViewController: UIViewController {
     
-    let device: MTLDevice = MTLCreateSystemDefaultDevice()
+    override func viewDidLoad() {
+        // get device
+        let device: MTLDevice = MTLCreateSystemDefaultDevice()
+        
+        // create command queue
+        var commandQueue: MTLCommandQueue = device.newCommandQueue()
+        
+        
+    }
 }
