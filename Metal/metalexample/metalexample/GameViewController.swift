@@ -21,6 +21,13 @@ class GameViewController: UIViewController {
         // create command queue
         var commandQueue: MTLCommandQueue = device.newCommandQueue()
         
-        
+        // Vertex
+        let vertexArray:[Float] = [
+            
+            0.0, 0.75,
+            
+            -0.75, -0.75,
+            
+            0.75, -0.75]
     }
 }
