@@ -29,5 +29,10 @@ class GameViewController: UIViewController {
             -0.75, -0.75,
             
             0.75, -0.75]
+        
+        // Vertex buffer
+        var vertexBuffer: MTLBuffer! = device.newBufferWithBytes(vertexArray,
+            length: vertexArray.count * sizeofValue(vertexArray[0]),
+            options: nil)
     }
 }
