@@ -61,6 +61,16 @@ class GameViewController: UIViewController {
         //get next drawable texture
         var drawable = metalLayer.nextDrawable()
         
+        //create a render descriptor
+        let renderPassDescriptor = MTLRenderPassDescriptor()
         
+        renderPassDescriptor.colorAttachments[0].texture = drawable.texture //assign drawable texture
+        
+        renderPassDescriptor.colorAttachments[0].loadAction = .Clear //clear with color on load
+        
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 1.0,
+            green: 1.0,
+            blue: 0.0,
+            alpha: 1.0) // specify color to clear it with
     }
 }
