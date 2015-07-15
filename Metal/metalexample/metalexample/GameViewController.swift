@@ -34,5 +34,10 @@ class GameViewController: UIViewController {
         var vertexBuffer: MTLBuffer! = device.newBufferWithBytes(vertexArray,
             length: vertexArray.count * sizeofValue(vertexArray[0]),
             options: nil)
+        
+        // Get the shader
+        let newDefaultLibrary = device.newDefaultLibrary()
+        let newVertexFunction = newDefaultLibrary!.newFunctionWithName("myVertexShader")
+        let newFragmentFunction = newDefaultLibrary!.newFunctionWithName("myFragmentShader")
     }
 }
