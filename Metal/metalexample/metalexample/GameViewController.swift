@@ -44,6 +44,11 @@ class GameViewController: UIViewController {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = newVertexFunction
         pipelineDescriptor.fragmentFunction = newFragmentFunction
+        // More format here: https://developer.apple.com/library/ios/documentation/Metal/Reference/MetalConstants_Ref/#//apple_ref/c/tdef/MTLPixelFormat
         pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
+        
+        // Render pipeline state from descriptor
+        var pipelineState: MTLRenderPipelineState!
+        pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineDescriptor, error: nil)
     }
 }
