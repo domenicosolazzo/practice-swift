@@ -57,5 +57,10 @@ class GameViewController: UIViewController {
         metalLayer.pixelFormat = .BGRA8Unorm
         metalLayer.frame = view.layer.frame
         view.layer.addSublayer(metalLayer)
+        
+        //get next drawable texture
+        var drawable = metalLayer.nextDrawable()
+        
+        
     }
 }
