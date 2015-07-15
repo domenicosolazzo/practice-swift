@@ -39,5 +39,11 @@ class GameViewController: UIViewController {
         let newDefaultLibrary = device.newDefaultLibrary()
         let newVertexFunction = newDefaultLibrary!.newFunctionWithName("myVertexShader")
         let newFragmentFunction = newDefaultLibrary!.newFunctionWithName("myFragmentShader")
+        
+        // Render the pipeline
+        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        pipelineDescriptor.vertexFunction = newVertexFunction
+        pipelineDescriptor.fragmentFunction = newFragmentFunction
+        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
     }
 }
