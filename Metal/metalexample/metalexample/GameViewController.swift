@@ -85,5 +85,9 @@ class GameViewController: UIViewController {
         
         //drawing begin
         renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1) //drawin
+        
+        //commit to view
+        commandBuffer.presentDrawable(drawable)
+        commandBuffer.commit()
     }
 }
