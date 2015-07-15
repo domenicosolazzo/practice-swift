@@ -82,5 +82,8 @@ class GameViewController: UIViewController {
         //provide pipelineState and vertexBuffer
         renderEncoder.setRenderPipelineState(pipelineState)
         renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
+        
+        //drawing begin
+        renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1) //drawin
     }
 }
