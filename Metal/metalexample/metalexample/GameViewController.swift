@@ -78,5 +78,9 @@ class GameViewController: UIViewController {
         
         //create Encoder - converts code to machine language
         let renderEncoder:MTLRenderCommandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)!
+        
+        //provide pipelineState and vertexBuffer
+        renderEncoder.setRenderPipelineState(pipelineState)
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
     }
 }
