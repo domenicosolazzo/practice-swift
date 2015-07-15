@@ -50,5 +50,12 @@ class GameViewController: UIViewController {
         // Render pipeline state from descriptor
         var pipelineState: MTLRenderPipelineState!
         pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineDescriptor, error: nil)
+        
+        //prepare view with layer
+        let  metalLayer = CAMetalLayer()
+        metalLayer.device = device //set the device
+        metalLayer.pixelFormat = .BGRA8Unorm
+        metalLayer.frame = view.layer.frame
+        view.layer.addSublayer(metalLayer)
     }
 }
