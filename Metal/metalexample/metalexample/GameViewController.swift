@@ -75,5 +75,8 @@ class GameViewController: UIViewController {
         
         //Command Buffer - get next available command buffer
         let commandBuffer = commandQueue.commandBuffer()
+        
+        //create Encoder - converts code to machine language
+        let renderEncoder:MTLRenderCommandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)!
     }
 }
