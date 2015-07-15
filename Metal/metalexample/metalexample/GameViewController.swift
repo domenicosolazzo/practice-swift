@@ -72,5 +72,8 @@ class GameViewController: UIViewController {
             green: 1.0,
             blue: 0.0,
             alpha: 1.0) // specify color to clear it with
+        
+        //Command Buffer - get next available command buffer
+        let commandBuffer = commandQueue.commandBuffer()
     }
 }
