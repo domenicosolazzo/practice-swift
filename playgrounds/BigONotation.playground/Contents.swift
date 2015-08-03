@@ -29,6 +29,7 @@ count = 0;
 func binarySearch(key: Int, imin: Int, imax: Int) {
     count++
     println("Count is \(count)")
+    
     //find the value at the middle index
     
     var midIndex : Double = round(Double((imin + imax) / 2))
