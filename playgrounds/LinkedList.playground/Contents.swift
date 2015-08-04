@@ -50,7 +50,33 @@ public class LinkedList<T: Equatable>{
     
     // Remove a link at a specific index
     func removeLinkAtIndex(index: Int){
-    
+        
+        var current: LLNode<T>? = head
+        var trailer: LLNode<T>?
+        var listIndex: Int = 0
+        
+        // Determine if the removal is at the head
+        if (index == 0){
+            current = current?.next
+            head = current!
+            return
+        }
+        
+        // Iterate through the remaining items
+        while (current != nil){
+            
+            if (listIndex == index){
+                // Redirect the trailer and next pointers
+                trailer!.next = current?.next
+                current = nil
+                break
+            }
+            
+            // Update the assignments
+            trailer = current
+            current = current?.next
+            listIndex++
+        }
     }
     
     // Print all keys for the class
