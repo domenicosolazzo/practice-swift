@@ -34,6 +34,12 @@ public class LinkedList<T: Equatable>{
     
     // Print all keys for the class
     func printAllKeys(){
-    
+        var current: LLNode! = head
+        
+        // assign the next instance
+        while (current != nil) {
+            println("link item is: \(current.key)")
+            current = current.next
+        }
     }
 }
