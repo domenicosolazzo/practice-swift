@@ -24,7 +24,28 @@ public class LinkedList<T: Equatable>{
     
     // Append a new item to a linked list
     func addLink(key:T){
-    
+        // establish the head node
+        if (head.key == nil) {
+            head.key = key
+            return;
+        }
+        
+        // establish the iteration variables
+        var current: LLNode? = head
+        
+        while (current != nil) {
+            if (current?.next == nil) {
+                
+                var childToUse: LLNode = LLNode<T>()
+                
+                childToUse.key = key
+                childToUse.previous = current
+                current!.next = childToUse
+                break;
+            }
+            
+            current = current?.next
+        }
     }
     
     // Remove a link at a specific index
