@@ -18,7 +18,18 @@ public class LinkedList<T: Equatable>{
     // The number of linked items
     var count: Int{
         get{
-            return 0
+            if (head.key == nil) {
+                return 0
+            }else{
+                var current: LLNode = head
+                var result: Int = 1
+                
+                while ((current.next) != nil) {
+                    current = current.next!
+                    result++
+                }
+                return result
+            }
         }
     }
     
