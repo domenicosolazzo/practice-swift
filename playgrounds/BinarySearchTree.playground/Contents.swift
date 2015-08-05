@@ -55,3 +55,11 @@ public class AVLTree<T: Comparable> {
         }
     }
 }
+
+// Create a new BST instance
+var root = AVLTree<Int>()
+
+// Sort each item in the list
+for number in numberList {
+    root.addNode(number)
+}
