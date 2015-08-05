@@ -1,4 +1,5 @@
 //: Playground - noun: a place where people can play
+// Source: http://goo.gl/ozM0Pv
 
 import Foundation
 
