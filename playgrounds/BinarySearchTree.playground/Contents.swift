@@ -56,20 +56,22 @@ public class AVLTree<T: Comparable> {
     }
     
     // Print the BST
-    public static func printBST(node:AVLTree<T>){
-        
+    public static func printBST(node:AVLTree<T>, level:Int){
+        var l = level
+        print("Level \(l)")
         if (node.key != nil){
-           println("Key: \(node.key!)")
+           println("Key: \(node.key!) => Level: \(l)")
         }
         
+        l++
         // Print left side
         if (node.left != nil){
-            printBST(node.left!)
+            printBST(node.left!, level:l)
         }
         
         // Print right side
         if (node.right != nil){
-            printBST(node.right!)
+            printBST(node.right!, level:l)
         }
         
     }
@@ -85,4 +87,4 @@ for number in numberList {
 }
 
 // Print the BST
-AVLTree.printBST(root)
+AVLTree.printBST(root, level: 0)
