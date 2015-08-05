@@ -54,6 +54,26 @@ public class AVLTree<T: Comparable> {
             }
         }
     }
+    
+    // Print the BST
+    public static func printBST(node:AVLTree<T>){
+        
+        if (node.key != nil){
+           println("Key: \(node.key!)")
+        }
+        
+        // Print left side
+        if (node.left != nil){
+            printBST(node.left!)
+        }
+        
+        // Print right side
+        if (node.right != nil){
+            printBST(node.right!)
+        }
+        
+    }
+    
 }
 
 // Create a new BST instance
@@ -63,3 +83,6 @@ var root = AVLTree<Int>()
 for number in numberList {
     root.addNode(number)
 }
+
+// Print the BST
+AVLTree.printBST(root)
