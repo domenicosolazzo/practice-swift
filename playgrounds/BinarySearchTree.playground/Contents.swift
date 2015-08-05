@@ -1,4 +1,4 @@
-//: Playground - noun: a place where people can play
+// Binary Search Tree
 // Source: http://goo.gl/ozM0Pv
 
 import Foundation
