@@ -84,7 +84,7 @@ public class Trie {
             // Iterate through any children
             for child in current.children {
                 if (child.key == searchKey){
-                    childToUse = childToUse
+                    childToUse = child
                     current = childToUse
                     break
                 }
@@ -110,4 +110,18 @@ public class Trie {
         
         return wordList
     }
+}
+
+// Extend the native String class
+extension String{
+    // compute the length of string
+    var length: Int {
+        return Array(self).count
+    }
+    
+    // returns characters of a string up to a specific index
+    func substringToIndex(to: Int) -> String{
+        return self.substringToIndex(advance(self.startIndex, to))
+    }
+
 }
