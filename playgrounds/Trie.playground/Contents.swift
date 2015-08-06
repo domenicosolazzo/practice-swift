@@ -1,5 +1,6 @@
 // Trie Data Structure
-// Source:
+// Source: http://goo.gl/515yko
+
 import Foundation
 
 // Trie node data structure
