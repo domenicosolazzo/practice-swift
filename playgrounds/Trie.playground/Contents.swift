@@ -65,4 +65,49 @@ public class Trie {
         }
         
     }
+    
+    // Find all words based on a prefix
+    func findWord(keyword: String) -> Array<String>! {
+        
+        if (keyword.length == 0){
+            return nil
+        }
+        
+        var current: TrieNode = root
+        var searchKey: String!
+        var wordList: Array<String>! = Array<String>()
+        
+        while(keyword.length != current.level){
+            var childToUse: TrieNode!
+            var searchKey = keyword.substringToIndex(current.level + 1)
+            
+            // Iterate through any children
+            for child in current.children {
+                if (child.key == searchKey){
+                    childToUse = childToUse
+                    current = childToUse
+                    break
+                }
+            }
+            
+            // Prefix not found
+            if (childToUse == nil){
+                return nil
+            }
+        }
+        
+        // Retrieve keyword and any descendants
+        if ((current.key == keyword) && (current.isFinal)){
+            wordList.append(current.key)
+        }
+        
+        // Add children that are words
+        for child in current.children {
+            if (child.isFinal == true){
+                wordList.append(child.key)
+            }
+        }
+        
+        return wordList
+    }
 }
