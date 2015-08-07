@@ -57,4 +57,19 @@ public class Queue<T> {
         
         return queueitem
     }
+    
+    // Check for the presence of a value
+    func isEmpty() -> Bool {
+        // Determine if the key or instance
+        if let topitem: T = self.top?.key {
+            return false
+        }else {
+            return true
+        }
+    }
+    
+    // Retrieve the top most item
+    func peek() -> T? {
+        return top.key!
+    }
 }
