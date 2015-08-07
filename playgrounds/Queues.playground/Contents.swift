@@ -1,5 +1,3 @@
-//: Playground - noun: a place where people can play
+// Queue Data Structure
+// Source:
 
-import UIKit
-
-var str = "Hello, playground"
