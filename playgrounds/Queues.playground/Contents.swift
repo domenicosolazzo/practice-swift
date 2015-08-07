@@ -35,4 +35,26 @@ public class Queue<T> {
         childToUse.key = key
         current.next = childToUse
     }
+    
+    // Retrieve items from the top level
+    func deQueue() -> T? {
+        // Determine if the key or instance exists
+        let topitem: T? = self.top?.key
+        
+        if (topitem == nil) {
+            return nil
+        }
+        
+        // Retrieve and queue the next item
+        var queueitem: T? = top.key!
+        
+        // Use optional binding
+        if let nextitem = top.next {
+            top = nextitem
+        }else{
+            top = nil
+        }
+        
+        return queueitem
+    }
 }
