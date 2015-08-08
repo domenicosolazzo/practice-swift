@@ -35,6 +35,18 @@ public class SwiftGraph {
         isDirected = true
     }
     
+    // Create a new vertex
+    func addVertex(key:String) -> Vertex {
+    
+        // Set the key
+        var childVertex: Vertex = Vertex()
+        childVertex.key = key
+        
+        // Add the vertex to the graph canvas
+        canvas.append(childVertex)
+        
+        return childVertex
+    }
 }
 
 
