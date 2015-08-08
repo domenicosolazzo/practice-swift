@@ -47,6 +47,29 @@ public class SwiftGraph {
         
         return childVertex
     }
+    
+    // Add an edge to source vertex
+    func addEdge(source: Vertex, neightbor: Vertex, weight: Int) {
+        
+        // Create a new edge
+        var newEdge = Edge()
+        
+        // Establish the default properties
+        newEdge.neighbor = neightbor
+        newEdge.weight = weight
+        source.neighbors.append(newEdge)
+        
+        // Check for undirected graph
+        if (isDirected == false) {
+            // Create a new reversed edge
+            var reverseEdge = Edge()
+            
+            // Establish the reversed properties
+            reverseEdge.neighbor = source
+            reverseEdge.weight = weight
+            neightbor.neighbors.append(reverseEdge)
+        }
+    }
 }
 
 
