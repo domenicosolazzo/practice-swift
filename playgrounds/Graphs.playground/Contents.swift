@@ -25,5 +25,17 @@ public class Edge {
     }
 }
 
+// A default Directed Graph Canvas
+public class SwiftGraph {
+    private var canvas: Array<Vertex>
+    public var isDirected: Bool
+    
+    init() {
+        canvas = Array<Vertex>()
+        isDirected = true
+    }
+    
+}
+
 
 
