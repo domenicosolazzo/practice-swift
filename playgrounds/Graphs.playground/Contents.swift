@@ -72,5 +72,19 @@ public class SwiftGraph {
     }
 }
 
+// Dijkstra's shortest path
+class Path {
+    
+    var total: Int!
+    var destination: Vertex
+    var previous: Path!
+    
+    // Object initialization
+    init() {
+        destination = Vertex()
+    }
+}
+
+
 
 
