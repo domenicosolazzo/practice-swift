@@ -85,6 +85,26 @@ class Path {
     }
 }
 
+// Process Dijkstra's shortest path algorithm
+func processDijkstra(source: Vertex, destination: Vertex) -> Path? {
+    
+    var frontier: Array = Array<Path>()
+    var finalPaths: Array = Array<Path>()
+    
+    // Use source edges to create the frontier
+    for e in source.neighbors {
+        
+        var newPath: Path = Path()
+        
+        newPath.destination = e.neighbor
+        newPath.previous = nil
+        newPath.total = e.weight
+        
+        // Add the new path to the frontier
+        frontier.append(newPath)
+    }
+}
+
 
 
 
