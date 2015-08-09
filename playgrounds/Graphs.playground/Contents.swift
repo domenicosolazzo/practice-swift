@@ -103,6 +103,60 @@ func processDijkstra(source: Vertex, destination: Vertex) -> Path? {
         // Add the new path to the frontier
         frontier.append(newPath)
     }
+    
+    // Construct the best path
+    var bestPath: Path = Path()
+    
+    while (frontier.count != 0) {
+        
+        // Support path changes using the greedy approach
+        bestPath = Path()
+        
+        var x: Int = 0
+        var pathIndex: Int = 0
+        
+        for (x=0; x < frontier.count; x++) {
+            var itemPath: Path = frontier[x]
+            
+            if (bestPath.total == nil) ||(itemPath.total < bestPath.total) {
+                bestPath = itemPath
+                pathIndex = x
+            }
+        }
+        
+        // Enumerate the bestPath edges
+        for e in bestPath.destination.neighbors {
+            
+            var newPath: Path = Path()
+            
+            newPath.destination = e.neighbor
+            newPath.previous = bestPath
+            newPath.total = bestPath.total + e.weight
+            
+            // Add the new path to the frontier
+            frontier.append(newPath)
+        }
+        
+        // Preserve the bestPath
+        finalPaths.append(bestPath)
+        
+        // Remove the bestPath from the frontier
+        frontier.removeAtIndex(pathIndex)
+    }
+    
+    // Establish the shortest path as an optional
+    var shortestPath: Path! = Path()
+    
+    for itemPath in finalPaths {
+        if (itemPath.destination.key == destination.key) {
+            if (shortestPath.total == nil) || (itemPath.total < shortestPath.total) {
+                shortestPath = itemPath
+            }
+        }
+    
+    }
+    
+    return shortestPath
 }
 
 
