@@ -2,10 +2,12 @@ Practice Swift
 ==============
 Practice does make perfect: an alternative way to learn Swift
 
-## WHY?
-I am new to iOS development and I started learning Swift some months ago.
 
-This is my list of iOS projects following all the tutorials, book tutorials and code examples that I have found around the web.
+
+## WHY?
+I am new to iOS development and I started learning Swift more than a year ago.
+
+This is my list of iOS projects following tutorials, books and code examples that I have found around the web.
 
 Hope this material will be useful to other people and will help you to get a better understanding about Swift.
 
