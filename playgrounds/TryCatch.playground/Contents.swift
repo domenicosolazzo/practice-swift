@@ -21,9 +21,20 @@ func doStuff() throws -> String{
     return "Some return value"
 }
 
+// Do / Catch statement
 do {
     try doStuff() // Acknowledge that this code may fail
     print("Success")
 }catch{
     print("An error occurred")
 }
+
+do {
+    try doStuff()
+    print("Success")
+} catch MyError.NetworkError {
+    print("A newtwork error occurred")
+} catch {
+    print("An error occurred")
+}
+
