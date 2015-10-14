@@ -20,3 +20,10 @@ func doStuff() throws -> String{
     
     return "Some return value"
 }
+
+do {
+    try doStuff() // Acknowledge that this code may fail
+    print("Success")
+}catch{
+    print("An error occurred")
+}
