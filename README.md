@@ -101,6 +101,7 @@ Always welcome!!!
 - UIKit
 - Camera
 - SceneKit
+- Try / Catch 
 
 ### Apps
 - [TodoList app](http://goo.gl/sQHnj6)
