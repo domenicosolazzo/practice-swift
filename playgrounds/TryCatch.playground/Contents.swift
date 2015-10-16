@@ -38,3 +38,10 @@ do {
     print("An error occurred")
 }
 
+
+// Error in Swift 1.2
+var err:NSError?
+let contents = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: &err)
+if err != nil{
+    //Do something crazy!
+}
