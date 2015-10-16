@@ -39,9 +39,23 @@ do {
 }
 
 
-// Error in Swift 1.2
+/** Error in Swift 1.2
+
 var err:NSError?
 let contents = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: &err)
 if err != nil{
     //Do something crazy!
 }
+
+*/
+
+/** Error in Swift 2 */
+let contents: NSString?
+do{
+    contents = try NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+} catch _ {
+    contents = nil
+}
+
+
+
