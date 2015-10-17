@@ -23,3 +23,33 @@ func earlyReturn() {
     if address == "" { return }
     // code awesonmeness
 }
+
+enum InputError:ErrorType{
+    case NameIsEmpty
+    case TooYoung
+    case IsiOS8
+    case WrongAddress
+}
+
+// GUARD
+func useGuard(name:String, age:Int, address:String?) throws {
+    guard name.characters.count > 0 else {
+        throw InputError.NameIsEmpty
+    }
+    
+    guard age > 18 else {
+        throw InputError.TooYoung
+    }
+    
+    guard #available(iOS 9, *) else{
+        throw InputError.IsiOS8
+    }
+    
+    guard let unwrappedAddress = address else{
+        throw InputError.WrongAddress
+    }
+    
+    print(name, age, unwrappedAddress)
+}
+
+
