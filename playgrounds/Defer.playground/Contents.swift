@@ -43,6 +43,7 @@ func fetchStatus() -> String{
 func writeLog() {
     let file = openFile()
     // It will close the file not matter what
+    // It will be executed before the method exit
     defer { closeFile(file) }
     
     let status = fetchStatus()
@@ -50,4 +51,13 @@ func writeLog() {
     
 }
 
+
+// Using defer with a temporary scope
+do{
+    defer{print("deferred...")}
+    print("1")
+    print("2")
+}
+
+print("3")
 
