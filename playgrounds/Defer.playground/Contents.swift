@@ -25,4 +25,29 @@ func writeLog() {
 */
 
 
+// Mock functions
+func openFile() -> String{
+    print("open the file")
+    return "file"
+}
+
+func closeFile(file:String){
+    print("Close file")
+}
+
+func fetchStatus() -> String{
+    print("Status is...")
+    return "status1"
+}
+
+func writeLog() {
+    let file = openFile()
+    // It will close the file not matter what
+    defer { closeFile(file) }
+    
+    let status = fetchStatus()
+    guard status != "status" else { return }
+    
+}
+
 
