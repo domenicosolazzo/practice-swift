@@ -18,3 +18,5 @@ Playgrounds
 - UIKit
 - Camera
 - SceneKit
+- Guard
+- Defer
