@@ -33,3 +33,18 @@ func useStackView() {
 }
 
 
+// Stacking the available keyword
+@available(iOS 9, *)
+func iOS9Work(){
+
+}
+
+@available(iOS 8, *)
+func iOS8Work() {
+    // do stuff
+    if #available(iOS 9, *) {
+        iOS9Work()
+    }
+}
+
+
