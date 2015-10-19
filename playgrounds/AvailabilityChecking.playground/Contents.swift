@@ -11,4 +11,11 @@ if NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majo
 }
 */
 
+if #available(iOS 9, *){
+    // Use iOS 9 framework, or any other unknown platforms like watchOS
+    // * => Unknown platform
+}else{
+    // Use iOS 8
+}
+
 
