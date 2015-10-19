@@ -18,4 +18,11 @@ if #available(iOS 9, *){
     // Use iOS 8
 }
 
+func myMethod(){
+    guard #available(iOS 9, *) else {
+        return // Run this code if you are not in iOS 9 or later
+    }
+    
+}
+
 
