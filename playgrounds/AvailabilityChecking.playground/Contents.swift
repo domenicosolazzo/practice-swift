@@ -26,3 +26,10 @@ func myMethod(){
 }
 
 
+// This method is only available for iOS 9
+@available(iOS 9, *)
+func useStackView() {
+    // use UIStackView
+}
+
+
