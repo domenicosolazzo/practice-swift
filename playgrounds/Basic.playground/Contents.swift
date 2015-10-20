@@ -68,3 +68,13 @@ let 🐶🐮 = "dogcow"
 **/
 let myMessage = "My message"
 print(myMessage)
+
+/**
+* ==================================
+* ======= Semicolons =======
+* ==================================
+* Unlike many other languages, Swift does not require you to write a semicolon (;) after
+* each statement in your code (you can do it if you wish)
+* However, they are required if you want to write multiple separate statements on a single line
+**/
+let cat = "🐱"; print(cat)
