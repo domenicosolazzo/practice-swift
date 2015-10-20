@@ -6,8 +6,9 @@
  * Double and Float for floating-point values, Bool for Boolean values, and
  * String for textual data.
  **/
-let myInt: Int = 3
-let myDouble: Double = 2.12
-let myFloat: Float = 2.0
-let myBool: Bool = true
-let myString: String = "My string"
+var myInt: Int = 3
+var myDouble: Double = 2.12
+var myFloat: Float = 2.0
+var myBool: Bool = true
+var myString: String = "My string"
+
