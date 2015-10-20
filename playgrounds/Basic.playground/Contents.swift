@@ -30,8 +30,9 @@ let myConstant = "This is a constant and you cannot change this value"
 var x = 0.0, y = 0.0, z = 0.0
 
 /**
- * Type Annotations
- * 
+ * ================================
+ * ======= Type Annotations =======
+ * ================================
  * You can provide a type annotation when you declare a constant or variable,
  * to be clear about the kind of values the constant or variable can store.
  * Write a type annotation by placing a colon after the constant or variable name, followed by a space, followed by the name of the type to use
@@ -41,3 +42,16 @@ var welcome: String
 
 // You can define multiple related variables of the same type
 var red, blue, green: Double
+
+/**
+* ================================
+* ======= Naming variables =======
+* ================================
+* Variables names can contain almost any character, including Unicode characters.
+* They cannot contain whitespaces, mathematical symbols, arrows, private-use Unicode code points, or line- and box-drawing characters or beginning with a number.
+* You can't redeclare a variable again with the same name or change its value to a different type. Nor you can change a variable in a constant and viceversa.
+**/
+// Some examples of variable's names
+let π = 3.14159
+let 你好 = "你好世界"
+let 🐶🐮 = "dogcow"
