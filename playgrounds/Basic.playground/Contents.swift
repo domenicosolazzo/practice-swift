@@ -23,3 +23,8 @@ myVariable = "Changing this variable"
 
 let myConstant = "This is a constant and you cannot change this value"
 // myConstant = "error" <= It would give an error
+
+/**
+ * You can declare multiple constants or multiple variables on a single line, separated by commas
+ **/
+var x = 0.0, y = 0.0, z = 0.0
