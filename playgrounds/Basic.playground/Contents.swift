@@ -55,3 +55,16 @@ var red, blue, green: Double
 let π = 3.14159
 let 你好 = "你好世界"
 let 🐶🐮 = "dogcow"
+
+/**
+* ==================================
+* ======= Printing Variables =======
+* ==================================
+* You can print the current value of a constant or variable with the print function
+* The definition of the print function is:
+* print(_:separator:terminator)
+*
+* You can omit the separator and terminator most of the time.
+**/
+let myMessage = "My message"
+print(myMessage)
