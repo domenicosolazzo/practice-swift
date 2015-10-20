@@ -28,3 +28,16 @@ let myConstant = "This is a constant and you cannot change this value"
  * You can declare multiple constants or multiple variables on a single line, separated by commas
  **/
 var x = 0.0, y = 0.0, z = 0.0
+
+/**
+ * Type Annotations
+ * 
+ * You can provide a type annotation when you declare a constant or variable,
+ * to be clear about the kind of values the constant or variable can store.
+ * Write a type annotation by placing a colon after the constant or variable name, followed by a space, followed by the name of the type to use
+ *
+ **/
+var welcome: String
+
+// You can define multiple related variables of the same type
+var red, blue, green: Double
