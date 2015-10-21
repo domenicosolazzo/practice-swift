@@ -66,6 +66,19 @@ Double can have a precision of at least 15 decimal digits, whereas the precision
 let theDouble:Double = 3.252151521522
 let theFloat:Float = 3.29
 
+/**
+* ====================================
+* =========== Type safety ============
+* ====================================
+**/
+/**
+Swift is a safe language and it encourages you to be clear about the types of values 
+your code can work with. If a variable expects a String, you cannot pass it an Int.
+
+Swift performs type checks when compiling your code and flags any mismatched types as errors.
+It helps to catch and fix errors as early as possible in the development process.
+**/
+
 
 
 
