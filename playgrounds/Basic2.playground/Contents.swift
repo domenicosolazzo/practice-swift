@@ -25,4 +25,16 @@ let minValue = UInt8.min
 // Max value is equal to 255 and type UInt8
 let maxValue = UInt8.max
 
+/**
+==== Int ====
+Swift provides an additional integer type called Int. It has the same size as the current platform's native word size.
+
+- On a 32-bit platform, Int is the same size as Int32
+- On a 64-bit platform, Int is the same size as Int64
+**/
+let intValue = Int.max
+print(intValue)
+
+
+
 
