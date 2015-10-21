@@ -79,6 +79,23 @@ Swift performs type checks when compiling your code and flags any mismatched typ
 It helps to catch and fix errors as early as possible in the development process.
 **/
 
+/**
+* ====================================
+* =========== Type inference ============
+* ====================================
+**/
+/**
+Swift uses type inference, which helps a compiler to deduce the appropriate type for a variable.
+For this reason, Swift requires far fewer type declarations than languages such as C.
+Constant and variables are still explicitely typed but the work of specifying their type is done for you.
+
+Swift will infer a Double type for Floating-Point numbers and when combining Integers and Floating-Point literals.
+**/
+let meaningOfLife = 42 // Swift will infer that the type of the variable is Int
+let pi = 3.14159 // Swift will infer that they type of the variable is Double (Floating-Point)
+
+let inferredType = 3 + 0.14159 // Swift will infer Double from the context
+
 
 
 
