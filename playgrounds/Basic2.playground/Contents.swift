@@ -1,6 +1,7 @@
 //: Basic about Swift
 // Described in this playground
 // - Integers
+// - Floating-point numbers
 
 /**
  * =================================
@@ -47,7 +48,23 @@ let uintMaxValue = UInt.max
 print(uintMaxValue)
 
 
+/**
+* ===============================================
+* =========== Floating-Point Numbers ============
+* ===============================================
+**/
+/**
+Floating-Point numbers are numbers with a fractional component (e.g. 3.14159, 0.1, -273.12)
+They can represent a much wider range of values than integer types, and can store numbers that are much larger or smaller than can be store in an Int.
 
+There are two types of Floating-Point Numbers:
+- Double represents a 64-bit floating-point numbers
+- Float represents a 32-bit floating-point numbers
+
+Double can have a precision of at least 15 decimal digits, whereas the precision of Float can be as little as 6 decimal digits.
+**/
+let theDouble:Double = 3.252151521522
+let theFloat:Float = 3.29
 
 
 
