@@ -32,8 +32,22 @@ Swift provides an additional integer type called Int. It has the same size as th
 - On a 32-bit platform, Int is the same size as Int32
 - On a 64-bit platform, Int is the same size as Int64
 **/
-let intValue = Int.max
-print(intValue)
+let intMaxValue = Int.max
+print(intMaxValue)
+
+/**
+==== UInt ====
+Swift also provides an unsigned integer type UInt, which has the same size as the current platform's 
+native word size.
+
+- On a 32-bit platform, UInt is the same size as UInt32
+- On a 64-bit platform, UInt is the same size as UInt64
+**/
+let uintMaxValue = UInt.max
+print(uintMaxValue)
+
+
+
 
 
 
