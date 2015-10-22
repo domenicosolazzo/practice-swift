@@ -116,5 +116,16 @@ let octalInteger = 0o21
 let hexadecimalInteger = 0x11
 
 
+/**
+Decimal floats can have an optional exponent, indicated by an uppercase or lowercase "e";
+hexadecimal floats must have an exponent, indicated by an uppercase "p"
+
+For dcimal numbers with an exponent of exp, the base number is multiplied by 10^exp
+**/
+let exp1 = 1.25e2    // 1.25 * 10^2  => 125.0
+let exp2 = 1.25e-2   // 1.25 * 10^-2 => 0.0125
+let exp3 = 0xFp2     // 15 * 2^2 => 60.0
+let exp4 = 0xFp-2    // 15 * 2^-2 => 3.75
+
 
 
