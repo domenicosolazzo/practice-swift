@@ -89,12 +89,31 @@ Swift uses type inference, which helps a compiler to deduce the appropriate type
 For this reason, Swift requires far fewer type declarations than languages such as C.
 Constant and variables are still explicitely typed but the work of specifying their type is done for you.
 
-Swift will infer a Double type for Floating-Point numbers and when combining Integers and Floating-Point literals.
+Swift will infer a Double type for Floating-Point numbers and when combining Integers and Floating-Point literals.ot 
 **/
 let meaningOfLife = 42 // Swift will infer that the type of the variable is Int
 let pi = 3.14159 // Swift will infer that they type of the variable is Double (Floating-Point)
 
 let inferredType = 3 + 0.14159 // Swift will infer Double from the context
+
+/**
+* =======================================
+* =========== Numeric Literals ==========
+* =======================================
+**/
+/**
+Integer literals can be written as:
+- A decimal number, with no prefix
+- A binary number, with a 0b prefix
+- An octal number, with a 0o prefix
+- A hexadecimal number, with a 0x prefix
+
+**/
+// Decimal value of 17
+let decimalInteger = 17
+let binaryInteger = 0b10001
+let octalInteger = 0o21
+let hexadecimalInteger = 0x11
 
 
 
