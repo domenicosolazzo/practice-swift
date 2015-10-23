@@ -127,5 +127,20 @@ let exp2 = 1.25e-2   // 1.25 * 10^-2 => 0.0125
 let exp3 = 0xFp2     // 15 * 2^2 => 60.0
 let exp4 = 0xFp-2    // 15 * 2^-2 => 3.75
 
+/**
+* =======================================
+* =========== Type Aliases ==============
+* =======================================
+**/
+/**
+Type aliases define an alternative name for an existing type.
+You define type aliases with the typealias keyword.
 
+Type aliases are useful when you want to refer to an existing
+type by a name that is contextually more appropriate, such as
+when working with data of a specific size.
+**/
+typealias AudioSample = UInt16
+
+var maxAmplitudeFound = AudioSample.min
 
