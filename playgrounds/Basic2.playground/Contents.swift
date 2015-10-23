@@ -127,6 +127,20 @@ let exp2 = 1.25e-2   // 1.25 * 10^-2 => 0.0125
 let exp3 = 0xFp2     // 15 * 2^2 => 60.0
 let exp4 = 0xFp-2    // 15 * 2^-2 => 3.75
 
+
+/**
+* =======================================
+* =========== Booleans ==============
+* =======================================
+**/
+/**
+Swift has a boolean type, called Bool.
+Boolean has two constant values, true and false
+**/
+let orangesAreOrange = true
+let applesAreOrange = false
+
+
 /**
 * =======================================
 * =========== Type Aliases ==============
