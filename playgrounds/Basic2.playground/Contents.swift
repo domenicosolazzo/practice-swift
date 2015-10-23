@@ -130,7 +130,7 @@ let exp4 = 0xFp-2    // 15 * 2^-2 => 3.75
 
 /**
 * =======================================
-* =========== Booleans ==============
+* =========== Booleans ==================
 * =======================================
 **/
 /**
@@ -158,3 +158,34 @@ typealias AudioSample = UInt16
 
 var maxAmplitudeFound = AudioSample.min
 
+/**
+* =======================================
+* =========== Tuples ====================
+* =======================================
+**/
+/**
+Tuples group multiple values into a single compound value.
+The values within a tuple can be of any type and do not have
+to be of the same type as each other.
+**/
+let tupleExample = (404, "Not Found") // Tuple of type (Int, String)
+
+/**
+You can decompose a tuple's contents into a separate constants or variables,
+which you then access as usual
+**/
+let (statusCode, statusMessage) = tupleExample
+
+print("Status code is \(statusCode)")
+print("Status message is \(statusMessage)")
+
+/**
+If you only need some of the tuple's values, ignore parts of the tuple with an underscore (_)
+when you decompose the tuple
+**/
+let (justTheStatusCode, _) = tupleExample
+
+/**
+Alternatively, access to the individual element values in a tuple using index numbers starting at zero
+**/
+print("The status code is \(tupleExample.0)")
