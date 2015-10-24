@@ -189,3 +189,21 @@ let (justTheStatusCode, _) = tupleExample
 Alternatively, access to the individual element values in a tuple using index numbers starting at zero
 **/
 print("The status code is \(tupleExample.0)")
+
+/**
+* =======================================
+* =========== Assertions ================
+* =======================================
+**/
+/**
+In some cases, it is not possible for your code to continue execution 
+if a particular condition is not satisfied.
+In these situations, you can trigger an assertion in your code to end code
+execution and to provide an opportunity to debug.
+Assertion will cause your code to stop!
+**/
+/** 
+let age = -3
+assert(age >= 0, "A person's age cannot be less than zero")
+// The assert will trigger and print the message if the assertion is false
+**/
