@@ -2,6 +2,13 @@
 // Described in this playground
 // - Integers
 // - Floating-point numbers
+// - Type safety
+// - Type inference
+// - Numeric Literals
+// - Booleans
+// - Type aliases
+// - Tuples
+// - Assertions
 
 /**
  * =================================
