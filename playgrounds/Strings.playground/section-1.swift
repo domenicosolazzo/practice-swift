@@ -1,4 +1,9 @@
-// Playground - noun: a place where people can play
+// Strings and Characters 
+/**
+Strings are represented by the String type.
+You can access the content of the a string in various ways, 
+including as a collection of Character
+**/
 
 import Cocoa
 
