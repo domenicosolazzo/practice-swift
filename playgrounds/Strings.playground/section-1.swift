@@ -10,7 +10,9 @@ Swift's String type is bridged with the Foundation's NSString type.
 import Cocoa
 
 /*
-======== A string ========
+======== String literal ========
+A string literal is a fixed sequence of textual characters
+surrounded by a pair of double quotes ("")
 */
 var str = "Hello, playground"
 
