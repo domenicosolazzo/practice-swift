@@ -5,6 +5,7 @@ You can access the content of the a string in various ways,
 including as a collection of Character.
 
 Swift's String type is bridged with the Foundation's NSString type.
+String type is a value type.
 **/
 
 import Cocoa
