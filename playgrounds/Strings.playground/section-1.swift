@@ -152,11 +152,9 @@ var lowercase = myString.lowercaseString
 ======== Substrings ========
 */
 // Check if a substring exists in a string
-var containString = myString.rangeOfString("This", options: nil, range:nil, locale: nil)
+var containString = myString.rangeOfString("This")
 // Retrieve a substring
-var substring = x
-// Retrieve first part of the substring
-substring = myString.substringToIndex(4)
+var substring = containString
 
 /*
 ======== Trimming ========
@@ -172,7 +170,7 @@ myString = myString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAnd
 ======== Splitting strings ========
 */
 var cities = "Rome, Milan, Paris, New York"
-var splittedCities: String[] = cities.componentsSeparatedByString(",")
+var splittedCities: [String] = cities.componentsSeparatedByString(",")
 // Using more than one character
 var stringToSplit = "A-B-C-D, ciao"
 var newString = stringToSplit.componentsSeparatedByCharactersInSet(NSCharacterSet (charactersInString: "-,"))
@@ -211,6 +209,9 @@ human-readable character
 */
 let precomposed: Character = "\u{D55C}"
 let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"
+print(precomposed)
+print(decomposed)
+
 
 var dogString = "Dog 🐶"
 // UTF8 Representation
