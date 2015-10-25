@@ -144,11 +144,19 @@ String and Characters provides an Unicode compliant way
 to work with text in your code.
 */
 // Four-byte unicode scalar
-let unicode1 = "\U0001F496"
+let unicode1 = "\u{0001F496}"
 // Two-byte unicode scalar
-let unicode2 = "\u2665"
+let unicode2 = "\u{2665}"
 // One-byte unicode scalar
-let unicode3 = "\x24"
+let unicode3 = "\u{24}"
+
+/*
+Every instance of Swift’s Character type represents a single extended grapheme cluster. An extended
+grapheme cluster is a sequence of one or more Unicode scalars that (when combined) produce a single
+human-readable character
+*/
+let precomposed: Character = "\u{D55C}"
+let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"
 
 var dogString = "Dog 🐶"
 // UTF8 Representation
