@@ -60,7 +60,14 @@ var finalResult = (str1 + str2)
 */
 let name: String  = "Domenico"
 var interpolation = "My name is \(name)"
-
+/*
+======== Working with Characters ========
+You can access each character in the String
+by iterating over the "characters" property
+*/
+for character in "Dog!🐶".characters {
+    print(character)
+}
 /*
 ======== Counting characters ========
 */
