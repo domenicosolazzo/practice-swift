@@ -57,9 +57,12 @@ var finalResult = (str1 + str2)
 
 /* 
 ======== String interpolation ========
+String interpolation is a way to construct a new String value
+from a mix of constants, variables, literals and expressions
 */
 let name: String  = "Domenico"
 var interpolation = "My name is \(name)"
+
 /*
 ======== Working with Characters ========
 You can access each character in the String
