@@ -128,6 +128,10 @@ welcome.removeRange(range)
 
 /*
 ======== String equality ========
+Two String values (or two Character values) are considered equal if their extended grapheme clusters
+are canonically equivalent. Extended grapheme clusters are canonically equivalent if they have the
+same linguistic meaning and appearance, even if they are composed from different Unicode scalars
+behind the scenes.
 */
 var equality1 = "Domenico"
 var equality2 = "Domenico"
