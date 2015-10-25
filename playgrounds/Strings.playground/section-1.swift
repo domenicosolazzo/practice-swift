@@ -79,6 +79,34 @@ the "count" property of the "characters" property
 var count = "Domenico".characters.count
 print(count)
 
+
+/*
+======== String Indices ========
+A String value has an associated index type, String.Index.
+It corrisponds to the position of each character
+
+Use the "startIndex" property to access the position of the first Character in the string
+Use the "endIndex" property to access the position of the last Character in the string
+If the string is empty, startIndex and endIndex are equal.
+
+String.Index can access its preceding index using the predecessor() method, and its succeding index
+using the successor() method.
+
+You can also access any index using the advanceBy(_:) method
+
+If you attempt to access an index outside the string range, you will get a runtime error
+
+*/
+let greeting = "Guten Tag!"
+// G
+print(greeting[greeting.startIndex])
+// !
+print(greeting[greeting.endIndex.predecessor()])
+// u
+print(greeting[greeting.startIndex.successor()])
+// a
+print(greeting[greeting.startIndex.advancedBy(7)])
+
 /*
 ======== String equality ========
 */
