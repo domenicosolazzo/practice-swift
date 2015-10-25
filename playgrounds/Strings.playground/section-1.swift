@@ -73,8 +73,11 @@ for character in "Dog!🐶".characters {
 }
 /*
 ======== Counting characters ========
+You can retrieve the count of the Character values in a string using
+the "count" property of the "characters" property
 */
-var count = (countElements("Domenico"))
+var count = "Domenico".characters.count
+print(count)
 
 /*
 ======== String equality ========
