@@ -2,7 +2,9 @@
 /**
 Strings are represented by the String type.
 You can access the content of the a string in various ways, 
-including as a collection of Character
+including as a collection of Character.
+
+Swift's String type is bridged with the Foundation's NSString type.
 **/
 
 import Cocoa
@@ -117,6 +119,8 @@ var hasSuffix = romeoAndJuliet.hasSuffix("place")
 
 /*
 ======== Unicode ========
+String and Characters provides an Unicode compliant way 
+to work with text in your code.
 */
 // Four-byte unicode scalar
 let unicode1 = "\U0001F496"
