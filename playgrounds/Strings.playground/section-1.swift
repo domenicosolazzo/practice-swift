@@ -35,9 +35,17 @@ var euroSymbol: Character = "€"
 /* 
 ======== Initializing an empty string ========
 */
-var emptyString = String()
+var emptyString = String() // Initializer syntax
 // Or..
-emptyString = ""
+emptyString = "" // Empty string literal
+
+/*
+======== Checking an empty string ========
+You can check if a string empty using the "isEmpty" property
+*/
+if emptyString.isEmpty {
+    print("The string is empty")
+}
 
 /*
 ======== Concatenating strings ========
