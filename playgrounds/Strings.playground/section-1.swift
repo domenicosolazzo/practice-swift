@@ -107,6 +107,25 @@ print(greeting[greeting.startIndex.successor()])
 // a
 print(greeting[greeting.startIndex.advancedBy(7)])
 
+
+/*
+======== Inserting and Removing ========
+You can insert a character in a string using the insert(_:atIndex:) method.
+To insert the contents of another string at a specified index, use the insertContentsOf(_:at:) method
+
+To remove a character from a string at a specified index, use the removeAtIndex(_:) method
+To remove a substring at a specified range, use the removeRange(_:) method
+*/
+var welcome = "hello"
+// Insert
+welcome.insert("!", atIndex: welcome.endIndex)
+welcome.insertContentsOf(" there".characters, at: welcome.endIndex.predecessor())
+
+// Remove
+welcome.removeAtIndex(welcome.endIndex.predecessor())
+let range = welcome.endIndex.advancedBy(-6)..<welcome.endIndex
+welcome.removeRange(range)
+
 /*
 ======== String equality ========
 */
