@@ -1,4 +1,9 @@
 // Enumerations
+/**
+An enumeration defines a common type for a a group of related values
+and enables you to work with those values in a type-safe way within
+your code
+*/
 import Cocoa
 
 enum Planet{
