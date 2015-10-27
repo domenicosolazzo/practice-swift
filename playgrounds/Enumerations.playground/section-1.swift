@@ -3,8 +3,14 @@
 An enumeration defines a common type for a a group of related values
 and enables you to work with those values in a type-safe way within
 your code
+
+Enumerations in Swift are first-class types in their own right.
+They adopt many features traditionally supported only by classes,
+such as computed properties to provide additional information about
+the enumeration's value.
 */
 import Cocoa
+
 
 enum Planet{
     case Mercury, Venus, Earth, Mars,
