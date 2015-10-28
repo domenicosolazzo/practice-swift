@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     }
     
     func switchIsChanged(sender: UISwitch){
-        println("Sender is = \(sender)")
+        print("Sender is = \(sender)")
         
         if sender.on{
-            println("The switch is turned on")
+            print("The switch is turned on")
         } else {
-            println("The switch is turned off")
+            print("The switch is turned off")
         }
     }
 
