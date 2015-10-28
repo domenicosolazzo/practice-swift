@@ -30,7 +30,7 @@ class ViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
-    convenience required init(coder aDecoder: NSCoder) {
+    convenience required init?(coder aDecoder: NSCoder) {
         let flowLayout = UICollectionViewFlowLayout()
         
         flowLayout.minimumLineSpacing = 20
