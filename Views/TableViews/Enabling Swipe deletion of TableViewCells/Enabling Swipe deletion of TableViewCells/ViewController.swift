@@ -35,7 +35,7 @@ class ViewController: UIViewController,
             
             theTableView.dataSource = self
             theTableView.delegate = self
-            theTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+            theTableView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
             
             // Add the table view as subview
             view.addSubview(theTableView)
@@ -49,7 +49,7 @@ class ViewController: UIViewController,
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) 
         
         cell.textLabel!.text = "Row \(indexPath.row)"
         return cell
