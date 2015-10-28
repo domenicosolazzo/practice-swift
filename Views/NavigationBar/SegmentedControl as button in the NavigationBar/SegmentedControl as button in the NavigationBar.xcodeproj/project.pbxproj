@@ -156,6 +156,8 @@
 		C0F07CBD1AF9E4930094B486 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C0F07CE61AF9E4930094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F07CE71AF9E4930094B486 /* Build configuration list for PBXNativeTarget "SegmentedControl as button in the NavigationBarTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C0F07CE91AF9E4930094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

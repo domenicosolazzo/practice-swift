@@ -14,16 +14,16 @@ class ViewController: UIViewController {
     
     func segmentedControlValueChanged(sender: UISegmentedControl){
         if (sender.selectedSegmentIndex < items.count){
-            println(items[sender.selectedSegmentIndex])
+            print(items[sender.selectedSegmentIndex])
         }else{
-            println("Unknown button")
+            print("Unknown button")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var segmentedControl = UISegmentedControl(items: items)
+        let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.momentary = true
         
         segmentedControl.addTarget(self, action: "segmentedControlValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
