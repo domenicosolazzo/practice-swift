@@ -156,6 +156,8 @@
 		C0F07C611AF9DE790094B486 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C0F07C8A1AF9DE790094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F07C8B1AF9DE790094B486 /* Build configuration list for PBXNativeTarget "Styled Button in the NavigationBarTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C0F07C8D1AF9DE790094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

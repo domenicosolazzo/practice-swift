@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     func performAdd(sender: UIBarButtonItem){
-        println("AAAS => Add As A Service :)")
+        print("AAAS => Add As A Service :)")
     }
     
     override func viewDidLoad() {
