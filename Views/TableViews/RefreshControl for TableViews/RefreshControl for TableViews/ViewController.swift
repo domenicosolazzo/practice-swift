@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             theTableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "identifier")
             
             theTableView.dataSource = self
-            theTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+            theTableView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
             
             /* Create the refresh control */
             refreshControl = UIRefreshControl()
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) 
         cell.textLabel!.text = "\(allTimes[indexPath.row])"
         return cell
     }
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         /* Put a bit of delay between when the refresh control is released
         and when we actually do the refreshing to make the UI look a bit
         smoother than just doing the update without the animation */
-        println("Refreshing....")
+        print("Refreshing....")
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC))
         dispatch_after(popTime,
             dispatch_get_main_queue(), {
