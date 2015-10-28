@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     var pageViewController : UIPageViewController!
 
     @IBAction func swipeLeft(sender: AnyObject) {
-        println("SWipe left")
+        print("SWipe left")
     }
     @IBAction func swiped(sender: AnyObject) {
         
