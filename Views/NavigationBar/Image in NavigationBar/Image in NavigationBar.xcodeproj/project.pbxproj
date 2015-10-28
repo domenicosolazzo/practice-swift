@@ -156,6 +156,7 @@
 		C0F07C051AF933C60094B486 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +412,7 @@
 				C0F07C2E1AF933C60094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F07C2F1AF933C60094B486 /* Build configuration list for PBXNativeTarget "Image in NavigationBarTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +421,7 @@
 				C0F07C311AF933C60094B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
