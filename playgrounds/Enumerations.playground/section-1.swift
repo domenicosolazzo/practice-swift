@@ -55,9 +55,9 @@ enum ASCIIControlCharacter: Character {
     case CarriageReturn = "\r"
 }
 
-var char = ASCIIControlCharacter.Tab.toRaw()
+var char = ASCIIControlCharacter.Tab.rawValue
 
 // FromRaw
-var val = ASCIIControlCharacter.fromRaw("\t")
+var val = ASCIIControlCharacter(rawValue: "\t")
 
 
