@@ -43,7 +43,7 @@ class ViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
-    convenience required init(coder aDecoder: NSCoder) {
+    convenience required init?(coder aDecoder: NSCoder) {
         let flowLayout = UICollectionViewFlowLayout()
         
         flowLayout.minimumLineSpacing = 20
@@ -97,7 +97,7 @@ class ViewController: UICollectionViewController {
             
             let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
                 withReuseIdentifier: identifier,
-                forIndexPath: indexPath) as! UICollectionReusableView
+                forIndexPath: indexPath) 
             
             if kind == UICollectionElementKindSectionHeader{
                 if let header = view as? Header{
