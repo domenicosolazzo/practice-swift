@@ -36,7 +36,7 @@ class FlickrPhoto : Equatable {
   }
   
   func loadLargeImage(completion: (flickrPhoto:FlickrPhoto, error: NSError?) -> Void) {
-    let loadURL = flickrImageURL(size: "b")
+    let loadURL = flickrImageURL("b")
     let loadRequest = NSURLRequest(URL:loadURL)
     NSURLConnection.sendAsynchronousRequest(loadRequest,
       queue: NSOperationQueue.mainQueue()) {
@@ -48,7 +48,7 @@ class FlickrPhoto : Equatable {
         }
         
         if data != nil {
-          let returnedImage = UIImage(data: data)
+          let returnedImage = UIImage(data: data!)
           self.largeImage = returnedImage
           completion(flickrPhoto: self, error: nil)
           return
@@ -99,47 +99,52 @@ class Flickr {
       }
       
       var JSONError : NSError?
-      let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &JSONError) as? NSDictionary
-      if JSONError != nil {
-        completion(results: nil, error: JSONError)
-        return
-      }
+      do{
+        let resultsDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions(rawValue: 0)) as? NSDictionary
+        if JSONError != nil {
+                completion(results: nil, error: JSONError)
+                return
+        }
+        
       
-      switch (resultsDictionary!["stat"] as! String) {
-      case "ok":
-        println("Results processed OK")
-      case "fail":
-        let APIError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey:resultsDictionary!["message"]!])
-        completion(results: nil, error: APIError)
-        return
-      default:
-        let APIError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey:"Uknown API response"])
-        completion(results: nil, error: APIError)
-        return
-      }
+        switch (resultsDictionary!["stat"] as! String) {
+        case "ok":
+            print("Results processed OK")
+        case "fail":
+            let APIError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey:resultsDictionary!["message"]!])
+            completion(results: nil, error: APIError)
+            return
+        default:
+            let APIError = NSError(domain: "FlickrSearch", code: 0, userInfo:   [NSLocalizedFailureReasonErrorKey:"Uknown API response"])
+            completion(results: nil, error: APIError)
+            return
+        }
       
-      let photosContainer = resultsDictionary!["photos"] as! NSDictionary
-      let photosReceived = photosContainer["photo"] as! [NSDictionary]
+        let photosContainer = resultsDictionary!["photos"] as! NSDictionary
+        let photosReceived = photosContainer["photo"] as! [NSDictionary]
       
-      let flickrPhotos : [FlickrPhoto] = photosReceived.map {
+        let flickrPhotos : [FlickrPhoto] = photosReceived.map {
         photoDictionary in
         
-        let photoID = photoDictionary["id"] as? String ?? ""
-        let farm = photoDictionary["farm"] as? Int ?? 0
-        let server = photoDictionary["server"] as? String ?? ""
-        let secret = photoDictionary["secret"] as? String ?? ""
+            let photoID = photoDictionary["id"] as? String ?? ""
+            let farm = photoDictionary["farm"] as? Int ?? 0
+            let server = photoDictionary["server"] as? String ?? ""
+            let secret = photoDictionary["secret"] as? String ?? ""
         
-        let flickrPhoto = FlickrPhoto(photoID: photoID, farm: farm, server: server, secret: secret)
+            let flickrPhoto = FlickrPhoto(photoID: photoID, farm: farm, server: server, secret: secret)
         
-        let imageData = NSData(contentsOfURL: flickrPhoto.flickrImageURL())
-        flickrPhoto.thumbnail = UIImage(data: imageData!)
+            let imageData = NSData(contentsOfURL: flickrPhoto.flickrImageURL())
+            flickrPhoto.thumbnail = UIImage(data: imageData!)
         
-        return flickrPhoto
-      }
+            return flickrPhoto
+        }
       
-      dispatch_async(dispatch_get_main_queue(), {
-        completion(results:FlickrSearchResults(searchTerm: searchTerm, searchResults: flickrPhotos), error: nil)
-      })
+        dispatch_async(dispatch_get_main_queue(), {
+            completion(results:FlickrSearchResults(searchTerm: searchTerm, searchResults:   flickrPhotos), error: nil)
+        })
+      }catch {
+        print("Something went wrong!")
+      }
     }
   }
   

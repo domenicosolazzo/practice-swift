@@ -17,18 +17,18 @@ extension FlickrPhotosViewController : UITextFieldDelegate {
         textField.addSubview(activityIndicator)
         activityIndicator.frame = textField.bounds
         activityIndicator.startAnimating()
-        flickr.searchFlickrForTerm(textField.text) {
+        flickr.searchFlickrForTerm(textField.text!) {
             results, error in
             
             //2
             activityIndicator.removeFromSuperview()
             if error != nil {
-                println("Error searching : \(error)")
+                print("Error searching : \(error)")
             }
             
             if results != nil {
                 //3
-                println("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
+                print("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
                 self.searches.insert(results!, atIndex: 0)
                 
                 //4
@@ -42,7 +42,7 @@ extension FlickrPhotosViewController : UITextFieldDelegate {
     }
 }
 
-extension FlickrPhotosViewController : UICollectionViewDataSource {
+extension FlickrPhotosViewController {
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return searches.count
@@ -175,7 +175,7 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     override func collectionView(collectionView: UICollectionView,
         didDeselectItemAtIndexPath indexPath: NSIndexPath) {
             if sharing {
-                if let foundIndex = find(selectedPhotos, photoForIndexPath(indexPath)) {
+                if let foundIndex = selectedPhotos.indexOf(photoForIndexPath(indexPath)) {
                     selectedPhotos.removeAtIndex(foundIndex)
                     updateSharedPhotoCount()
                 }
@@ -240,15 +240,18 @@ class FlickrPhotosViewController: UICollectionViewController {
             }
             
             let shareButton =
-            self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem
-            if sharing {
-                updateSharedPhotoCount()
-                let sharingDetailItem = UIBarButtonItem(customView: shareTextLabel)
-                navigationItem.setRightBarButtonItems([shareButton,sharingDetailItem], animated: true)
+            self.navigationItem.rightBarButtonItems?.first! as UIBarButtonItem!
+            if let share = shareButton{
+                if sharing {
+                    updateSharedPhotoCount()
+                    let sharingDetailItem = UIBarButtonItem(customView: shareTextLabel)
+                    navigationItem.setRightBarButtonItems([shareButton,sharingDetailItem], animated: true)
+                }
+                else {
+                    navigationItem.setRightBarButtonItems([shareButton], animated: true)
+                }
             }
-            else {
-                navigationItem.setRightBarButtonItems([shareButton], animated: true)
-            }
+            
         }
     }
     

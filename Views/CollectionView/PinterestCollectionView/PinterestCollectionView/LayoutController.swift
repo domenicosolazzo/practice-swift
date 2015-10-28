@@ -57,7 +57,7 @@ class LayoutController: UICollectionViewController, UICollectionViewDelegateFlow
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
         
-        println(self.titles[indexPath.row % 5])
+        print(self.titles[indexPath.row % 5])
         cell.title.text = self.titles[indexPath.row % 5]
         let curr = indexPath.row % 5  + 1
         let imgName = "pin\(curr).jpg"
