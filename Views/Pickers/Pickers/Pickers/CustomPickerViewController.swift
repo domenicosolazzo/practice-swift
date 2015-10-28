@@ -121,7 +121,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     // We can supply the picker with anything that can be draw in this picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int,
         forComponent component: Int,
-        reusingView view: UIView!) -> UIView {
+        reusingView view: UIView?) -> UIView {
             let image = images[row]
             let imageView = UIImageView(image: image)
             return imageView

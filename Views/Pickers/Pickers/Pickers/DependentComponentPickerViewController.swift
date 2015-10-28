@@ -28,7 +28,7 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
         stateZips = NSDictionary(contentsOfURL: plistURL!)
                         as! [String : [String]]
         let allStates = stateZips.keys
-        states = sorted(allStates)
+        states = allStates.sort()
         
         let selectedState = states[0]
         zips = stateZips[selectedState]
