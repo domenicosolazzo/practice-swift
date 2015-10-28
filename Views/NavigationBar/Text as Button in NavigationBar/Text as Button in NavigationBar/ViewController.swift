@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     func performAdd(sender: UIBarButtonItem){
-        println("Add method got called")
+        print("Add method got called")
     }
     
     override func viewDidLoad() {
