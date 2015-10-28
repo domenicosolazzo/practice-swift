@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
         } else {
