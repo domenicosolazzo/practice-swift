@@ -18,9 +18,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
+        let firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
         firstView.backgroundColor = UIColor.redColor()
-        var secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        let secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
         secondView.backgroundColor = UIColor.blueColor()
         self.view.addSubview(firstView)
         self.view.addSubview(secondView)
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         collision.collisionDelegate = self
         animator.addBehavior(collision)
         
-        var centerPoint = CGPointMake(firstView.center.x, firstView.center.y)
+        let centerPoint = CGPointMake(firstView.center.x, firstView.center.y)
         attachment = UIAttachmentBehavior(item: secondView, attachedToAnchor: centerPoint)
         
         animator.addBehavior(attachment)

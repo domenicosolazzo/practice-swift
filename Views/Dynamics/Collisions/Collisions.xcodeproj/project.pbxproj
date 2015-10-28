@@ -156,6 +156,8 @@
 		C071A90C1B2C2A7F00C4F7DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C071A9351B2C2A8000C4F7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C071A9361B2C2A8000C4F7DC /* Build configuration list for PBXNativeTarget "CollisionsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C071A9381B2C2A8000C4F7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

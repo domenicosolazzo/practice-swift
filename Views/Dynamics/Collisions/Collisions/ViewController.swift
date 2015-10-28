@@ -17,9 +17,9 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
+        let firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
         firstView.backgroundColor = UIColor.redColor()
-        var secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
+        let secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
         secondView.backgroundColor = UIColor.blueColor()
         self.view.addSubview(firstView)
         self.view.addSubview(secondView)
@@ -40,12 +40,12 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
     }
     
     func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint) {
-        println("Item1: \(item1)")
-        println("Item2: \(item2)")
+        print("Item1: \(item1)")
+        print("Item2: \(item2)")
     }
     
     func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem) {
-        println("Collision ended")
+        print("Collision ended")
     }
     
     
