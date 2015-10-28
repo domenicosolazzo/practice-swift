@@ -33,12 +33,12 @@ class ViewController: UIViewController {
     // Event
     func segmentedControlValueChanged(segmentedCtrl:UISegmentedControl){
         // Get the index
-        var index = segmentedCtrl.selectedSegmentIndex
+        let index = segmentedCtrl.selectedSegmentIndex
         
         // Get the title by index
-        var title = segmentedCtrl.titleForSegmentAtIndex(index)
+        _ = segmentedCtrl.titleForSegmentAtIndex(index)
         if let title = segmentedControl.titleForSegmentAtIndex(index){
-            println("Selected index \(index) with title \(title)")
+            print("Selected index \(index) with title \(title)")
         }
         
     }
