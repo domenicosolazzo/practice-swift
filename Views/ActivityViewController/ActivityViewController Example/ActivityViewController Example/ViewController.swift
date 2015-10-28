@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func createButton(){
-        buttonShare = UIButton.buttonWithType(UIButtonType.System) as? UIButton
+        buttonShare = UIButton(type: UIButtonType.System) as UIButton
         buttonShare.frame = CGRect(x: 20, y: 80, width: 280, height: 44)
         buttonShare.setTitle("Share", forState: UIControlState.Normal)
         buttonShare.addTarget(self,
@@ -46,9 +46,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //- MARK: UIButton
     func handleShare(sender: UIButton){
-        if (textField.text.isEmpty){
-            var message = "Please enter a text and then click Share"
-            var alert = UIAlertController(title: nil,
+        if (textField.text!.isEmpty){
+            let message = "Please enter a text and then click Share"
+            let alert = UIAlertController(title: nil,
                 message: message,
                 preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -65,8 +65,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /* it is VERY important to cast your strings to NSString
         otherwise the controller cannot display 
         the appropriate sharing options */
-        var activityController = UIActivityViewController(
-            activityItems: [textField.text as NSString],
+        let activityController = UIActivityViewController(
+            activityItems: [textField.text! as NSString],
             applicationActivities: nil
         )
         presentViewController(activityController,
