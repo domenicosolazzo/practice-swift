@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = image.size
         
         // Setting up a gesture recognizer for the double-tap to zoom in. Zoom gestures is already included in the scrollView.
-        var doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(doubleTapRecognizer)
