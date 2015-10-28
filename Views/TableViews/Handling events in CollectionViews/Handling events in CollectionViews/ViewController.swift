@@ -30,7 +30,7 @@ class ViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
-    convenience required init(coder aDecoder: NSCoder) {
+    convenience required init?(coder aDecoder: NSCoder) {
         let flowLayout = UICollectionViewFlowLayout()
         
         flowLayout.minimumLineSpacing = 20
@@ -73,7 +73,7 @@ class ViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // Fade-in / out of a cell when selected
         let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
-        var animationDuration = 1.5;
+        let animationDuration = 1.5;
         // Animation 
         UIView.animateWithDuration(animationDuration, animations: {
             selectedCell!.alpha = 0;
