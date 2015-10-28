@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     // Fetch the current date
     func datePickerDateChanged(picker:UIDatePicker){
-        println("Selected date: \(picker.date)")
+        print("Selected date: \(picker.date)")
     }
 }
 
