@@ -17,18 +17,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         // Adding preferences
-        var preferences = WKPreferences()
+        let preferences = WKPreferences()
         preferences.javaScriptEnabled = true
         
         // Adding configuration
-        var configuration = WKWebViewConfiguration()
+        let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
         
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         
         if let theWebView = webView{
-            var url = NSURL(string: "http://www.domenicosolazzo.com")
-            var request = NSURLRequest(URL: url!)
+            let url = NSURL(string: "http://www.domenicosolazzo.com")
+            let request = NSURLRequest(URL: url!)
             
             // Load the request
             theWebView.loadRequest(request)
@@ -55,7 +55,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         // We do not allow clicking on a link
         if navigationAction.navigationType == WKNavigationType.LinkActivated{
-            var alertController = UIAlertController(title: nil, message: "Sorry, you can click any link.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: nil, message: "Sorry, you can click any link.", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             
             // Present the alert
