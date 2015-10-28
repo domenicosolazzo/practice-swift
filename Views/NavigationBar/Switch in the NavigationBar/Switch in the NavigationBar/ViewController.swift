@@ -12,16 +12,16 @@ class ViewController: UIViewController {
 
     func switchChangedValue(sender: UISwitch){
         if sender.on{
-            println("Switching off")
+            print("Switching off")
         }else{
-            println("Switching on")
+            print("Switching on")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var simpleSwitch = UISwitch()
+        let simpleSwitch = UISwitch()
         simpleSwitch.on = true
         
         simpleSwitch.addTarget(self,
