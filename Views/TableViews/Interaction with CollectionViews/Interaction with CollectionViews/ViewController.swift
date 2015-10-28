@@ -27,8 +27,7 @@ class ViewController: UICollectionViewController {
         let pinch = UIPinchGestureRecognizer(target: self,
             action: "handlePinches:")
         
-        for recognizer in collectionView!.gestureRecognizers as!
-            [UIGestureRecognizer]{
+        for recognizer in collectionView!.gestureRecognizers! as [UIGestureRecognizer]{
                 if recognizer is UIPinchGestureRecognizer{
                     recognizer.requireGestureRecognizerToFail(pinch)
                 }
@@ -47,7 +46,7 @@ class ViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
-    convenience required init(coder aDecoder: NSCoder) {
+    convenience required init?(coder aDecoder: NSCoder) {
         let flowLayout = UICollectionViewFlowLayout()
         
         flowLayout.minimumLineSpacing = 20
