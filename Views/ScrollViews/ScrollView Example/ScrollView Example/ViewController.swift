@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         imageView = UIImageView(image: image)
         scrollView = UIScrollView(frame: view.bounds)
         
-        if let theScrollView = scrollView{
+        if let _ = scrollView{
             scrollView.addSubview(imageView)
             // Set the content size
             scrollView.contentSize = imageView.bounds.size
