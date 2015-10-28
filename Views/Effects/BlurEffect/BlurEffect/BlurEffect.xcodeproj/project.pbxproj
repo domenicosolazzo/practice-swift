@@ -156,6 +156,8 @@
 		C073D8C91ADD8EE800EDF296 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Domenico Solazzo";
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C073D8F21ADD8EE900EDF296 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C073D8F31ADD8EE900EDF296 /* Build configuration list for PBXNativeTarget "BlurEffectTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C073D8F51ADD8EE900EDF296 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
