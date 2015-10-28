@@ -28,9 +28,9 @@ class ViewController: UIViewController {
             style: UIAlertActionStyle.Default,
             handler: {[weak self](paramAction:UIAlertAction!) in
                 if let textFields = self!.controller?.textFields{
-                    var theTextFields = textFields as! [UITextField]
+                    var theTextFields = textFields 
                     let username = theTextFields[0].text
-                    println("The username is \(username)")
+                    print("The username is \(username)")
                 }
         })
         

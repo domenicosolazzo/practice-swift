@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         controller = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
         
         // Creating an action
-        var action = UIAlertAction(title: "My action", style: UIAlertActionStyle.Default){ (paramAction: UIAlertAction!) in
-                println("The button was tapped")
+        let action = UIAlertAction(title: "My action", style: UIAlertActionStyle.Default){ (paramAction: UIAlertAction) in
+                print("The button was tapped")
         }
         
         controller!.addAction(action)

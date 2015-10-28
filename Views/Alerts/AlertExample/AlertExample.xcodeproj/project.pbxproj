@@ -156,6 +156,8 @@
 		C0CB1DB01AF7D5AF00E0E2E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C0CB1DD91AF7D5AF00E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB1DDA1AF7D5AF00E0E2E0 /* Build configuration list for PBXNativeTarget "AlertExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C0CB1DDC1AF7D5AF00E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
