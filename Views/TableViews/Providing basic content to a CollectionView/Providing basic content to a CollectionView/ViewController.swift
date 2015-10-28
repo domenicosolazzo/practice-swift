@@ -26,8 +26,8 @@ class ViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.whiteColor()
     }
     
-    convenience required init(coder aDecoder: NSCoder) {
-        var flowLayout = UICollectionViewFlowLayout()
+    convenience required init?(coder aDecoder: NSCoder) {
+        let flowLayout = UICollectionViewFlowLayout()
         
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 10
@@ -54,7 +54,7 @@ class ViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
             "cell",
-            forIndexPath: indexPath) as! UICollectionViewCell
+            forIndexPath: indexPath) 
         
         cell.backgroundColor = allSectionColors[indexPath.section]
         
