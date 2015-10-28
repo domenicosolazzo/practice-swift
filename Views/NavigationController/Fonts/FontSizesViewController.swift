@@ -35,7 +35,7 @@ class FontSizesViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) 
             
             cell.textLabel!.font = fontForDisplay(atIndexPath: indexPath)
             cell.textLabel!.text = font.fontName

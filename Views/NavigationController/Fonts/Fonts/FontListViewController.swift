@@ -45,7 +45,7 @@ class FontListViewController: UITableViewController {
     override func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell =  tableView.dequeueReusableCellWithIdentifier(cellIdentifier,
-                forIndexPath: indexPath) as! UITableViewCell
+                forIndexPath: indexPath) 
             
             cell.textLabel!.font = fontForDisplay(atIndexPath: indexPath)
             cell.textLabel!.text = fontNames[indexPath.row]
@@ -104,8 +104,7 @@ class FontListViewController: UITableViewController {
         } else {
             let infoVC = segue.destinationViewController as! FontInfoViewController
             infoVC.font = font
-            infoVC.favorite = contains(FavoritesList.sharedFavoriteList.favorites,
-                font.fontName)
+            infoVC.favorite = FavoritesList.sharedFavoriteList.favorites.contains(font.fontName)
         }
     }
 }

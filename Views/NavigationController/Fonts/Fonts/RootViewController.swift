@@ -19,7 +19,7 @@ class RootViewController: UITableViewController {
         super.viewDidLoad()
         
         // Fetch all the fonts and sort them
-        familyNames = sorted(UIFont.familyNames() as! [String])
+        familyNames = (UIFont.familyNames() ).sort()
         // Preferred font for use in a headline
         let preferredTableViewFont = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         // Baseline font size
@@ -38,8 +38,11 @@ class RootViewController: UITableViewController {
         if indexPath.section == 0 {
             let familyName = familyNames[indexPath.row]
             // First font name within that family
-            let fontName = UIFont.fontNamesForFamilyName(familyName).first as! String
-            return UIFont(name: fontName, size: cellPointSize)
+            let fontName = UIFont.fontNamesForFamilyName(familyName).first
+            if let font = fontName as String!{
+                return UIFont(name: font, size: cellPointSize)
+            }
+            return nil
         } else {
             return nil
         }
@@ -64,7 +67,7 @@ class RootViewController: UITableViewController {
             if indexPath.section == 0 {
                 // The font names list
                 let cell = tableView.dequeueReusableCellWithIdentifier(familyCell,
-                    forIndexPath: indexPath) as! UITableViewCell
+                    forIndexPath: indexPath) 
                 cell.textLabel!.font = fontForDisplay(atIndexPath: indexPath)
                 cell.textLabel!.text = familyNames[indexPath.row]
                 cell.detailTextLabel?.text = familyNames[indexPath.row]
@@ -72,7 +75,7 @@ class RootViewController: UITableViewController {
             } else {
                 // The favorites list
                 return tableView.dequeueReusableCellWithIdentifier(favoritesCell,
-                    forIndexPath: indexPath)as! UITableViewCell
+                    forIndexPath: indexPath)
             }
     }
     
@@ -88,8 +91,7 @@ class RootViewController: UITableViewController {
         if indexPath.section == 0 {
             // Font names list
             let familyName = familyNames[indexPath.row]
-            listVC.fontNames = sorted(
-                UIFont.fontNamesForFamilyName(familyName) as! [String])
+            listVC.fontNames = (UIFont.fontNamesForFamilyName(familyName) ).sort()
             listVC.navigationItem.title = familyName
             listVC.showsFavorites = false
         } else {

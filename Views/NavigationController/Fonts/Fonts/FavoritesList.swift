@@ -37,14 +37,14 @@ class FavoritesList{
     }
     
     func addFavorite(fontName: String) {
-        if (!contains(favorites, fontName)) {
+        if (!favorites.contains(fontName)) {
             favorites.append(fontName)
             saveFavorites()
         }
     }
     
     func removeFavorite(fontName: String) {
-        if let index = find(favorites, fontName) {
+        if let index = favorites.indexOf(fontName) {
             favorites.removeAtIndex(index)
             saveFavorites()
         }
