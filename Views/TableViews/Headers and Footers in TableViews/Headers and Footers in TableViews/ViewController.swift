@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource,
             
             theTableView.dataSource = self
             theTableView.delegate = self
-            theTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+            theTableView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
             
             // Add the table view as subview
             self.view.addSubview(theTableView)
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) 
         
         cell.textLabel!.text = "Cell \(indexPath.row)"
         return cell
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource,
     
     //- MARK: Helpers
     func newLabelWithTitle(title:String) -> UILabel{
-        var label = UILabel()
+        let label = UILabel()
         label.text = title
         label.backgroundColor = UIColor.clearColor()
         label.sizeToFit()
