@@ -32,7 +32,8 @@ class MasterViewController: UITableViewController {
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            let leftNavController = controllers.first as! UINavigationController
+            self.detailViewController = leftNavController.topViewController as? DetailViewController
         }
     }
 
@@ -46,7 +47,7 @@ class MasterViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = presidents[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 if let oldController = detailViewController {
@@ -71,7 +72,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         let president = presidents[indexPath.row]
         cell.textLabel!.text = president["name"]

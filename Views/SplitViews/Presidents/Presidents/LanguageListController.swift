@@ -34,7 +34,7 @@ class LanguageListController: UITableViewController {
     override func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("Cell",
-                forIndexPath: indexPath) as! UITableViewCell
+                forIndexPath: indexPath) 
             
             // Configure the cell...
             cell.textLabel!.text = languageNames[indexPath.row]

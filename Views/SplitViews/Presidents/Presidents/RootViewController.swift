@@ -10,7 +10,7 @@ import UIKit
 
 class RootViewController: UINavigationController {
     override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        let splitVC = viewControllers[0] as! UIViewController
+        let splitVC = viewControllers[0] 
         let newTraits = traitCollection
         if newTraits.horizontalSizeClass == .Compact
             && newTraits.verticalSizeClass == .Compact {
