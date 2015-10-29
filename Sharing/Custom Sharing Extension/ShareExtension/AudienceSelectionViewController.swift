@@ -56,7 +56,7 @@ class AudienceSelectionViewController: UITableViewController {
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier(
                 TableViewValues.identifier,
-                forIndexPath: indexPath) as! UITableViewCell
+                forIndexPath: indexPath) 
             
             let text = Audience.allValues[indexPath.row].rawValue
             
