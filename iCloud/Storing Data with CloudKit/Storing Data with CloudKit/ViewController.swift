@@ -76,20 +76,21 @@ class ViewController: UIViewController {
                 year: year)
     }
     
-    func saveCarClosure(record: CKRecord!, error: NSError!){
+    func saveCarClosure(record: CKRecord?, error: NSError?){
         
         /* Be careful, we might be on a non-UI thread */
         
         if error != nil{
-            println("Failed to save the car. Error = \(error)")
+            print("Failed to save the car. Error = \(error)")
         } else {
-            println("Successfully saved the car with type \(record.recordType)")
+            print("Successfully saved the car with type \(record!.recordType)")
         }
         
     }
     
     func saveCars(cars: [CKRecord]){
         for car in cars{
+            
             database.saveRecord(car, completionHandler: saveCarClosure)
         }
     }
@@ -111,7 +112,7 @@ class ViewController: UIViewController {
             numberOfDoors: 5,
             year: 2016)
         
-        println("Saving estate cars...")
+        print("Saving estate cars...")
         saveCars([volvoV50, audiA6, skodaOctavia])
         
     }
@@ -123,7 +124,7 @@ class ViewController: UIViewController {
             numberOfDoors: 6,
             year: 2018)
         
-        println("Saving hatchback cars...")
+        print("Saving hatchback cars...")
         saveCars([fordFocus])
         
     }
@@ -135,7 +136,7 @@ class ViewController: UIViewController {
         case .Estate:
             saveEstateCars()
         default:
-            println("Unknown car state is given")
+            print("Unknown car state is given")
         }
     }
     
@@ -144,20 +145,20 @@ class ViewController: UIViewController {
     }
     
     // Create a new record zone or fetch the existing one
-    func useOrSaveZone(#zoneIsCreatedAlready: Bool, forCarType: CarType){
+    func useOrSaveZone(zoneIsCreatedAlready zoneIsCreatedAlready: Bool, forCarType: CarType){
         
         if zoneIsCreatedAlready{
-            println("Found the \(forCarType.rawValue) zone. " +
+            print("Found the \(forCarType.rawValue) zone. " +
                 "It's been created already")
             saveCarsForType(forCarType)
         } else {
             database.saveRecordZone(forCarType.zone(),
                 completionHandler: {[weak self]
-                    (zone: CKRecordZone!, error: NSError!) in
+                    (zone: CKRecordZone?, error: NSError?) in
                     if error != nil{
-                        println("Could not save the hatchback zone. Error = \(error)")
+                        print("Could not save the hatchback zone. Error = \(error)")
                     } else {
-                        println("Successfully saved the hatchback zone")
+                        print("Successfully saved the hatchback zone")
                         self!.performOnMainThread{self!.saveCarsForType(forCarType)}
                     }
                 })
@@ -166,7 +167,7 @@ class ViewController: UIViewController {
     }
     
     func isIcloudAvailable() -> Bool{
-        if let token = NSFileManager.defaultManager().ubiquityIdentityToken{
+        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken{
             return true
         } else {
             return false
@@ -183,16 +184,16 @@ class ViewController: UIViewController {
         }
         
         database.fetchAllRecordZonesWithCompletionHandler{[weak self]
-            (zones:[AnyObject]!, error: NSError!) in
+            (zones:[CKRecordZone]?, error: NSError?) in
             
             if error != nil{
-                println("Could not retrieve the zones")
+                print("Could not retrieve the zones")
             } else {
                 
                 var foundEstateZone = false
                 var foundHatchbackZone = false
                 
-                for zone in zones as! [CKRecordZone]{
+                for zone in zones! {
                     
                     if zone.zoneID.zoneName == CarType.Hatchback.rawValue{
                         foundHatchbackZone = true
