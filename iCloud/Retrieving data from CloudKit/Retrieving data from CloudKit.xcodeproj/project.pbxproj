@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		C009B3C31B18DE6200C44B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C009B3C21B18DE6200C44B10 /* Images.xcassets */; };
 		C009B3C61B18DE6200C44B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C009B3C41B18DE6200C44B10 /* LaunchScreen.xib */; };
 		C009B3D21B18DE6200C44B10 /* Retrieving_data_from_CloudKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009B3D11B18DE6200C44B10 /* Retrieving_data_from_CloudKitTests.swift */; };
+		C0727B181BE52A2400E8FD1E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0727B171BE52A2400E8FD1E /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		C009B3CB1B18DE6200C44B10 /* Retrieving data from CloudKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retrieving data from CloudKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009B3D01B18DE6200C44B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C009B3D11B18DE6200C44B10 /* Retrieving_data_from_CloudKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retrieving_data_from_CloudKitTests.swift; sourceTree = "<group>"; };
+		C0727B161BE52A0700E8FD1E /* Retrieving data from CloudKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Retrieving data from CloudKit.entitlements"; sourceTree = "<group>"; };
+		C0727B171BE52A2400E8FD1E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0727B181BE52A2400E8FD1E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 		C009B3AD1B18DE6200C44B10 = {
 			isa = PBXGroup;
 			children = (
+				C0727B171BE52A2400E8FD1E /* CloudKit.framework */,
 				C009B3B81B18DE6200C44B10 /* Retrieving data from CloudKit */,
 				C009B3CE1B18DE6200C44B10 /* Retrieving data from CloudKitTests */,
 				C009B3B71B18DE6200C44B10 /* Products */,
@@ -77,6 +82,7 @@
 		C009B3B81B18DE6200C44B10 /* Retrieving data from CloudKit */ = {
 			isa = PBXGroup;
 			children = (
+				C0727B161BE52A0700E8FD1E /* Retrieving data from CloudKit.entitlements */,
 				C009B3BB1B18DE6200C44B10 /* AppDelegate.swift */,
 				C009B3BD1B18DE6200C44B10 /* ViewController.swift */,
 				C009B3BF1B18DE6200C44B10 /* Main.storyboard */,
@@ -156,11 +162,18 @@
 		C009B3AE1B18DE6200C44B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
 					C009B3B51B18DE6200C44B10 = {
 						CreatedOnToolsVersion = 6.3.2;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					C009B3CA1B18DE6200C44B10 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -169,7 +182,7 @@
 				};
 			};
 			buildConfigurationList = C009B3B11B18DE6200C44B10 /* Build configuration list for PBXProject "Retrieving data from CloudKit" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -276,6 +289,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -342,9 +356,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Retrieving data from CloudKit/Retrieving data from CloudKit.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Retrieving data from CloudKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenicosolazzo.swift.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -352,9 +371,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Retrieving data from CloudKit/Retrieving data from CloudKit.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Retrieving data from CloudKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenicosolazzo.swift.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -372,6 +396,7 @@
 				);
 				INFOPLIST_FILE = "Retrieving data from CloudKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenicosolazzo.swift.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retrieving data from CloudKit.app/Retrieving data from CloudKit";
 			};
@@ -387,6 +412,7 @@
 				);
 				INFOPLIST_FILE = "Retrieving data from CloudKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenicosolazzo.swift.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retrieving data from CloudKit.app/Retrieving data from CloudKit";
 			};
@@ -411,6 +437,7 @@
 				C009B3D71B18DE6200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C009B3D81B18DE6200C44B10 /* Build configuration list for PBXNativeTarget "Retrieving data from CloudKitTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +446,7 @@
 				C009B3DA1B18DE6200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

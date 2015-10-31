@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     /* Checks if the user has logged into her iCloud account or not */
     func isIcloudAvailable() -> Bool{
-        if let token = NSFileManager.defaultManager().ubiquityIdentityToken{
+        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken{
             return true
         } else {
             return false
@@ -45,24 +45,24 @@ class ViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().stringForKey(key)
         
         func createNewRecordName(){
-            println("No record name was previously generated")
-            println("Creating a new one...")
+            print("No record name was previously generated")
+            print("Creating a new one...")
             recordName = NSUUID().UUIDString
             NSUserDefaults.standardUserDefaults().setValue(recordName, forKey: key)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         
         if let name = recordName{
-            if count(name) == 0{
+            if name.characters.count == 0{
                 createNewRecordName()
             } else {
-                println("The previously generated record ID was recovered")
+                print("The previously generated record ID was recovered")
             }
         } else {
             createNewRecordName()
         }
         
-        return CKRecordID(recordName: recordName, zoneID: CarType.Estate.zoneId())
+        return CKRecordID(recordName: recordName!, zoneID: CarType.Estate.zoneId())
         
     }
     
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             
             /* Save this record publicly */
             database.saveRecord(volvoV50, completionHandler: {
-                (record: CKRecord!, error: NSError!) in
+                (record: CKRecord?, error: NSError?) in
                 completionHandler(succeeded: (error == nil), error: error)
             })
             
@@ -94,37 +94,37 @@ class ViewController: UIViewController {
           return
         }
     
-        println("Fetching the record to see if it exists already...")
+        print("Fetching the record to see if it exists already...")
     
         /* Attempt to find the record if we have saved it already */
         database.fetchRecordWithID(recordId(), completionHandler:{[weak self]
-          (record: CKRecord!, error: NSError!) in
+          (record: CKRecord?, error: NSError?) in
     
           if error != nil{
-            println("An error occurred")
+            print("An error occurred")
     
-            if error.code == CKErrorCode.UnknownItem.rawValue{
-              println("This error means that the record was not found.")
-              println("Saving the record...")
+            if error!.code == CKErrorCode.UnknownItem.rawValue{
+              print("This error means that the record was not found.")
+              print("Saving the record...")
     
               self!.saveRecordWithCompletionHandler{
                 (succeeded: Bool, error: NSError!) in
     
                 if succeeded{
-                  println("Successfully saved the record")
+                  print("Successfully saved the record")
                 } else {
-                  println("Failed to save the record. Error = \(error)")
+                  print("Failed to save the record. Error = \(error)")
                 }
     
               }
     
             } else {
-              println("I don't understand this error. Error = \(error)")
+              print("I don't understand this error. Error = \(error)")
             }
     
           } else {
-            println("Seems like we had previously stored the record. Great!")
-            println("Retrieved record = \(record)")
+            print("Seems like we had previously stored the record. Great!")
+            print("Retrieved record = \(record)")
           }
     
           })
