@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func recordFetchBlock(record: CKRecord!){
         
-        println("Fetched a record = \(record)")
+        print("Fetched a record = \(record)")
         
     }
     
@@ -65,13 +65,13 @@ class ViewController: UIViewController {
             if cursor != nil{
                 /* There is so much data that a cursor came back to us and we will
                 need to fetch the rest of the results in a separate operation */
-                println("A cursor was sent to us. Fetching the rest of the records...")
+                print("A cursor was sent to us. Fetching the rest of the records...")
                 let newOperation = CKQueryOperation(cursor: cursor)
                 newOperation.recordFetchedBlock = self!.recordFetchBlock
                 newOperation.queryCompletionBlock = operation.queryCompletionBlock
                 self!.operationQueue.addOperation(newOperation)
             } else {
-                println("No cursor came back. We've fetched all the data")
+                print("No cursor came back. We've fetched all the data")
             }
         }
         

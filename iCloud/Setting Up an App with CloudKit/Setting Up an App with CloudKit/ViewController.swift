@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         let fileManager = NSFileManager()
         
         if let token = fileManager.ubiquityIdentityToken{
-            println("The new token is \(token)")
+            print("The new token is \(token)")
         } else {
-            println("User has logged out of iCloud")
+            print("User has logged out of iCloud")
         }
         
     }
@@ -59,9 +59,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
         container.accountStatusWithCompletionHandler{
-            [weak self] (status: CKAccountStatus, error: NSError!) in
+            [weak self] (status: CKAccountStatus, error: NSError?) in
             
             /* Be careful, we might be on a different thread now so make sure that
             your UI operations go on the main thread */
