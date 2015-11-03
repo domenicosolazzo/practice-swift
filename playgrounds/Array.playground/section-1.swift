@@ -4,7 +4,7 @@ import Cocoa
 /*
 ====== Array literal ======
 */
-var arr: String[] = ["Domenico", "Italian"]
+var arr: [String] = ["Domenico", "Italian"]
 
 /*
 ====== Counting ======
@@ -21,7 +21,7 @@ var isEmpty = arr.isEmpty
 */
 arr.append("last")
 // ...Or use the addition assignment operator
-arr += "next"
+arr.push("next")
 arr += ["next2", "abc"]
 
 /*
@@ -79,7 +79,7 @@ someInts = []
 var ordered = [1,2,3,4,5]
 var reversed = ordered.reverse()
 
-println(reversed)
+print(reversed)
 
 
 
