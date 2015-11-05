@@ -82,15 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             switch ABAddressBookGetAuthorizationStatus(){
             case .Authorized:
-                println("Already authorized")
+                print("Already authorized")
                 if doesPersonExistWithFullName("Richard Branson",
                     inAddressBook: addressBook){
-                        println("This person exists")
+                        print("This person exists")
                 } else {
-                    println("This person doesn't exist")
+                    print("This person doesn't exist")
                 }
             case .Denied:
-                println("You are denied access to address book")
+                print("You are denied access to address book")
                 
             case .NotDetermined:
                 ABAddressBookRequestAccessWithCompletion(addressBook,
@@ -98,23 +98,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         if granted{
                             let strongSelf = self!
-                            println("Access is granted")
+                            print("Access is granted")
                             if strongSelf.doesPersonExistWithFullName("Richard Branson",
                                 inAddressBook: strongSelf.addressBook){
-                                    println("This person exists")
+                                    print("This person exists")
                             } else {
-                                println("This person doesn't exist")
+                                print("This person doesn't exist")
                             }
                         } else {
-                            println("Access is not granted")
+                            print("Access is not granted")
                         }
                         
                     })
             case .Restricted:
-                println("Access is restricted")
+                print("Access is restricted")
                 
             default:
-                println("Unhandled")
+                print("Unhandled")
             }
             
             return true
