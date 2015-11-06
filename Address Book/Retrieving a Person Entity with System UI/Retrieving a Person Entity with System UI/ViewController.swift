@@ -16,7 +16,7 @@ class ViewController: UIViewController,
     let personPicker: ABPeoplePickerNavigationController
     
     //- MARK: Constructors
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         personPicker = ABPeoplePickerNavigationController()
         // Which properties of each contact the user can see in the people picker
         personPicker.displayedProperties = [
@@ -29,13 +29,13 @@ class ViewController: UIViewController,
     
     //-  MARK: ABPeoplePickerNavigationControllerDelegate
     // When the user cancel the action
-    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
-        println("User cancelled the action...")
+    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController) {
+        print("User cancelled the action...")
     }
     
     // When a contact has been selected
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
-        println("User selected a contact")
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
+        print("User selected a contact")
         
         /* Do we know which picker this is? */
         if peoplePicker != personPicker{
@@ -50,7 +50,7 @@ class ViewController: UIViewController,
             let phone = ABMultiValueCopyValueAtIndex(phones,
                 index).takeRetainedValue() as! String
             
-            println(phone)
+            print(phone)
             
         }
         
@@ -67,9 +67,9 @@ class ViewController: UIViewController,
         let city = address[kABPersonAddressCityKey as String] as? String
         let street = address[kABPersonAddressStreetKey as String] as? String
         
-        println("Country = \(country)")
-        println("City = \(city)")
-        println("Street = \(street)")
+        print("Country = \(country)")
+        print("City = \(city)")
+        print("Street = \(street)")
     }
     
     @IBAction func performPickPerson(sender: UIButton) {
