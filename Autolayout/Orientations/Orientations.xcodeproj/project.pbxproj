@@ -156,6 +156,8 @@
 		C070F5D61AE2F8B3006B4392 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Domenico Solazzo";
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C070F5FF1AE2F8B4006B4392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C070F6001AE2F8B4006B4392 /* Build configuration list for PBXNativeTarget "OrientationsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C070F6021AE2F8B4006B4392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
