@@ -68,37 +68,37 @@ class ViewController: UIViewController {
     }
     
     func applicationWillResignActive() {
-        println("VC: \(__FUNCTION__)")
+        print("VC: \(__FUNCTION__)")
         animate = false
     }
     
     func applicationDidBecomeActive() {
-        println("VC: \(__FUNCTION__)")
+        print("VC: \(__FUNCTION__)")
         animate = true
         rotateLabelDown()
     }
     
     func applicationDidEnterBackground() {
-        println("VC: \(__FUNCTION__)")
+        print("VC: \(__FUNCTION__)")
         NSUserDefaults.standardUserDefaults().setInteger(self.index,
             forKey:"index")
         
         let app = UIApplication.sharedApplication()
         var taskId:UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
         let id = app.beginBackgroundTaskWithExpirationHandler(){
-            println("Background task ran out of time and was terminated.")
+            print("Background task ran out of time and was terminated.")
             app.endBackgroundTask(taskId)
         }
         taskId = id
         
         if taskId == UIBackgroundTaskInvalid {
-            println("Failed to start background task!")
+            print("Failed to start background task!")
             return
         }
         
         dispatch_async(
             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                println("Starting background task with " +
+                print("Starting background task with " +
                     "\(app.backgroundTimeRemaining) seconds remaining")
                 
                 self.smiley = nil;
@@ -107,14 +107,14 @@ class ViewController: UIViewController {
                 // simulate a lengthy (25 seconds) procedure
                 NSThread.sleepForTimeInterval(25)
                 
-                println("Finishing background task with " +
+                print("Finishing background task with " +
                     "\(app.backgroundTimeRemaining) seconds remaining")
                 app.endBackgroundTask(taskId)
         });
     }
     
     func applicationWillEnterForeground() {
-        println("VC: \(__FUNCTION__)")
+        print("VC: \(__FUNCTION__)")
         let smileyPath =
         NSBundle.mainBundle().pathForResource("smiley", ofType:"png")!
         smiley = UIImage(contentsOfFile: smileyPath)
