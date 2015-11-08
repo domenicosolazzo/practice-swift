@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     func calculateFirstResult(data: String) -> String {
         NSThread.sleepForTimeInterval(3)
-        return "Number of chars: \(count(data))"
+        return "Number of chars: \(data.characters.count)"
     }
     
     func calculateSecondResult(data: String) -> String {
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             var firstResult: String!
             var secondResult: String!
             
-            var group = dispatch_group_create()
+            let group = dispatch_group_create()
             
             dispatch_group_async(group, queue) {
                 firstResult = self.calculateFirstResult(processedData)
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
                 }
                 
                 let endTime = NSDate()
-                println(
+                print(
                     "Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
             }
             
