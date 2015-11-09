@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources() as! [EKSource]{
-                if source.sourceType.value == type.value &&
+            for source in eventStore.sources as! [EKSource]{
+                if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame{
                         return source
@@ -44,10 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         source: EKSource,
         eventType: EKEntityType) -> EKCalendar?{
             
-            for calendar in source.calendarsForEntityType(eventType) as! Set<EKCalendar>{
+            for calendar in source.calendarsForEntityType(eventType) {
                 if calendar.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame &&
-                    calendar.type.value == type.value{
+                    calendar.type.rawValue == type.rawValue{
                         return calendar
                 }
             }
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* Fetch all the events that fall between the
         starting and the ending dates */
         let events = store.eventsMatchingPredicate(searchPredicate)
-            as! [EKEvent]
+            
         
         /* Array of NSString equivalents of the values
         in the EKParticipantRole enumeration */
@@ -113,28 +113,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for event in events{
             
-            println("Event title = \(event.title)")
-            println("Event start date = \(event.startDate)")
-            println("Event end date = \(event.endDate)")
+            print("Event title = \(event.title)")
+            print("Event start date = \(event.startDate)")
+            print("Event end date = \(event.endDate)")
             
             if event.attendees.count == 0{
-                println("This event has no attendees")
+                print("This event has no attendees")
                 continue
             }
             
             for attendee in event.attendees as! [EKParticipant]{
-                println("Attendee name = \(attendee.name)")
+                print("Attendee name = \(attendee.name)")
                 
-                let role = attendeeRole[Int(attendee.participantRole.value)]
-                println("Attendee role = \(role)")
+                let role = attendeeRole[Int(attendee.participantRole.rawValue)]
+                print("Attendee role = \(role)")
                 
-                let status = attendeeStatus[Int(attendee.participantStatus.value)]
-                println("Attendee status = \(status)")
+                let status = attendeeStatus[Int(attendee.participantStatus.rawValue)]
+                print("Attendee status = \(status)")
                 
-                let type = attendeeStatus[Int(attendee.participantType.value)]
-                println("Attendee type = \(type)")
+                let type = attendeeStatus[Int(attendee.participantType.rawValue)]
+                print("Attendee type = \(type)")
                 
-                println("Attendee URL = \(attendee.URL)")
+                print("Attendee URL = \(attendee.URL)")
                 
             }
             
@@ -150,17 +150,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             title: "iCloud")
         
         if icloudSource == nil{
-            println("You have not configured iCloud for your device.")
+            print("You have not configured iCloud for your device.")
             return
         }
         
         let calendar = calendarWithTitle("Calendar",
             type: EKCalendarTypeCalDAV,
             source: icloudSource!,
-            eventType: EKEntityTypeEvent)
+            eventType: EKEntityType.Event)
         
         if calendar == nil{
-            println("Could not find the calendar we were looking for.")
+            print("Could not find the calendar we were looking for.")
             return
         }
         
@@ -172,14 +172,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let eventStore = EKEventStore()
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
             
         case .Authorized:
             enumerateTodayEventsInStore(eventStore)
         case .Denied:
             displayAccessDenied()
         case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+            eventStore.requestAccessToEntityType(EKEntityType.Event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.enumerateTodayEventsInStore(eventStore)
@@ -195,11 +195,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //- MARK: Helper methods
     func displayAccessDenied(){
-        println("Access to the event store is denied.")
+        print("Access to the event store is denied.")
     }
     
     func displayAccessRestricted(){
-        println("Access to the event store is restricted.")
+        print("Access to the event store is restricted.")
     }
 
 
