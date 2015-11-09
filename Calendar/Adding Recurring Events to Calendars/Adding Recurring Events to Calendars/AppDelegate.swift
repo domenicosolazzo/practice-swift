@@ -25,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let eventStore = EKEventStore()
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
             
         case .Authorized:
             createRecurringEventInStore(eventStore)
         case .Denied:
             displayAccessDenied()
         case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+            eventStore.requestAccessToEntityType(EKEntityType.Event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.createRecurringEventInStore(eventStore)
@@ -52,8 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources() as! [EKSource]{
-                if source.sourceType.value == type.value &&
+            for source in eventStore.sources as! [EKSource]{
+                if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame{
                         return source
@@ -71,10 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         source: EKSource,
         eventType: EKEntityType) -> EKCalendar?{
             
-            for calendar in source.calendarsForEntityType(eventType) as! Set<EKCalendar>{
+            for calendar in source.calendarsForEntityType(eventType) {
                 if calendar.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame &&
-                    calendar.type.value == type.value{
+                    calendar.type.rawValue == type.rawValue{
                         return calendar
                 }
             }
@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             /* If a calendar does not allow modification of its contents
             then we cannot insert an event into it */
             if inCalendar.allowsContentModifications == false{
-                println("The selected calendar does not allow modifications.")
+                print("The selected calendar does not allow modifications.")
                 return false
             }
             
@@ -112,13 +112,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             /* Finally, save the event into the calendar */
             var error:NSError?
             
-            let result = inEventStore.saveEvent(event,
-                span: EKSpanThisEvent,
-                error: &error)
+            let result: Bool
+            do {
+                try inEventStore.saveEvent(event,
+                                span: EKSpanThisEvent)
+                result = true
+            } catch var error1 as NSError {
+                error = error1
+                result = false
+            }
             
             if result == false{
                 if let theError = error{
-                    println("An error occurred \(theError)")
+                    print("An error occurred \(theError)")
                 }
             }
             
@@ -139,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             /* If a calendar does not allow modification of its contents
             then we cannot insert an event into it */
             if calendar.allowsContentModifications == false{
-                println("The selected calendar does not allow modifications.")
+                print("The selected calendar does not allow modifications.")
                 return false
             }
             
@@ -149,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             /* Get all the events that match the parameters */
             let events = store.eventsMatchingPredicate(predicate)
-                as! [EKEvent]
+                
             
             if events.count > 0{
                 
@@ -159,24 +165,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     if store.removeEvent(event,
                         span: EKSpanThisEvent,
-                        commit: false,
-                        error: &error) == false{
+                        commit: false) == false{
                             if let theError = error{
-                                println("Failed to remove \(event) with error = \(theError)")
+                                print("Failed to remove \(event) with error = \(theError)")
                             }
                     }
                 }
                 
                 var error:NSError?
-                if store.commit(&error){
-                    println("Successfully committed")
+                do {
+                    try store.commit()
+                    print("Successfully committed")
                     result = true
-                } else if let theError = error{
-                    println("Failed to commit the event store with error = \(theError)")
+                } catch var error1 as NSError {
+                    error = error1
+                    if let theError = error{
+                        print("Failed to commit the event store with error = \(theError)")
+                    }
                 }
                 
             } else {
-                println("No events matched your input.")
+                print("No events matched your input.")
             }
             
             return result
@@ -185,11 +194,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //- MARK: Helper Methods
     func displayAccessDenied(){
-        println("Access to the event store is denied.")
+        print("Access to the event store is denied.")
     }
     
     func displayAccessRestricted(){
-        println("Access to the event store is restricted.")
+        print("Access to the event store is restricted.")
     }
     
     /* This method finds the calendar as well */
@@ -200,17 +209,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             title: "iCloud")
         
         if icloudSource == nil{
-            println("You have not configured iCloud for your device.")
+            print("You have not configured iCloud for your device.")
             return
         }
         
         let calendar = calendarWithTitle("Calendar",
             type: EKCalendarTypeCalDAV,
             source: icloudSource!,
-            eventType: EKEntityTypeEvent)
+            eventType: EKEntityType.Event)
         
         if calendar == nil{
-            println("Could not find the calendar we were looking for.")
+            print("Could not find the calendar we were looking for.")
             return
         }
         
@@ -245,7 +254,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             /* Create an Event Kit date from this date */
             let recurringEnd = EKRecurrenceEnd.recurrenceEndWithEndDate(
-                oneYearFromNow) as! EKRecurrenceEnd
+                oneYearFromNow) 
             
             /* And the recurring rule. This event happens every
             month (EKRecurrenceFrequencyMonthly), once a month (interval:1)
@@ -261,12 +270,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             var error:NSError?
             
-            if store.saveEvent(event, span: EKSpanFutureEvents, error: &error){
-                println("Successfully created the recurring event.")
+            do {
+                try store.saveEvent(event, span: EKSpanFutureEvents)
+                print("Successfully created the recurring event.")
                 return true
-            } else if let theError = error{
-                println("Failed to create the recurring " +
-                    "event with error = \(theError)")
+            } catch var error1 as NSError {
+                error = error1
+                if let theError = error{
+                    print("Failed to create the recurring " +
+                        "event with error = \(theError)")
+                }
             }
             
             return false
