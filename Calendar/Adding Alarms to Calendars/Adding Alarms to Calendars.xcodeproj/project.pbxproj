@@ -156,6 +156,8 @@
 		C009B09E1B13AE0200C44B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C009B0C71B13AE0200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C009B0C81B13AE0200C44B10 /* Build configuration list for PBXNativeTarget "Adding Alarms to CalendarsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C009B0CA1B13AE0200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

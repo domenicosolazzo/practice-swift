@@ -25,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let eventStore = EKEventStore()
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
             
         case .Authorized:
             addAlarmToCalendarWithStore(eventStore)
         case .Denied:
             displayAccessDenied()
         case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+            eventStore.requestAccessToEntityType(EKEntityType.Event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.addAlarmToCalendarWithStore(eventStore)
@@ -52,8 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources() as! [EKSource]{
-                if source.sourceType.value == type.value &&
+            for source in eventStore.sources as! [EKSource]{
+                if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame{
                         return source
@@ -71,10 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         eventType: EKEntityType) -> EKCalendar?{
             
             for calendar in source.calendarsForEntityType(eventType)
-                as! Set<EKCalendar>{
+                {
                     if calendar.title.caseInsensitiveCompare(title) ==
                         NSComparisonResult.OrderedSame &&
-                        calendar.type.value == type.value{
+                        calendar.type.rawValue == type.rawValue{
                             return calendar
                     }
             }
@@ -102,10 +102,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         eventWithAlarm.addAlarm(alarm)
         
         var error:NSError?
-        if store.saveEvent(eventWithAlarm, span: EKSpanThisEvent, error: &error){
-            println("Saved an event that fires 60 seconds from now.")
-        } else if let theError = error{
-            println("Failed to save the event. Error = \(theError)")
+        do {
+            try store.saveEvent(eventWithAlarm, span: EKSpanThisEvent)
+            print("Saved an event that fires 60 seconds from now.")
+        } catch var error1 as NSError {
+            error = error1
+            if let theError = error{
+                print("Failed to save the event. Error = \(theError)")
+            }
         }
         
     }
@@ -117,17 +121,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             title: "iCloud")
         
         if icloudSource == nil{
-            println("You have not configured iCloud for your device.")
+            print("You have not configured iCloud for your device.")
             return
         }
         
         let calendar = calendarWithTitle("Calendar",
             type: EKCalendarTypeCalDAV,
             source: icloudSource!,
-            eventType: EKEntityTypeEvent)
+            eventType: EKEntityType.Event)
         
         if calendar == nil{
-            println("Could not find the calendar we were looking for.")
+            print("Could not find the calendar we were looking for.")
             return
         }
         
@@ -137,11 +141,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //- MARK: Helper methods
     func displayAccessDenied(){
-        println("Access to the event store is denied.")
+        print("Access to the event store is denied.")
     }
     
     func displayAccessRestricted(){
-        println("Access to the event store is restricted.")
+        print("Access to the event store is restricted.")
     }
 }
 
