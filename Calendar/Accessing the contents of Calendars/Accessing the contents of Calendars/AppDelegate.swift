@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources() as! [EKSource]{
-                if source.sourceType.value == type.value &&
+            for source in eventStore.sources as! [EKSource]{
+                if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
                     NSComparisonResult.OrderedSame{
                         return source
@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         eventType: EKEntityType) -> EKCalendar?{
             
             for calendar in source.calendarsForEntityType(eventType)
-                as! Set<EKCalendar>{
+                {
                     if calendar.title.caseInsensitiveCompare(title) ==
                         NSComparisonResult.OrderedSame &&
-                        calendar.type.value == type.value{
+                        calendar.type.rawValue == type.rawValue{
                             return calendar
                     }
             }
@@ -57,11 +57,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func displayAccessDenied(){
-        println("Access to the event store is denied.")
+        print("Access to the event store is denied.")
     }
     
     func displayAccessRestricted(){
-        println("Access to the event store is restricted.")
+        print("Access to the event store is restricted.")
     }
     
     func readEvents(){
@@ -74,17 +74,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             title: "iCloud")
         
         if icloudSource == nil{
-            println("You have not configured iCloud for your device.")
+            print("You have not configured iCloud for your device.")
             return
         }
         
         let calendar = calendarWithTitle("Calendar",
             type: EKCalendarTypeCalDAV,
             source: icloudSource!,
-            eventType: EKEntityTypeEvent)
+            eventType: EKEntityType.Event)
         
         if calendar == nil{
-            println("Could not find the calendar we were looking for.")
+            print("Could not find the calendar we were looking for.")
             return
         }
         
@@ -107,15 +107,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             as! [EKEvent]
         
         if events.count == 0{
-            println("No events could be found")
+            print("No events could be found")
         } else {
             
             /* Go through all the events and print their information
             out to the console */
             for event in events{
-                println("Event title = \(event.title)")
-                println("Event start date = \(event.startDate)")
-                println("Event end date = \(event.endDate)")
+                print("Event title = \(event.title)")
+                print("Event start date = \(event.startDate)")
+                print("Event end date = \(event.endDate)")
             }
         }
         
@@ -124,14 +124,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Request access to the calendar
     func requestAuthorization(){
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
             
         case .Authorized:
             readEvents()
         case .Denied:
             displayAccessDenied()
         case .NotDetermined:
-            EKEventStore().requestAccessToEntityType(EKEntityTypeEvent, completion:
+            EKEventStore().requestAccessToEntityType(EKEntityType.Event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.readEvents()
