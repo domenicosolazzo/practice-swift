@@ -25,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let eventStore = EKEventStore()
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent){
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
             
         case .Authorized:
             findIcloudEventSource()
         case .Denied:
             displayAccessDenied()
         case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion:
+            eventStore.requestAccessToEntityType(EKEntityType.Event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.findIcloudEventSource()
@@ -51,24 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var icloudEventSource: EKSource?
         
         let eventStore = EKEventStore()
-        for source in eventStore.sources() as! [EKSource]{
-            if source.sourceType.value == EKSourceTypeCalDAV.value &&
+        for source in eventStore.sources as! [EKSource]{
+            if source.sourceType.rawValue == EKSourceTypeCalDAV.rawValue &&
                 source.title.lowercaseString == "icloud"{
                     icloudEventSource = source
             }
         }
         
         if let source = icloudEventSource{
-            println("The iCloud event source was found = \(source)")
+            print("The iCloud event source was found = \(source)")
             
-            let calendars = source.calendarsForEntityType(EKEntityTypeEvent)
+            let calendars = source.calendarsForEntityType(EKEntityType.Event)
             
-            for calendar in calendars as! Set<EKCalendar>{
-                println(calendar)
+            for calendar in calendars {
+                print(calendar)
             }
             
         } else {
-            println("Could not find the iCloud event source")
+            print("Could not find the iCloud event source")
         }
         
     }
@@ -76,11 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //- MARK: Helper methods
     func displayAccessDenied(){
-        println("Access to the event store is denied.")
+        print("Access to the event store is denied.")
     }
     
     func displayAccessRestricted(){
-        println("Access to the event store is restricted.")
+        print("Access to the event store is restricted.")
     }
 }
 
