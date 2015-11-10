@@ -42,7 +42,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     func dataFromCiImage(image: CIImage) -> NSData{
         let glContext = EAGLContext(API: .OpenGLES2)
         let context = CIContext(EAGLContext: glContext)
-        let imageRef = context.createCGImage(image, fromRect: image.extent())
+        let imageRef = context.createCGImage(image, fromRect: image.extent)
         let image = UIImage(CGImage: imageRef, scale: 1.0, orientation: .Up)
         return UIImageJPEGRepresentation(image, 1.0)
     }
@@ -100,9 +100,8 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
         dispatch_async(dispatch_get_main_queue(), {[weak self] in
             let strongSelf = self!
             
-            let data = NSData(contentsOfURL: strongSelf.output.renderedContentURL,
-                options: .DataReadingMappedIfSafe,
-                error: nil)
+            let data = try? NSData(contentsOfURL: strongSelf.output.renderedContentURL,
+                options: .DataReadingMappedIfSafe)
             
             let image = UIImage(data: data!)
             
