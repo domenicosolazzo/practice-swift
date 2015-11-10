@@ -34,13 +34,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Camera is ")
+        print("Camera is ", terminator: "")
         
         if isCameraAvailable() == false{
-            print("not ")
+            print("not ", terminator: "")
         }
         
-        println("available")
+        print("available")
         
     }
 
