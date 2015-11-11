@@ -35,7 +35,7 @@ class ViewController: UIViewController,
             if let theController = controller{
                 theController.sourceType = .Camera
                 
-                theController.mediaTypes = [kUTTypeImage as! String]
+                theController.mediaTypes = [kUTTypeImage as String]
                 
                 theController.allowsEditing = true
                 theController.delegate = self
@@ -44,7 +44,7 @@ class ViewController: UIViewController,
             }
             
         } else {
-            println("Camera is not available")
+            print("Camera is not available")
         }
         
     }
@@ -52,7 +52,7 @@ class ViewController: UIViewController,
     //- MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
         
-        println("Picker was cancelled")
+        print("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -62,16 +62,16 @@ class ViewController: UIViewController,
         context: UnsafeMutablePointer<()>){
             
         if let theError = error{
-            println("An error happened while saving the image = \(theError)")
+            print("An error happened while saving the image = \(theError)")
         } else {
-            println("Image was saved successfully")
+            print("Image was saved successfully")
         }
     }
     
     func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+        didFinishPickingMediaWithInfo info: [String : AnyObject]){
             
-            println("Picker returned successfully")
+            print("Picker returned successfully")
             
             let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
             
@@ -80,7 +80,7 @@ class ViewController: UIViewController,
                 if type is String{
                     let stringType = type as! String
                     
-                    if stringType == kUTTypeImage as! String{
+                    if stringType == kUTTypeImage as String{
                         
                         var theImage: UIImage!
                         
@@ -118,8 +118,7 @@ class ViewController: UIViewController,
         sourceType: UIImagePickerControllerSourceType) -> Bool{
             
             let availableMediaTypes =
-            UIImagePickerController.availableMediaTypesForSourceType(sourceType) as!
-                [String]?
+            UIImagePickerController.availableMediaTypesForSourceType(sourceType) 
             
             if let types = availableMediaTypes{
                 for type in types{
@@ -133,7 +132,7 @@ class ViewController: UIViewController,
     }
     
     func doesCameraSupportTakingPhotos() -> Bool{
-        return cameraSupportsMedia(kUTTypeImage as! String, sourceType: .Camera)
+        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
     }
 }
 
