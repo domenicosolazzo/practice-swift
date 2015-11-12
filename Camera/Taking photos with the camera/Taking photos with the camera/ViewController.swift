@@ -36,7 +36,7 @@ class ViewController: UIViewController,
             if let theController = controller{
                 theController.sourceType = .Camera
                 
-                theController.mediaTypes = [kUTTypeImage as! String]
+                theController.mediaTypes = [kUTTypeImage as String]
                 
                 theController.allowsEditing = true
                 theController.delegate = self
@@ -45,16 +45,16 @@ class ViewController: UIViewController,
             }
             
         } else {
-            println("Camera is not available")
+            print("Camera is not available")
         }
         
     }
     
     //- MARK: UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+        didFinishPickingMediaWithInfo info: [String : AnyObject]){
             
-        println("Picker returned successfully")
+        print("Picker returned successfully")
             
         let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
             
@@ -63,13 +63,13 @@ class ViewController: UIViewController,
             if type is String{
                 let stringType = type as! String
                 
-                if stringType == kUTTypeMovie as! String{
+                if stringType == kUTTypeMovie as String{
                     let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
                     if let url = urlOfVideo{
-                        println("Video URL = \(url)")
+                        print("Video URL = \(url)")
                     }
                 }
-                else if stringType == kUTTypeImage as! String{
+                else if stringType == kUTTypeImage as String{
                     /* Let's get the metadata. This is only for images. Not videos */
                     let metadata = info[UIImagePickerControllerMediaMetadata]
                         as? NSDictionary
@@ -83,10 +83,10 @@ class ViewController: UIViewController,
                         let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
                         
                         if let theImage = image{
-                            println("Image Metadata = \(theMetaData)")
-                            println("Image = \(theImage)")
-                            println("Edited image = \(editedImage)")
-                            println("Crop Rect = \(cropRect)")
+                            print("Image Metadata = \(theMetaData)")
+                            print("Image = \(theImage)")
+                            print("Edited image = \(editedImage)")
+                            print("Crop Rect = \(cropRect)")
                         }
                     }
                 }
@@ -98,7 +98,7 @@ class ViewController: UIViewController,
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        println("Picker was cancelled")
+        print("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -111,8 +111,7 @@ class ViewController: UIViewController,
         sourceType: UIImagePickerControllerSourceType) -> Bool{
             
         let availableMediaTypes =
-        UIImagePickerController.availableMediaTypesForSourceType(sourceType) as!
-                [String]?
+        UIImagePickerController.availableMediaTypesForSourceType(sourceType) 
             
         if let types = availableMediaTypes{
             for type in types{
@@ -126,7 +125,7 @@ class ViewController: UIViewController,
     }
     
     func doesCameraSupportTakingPhotos() -> Bool{
-        return cameraSupportsMedia(kUTTypeImage as! String, sourceType: .Camera)
+        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
     }
 }
 
