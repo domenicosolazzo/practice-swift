@@ -75,15 +75,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func setMoviePlayerLayoutConstraints() {
         let moviePlayerView = moviePlayerController!.view
-        moviePlayerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        moviePlayerView.translatesAutoresizingMaskIntoConstraints = false
         let views = ["moviePlayerView": moviePlayerView,
             "takePictureButton": takePictureButton]
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|[moviePlayerView]|", options:NSLayoutFormatOptions(0),
+            "H:|[moviePlayerView]|", options:NSLayoutFormatOptions(rawValue: 0),
             metrics:nil, views:views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|[moviePlayerView]-0-[takePictureButton]",
-            options:NSLayoutFormatOptions(0), metrics:nil, views:views))
+            options:NSLayoutFormatOptions(rawValue: 0), metrics:nil, views:views))
     }
     
     func pickMediaFromSource(sourceType:UIImagePickerControllerSourceType) {
@@ -109,7 +109,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     //- MARK: UIImagePickerControllerDelegate
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         lastChosenMediaType = info[UIImagePickerControllerMediaType] as! NSString as String
         if let mediaType = lastChosenMediaType {
             if mediaType == kUTTypeImage as NSString {
