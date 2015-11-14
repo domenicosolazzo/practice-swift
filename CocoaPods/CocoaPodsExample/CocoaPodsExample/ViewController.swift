@@ -19,10 +19,10 @@ class ViewController: UIViewController {
             "http://sample.com/data.php",
             parameters: nil,
             success: {(operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                println("Data is : " + responseObject.description)
+                print("Data is : " + responseObject.description)
             },
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!)in
-                println("Error: " + error.localizedDescription)
+                print("Error: " + error.localizedDescription)
         })
     }
 
