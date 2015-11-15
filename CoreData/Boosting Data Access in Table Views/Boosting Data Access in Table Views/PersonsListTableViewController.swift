@@ -15,7 +15,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         static let cellIdentifier = "Cell"
     }
     //- MARK: ViewController
-    required init!(coder aDecoder: NSCoder!) {
+    required init!(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         barButtonAddPerson = UIBarButtonItem(
@@ -34,11 +34,11 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         navigationItem.rightBarButtonItem = barButtonAddPerson
         
         // Create the fetch request
-        var fetchRequest = NSFetchRequest(entityName: "Person")
+        let fetchRequest = NSFetchRequest(entityName: "Person")
         
         // Sort descriptor
-        var ageDescriptor = NSSortDescriptor(key: "age", ascending: true)
-        var firstNameDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
+        let ageDescriptor = NSSortDescriptor(key: "age", ascending: true)
+        let firstNameDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
         
         fetchRequest.sortDescriptors = [ageDescriptor, firstNameDescriptor]
         
@@ -50,11 +50,13 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         self.frc.delegate = self
         
         var fetchError: NSError?
-        if self.frc.performFetch(&fetchError){
-            println("Success")
-        }else{
+        do {
+            try self.frc.performFetch()
+            print("Success")
+        } catch let error1 as NSError {
+            fetchError = error1
             if let error = fetchError{
-                println("Error: \(error)")
+                print("Error: \(error)")
             }
         }
     }
@@ -73,7 +75,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         Gets called on the delegate to inform the delegate of specific changes made 
         to an object on the context.
     */
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         if type == NSFetchedResultsChangeType.Delete{
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
@@ -93,13 +95,13 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     
     //- MARK: TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = frc.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = frc.sections![section] 
         return sectionInfo.numberOfObjects
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(
             TableConstants.cellIdentifier,
-            forIndexPath: indexPath) as! UITableViewCell
+            forIndexPath: indexPath) 
         
         let person = frc.objectAtIndexPath(indexPath) as! Person
         
@@ -117,11 +119,13 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         if personToDelete.deleted{
             var savingError: NSError?
             
-            if managedObjectContext!.save(&savingError){
-                println("Successfully deleted the object")
-            } else {
+            do {
+                try managedObjectContext!.save()
+                print("Successfully deleted the object")
+            } catch let error1 as NSError {
+                savingError = error1
                 if let error = savingError{
-                    println("Failed to save the context with error = \(error)")
+                    print("Failed to save the context with error = \(error)")
                 }
             }
         }
