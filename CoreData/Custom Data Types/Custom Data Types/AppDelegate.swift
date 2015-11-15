@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         laptop.color = UIColor.redColor()
         
         var savingError: NSError?
-        if managedObjectContext!.save(&savingError) == false{
+        if managedObjectContext!.save() == false{
             if let error = savingError{
-                println("Failed to save the laptop. Error = \(error)")
+                print("Failed to save the laptop. Error = \(error)")
             }
         }
         
@@ -38,8 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fetch.predicate = NSPredicate(format: "color == %@", UIColor.redColor())
         
         var fetchingError: NSError?
-        let laptops = managedObjectContext!.executeFetchRequest(fetch,
-            error: &fetchingError) as [AnyObject]!
+        let laptops = managedObjectContext!.executeFetchRequest(fetch) as [AnyObject]!
         
         /* Check for 1 because out fetch limit is 1 */
         if laptops.count == 1 && fetchingError == nil{
@@ -47,14 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fetchedLaptop = laptops[0] as! Laptop
             
             if fetchedLaptop.color == UIColor.redColor(){
-                println("Right colored laptop was fetched")
+                print("Right colored laptop was fetched")
             } else {
-                println("Could not find the laptop with the given color")
+                print("Could not find the laptop with the given color")
             }
             
         } else {
             if let error = fetchingError{
-                println("Could not fetch the laptop with the given color. " +
+                print("Could not fetch the laptop with the given color. " +
                     "Error = \(error)")
             }
         }
@@ -90,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.domenicosolazzo.swift.Custom_Data_Types" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -106,7 +105,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Custom_Data_Types.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -118,6 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -139,11 +143,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }
