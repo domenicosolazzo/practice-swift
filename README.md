@@ -1,6 +1,7 @@
 Practice Swift
 ==============
-Practice does make perfect: an alternative way to learn Swift
+Practice does make perfect: an alternative way to learn Swift.
+P.S: Updating the projects to Swift 2.1. Work in progress
 
 
 
