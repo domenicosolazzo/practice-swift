@@ -23,11 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (firstName, lastName, age)
         
         var savingError: NSError?
-        if managedObjectContext!.save(&savingError){
-            println("Successfully saved...")
-        }else{
+        do {
+            try managedObjectContext!.save()
+            print("Successfully saved...")
+        } catch let error1 as NSError {
+            savingError = error1
             if let error = savingError{
-                println("Failed to save the new person. Error = \(error)")
+                print("Failed to save the new person. Error = \(error)")
             }
             
         }
@@ -54,14 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Execute the request
         var requestError: NSError?
         /* And execute the fetch request on the context */
-        let persons = managedObjectContext!.executeFetchRequest(fetchRequest,
-            error:&requestError) as! [Person!]
+        let persons = (try! managedObjectContext!.executeFetchRequest(fetchRequest)) as! [Person!]
         
         for person in persons{
             
-            println("First Name = \(person.firstName)")
-            println("Last Name = \(person.lastName)")
-            println("Age = \(person.age)")
+            print("First Name = \(person.firstName)")
+            print("Last Name = \(person.lastName)")
+            print("Age = \(person.age)")
             
         }
         
@@ -97,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.domenicosolazzo.swift.Sorting_data" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -113,7 +114,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Sorting_data.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -125,6 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -146,11 +152,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }
