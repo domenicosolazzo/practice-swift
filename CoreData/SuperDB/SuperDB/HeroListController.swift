@@ -26,11 +26,14 @@ class HeroListController: UIViewController, UITableViewDataSource,
     @IBAction func addHero(sender: UIBarButtonItem) {
         let  managedObjectContext = fetchedResultsController.managedObjectContext as NSManagedObjectContext
         let entity:NSEntityDescription = fetchedResultsController.fetchRequest.entity!
-        var newHero = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: managedObjectContext) as! NSManagedObject
+        let newHero = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: managedObjectContext) 
         
         var error: NSError?
         
-        if !managedObjectContext.save(&error) {
+        do {
+            try managedObjectContext.save()
+        } catch let error1 as NSError {
+            error = error1
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
             
@@ -47,12 +50,15 @@ class HeroListController: UIViewController, UITableViewDataSource,
         // Select the TabBar item
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let selectedTab = userDefaults.integerForKey(kSelectedTabDefaultsKey)
-        let item = heroTabBar.items?[selectedTab] as! UITabBarItem
+        let item = heroTabBar.items?[selectedTab] as UITabBarItem?
         heroTabBar.selectedItem = item
         
         //Fetch any existing entities
         var error: NSError?
-        if !fetchedResultsController.performFetch(&error) {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error1 as NSError {
+            error = error1
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting",
                 comment: "Error was : \(error?.description), quitting")
@@ -66,7 +72,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
         self.heroTableView.reloadData()
     }
     //- MARK: UITabBarDelegate
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         let defaults = NSUserDefaults.standardUserDefaults()
         let items: NSArray = heroTabBar.items!
         let tabIndex = items.indexOfObject(item)
@@ -76,14 +82,16 @@ class HeroListController: UIViewController, UITableViewDataSource,
         _fetchedResultsController = nil
         
         var error: NSError?
-        if !fetchedResultsController.performFetch(&error) {
+        do {
+            try fetchedResultsController.performFetch()
+            self.heroTableView.reloadData()
+        } catch let error1 as NSError {
+            error = error1
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting",
                 comment: "Error was : \(error?.description), quitting")
             showAlertWithCompletion(title, message:message, buttonTitle:"Ok",
                 completion:{_ in exit(-1)})
-        } else {
-            self.heroTableView.reloadData()
         }
     }
     
@@ -115,14 +123,14 @@ class HeroListController: UIViewController, UITableViewDataSource,
             case tabBarKeys.ByName.rawValue:
                 let sortDescriptor1 = NSSortDescriptor(key: "name", ascending: true)
                 let sortDescriptor2 = NSSortDescriptor(key: "secretIdentity", ascending: true)
-                var sortDescriptors = NSArray(objects: sortDescriptor1, sortDescriptor2)
-                fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+                let sortDescriptors = NSArray(objects: sortDescriptor1, sortDescriptor2)
+                fetchRequest.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
                 sectionKey = "name"
             case tabBarKeys.BySecretIdentity.rawValue:
                 let sortDescriptor2 = NSSortDescriptor(key: "name", ascending: true)
                 let sortDescriptor1 = NSSortDescriptor(key: "secretIdentity", ascending: true)
-                var sortDescriptors = NSArray(objects: sortDescriptor1, sortDescriptor2)
-                fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+                let sortDescriptors = NSArray(objects: sortDescriptor1, sortDescriptor2)
+                fetchRequest.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
                 sectionKey = "secretIdentity"
             default:
                 ()
@@ -168,6 +176,7 @@ class HeroListController: UIViewController, UITableViewDataSource,
             ()
         }
     }
+    
     //- MARK: Navigation
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -193,13 +202,13 @@ class HeroListController: UIViewController, UITableViewDataSource,
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = fetchedResultsController.sections![section] 
         return sectionInfo.numberOfObjects
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "HeroListCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) 
         
         // Configure the cell...
         
@@ -234,12 +243,16 @@ class HeroListController: UIViewController, UITableViewDataSource,
             // Delete the row from the data source
             //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             managedObjectContext.deleteObject(fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
-            var error:NSError?
-            if managedObjectContext?.save(&error) == nil {
+            do{
+                try managedObjectContext?.save()
+            }catch{
+                print("Error saving!!!")
+                let nserror = error as NSError
                 let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
-                let message = NSLocalizedString("Error was : \(error?.description), quitting", comment: "Error was : \(error?.description), quitting")
-                showAlertWithCompletion(title, message: message, buttonTitle: "Ok",
+                let message = NSLocalizedString("Error saving the entity: \(nserror), quitting!", comment: "Error saving the entity: \(nserror.userInfo)")
+                self.showAlertWithCompletion(title, message: message, buttonTitle: "Ok",
                     completion: {_ in exit(-1)})
+                
             }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -251,12 +264,12 @@ class HeroListController: UIViewController, UITableViewDataSource,
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         if segue.identifier == "HeroDetailSegue"{
-            if let _sender = sender as? NSManagedObject{
-                var detailController:HeroDetailController = segue.destinationViewController as! HeroDetailController
+            if let _ = sender as? NSManagedObject{
+                let detailController:HeroDetailController = segue.destinationViewController as! HeroDetailController
                 detailController.hero = sender as! NSManagedObject
             } else {
                 let title = NSLocalizedString("Hero Detail Error", comment: "Hero Detail Error")
-                let message = NSLocalizedString("Error trying to show Hero detail",
+                _ = NSLocalizedString("Error trying to show Hero detail",
                     comment: "Error trying to show Hero detail")
                 showAlertWithCompletion(title, message:"message", buttonTitle:"Aw nuts",
                     completion:{_ in exit(-1)})

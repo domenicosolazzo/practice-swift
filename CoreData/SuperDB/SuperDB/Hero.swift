@@ -24,10 +24,10 @@ class Hero: NSManagedObject {
     var age:NSNumber {
         get {
             if self.birthDate != NSNull() {
-                var gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                let gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
                 var today = NSDate()
-                var components = gregorian?.components(NSCalendarUnit.CalendarUnitYear, fromDate: self.birthDate, toDate: NSDate(), options: .allZeros)
-                var years = components?.year
+                let components = gregorian?.components(NSCalendarUnit.Year, fromDate: self.birthDate, toDate: NSDate(), options: [])
+                let years = components?.year
                 return years!
             }
             return 0
@@ -43,42 +43,33 @@ class Hero: NSManagedObject {
     
     
     
-    func validateBirthDate(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, error:NSErrorPointer) -> Bool {
+    func validateBirthDate(ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws {
         var date = ioValue.memory as! NSDate
         if date.compare(NSDate()) == .OrderedDescending {
-            if error != nil {
-                var errorStr = NSLocalizedString("Birthdate cannot be in the future",
-                    comment: "Birthdate cannot be in the future")
-                var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
-                var outError = NSError(domain: kHeroValidationDomain, code: kHeroValidationBirthdateCode, userInfo: userInfo as [NSObject : AnyObject])
-                error.memory = outError
-            }
-            return false
+            var errorStr = NSLocalizedString("Birthdate cannot be in the future",
+                comment: "Birthdate cannot be in the future")
+            var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
+            var outError = NSError(domain: kHeroValidationDomain, code: kHeroValidationBirthdateCode, userInfo: userInfo as! [NSObject : AnyObject])
+            throw outError
         }
-        return true
     }
     
-    func validateNameOrSecretIdentity(error :NSErrorPointer) -> Bool{
-        if count(self.name) < 2 && count(self.secretIdentity) == 0 {
-            if error != nil {
-                var errorStr = NSLocalizedString("Must provide name or secret identity.",
-                    comment: "Must provide name or secret identity.")
-                var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
-                var outError = NSError(domain: kHeroValidationDomain, code: kHeroValidationNameOrSecretIdentityCode, userInfo: userInfo as [NSObject : AnyObject])
-                error.memory =  outError
-            }
-            return false
+    func validateNameOrSecretIdentity() throws{
+        if self.name.characters.count < 2 && self.secretIdentity.characters.count == 0 {
+            var errorStr = NSLocalizedString("Must provide name or secret identity.",
+                comment: "Must provide name or secret identity.")
+            var userInfo = NSDictionary(object: errorStr, forKey: NSLocalizedDescriptionKey)
+            var outError = NSError(domain: kHeroValidationDomain, code: kHeroValidationNameOrSecretIdentityCode, userInfo: userInfo as! [NSObject : AnyObject])
+            throw outError
         }
-        
-        return true
     }
     
-    override func validateForInsert(error: NSErrorPointer) -> Bool {
-        return self.validateNameOrSecretIdentity(error)
+    override func validateForInsert() throws {
+        try self.validateNameOrSecretIdentity()
     }
     
-    override func validateForUpdate(error: NSErrorPointer) -> Bool {
-        return self.validateNameOrSecretIdentity(error)
+    override func validateForUpdate() throws {
+        try self.validateNameOrSecretIdentity()
     }
     
     

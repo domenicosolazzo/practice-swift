@@ -62,7 +62,7 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -90,19 +90,22 @@ class SuperDBEditCell: UITableViewCell, UITextFieldDelegate {
     @IBAction func validate(){
         var val:AnyObject? = self.value
         var error: NSError? = nil
-        if !self.hero.validateValue(&val, forKey: self.key, error: &error) {
+        do {
+            try self.hero.validateValue(&val, forKey: self.key)
+        } catch let error1 as NSError {
+            error = error1
             var message: String!
             if error?.domain == "NSCocoaErrorDomain" {
-                var userInfo:NSDictionary? = error?.userInfo
-                var errorKey = userInfo?.valueForKey("NSValidationErrorKey") as! String
-                var errorCode:Int = error!.code
-                var reason = __CoreDataErrors.valueForKey("\(errorCode)") as! String
+                let userInfo:NSDictionary? = error?.userInfo
+                let errorKey = userInfo?.valueForKey("NSValidationErrorKey") as! String
+                let errorCode:Int = error!.code
+                let reason = __CoreDataErrors.valueForKey("\(errorCode)") as! String
                 message = NSLocalizedString("Validation error on \(errorKey)\rFailure Reason: \(reason)",
                     comment: "Validation error on \(errorKey)\rFailure Reason: \(reason)")
             } else {
                 message = error?.localizedDescription
             }
-            var title = NSLocalizedString("Validation Error",
+            let title = NSLocalizedString("Validation Error",
                 comment: "Validation Error")
             let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
             let fixAction = UIAlertAction(title: "Fix", style: .Default, handler: {

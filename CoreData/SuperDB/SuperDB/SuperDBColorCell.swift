@@ -18,12 +18,12 @@ class SuperDBColorCell: SuperDBEditCell {
             var attrs:NSDictionary = [
                 NSForegroundColorAttributeName:color,
                 NSFontAttributeName:UIFont.boldSystemFontOfSize(UIFont.systemFontSize())]
-            var attributedString = NSAttributedString(string: block! as String, attributes:attrs as [NSObject : AnyObject])
+            var attributedString = NSAttributedString(string: block! as String, attributes:attrs as [NSObject : AnyObject] as [NSObject : AnyObject])
             return attributedString
         }
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

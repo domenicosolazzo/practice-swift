@@ -14,7 +14,7 @@ class SuperDBDateCell: SuperDBEditCell {
 
     private var datePicker: UIDatePicker!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -33,7 +33,7 @@ class SuperDBDateCell: SuperDBEditCell {
     //MARK: - SuperDBEditCell Overrides
     override var value:AnyObject! {
         get{
-            if self.textField.text == nil || count(self.textField.text) == 0 {
+            if self.textField.text == nil || self.textField.text.characters.count == 0 {
                 return nil
             } else {
                 return self.datePicker.date as NSDate!

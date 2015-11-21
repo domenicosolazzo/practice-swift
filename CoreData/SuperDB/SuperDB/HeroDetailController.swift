@@ -17,8 +17,8 @@ class HeroDetailController: UITableViewController {
     var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
-        var plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
-        var plist = NSDictionary(contentsOfURL: plistURL!)
+        let plistURL = NSBundle.mainBundle().URLForResource("HeroDetailConfiguration", withExtension: "plist")
+        let plist = NSDictionary(contentsOfURL: plistURL!)
         self.sections = plist?.valueForKey("sections") as! NSArray as [AnyObject]
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "save")
@@ -30,15 +30,15 @@ class HeroDetailController: UITableViewController {
         let cellIdentifier = "SuperDBEditCell"
         
         // Configure the cell...
-        var sectionIndex = indexPath.section
-        var rowIndex = indexPath.row
-        var _sections = self.sections as NSArray
-        var section = _sections.objectAtIndex(sectionIndex) as! NSDictionary
-        var rows = section.objectForKey("rows") as! NSArray
-        var row = rows.objectAtIndex(rowIndex) as! NSDictionary
+        let sectionIndex = indexPath.section
+        let rowIndex = indexPath.row
+        let _sections = self.sections as NSArray
+        let section = _sections.objectAtIndex(sectionIndex) as! NSDictionary
+        let rows = section.objectForKey("rows") as! NSArray
+        let row = rows.objectAtIndex(rowIndex) as! NSDictionary
         
         // Cell type
-        var cellClassName = row.valueForKey("class") as! String
+        let cellClassName = row.valueForKey("class") as! String
         var cell = tableView.dequeueReusableCellWithIdentifier(cellClassName) as? SuperDBEditCell
         
         if cell == nil {
@@ -56,7 +56,7 @@ class HeroDetailController: UITableViewController {
         }
         
         
-        var dataKey = row.objectForKey("key") as! String!
+        let dataKey = row.objectForKey("key") as! String!
         cell?.key = dataKey
         cell?.label.text = row.objectForKey("label") as! String!
         
@@ -65,7 +65,7 @@ class HeroDetailController: UITableViewController {
             (cell as! SuperDBPickerCell).values = _values as [AnyObject]
         }
         
-        var theData:AnyObject? = self.hero.valueForKey(dataKey)
+        let theData:AnyObject? = self.hero.valueForKey(dataKey)
         cell?.value = theData
         
         if let _theDate = theData as? NSDate {
@@ -99,16 +99,20 @@ class HeroDetailController: UITableViewController {
     func save() {
         self.setEditing(false, animated: true)
         
-        for cell in self.tableView.visibleCells() {
+        for cell in self.tableView.visibleCells {
             let _cell = cell as! SuperDBEditCell
             if _cell.isEditable() {
                 self.hero.setValue(_cell.value, forKey: _cell.key)
             }
             
             var error: NSError?
-            self.hero.managedObjectContext?.save(&error)
+            do {
+                try self.hero.managedObjectContext?.save()
+            } catch let error1 as NSError {
+                error = error1
+            }
             if error != nil{
-                println("Error saving : \(error?.localizedDescription)")
+                print("Error saving : \(error?.localizedDescription)")
             }
         }
         

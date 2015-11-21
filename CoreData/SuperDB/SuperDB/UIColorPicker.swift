@@ -19,7 +19,7 @@ class UIColorPicker: UIControl {
     private var _blueSlider: UISlider!
     private var _alphaSlider: UISlider!
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -39,7 +39,7 @@ class UIColorPicker: UIControl {
     }
     
     private func labelWithFrame(frame: CGRect, text: String){
-        var label = UILabel(frame: frame)
+        let label = UILabel(frame: frame)
         label.userInteractionEnabled = false
         label.backgroundColor = UIColor.clearColor()
         label.font = UIFont.boldSystemFontOfSize(UIFont.systemFontSize())
@@ -50,7 +50,7 @@ class UIColorPicker: UIControl {
     }
     
     func createSliderWithAction(frame: CGRect, function: String)->UISlider{
-        var _slider = UISlider(frame: frame)
+        let _slider = UISlider(frame: frame)
         _slider.addTarget(self, action: Selector(function), forControlEvents: .ValueChanged)
         self.addSubview(_slider)
         
@@ -58,7 +58,7 @@ class UIColorPicker: UIControl {
     }
     
     override func drawRect(rect: CGRect) {
-        var gradient = CAGradientLayer()
+        let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [kTopBackgroundColor.CGColor, kBottomBackgroundColor.CGColor]
         self.layer.insertSublayer(gradient, atIndex: 0)

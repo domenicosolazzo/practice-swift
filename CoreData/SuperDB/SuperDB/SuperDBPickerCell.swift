@@ -13,7 +13,7 @@ class SuperDBPickerCell: SuperDBEditCell, UIPickerViewDataSource, UIPickerViewDe
     var values:[AnyObject]! = []
     var picker: UIPickerView!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -57,7 +57,7 @@ class SuperDBPickerCell: SuperDBEditCell, UIPickerViewDataSource, UIPickerViewDe
         }
         set {
             if newValue != nil {
-                var index = (self.values as NSArray).indexOfObject(newValue)
+                let index = (self.values as NSArray).indexOfObject(newValue)
                 if index != NSNotFound {
                     self.textField.text = newValue as! String!
                 }
