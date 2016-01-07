@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         lastName paramLastName: String,
         inAddressBook addressBook: ABAddressBookRef) -> Bool{
             
-            var exists = false
+            _ = false
             let people = ABAddressBookCopyArrayOfAllPeople(
                 addressBook).takeRetainedValue() as NSArray as [ABRecordRef]
             

@@ -148,15 +148,15 @@ class TableViewController: PFQueryTableViewController, CLLocationManagerDelegate
 
     
     //- MARK: Core Location
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         alert("Cannot fetch your location")
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         if(locations.count > 0){
-            let location = locations[0] as! CLLocation
-            println(location.coordinate)
+            let location = locations[0] 
+            print(location.coordinate)
             currLocation = location.coordinate
         } else {
             alert("Cannot fetch your location")

@@ -40,18 +40,18 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
         locationManager.startUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         if(locations.count > 0){
-            let location = locations[0] as! CLLocation
+            let location = locations[0] 
             currLocation = location.coordinate
         } else {
             alert()
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println(error)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,7 +83,7 @@ class PostViewController: UIViewController, UITextViewDelegate, CLLocationManage
     //- MARK: TextView delegate
     func textViewDidChange(textView: UITextView) {
         if(reset == false){
-            self.postView.text = String(Array(self.postView.text)[0])
+            self.postView.text = String(Array(self.postView.text.characters)[0])
             reset = true
         }
     }

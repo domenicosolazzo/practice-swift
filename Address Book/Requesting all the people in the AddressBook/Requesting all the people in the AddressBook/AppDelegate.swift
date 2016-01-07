@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
         case .Authorized:
-            println("Already authorized")
+            print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             self.readFromAddressBook(addressBook!)
         case .Denied:
-            println("You are denied access to address book")
+            print("You are denied access to address book")
             
         case .NotDetermined:
             createAddressBook()
@@ -33,19 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     {(granted: Bool, error: CFError!) in
                         
                         if granted{
-                            println("Access is granted")
+                            print("Access is granted")
                         } else {
-                            println("Access is not granted")
+                            print("Access is not granted")
                         }
                         
                 })
             }
             
         case .Restricted:
-            println("Access is restricted")
+            print("Access is restricted")
             
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
         
         return true
@@ -66,8 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 kABPersonLastNameProperty).takeRetainedValue()as! String
             
             
-            println("First name = \(firstName)")
-            println("Last name = \(lastName)")
+            print("First name = \(firstName)")
+            print("Last name = \(lastName)")
             self.readEmailsForPerson(person)
         }
         
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let email = ABMultiValueCopyValueAtIndex(emails,
                 counter).takeRetainedValue() as! String
             
-            println(email)
+            print(email)
             
         }
         

@@ -156,6 +156,8 @@
 		C009B1281B14E86200C44B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C009B1511B14E86200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C009B1521B14E86200C44B10 /* Build configuration list for PBXNativeTarget "Requesting all the people in the AddressBookTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C009B1541B14E86200C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

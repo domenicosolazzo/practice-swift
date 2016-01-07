@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newGroupWithName("Personal Coaches",
             inAddressBook: addressBook)
         
-        if let group: ABRecordRef = personalCoachesGroup{
+        if let _: ABRecordRef = personalCoachesGroup{
             print("Successfully created the group")
         } else {
             print("Could not create the group")

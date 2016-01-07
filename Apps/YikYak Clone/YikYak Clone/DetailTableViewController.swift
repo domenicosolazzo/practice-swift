@@ -57,20 +57,20 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         if(yak?.objectForKey("comments") != nil) {
             comments = yak?.objectForKey("comments") as! [String]
         }
-        println(yak)
-        println(yak?.objectForKey("text"))
+        print(yak)
+        print(yak?.objectForKey("text"))
         self.yakLabel.text = yak?.objectForKey("text") as! String
     }
     
     func keyBoardWillShow(notification: NSNotification) {
-        var info:NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        let info:NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
         
-        var keyboardHeight:CGFloat =  keyboardSize.height - 40
+        let keyboardHeight:CGFloat =  keyboardSize.height - 40
         
         var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! CGFloat
         
-        var contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardHeight, 0.0);
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardHeight, 0.0);
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         
@@ -100,7 +100,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as CommentTableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
     cell.commentText?.text = comments![indexPath.row]
     return cell
     }
@@ -143,8 +143,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         if(commentView!.contentSize.height != contentHeight && commentView!.contentSize.height > footerView!.bounds.height) {
             UIView.animateWithDuration(0.2, animations: { () -> Void in
                 let myview = self.footerView
-                println(self.commentView!.contentSize.height)
-                println(self.commentView?.font.lineHeight)
+                print(self.commentView!.contentSize.height)
+                print(self.commentView?.font.lineHeight)
                 let newHeight : CGFloat = self.commentView!.font.lineHeight
                 let myFrame = CGRect(x: myview!.frame.minX, y: myview!.frame.minY - newHeight , width: myview!.bounds.width, height: newHeight + myview!.bounds.height)
                 myview?.frame = myFrame
@@ -168,8 +168,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             })
             
-            println(self.footerView?.frame)
-            println(self.commentView?.frame)
+            print(self.footerView?.frame)
+            print(self.commentView?.frame)
             contentHeight = commentView!.contentSize.height
         }
         
@@ -185,7 +185,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             comments?.append(tmpText)
         }
         commentView?.text = ""
-        println(comments?.count)
+        print(comments?.count)
         self.commentView?.resignFirstResponder()
         self.tableView.reloadData()
     }

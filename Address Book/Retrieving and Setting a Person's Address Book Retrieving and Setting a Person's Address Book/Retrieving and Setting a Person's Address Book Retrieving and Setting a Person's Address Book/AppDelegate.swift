@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
         case .Authorized:
-            println("Already authorized")
+            print("Already authorized")
             performExample()
         case .Denied:
-            println("You are denied access to address book")
+            print("You are denied access to address book")
             
         case .NotDetermined:
             ABAddressBookRequestAccessWithCompletion(addressBook,
@@ -33,18 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     if granted{
                         let strongSelf = self!
-                        println("Access is granted")
+                        print("Access is granted")
                         strongSelf.performExample()
                     } else {
-                        println("Access is not granted")
+                        print("Access is not granted")
                     }
                     
                 })
         case .Restricted:
-            println("Access is restricted")
+            print("Access is restricted")
             
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
         return true
     }
@@ -78,9 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let couldAddPerson = ABAddressBookAddRecord(inAddressBook, person, &error)
             
             if couldAddPerson{
-                println("Successfully added the person")
+                print("Successfully added the person")
             } else {
-                println("Failed to add the person.")
+                print("Failed to add the person.")
                 return nil
             }
             
@@ -90,17 +90,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let couldSaveAddressBook = ABAddressBookSave(inAddressBook, &error)
                 
                 if couldSaveAddressBook{
-                    println("Successfully saved the address book")
+                    print("Successfully saved the address book")
                 } else {
-                    println("Failed to save the address book.")
+                    print("Failed to save the address book.")
                 }
             }
             
             if couldSetFirstName && couldSetLastName{
-                println("Successfully set the first name " +
+                print("Successfully set the first name " +
                     "and the last name of the person")
             } else {
-                println("Failed to set the first name and/or " +
+                print("Failed to set the first name and/or " +
                     "the last name of the person")
             }
             
@@ -118,23 +118,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ABPersonSetImageData(person, imageData as CFDataRef, &error)
             
             if couldSetPersonImage{
-                println("Successfully set the person's image. Saving...")
+                print("Successfully set the person's image. Saving...")
                 if ABAddressBookHasUnsavedChanges(addressBook){
                     error = nil
                     
                     let couldSaveAddressBook = ABAddressBookSave(addressBook, &error)
                     
                     if couldSaveAddressBook{
-                        println("Successfully saved the address book")
+                        print("Successfully saved the address book")
                         return true
                     } else {
-                        println("Failed to save the address book")
+                        print("Failed to save the address book")
                     }
                 } else {
-                    println("There are no changes to be saved!")
+                    print("There are no changes to be saved!")
                 }
             } else {
-                println("Failed to set the person's image")
+                print("Failed to set the person's image")
             }
             
             return false
@@ -153,18 +153,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if setImageForPerson(richard, inAddressBook: addressBook,
                 imageData: newImageData){
                     
-                    println("Successfully set the person's image")
+                    print("Successfully set the person's image")
                     
                     let image = imageForPerson(richard)
                     
                     if let currentImage = image{
-                        println("Found the image")
+                        print("Found the image")
                     } else {
-                        println("This person has no image")
+                        print("This person has no image")
                     }
                     
             } else {
-                println("Could not set the person's image")
+                print("Could not set the person's image")
             }
             
         }

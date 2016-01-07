@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
         case .Authorized:
-            println("Already authorized")
+            print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             self.newPersonWithFirstName("Domenico", lastName: "Solazzo", inAddressBook: addressBook!)
         case .Denied:
-            println("You are denied access to address book")
+            print("You are denied access to address book")
             
         case .NotDetermined:
             createAddressBook()
@@ -32,19 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     {(granted: Bool, error: CFError!) in
                         
                         if granted{
-                            println("Access is granted")
+                            print("Access is granted")
                         } else {
-                            println("Access is not granted")
+                            print("Access is not granted")
                         }
                         
                 })
             }
             
         case .Restricted:
-            println("Access is restricted")
+            print("Access is restricted")
             
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
 
         
@@ -92,9 +92,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let couldAddPerson = ABAddressBookAddRecord(inAddressBook, person, &error)
             
             if couldAddPerson{
-                println("Successfully added the person.")
+                print("Successfully added the person.")
             } else {
-                println("Failed to add the person.")
+                print("Failed to add the person.")
                 return nil
             }
             
@@ -104,17 +104,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let couldSaveAddressBook = ABAddressBookSave(inAddressBook, &error)
                 
                 if couldSaveAddressBook{
-                    println("Successfully saved the address book.")
+                    print("Successfully saved the address book.")
                 } else {
-                    println("Failed to save the address book.")
+                    print("Failed to save the address book.")
                 }
             }
             
             if couldSetFirstName && couldSetLastName{
-                println("Successfully set the first name " +
+                print("Successfully set the first name " +
                     "and the last name of the person")
             } else {
-                println("Failed to set the first name and/or " +
+                print("Failed to set the first name and/or " +
                     "the last name of the person")
             }
             
