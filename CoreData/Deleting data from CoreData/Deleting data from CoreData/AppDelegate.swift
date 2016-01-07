@@ -24,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (firstName, lastName, age)
         
         var savingError: NSError?
-        if managedObjectContext!.save(&savingError){
-            println("Successfully saved...")
-        }else{
+        do {
+            try managedObjectContext!.save()
+            print("Successfully saved...")
+        } catch let error1 as NSError {
+            savingError = error1
             if let error = savingError{
-                println("Failed to save the new person. Error = \(error)")
+                print("Failed to save the new person. Error = \(error)")
             }
             
         }
@@ -53,8 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var requestError: NSError?
         
         /* And execute the fetch request on the context */
-        let persons = managedObjectContext!.executeFetchRequest(fetchRequest,
-            error: &requestError) as! [Person]
+        let persons = (try! managedObjectContext!.executeFetchRequest(fetchRequest)) as! [Person]
         
         if persons.count > 0{
             /* Delete the last person in the array */
@@ -64,23 +65,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // .deleted check if an entity has been deleted in the context
             if lastPerson.deleted{
-                println("Successfully deleted the last person...")
+                print("Successfully deleted the last person...")
                 
                 var savingError: NSError?
-                if managedObjectContext!.save(&savingError){
-                    println("Successfully saved the context")
-                } else {
+                do {
+                    try managedObjectContext!.save()
+                    print("Successfully saved the context")
+                } catch let error1 as NSError {
+                    savingError = error1
                     if let error = savingError{
-                        println("Failed to save the context. Error = \(error)")
+                        print("Failed to save the context. Error = \(error)")
                     }
                 }
                 
             } else {
-                println("Failed to delete the last person")
+                print("Failed to delete the last person")
             }
             
         }else{
-            println("Could not find any Person entity in the context")
+            print("Could not find any Person entity in the context")
         }
         
         
@@ -116,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.domenicosolazzo.swift.Deleting_data_from_CoreData" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -132,7 +135,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Deleting_data_from_CoreData.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -144,6 +150,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -165,11 +173,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }
