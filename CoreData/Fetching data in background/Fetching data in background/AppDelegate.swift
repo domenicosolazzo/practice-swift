@@ -29,11 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         var savingError: NSError?
-        if managedObjectContext!.save(&savingError){
-            println("Managed to populate the database")
-        } else {
+        do {
+            try managedObjectContext!.save()
+            print("Managed to populate the database")
+        } catch let error1 as NSError {
+            savingError = error1
             if let error = savingError{
-                println("Failed to populate the database. Error = \(error)")
+                print("Failed to populate the database. Error = \(error)")
             }
         }
         
@@ -56,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func processPersons(){
         
         /* Do your work here using the mutablePersons property of our app*/
-        println("Some processing .....")
+        print("Some processing .....")
         
     }
     //- MARK: Application Delegate
@@ -70,10 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* Issue a block on the background context */
         backgroundContext.performBlock{[weak self] in
             
-            var fetchError: NSError?
-            let personIds = backgroundContext.executeFetchRequest(
-                self!.newFetchRequest(),
-                error: &fetchError) as! [NSManagedObjectID]
+            let fetchError: NSError?
+            let personIds = (try! backgroundContext.executeFetchRequest(
+                self!.newFetchRequest())) as! [NSManagedObjectID]
             
             if fetchError == nil{
                 
@@ -89,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self!.processPersons()
                 })
             } else {
-                println("Failed to execute the fetch request")
+                print("Failed to execute the fetch request")
             }
             
         }
@@ -125,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.domenicosolazzo.swift.Fetching_data_in_background" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -141,7 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Fetching_data_in_background.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -153,6 +157,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -174,11 +180,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }
