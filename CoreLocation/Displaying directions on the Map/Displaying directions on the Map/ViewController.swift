@@ -15,7 +15,7 @@ class ViewController: UIViewController,
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         mapView = MKMapView()
     }
@@ -45,21 +45,21 @@ class ViewController: UIViewController,
     }
     
     //- MARK: LocationManager
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus){
             
             print("The authorization status of location " +
-                "services is changed to: ")
+                "services is changed to: ", terminator: "")
             
             switch CLLocationManager.authorizationStatus(){
             case .Denied:
-                println("Denied")
+                print("Denied")
             case .NotDetermined:
-                println("Not determined")
+                print("Not determined")
             case .Restricted:
-                println("Restricted")
+                print("Restricted")
             default:
-                println("Authorized")
+                print("Authorized")
                 provideDirections()
             }
             
@@ -74,7 +74,7 @@ class ViewController: UIViewController,
                     /* Handle the error here perhaps by displaying an alert */
                 } else {
                     let request = MKDirectionsRequest()
-                    request.setSource(MKMapItem.mapItemForCurrentLocation())
+                    request.setSource = MKMapItem.mapItemForCurrentLocation()
                     
                     /* Convert the CoreLocation destination
                     placemark to a MapKit placemark */
@@ -86,7 +86,7 @@ class ViewController: UIViewController,
                         destinationCoordinates,
                         addressDictionary: nil)
                     
-                    request.setDestination(MKMapItem(placemark: destination))
+                    request.setDestination = MKMapItem(placemark: destination)
                     
                     /* Set the transportation method to automobile */
                     request.transportType = .Automobile
@@ -153,7 +153,7 @@ class ViewController: UIViewController,
             /* Location services are not enabled.
             Take appropriate action: for instance, prompt the
             user to enable the location services */
-            println("Location services are not enabled")
+            print("Location services are not enabled")
         }
         
     }
