@@ -12,17 +12,17 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println("Updated locations... \(__FUNCTION__)")
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Updated locations... \(__FUNCTION__)")
         
         if locations.count > 0{
-            let location = (locations as! [CLLocation])[0]
-            println("Location found = \(location)")
+            let location = (locations )[0]
+            print("Location found = \(location)")
             if let theFloor = location.floor{
-                println("The floor information is = \(theFloor)")
-                println("Level: \(theFloor.level)")
+                print("The floor information is = \(theFloor)")
+                print("Level: \(theFloor.level)")
             } else {
-                println("No floor information is available")
+                print("No floor information is available")
             }
         }
     }
