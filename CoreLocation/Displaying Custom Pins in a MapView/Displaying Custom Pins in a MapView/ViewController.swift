@@ -13,7 +13,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     var mapView: MKMapView!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         mapView = MKMapView()
     }
@@ -74,8 +74,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func mapView(mapView: MKMapView!,
-        viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!{
+    func mapView(mapView: MKMapView,
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!{
             
             if annotation is MyAnnotation == false{
                 return nil
