@@ -156,6 +156,8 @@
 		C009B2F41B162C7C00C44B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C009B31D1B162C7C00C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C009B31E1B162C7C00C44B10 /* Build configuration list for PBXNativeTarget "Deleting File and FoldersTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C009B3201B162C7C00C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
