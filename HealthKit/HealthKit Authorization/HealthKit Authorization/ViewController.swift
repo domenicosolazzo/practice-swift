@@ -40,17 +40,17 @@ class ViewController: UIViewController {
         // Check if the HealthKit is available
         if HKHealthStore.isHealthDataAvailable(){
             // Request authorization
-            healthStore.requestAuthorizationToShareTypes(typesToShare, readTypes: typesToRead){ (succeeded: Bool, error: NSError!) in
+            healthStore.requestAuthorizationToShareTypes(typesToShare, readTypes: typesToRead){ (succeeded: Bool, error: NSError?) in
                 if succeeded && error == nil{
-                    println("Authorization succeeded")
+                    print("Authorization succeeded")
                 }else{
                     if let theError = error{
-                        println("Error \(theError)")
+                        print("Error \(theError)")
                     }
                 }
             }
         }else{
-            println("HealthData is not available")
+            print("HealthData is not available")
         }
     }
 }
