@@ -156,6 +156,8 @@
 		C0CB700D1AFD5FB000D4268A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C0CB70361AFD5FB100D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB70371AFD5FB100D4268A /* Build configuration list for PBXNativeTarget "Observing changes in HealthKitTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C0CB70391AFD5FB100D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let now = NSDate()
         
         let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(
-            NSCalendarUnit.DayCalendarUnit,
+            NSCalendarUnit.NSDayCalendarUnit,
             value: -1,
             toDate: now,
             options: NSCalendarOptions.WrapComponents)
@@ -58,12 +58,12 @@ class ViewController: UIViewController {
                         strongSelf.startObservingWeightChanges)
                 }else{
                     if let theError = error{
-                        println("Error \(theError)")
+                        print("Error \(theError)")
                     }
                 }
             })
         }else{
-            println("Health data is not available")
+            print("Health data is not available")
         }
     }
     
@@ -75,13 +75,13 @@ class ViewController: UIViewController {
     func startObservingWeightChanges(){
         healthStore.executeQuery(query)
         healthStore.enableBackgroundDeliveryForType(weightQuantityType,
-            frequency: HKUpdateFrequency.Immediate) { (succeeded:Bool, error:NSError!) -> Void in
+            frequency: HKUpdateFrequency.Immediate) { (succeeded:Bool, error:NSError?) -> Void in
                 if succeeded{
-                    println("Enabled background delivery of weight changes")
+                    print("Enabled background delivery of weight changes")
                 }else{
                     if let theError = error{
-                        print("Failed to enabled background changes")
-                        println("Error \(theError)")
+                        print("Failed to enabled background changes", terminator: "")
+                        print("Error \(theError)")
                     }
                 }
         }
@@ -93,11 +93,11 @@ class ViewController: UIViewController {
             (succeeded: Bool, error: NSError!) in
             
             if succeeded{
-                println("Disabled background delivery of weight changes")
+                print("Disabled background delivery of weight changes")
             } else {
                 if let theError = error{
-                    print("Failed to disable background delivery of weight changes. ")
-                    println("Error = \(theError)")
+                    print("Failed to disable background delivery of weight changes. ", terminator: "")
+                    print("Error = \(theError)")
                 }
             }
             
@@ -126,16 +126,16 @@ class ViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue(), {[weak self] in
                         let strongSelf = self!
                         
-                        println("Weight has been changed to " +
+                        print("Weight has been changed to " +
                             "\(weightInKilograms) \(kilogramSuffix)")
-                        println("Change date = \(sample.startDate)")
+                        print("Change date = \(sample.startDate)")
                     })
                 }
                 
                 
             }else{
-                print("Could not read the user's weight ")
-                println("or no weight data was available")
+                print("Could not read the user's weight ", terminator: "")
+                print("or no weight data was available")
             }
         }
         
