@@ -59,12 +59,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     strongSelf.readWeightInformation()
                 }else{
                     if let theError = error{
-                        println("Error \(theError)")
+                        print("Error \(theError)")
                     }
                 }
             }
         }else{
-            println("HealthData is not available")
+            print("HealthData is not available")
         }
     }
     
@@ -116,8 +116,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     })
                     
                 } else {
-                    print("Could not read the user's weight ")
-                    println("or no weight data was available")
+                    print("Could not read the user's weight ", terminator: "")
+                    print("or no weight data was available")
                 }
                 
                 
@@ -138,12 +138,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             endDate: now)
         
         healthStore.saveObject(sample, withCompletion: {
-            (succeeded: Bool, error: NSError!) in
+            (succeeded: Bool, error: NSError?) in
             
             if error == nil{
-                println("Successfully saved the user's weight")
+                print("Successfully saved the user's weight")
             } else {
-                println("Failed to save the user's weight")
+                print("Failed to save the user's weight")
             }
             
         })

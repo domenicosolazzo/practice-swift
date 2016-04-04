@@ -162,6 +162,8 @@
 		C0CB6FAB1AFD280C00D4268A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -431,6 +433,7 @@
 				C0CB6FD41AFD280C00D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB6FD51AFD280C00D4268A /* Build configuration list for PBXNativeTarget "Read and Write Health DataTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +442,7 @@
 				C0CB6FD71AFD280C00D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
