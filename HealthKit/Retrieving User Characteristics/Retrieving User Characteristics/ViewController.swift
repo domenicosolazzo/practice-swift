@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         if HKHealthStore.isHealthDataAvailable(){
             
             healthStore.requestAuthorizationToShareTypes(nil,
-                readTypes: types as Set<NSObject>,
+                readTypes: types as Set<NSObject> as Set<NSObject>,
                 completion: {[weak self]
                     (succeeded: Bool, error: NSError!) in
                     
@@ -39,41 +39,41 @@ class ViewController: UIViewController {
                             strongSelf.readDateOfBirthInformation)
                     } else {
                         if let theError = error{
-                            println("Error occurred = \(theError)")
+                            print("Error occurred = \(theError)")
                         }
                     }
                     
                 })
             
         } else {
-            println("Health data is not available")
+            print("Health data is not available")
         }
     }
     
     func readDateOfBirthInformation(){
         
         var dateOfBirthError: NSError?
-        let birthDate = healthStore.dateOfBirthWithError(&dateOfBirthError)
+        let birthDate = healthStore.dateOfBirthWithError()
             as NSDate?
         
         if let error = dateOfBirthError{
-            println("Could not read user's date of birth")
+            print("Could not read user's date of birth")
         } else {
             
             if let dateOfBirth = birthDate{
                 let formatter = NSNumberFormatter()
                 let now = NSDate()
                 let components = NSCalendar.currentCalendar().components(
-                    .YearCalendarUnit,
+                    .NSYearCalendarUnit,
                     fromDate: dateOfBirth,
                     toDate: now,
                     options: .WrapComponents)
                 
                 let age = components.year
                 
-                println("The user is \(age) years old")
+                print("The user is \(age) years old")
             } else {
-                println("User has not specified her date of birth yet")
+                print("User has not specified her date of birth yet")
             }
             
         }

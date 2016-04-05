@@ -162,6 +162,8 @@
 		C0CB6FDC1AFD362200D4268A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -431,6 +433,7 @@
 				C0CB70051AFD362200D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB70061AFD362200D4268A /* Build configuration list for PBXNativeTarget "Retrieving User CharacteristicsTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +442,7 @@
 				C0CB70081AFD362200D4268A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
