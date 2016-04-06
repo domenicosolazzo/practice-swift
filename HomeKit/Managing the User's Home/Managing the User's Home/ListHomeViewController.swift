@@ -62,10 +62,10 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewValues.identifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewValues.identifier, forIndexPath: indexPath) 
         
         // Home
-        let home = homeManager.homes[indexPath.row] as! HMHome
+        let home = homeManager.homes[indexPath.row] 
         
         cell.textLabel!.text = home.name
         return cell
@@ -75,11 +75,10 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
             // Take the home in that row
-            let home = homeManager.homes[indexPath.row] as! HMHome
+            let home = homeManager.homes[indexPath.row] 
             
             // Remove the home
-            homeManager.removeHome(home, completionHandler: {[weak self]
-                (error:NSError!) -> Void in
+            homeManager.removeHome(HMHome, completionHandler: { (NSError?) in
                 let strongSelf = self!
                 
                 if error != nil{
@@ -91,6 +90,7 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
             })
+            
         }
     }
     

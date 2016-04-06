@@ -21,7 +21,7 @@ class AddHomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addHome(){
-        if count(textField.text) == 0{
+        if textField.text.characters.count == 0{
             displayAlertWithTitle("Home name", message: "Please enter the home name")
             return
         }
