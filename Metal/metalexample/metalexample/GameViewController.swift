@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         // get device
-        let device: MTLDevice = MTLCreateSystemDefaultDevice()
+        let device: MTLDevice = MTLCreateSystemDefaultDevice()!
         
         // create command queue
         var commandQueue: MTLCommandQueue = device.newCommandQueue()
@@ -31,9 +31,11 @@ class GameViewController: UIViewController {
             0.75, -0.75]
         
         // Vertex buffer
+        
         var vertexBuffer: MTLBuffer! = device.newBufferWithBytes(vertexArray,
             length: vertexArray.count * sizeofValue(vertexArray[0]),
             options: nil)
+        
         
         // Get the shader
         let newDefaultLibrary = device.newDefaultLibrary()
@@ -49,7 +51,7 @@ class GameViewController: UIViewController {
         
         // Render pipeline state from descriptor
         var pipelineState: MTLRenderPipelineState!
-        pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineDescriptor, error: nil)
+        pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineDescriptor, completionHandler: nil)
         
         //prepare view with layer
         let  metalLayer = CAMetalLayer()
@@ -77,7 +79,7 @@ class GameViewController: UIViewController {
         let commandBuffer = commandQueue.commandBuffer()
         
         //create Encoder - converts code to machine language
-        let renderEncoder:MTLRenderCommandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)!
+        let renderEncoder:MTLRenderCommandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
         
         //provide pipelineState and vertexBuffer
         renderEncoder.setRenderPipelineState(pipelineState)

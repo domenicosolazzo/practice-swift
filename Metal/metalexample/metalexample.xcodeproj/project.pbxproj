@@ -159,6 +159,8 @@
 		C05F136F1B5599C800CBD596 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Domenico Solazzo";
 				TargetAttributes = {
@@ -415,6 +417,7 @@
 				C05F139A1B5599C900CBD596 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C05F139B1B5599C900CBD596 /* Build configuration list for PBXNativeTarget "metalexampleTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +426,7 @@
 				C05F139D1B5599C900CBD596 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

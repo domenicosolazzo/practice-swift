@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         // User locale
         let locale = NSLocale.currentLocale()
         // User preferred language
-        let currentLangID = (NSLocale.preferredLanguages() as! [String])[0]
+        let currentLangID = (NSLocale.preferredLanguages() )[0]
         let displayLang = locale.displayNameForKey(NSLocaleLanguageCode, value: currentLangID)
         let capitalized = displayLang?.capitalizedStringWithLocale(locale)
         localeLabel.text = capitalized
