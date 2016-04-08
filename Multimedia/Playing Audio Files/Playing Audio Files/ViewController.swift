@@ -15,10 +15,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         
         dispatch_async(queue, {[weak self] in
-            var strongSelf = self!
+            let strongSelf = self!
             let mainBundle = NSBundle.mainBundle()
             
             // Location of the audio file
@@ -28,19 +28,26 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                 let fileData = NSData(contentsOfFile: path)
                 
                 var error: NSError?
-                // Start the audio player
-                strongSelf.audioPlayer = AVAudioPlayer(data: fileData, error: &error)
+                do {
+                    // Start the audio player
+                    strongSelf.audioPlayer = try AVAudioPlayer(data: fileData)
+                } catch let error1 as NSError {
+                    error = error1
+                    strongSelf.audioPlayer = nil
+                } catch {
+                    fatalError()
+                }
                 
                 if let player = strongSelf.audioPlayer{
                     // Set the delegate
                     player.delegate = self
                     if player.prepareToPlay() && player.play(){
-                        println("Successfully started playing")
+                        print("Successfully started playing")
                     }else{
-                        println("Failed to play")
+                        print("Failed to play")
                     }
                 }else{
-                    println("Cannot instantiate an audio player")
+                    print("Cannot instantiate an audio player")
                 }
             }
         
@@ -50,8 +57,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     //- MARK: AVAudioPlayerDelegate
     // This delegate method will let us know when the audio player will finish playing
     // the file
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
-        println("Finished playing....")
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("Finished playing....")
     }
 }
 
