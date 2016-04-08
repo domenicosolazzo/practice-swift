@@ -158,6 +158,8 @@
 		C009ADE81B10859900C44B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -413,6 +415,7 @@
 				C009AE111B10859900C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C009AE121B10859900C44B10 /* Build configuration list for PBXNativeTarget "Playing Video FilesTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +424,7 @@
 				C009AE141B10859900C44B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
