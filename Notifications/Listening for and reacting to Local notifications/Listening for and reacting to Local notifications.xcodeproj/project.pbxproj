@@ -156,6 +156,8 @@
 		C0FF7A571B06706600BEB1C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C0FF7A801B06706600BEB1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0FF7A811B06706600BEB1C7 /* Build configuration list for PBXNativeTarget "Listening for and reacting to Local notificationsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C0FF7A831B06706600BEB1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

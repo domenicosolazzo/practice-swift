@@ -25,12 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     as? UILocalNotification
                 
                 if let notification = value{
-                    println("Opening the app because of a notification...")
+                    print("Opening the app because of a notification...")
                     self.application(application ,
                         didReceiveLocalNotification: notification)
                 }
             } else {
-                println("Asking for permission...")
+                print("Asking for permission...")
                 askForNotificationPermissionForApplication(application)
             }
             
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if key1Value != nil && key2Value != nil{
                 /* We got our notification */
-                println("We got the notification")
+                print("We got the notification")
             } else {
                 /* This is not the notification that we composed */
             }
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didRegisterUserNotificationSettings
         notificationSettings: UIUserNotificationSettings){
             
-            if notificationSettings.types == nil{
+            if notificationSettings.types == []{
                 /* The user did not allow us to send notifications */
                 return
             }
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func askForNotificationPermissionForApplication(application: UIApplication){
         /* First ask the user if we are
         allowed to perform local notifications */
-        let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge,
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge],
             categories: nil)
         
         application.registerUserNotificationSettings(settings)
