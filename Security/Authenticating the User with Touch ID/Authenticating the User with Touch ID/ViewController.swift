@@ -30,13 +30,14 @@ class ViewController: UIViewController {
     }
     @IBAction func useTouchID(sender: UIButton) {
         let context = LAContext()
-        var error: NSError?
+        var _: NSError
         
         let reason = "Please authenticate with TouchID"
+        
         context.evaluatePolicy(
             LAPolicy.DeviceOwnerAuthenticationWithBiometrics,
-            localizedReason: reason) {[weak self](success:Bool, error:NSError!) -> Void in
-                var title = "Touch ID Result";
+            localizedReason: reason) {[weak self](success:Bool, error:NSError?) -> Void in
+                let title = "Touch ID Result";
                 var message = "You have been authenticated"
                 
                 if success == false{
