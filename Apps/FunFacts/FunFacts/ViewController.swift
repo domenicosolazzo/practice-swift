@@ -21,5 +21,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func showFunFact(sender: AnyObject) {
+        println("You pressed me")
+    }
 }
 
