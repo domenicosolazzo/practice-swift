@@ -19,8 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPF-cT-ltx">
-                                <rect key="frame" x="76" y="437" width="168" height="30"/>
+                                <rect key="frame" x="76" y="417" width="168" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ajx-Vp-yiE"/>
+                                </constraints>
                                 <state key="normal" title="Show Another Fun Fact">
                                     <color key="titleColor" red="0.23213697480000001" green="0.53721997340000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -28,14 +31,14 @@
                                     <action selector="showFunFact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2V-ch-xQc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Did you know..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMS-7R-sKh">
-                                <rect key="frame" x="56" y="46" width="134" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMS-7R-sKh">
+                                <rect key="frame" x="52" y="46" width="134" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An interesting fact goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBB-oY-ImD">
-                                <rect key="frame" x="16" y="234" width="288" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An interesting fact goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBB-oY-ImD">
+                                <rect key="frame" x="52" y="234" width="216" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Jqf-rM-oab"/>
                                 </constraints>
@@ -48,11 +51,11 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kPF-cT-ltx" secondAttribute="bottom" constant="101" id="BMc-Vu-8SR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kPF-cT-ltx" secondAttribute="trailing" constant="60" id="GP1-UU-duD"/>
+                            <constraint firstItem="UBB-oY-ImD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="HKQ-kI-e18"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBB-oY-ImD" secondAttribute="trailing" constant="36" id="HeI-W5-7kg"/>
                             <constraint firstItem="WMS-7R-sKh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="26" id="Tqd-64-4uB"/>
-                            <constraint firstItem="WMS-7R-sKh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="UYI-5U-HyV"/>
+                            <constraint firstItem="WMS-7R-sKh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="UYI-5U-HyV"/>
                             <constraint firstItem="kPF-cT-ltx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="VEK-PC-ex7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UBB-oY-ImD" secondAttribute="trailing" id="l57-UB-hQ5"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="UBB-oY-ImD" secondAttribute="leading" id="l6z-DB-ojc"/>
                             <constraint firstItem="UBB-oY-ImD" firstAttribute="top" secondItem="WMS-7R-sKh" secondAttribute="bottom" constant="164" id="pVU-Vf-Vh8"/>
                         </constraints>
                     </view>
