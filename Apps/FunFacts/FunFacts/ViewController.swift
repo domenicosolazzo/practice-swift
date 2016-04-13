@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var funFactLabel: UILabel!
+    @IBOutlet weak var btnShow: UIButton!
     
     let factBook = FactBook()
     let colorWheel = ColorWheel()
@@ -30,7 +31,8 @@ class ViewController: UIViewController {
     @IBAction func showFunFact(sender: AnyObject) {
         let color = colorWheel.randomColor()
         funFactLabel.text = factBook.randomFact()
-        funFactLabel.tintColor = color
+        btnShow.tintColor = color
+        btnShow.setTitleColor(color, forState: UIControlState.Normal)
         view.backgroundColor = color
     }
 }

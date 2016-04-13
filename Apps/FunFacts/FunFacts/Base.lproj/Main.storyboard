@@ -60,6 +60,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnShow" destination="kPF-cT-ltx" id="gmS-Ej-fdR"/>
                         <outlet property="funFactLabel" destination="UBB-oY-ImD" id="4ns-GL-kbg"/>
                     </connections>
                 </viewController>
