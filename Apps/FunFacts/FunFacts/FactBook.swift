@@ -14,4 +14,12 @@ struct FactBook{
         "the better we get to get better tha faster we get better" ,
         "life will never stop for any one"
     ]
+    
+    
+    func randomFact() -> String{
+        let unsignedArrayCount = UInt32(factsArray.count);
+        let randomNumber = Int(arc4random_uniform(unsignedArrayCount))
+        let randomString = factsArray[randomNumber]
+        return randomString;
+    }
 }
