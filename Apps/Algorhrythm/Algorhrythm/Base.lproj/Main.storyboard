@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1764705882352941" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ESP-53-mOA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6mn-Yr-CwN"/>
                             <constraint firstItem="EgR-AQ-ZRe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MjE-QS-mWF"/>
@@ -61,24 +61,9 @@
                     <view key="view" contentMode="scaleToFill" id="wz7-ou-Jhh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You did not pressed the button" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QP-jS-acQ">
-                                <rect key="frame" x="47" y="273" width="227" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.42582212786206897" blue="0.43460400130689658" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="9QP-jS-acQ" firstAttribute="centerX" secondItem="wz7-ou-Jhh" secondAttribute="centerX" id="naZ-Q5-qyd"/>
-                            <constraint firstItem="9QP-jS-acQ" firstAttribute="centerY" secondItem="wz7-ou-Jhh" secondAttribute="centerY" id="xAf-lE-GSF"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Artist" id="pSB-xf-aQh"/>
-                    <connections>
-                        <outlet property="buttonPressLabel" destination="9QP-jS-acQ" id="dDN-sg-LOF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qG2-J1-LY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,9 +74,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mGj-5k-OUK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CkN-P2-RjJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="CkN-P2-RjJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
