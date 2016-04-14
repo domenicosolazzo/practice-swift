@@ -63,18 +63,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-pr-rud">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-pr-rud">
                                 <rect key="frame" x="0.0" y="64" width="320" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9tF-pr-rud" secondAttribute="height" multiplier="32:29" id="z22-Ag-z83"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-2k-o9A">
+                                <rect key="frame" x="0.0" y="258" width="320" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-L1-PJ4">
+                                        <rect key="frame" x="20" y="14" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK8-vi-kHz">
+                                        <rect key="frame" x="20" y="43" width="280" height="43"/>
+                                        <string key="text">This is a collection of my favorite songs to listen to when working out. It's got everything from fast cardio to power workout tunes. All the right fuel to get your engine going.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="QK8-vi-kHz" firstAttribute="leading" secondItem="5nj-2k-o9A" secondAttribute="leading" constant="20" id="FFa-wW-y25"/>
+                                    <constraint firstItem="5K2-L1-PJ4" firstAttribute="top" secondItem="5nj-2k-o9A" secondAttribute="top" constant="14" id="NwK-Dp-1co"/>
+                                    <constraint firstAttribute="trailing" secondItem="QK8-vi-kHz" secondAttribute="trailing" constant="20" id="XVE-Wj-PbV"/>
+                                    <constraint firstAttribute="trailing" secondItem="5K2-L1-PJ4" secondAttribute="trailing" constant="20" id="a4F-oY-nF0"/>
+                                    <constraint firstItem="QK8-vi-kHz" firstAttribute="top" secondItem="5K2-L1-PJ4" secondAttribute="bottom" constant="8" id="aff-eC-3uy"/>
+                                    <constraint firstItem="5K2-L1-PJ4" firstAttribute="leading" secondItem="5nj-2k-o9A" secondAttribute="leading" constant="20" id="cTt-e9-PHD"/>
+                                    <constraint firstAttribute="width" secondItem="5nj-2k-o9A" secondAttribute="height" multiplier="10:3" id="p0V-oo-Sbp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9tF-pr-rud" secondAttribute="trailing" id="1hF-x8-bBR"/>
+                            <constraint firstItem="5nj-2k-o9A" firstAttribute="bottom" secondItem="9tF-pr-rud" secondAttribute="bottom" id="2GS-6u-mgU"/>
                             <constraint firstItem="9tF-pr-rud" firstAttribute="top" secondItem="bF8-Z8-WHT" secondAttribute="bottom" id="Boi-QK-jW7"/>
                             <constraint firstItem="9tF-pr-rud" firstAttribute="leading" secondItem="wz7-ou-Jhh" secondAttribute="leading" id="HJw-Nr-ZAw"/>
+                            <constraint firstItem="5nj-2k-o9A" firstAttribute="leading" secondItem="wz7-ou-Jhh" secondAttribute="leading" id="cx4-i9-Q6O"/>
+                            <constraint firstAttribute="trailing" secondItem="5nj-2k-o9A" secondAttribute="trailing" id="s9i-pW-mDb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Artist" id="pSB-xf-aQh"/>
@@ -106,7 +137,4 @@
             <point key="canvasLocation" x="130" y="285"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="placeholder" width="66" height="73"/>
-    </resources>
 </document>
