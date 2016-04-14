@@ -16,7 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-m8-N1m">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="3bx-X1-Fg8"/>
+                                    <constraint firstAttribute="height" constant="300" id="Rb0-2x-JJB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-HR-2Ya">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <color key="backgroundColor" red="0.13296304509655171" green="0.15344088071724135" blue="0.18200431033448278" alpha="0.89145611702127658" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="9EH-PQ-zGt"/>
+                                    <constraint firstAttribute="width" constant="600" id="dRM-RJ-hcN"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Icon" translatesAutoresizingMaskIntoConstraints="NO" id="25f-Gt-voh">
+                                <rect key="frame" x="240" y="240" width="120" height="120"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Isa-HR-2Ya" secondAttribute="bottom" id="3xx-QM-4qd"/>
+                            <constraint firstItem="RPe-m8-N1m" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="545-cO-arw"/>
+                            <constraint firstItem="Isa-HR-2Ya" firstAttribute="width" secondItem="RPe-m8-N1m" secondAttribute="width" id="G8F-S6-aqJ"/>
+                            <constraint firstItem="Isa-HR-2Ya" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ZcO-ps-MwX"/>
+                            <constraint firstItem="25f-Gt-voh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bhz-dK-lZk"/>
+                            <constraint firstAttribute="trailing" secondItem="Isa-HR-2Ya" secondAttribute="trailing" id="cWK-BD-8ZL"/>
+                            <constraint firstItem="RPe-m8-N1m" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fTo-5N-XGS"/>
+                            <constraint firstItem="25f-Gt-voh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gaS-Hq-eW6"/>
+                            <constraint firstItem="Isa-HR-2Ya" firstAttribute="height" secondItem="RPe-m8-N1m" secondAttribute="height" id="jNC-GZ-way"/>
+                            <constraint firstItem="Isa-HR-2Ya" firstAttribute="top" secondItem="RPe-m8-N1m" secondAttribute="bottom" id="tql-yw-Kgx"/>
+                            <constraint firstAttribute="trailing" secondItem="RPe-m8-N1m" secondAttribute="trailing" id="xPj-Rf-qO7"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +58,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Launch Icon" width="120" height="120"/>
+    </resources>
 </document>
