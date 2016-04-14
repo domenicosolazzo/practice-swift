@@ -15,6 +15,7 @@
 		C01838751CBFED3A007394F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01838731CBFED3A007394F1 /* LaunchScreen.storyboard */; };
 		C01838801CBFED3A007394F1 /* AlgorhrythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018387F1CBFED3A007394F1 /* AlgorhrythmTests.swift */; };
 		C018388B1CBFED3A007394F1 /* AlgorhrythmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018388A1CBFED3A007394F1 /* AlgorhrythmUITests.swift */; };
+		C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838981CBFF1F2007394F1 /* MusicLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C01838861CBFED3A007394F1 /* AlgorhrythmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorhrythmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018388A1CBFED3A007394F1 /* AlgorhrythmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorhrythmUITests.swift; sourceTree = "<group>"; };
 		C018388C1CBFED3A007394F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01838981CBFF1F2007394F1 /* MusicLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C01838731CBFED3A007394F1 /* LaunchScreen.storyboard */,
 				C01838761CBFED3A007394F1 /* Info.plist */,
 				C018386E1CBFED3A007394F1 /* Algorhrythm.xcdatamodeld */,
+				C01838981CBFF1F2007394F1 /* MusicLibrary.swift */,
 			);
 			path = Algorhrythm;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				C018386A1CBFED39007394F1 /* ViewController.swift in Sources */,
 				C01838681CBFED39007394F1 /* AppDelegate.swift in Sources */,
 				C01838701CBFED3A007394F1 /* Algorhrythm.xcdatamodeld in Sources */,
+				C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
