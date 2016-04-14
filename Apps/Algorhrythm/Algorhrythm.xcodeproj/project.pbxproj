@@ -17,6 +17,8 @@
 		C018388B1CBFED3A007394F1 /* AlgorhrythmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018388A1CBFED3A007394F1 /* AlgorhrythmUITests.swift */; };
 		C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838981CBFF1F2007394F1 /* MusicLibrary.swift */; };
 		C018389B1CBFF21E007394F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018389A1CBFF21E007394F1 /* Playlist.swift */; };
+		C018389D1CBFF262007394F1 /* PlaylistMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018389C1CBFF262007394F1 /* PlaylistMasterViewController.swift */; };
+		C018389F1CBFF277007394F1 /* PlaylistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018389E1CBFF277007394F1 /* PlaylistDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		C018388C1CBFED3A007394F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01838981CBFF1F2007394F1 /* MusicLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicLibrary.swift; sourceTree = "<group>"; };
 		C018389A1CBFF21E007394F1 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		C018389C1CBFF262007394F1 /* PlaylistMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistMasterViewController.swift; sourceTree = "<group>"; };
+		C018389E1CBFF277007394F1 /* PlaylistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				C018386E1CBFED3A007394F1 /* Algorhrythm.xcdatamodeld */,
 				C01838981CBFF1F2007394F1 /* MusicLibrary.swift */,
 				C018389A1CBFF21E007394F1 /* Playlist.swift */,
+				C018389C1CBFF262007394F1 /* PlaylistMasterViewController.swift */,
+				C018389E1CBFF277007394F1 /* PlaylistDetailViewController.swift */,
 			);
 			path = Algorhrythm;
 			sourceTree = "<group>";
@@ -265,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C018389D1CBFF262007394F1 /* PlaylistMasterViewController.swift in Sources */,
 				C018386A1CBFED39007394F1 /* ViewController.swift in Sources */,
 				C01838681CBFED39007394F1 /* AppDelegate.swift in Sources */,
+				C018389F1CBFF277007394F1 /* PlaylistDetailViewController.swift in Sources */,
 				C01838701CBFED3A007394F1 /* Algorhrythm.xcdatamodeld in Sources */,
 				C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */,
 				C018389B1CBFF21E007394F1 /* Playlist.swift in Sources */,
