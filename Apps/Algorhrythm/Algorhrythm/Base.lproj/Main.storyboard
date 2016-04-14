@@ -19,36 +19,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-AQ-ZRe">
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-AQ-ZRe">
                                 <rect key="frame" x="76" y="193" width="168" height="181"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ysa-4h-5RC"/>
                                     <constraint firstAttribute="height" constant="200" id="nKU-6G-fZZ"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESP-53-mOA">
-                                <rect key="frame" x="137" y="393" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="hcN-q7-pqG" kind="push" identifier="showPlaylistDetail" id="AwP-dX-ngi"/>
+                                    <outletCollection property="gestureRecognizers" destination="FWu-X7-yT5" appends="YES" id="5QY-Kl-7R3"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882352941" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ESP-53-mOA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6mn-Yr-CwN"/>
                             <constraint firstItem="EgR-AQ-ZRe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MjE-QS-mWF"/>
                             <constraint firstItem="EgR-AQ-ZRe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ohv-K5-SpR"/>
-                            <constraint firstItem="ESP-53-mOA" firstAttribute="top" secondItem="EgR-AQ-ZRe" secondAttribute="bottom" constant="19" id="qX6-Lr-BpV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Playlists" id="MgB-Yd-ol3"/>
                     <connections>
-                        <outlet property="aButton" destination="ESP-53-mOA" id="ZE4-Bf-YLZ"/>
                         <outlet property="playlistImageView0" destination="EgR-AQ-ZRe" id="OVc-9h-ZW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FWu-X7-yT5"/>
             </objects>
             <point key="canvasLocation" x="662" y="285"/>
         </scene>
