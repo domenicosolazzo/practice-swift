@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C01838681CBFED39007394F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838671CBFED39007394F1 /* AppDelegate.swift */; };
-		C018386A1CBFED39007394F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838691CBFED39007394F1 /* ViewController.swift */; };
 		C018386D1CBFED3A007394F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018386B1CBFED3A007394F1 /* Main.storyboard */; };
 		C01838701CBFED3A007394F1 /* Algorhrythm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C018386E1CBFED3A007394F1 /* Algorhrythm.xcdatamodeld */; };
 		C01838721CBFED3A007394F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01838711CBFED3A007394F1 /* Assets.xcassets */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		C01838641CBFED39007394F1 /* Algorhrythm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorhrythm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01838671CBFED39007394F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C01838691CBFED39007394F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C018386C1CBFED3A007394F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C018386F1CBFED3A007394F1 /* Algorhrythm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Algorhrythm.xcdatamodel; sourceTree = "<group>"; };
 		C01838711CBFED3A007394F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				C01838671CBFED39007394F1 /* AppDelegate.swift */,
-				C01838691CBFED39007394F1 /* ViewController.swift */,
 				C018386B1CBFED3A007394F1 /* Main.storyboard */,
 				C01838711CBFED3A007394F1 /* Assets.xcassets */,
 				C01838731CBFED3A007394F1 /* LaunchScreen.storyboard */,
@@ -272,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C018389D1CBFF262007394F1 /* PlaylistMasterViewController.swift in Sources */,
-				C018386A1CBFED39007394F1 /* ViewController.swift in Sources */,
 				C01838681CBFED39007394F1 /* AppDelegate.swift in Sources */,
 				C018389F1CBFF277007394F1 /* PlaylistDetailViewController.swift in Sources */,
 				C01838701CBFED3A007394F1 /* Algorhrythm.xcdatamodeld in Sources */,
