@@ -8,7 +8,7 @@
         <!--Playlists-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Algorhrythm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlaylistMasterViewController" customModule="Algorhrythm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-AQ-ZRe">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-AQ-ZRe">
                                 <rect key="frame" x="76" y="193" width="168" height="181"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ysa-4h-5RC"/>
@@ -28,7 +28,7 @@
                                 <rect key="frame" x="137" y="393" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="hcN-q7-pqG" kind="push" id="AwP-dX-ngi"/>
+                                    <segue destination="hcN-q7-pqG" kind="push" identifier="showPlaylistDetail" id="AwP-dX-ngi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,6 +41,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Playlists" id="MgB-Yd-ol3"/>
+                    <connections>
+                        <outlet property="aButton" destination="ESP-53-mOA" id="ZE4-Bf-YLZ"/>
+                        <outlet property="playlistImageView0" destination="EgR-AQ-ZRe" id="OVc-9h-ZW4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,7 +53,7 @@
         <!--Artist-->
         <scene sceneID="47A-jt-r9u">
             <objects>
-                <viewController id="hcN-q7-pqG" sceneMemberID="viewController">
+                <viewController id="hcN-q7-pqG" customClass="PlaylistDetailViewController" customModule="Algorhrythm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bF8-Z8-WHT"/>
                         <viewControllerLayoutGuide type="bottom" id="thq-rY-91d"/>
@@ -72,6 +76,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Artist" id="pSB-xf-aQh"/>
+                    <connections>
+                        <outlet property="buttonPressLabel" destination="9QP-jS-acQ" id="dDN-sg-LOF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qG2-J1-LY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

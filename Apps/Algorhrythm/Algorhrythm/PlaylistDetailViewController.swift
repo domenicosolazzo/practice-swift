@@ -6,7 +6,7 @@
 //  Copyright © 2016 Domenico Solazzo. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class PlaylistDetailViewController: UIViewController {
     
