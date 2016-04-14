@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Playlists-->
@@ -61,7 +62,20 @@
                     <view key="view" contentMode="scaleToFill" id="wz7-ou-Jhh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-pr-rud">
+                                <rect key="frame" x="0.0" y="64" width="320" height="290"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9tF-pr-rud" secondAttribute="height" multiplier="32:29" id="z22-Ag-z83"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9tF-pr-rud" secondAttribute="trailing" id="1hF-x8-bBR"/>
+                            <constraint firstItem="9tF-pr-rud" firstAttribute="top" secondItem="bF8-Z8-WHT" secondAttribute="bottom" id="Boi-QK-jW7"/>
+                            <constraint firstItem="9tF-pr-rud" firstAttribute="leading" secondItem="wz7-ou-Jhh" secondAttribute="leading" id="HJw-Nr-ZAw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Artist" id="pSB-xf-aQh"/>
                 </viewController>
@@ -92,4 +106,7 @@
             <point key="canvasLocation" x="130" y="285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="66" height="73"/>
+    </resources>
 </document>
