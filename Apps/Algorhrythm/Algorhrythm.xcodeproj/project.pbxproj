@@ -16,6 +16,7 @@
 		C01838801CBFED3A007394F1 /* AlgorhrythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018387F1CBFED3A007394F1 /* AlgorhrythmTests.swift */; };
 		C018388B1CBFED3A007394F1 /* AlgorhrythmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018388A1CBFED3A007394F1 /* AlgorhrythmUITests.swift */; };
 		C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838981CBFF1F2007394F1 /* MusicLibrary.swift */; };
+		C018389B1CBFF21E007394F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018389A1CBFF21E007394F1 /* Playlist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C018388A1CBFED3A007394F1 /* AlgorhrythmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorhrythmUITests.swift; sourceTree = "<group>"; };
 		C018388C1CBFED3A007394F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01838981CBFF1F2007394F1 /* MusicLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicLibrary.swift; sourceTree = "<group>"; };
+		C018389A1CBFF21E007394F1 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				C01838761CBFED3A007394F1 /* Info.plist */,
 				C018386E1CBFED3A007394F1 /* Algorhrythm.xcdatamodeld */,
 				C01838981CBFF1F2007394F1 /* MusicLibrary.swift */,
+				C018389A1CBFF21E007394F1 /* Playlist.swift */,
 			);
 			path = Algorhrythm;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				C01838681CBFED39007394F1 /* AppDelegate.swift in Sources */,
 				C01838701CBFED3A007394F1 /* Algorhrythm.xcdatamodeld in Sources */,
 				C01838991CBFF1F2007394F1 /* MusicLibrary.swift in Sources */,
+				C018389B1CBFF21E007394F1 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
