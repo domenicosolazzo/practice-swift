@@ -40,10 +40,15 @@
                     <navigationItem key="navigationItem" title="Playlists" id="MgB-Yd-ol3"/>
                     <connections>
                         <outlet property="playlistImageView0" destination="EgR-AQ-ZRe" id="OVc-9h-ZW4"/>
+                        <segue destination="hcN-q7-pqG" kind="push" identifier="showPlaylistDetailSegue" id="kSp-fS-Eih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="FWu-X7-yT5"/>
+                <tapGestureRecognizer id="FWu-X7-yT5">
+                    <connections>
+                        <action selector="showPlaylistDetails:" destination="BYZ-38-t0r" id="xmy-Db-VKg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="662" y="285"/>
         </scene>
