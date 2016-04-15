@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentHumidityLabel: UILabel!
     @IBOutlet weak var currentPrecipitationLabel: UILabel!
     
+    private let forecastApiKey = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
