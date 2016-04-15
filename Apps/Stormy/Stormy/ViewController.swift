@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
+    @IBOutlet weak var currentHumidityLabel: UILabel!
+    @IBOutlet weak var currentPrecipitationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +22,7 @@ class ViewController: UIViewController {
             let currentWeatherDictionary = weatherDictionary["currently"] as? [String:AnyObject]
         {
             let currentWeather = CurrentWeather(weatherDictionary:currentWeatherDictionary)
+            currentTemperatureLabel.text = "\(currentWeather.temperature)º"
         }
         
     }
