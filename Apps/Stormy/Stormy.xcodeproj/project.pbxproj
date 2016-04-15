@@ -15,6 +15,7 @@
 		C01838BA1CC14098007394F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01838B81CC14098007394F1 /* LaunchScreen.storyboard */; };
 		C01838C51CC14098007394F1 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838C41CC14098007394F1 /* StormyTests.swift */; };
 		C01838D01CC14099007394F1 /* StormyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838CF1CC14099007394F1 /* StormyUITests.swift */; };
+		C01838DE1CC14278007394F1 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = C01838DD1CC14278007394F1 /* CurrentWeather.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C01838CB1CC14099007394F1 /* StormyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01838CF1CC14099007394F1 /* StormyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyUITests.swift; sourceTree = "<group>"; };
 		C01838D11CC14099007394F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01838DD1CC14278007394F1 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../../../../../../../../Users/domenico/Downloads/CurrentWeather.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		C01838AB1CC14097007394F1 /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
+				C01838DD1CC14278007394F1 /* CurrentWeather.plist */,
 				C01838AC1CC14097007394F1 /* AppDelegate.swift */,
 				C01838AE1CC14097007394F1 /* ViewController.swift */,
 				C01838B01CC14097007394F1 /* Main.storyboard */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C01838BA1CC14098007394F1 /* LaunchScreen.storyboard in Resources */,
+				C01838DE1CC14278007394F1 /* CurrentWeather.plist in Resources */,
 				C01838B71CC14098007394F1 /* Assets.xcassets in Resources */,
 				C01838B21CC14097007394F1 /* Main.storyboard in Resources */,
 			);
