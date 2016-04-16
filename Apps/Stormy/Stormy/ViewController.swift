@@ -26,6 +26,19 @@ class ViewController: UIViewController {
             (let currently) in
             if let currentWeather = currently{
                 // Update UI
+                dispatch_async(dispatch_get_main_queue()){ // Go back to the main thread
+                    if let temperature = currentWeather.temperature{
+                        self.currentTemperatureLabel.text = "\(temperature)º"
+                    }
+                    
+                    if let humidity = currentWeather.humidity{
+                        self.currentHumidityLabel.text = "\(humidity)%"
+                    }
+                    
+                    if let precipProbability = currentWeather.precipProbability{
+                        self.currentPrecipitationLabel.text = "\(precipProbability)%"
+                    }
+                }
             }
         }
     }
