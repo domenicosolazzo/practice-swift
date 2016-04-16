@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             if let currentWeather = currently{
                 // Update UI
                 dispatch_async(dispatch_get_main_queue()){ // Go back to the main thread
-                    toggleRefreshIndicator(false)
+                    self.toggleRefreshIndicator(false)
                     
                     if let temperature = currentWeather.temperature{
                         self.currentTemperatureLabel.text = "\(temperature)º"
