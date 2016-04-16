@@ -18,6 +18,7 @@
 		C01838DE1CC14278007394F1 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = C01838DD1CC14278007394F1 /* CurrentWeather.plist */; };
 		C01838E01CC1433F007394F1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838DF1CC1433F007394F1 /* CurrentWeather.swift */; };
 		C05ED5971CC232FD006E9153 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ED5961CC232FD006E9153 /* NetworkOperation.swift */; };
+		C05ED5991CC25DA5006E9153 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ED5981CC25DA5006E9153 /* ForecastService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C01838DD1CC14278007394F1 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../../../../../../../../Users/domenico/Downloads/CurrentWeather.plist; sourceTree = "<group>"; };
 		C01838DF1CC1433F007394F1 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		C05ED5961CC232FD006E9153 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
+		C05ED5981CC25DA5006E9153 /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				C01838B31CC14098007394F1 /* Stormy.xcdatamodeld */,
 				C01838DF1CC1433F007394F1 /* CurrentWeather.swift */,
 				C05ED5961CC232FD006E9153 /* NetworkOperation.swift */,
+				C05ED5981CC25DA5006E9153 /* ForecastService.swift */,
 			);
 			path = Stormy;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				C01838AF1CC14097007394F1 /* ViewController.swift in Sources */,
 				C05ED5971CC232FD006E9153 /* NetworkOperation.swift in Sources */,
 				C01838E01CC1433F007394F1 /* CurrentWeather.swift in Sources */,
+				C05ED5991CC25DA5006E9153 /* ForecastService.swift in Sources */,
 				C01838AD1CC14097007394F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
