@@ -17,6 +17,7 @@
 		C01838D01CC14099007394F1 /* StormyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838CF1CC14099007394F1 /* StormyUITests.swift */; };
 		C01838DE1CC14278007394F1 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = C01838DD1CC14278007394F1 /* CurrentWeather.plist */; };
 		C01838E01CC1433F007394F1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01838DF1CC1433F007394F1 /* CurrentWeather.swift */; };
+		C05ED5971CC232FD006E9153 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ED5961CC232FD006E9153 /* NetworkOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C01838D11CC14099007394F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01838DD1CC14278007394F1 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../../../../../../../../Users/domenico/Downloads/CurrentWeather.plist; sourceTree = "<group>"; };
 		C01838DF1CC1433F007394F1 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		C05ED5961CC232FD006E9153 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C01838BB1CC14098007394F1 /* Info.plist */,
 				C01838B31CC14098007394F1 /* Stormy.xcdatamodeld */,
 				C01838DF1CC1433F007394F1 /* CurrentWeather.swift */,
+				C05ED5961CC232FD006E9153 /* NetworkOperation.swift */,
 			);
 			path = Stormy;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				C01838B51CC14098007394F1 /* Stormy.xcdatamodeld in Sources */,
 				C01838AF1CC14097007394F1 /* ViewController.swift in Sources */,
+				C05ED5971CC232FD006E9153 /* NetworkOperation.swift in Sources */,
 				C01838E01CC1433F007394F1 /* CurrentWeather.swift in Sources */,
 				C01838AD1CC14097007394F1 /* AppDelegate.swift in Sources */,
 			);
@@ -496,6 +500,7 @@
 				C01838D61CC14099007394F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01838D71CC14099007394F1 /* Build configuration list for PBXNativeTarget "StormyTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				C01838D91CC14099007394F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01838DA1CC14099007394F1 /* Build configuration list for PBXNativeTarget "StormyUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				C01838DC1CC14099007394F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
