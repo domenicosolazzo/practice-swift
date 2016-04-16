@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Icon: String {
     case ClearDay = "clear-day"
@@ -26,6 +27,7 @@ struct CurrentWeather{
     let humidity:Int?
     let precipProbability:Int?
     let summary:String?
+    let icon:UIImage? = UIImage(named: "default.png")
     
     init(weatherDictionary:[String:AnyObject]){
         temperature = weatherDictionary["temperature"] as? Int
