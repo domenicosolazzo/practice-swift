@@ -35,8 +35,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-w1-Exc">
-                                <rect key="frame" x="205" y="435" width="53" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="38%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-w1-Exc">
+                                <rect key="frame" x="205" y="435" width="53" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -68,12 +68,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-B4-JIf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-B4-JIf">
                                 <rect key="frame" x="259" y="494" width="83" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-EJ-u4A">
+                                <rect key="frame" x="279" y="60" width="43" height="43"/>
+                                <state key="normal" image="refresh"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -93,17 +97,21 @@
                             <constraint firstItem="mFY-UW-x2e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-69" id="Rfo-4y-ZEH"/>
                             <constraint firstItem="0rC-vd-tw3" firstAttribute="top" secondItem="EwC-6R-L89" secondAttribute="bottom" constant="8" id="SDV-a0-kPU"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" secondItem="iH8-Lu-eou" secondAttribute="bottom" constant="-6" id="SxA-mV-nUw"/>
+                            <constraint firstItem="bVI-TI-mgL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KfN-EJ-u4A" secondAttribute="bottom" constant="15" id="TOm-Vv-PDT"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" secondItem="bVI-TI-mgL" secondAttribute="bottom" constant="-24" id="UIH-CU-XAT"/>
                             <constraint firstItem="EwC-6R-L89" firstAttribute="top" secondItem="sax-ju-qyp" secondAttribute="bottom" constant="8" id="UM2-BB-0gS"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="leading" secondItem="bVI-TI-mgL" secondAttribute="trailing" constant="9" id="Uar-1g-Mb3"/>
                             <constraint firstItem="gQE-B4-JIf" firstAttribute="centerX" secondItem="sax-ju-qyp" secondAttribute="centerX" id="XMX-Dr-GEU"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="45.5" id="cWU-3q-xLH"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gQE-B4-JIf" secondAttribute="bottom" constant="82" id="das-Yh-0rJ"/>
+                            <constraint firstItem="gQE-B4-JIf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DTb-w1-Exc" secondAttribute="bottom" constant="30" id="dVS-4v-Hns"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gQE-B4-JIf" secondAttribute="bottom" priority="750" constant="40" id="das-Yh-0rJ"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="leading" secondItem="bVI-TI-mgL" secondAttribute="trailing" constant="85" id="k2X-iR-vvN"/>
+                            <constraint firstItem="KfN-EJ-u4A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lkf-xn-ihA"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="leading" secondItem="bVI-TI-mgL" secondAttribute="trailing" constant="80" id="p72-jw-zaU"/>
                             <constraint firstItem="EwC-6R-L89" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80.5" id="rB6-at-FlQ"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="leading" secondItem="bVI-TI-mgL" secondAttribute="trailing" constant="14" id="uxG-fc-GcG"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wvY-yT-pm8"/>
+                            <constraint firstItem="KfN-EJ-u4A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="40" id="yHe-Rj-SRq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -131,4 +139,7 @@
             <point key="canvasLocation" x="350" y="301"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="refresh" width="43" height="43"/>
+    </resources>
 </document>
