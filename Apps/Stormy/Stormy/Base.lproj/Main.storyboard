@@ -86,7 +86,7 @@
                                     <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LtV-6Z-6RK"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-8m-Fbm">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-8m-Fbm">
                                 <rect key="frame" x="290" y="77" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -96,6 +96,7 @@
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="KfN-EJ-u4A" secondAttribute="trailing" priority="250" constant="40" id="2UR-GR-12Y"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" secondItem="bVI-TI-mgL" secondAttribute="bottom" constant="10" id="504-Ei-Y0j"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" relation="lessThanOrEqual" secondItem="bVI-TI-mgL" secondAttribute="bottom" constant="10" id="8eX-Mo-OGN"/>
+                            <constraint firstItem="Nn0-8m-Fbm" firstAttribute="centerY" secondItem="KfN-EJ-u4A" secondAttribute="centerY" id="9rn-cu-8Xy"/>
                             <constraint firstItem="bVI-TI-mgL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80" id="BSj-wb-308"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" secondItem="iH8-Lu-eou" secondAttribute="bottom" constant="-6" id="EAo-eT-BMc"/>
                             <constraint firstItem="KfN-EJ-u4A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EFD-KN-NRI"/>
@@ -111,6 +112,7 @@
                             <constraint firstItem="mFY-UW-x2e" firstAttribute="top" secondItem="sax-ju-qyp" secondAttribute="bottom" constant="8" id="JOy-Q9-erF"/>
                             <constraint firstItem="DTb-w1-Exc" firstAttribute="top" secondItem="mFY-UW-x2e" secondAttribute="bottom" constant="8" id="Jss-Cp-bDN"/>
                             <constraint firstItem="bVI-TI-mgL" firstAttribute="top" relation="lessThanOrEqual" secondItem="KfN-EJ-u4A" secondAttribute="bottom" constant="30" id="Jti-8c-yf2"/>
+                            <constraint firstItem="Nn0-8m-Fbm" firstAttribute="centerX" secondItem="KfN-EJ-u4A" secondAttribute="centerX" id="KRf-Nb-Ifz"/>
                             <constraint firstItem="sax-ju-qyp" firstAttribute="top" relation="lessThanOrEqual" secondItem="iH8-Lu-eou" secondAttribute="bottom" priority="750" constant="28" id="Mwp-sQ-fnH"/>
                             <constraint firstItem="iH8-Lu-eou" firstAttribute="top" relation="lessThanOrEqual" secondItem="KfN-EJ-u4A" secondAttribute="bottom" constant="30" id="NBS-CW-9eD"/>
                             <constraint firstItem="bVI-TI-mgL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80" id="Oxh-Lo-y96"/>
