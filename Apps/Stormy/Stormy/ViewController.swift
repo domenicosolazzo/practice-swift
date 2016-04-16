@@ -15,20 +15,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentPrecipitationLabel: UILabel!
     @IBOutlet weak var currentWeatherIcon: UIImageView?
     @IBOutlet weak var currentSummary: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var forecastApiKey = ""
     let coordinate: (lat:Double, lang:Double) = (37.8267, -122.423)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getApiKey()
         
+        getApiKey()
+        retrieveWeatherInfo()
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func getApiKey(){
+        let env = NSProcessInfo.processInfo().environment
+        if let key = env["FORECAST_API_KEY"]{
+            self.forecastApiKey = key
+        }
+        
+    }
+    
+    @IBAction func refreshAction(sender: UIButton) {
+        toggleRefreshIndicator(true)
+        self.retrieveWeatherInfo()
+    }
+    
+    func retrieveWeatherInfo(){
         let forecastService = ForecastService(apiKey: forecastApiKey)
         forecastService.getForecast(coordinate.lat, lang: coordinate.lang){
             (let currently) in
             if let currentWeather = currently{
                 // Update UI
                 dispatch_async(dispatch_get_main_queue()){ // Go back to the main thread
+                    toggleRefreshIndicator(false)
+                    
                     if let temperature = currentWeather.temperature{
                         self.currentTemperatureLabel.text = "\(temperature)º"
                     }
@@ -53,18 +80,14 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func getApiKey(){
-        let env = NSProcessInfo.processInfo().environment
-        if let key = env["FORECAST_API_KEY"]{
-            self.forecastApiKey = key
+    func toggleRefreshIndicator(on:Bool){
+        refreshButton.hidden = on
+        if on {
+            activityIndicator.startAnimating()
+        }else{
+            activityIndicator.stopAnimating()
         }
-        
     }
 
 
