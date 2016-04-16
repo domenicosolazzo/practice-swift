@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var currentHumidityLabel: UILabel!
     @IBOutlet weak var currentPrecipitationLabel: UILabel!
+    @IBOutlet weak var currentWeatherIcon: UIImageView?
+    @IBOutlet weak var currentSummary: UILabel?
     
     private var forecastApiKey = ""
     let coordinate: (lat:Double, lang:Double) = (37.8267, -122.423)
