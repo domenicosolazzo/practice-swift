@@ -15,27 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentPrecipitationLabel: UILabel!
     
     private var forecastApiKey = ""
+    let coordinate: (lat:Double, lang:Double) = (37.8267, -122.423)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getApiKey()
         
-        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(self.forecastApiKey)")
-        let forecastURL = NSURL(string: "37.8267, -122.423", relativeToURL: baseURL)
-        
-        // NSURLSession API
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
-        
-        // NSURLRequest
-        let request = NSURLRequest(URL: forecastURL!)
-        let dataTask = session.dataTaskWithRequest(request) { (data:NSData?, response:NSURLResponse?, error:NSError?) in
-            print(data)
-            print("I am in the background thread")
+        let forecastService = ForecastService(apiKey: forecastApiKey)
+        forecastService.getForecast(coordinate.lat, lang: coordinate.lang){
+            (let currently) in
+            if let currentWeather = currently{
+                // Update UI
+            }
         }
-        print("I'm in the main thread")
-        dataTask.resume()
-        
     }
 
     override func didReceiveMemoryWarning() {
