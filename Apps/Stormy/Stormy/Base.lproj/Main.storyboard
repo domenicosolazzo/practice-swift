@@ -79,14 +79,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-EJ-u4A" userLabel="Refresh Button">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-EJ-u4A" userLabel="Refresh Button">
                                 <rect key="frame" x="279" y="50" width="43" height="74"/>
                                 <state key="normal" image="refresh"/>
                                 <connections>
                                     <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LtV-6Z-6RK"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-8m-Fbm">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-8m-Fbm">
                                 <rect key="frame" x="290" y="77" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>

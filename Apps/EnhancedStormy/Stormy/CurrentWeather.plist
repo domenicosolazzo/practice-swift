@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>latitude</key>
+	<real>-78.42288600000001</real>
+	<key>longitude</key>
+	<real>-15.205077</real>
+	<key>timezone</key>
+	<string>Etc/GMT+1</string>
+	<key>offset</key>
+	<integer>-1</integer>
+	<key>currently</key>
+	<dict>
+		<key>time</key>
+		<date>2015-01-18T02:39:54Z</date>
+		<key>summary</key>
+		<string>Overcast</string>
+		<key>icon</key>
+		<string>cloudy</string>
+		<key>precipIntensity</key>
+		<integer>0</integer>
+		<key>precipProbability</key>
+		<real>0</real>
+		<key>temperature</key>
+		<integer>80</integer>
+		<key>apparentTemperature</key>
+		<integer>80</integer>
+		<key>dewPoint</key>
+		<real>-0.5600000000000001</real>
+		<key>humidity</key>
+		<real>0.93</real>
+		<key>windSpeed</key>
+		<real>5.43</real>
+		<key>windBearing</key>
+		<integer>277</integer>
+		<key>cloudCover</key>
+		<real>0.97</real>
+		<key>pressure</key>
+		<real>995.84</real>
+		<key>ozone</key>
+		<real>271.83</real>
+	</dict>
+</dict>
+</plist>
