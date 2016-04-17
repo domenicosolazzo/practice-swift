@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10112" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wjz-7i-Fg8">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InteractiveStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beginning" translatesAutoresizingMaskIntoConstraints="NO" id="E9B-yU-QbM">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-fN-xhz">
+                                <rect key="frame" x="246" y="522" width="108" height="30"/>
+                                <state key="normal" title="Start Adventure"/>
+                                <connections>
+                                    <segue destination="Bjr-OA-jRT" kind="show" identifier="startAdventure" id="AQf-Gy-KJR"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-73-U9Z">
+                                <rect key="frame" x="44" y="452" width="512" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Nw5-xX-bzF"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E9B-yU-QbM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1cL-qj-ust"/>
+                            <constraint firstItem="tT0-fN-xhz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Ed-c6-UaB"/>
+                            <constraint firstItem="tT0-fN-xhz" firstAttribute="top" secondItem="PfC-73-U9Z" secondAttribute="bottom" constant="40" id="ACN-Se-Xcc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E9B-yU-QbM" secondAttribute="bottom" id="J03-UM-eXj"/>
+                            <constraint firstAttribute="trailing" secondItem="E9B-yU-QbM" secondAttribute="trailing" id="P9O-iG-ISG"/>
+                            <constraint firstItem="PfC-73-U9Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wcg-NL-qwo"/>
+                            <constraint firstItem="PfC-73-U9Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="YHX-GJ-la3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tT0-fN-xhz" secondAttribute="bottom" constant="48" id="hll-j8-4XU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PfC-73-U9Z" secondAttribute="trailing" constant="24" id="vid-lc-WcO"/>
+                            <constraint firstItem="E9B-yU-QbM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zxv-Zn-DIA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cTf-SC-6nd"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="PfC-73-U9Z" id="1cH-Cq-GOs"/>
+                        <outlet property="textFieldBottomConstraint" destination="ACN-Se-Xcc" id="GCc-Sx-Mbl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888" y="169"/>
+        </scene>
+        <!--Page Controller-->
+        <scene sceneID="RoN-IZ-itP">
+            <objects>
+                <viewController id="Bjr-OA-jRT" customClass="PageController" customModule="InteractiveStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cm3-MS-pK8"/>
+                        <viewControllerLayoutGuide type="bottom" id="KrR-Sb-ZhN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f1z-YR-iVq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSL-5g-6Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="169"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L4d-pA-ntW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wjz-7i-Fg8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pX-TO-mrm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iUe-k9-gGD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8Y-nL-4yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="169"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Beginning" width="320" height="569"/>
+    </resources>
+</document>
