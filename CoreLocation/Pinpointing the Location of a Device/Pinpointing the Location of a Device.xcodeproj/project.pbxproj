@@ -156,6 +156,8 @@
 		C07EC1B81B0A5B8200FC9789 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Domenico;
 				TargetAttributes = {
@@ -411,6 +413,7 @@
 				C07EC1E11B0A5B8200FC9789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C07EC1E21B0A5B8200FC9789 /* Build configuration list for PBXNativeTarget "Pinpointing the Location of a DeviceTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				C07EC1E41B0A5B8200FC9789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

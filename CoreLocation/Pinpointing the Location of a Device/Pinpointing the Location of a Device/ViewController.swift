@@ -15,34 +15,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     
     // It is called when the authorization status of your location manager is changed by the user
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        print("The authorization status of location services is changed to: ")
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        print("The authorization status of location services is changed to: ", terminator: "")
         
         switch CLLocationManager.authorizationStatus(){
         case .AuthorizedAlways:
-            println("Authorized always")
+            print("Authorized always")
         case .AuthorizedWhenInUse:
-            println("Authorized when in use")
+            print("Authorized when in use")
         case .Denied:
-            println("Denied")
+            print("Denied")
         case .NotDetermined:
-            println("Not determined")
+            print("Not determined")
         case .Restricted:
-            println("Restricted")
+            print("Restricted")
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
     }
     
     // It is called when there is an error fetching the user's location
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Failure retrieving the user's location. Error: \(error)")
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Failure retrieving the user's location. Error: \(error)")
     }
     
     // System got a location update
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        println("Location - Latitude: \(newLocation.coordinate.latitude)")
-        println("Location - Longitude: \(newLocation.coordinate.longitude)")
+        print("Location - Latitude: \(newLocation.coordinate.latitude)")
+        print("Location - Longitude: \(newLocation.coordinate.longitude)")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -81,13 +81,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             /* Location services are not enabled.
             Take appropriate action: for instance, prompt the
             user to enable the location services */
-            println("Location services are not enabled")
+            print("Location services are not enabled")
         }
     }
     
     //- MARK: Helper methods
     func displayAlertWithTitle(title:String, message:String){
-        var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         presentViewController(alertController, animated: true, completion: nil)
     }
@@ -95,7 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func createLocationManager(startImmediately:Bool){
         locationManager = CLLocationManager()
         if let manager = locationManager{
-            println("Successfully created a location manager!")
+            print("Successfully created a location manager!")
             manager.delegate = self
             if startImmediately{
                 manager.startUpdatingLocation()
