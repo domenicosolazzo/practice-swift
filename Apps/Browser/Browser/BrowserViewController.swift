@@ -14,5 +14,17 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var backButton: UIToolbar!
     @IBOutlet weak var forwardButton: UIToolbar!
     
+    var url: String = "http://www.google.com"
     
+    @IBAction func goBack(sender: UIBarButtonItem) {
+        if(webView.canGoBack){
+            webView.goBack()
+        }
+    }
+    
+    @IBAction func goForward(sender: UIBarButtonItem) {
+        if(webView.canGoForward){
+            webView.goForward()
+        }
+    }
 }
