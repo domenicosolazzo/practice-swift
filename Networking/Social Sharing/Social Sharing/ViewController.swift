@@ -26,13 +26,13 @@ class ViewController: UIViewController {
             controller.addURL(NSURL(string: "http://goo.gl/cEnUaQ"))
             // Completion Handler
             controller.completionHandler = {(result: SLComposeViewControllerResult) in
-                println("Completed")
-                println("Result: \(result)")
+                print("Completed")
+                print("Result: \(result)")
             }
             
             self.presentViewController(controller, animated: true, completion: nil)
         }else{
-            println("Twitter service is not available")
+            print("Twitter service is not available")
         }
     }
 }
