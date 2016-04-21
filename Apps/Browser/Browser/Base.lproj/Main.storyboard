@@ -18,9 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOh-ET-65t">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" suppressesIncrementalRendering="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KOh-ET-65t">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHO-QJ-Tb6">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -42,10 +43,33 @@
                             <constraint firstAttribute="trailingMargin" secondItem="PHO-QJ-Tb6" secondAttribute="trailing" constant="-20" id="ZJU-Cn-V95"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="PHO-QJ-Tb6" id="c6G-mR-UeX"/>
+                        <outlet property="forwardButton" destination="PHO-QJ-Tb6" id="aJl-YE-eBM"/>
+                        <outlet property="webView" destination="KOh-ET-65t" id="3f6-BW-5zw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="206"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="z6v-ra-8ZR">
+            <objects>
+                <viewController id="KYv-OD-hqL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Vg-HM-zJs"/>
+                        <viewControllerLayoutGuide type="bottom" id="bwM-mD-XhR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QO2-rC-ekH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhi-MZ-tQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="216"/>
         </scene>
     </scenes>
 </document>

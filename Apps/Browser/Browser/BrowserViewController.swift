@@ -10,4 +10,9 @@ import UIKit
 
 class BrowserViewController: UIViewController {
     
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var backButton: UIToolbar!
+    @IBOutlet weak var forwardButton: UIToolbar!
+    
+    
 }

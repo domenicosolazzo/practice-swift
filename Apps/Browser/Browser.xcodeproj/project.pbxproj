@@ -16,6 +16,7 @@
 		C055AFD21CC96DB2001D9B24 /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055AFD11CC96DB2001D9B24 /* BrowserTests.swift */; };
 		C055AFDD1CC96DB2001D9B24 /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055AFDC1CC96DB2001D9B24 /* BrowserUITests.swift */; };
 		C055AFEB1CC96EF7001D9B24 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055AFEA1CC96EF7001D9B24 /* BrowserViewController.swift */; };
+		C055AFED1CC97163001D9B24 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055AFEC1CC97163001D9B24 /* ArticleViewController.swift */; };
 		C46DD5F3BBD1F1B974932DA1 /* libPods-Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E047183227F99C29DD36597 /* libPods-Browser.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		C055AFDC1CC96DB2001D9B24 /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		C055AFDE1CC96DB2001D9B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C055AFEA1CC96EF7001D9B24 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		C055AFEC1CC97163001D9B24 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		C6296FE29017101F15DFA007 /* Pods-BrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrowserTests/Pods-BrowserTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA724FED1CA164F2A30C4680 /* Pods-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrowserTests/Pods-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BCDAA937803A5F3CAB0432 /* Pods-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Browser/Pods-Browser.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				C055AFC51CC96DB1001D9B24 /* LaunchScreen.storyboard */,
 				C055AFC81CC96DB1001D9B24 /* Info.plist */,
 				C055AFEA1CC96EF7001D9B24 /* BrowserViewController.swift */,
+				C055AFEC1CC97163001D9B24 /* ArticleViewController.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C055AFBD1CC96DB1001D9B24 /* AppDelegate.swift in Sources */,
+				C055AFED1CC97163001D9B24 /* ArticleViewController.swift in Sources */,
 				C055AFEB1CC96EF7001D9B24 /* BrowserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
