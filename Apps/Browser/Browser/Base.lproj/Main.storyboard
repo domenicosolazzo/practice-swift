@@ -28,13 +28,13 @@
                                 <items>
                                     <barButtonItem title="&lt;" id="8Dh-sj-Iaq">
                                         <connections>
-                                            <action selector="goBack:" destination="85k-i1-c7B" id="jp8-73-d0g"/>
+                                            <action selector="goBack:" destination="85k-i1-c7B" id="yNS-L9-dEL"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gmG-vD-0QZ"/>
                                     <barButtonItem title="&gt;" id="usx-vt-08c">
                                         <connections>
-                                            <action selector="goForward:" destination="85k-i1-c7B" id="FOY-Hn-bEF"/>
+                                            <action selector="goForward:" destination="85k-i1-c7B" id="cD3-Hr-Se1"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -52,14 +52,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="PHO-QJ-Tb6" id="c6G-mR-UeX"/>
-                        <outlet property="forwardButton" destination="PHO-QJ-Tb6" id="aJl-YE-eBM"/>
-                        <outlet property="webView" destination="KOh-ET-65t" id="3f6-BW-5zw"/>
+                        <outlet property="backButton" destination="8Dh-sj-Iaq" id="KN4-o8-BYV"/>
+                        <outlet property="forwardButton" destination="usx-vt-08c" id="VX0-qF-PPV"/>
+                        <outlet property="webView" destination="KOh-ET-65t" id="fiY-ac-Dcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="206"/>
+            <point key="canvasLocation" x="86" y="206"/>
         </scene>
     </scenes>
 </document>

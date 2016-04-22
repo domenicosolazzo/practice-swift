@@ -11,17 +11,21 @@ import UIKit
 class BrowserViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var backButton: UIToolbar!
-    @IBOutlet weak var forwardButton: UIToolbar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
     
-    var siteUrl: String = "http://www.google.com"
+    var siteUrl: String = "https://www.google.com"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.initialize()
+        
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.initialize()
+    }
     func initialize(){
+        webView.scalesPageToFit = true;
         let url = NSURL(string: siteUrl)
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
