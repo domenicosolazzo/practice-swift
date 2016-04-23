@@ -102,7 +102,7 @@
                         <outlet property="backButton" destination="8Dh-sj-Iaq" id="KN4-o8-BYV"/>
                         <outlet property="forwardButton" destination="usx-vt-08c" id="VX0-qF-PPV"/>
                         <outlet property="webView" destination="KOh-ET-65t" id="fiY-ac-Dcb"/>
-                        <segue destination="llg-99-7HI" kind="showDetail" identifier="ArticleDetailSegue" id="gRx-Lg-agU"/>
+                        <segue destination="llg-99-7HI" kind="presentation" identifier="ArticleDetailSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="gRx-Lg-agU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,7 +120,19 @@
                     <view key="view" contentMode="scaleToFill" id="8dE-lz-1rj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXu-4G-lQQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zMf-w9-PAZ" firstAttribute="top" secondItem="oXu-4G-lQQ" secondAttribute="bottom" id="E1K-iN-oJT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oXu-4G-lQQ" secondAttribute="trailing" constant="-20" id="uqP-a0-jXi"/>
+                            <constraint firstItem="oXu-4G-lQQ" firstAttribute="leading" secondItem="8dE-lz-1rj" secondAttribute="leadingMargin" constant="-20" id="wDX-L4-bZg"/>
+                            <constraint firstItem="oXu-4G-lQQ" firstAttribute="top" secondItem="kVN-2b-Kr4" secondAttribute="bottom" constant="-20" id="yY8-pd-xez"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxw-44-4Ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
