@@ -18,6 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H13-Gv-sUr" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Lpg-YN-a8z"/>
+                                    <constraint firstAttribute="height" constant="60" id="hU7-eq-Ibv"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lpg-YN-a8z"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" suppressesIncrementalRendering="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KOh-ET-65t">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
@@ -43,13 +56,46 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KOh-ET-65t" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="5fe-Jy-JyT"/>
+                            <constraint firstItem="KOh-ET-65t" firstAttribute="bottom" secondItem="PHO-QJ-Tb6" secondAttribute="bottom" id="9El-ZN-FrS"/>
                             <constraint firstItem="PHO-QJ-Tb6" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="Kfu-PC-iz9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H13-Gv-sUr" secondAttribute="trailing" constant="-20" id="Kgf-mY-lkx"/>
                             <constraint firstItem="KOh-ET-65t" firstAttribute="top" secondItem="rKh-lZ-jfU" secondAttribute="bottom" constant="-20" id="MSO-kO-akP"/>
                             <constraint firstItem="KOh-ET-65t" firstAttribute="bottom" secondItem="PHO-QJ-Tb6" secondAttribute="bottom" id="NZX-LD-pKX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H13-Gv-sUr" secondAttribute="trailing" constant="-20" id="POK-4l-U5t"/>
                             <constraint firstItem="DeW-Sg-UBw" firstAttribute="top" secondItem="PHO-QJ-Tb6" secondAttribute="bottom" id="RRZ-ut-XA5"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="top" secondItem="rKh-lZ-jfU" secondAttribute="bottom" constant="-20" id="T9b-ZX-ZHo"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="top" secondItem="rKh-lZ-jfU" secondAttribute="bottom" constant="-20" id="TPL-Hl-c8n"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="WHe-Pu-bUH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KOh-ET-65t" secondAttribute="trailing" constant="-20" id="Wd3-kc-KFc"/>
+                            <constraint firstItem="KOh-ET-65t" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="Wom-So-VHf"/>
+                            <constraint firstItem="KOh-ET-65t" firstAttribute="top" secondItem="H13-Gv-sUr" secondAttribute="top" id="Xja-rJ-lKw"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="YTy-yU-6G2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PHO-QJ-Tb6" secondAttribute="trailing" constant="-20" id="ZJU-Cn-V95"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="leading" secondItem="mFV-ra-Jib" secondAttribute="leadingMargin" constant="-20" id="bwd-eS-Buf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KOh-ET-65t" secondAttribute="trailing" constant="-20" id="j0Y-Na-seW"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="top" secondItem="rKh-lZ-jfU" secondAttribute="bottom" constant="-20" id="lvZ-hp-Rrq"/>
+                            <constraint firstItem="H13-Gv-sUr" firstAttribute="top" secondItem="rKh-lZ-jfU" secondAttribute="bottom" constant="-20" id="oLt-70-aPy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H13-Gv-sUr" secondAttribute="trailing" constant="-20" id="wDE-Xn-U4Q"/>
+                            <constraint firstItem="KOh-ET-65t" firstAttribute="top" secondItem="H13-Gv-sUr" secondAttribute="top" id="wpt-mu-l2A"/>
+                            <constraint firstItem="KOh-ET-65t" firstAttribute="top" secondItem="H13-Gv-sUr" secondAttribute="top" id="xpG-8z-qo4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Kgf-mY-lkx"/>
+                                <exclude reference="T9b-ZX-ZHo"/>
+                                <exclude reference="WHe-Pu-bUH"/>
+                                <exclude reference="YTy-yU-6G2"/>
+                                <exclude reference="lvZ-hp-Rrq"/>
+                                <exclude reference="oLt-70-aPy"/>
+                                <exclude reference="wDE-Xn-U4Q"/>
+                                <exclude reference="5fe-Jy-JyT"/>
+                                <exclude reference="MSO-kO-akP"/>
+                                <exclude reference="NZX-LD-pKX"/>
+                                <exclude reference="Wd3-kc-KFc"/>
+                                <exclude reference="wpt-mu-l2A"/>
+                                <exclude reference="xpG-8z-qo4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="8Dh-sj-Iaq" id="KN4-o8-BYV"/>
@@ -60,6 +106,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86" y="206"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="X1s-0I-5Vb">
+            <objects>
+                <viewController id="llg-99-7HI" customClass="ArticleViewController" customModule="Browser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kVN-2b-Kr4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zMf-w9-PAZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8dE-lz-1rj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxw-44-4Ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="206"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrowserViewController: UIViewController {
+class BrowserViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -41,5 +41,12 @@ class BrowserViewController: UIViewController {
         if(webView.canGoForward){
             webView.goForward()
         }
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        
+        
+        return false
     }
 }
