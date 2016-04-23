@@ -134,6 +134,9 @@
                             <constraint firstItem="oXu-4G-lQQ" firstAttribute="top" secondItem="kVN-2b-Kr4" secondAttribute="bottom" constant="-20" id="yY8-pd-xez"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="oXu-4G-lQQ" id="cW1-sd-4BE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxw-44-4Ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

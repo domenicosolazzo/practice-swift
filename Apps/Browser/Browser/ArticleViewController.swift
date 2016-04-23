@@ -9,5 +9,20 @@
 import UIKit
 
 class ArticleViewController: UIViewController {
+    var request:NSURLRequest?
+    
+    @IBOutlet weak var webView: UIWebView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if(request != nil){
+            self.webView.loadRequest(request!)
+        }
+        
+    }
 
+    
 }

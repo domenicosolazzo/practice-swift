@@ -15,15 +15,17 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     
     var siteUrl: String = "https://www.google.com"
+    var currentRequest:NSURLRequest?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         self.initialize()
     }
+    
+    
     func initialize(){
         webView.scalesPageToFit = true;
         let url = NSURL(string: siteUrl)
@@ -44,9 +46,17 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
+        self.currentRequest = request
+        performSegueWithIdentifier("ArticleSegue", sender: self)
         
         
         return false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "ArticleSegue"){
+            var destination = segue.destinationViewController as! ArticleViewController
+            destination.request = currentRequest
+        }
     }
 }
