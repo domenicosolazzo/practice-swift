@@ -102,6 +102,7 @@
                         <outlet property="backButton" destination="8Dh-sj-Iaq" id="KN4-o8-BYV"/>
                         <outlet property="forwardButton" destination="usx-vt-08c" id="VX0-qF-PPV"/>
                         <outlet property="webView" destination="KOh-ET-65t" id="fiY-ac-Dcb"/>
+                        <segue destination="llg-99-7HI" kind="showDetail" identifier="ArticleDetailSegue" id="gRx-Lg-agU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
