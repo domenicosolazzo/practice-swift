@@ -18,11 +18,21 @@ class ArticleViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.initializeView()
         if(request != nil){
             self.webView.loadRequest(request!)
         }
         
     }
+    
+    func initializeView(){
+        self.webView.scalesPageToFit = true
+    }
 
+    @IBAction func closeView(sender: AnyObject) {
+        dismissViewControllerAnimated(true) { 
+            print("back to the main controller")
+        }
+    }
     
 }

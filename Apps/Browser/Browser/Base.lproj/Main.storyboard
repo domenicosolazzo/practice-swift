@@ -102,7 +102,7 @@
                         <outlet property="backButton" destination="8Dh-sj-Iaq" id="KN4-o8-BYV"/>
                         <outlet property="forwardButton" destination="usx-vt-08c" id="VX0-qF-PPV"/>
                         <outlet property="webView" destination="KOh-ET-65t" id="fiY-ac-Dcb"/>
-                        <segue destination="llg-99-7HI" kind="presentation" identifier="ArticleDetailSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="gRx-Lg-agU"/>
+                        <segue destination="llg-99-7HI" kind="presentation" identifier="ArticleDetailSegue" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="gRx-Lg-agU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7j-HC-Yg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,17 +122,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXu-4G-lQQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L94-0A-YA4" userLabel="Headear">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-VS-e4d">
+                                        <rect key="frame" x="8" y="22" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="Rps-CE-kao"/>
+                                        </constraints>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="closeView:" destination="llg-99-7HI" eventType="touchUpInside" id="Gnk-hc-h2O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="SlR-VS-e4d" firstAttribute="leading" secondItem="L94-0A-YA4" secondAttribute="leading" constant="8" id="OdY-tp-GGd"/>
+                                    <constraint firstAttribute="height" constant="60" id="TNH-ug-2il"/>
+                                    <constraint firstItem="SlR-VS-e4d" firstAttribute="top" secondItem="L94-0A-YA4" secondAttribute="top" constant="22" id="Xe2-Wc-cfD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zMf-w9-PAZ" firstAttribute="top" secondItem="oXu-4G-lQQ" secondAttribute="bottom" id="E1K-iN-oJT"/>
+                            <constraint firstItem="L94-0A-YA4" firstAttribute="leading" secondItem="8dE-lz-1rj" secondAttribute="leading" id="O16-IV-ODp"/>
+                            <constraint firstItem="L94-0A-YA4" firstAttribute="top" secondItem="kVN-2b-Kr4" secondAttribute="bottom" id="XnI-hN-kZy"/>
+                            <constraint firstAttribute="trailing" secondItem="L94-0A-YA4" secondAttribute="trailing" id="d2C-gZ-Cu3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXu-4G-lQQ" secondAttribute="trailing" constant="-20" id="uqP-a0-jXi"/>
+                            <constraint firstItem="oXu-4G-lQQ" firstAttribute="top" secondItem="L94-0A-YA4" secondAttribute="bottom" id="w4W-Ad-EqC"/>
                             <constraint firstItem="oXu-4G-lQQ" firstAttribute="leading" secondItem="8dE-lz-1rj" secondAttribute="leadingMargin" constant="-20" id="wDX-L4-bZg"/>
                             <constraint firstItem="oXu-4G-lQQ" firstAttribute="top" secondItem="kVN-2b-Kr4" secondAttribute="bottom" constant="-20" id="yY8-pd-xez"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yY8-pd-xez"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="webView" destination="oXu-4G-lQQ" id="cW1-sd-4BE"/>

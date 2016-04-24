@@ -28,6 +28,8 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     
     func initialize(){
         webView.scalesPageToFit = true;
+        webView.delegate = self;
+        
         let url = NSURL(string: siteUrl)
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
@@ -47,15 +49,19 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         self.currentRequest = request
-        performSegueWithIdentifier("ArticleSegue", sender: self)
+        if(navigationType == UIWebViewNavigationType.LinkClicked){
+            performSegueWithIdentifier("ArticleDetailSegue", sender: self)
+            return false
+        }
         
         
-        return false
+        return true
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "ArticleSegue"){
-            var destination = segue.destinationViewController as! ArticleViewController
+        if(segue.identifier == "ArticleDetailSegue"){
+            let destination = segue.destinationViewController as! ArticleViewController
             destination.request = currentRequest
         }
     }
