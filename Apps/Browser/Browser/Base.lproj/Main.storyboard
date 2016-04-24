@@ -121,10 +121,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXu-4G-lQQ">
-                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwV-0x-tpW">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="&lt;" id="eha-WV-0qZ">
+                                        <connections>
+                                            <action selector="goBack:" destination="llg-99-7HI" id="Dbc-IF-rPO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1kC-zP-CFG"/>
+                                    <barButtonItem title="&gt;" id="wzW-uh-cU4">
+                                        <connections>
+                                            <action selector="goForward:" destination="llg-99-7HI" id="SjG-eL-Cke"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L94-0A-YA4" userLabel="Headear">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <subviews>
@@ -146,12 +158,20 @@
                                     <constraint firstItem="SlR-VS-e4d" firstAttribute="top" secondItem="L94-0A-YA4" secondAttribute="top" constant="22" id="Xe2-Wc-cfD"/>
                                 </constraints>
                             </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXu-4G-lQQ">
+                                <rect key="frame" x="0.0" y="60" width="600" height="496"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cwV-0x-tpW" firstAttribute="top" secondItem="oXu-4G-lQQ" secondAttribute="bottom" id="3cw-ib-NSh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cwV-0x-tpW" secondAttribute="trailing" constant="-20" id="C7c-8S-RzS"/>
                             <constraint firstItem="zMf-w9-PAZ" firstAttribute="top" secondItem="oXu-4G-lQQ" secondAttribute="bottom" id="E1K-iN-oJT"/>
                             <constraint firstItem="L94-0A-YA4" firstAttribute="leading" secondItem="8dE-lz-1rj" secondAttribute="leading" id="O16-IV-ODp"/>
+                            <constraint firstItem="zMf-w9-PAZ" firstAttribute="top" secondItem="cwV-0x-tpW" secondAttribute="bottom" id="X0n-1d-A3F"/>
                             <constraint firstItem="L94-0A-YA4" firstAttribute="top" secondItem="kVN-2b-Kr4" secondAttribute="bottom" id="XnI-hN-kZy"/>
+                            <constraint firstItem="cwV-0x-tpW" firstAttribute="leading" secondItem="8dE-lz-1rj" secondAttribute="leadingMargin" constant="-20" id="cad-Ji-1Pk"/>
                             <constraint firstAttribute="trailing" secondItem="L94-0A-YA4" secondAttribute="trailing" id="d2C-gZ-Cu3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXu-4G-lQQ" secondAttribute="trailing" constant="-20" id="uqP-a0-jXi"/>
                             <constraint firstItem="oXu-4G-lQQ" firstAttribute="top" secondItem="L94-0A-YA4" secondAttribute="bottom" id="w4W-Ad-EqC"/>
@@ -161,10 +181,13 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="yY8-pd-xez"/>
+                                <exclude reference="E1K-iN-oJT"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="eha-WV-0qZ" id="K7N-Y9-zKt"/>
+                        <outlet property="forwardButton" destination="wzW-uh-cU4" id="xiy-9S-RyL"/>
                         <outlet property="webView" destination="oXu-4G-lQQ" id="cW1-sd-4BE"/>
                     </connections>
                 </viewController>

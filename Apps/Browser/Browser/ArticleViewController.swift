@@ -12,6 +12,8 @@ class ArticleViewController: UIViewController {
     var request:NSURLRequest?
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,6 +30,11 @@ class ArticleViewController: UIViewController {
     func initializeView(){
         self.webView.scalesPageToFit = true
     }
+    
+    func initializeButtons(){
+        backButton.enabled = webView.canGoBack
+        forwardButton.enabled = webView.canGoForward
+    }
 
     @IBAction func closeView(sender: AnyObject) {
         dismissViewControllerAnimated(true) { 
@@ -35,4 +42,14 @@ class ArticleViewController: UIViewController {
         }
     }
     
+    @IBAction func goForward(sender: UIBarButtonItem) {
+        if(webView.canGoBack){
+            webView.goBack()
+        }
+    }
+    @IBAction func goBack(sender: UIBarButtonItem) {
+        if(webView.canGoForward){
+            webView.goForward()
+        }
+    }
 }
