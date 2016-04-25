@@ -151,7 +151,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="SlR-VS-e4d" firstAttribute="leading" secondItem="L94-0A-YA4" secondAttribute="leading" constant="8" id="OdY-tp-GGd"/>
                                     <constraint firstAttribute="height" constant="60" id="TNH-ug-2il"/>
