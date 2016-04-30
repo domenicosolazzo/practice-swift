@@ -405,6 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenicosolazzo.swift.AudioExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -416,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenicosolazzo.swift.AudioExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -484,6 +486,7 @@
 				C04243461CD2992E0081B917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C04243471CD2992E0081B917 /* Build configuration list for PBXNativeTarget "AudioExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +495,7 @@
 				C04243491CD2992E0081B917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C042434A1CD2992E0081B917 /* Build configuration list for PBXNativeTarget "AudioExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +504,7 @@
 				C042434C1CD2992E0081B917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
