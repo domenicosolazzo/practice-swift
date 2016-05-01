@@ -80,9 +80,9 @@ class ViewController: UIViewController {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
             
-            let ioBufferDuration = 128.0 / 44100.0
+            //let ioBufferDuration = 128.0 / 44100.0
             
-            try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(ioBufferDuration)
+            //try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(ioBufferDuration)
             
         } catch {
             assertionFailure("AVAudioSession setup error: \(error)")
@@ -91,6 +91,8 @@ class ViewController: UIViewController {
         // Setup engine and node instances
         assert(engine.inputNode != nil)
         let input = engine.inputNode!
+        input.volume = 1
+        
         let output = engine.outputNode
         let bus = 0
         let format = input.inputFormatForBus(bus)
@@ -100,9 +102,6 @@ class ViewController: UIViewController {
         
         // Connect nodes
         engine.connect(input, to: output, format: format)
-        
-        
-        
     }
 
     func createAudioFile(format:AVAudioFormat){
