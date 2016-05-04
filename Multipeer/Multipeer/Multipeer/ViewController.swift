@@ -10,7 +10,14 @@ import UIKit
 import MultipeerConnectivity
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var images = [UIImage]()
+    
+    var peerID: MCPeerID!
+    var mcSession: MCSession!
+    var mcAdvertiserAssistant: MCAdvertiserAssistant!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
