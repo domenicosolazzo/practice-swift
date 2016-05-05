@@ -9,9 +9,6 @@ var fm = NSFileManager.defaultManager()
 
 
 // NSFileManager
-try{
-    var files = try fm.contentsOfDirectoryAtPath(resourcePath!)
-}catch{
-    print("Error")
-}
+var files = try fm.contentsOfDirectoryAtPath(resourcePath!)
+
 
