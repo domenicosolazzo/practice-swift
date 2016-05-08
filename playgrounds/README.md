@@ -17,6 +17,7 @@ Playgrounds
 - Drawing
 - UIKit
 - Camera
+- NSFileManager
 - SceneKit
 - Guard
 - Defer
