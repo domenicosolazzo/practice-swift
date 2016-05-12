@@ -23,9 +23,10 @@ containerView.addSubview(rectangle)
  
  options: you just need to put nil all the time.
 **/
-UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: {
-    rectangle.frame.origin = CGPoint
-})
+UIView.animateWithDuration(2, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .Autoreverse, animations: {
+        rectangle.frame.origin = CGPoint(x: 100.0, y: 100.0)}, completion:nil)
+
+
 
 XCPlaygroundPage.currentPage.liveView = containerView
 
