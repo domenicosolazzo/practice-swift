@@ -1,25 +1,26 @@
 import UIKit
 import XCPlayground
 
-
-class Abc{
-    func testGesture(sender: AnyObject){
-        
-    }
-}
-let containerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 375.0, height: 667.0))
+let containerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 500, height: 667.0))
 
 containerView.backgroundColor = UIColor.whiteColor()
 
-var rectangle = UIView(frame: CGRect(x: 300.0, y: 300.0, width: 80, height: 50))
+var rectangle = UIView(frame: CGRect(x: 0, y: 300.0, width: 30, height: 30))
 rectangle.backgroundColor = UIColor.yellowColor()
 rectangle.layer.borderWidth = 1.0
 rectangle.layer.borderColor = UIColor.darkGrayColor().CGColor
 containerView.addSubview(rectangle)
-var panGesture = UIPanGestureRecognizer(target: Abc(), action: #selector("Abc.testGesture"))
 
-func testGesture(gestureRecognizer: UIPanGestureRecognizer){
+// CABasicAnimation
+var animation = CABasicAnimation()
+animation.keyPath = "position.x"
+animation.fromValue = 77
+animation.toValue = 455
+animation.duration = 1
 
-}
+rectangle.layer.addAnimation(animation, forKey: "moveX")
+rectangle.layer.position = CGPointMake(455, 300)
+
+
 XCPlaygroundPage.currentPage.liveView = containerView
 
