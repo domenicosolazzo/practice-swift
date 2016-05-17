@@ -51,5 +51,14 @@ containerView.addSubview(rectangle4)
 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 rectangle4.layer.addAnimation(animation, forKey: "easein-easeout")
 
+var rectangle5 = UIView(frame: CGRect(x: 0, y: 450, width: 50, height: 50))
+rectangle5.backgroundColor = UIColor.blueColor()
+rectangle5.layer.borderColor = UIColor.grayColor().CGColor
+rectangle5.layer.borderWidth = 1.0
+containerView.addSubview(rectangle5)
+
+animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.0, 0.8, 0.9, 0.7)
+rectangle5.layer.addAnimation(animation, forKey: "custom")
+
 
 XCPlaygroundPage.currentPage.liveView = containerView
