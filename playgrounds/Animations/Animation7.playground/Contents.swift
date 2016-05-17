@@ -4,7 +4,6 @@ import UIKit
 import XCPlayground
 
 let containerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 375.0, height: 667.0))
-
 containerView.backgroundColor = UIColor.whiteColor()
 
 var rectangle = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
@@ -27,6 +26,5 @@ orbit.calculationMode  = kCAAnimationPaced
 orbit.rotationMode = kCAAnimationRotateAuto
 
 satellite.layer.addAnimation(orbit, forKey: "orbit")
-
 
 XCPlaygroundPage.currentPage.liveView = containerView
