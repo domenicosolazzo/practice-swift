@@ -16,20 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveAndReadString(){
         let someText = NSString(string: "Put some string here")
         let destinationPath = NSTemporaryDirectory() + "MyFile.txt"
-        var error:NSError?
         
-        let written = someText.writeToFile(destinationPath,
+        do{
+        _ = try someText.write(toFile: destinationPath,
             atomically: true,
-            encoding: NSUTF8StringEncoding,
-            error: &error)
-        
-        if written{
-            println("Successfully stored the file at path \(destinationPath)")
-        } else {
-            if let errorValue = error{
-                println("An error occurred: \(errorValue)")
-            }
+            encoding: String.Encoding.utf8.rawValue)
+            print("Successfully stored the file at path \(destinationPath)")
+        }catch{
+             print("An error occurred")
         }
+        
     }
     
     func saveAndReadArray(){
@@ -37,12 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let path = NSTemporaryDirectory() + "MyFile.txt"
         let arrayOfNames:NSArray = ["Steve", "John", "Edward"]
         
-        if arrayOfNames.writeToFile(path, atomically: true){
+        if arrayOfNames.write(toFile: path, atomically: true){
             let readArray:NSArray? = NSArray(contentsOfFile: path)
             if let array = readArray{
-                println("Could read the array back = \(array)")
+                print("Could read the array back = \(array)")
             } else {
-                println("Failed to read the array back")
+                print("Failed to read the array back")
             }
         }
         
@@ -57,16 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "last name" : "Jobs",
         ]
         
-        if dict.writeToFile(path, atomically: true){
+        if dict.write(toFile: path, atomically: true){
             
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: path)
             if let dict = readDict{
-                println("Read the dictionary back from disk = \(dict)")
+                print("Read the dictionary back from disk = \(dict)")
             } else {
-                println("Failed to read the dictionary back from disk")
+                print("Failed to read the dictionary back from disk")
             }
         } else {
-            println("Failed to write the dictionary to disk")
+            print("Failed to write the dictionary to disk")
         }
         
     }
@@ -74,17 +70,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveAndReadData(){
         let path = NSTemporaryDirectory() + "MyFile.txt"
         let chars = [CUnsignedChar(ascii: "a"), CUnsignedChar(ascii: "b")]
-        let data = NSData(bytes: chars, length: 2)
-        if data.writeToFile(path, atomically: true){
-            println("Wrote the data")
-            let readData = NSData(contentsOfFile: path)
-            if readData!.isEqualToData(data){
-                println("Read the same data")
+        let data = Data(bytes: UnsafePointer<UInt8>(chars), count: 2)
+        if (try? data.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil{
+            print("Wrote the data")
+            let readData = try? Data(contentsOf: URL(fileURLWithPath: path))
+            if readData! == data{
+                print("Read the same data")
             } else {
-                println("Not the same data")
+                print("Not the same data")
             }
         } else {
-            println("Could not write the data")
+            print("Could not write the data")
         }
     }
 
