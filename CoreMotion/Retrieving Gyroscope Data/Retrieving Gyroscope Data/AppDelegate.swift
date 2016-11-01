@@ -13,32 +13,32 @@ import CoreMotion
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var manager = CMMotionManager()
-    lazy var queue = NSOperationQueue()
+    lazy var queue = OperationQueue()
     
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        if manager.gyroAvailable{
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if manager.isGyroAvailable{
             
-            if manager.gyroActive == false{
+            if manager.isGyroActive == false{
                 
                 manager.gyroUpdateInterval = 1.0 / 40.0
                 
-                manager.startGyroUpdatesToQueue(queue,
+                manager.startGyroUpdates(to: queue,
                     withHandler: {(data: CMGyroData!, error: NSError!) in
                         
-                        println("Gyro Rotation x = \(data.rotationRate.x)")
-                        println("Gyro Rotation y = \(data.rotationRate.y)")
-                        println("Gyro Rotation z = \(data.rotationRate.z)")
+                        print("Gyro Rotation x = \(data?.rotationRate.x)")
+                        print("Gyro Rotation y = \(data?.rotationRate.y)")
+                        print("Gyro Rotation z = \(data?.rotationRate.z)")
                         
-                })
+                } as! CMGyroHandler)
                 
             } else {
-                println("Gyro is already active")
+                print("Gyro is already active")
             }
             
         } else {
-            println("Gyro isn't available")
+            print("Gyro isn't available")
         }
 
         return true
