@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func updateLabelsFromTouches(touches:Set<NSObject>!) {
+    func updateLabelsFromTouches(_ touches:Set<NSObject>!) {
         let touch = touches.first as! UITouch
         let numTaps = touch.tapCount
         let tapsMessage = "\(numTaps) taps detected"
@@ -29,24 +29,24 @@ class ViewController: UIViewController {
         touchesLabel.text = touchMsg
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageLabel.text = "Touches Began"
-        updateLabelsFromTouches(event.allTouches())
+        updateLabelsFromTouches(event?.allTouches)
     }
     
-    override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageLabel.text = "Touches Cancelled"
-        updateLabelsFromTouches(event.allTouches())
+        updateLabelsFromTouches(event?.allTouches)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageLabel.text = "Touches Ended"
-        updateLabelsFromTouches(event.allTouches())
+        updateLabelsFromTouches(event?.allTouches)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageLabel.text = "Drag Detected"
-        updateLabelsFromTouches(event.allTouches())
+        updateLabelsFromTouches(event?.allTouches)
     }
 
 
