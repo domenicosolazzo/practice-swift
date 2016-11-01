@@ -23,7 +23,7 @@ class ViewController: UIViewController,
     /* Set up the map and add it to our view */
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
@@ -31,32 +31,32 @@ class ViewController: UIViewController,
     
     
     //- MARK: Helper methods
-    func displayAlertWithTitle(title: String, message: String){
+    func displayAlertWithTitle(_ title: String, message: String){
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     
     //- MARK: LocationManager
-    func locationManager(manager: CLLocationManager,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus){
+    func locationManager(_ manager: CLLocationManager,
+        didChangeAuthorization status: CLAuthorizationStatus){
             
             print("The authorization status of location " +
                 "services is changed to: ", terminator: "")
             
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
+            case .denied:
                 print("Denied")
-            case .NotDetermined:
+            case .notDetermined:
                 print("Not determined")
-            case .Restricted:
+            case .restricted:
                 print("Restricted")
             default:
                 print("Authorized")
@@ -67,9 +67,9 @@ class ViewController: UIViewController,
     
     func provideDirections(){
         let destination = "Godsgatan, Norrköping, Sweden"
-        CLGeocoder().geocodeAddressString(destination,
-            completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
-                
+        let a = CLGeocoder()
+        CLGeocoder().geocodeAddressString(destination){ placemarks, error in
+            
                 if error != nil{
                     /* Handle the error here perhaps by displaying an alert */
                 } else {
@@ -78,7 +78,7 @@ class ViewController: UIViewController,
                     
                     /* Convert the CoreLocation destination
                     placemark to a MapKit placemark */
-                    let placemark = placemarks[0] as! CLPlacemark
+                    let placemark = placemarks?[0] as! CLPlacemark
                     let destinationCoordinates =
                     placemark.location.coordinate
                     /* Get the placemark of the destination address */
@@ -89,7 +89,7 @@ class ViewController: UIViewController,
                     request.setDestination = MKMapItem(placemark: destination)
                     
                     /* Set the transportation method to automobile */
-                    request.transportType = .Automobile
+                    request.transportType = .automobile
                     
                     /* Get the directions */
                     let directions = MKDirections(request: request)
@@ -112,15 +112,13 @@ class ViewController: UIViewController,
                         MKMapItem.openMapsWithItems(
                             [response.source, response.destination],
                             launchOptions: launchOptions)
-                    }
-                    
+                    } as! MKDirectionsHandler                     
                 }
-                
-        })
+        }
     }
     
     /* Add the pin to the map and center the map around the pin */
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         /* Are location services available on this device? */
@@ -128,18 +126,18 @@ class ViewController: UIViewController,
             
             /* Do we have authorization to access location services? */
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
+            case .denied:
                 /* No */
                 displayAlertWithTitle("Not Determined",
                     message: "Location services are not allowed for this app")
-            case .NotDetermined:
+            case .notDetermined:
                 /* We don't know yet, we have to ask */
                 locationManager = CLLocationManager()
                 if let manager = self.locationManager{
                     manager.delegate = self
                     manager.requestWhenInUseAuthorization()
                 }
-            case .Restricted:
+            case .restricted:
                 /* Restrictions have been applied, we have no access
                 to location services */
                 displayAlertWithTitle("Restricted",
