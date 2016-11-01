@@ -9,7 +9,7 @@
 import UIKit
 
 class ArticleViewController: UIViewController {
-    var request:NSURLRequest?
+    var request:URLRequest?
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -19,7 +19,7 @@ class ArticleViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.initializeView()
         if(request != nil){
             self.webView.loadRequest(request!)
@@ -32,22 +32,22 @@ class ArticleViewController: UIViewController {
     }
     
     func initializeButtons(){
-        backButton.enabled = webView.canGoBack
-        forwardButton.enabled = webView.canGoForward
+        backButton.isEnabled = webView.canGoBack
+        forwardButton.isEnabled = webView.canGoForward
     }
 
-    @IBAction func closeView(sender: AnyObject) {
-        dismissViewControllerAnimated(true) { 
+    @IBAction func closeView(_ sender: AnyObject) {
+        dismiss(animated: true) { 
             print("back to the main controller")
         }
     }
     
-    @IBAction func goForward(sender: UIBarButtonItem) {
+    @IBAction func goForward(_ sender: UIBarButtonItem) {
         if(webView.canGoBack){
             webView.goBack()
         }
     }
-    @IBAction func goBack(sender: UIBarButtonItem) {
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
         if(webView.canGoForward){
             webView.goForward()
         }

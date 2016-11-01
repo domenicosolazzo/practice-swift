@@ -15,13 +15,13 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     
     var siteUrl: String = "https://www.google.com"
-    var currentRequest:NSURLRequest?
+    var currentRequest:URLRequest?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.initialize()
     }
     
@@ -30,27 +30,27 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
         webView.scalesPageToFit = true;
         webView.delegate = self;
         
-        let url = NSURL(string: siteUrl)
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: siteUrl)
+        let request = URLRequest(url: url!)
         webView.loadRequest(request)
     }
     
-    @IBAction func goBack(sender: UIBarButtonItem) {
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
         if(webView.canGoBack){
             webView.goBack()
         }
     }
     
-    @IBAction func goForward(sender: UIBarButtonItem) {
+    @IBAction func goForward(_ sender: UIBarButtonItem) {
         if(webView.canGoForward){
             webView.goForward()
         }
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         self.currentRequest = request
-        if(navigationType == UIWebViewNavigationType.LinkClicked){
-            performSegueWithIdentifier("ArticleDetailSegue", sender: self)
+        if(navigationType == UIWebViewNavigationType.linkClicked){
+            performSegue(withIdentifier: "ArticleDetailSegue", sender: self)
             return false
         }
         
@@ -59,9 +59,9 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "ArticleDetailSegue"){
-            let destination = segue.destinationViewController as! ArticleViewController
+            let destination = segue.destination as! ArticleViewController
             destination.request = currentRequest
         }
     }
