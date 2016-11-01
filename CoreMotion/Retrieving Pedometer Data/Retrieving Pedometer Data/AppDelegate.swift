@@ -9,17 +9,17 @@
 import UIKit
 import CoreMotion
 
-extension NSDate{
-    class func now() -> NSDate{
-        return NSDate()
+extension Date{
+    static func now() -> Date{
+        return Date()
     }
     
-    class func yesterday() -> NSDate{
-       return NSDate(timeIntervalSinceNow: -(24 * 60 * 60))
+    static func yesterday() -> Date{
+       return Date(timeIntervalSinceNow: -(24 * 60 * 60))
     }
     
-    class func tenMinutesAgo() -> NSDate{
-        return NSDate(timeIntervalSinceNow: -(10 * 60))
+    static func tenMinutesAgo() -> Date{
+        return Date(timeIntervalSinceNow: -(10 * 60))
     }
 }
 
@@ -29,43 +29,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var pedometer = CMPedometer()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Check if the step count is available
         if CMPedometer.isStepCountingAvailable() {
-            let date = NSDate()// Since when you want to start to measure the number of steps
-            pedometer.startPedometerUpdatesFromDate(date, withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
-                println("Number of steps: \(data.numberOfSteps)")
-            })
+            let date = Date()// Since when you want to start to measure the number of steps
+            pedometer.startUpdates(from: date, withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                print("Number of steps: \(data.numberOfSteps)")
+            } as! CMPedometerHandler)
         }else{
-            println("Steps are not available")
+            print("Steps are not available")
         }
         
         // Check for distance 
         if CMPedometer.isDistanceAvailable(){
-            pedometer.queryPedometerDataFromDate(NSDate.now(), toDate: NSDate.yesterday(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
-                println("Distance: \(data.distance) m")
-            })
+            pedometer.queryPedometerData(from: Date.now(), to: Date.yesterday(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                print("Distance: \(data.distance) m")
+            } as! CMPedometerHandler)
         }else{
-            println("No distance data")
+            print("No distance data")
         }
         
         // Check for Floor count
         if CMPedometer.isFloorCountingAvailable(){
-            pedometer.queryPedometerDataFromDate(NSDate.tenMinutesAgo(), toDate: NSDate.now(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
-                println("Floor ascended: \(data.floorsAscended)")
-                println("Floor descended: \(data.floorsDescended)")
-            })
+            pedometer.queryPedometerData(from: Date.tenMinutesAgo(), to: Date.now(), withHandler: { (data:CMPedometerData!, error:NSError!) -> Void in
+                print("Floor ascended: \(data.floorsAscended)")
+                print("Floor descended: \(data.floorsDescended)")
+            } as! CMPedometerHandler)
         }else{
-            println("No floors data")
+            print("No floors data")
         }
     }
     
-    func applicationWillResignActive(application: UIApplication) {
-        pedometer.stopPedometerUpdates()
+    func applicationWillResignActive(_ application: UIApplication) {
+        pedometer.stopUpdates()
     }
 
 }
