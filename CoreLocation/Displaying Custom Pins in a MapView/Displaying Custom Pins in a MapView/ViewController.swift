@@ -20,7 +20,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     /* We have a pin on the map, now zoom into it and make that pin
     the center of the map */
-    func setCenterOfMapToLocation(location: CLLocationCoordinate2D){
+    func setCenterOfMapToLocation(_ location: CLLocationCoordinate2D){
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
@@ -74,8 +74,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func mapView(mapView: MKMapView,
-        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!{
+    func mapView(_ mapView: MKMapView,
+        viewFor annotation: MKAnnotation) -> MKAnnotationView?{
             
             if annotation is MyAnnotation == false{
                 return nil
@@ -92,8 +92,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
             /* Using the identifier we retrieved above, we will
             attempt to reuse a pin in the sender Map View */
             var annotationView =
-            mapView.dequeueReusableAnnotationViewWithIdentifier(
-                pinReusableIdentifier) as? MKPinAnnotationView
+            mapView.dequeueReusableAnnotationView(
+                withIdentifier: pinReusableIdentifier) as? MKPinAnnotationView
             
             if annotationView == nil{
                 /* If we fail to reuse a pin, then we will create one */
@@ -120,14 +120,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
     /* Set up the map and add it to our view */
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
     }
     
     /* Add the pin to the map and center the map around the pin */
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addPinToMapView()
     }

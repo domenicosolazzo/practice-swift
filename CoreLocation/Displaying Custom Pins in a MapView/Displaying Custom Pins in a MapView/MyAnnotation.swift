@@ -26,16 +26,16 @@ enum PinColor : String{
     func toPinColor() -> MKPinAnnotationColor{
         switch self{
         case .Red:
-            return .Red
+            return .red
         case .Green:
-            return .Green
+            return .green
         case .Purple:
-            return .Purple
+            return .purple
         default:
             /* For the blue pin, this will return .Red but we need
             to return *a* value in this function. For this case, we will
             ignore the return value */
-            return .Red
+            return .red
         }
     }
 }
