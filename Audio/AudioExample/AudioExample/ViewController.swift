@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
+func += <KeyType, ValueType> (left: inout Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
     for (k, v) in right {
         left.updateValue(v, forKey: k)
     }
@@ -25,36 +25,36 @@ class ViewController: UIViewController {
     var audioFile:AVAudioFile?
     var player: AVAudioPlayer?
     
-    @IBAction func play(sender: UIButton) {
+    @IBAction func play(_ sender: UIButton) {
         isPlaying = !isPlaying
         if(isPlaying){
-            playButton.setTitle("Playing", forState: UIControlState.Normal)
+            playButton.setTitle("Playing", for: UIControlState())
             
             do {
-                player = try AVAudioPlayer(contentsOfURL: getUrl())
+                player = try AVAudioPlayer(contentsOf: getUrl())
                 player!.play()
             } catch {
                 // couldn't load file :(
             }
         }else{
-            playButton.setTitle("Play", forState: UIControlState.Normal)
+            playButton.setTitle("Play", for: UIControlState())
             player?.stop()
         }
     }
     
-    @IBAction func recording(sender: AnyObject) {
+    @IBAction func recording(_ sender: AnyObject) {
         isRecording = !isRecording
         let input = engine.inputNode!
         let bus = 0
-        let format = input.inputFormatForBus(bus)
+        let format = input.inputFormat(forBus: bus)
         if(isRecording){
-            recordButton.setTitle("Recording", forState: UIControlState.Normal)
-            input.installTapOnBus(bus, bufferSize: 4096, format: format) {
+            recordButton.setTitle("Recording", for: UIControlState())
+            input.installTap(onBus: bus, bufferSize: 4096, format: format) {
                 (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in
                 print("tapping the input")
                 print(buffer)
                 do{
-                    try self.audioFile?.writeFromBuffer(buffer)
+                    try self.audioFile?.write(from: buffer)
                 }catch{
                     print("error")
                 }
@@ -67,8 +67,8 @@ class ViewController: UIViewController {
             }
 
         }else{
-            input.removeTapOnBus(bus)
-            recordButton.setTitle("Record", forState: UIControlState.Normal)
+            input.removeTap(onBus: bus)
+            recordButton.setTitle("Record", for: UIControlState())
             engine.stop()
         }
     }
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         
         let output = engine.outputNode
         let bus = 0
-        let format = input.inputFormatForBus(bus)
+        let format = input.inputFormat(forBus: bus)
         
         self.createAudioFile(format)
         
@@ -104,29 +104,29 @@ class ViewController: UIViewController {
         engine.connect(input, to: output, format: format)
     }
 
-    func createAudioFile(format:AVAudioFormat){
+    func createAudioFile(_ format:AVAudioFormat){
         let settings =
-            [AVFormatIDKey: NSNumber(int: Int32(kAudioFormatLinearPCM)),
+            [AVFormatIDKey: NSNumber(value: Int32(kAudioFormatLinearPCM) as Int32),
              AVSampleRateKey: format.sampleRate,
              AVNumberOfChannelsKey: 2,
              AVLinearPCMBitDepthKey : 32,
              AVLinearPCMIsBigEndianKey : false,
              AVLinearPCMIsFloatKey : true,
-             AVLinearPCMIsNonInterleaved : false];
+             AVLinearPCMIsNonInterleaved : false] as [String : Any];
         
         
         do{
-            self.audioFile = try AVAudioFile(forWriting: getUrl(), settings: settings, commonFormat: AVAudioCommonFormat.PCMFormatFloat32, interleaved: false)
+            self.audioFile = try AVAudioFile(forWriting: getUrl(), settings: settings, commonFormat: AVAudioCommonFormat.pcmFormatFloat32, interleaved: false)
         }catch{
             print("error")
         }
     }
     
-    func getUrl() -> NSURL{
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as [String]
+    func getUrl() -> URL{
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [String]
         let documentsDirectory = paths[0] as NSString
-        let audioFilename = documentsDirectory.stringByAppendingPathComponent("whistle.wav")
-        let audioURL = NSURL(fileURLWithPath: audioFilename)
+        let audioFilename = documentsDirectory.appendingPathComponent("whistle.wav")
+        let audioURL = URL(fileURLWithPath: audioFilename)
         
         return audioURL
     
