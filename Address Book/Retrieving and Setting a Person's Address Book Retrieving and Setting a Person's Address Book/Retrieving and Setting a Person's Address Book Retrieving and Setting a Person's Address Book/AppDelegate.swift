@@ -13,23 +13,23 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var addressBook: ABAddressBookRef = {
+    lazy var addressBook: ABAddressBook = {
         var error: Unmanaged<CFError>?
         return ABAddressBookCreateWithOptions(nil,
-            &error).takeRetainedValue() as ABAddressBookRef
+            &error).takeRetainedValue() as ABAddressBook
         }()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             performExample()
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             ABAddressBookRequestAccessWithCompletion(addressBook,
-                {[weak self] (granted: Bool, error: CFError!) in
+                {[weak self] (granted: Bool, error: CFError?) in
                     
                     if granted{
                         let strongSelf = self!
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                 })
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
@@ -49,19 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func imageForPerson(person: ABRecordRef) -> UIImage?{
+    func imageForPerson(_ person: ABRecord) -> UIImage?{
         
-        let data = ABPersonCopyImageData(person).takeRetainedValue() as NSData
+        let data = ABPersonCopyImageData(person).takeRetainedValue() as Data
         
         let image = UIImage(data: data)
         return image
     }
     
-    func newPersonWithFirstName(firstName: String,
+    func newPersonWithFirstName(_ firstName: String,
         lastName: String,
-        inAddressBook: ABAddressBookRef) -> ABRecordRef?{
+        inAddressBook: ABAddressBook) -> ABRecord?{
             
-            let person: ABRecordRef = ABPersonCreate().takeRetainedValue()
+            let person: ABRecord = ABPersonCreate().takeRetainedValue()
             
             let couldSetFirstName = ABRecordSetValue(person,
                 kABPersonFirstNameProperty,
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 lastName as CFTypeRef,
                 nil)
             
-            var error: Unmanaged<CFErrorRef>? = nil
+            var error: Unmanaged<CFError>? = nil
             
             let couldAddPerson = ABAddressBookAddRecord(inAddressBook, person, &error)
             
@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if ABAddressBookHasUnsavedChanges(inAddressBook){
                 
-                var error: Unmanaged<CFErrorRef>? = nil
+                var error: Unmanaged<CFError>? = nil
                 let couldSaveAddressBook = ABAddressBookSave(inAddressBook, &error)
                 
                 if couldSaveAddressBook{
@@ -108,14 +108,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func setImageForPerson(person: ABRecordRef,
-        inAddressBook addressBook: ABAddressBookRef,
-        imageData: NSData) -> Bool{
+    func setImageForPerson(_ person: ABRecord,
+        inAddressBook addressBook: ABAddressBook,
+        imageData: Data) -> Bool{
             
-            var error: Unmanaged<CFErrorRef>? = nil
+            var error: Unmanaged<CFError>? = nil
             
             let couldSetPersonImage =
-            ABPersonSetImageData(person, imageData as CFDataRef, &error)
+            ABPersonSetImageData(person, imageData as CFData, &error)
             
             if couldSetPersonImage{
                 print("Successfully set the person's image. Saving...")
@@ -142,22 +142,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func performExample(){
-        let person: ABRecordRef? = newPersonWithFirstName("Richard",
+        let person: ABRecord? = newPersonWithFirstName("Richard",
             lastName: "Branson", inAddressBook: addressBook)
         
-        if let richard: ABRecordRef = person{
+        if let richard: ABRecord = person{
             
             let newImage = UIImage(named: "image")
-            let newImageData = UIImageJPEGRepresentation(newImage, 1.0)
+            let newImageData = UIImageJPEGRepresentation(newImage!, 1.0)
             
             if setImageForPerson(richard, inAddressBook: addressBook,
-                imageData: newImageData){
+                imageData: newImageData!){
                     
                     print("Successfully set the person's image")
                     
                     let image = imageForPerson(richard)
                     
-                    if let currentImage = image{
+                    if image != nil{
                         print("Found the image")
                     } else {
                         print("This person has no image")
