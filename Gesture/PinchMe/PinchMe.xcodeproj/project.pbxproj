@@ -161,9 +161,11 @@
 				TargetAttributes = {
 					C0CB1C231AF41BC700E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					C0CB1C381AF41BC700E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C0CB1C231AF41BC700E0E2E0;
 					};
 				};
@@ -345,6 +347,7 @@
 				INFOPLIST_FILE = PinchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -355,6 +358,7 @@
 				INFOPLIST_FILE = PinchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -373,6 +377,7 @@
 				INFOPLIST_FILE = PinchMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchMe.app/PinchMe";
 			};
 			name = Debug;
@@ -388,6 +393,7 @@
 				INFOPLIST_FILE = PinchMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchMe.app/PinchMe";
 			};
 			name = Release;
@@ -411,6 +417,7 @@
 				C0CB1C451AF41BC700E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB1C461AF41BC700E0E2E0 /* Build configuration list for PBXNativeTarget "PinchMeTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +426,7 @@
 				C0CB1C481AF41BC700E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
