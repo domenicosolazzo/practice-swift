@@ -12,8 +12,8 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Updated locations... \(__FUNCTION__)")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Updated locations... \(#function)")
         
         if locations.count > 0{
             let location = (locations )[0]
