@@ -29,57 +29,57 @@ class ViewController: UIViewController {
     }
     
    
-    @IBAction func textfieldDoneEditing(sender: UITextField) {
+    @IBAction func textfieldDoneEditing(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
 
-    @IBAction func backgroundTap(sender: UIControl) {
+    @IBAction func backgroundTap(_ sender: UIControl) {
         nameField.resignFirstResponder()
         numberField.resignFirstResponder()
     }
 
-    @IBAction func sliderChanged(sender: UISlider) {
+    @IBAction func sliderChanged(_ sender: UISlider) {
         let progress = lroundf(sender.value)
         sliderValue.text = "\(progress)"
     }
-    @IBAction func switchChanged(sender: UISwitch) {
-        let setting = sender.on
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        let setting = sender.isOn
         leftSwitch.setOn(setting, animated: true)
         rightSwitch.setOn(setting, animated: true)
     }
-    @IBAction func toggleControls(sender: UISegmentedControl) {
+    @IBAction func toggleControls(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            leftSwitch.hidden = false
-            rightSwitch.hidden = false
-            doSomething.hidden = true
+            leftSwitch.isHidden = false
+            rightSwitch.isHidden = false
+            doSomething.isHidden = true
         } else {
-            leftSwitch.hidden = true
-            rightSwitch.hidden = true
-            doSomething.hidden = false
+            leftSwitch.isHidden = true
+            rightSwitch.isHidden = true
+            doSomething.isHidden = false
         }
     }
-    @IBAction func buttonPressed(sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         let controller = UIAlertController(title: "Are You Sure?",
-            message:nil, preferredStyle: .ActionSheet)
+            message:nil, preferredStyle: .actionSheet)
         
         let yesAction = UIAlertAction(title: "Yes, I'm sure!",
-            style: .Destructive, handler: { action in
-                let msg = self.nameField.text.isEmpty
+            style: .destructive, handler: { action in
+                let msg = (self.nameField.text?.isEmpty)!
                     ? "You can breathe easy, everything went OK."
                     : "You can breathe easy, \(self.nameField.text),"
                     + " everything went OK."
                 let controller2 = UIAlertController(
                     title:"Something Was Done",
-                    message: msg, preferredStyle: .Alert)
+                    message: msg, preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Phew!",
-                    style: .Cancel, handler: nil)
+                    style: .cancel, handler: nil)
                 controller2.addAction(cancelAction)
-                self.presentViewController(controller2, animated: true,
+                self.present(controller2, animated: true,
                     completion: nil)
         })
         
         let noAction = UIAlertAction(title: "No way!",
-            style: .Cancel, handler: nil)
+            style: .cancel, handler: nil)
         
         controller.addAction(yesAction)
         controller.addAction(noAction)
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
             ppc.sourceRect = sender.bounds
         }
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
 }
 
