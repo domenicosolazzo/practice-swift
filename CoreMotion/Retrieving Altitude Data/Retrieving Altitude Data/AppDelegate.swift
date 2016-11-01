@@ -17,24 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     are available on the host device */
     lazy var altimeter = CMAltimeter()
     /* A private queue on which altitude updates will be delivered to us */
-    lazy var queue = NSOperationQueue()
+    lazy var queue = OperationQueue()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Check if altimeter data is available
         if CMAltimeter.isRelativeAltitudeAvailable(){
             // Start updating altimeter data
-            altimeter.startRelativeAltitudeUpdatesToQueue(queue, withHandler:
+            altimeter.startRelativeAltitudeUpdates(to: queue, withHandler:
                 { (data:CMAltitudeData!, error:NSError!) -> Void in
-                println("Got the altitude. Data: \(data.relativeAltitude)")
-            })
+                print("Got the altitude. Data: \(data.relativeAltitude)")
+            } as! CMAltitudeHandler)
         }
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Stop receiving updates
         altimeter.stopRelativeAltitudeUpdates()
     }
