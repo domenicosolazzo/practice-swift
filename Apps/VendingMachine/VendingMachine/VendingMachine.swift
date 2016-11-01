@@ -17,9 +17,9 @@ protocol VendingMachineType {
     var amountDeposited: Double { get set }
     
     init(inventory: [VendingSelection: ItemType])
-    func vend(selection: VendingSelection, quantity: Double) throws
-    func deposit(amount: Double)
-    func itemForCurrentSelection(selection: VendingSelection) -> ItemType?
+    func vend(_ selection: VendingSelection, quantity: Double) throws
+    func deposit(_ amount: Double)
+    func itemForCurrentSelection(_ selection: VendingSelection) -> ItemType?
 }
 
 protocol ItemType {
@@ -29,30 +29,30 @@ protocol ItemType {
 
 // Error Types
 
-enum InventoryError: ErrorType {
-    case InvalidResource
-    case ConversionError
-    case InvalidKey
+enum InventoryError: Error {
+    case invalidResource
+    case conversionError
+    case invalidKey
 }
 
-enum VendingMachineError: ErrorType {
-    case InvalidSelection
-    case OutOfStock
-    case InsufficientFunds(required: Double)
+enum VendingMachineError: Error {
+    case invalidSelection
+    case outOfStock
+    case insufficientFunds(required: Double)
 }
 
 // Helper Classes
 
 class PlistConverter {
-    class func dictionaryFromFile(resource: String, ofType type: String) throws -> [String : AnyObject] {
+    class func dictionaryFromFile(_ resource: String, ofType type: String) throws -> [String : AnyObject] {
         
-        guard let path = NSBundle.mainBundle().pathForResource(resource, ofType: type) else {
-            throw InventoryError.InvalidResource
+        guard let path = Bundle.main.path(forResource: resource, ofType: type) else {
+            throw InventoryError.invalidResource
         }
         
         guard let dictionary = NSDictionary(contentsOfFile: path),
         let castDictionary = dictionary as? [String: AnyObject] else {
-            throw InventoryError.ConversionError
+            throw InventoryError.conversionError
         }
         
         return castDictionary
@@ -60,7 +60,7 @@ class PlistConverter {
 }
 
 class InventoryUnarchiver {
-    class func vendingInventoryFromDictionary(dictionary: [String : AnyObject]) throws -> [VendingSelection : ItemType] {
+    class func vendingInventoryFromDictionary(_ dictionary: [String : AnyObject]) throws -> [VendingSelection : ItemType] {
         
         var inventory: [VendingSelection : ItemType] = [:]
         
@@ -71,7 +71,7 @@ class InventoryUnarchiver {
                 let item = VendingItem(price: price, quantity: quantity)
                 
                 guard let key = VendingSelection(rawValue: key) else {
-                    throw InventoryError.InvalidKey
+                    throw InventoryError.invalidKey
                 }
                 
                 inventory.updateValue(item, forKey: key)
@@ -126,13 +126,13 @@ class VendingMachine: VendingMachineType {
         self.inventory = inventory
     }
     
-    func vend(selection: VendingSelection, quantity: Double) throws {
+    func vend(_ selection: VendingSelection, quantity: Double) throws {
         guard var item = inventory[selection] else {
-            throw VendingMachineError.InvalidSelection
+            throw VendingMachineError.invalidSelection
         }
         
         guard item.quantity > 0 else {
-            throw VendingMachineError.OutOfStock
+            throw VendingMachineError.outOfStock
         }
         
         item.quantity -= quantity
@@ -143,15 +143,15 @@ class VendingMachine: VendingMachineType {
             amountDeposited -= totalPrice
         } else {
             let amountRequired = totalPrice - amountDeposited
-            throw VendingMachineError.InsufficientFunds(required: amountRequired)
+            throw VendingMachineError.insufficientFunds(required: amountRequired)
         }
     }
     
-    func itemForCurrentSelection(selection: VendingSelection) -> ItemType? {
+    func itemForCurrentSelection(_ selection: VendingSelection) -> ItemType? {
         return inventory[selection]
     }
     
-    func deposit(amount: Double) {
+    func deposit(_ amount: Double) {
         amountDeposited += amount
     }
 }

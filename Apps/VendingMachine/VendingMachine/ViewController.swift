@@ -9,7 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "vendingItem"
-private let screenWidth = UIScreen.mainScreen().bounds.width
+private let screenWidth = UIScreen.main.bounds.width
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -63,41 +63,41 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.collectionViewLayout = layout
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return vendingMachine.selection.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! VendingItemCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! VendingItemCell
         
-        let item = vendingMachine.selection[indexPath.row]
+        let item = vendingMachine.selection[(indexPath as NSIndexPath).row]
         cell.iconView.image = item.icon()
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateCellBackgroundColor(indexPath, selected: true)
         reset()
-        currentSelection = vendingMachine.selection[indexPath.row]
+        currentSelection = vendingMachine.selection[(indexPath as NSIndexPath).row]
         updateTotalPriceLabel()
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         updateCellBackgroundColor(indexPath, selected: false)
     }
     
-    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         updateCellBackgroundColor(indexPath, selected: true)
     }
     
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         updateCellBackgroundColor(indexPath, selected: false)
     }
     
-    func updateCellBackgroundColor(indexPath: NSIndexPath, selected: Bool) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            cell.contentView.backgroundColor = selected ? UIColor(red: 41/255.0, green: 211/255.0, blue: 241/255.0, alpha: 1.0) : UIColor.clearColor()
+    func updateCellBackgroundColor(_ indexPath: IndexPath, selected: Bool) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            cell.contentView.backgroundColor = selected ? UIColor(red: 41/255.0, green: 211/255.0, blue: 241/255.0, alpha: 1.0) : UIColor.clear
         }
     }
     
@@ -108,11 +108,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             do {
                 try vendingMachine.vend(currentSelection, quantity: quantity)
                 updateBalanceLabel()
-            } catch VendingMachineError.OutOfStock {
+            } catch VendingMachineError.outOfStock {
                 showAlert("Out of Stock")
-            } catch VendingMachineError.InvalidSelection {
+            } catch VendingMachineError.invalidSelection {
                 showAlert("Invalid Selection!")
-            } catch VendingMachineError.InsufficientFunds(let amount) {
+            } catch VendingMachineError.insufficientFunds(let amount) {
                 showAlert("Insufficient Funds", message: "Additional $\(amount) needed to complete the transaction")
             } catch let error {
                 fatalError("\(error)")
@@ -122,7 +122,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
-    @IBAction func updateQuantity(sender: UIStepper) {
+    @IBAction func updateQuantity(_ sender: UIStepper) {
         quantity = sender.value
         updateTotalPriceLabel()
         updateQuantityLabel()
@@ -148,17 +148,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         updateQuantityLabel()
     }
     
-    func showAlert(title: String, message: String? = nil, style: UIAlertControllerStyle = .Alert) {
+    func showAlert(_ title: String, message: String? = nil, style: UIAlertControllerStyle = .alert) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         
-        let okAction = UIAlertAction(title: "OK", style: .Default, handler: dismissAlert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: dismissAlert)
         
         alertController.addAction(okAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
-    func dismissAlert(sender: UIAlertAction) {
+    func dismissAlert(_ sender: UIAlertAction) {
         reset()
     }
     
