@@ -13,23 +13,23 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var addressBook: ABAddressBookRef?
+    var addressBook: ABAddressBook?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             self.createNewGroupInAddressBook(addressBook!)
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             createAddressBook()
-            if let theBook: ABAddressBookRef = addressBook{
+            if let theBook: ABAddressBook = addressBook{
                 ABAddressBookRequestAccessWithCompletion(theBook,
-                    {(granted: Bool, error: CFError!) in
+                    {(granted: Bool, error: CFError?) in
                         
                         if granted{
                             print("Access is granted")
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
             
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
@@ -71,14 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func newGroupWithName(name: String, inAddressBook: ABAddressBookRef) ->
-        ABRecordRef?{
+    func newGroupWithName(_ name: String, inAddressBook: ABAddressBook) ->
+        ABRecord?{
             
-            let group: ABRecordRef = ABGroupCreate().takeRetainedValue()
+            let group: ABRecord = ABGroupCreate().takeRetainedValue()
             
             var error: Unmanaged<CFError>?
             let couldSetGroupName = ABRecordSetValue(group,
-                kABGroupNameProperty, name, &error)
+                kABGroupNameProperty, name as CFTypeRef!, &error)
             
             if couldSetGroupName{
                 
@@ -118,13 +118,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func createNewGroupInAddressBook(addressBook: ABAddressBookRef){
+    func createNewGroupInAddressBook(_ addressBook: ABAddressBook){
         
-        let personalCoachesGroup: ABRecordRef? =
+        let personalCoachesGroup: ABRecord? =
         newGroupWithName("Personal Coaches",
             inAddressBook: addressBook)
         
-        if let _: ABRecordRef = personalCoachesGroup{
+        if let _: ABRecord = personalCoachesGroup{
             print("Successfully created the group")
         } else {
             print("Could not create the group")
