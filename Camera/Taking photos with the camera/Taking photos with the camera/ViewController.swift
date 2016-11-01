@@ -18,7 +18,7 @@ class ViewController: UIViewController,
     var beenHereBefore = false
     var controller: UIImagePickerController?
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if beenHereBefore{
@@ -34,14 +34,14 @@ class ViewController: UIViewController,
             controller = UIImagePickerController()
             
             if let theController = controller{
-                theController.sourceType = .Camera
+                theController.sourceType = .camera
                 
                 theController.mediaTypes = [kUTTypeImage as String]
                 
                 theController.allowsEditing = true
                 theController.delegate = self
                 
-                presentViewController(theController, animated: true, completion: nil)
+                present(theController, animated: true, completion: nil)
             }
             
         } else {
@@ -51,12 +51,12 @@ class ViewController: UIViewController,
     }
     
     //- MARK: UIImagePickerControllerDelegate
-    func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [String : AnyObject]){
+    func imagePickerController(_ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : Any]){
             
         print("Picker returned successfully")
             
-        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType] as AnyObject?
             
         if let type:AnyObject = mediaType{
                 
@@ -64,7 +64,7 @@ class ViewController: UIViewController,
                 let stringType = type as! String
                 
                 if stringType == kUTTypeMovie as String{
-                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? URL
                     if let url = urlOfVideo{
                         print("Video URL = \(url)")
                     }
@@ -94,24 +94,24 @@ class ViewController: UIViewController,
             }
         }
             
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("Picker was cancelled")
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
     //- MARK: Helper methods
     func isCameraAvailable() -> Bool{
-        return UIImagePickerController.isSourceTypeAvailable(.Camera)
+        return UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
-    func cameraSupportsMedia(mediaType: String,
+    func cameraSupportsMedia(_ mediaType: String,
         sourceType: UIImagePickerControllerSourceType) -> Bool{
             
         let availableMediaTypes =
-        UIImagePickerController.availableMediaTypesForSourceType(sourceType) 
+        UIImagePickerController.availableMediaTypes(for: sourceType) 
             
         if let types = availableMediaTypes{
             for type in types{
@@ -125,7 +125,7 @@ class ViewController: UIViewController,
     }
     
     func doesCameraSupportTakingPhotos() -> Bool{
-        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
+        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .camera)
     }
 }
 
