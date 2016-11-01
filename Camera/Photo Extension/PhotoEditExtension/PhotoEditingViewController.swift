@@ -30,26 +30,26 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     let filterName = "CIColorPosterize"
     
     /* How we are telling to the Photos framework who is editing the photo */
-    let editFormatIdentifier = NSBundle.mainBundle().bundleIdentifier
+    let editFormatIdentifier = Bundle.main.bundleIdentifier
     let editFormatVersion = "0.1"
     
     /* A queue that will execute our edits in the background */
-    let operationQueue = NSOperationQueue()
+    let operationQueue = OperationQueue()
     
     let shouldShowCancelConfirmation: Bool = true
     
     /* This turns an image into its NSData representation */
-    func dataFromCiImage(image: CIImage) -> NSData{
-        let glContext = EAGLContext(API: .OpenGLES2)
-        let context = CIContext(EAGLContext: glContext)
-        let imageRef = context.createCGImage(image, fromRect: image.extent)
-        let image = UIImage(CGImage: imageRef, scale: 1.0, orientation: .Up)
-        return UIImageJPEGRepresentation(image, 1.0)
+    func dataFromCiImage(_ image: CIImage) -> Data{
+        let glContext = EAGLContext(api: .openGLES2)
+        let context = CIContext(eaglContext: glContext!)
+        let imageRef = context.createCGImage(image, from: image.extent)
+        let image = UIImage(cgImage: imageRef!, scale: 1.0, orientation: .up)
+        return UIImageJPEGRepresentation(image, 1.0)!
     }
     
     /* This takes the input and converts it to the output. The output
     has our posterized content saved inside it */
-    func posterizedImageForInput(input: PHContentEditingInput) ->
+    func posterizedImageForInput(_ input: PHContentEditingInput) ->
         PHContentEditingOutput{
             
             /* Get the required information from the asset */
@@ -58,17 +58,17 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
             
             /* Retrieve an instance of CIImage to apply our filter to */
             let inputImage =
-            CIImage(contentsOfURL: url,
-                options: nil).imageByApplyingOrientation(orientation)
+            CIImage(contentsOf: url!,
+                options: nil)?.applyingOrientation(orientation)
             
             /* Apply the filter to our image */
             let filter = CIFilter(name: filterName)
-            filter.setDefaults()
-            filter.setValue(inputImage, forKey: kCIInputImageKey)
-            let outputImage = filter.outputImage
+            filter?.setDefaults()
+            filter?.setValue(inputImage, forKey: kCIInputImageKey)
+            let outputImage = filter?.outputImage
             
             /* Get the data of our edited image */
-            let editedImageData = dataFromCiImage(outputImage)
+            let editedImageData = dataFromCiImage(outputImage!)
             
             /* The results of editing our image are encapsulated here */
             let output = PHContentEditingOutput(contentEditingInput: input)
@@ -78,17 +78,17 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
                 atomically: true)
             
             output.adjustmentData =
-                PHAdjustmentData(formatIdentifier: editFormatIdentifier,
+                PHAdjustmentData(formatIdentifier: editFormatIdentifier!,
                     formatVersion: editFormatVersion,
-                    data: filterName.dataUsingEncoding(NSUTF8StringEncoding,
-                        allowLossyConversion: false))
+                    data: filterName.data(using: String.Encoding.utf8,
+                        allowLossyConversion: false)!)
             
             return output
             
     }
     
     /* We just want to work with the original image */
-    func canHandleAdjustmentData(adjustmentData: PHAdjustmentData?) -> Bool {
+    func canHandle(_ adjustmentData: PHAdjustmentData) -> Bool {
         return false
     }
     
@@ -97,11 +97,11 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
         
         output = posterizedImageForInput(input!)
         
-        dispatch_async(dispatch_get_main_queue(), {[weak self] in
+        DispatchQueue.main.async(execute: {[weak self] in
             let strongSelf = self!
             
-            let data = try? NSData(contentsOfURL: strongSelf.output.renderedContentURL,
-                options: .DataReadingMappedIfSafe)
+            let data = try? Data(contentsOf: strongSelf.output.renderedContentURL,
+                options: .mappedIfSafe)
             
             let image = UIImage(data: data!)
             
@@ -109,21 +109,21 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
             })
     }
     
-    func startContentEditingWithInput(
-        contentEditingInput: PHContentEditingInput?,
+    func startContentEditing(
+        with contentEditingInput: PHContentEditingInput,
         placeholderImage: UIImage) {
             
             imageView.image = placeholderImage
             input = contentEditingInput
             
             /* Start the editing in the background */
-            let block = NSBlockOperation(block: editingOperation)
+            let block = BlockOperation(block: editingOperation)
             operationQueue.addOperation(block)
             
     }
     
-    func finishContentEditingWithCompletionHandler(
-        completionHandler: ((PHContentEditingOutput!) -> Void)!) {
+    func finishContentEditing(
+        completionHandler: (PHContentEditingOutput?) -> Void) {
             /* Report our output */
             completionHandler(output)
     }
