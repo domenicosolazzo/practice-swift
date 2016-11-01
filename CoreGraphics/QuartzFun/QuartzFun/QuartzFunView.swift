@@ -20,108 +20,104 @@ extension UIColor {
 
 
 enum Shape : UInt {
-    case Line = 0, Rect, Ellipse, Image
+    case line = 0, rect, ellipse, image
 }
 
 // The color tab indices
 enum DrawingColor : UInt {
-    case Red = 0, Blue, Yellow, Green, Random
+    case red = 0, blue, yellow, green, random
 }
 
 class QuartzFunView: UIView {
     // Application-settable properties
-    var shape = Shape.Line
-    var currentColor = UIColor.redColor()
+    var shape = Shape.line
+    var currentColor = UIColor.red
     var useRandomColor = false
-    private var redrawRect:CGRect = CGRectZero
+    fileprivate var redrawRect:CGRect = CGRect.zero
     
     // Internal properties
-    private let image = UIImage(named:"iphone")!
-    private var firstTouchLocation:CGPoint = CGPointZero
-    private var lastTouchLocation:CGPoint = CGPointZero
+    fileprivate let image = UIImage(named:"iphone")!
+    fileprivate var firstTouchLocation:CGPoint = CGPoint.zero
+    fileprivate var lastTouchLocation:CGPoint = CGPoint.zero
     
     //- MARK: Touches
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if useRandomColor {
             currentColor = UIColor.randomColor()
         }
         
-        let touch = touches.first as! UITouch
-        firstTouchLocation = touch.locationInView(self)
+        let touch = touches.first! as UITouch
+        firstTouchLocation = touch.location(in: self)
         lastTouchLocation = firstTouchLocation
         setNeedsDisplay()
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
-        lastTouchLocation = touch.locationInView(self)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        lastTouchLocation = touch.location(in: self)
         
-        if shape == .Image {
+        if shape == .image {
             let horizontalOffset = image.size.width / 2
             let verticalOffset = image.size.height / 2
-            redrawRect = CGRectUnion(redrawRect,
-                CGRectMake(lastTouchLocation.x - horizontalOffset,
-                    lastTouchLocation.y - verticalOffset,
-                    image.size.width, image.size.height))
+            redrawRect = redrawRect.union(CGRect(x: lastTouchLocation.x - horizontalOffset,
+                    y: lastTouchLocation.y - verticalOffset,
+                    width: image.size.width, height: image.size.height))
         } else {
-            redrawRect = CGRectUnion(redrawRect, currentRect())
+            redrawRect = redrawRect.union(currentRect())
         }
-        setNeedsDisplayInRect(redrawRect)
+        setNeedsDisplay(redrawRect)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
-        lastTouchLocation = touch.locationInView(self)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        lastTouchLocation = touch.location(in: self)
         
-        if shape == .Image {
+        if shape == .image {
             let horizontalOffset = image.size.width / 2
             let verticalOffset = image.size.height / 2
-            redrawRect = CGRectUnion(redrawRect,
-                CGRectMake(lastTouchLocation.x - horizontalOffset,
-                    lastTouchLocation.y - verticalOffset,
-                    image.size.width, image.size.height))
+            redrawRect = redrawRect.union(CGRect(x: lastTouchLocation.x - horizontalOffset,
+                    y: lastTouchLocation.y - verticalOffset,
+                    width: image.size.width, height: image.size.height))
         } else {
-            redrawRect = CGRectUnion(redrawRect, currentRect())
+            redrawRect = redrawRect.union(currentRect())
         }
-        setNeedsDisplayInRect(redrawRect)
+        setNeedsDisplay(redrawRect)
     }
     
     func currentRect() -> CGRect {
-        return CGRectMake(firstTouchLocation.x,
-            firstTouchLocation.y,
-            lastTouchLocation.x - firstTouchLocation.x,
-            lastTouchLocation.y - firstTouchLocation.y)
+        return CGRect(x: firstTouchLocation.x,
+            y: firstTouchLocation.y,
+            width: lastTouchLocation.x - firstTouchLocation.x,
+            height: lastTouchLocation.y - firstTouchLocation.y)
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 2.0)
-        CGContextSetStrokeColorWithColor(context, currentColor.CGColor)
-        CGContextSetFillColorWithColor(context, currentColor.CGColor)
+        context?.setLineWidth(2.0)
+        context?.setStrokeColor(currentColor.cgColor)
+        context?.setFillColor(currentColor.cgColor)
         
         switch shape {
-        case .Line:
-            CGContextMoveToPoint(context, firstTouchLocation.x,
-                firstTouchLocation.y)
-            CGContextAddLineToPoint(context, lastTouchLocation.x,
-                lastTouchLocation.y)
-            CGContextStrokePath(context)
+        case .line:
+            context?.move(to: CGPoint(x: firstTouchLocation.x, y: firstTouchLocation.y))
+            context?.addLine(to: CGPoint(x: lastTouchLocation.x, y: lastTouchLocation.y))
+            context?.strokePath()
             
-        case .Rect:
-            CGContextAddRect(context,  currentRect())
-            CGContextDrawPath(context, kCGPathFillStroke)
+        case .rect:
+            context?.addRect(currentRect())
+            context?.drawPath(using: CGPathDrawingMode.fillStroke)
             
-        case .Ellipse:
-            CGContextAddEllipseInRect(context, currentRect())
-            CGContextDrawPath(context, kCGPathFillStroke)
+        case .ellipse:
+            context?.addEllipse(in: currentRect())
+            context?.drawPath(using: CGPathDrawingMode.fillStroke)
             
-        case .Image:
+        case .image:
             let horizontalOffset = image.size.width / 2
             let verticalOffset = image.size.height / 2
             let drawPoint =
-            CGPointMake(lastTouchLocation.x - horizontalOffset,
-                lastTouchLocation.y - verticalOffset)
-            image.drawAtPoint(drawPoint)
+            CGPoint(x: lastTouchLocation.x - horizontalOffset,
+                y: lastTouchLocation.y - verticalOffset)
+            image.draw(at: drawPoint)
         }
     }
     

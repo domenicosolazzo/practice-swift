@@ -21,29 +21,29 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func changeColor(sender: UISegmentedControl) {
+    @IBAction func changeColor(_ sender: UISegmentedControl) {
         let drawingColorSelection =
         DrawingColor(rawValue: UInt(sender.selectedSegmentIndex))
         if let drawingColor = drawingColorSelection {
             let funView = view as! QuartzFunView;
             switch drawingColor {
-            case .Red:
-                funView.currentColor = UIColor.redColor()
+            case .red:
+                funView.currentColor = UIColor.red
                 funView.useRandomColor = false
                 
-            case .Blue:
-                funView.currentColor = UIColor.blueColor()
+            case .blue:
+                funView.currentColor = UIColor.blue
                 funView.useRandomColor = false
                 
-            case .Yellow:
-                funView.currentColor = UIColor.yellowColor()
+            case .yellow:
+                funView.currentColor = UIColor.yellow
                 funView.useRandomColor = false
                 
-            case .Green:
-                funView.currentColor = UIColor.greenColor()
+            case .green:
+                funView.currentColor = UIColor.green
                 funView.useRandomColor = false
                 
-            case .Random:
+            case .random:
                 funView.useRandomColor = true
                 
             default:
@@ -52,12 +52,12 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func changeShape(sender: UISegmentedControl) {
+    @IBAction func changeShape(_ sender: UISegmentedControl) {
         let shapeSelection = Shape(rawValue: UInt(sender.selectedSegmentIndex))
         if let shape = shapeSelection {
             let funView = view as! QuartzFunView;
             funView.shape = shape;
-            colorControl.hidden = shape == Shape.Image
+            colorControl.isHidden = shape == Shape.image
         }
     }
 
