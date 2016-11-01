@@ -163,9 +163,11 @@
 				TargetAttributes = {
 					C009B1011B14E10100C44B10 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 					};
 					C009B1161B14E10100C44B10 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = C009B1011B14E10100C44B10;
 					};
 				};
@@ -347,6 +349,7 @@
 				INFOPLIST_FILE = "Requesting accesso to the Address Book/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -357,6 +360,7 @@
 				INFOPLIST_FILE = "Requesting accesso to the Address Book/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -375,6 +379,7 @@
 				INFOPLIST_FILE = "Requesting accesso to the Address BookTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Requesting accesso to the Address Book.app/Requesting accesso to the Address Book";
 			};
 			name = Debug;
@@ -390,6 +395,7 @@
 				INFOPLIST_FILE = "Requesting accesso to the Address BookTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Requesting accesso to the Address Book.app/Requesting accesso to the Address Book";
 			};
 			name = Release;

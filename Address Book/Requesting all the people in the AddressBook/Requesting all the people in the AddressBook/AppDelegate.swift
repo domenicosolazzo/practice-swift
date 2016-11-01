@@ -14,23 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var addressBook: ABAddressBookRef?
+    var addressBook: ABAddressBook?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             self.readFromAddressBook(addressBook!)
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             createAddressBook()
-            if let theBook: ABAddressBookRef = addressBook{
+            if let theBook: ABAddressBook = addressBook{
                 ABAddressBookRequestAccessWithCompletion(theBook,
-                    {(granted: Bool, error: CFError!) in
+                    {(granted: Bool, error: CFError?) in
                         
                         if granted{
                             print("Access is granted")
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
             
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
@@ -51,13 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func readFromAddressBook(addressBook: ABAddressBookRef){
+    func readFromAddressBook(_ addressBook: ABAddressBook){
         
         /* Get all the people in the address book */
         let allPeople = ABAddressBookCopyArrayOfAllPeople(
-            addressBook).takeRetainedValue() as NSArray
+            addressBook).takeRetainedValue() as [ABRecord]
         
-        for person: ABRecordRef in allPeople{
+        for person: ABRecord in allPeople{
             
             let firstName = ABRecordCopyValue(person,
                 kABPersonFirstNameProperty).takeRetainedValue() as! String
@@ -73,9 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func readEmailsForPerson(person: ABRecordRef){
+    func readEmailsForPerson(_ person: ABRecord){
         
-        let emails: ABMultiValueRef = ABRecordCopyValue(person,
+        let emails: ABMultiValue = ABRecordCopyValue(person,
             kABPersonEmailProperty).takeRetainedValue()
         
         for counter in 0..<ABMultiValueGetCount(emails){

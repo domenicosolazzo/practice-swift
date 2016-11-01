@@ -13,22 +13,22 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var addressBook: ABAddressBookRef?
+    var addressBook: ABAddressBook?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             createAddressBook()
-            if let theBook: ABAddressBookRef = addressBook{
+            if let theBook: ABAddressBook = addressBook{
                 ABAddressBookRequestAccessWithCompletion(theBook,
-                    {(granted: Bool, error: CFError!) in
+                    {(granted: Bool, error: CFError?) in
                         
                         if granted{
                             print("Access is granted")
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
             
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
