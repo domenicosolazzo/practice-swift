@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     // In case the user want to take a new video
     var moviePlayerController:MPMoviePlayerController?
     var image:UIImage?
-    var movieURL:NSURL?
+    var movieURL:URL?
     var lastChosenMediaType:String?
     
     
@@ -26,48 +26,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if !UIImagePickerController.isSourceTypeAvailable(
-            UIImagePickerControllerSourceType.Camera) {
-                takePictureButton.hidden = true
+            UIImagePickerControllerSourceType.camera) {
+                takePictureButton.isHidden = true
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateDisplay()
     }
 
     
     
-    @IBAction func shootPictureOrVideo(sender: UIButton) {
-        pickMediaFromSource(UIImagePickerControllerSourceType.Camera)
+    @IBAction func shootPictureOrVideo(_ sender: UIButton) {
+        pickMediaFromSource(UIImagePickerControllerSourceType.camera)
     }
     
-    @IBAction func selectExistingPictureOrVideo(sender: UIButton) {
-        pickMediaFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
+    @IBAction func selectExistingPictureOrVideo(_ sender: UIButton) {
+        pickMediaFromSource(UIImagePickerControllerSourceType.photoLibrary)
     }
     
     func updateDisplay() {
         if let mediaType = lastChosenMediaType {
-            if mediaType == kUTTypeImage as NSString {
+            if mediaType == (kUTTypeImage as NSString) as String {
                 imageView.image = image!
-                imageView.hidden = false
+                imageView.isHidden = false
                 if moviePlayerController != nil {
-                    moviePlayerController!.view.hidden = true
+                    moviePlayerController!.view.isHidden = true
                 }
-            } else if mediaType == kUTTypeMovie as NSString {
+            } else if mediaType == (kUTTypeMovie as NSString) as String {
                 if moviePlayerController == nil {
                     moviePlayerController =
                         MPMoviePlayerController(contentURL: movieURL)
                     let movieView = moviePlayerController!.view
-                    movieView.frame = imageView.frame
-                    movieView.clipsToBounds = true
-                    view.addSubview(movieView)
+                    movieView?.frame = imageView.frame
+                    movieView?.clipsToBounds = true
+                    view.addSubview(movieView!)
                     setMoviePlayerLayoutConstraints()
                 } else {
                     moviePlayerController!.contentURL = movieURL
                 }
-                imageView.hidden = true
-                moviePlayerController!.view.hidden = false
+                imageView.isHidden = true
+                moviePlayerController!.view.isHidden = false
                 moviePlayerController!.play()
             }
         }
@@ -75,20 +75,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func setMoviePlayerLayoutConstraints() {
         let moviePlayerView = moviePlayerController!.view
-        moviePlayerView.translatesAutoresizingMaskIntoConstraints = false
+        moviePlayerView?.translatesAutoresizingMaskIntoConstraints = false
         let views = ["moviePlayerView": moviePlayerView,
             "takePictureButton": takePictureButton]
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|[moviePlayerView]|", options:NSLayoutFormatOptions(rawValue: 0),
+        view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|[moviePlayerView]|", options:NSLayoutFormatOptions(rawValue: 0),
             metrics:nil, views:views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[moviePlayerView]-0-[takePictureButton]",
+        view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|[moviePlayerView]-0-[takePictureButton]",
             options:NSLayoutFormatOptions(rawValue: 0), metrics:nil, views:views))
     }
     
-    func pickMediaFromSource(sourceType:UIImagePickerControllerSourceType) {
+    func pickMediaFromSource(_ sourceType:UIImagePickerControllerSourceType) {
         let mediaTypes =
-        UIImagePickerController.availableMediaTypesForSourceType(sourceType)!
+        UIImagePickerController.availableMediaTypes(for: sourceType)!
         if UIImagePickerController.isSourceTypeAvailable(sourceType)
             && mediaTypes.count > 0 {
                 let picker = UIImagePickerController()
@@ -96,33 +96,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
                 picker.delegate = self
                 picker.allowsEditing = true
                 picker.sourceType = sourceType
-                presentViewController(picker, animated: true, completion: nil)
+                present(picker, animated: true, completion: nil)
         } else {
             let alertController = UIAlertController(title:"Error accessing media",
                 message: "Unsupported media source.",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "OK",
-                style: UIAlertActionStyle.Cancel, handler: nil)
+                style: UIAlertActionStyle.cancel, handler: nil)
             alertController.addAction(okAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
     //- MARK: UIImagePickerControllerDelegate
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         lastChosenMediaType = info[UIImagePickerControllerMediaType] as! NSString as String
         if let mediaType = lastChosenMediaType {
-            if mediaType == kUTTypeImage as NSString {
+            if mediaType == (kUTTypeImage as NSString) as String {
                 image = info[UIImagePickerControllerEditedImage] as? UIImage
-            } else if mediaType == kUTTypeMovie as NSString {
-                movieURL = info[UIImagePickerControllerMediaURL] as? NSURL
+            } else if mediaType == (kUTTypeMovie as NSString) as String {
+                movieURL = info[UIImagePickerControllerMediaURL] as? URL
             }
         }
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion:nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion:nil)
     }
 
 

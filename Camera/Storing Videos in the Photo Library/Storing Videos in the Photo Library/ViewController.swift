@@ -18,15 +18,15 @@ class ViewController: UIViewController {
         
         assetsLibrary = ALAssetsLibrary()
         
-        let videoURL = NSBundle.mainBundle().URLForResource("sample_iTunes",
-            withExtension: "mov") as NSURL?
+        let videoURL = Bundle.main.url(forResource: "sample_iTunes",
+            withExtension: "mov") as URL?
         
         if let library = assetsLibrary{
             
             if let url = videoURL{
                 
-                library.writeVideoAtPathToSavedPhotosAlbum(url,
-                    completionBlock: {(url: NSURL!, error: NSError!) in
+                library.writeVideoAtPath(toSavedPhotosAlbum: url,
+                    completionBlock: {(url: URL!, error: NSError?) in
                         
                         print(url)
                         
