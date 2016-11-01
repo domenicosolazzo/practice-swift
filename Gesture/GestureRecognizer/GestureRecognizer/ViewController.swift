@@ -15,14 +15,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        for var touchCount = 1; touchCount <= 5; touchCount++ {
-            let vertical = UISwipeGestureRecognizer(target: self, action: "reportVerticalSwipe:")
-            vertical.direction = .Up | .Down
+        for  touchCount in (1 ..< 5) {
+            let vertical = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.reportVerticalSwipe(_:)))
+            vertical.direction = .up
             vertical.numberOfTouchesRequired = touchCount
             view.addGestureRecognizer(vertical)
             
-            let horizontal = UISwipeGestureRecognizer(target: self, action: "reportHorizontalSwipe:")
-            horizontal.direction = .Left | .Right
+            let horizontal = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.reportHorizontalSwipe(_:)))
+            horizontal.direction = .left 
             horizontal.numberOfTouchesRequired = touchCount
             view.addGestureRecognizer(horizontal)
         }
@@ -33,25 +33,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func reportHorizontalSwipe(recognizer:UIGestureRecognizer) {
+    func reportHorizontalSwipe(_ recognizer:UIGestureRecognizer) {
         label.text = "Horizontal swipe detected"
-        let count = descriptionForTouchCount(recognizer.numberOfTouches())
+        let count = descriptionForTouchCount(recognizer.numberOfTouches)
         label.text = "\(count) Horizontal swipe detected"
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)),
-            dispatch_get_main_queue(),
-            { self.label.text = "" })
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC),
+            execute: { self.label.text = "" })
     }
     
-    func reportVerticalSwipe(recognizer:UIGestureRecognizer) {
+    func reportVerticalSwipe(_ recognizer:UIGestureRecognizer) {
         label.text = "Vertical swipe detected"
-        let count = descriptionForTouchCount(recognizer.numberOfTouches())
+        let count = descriptionForTouchCount(recognizer.numberOfTouches)
         label.text = "\(count) Vertical swipe detected"
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)),
-            dispatch_get_main_queue(),
-            { self.label.text = "" })
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC),
+            execute: { self.label.text = "" })
     }
     
-    func descriptionForTouchCount(touchCount:Int) -> String {
+    func descriptionForTouchCount(_ touchCount:Int) -> String {
         switch touchCount {
         case 1:
             return "Single"
