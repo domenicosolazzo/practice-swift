@@ -10,23 +10,23 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController {
-    private let updateInterval = 1.0/60.0
-    private let motionManager = CMMotionManager()
-    private let queue = NSOperationQueue()
+    fileprivate let updateInterval = 1.0/60.0
+    fileprivate let motionManager = CMMotionManager()
+    fileprivate let queue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         motionManager.deviceMotionUpdateInterval = updateInterval
-        motionManager.startDeviceMotionUpdatesToQueue(queue,
+        motionManager.startDeviceMotionUpdates(to: queue,
             withHandler: {
                 (motionData: CMDeviceMotion!, error: NSError!) -> Void in
                 let ballView = self.view as! BallView
                 ballView.acceleration = motionData.gravity
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.asynchronously(DispatchQueue.mainexecute: {
                     ballView.update()
                 })
-        })
+        } as! CMDeviceMotionHandler)
     }
 
     override func didReceiveMemoryWarning() {

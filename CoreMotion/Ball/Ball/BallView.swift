@@ -11,8 +11,8 @@ import CoreMotion
 
 class BallView: UIView {
     var acceleration = CMAcceleration(x: 0, y: 0, z: 0)
-    private let image = UIImage(named : "ball")!
-    var currentPoint : CGPoint = CGPointZero {
+    fileprivate let image = UIImage(named : "ball")!
+    var currentPoint : CGPoint = CGPoint.zero {
         didSet {
             var newX = currentPoint.x
             var newY = currentPoint.y
@@ -30,21 +30,21 @@ class BallView: UIView {
                 newY = bounds.size.height - image.size.height
                 ballYVelocity = -(ballYVelocity / 2.0)
             }
-            currentPoint = CGPointMake(newX, newY)
+            currentPoint = CGPoint(x: newX, y: newY)
             
-            let currentRect = CGRectMake(newX, newY,
-                newX + image.size.width,
-                newY + image.size.height)
-            let prevRect = CGRectMake(oldValue.x, oldValue.y,
-                oldValue.x + image.size.width,
-                oldValue.y + image.size.height)
-            setNeedsDisplayInRect(CGRectUnion(currentRect, prevRect))
+            let currentRect = CGRect(x: newX, y: newY,
+                width: newX + image.size.width,
+                height: newY + image.size.height)
+            let prevRect = CGRect(x: oldValue.x, y: oldValue.y,
+                width: oldValue.x + image.size.width,
+                height: oldValue.y + image.size.height)
+            setNeedsDisplay(currentRect.union(prevRect))
         }
     }
     
-    private var ballXVelocity = 0.0
-    private var ballYVelocity = 0.0
-    private var lastUpdateTime = NSDate()
+    fileprivate var ballXVelocity = 0.0
+    fileprivate var ballYVelocity = 0.0
+    fileprivate var lastUpdateTime = Date()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,20 +57,20 @@ class BallView: UIView {
     }
     
     func commonInit() -> Void {
-        currentPoint = CGPointMake((bounds.size.width / 2.0) +
+        currentPoint = CGPoint(x: (bounds.size.width / 2.0) +
             (image.size.width / 2.0),
-            (bounds.size.height / 2.0) +
+            y: (bounds.size.height / 2.0) +
                 (image.size.height / 2.0))
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
-        image.drawAtPoint(currentPoint)
+        image.draw(at: currentPoint)
     }
     
     func update() -> Void {
-        let now = NSDate()
-        let secondsSinceLastDraw = now.timeIntervalSinceDate(lastUpdateTime)
+        let now = Date()
+        let secondsSinceLastDraw = now.timeIntervalSince(lastUpdateTime)
         ballXVelocity =
             ballXVelocity + (acceleration.x * secondsSinceLastDraw)
         ballYVelocity =
@@ -78,8 +78,8 @@ class BallView: UIView {
         
         let xDelta = secondsSinceLastDraw * ballXVelocity * 500
         let yDelta = secondsSinceLastDraw * ballYVelocity * 500
-        currentPoint = CGPointMake(currentPoint.x + CGFloat(xDelta),
-            currentPoint.y + CGFloat(yDelta))
+        currentPoint = CGPoint(x: currentPoint.x + CGFloat(xDelta),
+            y: currentPoint.y + CGFloat(yDelta))
         lastUpdateTime = now
     }
     

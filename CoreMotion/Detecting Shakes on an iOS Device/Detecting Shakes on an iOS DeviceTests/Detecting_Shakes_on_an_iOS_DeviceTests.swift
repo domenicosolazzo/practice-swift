@@ -28,7 +28,7 @@ class Detecting_Shakes_on_an_iOS_DeviceTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

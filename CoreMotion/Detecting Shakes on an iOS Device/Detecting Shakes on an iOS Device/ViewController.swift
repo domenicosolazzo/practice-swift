@@ -11,17 +11,17 @@ import CoreMotion
 
 class ViewController: UIViewController {
 
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if motion == .MotionShake{
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake{
             let controller = UIAlertController(title: "Shake",
                 message: "The device is shaken",
-                preferredStyle: .Alert)
+                preferredStyle: .alert)
             
             controller.addAction(UIAlertAction(title: "OK",
-                style: .Default,
+                style: .default,
                 handler: nil))
             
-            presentViewController(controller, animated: true, completion: nil)
+            present(controller, animated: true, completion: nil)
             
         }
     }

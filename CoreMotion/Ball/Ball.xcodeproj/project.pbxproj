@@ -164,9 +164,11 @@
 				TargetAttributes = {
 					C0CB1CB51AF52C6600E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					C0CB1CCA1AF52C6600E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C0CB1CB51AF52C6600E0E2E0;
 					};
 				};
@@ -349,6 +351,7 @@
 				INFOPLIST_FILE = Ball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -359,6 +362,7 @@
 				INFOPLIST_FILE = Ball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -377,6 +381,7 @@
 				INFOPLIST_FILE = BallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ball.app/Ball";
 			};
 			name = Debug;
@@ -392,6 +397,7 @@
 				INFOPLIST_FILE = BallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ball.app/Ball";
 			};
 			name = Release;
@@ -415,6 +421,7 @@
 				C0CB1CD71AF52C6600E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB1CD81AF52C6600E0E2E0 /* Build configuration list for PBXNativeTarget "BallTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +430,7 @@
 				C0CB1CDA1AF52C6600E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
