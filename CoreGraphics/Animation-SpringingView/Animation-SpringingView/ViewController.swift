@@ -13,15 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var v = UIView(frame: CGRectMake(0, 0, 100, 100))
-        v.backgroundColor = UIColor.blueColor()
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        v.backgroundColor = UIColor.blue
         self.view.addSubview(v)
         
-        UIView.animateWithDuration(0.8,
+        UIView.animate(withDuration: 0.8,
             delay: 0,
             usingSpringWithDamping: 0.7,
             initialSpringVelocity: 20,
-            options: nil,
             animations: {
                 v.center.y += 100
             },

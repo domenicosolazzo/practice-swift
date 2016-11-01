@@ -124,7 +124,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: - Fetched results controller
 
-    var fetchedResultsController: NSFetchedResultsController {
+    var fetchedResultsController: NSFetchedResultsController<AnyObject> {
         if _fetchedResultsController != nil {
             return _fetchedResultsController!
         }
@@ -162,7 +162,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         return _fetchedResultsController!
     }    
-    var _fetchedResultsController: NSFetchedResultsController? = nil
+    var _fetchedResultsController: NSFetchedResultsController?? = nil
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
@@ -179,7 +179,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    func controller(_ controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<AnyObject>, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
             case .insert:
                 tableView.insertRows(at: [newIndexPath!], with: .fade)
