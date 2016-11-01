@@ -12,39 +12,34 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    func contentsOfAppBundle() -> [NSURL]{
+    func contentsOfAppBundle() -> [URL]{
         
         let propertiesToGet = [
-            NSURLIsDirectoryKey,
-            NSURLIsReadableKey,
-            NSURLCreationDateKey,
-            NSURLContentAccessDateKey,
-            NSURLContentModificationDateKey
+            URLResourceKey.isDirectoryKey,
+            URLResourceKey.isReadableKey,
+            URLResourceKey.creationDateKey,
+            URLResourceKey.contentAccessDateKey,
+            URLResourceKey.contentModificationDateKey
         ]
         
         var error:NSError?
-        let fileManager = NSFileManager()
-        let bundleUrl = NSBundle.mainBundle().bundleURL
-        let result = fileManager.contentsOfDirectoryAtURL(bundleUrl,
+        let fileManager = FileManager()
+        let bundleUrl = Bundle.main.bundleURL
+        let result = try fileManager.contentsOfDirectoryAtURL(bundleUrl,
             includingPropertiesForKeys: propertiesToGet,
-            options: nil,
-            error: &error) as! [NSURL]
+            options: nil) as! [URL]
         
-        if let theError = error{
-            println("An error occurred")
-        }
         
         return result
         
     }
     
-    func stringValueOfBoolProperty(property: String, url: NSURL) -> String{
+    func stringValueOfBoolProperty(_ property: String, url: URL) -> String{
         var value:AnyObject?
         var error:NSError?
-        if url.getResourceValue(
+        if try url.getResourceValue(
             &value,
-            forKey: property,
-            error: &error) && value != nil{
+            forKey: URLResourceKey(rawValue: property)) && value != nil{
                 let number = value as! NSNumber
                 return number.boolValue ? "YES" : "NO"
         }
@@ -52,51 +47,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return "NO"
     }
     
-    func isUrlDirectory(url: NSURL) -> String{
-        return stringValueOfBoolProperty(NSURLIsDirectoryKey, url: url)
+    func isUrlDirectory(_ url: URL) -> String{
+        return stringValueOfBoolProperty(URLResourceKey.isDirectoryKey.rawValue, url: url)
     }
     
-    func isUrlReadable(url: NSURL) -> NSString{
-        return stringValueOfBoolProperty(NSURLIsReadableKey, url: url)
+    func isUrlReadable(_ url: URL) -> NSString{
+        return stringValueOfBoolProperty(URLResourceKey.isReadableKey.rawValue, url: url) as NSString
     }
     
     
-    func dateOfType(type: String, url: NSURL) -> NSDate?{
+    func dateOfType(_ type: String, url: URL) -> Date?{
         var value:AnyObject?
         var error:NSError?
-        if url.getResourceValue(
+        if try url.getResourceValue(
             &value,
-            forKey: type,
-            error: &error) && value != nil{
-                return value as? NSDate
+            forKey: URLResourceKey(rawValue: type)) && value != nil{
+                return value as? Date
         }
         return nil
     }
     
-    func printUrlPropertiesToConsole(url: NSURL){
-        println("URL name = \(url.lastPathComponent)")
-        println("Is a Directory? \(isUrlDirectory(url))")
-        println("Is Readable? \(isUrlReadable(url))")
+    func printUrlPropertiesToConsole(_ url: URL){
+        print("URL name = \(url.lastPathComponent)")
+        print("Is a Directory? \(isUrlDirectory(url))")
+        print("Is Readable? \(isUrlReadable(url))")
         
-        if let creationDate = dateOfType(NSURLCreationDateKey, url: url){
-            println("Creation Date = \(creationDate)")
+        if let creationDate = dateOfType(URLResourceKey.creationDateKey.rawValue, url: url){
+            print("Creation Date = \(creationDate)")
         }
         
-        if let accessDate = dateOfType(NSURLContentAccessDateKey, url: url){
-            println("Access Date = \(accessDate)")
+        if let accessDate = dateOfType(URLResourceKey.contentAccessDateKey.rawValue, url: url){
+            print("Access Date = \(accessDate)")
         }
         
         if let modificationDate =
-            dateOfType(NSURLContentModificationDateKey, url: url){
-                println("Modification Date = \(modificationDate)")
+            dateOfType(URLResourceKey.contentModificationDateKey.rawValue, url: url){
+                print("Modification Date = \(modificationDate)")
         }
         
-        println("-----------------------------------")
+        print("-----------------------------------")
         
     }
     
-    func application(application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             
             let appBundleContents = contentsOfAppBundle()
             
@@ -104,9 +98,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 printUrlPropertiesToConsole(url)
             }
             
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
             // Override point for customization after application launch.
-            self.window!.backgroundColor = UIColor.whiteColor()
+            self.window!.backgroundColor = UIColor.white
             self.window!.makeKeyAndVisible()
             return true
     }

@@ -13,18 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
     
-    func getDocumentFolder() -> NSURL?{
-        let fileManager = NSFileManager()
-        let urls = fileManager.URLsForDirectory(
-            NSSearchPathDirectory.DocumentDirectory,
-            inDomains: NSSearchPathDomainMask.UserDomainMask)
+    func getDocumentFolder() -> URL?{
+        let fileManager = FileManager()
+        let urls = fileManager.urls(
+            for: FileManager.SearchPathDirectory.documentDirectory,
+            in: FileManager.SearchPathDomainMask.userDomainMask)
         if urls.count > 0{
-            let url = urls[0] as! NSURL
-            println(url)
+            let url = urls[0] 
+            print(url)
             return url
         }
         
@@ -32,14 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func getCacheFolder() -> NSURL?{
-        let fileManager = NSFileManager()
-        let urls = fileManager.URLsForDirectory(
-            NSSearchPathDirectory.CachesDirectory,
-            inDomains: NSSearchPathDomainMask.UserDomainMask)
+    func getCacheFolder() -> URL?{
+        let fileManager = FileManager()
+        let urls = fileManager.urls(
+            for: FileManager.SearchPathDirectory.cachesDirectory,
+            in: FileManager.SearchPathDomainMask.userDomainMask)
         if urls.count > 0{
-            let url = urls[0] as! NSURL
-            println(url)
+            let url = urls[0] 
+            print(url)
             return url
         }
         
@@ -47,14 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func getTemporaryFolder() -> NSURL? {
-        if let tempDirectory = NSTemporaryDirectory(){
-            println("\(tempDirectory)")
-            return tempDirectory as? NSURL
-        } else {
-            println("Could not find the temp directory")
-        }
-        
+    func getTemporaryFolder() -> URL? {
+        _ = NSTemporaryDirectory()
         return nil
     }
 }
