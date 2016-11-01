@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func createFolder(){
         
         let tempPath = NSTemporaryDirectory()
-        let imagesPath = (tempPath as NSString).stringByAppendingPathComponent("images")
-        var error:NSError?
-        let fileManager = NSFileManager()
+        let imagesPath = (tempPath as NSString).appendingPathComponent("images")
+        
+        let fileManager = FileManager()
         
         do {
-            try fileManager.createDirectoryAtPath(imagesPath,
+            try fileManager.createDirectory(atPath: imagesPath,
                         withIntermediateDirectories: true,
                         attributes: nil)
                 print("Created the directory")
