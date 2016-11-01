@@ -16,20 +16,20 @@ class ViewController: UIViewController,
     var locationManager: CLLocationManager?
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         mapView = MKMapView()
     }
     
     /* Set up the map and add it to our view */
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         /* Are location services available on this device? */
@@ -37,18 +37,18 @@ class ViewController: UIViewController,
             
             /* Do we have authorization to access location services? */
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
+            case .denied:
                 /* No */
                 displayAlertWithTitle("Not Determined",
                     message: "Location services are not allowed for this app")
-            case .NotDetermined:
+            case .notDetermined:
                 /* We don't know yet, we have to ask */
                 locationManager = CLLocationManager()
                 if let manager = locationManager{
                     manager.delegate = self
                     manager.requestWhenInUseAuthorization()
                 }
-            case .Restricted:
+            case .restricted:
                 /* Restrictions have been applied, we have no access
                 to location services */
                 displayAlertWithTitle("Restricted",
@@ -62,40 +62,40 @@ class ViewController: UIViewController,
             /* Location services are not enabled.
             Take appropriate action: for instance, prompt the
             user to enable the location services */
-            println("Location services are not enabled")
+            print("Location services are not enabled")
         }
     }
     
     //- MARK: Location Manager
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(_ manager: CLLocationManager!,
         didUpdateToLocation newLocation: CLLocation!,
         fromLocation oldLocation: CLLocation!){
             
-            println("Latitude = \(newLocation.coordinate.latitude)")
-            println("Longitude = \(newLocation.coordinate.longitude)")
+            print("Latitude = \(newLocation.coordinate.latitude)")
+            print("Longitude = \(newLocation.coordinate.longitude)")
             
     }
     
-    func locationManager(manager: CLLocationManager!,
-        didFailWithError error: NSError!){
-            println("Location manager failed with error = \(error)")
+    func locationManager(_ manager: CLLocationManager!,
+        didFailWithError error: Error){
+            print("Location manager failed with error = \(error)")
     }
     
     /* The authorization status of the user has changed, we need to react
     to that so that if she has authorized our app to to view her location,
     we will accordingly attempt to do so */
-    func locationManager(manager: CLLocationManager!,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus){
+    func locationManager(_ manager: CLLocationManager!,
+        didChangeAuthorization status: CLAuthorizationStatus){
             
             print("The authorization status of location services is changed to: ")
             
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
-                println("Denied")
-            case .NotDetermined:
-                println("Not determined")
-            case .Restricted:
-                println("Restricted")
+            case .denied:
+                print("Denied")
+            case .notDetermined:
+                print("Not determined")
+            case .restricted:
+                print("Restricted")
             default:
                 showUserLocationOnMapView()
             }
@@ -106,18 +106,18 @@ class ViewController: UIViewController,
     us access to her location */
     func showUserLocationOnMapView(){
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .Follow
+        mapView.userTrackingMode = .follow
     }
     
     //- MARK: MapView
-    func mapView(mapView: MKMapView!,
-        didFailToLocateUserWithError error: NSError!) {
+    func mapView(_ mapView: MKMapView!,
+        didFailToLocateUserWithError error: Error) {
             displayAlertWithTitle("Failed",
                 message: "Could not get the user's location")
     }
     
-    func mapView(mapView: MKMapView!,
-        didUpdateUserLocation userLocation: MKUserLocation!) {
+    func mapView(_ mapView: MKMapView!,
+        didUpdate userLocation: MKUserLocation!) {
             
             let request = MKLocalSearchRequest()
             request.naturalLanguageQuery = "restaurants";
@@ -125,7 +125,7 @@ class ViewController: UIViewController,
             let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
             
             request.region = MKCoordinateRegion(
-                center: userLocation.location.coordinate,
+                center: (userLocation.locatio!n?.coordinate)!,
                 span: span)
             
             let search = MKLocalSearch(request: request)
@@ -142,21 +142,21 @@ class ViewController: UIViewController,
                     
                 }
                 
-            }
+            } as! MKLocalSearchCompletionHandler 
     }
     
     //- MARK: Helper methods
     /* Just a little method to help us display alert dialogs to the user */
-    func displayAlertWithTitle(title: String, message: String){
+    func displayAlertWithTitle(_ title: String, message: String){
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
 }
