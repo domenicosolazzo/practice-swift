@@ -6,9 +6,13 @@
 //  Copyright (c) 2015 Domenico. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
-@objc(Person) class Person: NSObject, NSCoding{
+class Person: NSObject, NSCoding{
+    public func encode(with aCoder: NSCoder) {
+        
+    }
+
     var firstName: String
     var lastName: String
     
@@ -28,16 +32,16 @@ import Cocoa
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.firstName = aDecoder.decodeObjectForKey(SerializationKey.firstName)
+        self.firstName = aDecoder.decodeObject(forKey: SerializationKey.firstName)
             as! String
         
-        self.lastName = aDecoder.decodeObjectForKey(SerializationKey.lastName)
+        self.lastName = aDecoder.decodeObject(forKey: SerializationKey.lastName)
             as! String
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.firstName, forKey: SerializationKey.firstName)
-        aCoder.encodeObject(self.lastName, forKey: SerializationKey.lastName)
+    func encodewithWithCoder(_ aCoder: NSCoder) {
+        aCoder.encode(self.firstName, forKey: SerializationKey.firstName)
+        aCoder.encode(self.lastName, forKey: SerializationKey.lastName)
     }
     
 }

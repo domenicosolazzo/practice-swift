@@ -12,23 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let path = NSTemporaryDirectory() + "person"
-        var firstPerson = Person()
+        let firstPerson = Person()
         NSKeyedArchiver.archiveRootObject(firstPerson, toFile: path)
         
-        var secondPerson = NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+        let secondPerson = NSKeyedUnarchiver.unarchiveObject(withFile: path)
             as! Person!
         
         if firstPerson == secondPerson{
-            println("Both persons are the same")
+            print("Both persons are the same")
         } else {
-            println("Could not read the archive")
+            print("Could not read the archive")
         }
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         // Override point for customization after application launch.
-        self.window!.backgroundColor = UIColor.whiteColor()
+        self.window!.backgroundColor = UIColor.white
         self.window!.makeKeyAndVisible()
         return true
     }
