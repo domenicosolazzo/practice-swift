@@ -14,15 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet var accelerometerLabel:UILabel!
     @IBOutlet var attitudeLabel:UILabel!
     
-    private let motionManager = CMMotionManager()
-    private let queue = NSOperationQueue()
+    fileprivate let motionManager = CMMotionManager()
+    fileprivate let queue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if motionManager.deviceMotionAvailable {
+        if motionManager.isDeviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = 0.1
-            motionManager.startDeviceMotionUpdatesToQueue(queue,
+            motionManager.startDeviceMotionUpdates(to: queue,
                 withHandler: {
                     (motion:CMDeviceMotion!, error:NSError!) -> Void in
                     
@@ -48,12 +48,12 @@ class ViewController: UIViewController {
                         attitude.roll, attitude.pitch, attitude.yaw)
                     
                     // You need to dispatch the results to the main queue
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.asynchronously(DispatchQueue.mainexecute: {
                         self.gyroscopeLabel.text = gyroscopeText
                         self.accelerometerLabel.text = acceleratorText
                         self.attitudeLabel.text = attitudeText
                     })
-            })
+            } as! CMDeviceMotionHandler)
         }
     }
 

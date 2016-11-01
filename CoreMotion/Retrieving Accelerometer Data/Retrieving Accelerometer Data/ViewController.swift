@@ -15,19 +15,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if motionManager.accelerometerAvailable{
-            let queue = NSOperationQueue()
-            motionManager.startAccelerometerUpdatesToQueue(queue, withHandler:
-                {(data: CMAccelerometerData!, error: NSError!) in
+        if motionManager.isAccelerometerAvailable{
+            _ = OperationQueue()
+            motionManager.startAccelerometerUpdates(to: OperationQueue.main) { [weak self] (data: CMAccelerometerData?, error: Error?) in
                     
-                    println("X = \(data.acceleration.x)")
-                    println("Y = \(data.acceleration.y)")
-                    println("Z = \(data.acceleration.z)")
+                    print("X = \(data?.acceleration.x)")
+                    print("Y = \(data?.acceleration.y)")
+                    print("Z = \(data?.acceleration.z)")
                     
-                }
-            )
+                
+            }
         } else {
-            println("Accelerometer is not available")
+            print("Accelerometer is not available")
         }
 
     }
