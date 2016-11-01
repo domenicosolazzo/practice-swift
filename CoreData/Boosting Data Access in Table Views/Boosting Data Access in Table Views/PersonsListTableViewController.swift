@@ -19,9 +19,9 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         super.init(coder: aDecoder)
         
         barButtonAddPerson = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add,
+            barButtonSystemItem: UIBarButtonSystemItem.add,
             target: self,
-            action: "addNewPerson:")
+            action: #selector(PersonsListTableViewController.addNewPerson(_:)))
         
     }
     
@@ -30,7 +30,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         
         self.title = "Persons"
         
-        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = barButtonAddPerson
         
         // Create the fetch request
@@ -67,7 +67,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         the fetched results controller has changed and that 
         the fetched results controller is about to change its contents
     */
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
     
@@ -75,35 +75,35 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         Gets called on the delegate to inform the delegate of specific changes made 
         to an object on the context.
     */
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        if type == NSFetchedResultsChangeType.Delete{
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+    func controller(_ controller: NSFetchedResultsController<AnyObject>, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        if type == NSFetchedResultsChangeType.delete{
+            tableView.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.automatic)
         }
         
-        if type == NSFetchedResultsChangeType.Insert{
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+        if type == NSFetchedResultsChangeType.insert{
+            tableView.insertRows(at: [newIndexPath!], with: UITableViewRowAnimation.automatic)
         }
     }
     /*
         Gets called on the delegate to inform it that the fetched results controller 
         was refreshed and updated as a result of an update to a managed object context.
     */
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
     
     //- MARK: TableView
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = frc.sections![section] 
         return sectionInfo.numberOfObjects
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(
-            TableConstants.cellIdentifier,
-            forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: TableConstants.cellIdentifier,
+            for: indexPath) 
         
-        let person = frc.objectAtIndexPath(indexPath) as! Person
+        let person = frc.object(at: indexPath) as! Person
         
         cell.textLabel!.text = person.firstName + " " + person.lastName
         cell.detailTextLabel!.text = "Age: \(person.age)"
@@ -111,12 +111,12 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         return cell
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let personToDelete = self.frc.objectAtIndexPath(indexPath) as! Person
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let personToDelete = self.frc.object(at: indexPath) as! Person
         
-        managedObjectContext!.deleteObject(personToDelete)
+        managedObjectContext!.delete(personToDelete)
         
-        if personToDelete.deleted{
+        if personToDelete.isDeleted{
             var savingError: NSError?
             
             do {
@@ -134,19 +134,19 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
     
     //- MARK: Private variables
     var barButtonAddPerson: UIBarButtonItem!
-    var frc: NSFetchedResultsController!
+    var frc: NSFetchedResultsController<AnyObject>!
     
     //- MARK: Computed variables
     var managedObjectContext: NSManagedObjectContext?{
-        return (UIApplication.sharedApplication().delegate
+        return (UIApplication.shared.delegate
             as! AppDelegate).managedObjectContext
     }
     
     //- MARK: UIBarButton
-    func addNewPerson(sender: AnyObject){
+    func addNewPerson(_ sender: AnyObject){
         /* This is a custom segue identifier that we defined in our
         storyboard that simply does a "Show" segue from our view controller
         to the "Add New Person" view controller */
-        performSegueWithIdentifier("addPerson", sender: nil)
+        performSegue(withIdentifier: "addPerson", sender: nil)
     }
 }
