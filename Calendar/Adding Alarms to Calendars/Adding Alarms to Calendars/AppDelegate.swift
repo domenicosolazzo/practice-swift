@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.requestAuthorization()
         return true
     }
@@ -25,22 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let eventStore = EKEventStore()
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
+        switch EKEventStore.authorizationStatus(for: EKEntityType.event){
             
-        case .Authorized:
+        case .authorized:
             addAlarmToCalendarWithStore(eventStore)
-        case .Denied:
+        case .denied:
             displayAccessDenied()
-        case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityType.Event, completion:
-                {[weak self] (granted: Bool, error: NSError!) -> Void in
+        case .notDetermined:
+            eventStore.requestAccess(to: EKEntityType.event, completion:
+                {[weak self] (granted: Bool, error: NSError?) -> Void in
                     if granted{
                         self!.addAlarmToCalendarWithStore(eventStore)
                     } else {
                         self!.displayAccessDenied()
                     }
-                })
-        case .Restricted:
+                } as! EKEventStoreRequestAccessCompletionHandler)
+        case .restricted:
             displayAccessRestricted()
         }
         
@@ -48,14 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Find source in the event store
     func sourceInEventStore(
-        eventStore: EKEventStore,
+        _ eventStore: EKEventStore,
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources as! [EKSource]{
+            for source in eventStore.sources {
                 if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
-                    NSComparisonResult.OrderedSame{
+                    ComparisonResult.orderedSame{
                         return source
                 }
             }
@@ -65,15 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Find calendar by Title
     func calendarWithTitle(
-        title: String,
+        _ title: String,
         type: EKCalendarType,
         source: EKSource,
         eventType: EKEntityType) -> EKCalendar?{
             
-            for calendar in source.calendarsForEntityType(eventType)
+            for calendar in source.calendars(for: eventType)
                 {
                     if calendar.title.caseInsensitiveCompare(title) ==
-                        NSComparisonResult.OrderedSame &&
+                        ComparisonResult.orderedSame &&
                         calendar.type.rawValue == type.rawValue{
                             return calendar
                     }
@@ -82,13 +82,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil
     }
     
-    func addAlarmToCalendarWithStore(store: EKEventStore, calendar: EKCalendar){
+    func addAlarmToCalendarWithStore(_ store: EKEventStore, calendar: EKCalendar){
         
         /* The event starts 60 seconds from now */
-        let startDate = NSDate(timeIntervalSinceNow: 60.0)
+        let startDate = Date(timeIntervalSinceNow: 60.0)
         
         /* And end the event 20 seconds after its start date */
-        let endDate = startDate.dateByAddingTimeInterval(20.0)
+        let endDate = startDate.addingTimeInterval(20.0)
         
         let eventWithAlarm = EKEvent(eventStore: store)
         eventWithAlarm.calendar = calendar
@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func addAlarmToCalendarWithStore(store: EKEventStore){
+    func addAlarmToCalendarWithStore(_ store: EKEventStore){
         
         let icloudSource = sourceInEventStore(store,
             type: EKSourceTypeCalDAV,

@@ -10,85 +10,85 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private var label:UILabel!
-    private var smiley:UIImage!
-    private var smileyView:UIImageView!
-    private var segmentedControl:UISegmentedControl!
-    private var index = 0
-    private var animate:Bool = false
+    fileprivate var label:UILabel!
+    fileprivate var smiley:UIImage!
+    fileprivate var smileyView:UIImageView!
+    fileprivate var segmentedControl:UISegmentedControl!
+    fileprivate var index = 0
+    fileprivate var animate:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        index = NSUserDefaults.standardUserDefaults().integerForKey("index")
+        index = UserDefaults.standard.integer(forKey: "index")
         segmentedControl.selectedSegmentIndex = index;
         
         let bounds = view.bounds
-        let labelFrame:CGRect = CGRectMake(bounds.origin.x,
-            CGRectGetMidY(bounds) - 50, bounds.size.width, 100)
+        let labelFrame:CGRect = CGRect(x: bounds.origin.x,
+            y: bounds.midY - 50, width: bounds.size.width, height: 100)
         label = UILabel(frame:labelFrame)
         label.font = UIFont(name:"Helvetica", size:70)
         label.text = "Bazinga!"
-        label.textAlignment = NSTextAlignment.Center
-        label.backgroundColor = UIColor.clearColor()
+        label.textAlignment = NSTextAlignment.center
+        label.backgroundColor = UIColor.clear
         
         // smiley.png is 84 x 84
-        let smileyFrame = CGRectMake(CGRectGetMidX(bounds) - 42,
-            CGRectGetMidY(bounds)/2 - 42, 84, 84)
+        let smileyFrame = CGRect(x: bounds.midX - 42,
+            y: bounds.midY/2 - 42, width: 84, height: 84)
         
         smileyView = UIImageView(frame:smileyFrame)
-        smileyView.contentMode = UIViewContentMode.Center
+        smileyView.contentMode = UIViewContentMode.center
         let smileyPath =
-        NSBundle.mainBundle().pathForResource("smiley", ofType: "png")!
+        Bundle.main.path(forResource: "smiley", ofType: "png")!
         smiley = UIImage(contentsOfFile: smileyPath)
         smileyView.image = smiley
         
         
         UISegmentedControl(items: ["One","Two", "Three", "Four"])
-        segmentedControl.frame = CGRectMake(bounds.origin.x + 20, 50,
-            bounds.size.width - 40, 30)
-        segmentedControl.addTarget(self, action: "selectionChanged:",
-            forControlEvents: UIControlEvents.ValueChanged)
+        segmentedControl.frame = CGRect(x: bounds.origin.x + 20, y: 50,
+            width: bounds.size.width - 40, height: 30)
+        segmentedControl.addTarget(self, action: #selector(ViewController.selectionChanged(_:)),
+            for: UIControlEvents.valueChanged)
         
         view.addSubview(segmentedControl)
         view.addSubview(smileyView)
         view.addSubview(label)
         
         // Notification
-        let center = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "applicationWillResignActive",
-            name: UIApplicationWillResignActiveNotification, object: nil)
-        center.addObserver(self, selector: "applicationDidBecomeActive",
-            name: UIApplicationDidBecomeActiveNotification, object: nil)
-        center.addObserver(self, selector: "applicationDidEnterBackground",
-            name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        center.addObserver(self, selector: "applicationWillEnterForeground",
-            name: UIApplicationWillEnterForegroundNotification, object: nil)
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(ViewController.applicationWillResignActive),
+            name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        center.addObserver(self, selector: #selector(ViewController.applicationDidBecomeActive),
+            name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        center.addObserver(self, selector: #selector(ViewController.applicationDidEnterBackground),
+            name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        center.addObserver(self, selector: #selector(ViewController.applicationWillEnterForeground),
+            name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     func applicationWillResignActive() {
-        print("VC: \(__FUNCTION__)")
+        print("VC: \(#function)")
         animate = false
     }
     
     func applicationDidBecomeActive() {
-        print("VC: \(__FUNCTION__)")
+        print("VC: \(#function)")
         animate = true
         rotateLabelDown()
     }
     
     func applicationDidEnterBackground() {
-        print("VC: \(__FUNCTION__)")
-        NSUserDefaults.standardUserDefaults().setInteger(self.index,
+        print("VC: \(#function)")
+        UserDefaults.standard.set(self.index,
             forKey:"index")
         
-        let app = UIApplication.sharedApplication()
+        let app = UIApplication.shared
         var taskId:UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
-        let id = app.beginBackgroundTaskWithExpirationHandler(){
+        let id = app.beginBackgroundTask()(expirationHandler: {
             print("Background task ran out of time and was terminated.")
             app.endBackgroundTask(taskId)
-        }
+        })
         taskId = id
         
         if taskId == UIBackgroundTaskInvalid {
@@ -96,8 +96,7 @@ class ViewController: UIViewController {
             return
         }
         
-        dispatch_async(
-            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
                 print("Starting background task with " +
                     "\(app.backgroundTimeRemaining) seconds remaining")
                 
@@ -105,7 +104,7 @@ class ViewController: UIViewController {
                 self.smileyView.image = nil;
                 
                 // simulate a lengthy (25 seconds) procedure
-                NSThread.sleepForTimeInterval(25)
+                Thread.sleep(forTimeInterval: 25)
                 
                 print("Finishing background task with " +
                     "\(app.backgroundTimeRemaining) seconds remaining")
@@ -114,9 +113,9 @@ class ViewController: UIViewController {
     }
     
     func applicationWillEnterForeground() {
-        print("VC: \(__FUNCTION__)")
+        print("VC: \(#function)")
         let smileyPath =
-        NSBundle.mainBundle().pathForResource("smiley", ofType:"png")!
+        Bundle.main.path(forResource: "smiley", ofType:"png")!
         smiley = UIImage(contentsOfFile: smileyPath)
         smileyView.image = smiley
     }
@@ -127,8 +126,8 @@ class ViewController: UIViewController {
     }
     
     func rotateLabelDown() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.label.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        UIView.animate(withDuration: 0.5, animations: {
+            self.label.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
             },
             completion: {(bool) -> Void in
                 self.rotateLabelUp()
@@ -136,8 +135,8 @@ class ViewController: UIViewController {
     }
     
     func rotateLabelUp() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.label.transform = CGAffineTransformMakeRotation(0)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.label.transform = CGAffineTransform(rotationAngle: 0)
             },
             completion: {(bool) -> Void in
                 if self.animate{
@@ -147,7 +146,7 @@ class ViewController: UIViewController {
         })
     }
     
-    func selectionChanged(sender:UISegmentedControl) {
+    func selectionChanged(_ sender:UISegmentedControl) {
         index = segmentedControl.selectedSegmentIndex;
     }
 

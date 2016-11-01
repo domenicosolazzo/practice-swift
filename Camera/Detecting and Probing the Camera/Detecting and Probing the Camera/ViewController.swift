@@ -12,23 +12,23 @@ import MobileCoreServices
 class ViewController: UIViewController {
 
     func isCameraAvailable() -> Bool{
-        return UIImagePickerController.isSourceTypeAvailable(.Camera)
+        return UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     func isFrontCameraAvailable() -> Bool{
-        return UIImagePickerController.isCameraDeviceAvailable(.Front)
+        return UIImagePickerController.isCameraDeviceAvailable(.front)
     }
     
     func isRearCameraAvailable() -> Bool{
-        return UIImagePickerController.isCameraDeviceAvailable(.Rear)
+        return UIImagePickerController.isCameraDeviceAvailable(.rear)
     }
     
     func isFlashAvailableOnFrontCamera() -> Bool{
-        return UIImagePickerController.isFlashAvailableForCameraDevice(.Front)
+        return UIImagePickerController.isFlashAvailable(for: .front)
     }
     
     func isFlashAvailableOnRearCamera() -> Bool{
-        return UIImagePickerController.isFlashAvailableForCameraDevice(.Front)
+        return UIImagePickerController.isFlashAvailable(for: .front)
     }
     
     override func viewDidLoad() {

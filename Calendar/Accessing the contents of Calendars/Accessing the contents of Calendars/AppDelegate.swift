@@ -15,21 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.requestAuthorization()
         return true
     }
     
     // Find the source in the event store
     func sourceInEventStore(
-        eventStore: EKEventStore,
+        _ eventStore: EKEventStore,
         type: EKSourceType,
         title: String) -> EKSource?{
             
-            for source in eventStore.sources as! [EKSource]{
+            for source in eventStore.sources {
                 if source.sourceType.rawValue == type.rawValue &&
                     source.title.caseInsensitiveCompare(title) ==
-                    NSComparisonResult.OrderedSame{
+                    ComparisonResult.orderedSame{
                         return source
                 }
             }
@@ -39,15 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Finding a calendar by Title
     func calendarWithTitle(
-        title: String,
+        _ title: String,
         type: EKCalendarType,
         source: EKSource,
         eventType: EKEntityType) -> EKCalendar?{
             
-            for calendar in source.calendarsForEntityType(eventType)
+            for calendar in source.calendars(for: eventType)
                 {
                     if calendar.title.caseInsensitiveCompare(title) ==
-                        NSComparisonResult.OrderedSame &&
+                        ComparisonResult.orderedSame &&
                         calendar.type.rawValue == type.rawValue{
                             return calendar
                     }
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let eventStore = EKEventStore()
         
         let icloudSource = sourceInEventStore(eventStore,
-            type: EKSourceTypeCalDAV,
+            type: EKSourceType(rawValue: kABSourceTypeCardDAV)!,
             title: "iCloud")
         
         if icloudSource == nil{
@@ -89,10 +89,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         /* The event starts from today, right now */
-        let startDate = NSDate()
+        let startDate = Date()
         
         /* The end date will be 1 day from today */
-        let endDate = startDate.dateByAddingTimeInterval(24 * 60 * 60)
+        let endDate = startDate.addingTimeInterval(24 * 60 * 60)
         
         /* Create the predicate that we can later pass to the
         event store in order to fetch the events */
@@ -124,22 +124,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Request access to the calendar
     func requestAuthorization(){
         
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event){
+        switch EKEventStore.authorizationStatus(for: EKEntityType.event){
             
-        case .Authorized:
+        case .authorized:
             readEvents()
-        case .Denied:
+        case .denied:
             displayAccessDenied()
-        case .NotDetermined:
-            EKEventStore().requestAccessToEntityType(EKEntityType.Event, completion:
+        case .notDetermined:
+            EKEventStore().requestAccess(to: EKEntityType.event, completion:
                 {[weak self] (granted: Bool, error: NSError!) -> Void in
                     if granted{
                         self!.readEvents()
                     } else {
                         self!.displayAccessDenied()
                     }
-                })
-        case .Restricted:
+                } as! EKEventStoreRequestAccessCompletionHandler)
+        case .restricted:
             displayAccessRestricted()
         }
         
