@@ -14,21 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let motionManager = CMMotionManager()
         
         // Check if the accelerometer is available
-        if motionManager.accelerometerAvailable{
-            println("The accelerometer is available")
+        if motionManager.isAccelerometerAvailable{
+            print("The accelerometer is available")
         }else{
-            println("The accelerometer is not available")
+            print("The accelerometer is not available")
         }
         
         // Check if the acceleromter is active
-        if motionManager.accelerometerActive{
-            println("The accelerometer is active")
+        if motionManager.isAccelerometerActive{
+            print("The accelerometer is active")
         }else{
-            println("The accelerometer is not active")
+            print("The accelerometer is not active")
         }
         
         return true
