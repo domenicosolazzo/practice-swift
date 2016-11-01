@@ -13,23 +13,23 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var addressBook: ABAddressBookRef?
+    var addressBook: ABAddressBook?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             self.newPersonWithFirstName("Domenico", lastName: "Solazzo", inAddressBook: addressBook!)
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             createAddressBook()
-            if let theBook: ABAddressBookRef = addressBook{
+            if let theBook: ABAddressBook = addressBook{
                 ABAddressBookRequestAccessWithCompletion(theBook,
-                    {(granted: Bool, error: CFError!) in
+                    {(granted: Bool, error: CFError?) in
                         
                         if granted{
                             print("Access is granted")
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
             
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
@@ -71,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func newPersonWithFirstName(firstName: String,
+    func newPersonWithFirstName(_ firstName: String,
         lastName: String,
-        inAddressBook: ABAddressBookRef) -> ABRecordRef?{
+        inAddressBook: ABAddressBook) -> ABRecord?{
             
-            let person: ABRecordRef = ABPersonCreate().takeRetainedValue()
+            let person: ABRecord = ABPersonCreate().takeRetainedValue()
             
             let couldSetFirstName = ABRecordSetValue(person,
                 kABPersonFirstNameProperty,
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 lastName as CFTypeRef,
                 nil)
             
-            var error: Unmanaged<CFErrorRef>? = nil
+            var error: Unmanaged<CFError>? = nil
             
             let couldAddPerson = ABAddressBookAddRecord(inAddressBook, person, &error)
             
@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if ABAddressBookHasUnsavedChanges(inAddressBook){
                 
-                var error: Unmanaged<CFErrorRef>? = nil
+                var error: Unmanaged<CFError>? = nil
                 let couldSaveAddressBook = ABAddressBookSave(inAddressBook, &error)
                 
                 if couldSaveAddressBook{
