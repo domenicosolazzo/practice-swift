@@ -57,10 +57,10 @@ class ViewController: UIViewController {
         // Configure nav bar back button
         if let buttonFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
             let barButtonAttributesDictionary: [String: AnyObject]? = [
-                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                NSForegroundColorAttributeName: UIColor.white,
                 NSFontAttributeName: buttonFont
             ]
-            UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAttributesDictionary, forState: .Normal)
+            UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAttributesDictionary, for: UIControlState())
         }
         
         // Update UI with information from the data model

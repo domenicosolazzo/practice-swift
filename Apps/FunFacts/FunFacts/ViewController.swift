@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func showFunFact(sender: AnyObject) {
+    @IBAction func showFunFact(_ sender: AnyObject) {
         let color = colorWheel.randomColor()
         funFactLabel.text = factBook.randomFact()
         btnShow.tintColor = color
-        btnShow.setTitleColor(color, forState: UIControlState.Normal)
+        btnShow.setTitleColor(color, for: UIControlState())
         view.backgroundColor = color
     }
 }

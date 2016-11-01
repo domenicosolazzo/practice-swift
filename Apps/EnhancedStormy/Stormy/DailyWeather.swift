@@ -21,7 +21,7 @@ struct DailyWeather {
     var sunriseTime: String?
     var sunsetTime: String?
     var day: String?
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     
     init(dailyWeatherDict: [String: AnyObject]) {
         maxTemperature = dailyWeatherDict["temperatureMax"] as? Int
@@ -54,18 +54,18 @@ struct DailyWeather {
     }
     
     
-    func timeStringFromUnixTime(unixTime: Double) -> String {
-        let date = NSDate(timeIntervalSince1970: unixTime)
+    func timeStringFromUnixTime(_ unixTime: Double) -> String {
+        let date = Date(timeIntervalSince1970: unixTime)
         
         // Returns date formatted as 12 hour time.
         dateFormatter.dateFormat = "hh:mm a"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
-    func dayStringFromTime(unixTime: Double) -> String {
-        let date = NSDate(timeIntervalSince1970: unixTime)
-        dateFormatter.locale = NSLocale(localeIdentifier: NSLocale.currentLocale().localeIdentifier)
+    func dayStringFromTime(_ unixTime: Double) -> String {
+        let date = Date(timeIntervalSince1970: unixTime)
+        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
 }

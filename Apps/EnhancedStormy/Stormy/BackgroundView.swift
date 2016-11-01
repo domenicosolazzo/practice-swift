@@ -12,7 +12,7 @@ class BackgroundView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         // Background View
         
@@ -23,17 +23,17 @@ class BackgroundView: UIView {
         let context = UIGraphicsGetCurrentContext()
         
         //// Gradient Declarations
-        let purpleGradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [lightPurple.CGColor, darkPurple.CGColor], [0, 1])
+        let purpleGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [lightPurple.cgColor, darkPurple.cgColor], locations: [0, 1])
         
         //// Background Drawing
-        let backgroundPath = UIBezierPath(rect: CGRectMake(0, 0, self.frame.width, self.frame.height))
-        CGContextSaveGState(context)
+        let backgroundPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        context?.saveGState()
         backgroundPath.addClip()
-        CGContextDrawLinearGradient(context, purpleGradient,
-            CGPointMake(160, 0),
-            CGPointMake(160, 568),
-            [.DrawsBeforeStartLocation, .DrawsAfterEndLocation])
-        CGContextRestoreGState(context)
+        context.drawLinearGradient(purpleGradient,
+            start: CGPoint(x: 160, y: 0),
+            end: CGPoint(x: 160, y: 568),
+            options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
+        context?.restoreGState()
         
     }
 

@@ -10,29 +10,29 @@ import Foundation
 
 class NetworkOperation {
     
-    lazy var config: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-    lazy var session: NSURLSession = NSURLSession(configuration: self.config)
-    let queryURL: NSURL
+    lazy var config: URLSessionConfiguration = URLSessionConfiguration.default
+    lazy var session: URLSession = URLSession(configuration: self.config)
+    let queryURL: URL
     
-    typealias JSONDictionaryCompletion = ([String: AnyObject]? -> Void)
+    typealias JSONDictionaryCompletion = (([String: AnyObject]?) -> Void)
     
-    init(url: NSURL) {
+    init(url: URL) {
         self.queryURL = url
     }
     
-    func downloadJSONFromURL(completion: JSONDictionaryCompletion) {
+    func downloadJSONFromURL(_ completion: @escaping JSONDictionaryCompletion) {
         
-        let request = NSURLRequest(URL: queryURL)
-        let dataTask = session.dataTaskWithRequest(request) {
-            (let data, let response, let error) in
+        let request = URLRequest(url: queryURL)
+        let dataTask = session.dataTask(with: request, completionHandler: {
+            (data, response, error) in
             
             // 1. Check HTTP response for successful GET request
-            if let httpResponse = response as? NSHTTPURLResponse {
+            if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200:
                     // 2. Create JSON object with data
                     do {
-                        let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String: AnyObject]
+                        let jsonDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
                         completion(jsonDictionary)
                     } catch {
                         completion(nil)
@@ -43,7 +43,7 @@ class NetworkOperation {
             } else {
                 print("Error: Not a valid HTTP response")
             }
-        }
+        }) 
         
         dataTask.resume()
     }
