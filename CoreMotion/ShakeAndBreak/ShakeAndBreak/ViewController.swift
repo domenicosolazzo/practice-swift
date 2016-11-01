@@ -11,23 +11,21 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet var imageView:UIImageView?
-    private var fixed:UIImage!
-    private var broken:UIImage!
-    private var brokenScreenShowing = false
-    private var crashPlayer:AVAudioPlayer!
+    fileprivate var fixed:UIImage!
+    fileprivate var broken:UIImage!
+    fileprivate var brokenScreenShowing = false
+    fileprivate var crashPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let url =
-        NSBundle.mainBundle().URLForResource("glass", withExtension:"wav")
+        Bundle.main.url(forResource: "glass", withExtension:"wav")
         
-        var createError:NSError?
-        crashPlayer = AVAudioPlayer(contentsOfURL: url, error: &createError)
-        if crashPlayer == nil {
-            if let error = createError {
-                println("Audio error! \(error.localizedDescription)")
-            }
+        do{
+            crashPlayer = try AVAudioPlayer(contentsOf: url!)
+        }catch{
+            print("Audio error! \(error.localizedDescription)")
         }
         
         fixed = UIImage(named:"home")
@@ -35,13 +33,13 @@ class ViewController: UIViewController {
         imageView!.image = fixed
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         imageView!.image = fixed
         brokenScreenShowing = false
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if !brokenScreenShowing && motion == .MotionShake {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if !brokenScreenShowing && motion == .motionShake {
             imageView!.image = broken;
             crashPlayer.play()
             brokenScreenShowing = true;
