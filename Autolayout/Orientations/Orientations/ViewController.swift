@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
             | Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
     }
