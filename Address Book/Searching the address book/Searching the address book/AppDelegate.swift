@@ -13,21 +13,21 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var addressBook: ABAddressBookRef = {
+    lazy var addressBook: ABAddressBook = {
         var error: Unmanaged<CFError>?
         return ABAddressBookCreateWithOptions(nil,
-            &error).takeRetainedValue() as ABAddressBookRef
+            &error).takeRetainedValue() as ABAddressBook
         }()
 
     func doesPersonExistWithFirstName(firstName paramFirstName: String,
         lastName paramLastName: String,
-        inAddressBook addressBook: ABAddressBookRef) -> Bool{
+        inAddressBook addressBook: ABAddressBook) -> Bool{
             
             _ = false
             let people = ABAddressBookCopyArrayOfAllPeople(
-                addressBook).takeRetainedValue() as NSArray as [ABRecordRef]
+                addressBook).takeRetainedValue() as NSArray as [ABRecord]
             
-            for person: ABRecordRef in people{
+            for person: ABRecord in people{
                 
                 let firstName = ABRecordCopyValue(person,
                     kABPersonFirstNameProperty).takeRetainedValue() as! String
@@ -44,13 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
     }
     
-    func doesGroupExistWithGroupName(name: String,
-        inAddressBook addressBook: ABAddressBookRef) -> Bool{
+    func doesGroupExistWithGroupName(_ name: String,
+        inAddressBook addressBook: ABAddressBook) -> Bool{
             
             let groups = ABAddressBookCopyArrayOfAllGroups(
-                addressBook).takeRetainedValue() as NSArray as [ABRecordRef]
+                addressBook).takeRetainedValue() as NSArray as [ABRecord]
             
-            for group: ABRecordRef in groups{
+            for group: ABRecord in groups{
                 
                 let groupName = ABRecordCopyValue(group,
                     kABGroupNameProperty).takeRetainedValue() as! String
@@ -63,11 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
     }
     
-    func doesPersonExistWithFullName(fullName: String,
-        inAddressBook addressBook: ABAddressBookRef) -> Bool{
+    func doesPersonExistWithFullName(_ fullName: String,
+        inAddressBook addressBook: ABAddressBook) -> Bool{
             
             let people = ABAddressBookCopyPeopleWithName(addressBook,
-                fullName as NSString as CFStringRef).takeRetainedValue() as NSArray
+                fullName as NSString as CFString).takeRetainedValue() as NSArray
             
             if people.count > 0{
                 return true
@@ -77,11 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func application(application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             
             switch ABAddressBookGetAuthorizationStatus(){
-            case .Authorized:
+            case .authorized:
                 print("Already authorized")
                 if doesPersonExistWithFullName("Richard Branson",
                     inAddressBook: addressBook){
@@ -89,12 +89,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 } else {
                     print("This person doesn't exist")
                 }
-            case .Denied:
+            case .denied:
                 print("You are denied access to address book")
                 
-            case .NotDetermined:
+            case .notDetermined:
                 ABAddressBookRequestAccessWithCompletion(addressBook,
-                    {[weak self] (granted: Bool, error: CFError!) in
+                    {[weak self] (granted: Bool, error: CFError?) in
                         
                         if granted{
                             let strongSelf = self!
@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                         
                     })
-            case .Restricted:
+            case .restricted:
                 print("Access is restricted")
                 
             default:
