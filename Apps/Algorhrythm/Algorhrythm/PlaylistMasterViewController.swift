@@ -44,13 +44,13 @@ class PlaylistMasterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPlaylistDetailSegue" {
-            let playlistImageView = sender!.view! as! UIImageView
+            let playlistImageView = (sender! as AnyObject).view! as! UIImageView
             
             
-            if let index = playlistArray.indexOf(playlistImageView){
-                let playlistDetailController = segue.destinationViewController as! PlaylistDetailViewController
+            if let index = playlistArray.index(of: playlistImageView){
+                let playlistDetailController = segue.destination as! PlaylistDetailViewController
                 let playlistInstance = Playlist(index:index)
                 playlistDetailController.playlist = playlistInstance
             }
@@ -59,8 +59,8 @@ class PlaylistMasterViewController: UIViewController {
         }
     }
     
-    @IBAction func showPlaylistDetails(sender: AnyObject) {
-        performSegueWithIdentifier("showPlaylistDetailSegue", sender: sender)
+    @IBAction func showPlaylistDetails(_ sender: AnyObject) {
+        performSegue(withIdentifier: "showPlaylistDetailSegue", sender: sender)
         
     }
     
