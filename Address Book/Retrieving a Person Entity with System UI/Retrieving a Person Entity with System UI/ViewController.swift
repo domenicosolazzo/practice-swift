@@ -20,8 +20,8 @@ class ViewController: UIViewController,
         personPicker = ABPeoplePickerNavigationController()
         // Which properties of each contact the user can see in the people picker
         personPicker.displayedProperties = [
-            Int(kABPersonAddressProperty),
-            Int(kABPersonPhoneProperty)
+            Int(kABPersonAddressProperty) as NSNumber,
+            Int(kABPersonPhoneProperty) as NSNumber
         ]
         super.init(coder: aDecoder)
         personPicker.peoplePickerDelegate = self
@@ -29,12 +29,12 @@ class ViewController: UIViewController,
     
     //-  MARK: ABPeoplePickerNavigationControllerDelegate
     // When the user cancel the action
-    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController) {
+    func peoplePickerNavigationControllerDidCancel(_ peoplePicker: ABPeoplePickerNavigationController) {
         print("User cancelled the action...")
     }
     
     // When a contact has been selected
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
+    func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
         print("User selected a contact")
         
         /* Do we know which picker this is? */
@@ -42,7 +42,7 @@ class ViewController: UIViewController,
             return
         }
         
-        let phones: ABMultiValueRef = ABRecordCopyValue(person,
+        let phones: ABMultiValue = ABRecordCopyValue(person,
             kABPersonPhoneProperty).takeRetainedValue() // If you want emails, use kABPersonEmailProperty
         let countOfPhones =  ABMultiValueGetCount(phones)
         
@@ -55,7 +55,7 @@ class ViewController: UIViewController,
         }
         
         // If selected an address
-        let addresses: ABMultiValueRef = ABRecordCopyValue(person,
+        let addresses: ABMultiValue = ABRecordCopyValue(person,
             property).takeRetainedValue()
         
         let index = Int(identifier) as CFIndex
@@ -73,7 +73,7 @@ class ViewController: UIViewController,
     }
     
     @IBAction func performPickPerson(sender: UIButton) {
-        self.presentViewController(personPicker, animated: true, completion: nil)
+        self.present(personPicker, animated: true, completion: nil)
     }
 }
 
