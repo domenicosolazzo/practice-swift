@@ -14,20 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         let motionManager = CMMotionManager()
         
-        if motionManager.gyroAvailable{
-            println("Gyroscope is available")
+        if motionManager.isGyroAvailable{
+            print("Gyroscope is available")
         }else{
-            println("Gyroscope is not available")
+            print("Gyroscope is not available")
         }
         
-        if motionManager.gyroActive{
-            println("Gyroscope is active")
+        if motionManager.isGyroActive{
+            print("Gyroscope is active")
         }else{
-            println("Gyroscope is not active")
+            print("Gyroscope is not active")
         }
         
         return true
