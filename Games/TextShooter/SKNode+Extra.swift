@@ -10,11 +10,11 @@ import Foundation
 import SpriteKit
 
 extension SKNode {
-    func receiveAttacker(attacker: SKNode, contact: SKPhysicsContact) {
+    func receiveAttacker(_ attacker: SKNode, contact: SKPhysicsContact) {
         // Default implementation does nothing
     }
     
-    func friendlyBumpFrom(node: SKNode) {
+    func friendlyBumpFrom(_ node: SKNode) {
         // Default implementation does nothing
     }
 }

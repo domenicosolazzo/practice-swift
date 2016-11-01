@@ -13,12 +13,12 @@ class GameOverScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
-        backgroundColor = SKColor.purpleColor()
+        backgroundColor = SKColor.purple
         let text = SKLabelNode(fontNamed: "Courier")
         text.text = "Game Over"
-        text.fontColor = SKColor.whiteColor()
+        text.fontColor = SKColor.white
         text.fontSize = 50
-        text.position = CGPointMake(frame.size.width/2, frame.size.height/2)
+        text.position = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
         addChild(text)
     }
     
@@ -26,11 +26,10 @@ class GameOverScene: SKScene {
         super.init(coder: aDecoder)
     }
     
-    override func didMoveToView(view: SKView) {
-        dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, 3 * Int64(NSEC_PER_SEC)),
-            dispatch_get_main_queue()) {
-                let transition = SKTransition.flipVerticalWithDuration(1)
+    override func didMove(to view: SKView) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(3 * Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) {
+                let transition = SKTransition.flipVertical(withDuration: 1)
                 let start = StartScene(size: self.frame.size)
                 view.presentScene(start, transition: transition)
         }

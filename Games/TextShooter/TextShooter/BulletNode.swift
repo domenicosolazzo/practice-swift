@@ -10,19 +10,19 @@ import UIKit
 import SpriteKit
 
 class BulletNode: SKNode {
-    var thrust: CGVector = CGVectorMake(0, 0)
+    var thrust: CGVector = CGVector(dx: 0, dy: 0)
     
     override init() {
         super.init()
         
         let dot = SKLabelNode(fontNamed: "Courier")
-        dot.fontColor = SKColor.blackColor()
+        dot.fontColor = SKColor.black
         dot.fontSize = 40
         dot.text = "."
         addChild(dot)
         
         let body = SKPhysicsBody(circleOfRadius: 1)
-        body.dynamic = true
+        body.isDynamic = true
         body.categoryBitMask = PlayerMissileCategory
         body.contactTestBitMask = EnemyCategory
         body.collisionBitMask = EnemyCategory
@@ -35,15 +35,15 @@ class BulletNode: SKNode {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let dx = aDecoder.decodeFloatForKey("thrustX")
-        let dy = aDecoder.decodeFloatForKey("thrustY")
-        thrust = CGVectorMake(CGFloat(dx), CGFloat(dy))
+        let dx = aDecoder.decodeFloat(forKey: "thrustX")
+        let dy = aDecoder.decodeFloat(forKey: "thrustY")
+        thrust = CGVector(dx: CGFloat(dx), dy: CGFloat(dy))
     }
     
-    override func encodeWithCoder(aCoder: NSCoder) {
-        super.encodeWithCoder(aCoder)
-        aCoder.encodeFloat(Float(thrust.dx), forKey: "thrustX")
-        aCoder.encodeFloat(Float(thrust.dy), forKey: "thrustY")
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(Float(thrust.dx), forKey: "thrustX")
+        aCoder.encode(Float(thrust.dy), forKey: "thrustY")
     }
     
     class func bullet(from start: CGPoint, toward destination: CGPoint)

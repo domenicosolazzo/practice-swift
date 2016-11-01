@@ -12,22 +12,22 @@ import SpriteKit
 class StartScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
-        backgroundColor = SKColor.greenColor()
+        backgroundColor = SKColor.green
         
         let topLabel = SKLabelNode(fontNamed: "Courier")
         topLabel.text = "TextShooter"
-        topLabel.fontColor = SKColor.blackColor()
+        topLabel.fontColor = SKColor.black
         topLabel.fontSize = 48
-        topLabel.position = CGPointMake(frame.size.width/2,
-            frame.size.height * 0.7)
+        topLabel.position = CGPoint(x: frame.size.width/2,
+            y: frame.size.height * 0.7)
         addChild(topLabel)
         
         let bottomLabel = SKLabelNode(fontNamed: "Courier")
         bottomLabel.text = "Touch anywhere to start"
-        bottomLabel.fontColor = SKColor.blackColor()
+        bottomLabel.fontColor = SKColor.black
         bottomLabel.fontSize = 20
-        bottomLabel.position = CGPointMake(frame.size.width/2,
-            frame.size.height * 0.3)
+        bottomLabel.position = CGPoint(x: frame.size.width/2,
+            y: frame.size.height * 0.3)
         addChild(bottomLabel)
     }
     
@@ -35,9 +35,9 @@ class StartScene: SKScene {
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(touches: Set<NSObject>,
-        withEvent event: UIEvent) {
-            let transition = SKTransition.doorwayWithDuration(1.0)
+    override func touchesBegan(_ touches: Set<NSObject>,
+        with event: UIEvent) {
+            let transition = SKTransition.doorway(withDuration: 1.0)
             let game = GameScene(size:frame.size)
             view!.presentScene(game, transition: transition)
     }

@@ -9,20 +9,20 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    private var levelNumber: UInt
-    private var playerLives: Int {
+    fileprivate var levelNumber: UInt
+    fileprivate var playerLives: Int {
         didSet {
-            let lives = childNodeWithName("LivesLabel") as! SKLabelNode
+            let lives = childNode(withName: "LivesLabel") as! SKLabelNode
             lives.text = "Lives: \(playerLives)"
         }
     }
-    private var finished = false
-    private let playerNode: PlayerNode = PlayerNode()
-    private let enemies =  SKNode()
-    private let playerBullets = SKNode()
-    private let forceFields = SKNode()
+    fileprivate var finished = false
+    fileprivate let playerNode: PlayerNode = PlayerNode()
+    fileprivate let enemies =  SKNode()
+    fileprivate let playerBullets = SKNode()
+    fileprivate let forceFields = SKNode()
     
-    class func scene(size:CGSize, levelNumber:UInt) -> GameScene {
+    class func scene(_ size:CGSize, levelNumber:UInt) -> GameScene {
         return GameScene(size: size, levelNumber: levelNumber)
     }
     
@@ -35,31 +35,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.playerLives = 5
         super.init(size: size)
         
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.white
         
         let lives = SKLabelNode(fontNamed: "Courier")
         lives.fontSize = 16
-        lives.fontColor = SKColor.blackColor()
+        lives.fontColor = SKColor.black
         lives.name = "LivesLabel"
         lives.text = "Lives: \(playerLives)"
-        lives.verticalAlignmentMode = .Top
-        lives.horizontalAlignmentMode = .Right
-        lives.position = CGPointMake(frame.size.width,
-            frame.size.height)
+        lives.verticalAlignmentMode = .top
+        lives.horizontalAlignmentMode = .right
+        lives.position = CGPoint(x: frame.size.width,
+            y: frame.size.height)
         addChild(lives)
         
         let level = SKLabelNode(fontNamed: "Courier")
         level.fontSize = 16
-        level.fontColor = SKColor.blackColor()
+        level.fontColor = SKColor.black
         level.name = "LevelLabel"
         level.text = "Level \(levelNumber)"
-        level.verticalAlignmentMode = .Top
-        level.horizontalAlignmentMode = .Left
-        level.position = CGPointMake(0, frame.height)
+        level.verticalAlignmentMode = .top
+        level.horizontalAlignmentMode = .left
+        level.position = CGPoint(x: 0, y: frame.height)
         addChild(level)
         
         // Create a new player
-        playerNode.position = CGPointMake(CGRectGetMidX(frame), CGRectGetHeight(frame) * 0.1)
+        playerNode.position = CGPoint(x: frame.midX, y: frame.height * 0.1)
         addChild(playerNode)
         
         // Enemies
@@ -74,27 +74,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createForceFields()
         
         // Physics body delegate
-        physicsWorld.gravity = CGVectorMake(0, -1)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         physicsWorld.contactDelegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
-        levelNumber = UInt(aDecoder.decodeIntegerForKey("level"))
-        playerLives = aDecoder.decodeIntegerForKey("playerLives")
+        levelNumber = UInt(aDecoder.decodeInteger(forKey: "level"))
+        playerLives = aDecoder.decodeInteger(forKey: "playerLives")
         super.init(coder: aDecoder)
     }
     
-    override func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(Int(levelNumber), forKey: "level")
-        aCoder.encodeInteger(playerLives, forKey: "playerLives")
+    override func encode(with aCoder: NSCoder) {
+        aCoder.encode(Int(levelNumber), forKey: "level")
+        aCoder.encode(playerLives, forKey: "playerLives")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<NSObject>, with event: UIEvent) {
         /* Called when a touch begins */
         for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            if location.y < CGRectGetHeight(frame) * 0.2 {
-                let target = CGPointMake(location.x, playerNode.position.y)
+            let location = touch.location(in: self)
+            if location.y < frame.height * 0.2 {
+                let target = CGPoint(x: location.x, y: playerNode.position.y)
                 playerNode.moveToward(target)
             } else {
                 let bullet =
@@ -104,7 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         if finished {
             return
         }
@@ -117,11 +117,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    private func updateBullets() {
+    fileprivate func updateBullets() {
         var bulletsToRemove:[BulletNode] = []
         for bullet in playerBullets.children as! [BulletNode] {
             // Remove any bullets that have moved off-screen
-            if !CGRectContainsPoint(frame, bullet.position) {
+            if !frame.contains(bullet.position) {
                 // Mark bullet for removal
                 bulletsToRemove.append(bullet)
                 continue
@@ -131,62 +131,62 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bullet.applyRecurringForce()
         }
         
-        playerBullets.removeChildrenInArray(bulletsToRemove)
+        playerBullets.removeChildren(in: bulletsToRemove)
     }
     
-    private func updateEnemies() {
+    fileprivate func updateEnemies() {
         var enemiesToRemove:[EnemyNode] = []
         for node in enemies.children as! [EnemyNode] {
-            if !CGRectContainsPoint(frame, node.position) {
+            if !frame.contains(node.position) {
                 // Mark enemy for removal
                 enemiesToRemove.append(node)
                 continue
             }
         }
         
-        enemies.removeChildrenInArray(enemiesToRemove)
+        enemies.removeChildren(in: enemiesToRemove)
     }
     
     // Spawn a sequence of enemies
-    private func spawnEnemies() {
+    fileprivate func spawnEnemies() {
         let count = UInt(log(Float(levelNumber))) + levelNumber
-        for var i: UInt = 0; i < count; i++ {
+        for i: UInt in 0 ..< count {
             let enemy = EnemyNode()
             let size = frame.size;
             let x = arc4random_uniform(UInt32(size.width * 0.8))
                 + UInt32(size.width * 0.1)
             let y = arc4random_uniform(UInt32(size.height * 0.5))
                 + UInt32(size.height * 0.5)
-            enemy.position = CGPointMake(CGFloat(x), CGFloat(y))
+            enemy.position = CGPoint(x: CGFloat(x), y: CGFloat(y))
             enemies.addChild(enemy)
         }
     }
     
-    private func checkForNextLevel() {
+    fileprivate func checkForNextLevel() {
         if enemies.children.isEmpty {
             goToNextLevel()
         }
     }
     
-    private func goToNextLevel() {
+    fileprivate func goToNextLevel() {
         finished = true
         
         let label = SKLabelNode(fontNamed: "Courier")
         label.text = "Level Complete!"
-        label.fontColor = SKColor.blueColor()
+        label.fontColor = SKColor.blue
         label.fontSize = 32
-        label.position = CGPointMake(frame.size.width * 0.5,
-            frame.size.height * 0.5)
+        label.position = CGPoint(x: frame.size.width * 0.5,
+            y: frame.size.height * 0.5)
         addChild(label)
         
         let nextLevel = GameScene(size: frame.size, levelNumber: levelNumber + 1)
         nextLevel.playerLives = playerLives
         view!.presentScene(nextLevel, transition:
-            SKTransition.flipHorizontalWithDuration(1.0))
+            SKTransition.flipHorizontal(withDuration: 1.0))
     }
     
     //- MARK: SKPhysicsBodyContactDelegate
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == contact.bodyB.categoryBitMask {
             // Both bodies are in the same category
             let nodeA = contact.bodyA.node!
@@ -209,15 +209,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if attackee is PlayerNode {
-                playerLives--
+                playerLives -= 1
             }
             attackee.receiveAttacker(attacker, contact: contact)
-            playerBullets.removeChildrenInArray([attacker])
-            enemies.removeChildrenInArray([attacker])
+            playerBullets.removeChildren(in: [attacker])
+            enemies.removeChildren(in: [attacker])
         }
     }
     
-    private func checkForGameOver() -> Bool {
+    fileprivate func checkForGameOver() -> Bool {
         if playerLives == 0 {
             triggerGameOver()
             return true
@@ -225,47 +225,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return false
     }
     
-    private func triggerGameOver() {
+    fileprivate func triggerGameOver() {
         finished = true
         
-        let path = NSBundle.mainBundle().pathForResource("EnemyExplosion",
+        let path = Bundle.main.path(forResource: "EnemyExplosion",
             ofType: "sks")
-        let explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!)
+        let explosion = NSKeyedUnarchiver.unarchiveObject(withFile: path!)
             as! SKEmitterNode
         explosion.numParticlesToEmit = 200
         explosion.position = playerNode.position
         scene!.addChild(explosion)
         playerNode.removeFromParent()
         
-        let transition = SKTransition.doorsOpenVerticalWithDuration(1)
+        let transition = SKTransition.doorsOpenVertical(withDuration: 1)
         let gameOver = GameOverScene(size: frame.size)
         view!.presentScene(gameOver, transition: transition)
     }
     
-    private func createForceFields() {
+    fileprivate func createForceFields() {
         let fieldCount = 3
         let size = frame.size
         let sectionWidth = Int(size.width)/fieldCount
-        for var i = 0; i < fieldCount; i++ {
+        for i in 0 ..< fieldCount {
             
             let x = CGFloat(UInt32(i) * UInt32(sectionWidth) + arc4random_uniform(UInt32(sectionWidth)))
             let y = CGFloat(arc4random_uniform(UInt32(size.height * 0.25)) + UInt32(size.height * 0.25))
             
             let gravityField = SKFieldNode.radialGravityField()
-            gravityField.position = CGPointMake(x, y)
+            gravityField.position = CGPoint(x: x, y: y)
             gravityField.categoryBitMask = GravityFieldCategory
             gravityField.strength = 4
             gravityField.falloff = 2
-            gravityField.region = SKRegion(size: CGSizeMake(size.width * 0.3,
-                size.height * 0.1))
+            gravityField.region = SKRegion(size: CGSize(width: size.width * 0.3,
+                height: size.height * 0.1))
             forceFields.addChild(gravityField)
             
             let fieldLocationNode = SKLabelNode(fontNamed: "Courier")
             fieldLocationNode.fontSize = 16
-            fieldLocationNode.fontColor = SKColor.redColor()
+            fieldLocationNode.fontColor = SKColor.red
             fieldLocationNode.name = "GravityField"
             fieldLocationNode.text = "*"
-            fieldLocationNode.position = CGPointMake(x, y)
+            fieldLocationNode.position = CGPoint(x: x, y: y)
             forceFields.addChild(fieldLocationNode)
         }
     }

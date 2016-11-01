@@ -22,9 +22,9 @@ class PlayerNode: SKNode {
         super.init(coder: aDecoder)
     }
     
-    private func initNodeGraph() {
+    fileprivate func initNodeGraph() {
         let label = SKLabelNode(fontNamed: "Courier")
-        label.fontColor = SKColor.darkGrayColor()
+        label.fontColor = SKColor.darkGray
         label.fontSize = 40
         label.text = "v"
         label.zRotation = CGFloat(M_PI)
@@ -32,13 +32,13 @@ class PlayerNode: SKNode {
         self.addChild(label)
     }
     
-    func moveToward(location: CGPoint) {
-        removeActionForKey("movement")
-        removeActionForKey("wobbling")
+    func moveToward(_ location: CGPoint) {
+        removeAction(forKey: "movement")
+        removeAction(forKey: "wobbling")
         
         let distance = pointDistance(position, location)
-        let screenWidth = UIScreen.mainScreen().bounds.size.width
-        let duration = NSTimeInterval(2 * distance/screenWidth)
+        let screenWidth = UIScreen.main.bounds.size.width
+        let duration = TimeInterval(2 * distance/screenWidth)
         
         runAction(SKAction.moveTo(location, duration: duration),
             withKey:"movement")
@@ -47,8 +47,8 @@ class PlayerNode: SKNode {
         let wobbleTime = 0.3
         let halfWobbleTime = wobbleTime/2
         let wobbling = SKAction.sequence([
-            SKAction.scaleXTo(0.2, duration: halfWobbleTime),
-            SKAction.scaleXTo(1.0, duration: halfWobbleTime)
+            SKAction.scaleX(to: 0.2, duration: halfWobbleTime),
+            SKAction.scaleX(to: 1.0, duration: halfWobbleTime)
             ])
         let wobbleCount = Int(duration/wobbleTime)
         
@@ -56,8 +56,8 @@ class PlayerNode: SKNode {
             withKey:"wobbling")
     }
     
-    private func initPhysicsBody() {
-        let body = SKPhysicsBody(rectangleOfSize: CGSizeMake(20, 20))
+    fileprivate func initPhysicsBody() {
+        let body = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 20))
         body.affectedByGravity = false
         body.categoryBitMask = PlayerCategory
         body.contactTestBitMask = EnemyCategory
@@ -67,10 +67,10 @@ class PlayerNode: SKNode {
         physicsBody = body
     }
     
-    override func receiveAttacker(attacker: SKNode, contact: SKPhysicsContact) {
-        let path = NSBundle.mainBundle().pathForResource("EnemyExplosion",
+    override func receiveAttacker(_ attacker: SKNode, contact: SKPhysicsContact) {
+        let path = Bundle.main.path(forResource: "EnemyExplosion",
             ofType: "sks")
-        let explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!)
+        let explosion = NSKeyedUnarchiver.unarchiveObject(withFile: path!)
             as! SKEmitterNode
         explosion.numParticlesToEmit = 50
         explosion.position = contact.contactPoint

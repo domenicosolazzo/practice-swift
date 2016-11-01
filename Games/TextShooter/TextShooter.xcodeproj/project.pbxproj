@@ -201,9 +201,11 @@
 					C0CB1B231AF389F800E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 8YWZZG9DK7;
+						LastSwiftMigration = 0800;
 					};
 					C0CB1B3C1AF389F800E0E2E0 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C0CB1B231AF389F800E0E2E0;
 					};
 				};
@@ -401,6 +403,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -414,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -432,6 +436,7 @@
 				INFOPLIST_FILE = TextShooterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextShooter.app/TextShooter";
 			};
 			name = Debug;
@@ -447,6 +452,7 @@
 				INFOPLIST_FILE = TextShooterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextShooter.app/TextShooter";
 			};
 			name = Release;
@@ -470,6 +476,7 @@
 				C0CB1B491AF389F800E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0CB1B4A1AF389F800E0E2E0 /* Build configuration list for PBXNativeTarget "TextShooterTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +485,7 @@
 				C0CB1B4C1AF389F800E0E2E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

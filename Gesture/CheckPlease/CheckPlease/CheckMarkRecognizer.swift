@@ -10,33 +10,33 @@ import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
 class CheckMarkRecognizer: UIGestureRecognizer {
-    private let minimumCheckMarkAngle = CGFloat(50)
-    private let maximumCheckMarkAngle = CGFloat(135)
-    private let minimumCheckMarkLength = CGFloat(10)
-    private var lastPreviousPoint = CGPointZero
-    private var lastCurrentPoint = CGPointZero
-    private var lineLengthSoFar = CGFloat(0)
+    fileprivate let minimumCheckMarkAngle = CGFloat(50)
+    fileprivate let maximumCheckMarkAngle = CGFloat(135)
+    fileprivate let minimumCheckMarkLength = CGFloat(10)
+    fileprivate var lastPreviousPoint = CGPoint.zero
+    fileprivate var lastCurrentPoint = CGPoint.zero
+    fileprivate var lineLengthSoFar = CGFloat(0)
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
-        let touch = touches.first as! UITouch
-        let point = touch.locationInView(view)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches , with: event)
+        let touch = touches.first! as UITouch
+        let point = touch.location(in: view)
         lastPreviousPoint = point
         lastCurrentPoint = point
         lineLengthSoFar = 0;
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
-        let touch = touches.first as! UITouch
-        let previousPoint = touch.previousLocationInView(view)
-        let currentPoint = touch.locationInView(view)
-        let angle = angleBetweenLines(lastPreviousPoint, lastCurrentPoint,
-            previousPoint,  currentPoint)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches , with: event)
+        let touch = touches.first! as UITouch
+        let previousPoint = touch.previousLocation(in: view)
+        let currentPoint = touch.location(in: view)
+        let angle = angleBetweenLines(lastPreviousPoint, line1End: lastCurrentPoint,
+                                      line2Start: previousPoint,  line2End: currentPoint)
         if angle >= minimumCheckMarkAngle && angle <= maximumCheckMarkAngle && lineLengthSoFar > minimumCheckMarkLength {
-            self.state = .Ended
+            self.state = .ended
         }
-        lineLengthSoFar += distanceBetweenPoints(previousPoint, currentPoint)
+        lineLengthSoFar += distanceBetweenPoints(previousPoint, second: currentPoint)
         lastPreviousPoint = previousPoint
         lastCurrentPoint = currentPoint
     }

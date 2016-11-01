@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let check = CheckMarkRecognizer(target: self, action: "doCheck:")
+        let check = CheckMarkRecognizer(target: self, action: #selector(ViewController.doCheck(_:)))
         view.addGestureRecognizer(check)
-        imageView.hidden = true;
+        imageView.isHidden = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,11 +23,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func doCheck(check: CheckMarkRecognizer) {
-        imageView.hidden = false
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)),
-            dispatch_get_main_queue(),
-            { self.imageView.hidden = true })
+    func doCheck(_ check: CheckMarkRecognizer) {
+        imageView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC),
+            execute: { self.imageView.isHidden = true })
     }
 
 }
