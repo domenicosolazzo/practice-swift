@@ -24,14 +24,14 @@ class ViewController: UIViewController,
     /* Set up the map and add it to our view */
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         /* Are location services available on this device? */
@@ -39,18 +39,18 @@ class ViewController: UIViewController,
             
             /* Do we have authorization to access location services? */
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
+            case .denied:
                 /* No */
                 displayAlertWithTitle("Not Determined",
                     message: "Location services are not allowed for this app")
-            case .NotDetermined:
+            case .notDetermined:
                 /* We don't know yet, we have to ask */
                 locationManager = CLLocationManager()
                 if let manager = locationManager{
                     manager.delegate = self
                     manager.requestWhenInUseAuthorization()
                 }
-            case .Restricted:
+            case .restricted:
                 /* Restrictions have been applied, we have no access
                 to location services */
                 displayAlertWithTitle("Restricted",
@@ -68,25 +68,25 @@ class ViewController: UIViewController,
         }
     }
     //- MARK: Location Manager
-    func locationManager(manager: CLLocationManager,
-        didFailWithError error: NSError){
+    func locationManager(_ manager: CLLocationManager,
+        didFailWithError error: Error){
             print("Location manager failed with error = \(error)")
     }
     
     /* The authorization status of the user has changed, we need to react
     to that so that if she has authorized our app to to view her location,
     we will accordingly attempt to do so */
-    func locationManager(manager: CLLocationManager,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus){
+    func locationManager(_ manager: CLLocationManager,
+        didChangeAuthorization status: CLAuthorizationStatus){
             
             print("The authorization status of location services is changed to: ", terminator: "")
             
             switch CLLocationManager.authorizationStatus(){
-            case .Denied:
+            case .denied:
                 print("Denied")
-            case .NotDetermined:
+            case .notDetermined:
                 print("Not determined")
-            case .Restricted:
+            case .restricted:
                 print("Restricted")
             default:
                 showUserLocationOnMapView()
@@ -95,14 +95,14 @@ class ViewController: UIViewController,
     }
     
     //- MARK: MapView
-    func mapView(mapView: MKMapView,
-        didFailToLocateUserWithError error: NSError) {
+    func mapView(_ mapView: MKMapView,
+        didFailToLocateUserWithError error: Error) {
             displayAlertWithTitle("Failed",
                 message: "Could not get the user's location")
     }
     
-    func mapView(mapView: MKMapView,
-        didUpdateUserLocation userLocation: MKUserLocation){
+    func mapView(_ mapView: MKMapView,
+        didUpdate userLocation: MKUserLocation){
             
             print("Setting the camera for our map view...")
             
@@ -116,7 +116,7 @@ class ViewController: UIViewController,
                 longitude: 16.234660)
             
             let camera = MKMapCamera(
-                lookingAtCenterCoordinate: userCoordinate,
+                lookingAtCenter: userCoordinate,
                 fromEyeCoordinate: eyeCoordinate,
                 eyeAltitude: 400.0)
             
@@ -125,16 +125,16 @@ class ViewController: UIViewController,
     
     //- MARK: Helper methods
     /* Just a little method to help us display alert dialogs to the user */
-    func displayAlertWithTitle(title: String, message: String){
+    func displayAlertWithTitle(_ title: String, message: String){
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     
@@ -142,7 +142,7 @@ class ViewController: UIViewController,
     us access to her location */
     func showUserLocationOnMapView(){
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .Follow
+        mapView.userTrackingMode = .follow
     }
 }
 

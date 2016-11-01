@@ -28,7 +28,7 @@ class Customizing_the_View_of_the_Map_with_a_CameraTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }
