@@ -10,26 +10,26 @@ import Foundation
 
 struct ForecastService{
     var forecastAPIKey: String
-    var forecastBaseURL:NSURL?
+    var forecastBaseURL:URL?
     
     init(apiKey: String){
         forecastAPIKey = apiKey
-        forecastBaseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
+        forecastBaseURL = URL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
     }
     
-    func getForecast(lat:Double, lang:Double, completion: (CurrentWeather? -> ())){
-        if let forecastUrl = NSURL(string: "\(lat),\(lang)", relativeToURL: forecastBaseURL){
+    func getForecast(_ lat:Double, lang:Double, completion: @escaping ((CurrentWeather?) -> ())){
+        if let forecastUrl = URL(string: "\(lat),\(lang)", relativeTo: forecastBaseURL){
             let networkOperation = NetworkOperation(url: forecastUrl)
             
             networkOperation.downloadJSONFromURL{
-                (let jsonDictionary) in
+                (jsonDictionary) in
                 let currentWeather = self.currentWeatherFromJson(jsonDictionary)
                 completion(currentWeather)
             }
         }
     }
     
-    func currentWeatherFromJson(jsonDictionary:[String:AnyObject]?) -> CurrentWeather?{
+    func currentWeatherFromJson(_ jsonDictionary:[String:AnyObject]?) -> CurrentWeather?{
         if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String:AnyObject]{
             return CurrentWeather(weatherDictionary: currentWeatherDictionary)
         }else{

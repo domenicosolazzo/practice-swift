@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var forecastApiKey = ""
+    fileprivate var forecastApiKey = ""
     let coordinate: (lat:Double, lang:Double) = (37.8267, -122.423)
     
     override func viewDidLoad() {
@@ -35,14 +35,14 @@ class ViewController: UIViewController {
     }
     
     func getApiKey(){
-        let env = NSProcessInfo.processInfo().environment
+        let env = ProcessInfo.processInfo.environment
         if let key = env["FORECAST_API_KEY"]{
             self.forecastApiKey = key
         }
         
     }
     
-    @IBAction func refreshAction(sender: UIButton) {
+    @IBAction func refreshAction(_ sender: UIButton) {
         toggleRefreshIndicator(true)
         self.retrieveWeatherInfo()
     }
@@ -50,10 +50,10 @@ class ViewController: UIViewController {
     func retrieveWeatherInfo(){
         let forecastService = ForecastService(apiKey: forecastApiKey)
         forecastService.getForecast(coordinate.lat, lang: coordinate.lang){
-            (let currently) in
+            (currently) in
             if let currentWeather = currently{
                 // Update UI
-                dispatch_async(dispatch_get_main_queue()){ // Go back to the main thread
+                DispatchQueue.main.async{ // Go back to the main thread
                     self.toggleRefreshIndicator(false)
                     
                     if let temperature = currentWeather.temperature{
@@ -81,8 +81,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func toggleRefreshIndicator(on:Bool){
-        refreshButton.hidden = on
+    func toggleRefreshIndicator(_ on:Bool){
+        refreshButton.isHidden = on
         if on {
             activityIndicator.startAnimating()
         }else{

@@ -10,31 +10,31 @@ import Foundation
 
 class NetworkOperation{
     
-    lazy var config:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-    lazy var session:NSURLSession = NSURLSession(configuration: self.config)
-    var queryUrl:NSURL
-    typealias JSONDictionaryCompletion = ([String: AnyObject]? -> Void)
+    lazy var config:URLSessionConfiguration = URLSessionConfiguration.default
+    lazy var session:URLSession = URLSession(configuration: self.config)
+    var queryUrl:URL
+    typealias JSONDictionaryCompletion = (([String: AnyObject]?) -> Void)
     
-    init(url:NSURL){
+    init(url:URL){
         self.queryUrl = url
     }
     
-    func downloadJSONFromURL(completion: JSONDictionaryCompletion){
+    func downloadJSONFromURL(_ completion: @escaping JSONDictionaryCompletion){
         // Create the request
-        let request = NSURLRequest(URL: self.queryUrl)
+        let request = URLRequest(url: self.queryUrl)
         
-        let dataTask = session.dataTaskWithRequest(request){
-            (let data, let response, let error) in
+        let dataTask = session.dataTask(with: request, completionHandler: {
+            (data, response, error) in
             // Clousure!
             
-            if let httpResponse = response as? NSHTTPURLResponse{
+            if let httpResponse = response as? HTTPURLResponse{
                 // NSHTTPURLRespons has a status code property!
                 
                 switch(httpResponse.statusCode){
                 case 200: // Successful request
                     // Parse the json data
                     do{
-                        let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String:AnyObject]
+                        let jsonDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as? [String:AnyObject]
                         // Call the callback function "completion"
                         completion(jsonDictionary!)
                     }catch(_){
@@ -48,7 +48,7 @@ class NetworkOperation{
             }else{
                 print("Error requesting the data. The response is invalid")
             }
-        }
+        })
         
         dataTask.resume()
     
