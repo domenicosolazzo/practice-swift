@@ -52,8 +52,9 @@ class CustomViewController: UIViewController{
         
         **/
         var metrics = ["viewWidth":self.view.frame.size.width]
-        var constraints = NSLayoutConstraint.constraintsWithVisualFormat("|-0-[myView(viewWidth)]-0-|", options: [NSLayoutFormatOptions.AlignAllLeading, NSLayoutFormatOptions.AlignAllTrailing], metrics: metrics, views: ["myView":view, "superview": self.view])
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-[topGuide]-[myView(160)]", options: [NSLayoutFormatOptions.AlignAllCenterX], metrics: metrics, views: ["myView":view, "superview": self.view, "topGuide":self.topLayoutGuide])
+        var views = ["myView":view, "superview": self.view]
+        var constraints = NSLayoutConstraint.constraintsWithVisualFormat("[superview]-[myView(viewWidth)]", options: [NSLayoutFormatOptions.AlignAllCenterY], metrics: metrics, views: views)
+        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[topGuide]-[myView(160)]", options: [NSLayoutFormatOptions.AlignAllCenterX], metrics: metrics, views: ["myView":view, "superview": self.view, "topGuide":self.topLayoutGuide])
         
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activateConstraints(constraints)

@@ -13,24 +13,24 @@ import AddressBook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var addressBook: ABAddressBookRef?
+    var addressBook: ABAddressBook?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         switch ABAddressBookGetAuthorizationStatus(){
-        case .Authorized:
+        case .authorized:
             print("Already authorized")
             createAddressBook()
             /* Now you can use the address book */
             addPersonsAndGroupsToAddressBook(addressBook!)
 
-        case .Denied:
+        case .denied:
             print("You are denied access to address book")
             
-        case .NotDetermined:
+        case .notDetermined:
             createAddressBook()
-            if let theBook: ABAddressBookRef = addressBook{
+            if let theBook: ABAddressBook = addressBook{
                 ABAddressBookRequestAccessWithCompletion(theBook,
-                    {(granted: Bool, error: CFError!) in
+                            {(granted:Bool,  error:CFError?) -> Void in
                         
                         if granted{
                             print("Access is granted")
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
             
-        case .Restricted:
+        case .restricted:
             print("Access is restricted")
             
         default:
@@ -73,14 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //- MARK: Groups
-    func newGroupWithName(name: String, inAddressBook: ABAddressBookRef) ->
-        ABRecordRef?{
+    func newGroupWithName(_ name: String, inAddressBook: ABAddressBook) ->
+        ABRecord?{
             
-            let group: ABRecordRef = ABGroupCreate().takeRetainedValue()
+            let group: ABRecord = ABGroupCreate().takeRetainedValue()
             
             var error: Unmanaged<CFError>?
             let couldSetGroupName = ABRecordSetValue(group,
-                kABGroupNameProperty, name, &error)
+                kABGroupNameProperty, name as CFTypeRef!, &error)
             
             if couldSetGroupName{
                 
@@ -120,13 +120,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func createNewGroupInAddressBook(addressBook: ABAddressBookRef){
+    func createNewGroupInAddressBook(_ addressBook: ABAddressBook){
         
-        let personalCoachesGroup: ABRecordRef? =
+        let personalCoachesGroup: ABRecord? =
         newGroupWithName("Personal Coaches",
             inAddressBook: addressBook)
         
-        if let _: ABRecordRef = personalCoachesGroup{
+        if let _: ABRecord = personalCoachesGroup{
             print("Successfully created the group")
         } else {
             print("Could not create the group")
@@ -135,11 +135,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //- MARK: Person
-    func newPersonWithFirstName(firstName: String,
+    func newPersonWithFirstName(_ firstName: String,
         lastName: String,
-        inAddressBook: ABAddressBookRef) -> ABRecordRef?{
+        inAddressBook: ABAddressBook) -> ABRecord?{
             
-            let person: ABRecordRef = ABPersonCreate().takeRetainedValue()
+            let person: ABRecord = ABPersonCreate().takeRetainedValue()
             
             let couldSetFirstName = ABRecordSetValue(person,
                 kABPersonFirstNameProperty,
@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 lastName as CFTypeRef,
                 nil)
             
-            var error: Unmanaged<CFErrorRef>? = nil
+            var error: Unmanaged<CFError>? = nil
             
             let couldAddPerson = ABAddressBookAddRecord(inAddressBook, person, &error)
             
@@ -164,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if ABAddressBookHasUnsavedChanges(inAddressBook){
                 
-                var error: Unmanaged<CFErrorRef>? = nil
+                var error: Unmanaged<CFError>? = nil
                 let couldSaveAddressBook = ABAddressBookSave(inAddressBook, &error)
                 
                 if couldSaveAddressBook{
@@ -186,11 +186,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func addPerson(person: ABRecordRef,
-        toGroup: ABRecordRef,
-        saveToAddressBook: ABAddressBookRef) -> Bool{
+    func addPerson(_ person: ABRecord,
+        toGroup: ABRecord,
+        saveToAddressBook: ABAddressBook) -> Bool{
             
-            var error: Unmanaged<CFErrorRef>? = nil
+            var error: Unmanaged<CFError>? = nil
             var added = false
             
             /* Now attempt to add the person entry to the group */
@@ -222,17 +222,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func addPersonsAndGroupsToAddressBook(addressBook: ABAddressBookRef){
+    func addPersonsAndGroupsToAddressBook(_ addressBook: ABAddressBook){
         
-        let richardBranson: ABRecordRef? = newPersonWithFirstName("Richard",
+        let richardBranson: ABRecord? = newPersonWithFirstName("Richard",
             lastName: "Branson",
             inAddressBook: addressBook)
         
-        if let richard: ABRecordRef = richardBranson{
-            let entrepreneursGroup: ABRecordRef? = newGroupWithName("Entrepreneurs",
+        if let richard: ABRecord = richardBranson{
+            let entrepreneursGroup: ABRecord? = newGroupWithName("Entrepreneurs",
                 inAddressBook: addressBook)
             
-            if let group: ABRecordRef = entrepreneursGroup{
+            if let group: ABRecord = entrepreneursGroup{
                 if addPerson(richard, toGroup: group, saveToAddressBook: addressBook){
                     print("Successfully added Richard Branson to the group")
                 } else {
