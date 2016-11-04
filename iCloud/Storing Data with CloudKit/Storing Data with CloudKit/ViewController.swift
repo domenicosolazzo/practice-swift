@@ -11,7 +11,7 @@ import CloudKit
 
 class ViewController: UIViewController {
 
-   let database = CKContainer.defaultContainer().privateCloudDatabase
+   let database = CKContainer.default().privateCloudDatabase
     
     enum CarType: String{
         case Hatchback = "Hatchback"
@@ -30,14 +30,14 @@ class ViewController: UIViewController {
     }
     
     // Return a record that represents a car with type
-    func carWithType(type: CarType) -> CKRecord{
-        let uuid = NSUUID().UUIDString
+    func carWithType(_ type: CarType) -> CKRecord{
+        let uuid = UUID().uuidString
         let recordId = CKRecordID(recordName: uuid, zoneID: type.zoneId())
         let car = CKRecord(recordType: "MyCar", recordID: recordId)
         return car
     }
     
-    func carWithType(type: CarType,
+    func carWithType(_ type: CarType,
         maker: String,
         model: String,
         numberOfDoors: Int,
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             
     }
     
-    func hatchbackCarWithMaker(maker: String,
+    func hatchbackCarWithMaker(_ maker: String,
         model: String,
         numberOfDoors: Int,
         year: Int) -> CKRecord{
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                 year: year)
     }
     
-    func estateCarWithMaker(maker: String,
+    func estateCarWithMaker(_ maker: String,
         model: String,
         numberOfDoors: Int,
         year: Int) -> CKRecord{
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
                 year: year)
     }
     
-    func saveCarClosure(record: CKRecord?, error: NSError?){
+    func saveCarClosure(_ record: CKRecord?, error: NSError?){
         
         /* Be careful, we might be on a non-UI thread */
         
@@ -88,10 +88,10 @@ class ViewController: UIViewController {
         
     }
     
-    func saveCars(cars: [CKRecord]){
+    func saveCars(_ cars: [CKRecord]){
         for car in cars{
             
-            database.saveRecord(car, completionHandler: saveCarClosure)
+            database.save(car, completionHandler: saveCarClosure as! (CKRecord?, Error?) -> Void)
         }
     }
     
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         
     }
     
-    func saveCarsForType(type: CarType){
+    func saveCarsForType(_ type: CarType){
         switch type{
         case .Hatchback:
             saveHatchbackCars()
@@ -140,19 +140,19 @@ class ViewController: UIViewController {
         }
     }
     
-    func performOnMainThread(block: dispatch_block_t){
-        dispatch_async(dispatch_get_main_queue(), block)
+    func performOnMainThread(_ block: @escaping ()->()){
+        DispatchQueue.main.async(execute: block)
     }
     
     // Create a new record zone or fetch the existing one
-    func useOrSaveZone(zoneIsCreatedAlready zoneIsCreatedAlready: Bool, forCarType: CarType){
+    func useOrSaveZone(zoneIsCreatedAlready: Bool, forCarType: CarType){
         
         if zoneIsCreatedAlready{
             print("Found the \(forCarType.rawValue) zone. " +
                 "It's been created already")
             saveCarsForType(forCarType)
         } else {
-            database.saveRecordZone(forCarType.zone(),
+            database.save(forCarType.zone(),
                 completionHandler: {[weak self]
                     (zone: CKRecordZone?, error: NSError?) in
                     if error != nil{
@@ -161,20 +161,20 @@ class ViewController: UIViewController {
                         print("Successfully saved the hatchback zone")
                         self!.performOnMainThread{self!.saveCarsForType(forCarType)}
                     }
-                })
+                } as! (CKRecordZone?, Error?) -> Void)
         }
         
     }
     
     func isIcloudAvailable() -> Bool{
-        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken{
+        if let _ = FileManager.default.ubiquityIdentityToken{
             return true
         } else {
             return false
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if isIcloudAvailable(){
@@ -183,8 +183,8 @@ class ViewController: UIViewController {
             return
         }
         
-        database.fetchAllRecordZonesWithCompletionHandler{[weak self]
-            (zones:[CKRecordZone]?, error: NSError?) in
+        database.fetchAllRecordZones{[weak self]
+            (zones:[CKRecordZone]?, error: Error?) -> Void in
             
             if error != nil{
                 print("Could not retrieve the zones")
@@ -211,21 +211,21 @@ class ViewController: UIViewController {
                 
             }
             
-        }
+        } 
         
     }
     
     /* Just a little method to help us display alert dialogs to the user */
-    func displayAlertWithTitle(title: String, message: String){
+    func displayAlertWithTitle(_ title: String, message: String){
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     
