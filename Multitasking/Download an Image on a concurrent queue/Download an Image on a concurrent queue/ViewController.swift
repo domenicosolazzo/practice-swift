@@ -9,56 +9,52 @@
 import UIKit
 
 class ViewController: UIViewController {
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // Printing the current thread and main queue
-        println("Current queue: \(NSThread.currentThread())")
-        println("Main queue: \(NSThread.mainThread())")
+        print("Current queue: \(Thread.current)")
+        print("Main queue: \(Thread.main)")
         
         // Get the concurrent queue
-        println("Fetching the queue: DISPATCH_QUEUE_PRIORITY_DEFAULT")
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        print("Fetching the queue: DISPATCH_QUEUE_PRIORITY_DEFAULT")
+        let queue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
         // Sending a block object to the queue
-        dispatch_async(queue, {[weak self] in
+        queue.async(execute: {[weak self] in
             
             var image: UIImage?
             
-            dispatch_sync(queue, {
-                println("Downloading the image...")
-                println("Current queue: \(NSThread.currentThread())")
+            queue.sync(execute: {
+                print("Downloading the image...")
+                print("Current queue: \(Thread.current)")
                 // Download the picture here
                 
                 let urlAsString = "http://upload.wikimedia.org/wikipedia/commons/7/7e/Saturn_with_auroras.jpg"
                 
                 // Creating a NSURL
-                let url = NSURL(string: urlAsString)
+                let url = URL(string: urlAsString)
                 // Creating the NSURLRequest
-                let request = NSURLRequest(URL: url!)
-                // Download error
-                var downloadError: NSError?
+                let request = URLRequest(url: url!)
                 
                 // Image data
-                let imageData = NSURLConnection.sendSynchronousRequest(request,
-                    returningResponse: nil, error: &downloadError)
-                
-                if let error = downloadError{
-                    println("Error happened: \(error)")
-                }else{
-                    if imageData?.length > 0{
-                        image = UIImage(data: imageData!)
+                do{
+                    let imageData = try NSURLConnection.sendSynchronousRequest(request, returning: nil)
+                    if imageData.count > 0{
+                        image = UIImage(data: imageData)
                     }else{
-                        println("No data could get downloaded from the URL")
+                        print("No data could get downloaded from the URL")
                     }
+                }catch{
+                    print("Error downloading")
                 }
                 
             })
             
-            dispatch_sync(dispatch_get_main_queue(), {
+            DispatchQueue.main.sync(execute: {
                 // Show the image in the UI
-                println("Current queue: \(NSThread.currentThread())")
+                print("Current queue: \(Thread.current)")
                 if let theImage = image{
                     // Create the image view
-                    var imageView = UIImageView(frame: self!.view.bounds)
-                    imageView.contentMode = UIViewContentMode.ScaleAspectFit
+                    let imageView = UIImageView(frame: self!.view.bounds)
+                    imageView.contentMode = UIViewContentMode.scaleAspectFit
                     imageView.image = theImage
                     self!.view.addSubview(imageView)
                 }
