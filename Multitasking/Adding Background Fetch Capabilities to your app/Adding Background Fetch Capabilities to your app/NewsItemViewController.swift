@@ -17,61 +17,61 @@ class NewsItemViewController: UITableViewController {
     }
     
     var appDelegate: AppDelegate{
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
     deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /* Listen when news items are changed */
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "handleNewsItemsChanged:",
-            name: appDelegate.newsItemsChangedNotification(),
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(NewsItemViewController.handleNewsItemsChanged(_:)),
+            name: NSNotification.Name(rawValue: appDelegate.newsItemsChangedNotification()),
             object: nil)
         
         /* Handle what we need to do when the app comes back to the
         foreground */
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "handleAppIsBroughtToForeground:",
-            name: UIApplicationWillEnterForegroundNotification,
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(NewsItemViewController.handleAppIsBroughtToForeground(_:)),
+            name: NSNotification.Name.UIApplicationWillEnterForeground,
             object: nil)
     }
     
     //- MARK: Helpers
     /* If there is need to reload after we come back to the foreground,
     do it here */
-    func handleAppIsBroughtToForeground(notification: NSNotification){
+    func handleAppIsBroughtToForeground(_ notification: Notification){
         if mustReloadView{
-            println("\(__FUNCTION__): Need to reload the table view")
+            print("\(#function): Need to reload the table view")
             tableView.reloadData()
         }
     }
     
     /* We are being told that new news items are available.
     Reload the table view */
-    func handleNewsItemsChanged(notification: NSNotification) {
-        if self.isBeingPresented(){
-            println("\(__FUNCTION__): Need to reload the table view")
+    func handleNewsItemsChanged(_ notification: Notification) {
+        if self.isBeingPresented{
+            print("\(#function): Need to reload the table view")
             tableView.reloadData()
         } else {
-            println("\(__FUNCTION__): Need to reload the table view when it will come back in foreground")
+            print("\(#function): Need to reload the table view when it will come back in foreground")
             mustReloadView = true
         }
     }
     
     //- MARK: TableView
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItems.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel!.text = newsItems[indexPath.row].text
-        cell.detailTextLabel!.text = "\(newsItems[indexPath.row].date)"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) 
+        cell.textLabel!.text = newsItems[(indexPath as NSIndexPath).row].text
+        cell.detailTextLabel!.text = "\(newsItems[(indexPath as NSIndexPath).row].date)"
         return cell
     }
 }

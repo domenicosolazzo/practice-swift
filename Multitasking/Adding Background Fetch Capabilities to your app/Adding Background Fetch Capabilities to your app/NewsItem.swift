@@ -9,6 +9,6 @@
 import Foundation
 
 struct NewsItem{
-    var date: NSDate
+    var date: Date
     var text: String
 }
