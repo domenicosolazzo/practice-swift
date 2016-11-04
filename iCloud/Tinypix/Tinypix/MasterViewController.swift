@@ -10,58 +10,58 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     @IBOutlet var colorControl: UISegmentedControl!
-    private var documentFileNames: [String] = []
-    private var chosenDocument: TinyPixDocument?
+    fileprivate var documentFileNames: [String] = []
+    fileprivate var chosenDocument: TinyPixDocument?
     // Ongoing query
-    private var query: NSMetadataQuery!
+    fileprivate var query: NSMetadataQuery!
     // Found documents
-    private var documentURLs: [NSURL] = []
+    fileprivate var documentURLs: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let addButton = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add,
-            target: self, action: "insertNewObject")
+            barButtonSystemItem: UIBarButtonSystemItem.add,
+            target: self, action: #selector(MasterViewController.insertNewObject))
         navigationItem.rightBarButtonItem = addButton
         
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let selectedColorIndex = prefs.integerForKey("selectedColorIndex")
+        let prefs = UserDefaults.standard
+        let selectedColorIndex = prefs.integer(forKey: "selectedColorIndex")
         setTintColorForIndex(selectedColorIndex)
         colorControl.selectedSegmentIndex = selectedColorIndex
         
         reloadFiles()
         
         // Notification when the user defaults change
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "onSettingsChanged:",
-            name: NSUserDefaultsDidChangeNotification ,
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(MasterViewController.onSettingsChanged(_:)),
+            name: UserDefaults.didChangeNotification ,
             object: nil)
     }
     
-    func onSettingsChanged(notification: NSNotification) {
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let selectedColorIndex = prefs.integerForKey("selectedColorIndex")
+    func onSettingsChanged(_ notification: Notification) {
+        let prefs = UserDefaults.standard
+        let selectedColorIndex = prefs.integer(forKey: "selectedColorIndex")
         setTintColorForIndex(selectedColorIndex)
         colorControl.selectedSegmentIndex = selectedColorIndex
     }
     
     //- MARK: Helper methods
-    private func urlForFileName(fileName: NSString) -> NSURL {
+    fileprivate func urlForFileName(_ fileName: NSString) -> URL {
         // Be sure to insert "Documents" into the path
-        let fm = NSFileManager.defaultManager()
-        let baseURL = fm.URLForUbiquityContainerIdentifier(nil)
-        let pathURL = baseURL?.URLByAppendingPathComponent("Documents")
-        let destinationURL = pathURL?.URLByAppendingPathComponent(fileName as String)
+        let fm = FileManager.default
+        let baseURL = fm.url(forUbiquityContainerIdentifier: nil)
+        let pathURL = baseURL?.appendingPathComponent("Documents")
+        let destinationURL = pathURL?.appendingPathComponent(fileName as String)
         return destinationURL!
     }
     
-    private func reloadFiles() {
-        let fileManager = NSFileManager.defaultManager()
+    fileprivate func reloadFiles() {
+        let fileManager = FileManager.default
         
         // Passing nil is OK here, matches the first entitlement
         // It gives a base URL that will let us access the iCloud directory associated with a particular container identifier
-        let cloudURL = fileManager.URLForUbiquityContainerIdentifier(nil)
+        let cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil)
         println("Got cloudURL \(cloudURL)")
         if (cloudURL != nil) {
             query = NSMetadataQuery()
@@ -69,20 +69,20 @@ class MasterViewController: UITableViewController {
                 NSMetadataItemFSNameKey)
             query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
             
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: "updateUbiquitousDocuments:",
-                name: NSMetadataQueryDidFinishGatheringNotification,
+            NotificationCenter.default.addObserver(self,
+                selector: #selector(MasterViewController.updateUbiquitousDocuments(_:)),
+                name: NSNotification.Name.NSMetadataQueryDidFinishGathering,
                 object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: "updateUbiquitousDocuments:",
-                name: NSMetadataQueryDidUpdateNotification,
+            NotificationCenter.default.addObserver(self,
+                selector: #selector(MasterViewController.updateUbiquitousDocuments(_:)),
+                name: NSNotification.Name.NSMetadataQueryDidUpdate,
                 object: nil)
             
-            query.startQuery()
+            query.start()
         }
     }
     
-    func updateUbiquitousDocuments(notification: NSNotification) {
+    func updateUbiquitousDocuments(_ notification: Notification) {
         documentURLs = []
         documentFileNames = []
         
@@ -91,14 +91,14 @@ class MasterViewController: UITableViewController {
             let item1 = obj1 as! NSMetadataItem
             let item2 = obj2 as! NSMetadataItem
             let item1Date =
-            item1.valueForAttribute(NSMetadataItemFSCreationDateKey) as! NSDate
+            item1.value(forAttribute: NSMetadataItemFSCreationDateKey) as! Date
             let item2Date =
-            item2.valueForAttribute(NSMetadataItemFSCreationDateKey) as! NSDate
+            item2.value(forAttribute: NSMetadataItemFSCreationDateKey) as! Date
             let result = item1Date.compare(item2Date)
-            return result == NSComparisonResult.OrderedAscending
+            return result == ComparisonResult.orderedAscending
         }
         for item in results as! [NSMetadataItem] {
-            let url = item.valueForAttribute(NSMetadataItemURLKey) as! NSURL
+            let url = item.value(forAttribute: NSMetadataItemURLKey) as! URL
             documentURLs.append(url)
             documentFileNames.append(url.lastPathComponent!)
         }
@@ -106,39 +106,39 @@ class MasterViewController: UITableViewController {
     }
     
     //- MARK: UITableView
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return documentFileNames.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath
-        indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as! UITableViewCell
-            let path = documentFileNames[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt
+        indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FileCell") as! UITableViewCell
+            let path = documentFileNames[(indexPath as NSIndexPath).row]
             cell.textLabel!.text = path.lastPathComponent.stringByDeletingPathExtension
             return cell
     }
     
     //- MARK: Tint color
-    @IBAction func chooseColor(sender: UISegmentedControl) {
+    @IBAction func chooseColor(_ sender: UISegmentedControl) {
         let selectedColorIndex = sender.selectedSegmentIndex
         setTintColorForIndex(selectedColorIndex)
         
-        let prefs = NSUserDefaults.standardUserDefaults()
-        prefs.setInteger(selectedColorIndex, forKey: "selectedColorIndex")
+        let prefs = UserDefaults.standard
+        prefs.set(selectedColorIndex, forKey: "selectedColorIndex")
         prefs.synchronize()
         
         // Save the tint color in iCloud
-        NSUbiquitousKeyValueStore.defaultStore()
-            .setLongLong(Int64(selectedColorIndex),
+        NSUbiquitousKeyValueStore.default()
+            .set(Int64(selectedColorIndex),
                 forKey: "selectedColorIndex")
-        NSUbiquitousKeyValueStore.defaultStore().synchronize()
+        NSUbiquitousKeyValueStore.default().synchronize()
     }
     
-    private func setTintColorForIndex(colorIndex: Int) {
+    fileprivate func setTintColorForIndex(_ colorIndex: Int) {
         colorControl.tintColor = TinyPixUtils.getTintColorForIndex(colorIndex)
     }
     
@@ -146,36 +146,36 @@ class MasterViewController: UITableViewController {
     func insertNewObject() {
         let alert = UIAlertController(title: "Choose File Name",
             message: "Enter a name for your new TinyPix document",
-            preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler(nil)
+            preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let createAction = UIAlertAction(title: "Create", style: .Default) { action in
-            let textField = alert.textFields![0] as! UITextField
-            self.createFileNamed(textField.text)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let createAction = UIAlertAction(title: "Create", style: .default) { action in
+            let textField = alert.textFields![0] 
+            self.createFileNamed(textField.text!)
         };
         
         alert.addAction(cancelAction)
         alert.addAction(createAction)
         
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    private func createFileNamed(fileName: String) {
+    fileprivate func createFileNamed(_ fileName: String) {
         // Strips leading and trailing spaces
-        let trimmedFileName = fileName.stringByTrimmingCharactersInSet(
-            NSCharacterSet.whitespaceCharacterSet())
+        let trimmedFileName = fileName.trimmingCharacters(
+            in: CharacterSet.whitespaces)
         if !trimmedFileName.isEmpty {
             let targetName = trimmedFileName + ".tinypix"
-            let saveUrl = urlForFileName(targetName)
+            let saveUrl = urlForFileName(targetName as NSString)
             chosenDocument = TinyPixDocument(fileURL: saveUrl)
-            chosenDocument?.saveToURL(saveUrl,
-                forSaveOperation: UIDocumentSaveOperation.ForCreating,
+            chosenDocument?.save(to: saveUrl,
+                for: UIDocumentSaveOperation.forCreating,
                 completionHandler: { success in
                     if success {
                         println("Save OK")
                         self.reloadFiles()
-                        self.performSegueWithIdentifier("masterToDetail", sender: self)
+                        self.performSegue(withIdentifier: "masterToDetail", sender: self)
                     } else {
                         println("Failed to save!")
                     }
@@ -183,9 +183,9 @@ class MasterViewController: UITableViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination =
-        segue.destinationViewController as! UINavigationController
+        segue.destination as! UINavigationController
         let detailVC =
         destination.topViewController as! DetailViewController
         
@@ -195,11 +195,11 @@ class MasterViewController: UITableViewController {
             detailVC.detailItem = chosenDocument
         } else {
             // Find the chosen document from the tableview
-            let indexPath = tableView.indexPathForSelectedRow()!
+            let indexPath = tableView.indexPathForSelectedRow!
             let filename = documentFileNames[indexPath.row]
-            let docURL = urlForFileName(filename)
+            let docURL = urlForFileName(filename as NSString)
             chosenDocument = TinyPixDocument(fileURL: docURL)
-            chosenDocument?.openWithCompletionHandler() { success in
+            chosenDocument?.open() { success in
                 if success {
                     println("Load OK")
                     detailVC.detailItem = self.chosenDocument

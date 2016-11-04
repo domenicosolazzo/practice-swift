@@ -13,8 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pixView: TinyPixView!
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: NSUserDefaultsDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self,
+            name: UserDefaults.didChangeNotification, object: nil)
     }
 
     var detailItem: AnyObject? {
@@ -26,16 +26,16 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if detailItem != nil && isViewLoaded() {
+        if detailItem != nil && isViewLoaded {
             pixView.document = detailItem! as! TinyPixDocument
             pixView.setNeedsDisplay()
         }
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let doc = detailItem as? UIDocument {
-            doc.closeWithCompletionHandler(nil)
+            doc.close(completionHandler: nil)
         }
     }
     
@@ -45,9 +45,9 @@ class DetailViewController: UIViewController {
         self.configureView()
         
         updateTintColor()
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "onSettingsChanged:",
-            name: NSUserDefaultsDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(DetailViewController.onSettingsChanged(_:)),
+            name: UserDefaults.didChangeNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,15 +55,15 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateTintColor() {
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let selectedColorIndex = prefs.integerForKey("selectedColorIndex")
+    fileprivate func updateTintColor() {
+        let prefs = UserDefaults.standard
+        let selectedColorIndex = prefs.integer(forKey: "selectedColorIndex")
         let tintColor = TinyPixUtils.getTintColorForIndex(selectedColorIndex)
         pixView.tintColor = tintColor
         pixView.setNeedsDisplay()
     }
 
-    func onSettingsChanged(notification: NSNotification) {
+    func onSettingsChanged(_ notification: Notification) {
         updateTintColor()
     }
 

@@ -15,7 +15,7 @@ struct GridIndex {
 
 class TinyPixView: UIView {
     var document: TinyPixDocument!
-    var lastSize: CGSize = CGSizeZero
+    var lastSize: CGSize = CGSize.zero
     var gridRect: CGRect!
     var blockSize: CGSize!
     var gap: CGFloat = 0
@@ -32,48 +32,48 @@ class TinyPixView: UIView {
         commonInit()
     }
     
-    private func commonInit() {
+    fileprivate func commonInit() {
         calculateGridForSize(bounds.size)
     }
     
-    private func calculateGridForSize(size: CGSize) {
+    fileprivate func calculateGridForSize(_ size: CGSize) {
         let space = min(size.width, size.height)
         gap = space/57
         let cellSide = gap * 6
-        blockSize = CGSizeMake(cellSide, cellSide)
-        gridRect = CGRectMake((size.width - space)/2, (size.height - space)/2,
-            space, space)
+        blockSize = CGSize(width: cellSide, height: cellSide)
+        gridRect = CGRect(x: (size.width - space)/2, y: (size.height - space)/2,
+            width: space, height: space)
     }
     
     //- MARK: Draw
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         if (document != nil) {
             let size = bounds.size
-            if !CGSizeEqualToSize(size, lastSize) {
+            if !size.equalTo(lastSize) {
                 lastSize = size
                 calculateGridForSize(size)
             }
             
-            for var row = 0; row < 8; row++ {
-                for var column = 0; column < 8; column++ {
+            for row in 0 ..< 8 {
+                for column in 0 ..< 8 {
                     drawBlockAt(row: row, column: column)
                 }
             }
         }
     }
     
-    private func drawBlockAt(#row: Int, column: Int) {
+    fileprivate func drawBlockAt(#row: Int, _ column: Int) {
         let startX = gridRect.origin.x + gap
             + (blockSize.width + gap) * (7 - CGFloat(column)) + 1
         let startY = gridRect.origin.y + gap
             + (blockSize.height + gap) * CGFloat(row) + 1
         
-        let blockFrame = CGRectMake(startX, startY,
-            blockSize.width, blockSize.height)
+        let blockFrame = CGRect(x: startX, y: startY,
+            width: blockSize.width, height: blockSize.height)
         let color = document.stateAt(row: row, column: column)
             ? UIColor.blackColor() : UIColor.whiteColor()
         
@@ -85,11 +85,11 @@ class TinyPixView: UIView {
     }
     
     //- MARK: Touch events
-    private func touchedGridIndexFromTouches(touches: NSSet) -> GridIndex {
+    fileprivate func touchedGridIndexFromTouches(_ touches: NSSet) -> GridIndex {
         var result = GridIndex(row: -1, column: -1)
         let touch = touches.anyObject() as! UITouch
-        var location = touch.locationInView(self)
-        if CGRectContainsPoint(gridRect, location) {
+        var location = touch.location(in: self)
+        if gridRect.contains(location) {
             location.x -= gridRect.origin.x
             location.y -= gridRect.origin.y
             result.column = Int(8 - (location.x * 8.0 / gridRect.size.width))
@@ -98,25 +98,25 @@ class TinyPixView: UIView {
         return result
     }
     
-    private func toggleSelectedBlock() {
+    fileprivate func toggleSelectedBlock() {
         if selectedBlockIndex.row != -1
             && selectedBlockIndex.column != -1 {
                 document.toggleStateAt(row: selectedBlockIndex.row,
                     column: selectedBlockIndex.column)
-                document.undoManager.prepareWithInvocationTarget(document)
+                (document.undoManager.prepare(withInvocationTarget: document) as AnyObject)
                     .toggleStateAt(row: selectedBlockIndex.row,
                         column: selectedBlockIndex.column)
                 setNeedsDisplay()
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        selectedBlockIndex = touchedGridIndexFromTouches(touches)
+    override func touchesBegan(_ touches: Set<NSObject>, with event: UIEvent) {
+        selectedBlockIndex = touchedGridIndexFromTouches(touches as NSSet)
         toggleSelectedBlock()
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touched = touchedGridIndexFromTouches(touches)
+    override func touchesMoved(_ touches: Set<NSObject>, with event: UIEvent) {
+        let touched = touchedGridIndexFromTouches(touches as NSSet)
         if touched.row != selectedBlockIndex.row
             && touched.column != selectedBlockIndex.column {
                 selectedBlockIndex = touched

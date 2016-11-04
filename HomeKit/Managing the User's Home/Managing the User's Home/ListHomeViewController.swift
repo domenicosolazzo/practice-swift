@@ -11,15 +11,15 @@ import HomeKit
 
 extension UIAlertController{
     class func showAlertControllerOnHostController(
-        hostViewController: UIViewController,
+        _ hostViewController: UIViewController,
         title:String,
         message: String,
         buttonTitle: String){
-            let controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
             
-            controller.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.Default, handler: nil))
+            controller.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
             
-            hostViewController.presentViewController(controller, animated: true, completion: nil)
+            hostViewController.present(controller, animated: true, completion: nil)
     }
 }
 
@@ -39,43 +39,43 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         return manager
     }()
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Adding the edit button
-        self.navigationItem.leftBarButtonItem = editButtonItem()
+        self.navigationItem.leftBarButtonItem = editButtonItem
         // Reload the data
         tableView.reloadData()
     }
     
     //- MARK: TableView
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Disable the edit button when there are no rows
         let numberOfRows =  homeManager.homes.count
         
-        if numberOfRows == 0 && editing{
-            setEditing(!editing, animated: true)
+        if numberOfRows == 0 && isEditing{
+            setEditing(!isEditing, animated: true)
         }
         
-        editButtonItem().enabled = (numberOfRows > 0)
+        editButtonItem.isEnabled = (numberOfRows > 0)
         return numberOfRows
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewValues.identifier, forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewValues.identifier, for: indexPath) 
         
         // Home
-        let home = homeManager.homes[indexPath.row] 
+        let home = homeManager.homes[(indexPath as NSIndexPath).row] 
         
         cell.textLabel!.text = home.name
         return cell
     }
     
     // Intercept the delete action
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete{
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete{
             // Take the home in that row
-            let home = homeManager.homes[indexPath.row] 
+            let home = homeManager.homes[(indexPath as NSIndexPath).row] 
             
             // Remove the home
             homeManager.removeHome(HMHome, completionHandler: { (NSError?) in
@@ -94,32 +94,32 @@ class ListHomeViewController: UITableViewController, HMHomeManagerDelegate {
         }
     }
     
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         /* Don't let the user add another home while they are editing
         the list of homes. This makes sure the user focuses on the task
         at hand */
-        self.navigationItem.rightBarButtonItem?.enabled = !editing
+        self.navigationItem.rightBarButtonItem?.isEnabled = !editing
     }
     
     //- MARK: HomeKit
-    func homeManagerDidUpdateHomes(manager: HMHomeManager) {
+    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
         // As soon the home manager has loaded the list of homes, we will reload the table view
         tableView.reloadData()
     }
     
     
     
-    func homeManagerDidUpdatePrimaryHome(manager: HMHomeManager) {
+    func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
         tableView.reloadData()
     }
     
     //- MARK: Segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier{
-            let controller = segue.destinationViewController as! AddHomeViewController
+            let controller = segue.destination as! AddHomeViewController
             controller.homeManager = homeManager
         }
-        super.prepareForSegue(segue, sender: sender)
+        super.prepare(for: segue, sender: sender)
     }
 }

@@ -173,6 +173,7 @@
 					C0CB70421AFE696600D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 8YWZZG9DK7;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HomeKit = {
 								enabled = 1;
@@ -181,6 +182,7 @@
 					};
 					C0CB70571AFE696600D4268A = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C0CB70421AFE696600D4268A;
 					};
 				};
@@ -367,6 +369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -381,6 +384,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -399,6 +403,7 @@
 				INFOPLIST_FILE = "Managing the User's HomeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Managing the User's Home.app/Managing the User's Home";
 			};
 			name = Debug;
@@ -414,6 +419,7 @@
 				INFOPLIST_FILE = "Managing the User's HomeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Managing the User's Home.app/Managing the User's Home";
 			};
 			name = Release;

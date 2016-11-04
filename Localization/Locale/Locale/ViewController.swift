@@ -16,11 +16,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // User locale
-        let locale = NSLocale.currentLocale()
+        let locale = Foundation.Locale.current
         // User preferred language
-        let currentLangID = (NSLocale.preferredLanguages() )[0]
-        let displayLang = locale.displayNameForKey(NSLocaleLanguageCode, value: currentLangID)
-        let capitalized = displayLang?.capitalizedStringWithLocale(locale)
+        let currentLangID = (Foundation.Locale.preferredLanguages )[0]
+        let displayLang = (locale as NSLocale).displayName(forKey: NSLocale.Key.languageCode, value: currentLangID)
+        let capitalized = displayLang?.capitalized(with: locale)
         localeLabel.text = capitalized
         
         labels[0].text = NSLocalizedString("LABEL_ONE", comment: "The number 1")
