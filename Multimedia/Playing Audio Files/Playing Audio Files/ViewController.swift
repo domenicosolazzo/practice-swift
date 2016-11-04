@@ -15,22 +15,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let queue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
         
-        dispatch_async(queue, {[weak self] in
+        queue.async(execute: {[weak self] in
             let strongSelf = self!
-            let mainBundle = NSBundle.mainBundle()
+            let mainBundle = Bundle.main
             
             // Location of the audio file
-            let filePath = mainBundle.pathForResource("MySong", ofType: "mp3")
+            let filePath = mainBundle.path(forResource: "MySong", ofType: "mp3")
             
             if let path = filePath{
-                let fileData = NSData(contentsOfFile: path)
+                let fileData = try? Data(contentsOf: URL(fileURLWithPath: path))
                 
                 var error: NSError?
                 do {
                     // Start the audio player
-                    strongSelf.audioPlayer = try AVAudioPlayer(data: fileData)
+                    strongSelf.audioPlayer = try AVAudioPlayer(data: fileData!)
                 } catch let error1 as NSError {
                     error = error1
                     strongSelf.audioPlayer = nil
@@ -57,7 +57,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     //- MARK: AVAudioPlayerDelegate
     // This delegate method will let us know when the audio player will finish playing
     // the file
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         print("Finished playing....")
     }
 }
