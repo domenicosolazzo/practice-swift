@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Convenience constructor
         let countingOperation = CountingOperation()
         // Create the NSOperationQueue
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         // Add the operation to the queue
         queue.addOperation(countingOperation)
     }

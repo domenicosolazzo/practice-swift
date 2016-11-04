@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountingOperation: NSOperation {
+class CountingOperation: Operation {
     // Private variables
     var startingCount:Int = 0
     var endingCount:Int = 0
@@ -27,12 +27,12 @@ class CountingOperation: NSOperation {
         var isTaskFinished = false
         
         if isTaskFinished == false &&
-            self.finished == false{
+            self.isFinished == false{
                 for i in startingCount..<endingCount{
-                    println("Printing the number \(i)")
-                    println("Current Thread: \(NSThread.currentThread())")
-                    println("Main Thread: \(NSThread.mainThread())")
-                    println("---=================================---")
+                    print("Printing the number \(i)")
+                    print("Current Thread: \(Thread.current)")
+                    print("Main Thread: \(Thread.main)")
+                    print("---=================================---")
                 }
                 isTaskFinished = true
         }
