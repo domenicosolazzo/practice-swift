@@ -14,14 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         /* Define our operation here using a block operation */
-        let operation = NSBlockOperation(block: downloadUrls)
+        let operation = BlockOperation(block: downloadUrls)
         
         /* Create an operation queue */
-        let operationQueue = NSOperationQueue()
+        let operationQueue = OperationQueue()
         
         /* We assume that the reason we are downloading the content
         to disk is that the user wanted us to and that it was "user initiated" */
-        operationQueue.qualityOfService = NSQualityOfService.UserInitiated
+        operationQueue.qualityOfService = QualityOfService.userInitiated
         
         /* We will avoid overloading the system with too many URL downloads
         and download only a few simultaneously */
@@ -35,23 +35,23 @@ class ViewController: UIViewController {
     func downloadUrls(urls: Array<NSURL>){
         // Download the images
         for url in urls{
-            let request = NSURLRequest(URL: url)
+            let request = NSURLRequest(url: url as URL)
             NSURLConnection.sendAsynchronousRequest(
-                request,
-                queue: NSOperationQueue.currentQueue(),
+                request as URLRequest,
+                queue: OperationQueue.current!,
                 completionHandler: {
-                    (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
+                    (response:URLResponse?, data:Data?, error:Error?) -> Void in
                     if let theError = error{
-                        println("Error: \(theError)")
+                        print("Error: \(theError)")
                     }else{
-                        println("Downloading the picture and saving it in the disk")
+                        print("Downloading the picture and saving it in the disk")
                     }
             })
         }
     }
     
     func downloadUrls(){
-        var urls = [
+        let urls = [
             "http://goo.gl/oMnO9k",
             "http://goo.gl/3rABU1",
             "http://goo.gl/DS3kRe"
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         }
         
         // Download all the urls
-        downloadUrls(arrayUrls)
+        downloadUrls(urls: arrayUrls)
     }
 }
 
