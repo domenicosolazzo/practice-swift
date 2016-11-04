@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playButton = UIButton(type: .System) as? UIButton
+        playButton = UIButton(type: .system) as? UIButton
         
         if let button = playButton{
             
@@ -26,13 +26,13 @@ class ViewController: UIViewController {
             button.center = view.center
             
             button.autoresizingMask =
-                [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleRightMargin]
+                [.flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
             
             button.addTarget(self,
-                action: "startPlayingVideo",
-                forControlEvents: .TouchUpInside)
+                action: #selector(ViewController.startPlayingVideo),
+                for: .touchUpInside)
             
-            button.setTitle("Play", forState: .Normal)
+            button.setTitle("Play", for: UIControlState())
             
             view.addSubview(button)
             
@@ -43,34 +43,34 @@ class ViewController: UIViewController {
     func stopPlayingVideo() {
         
         if let player = moviePlayer{
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            NotificationCenter.default.removeObserver(self)
             player.stop()
             player.view.removeFromSuperview()
         }
         
     }
     
-    func videoHasFinishedPlaying(notification: NSNotification){
+    func videoHasFinishedPlaying(_ notification: Notification){
         
         print("Video finished playing")
         
         /* Find out what the reason was for the player to stop */
         let reason =
-        notification.userInfo![MPMoviePlayerPlaybackDidFinishReasonUserInfoKey]
+        (notification as NSNotification).userInfo![MPMoviePlayerPlaybackDidFinishReasonUserInfoKey]
             as! NSNumber?
         
         if let theReason = reason{
             
-            let reasonValue = MPMovieFinishReason(rawValue: theReason.integerValue)
+            let reasonValue = MPMovieFinishReason(rawValue: theReason.intValue)
             
             switch reasonValue!{
-            case .PlaybackEnded:
+            case .playbackEnded:
                 /* The movie ended normally */
                 print("Playback Ended")
-            case .PlaybackError:
+            case .playbackError:
                 /* An error happened and the movie ended */
                 print("Error happened")
-            case .UserExited:
+            case .userExited:
                 /* The user exited the player */
                 print("User exited")
             default:
@@ -83,18 +83,18 @@ class ViewController: UIViewController {
         
     }
     
-    func videoFilePath() -> NSURL?{
+    func videoFilePath() -> URL?{
         /* First let's construct the URL of the file in our application bundle
         that needs to get played by the movie player */
-        let mainBundle = NSBundle.mainBundle()
+        let mainBundle = Bundle.main
         
-        let url = mainBundle.URLForResource("Sample", withExtension: "m4v")
+        let url = mainBundle.url(forResource: "Sample", withExtension: "m4v")
         return url
     }
     
-    func videoStarted(notification:NSNotification){
+    func videoStarted(_ notification:Notification){
         print("Started...")
-        print("User info: \(notification.userInfo!)")
+        print("User info: \((notification as NSNotification).userInfo!)")
     }
     
     func startPlayingVideo(){
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         
         /* If we have already created a movie player before,
         let's try to stop it */
-        if let player = moviePlayer{
+        if moviePlayer != nil{
             stopPlayingVideo()
         }
         
@@ -114,17 +114,17 @@ class ViewController: UIViewController {
             
             /* Listen for the notification that the movie player sends us
             whenever it finishes playing */
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: "videoHasFinishedPlaying:",
-                name: MPMoviePlayerPlaybackDidFinishNotification,
+            NotificationCenter.default.addObserver(self,
+                selector: #selector(ViewController.videoHasFinishedPlaying(_:)),
+                name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish,
                 object: nil)
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoStarted:", name: MPMoviePlayerNowPlayingMovieDidChangeNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(ViewController.videoStarted(_:)), name: NSNotification.Name.MPMoviePlayerNowPlayingMovieDidChange, object: nil)
             
             print("Successfully instantiated the movie player")
             
             /* Scale the movie player to fit the aspect ratio */
-            player.scalingMode = .AspectFit
+            player.scalingMode = .aspectFit
             
             view.addSubview(player.view)
             
