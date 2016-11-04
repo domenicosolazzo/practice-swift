@@ -21,7 +21,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         
         let session = AVAudioSession.sharedInstance()
         
-        if session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DuckOthers, error: &error){
+        if sprintntAndRecord, mode: AVAudioSessionCategoryOptions.DuckOthers, options: &error){
         
             if session.setActive(true, error: nil){
                 println("Successfully activated the audio session")
@@ -47,7 +47,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
     }
     
     //- MARK: AVAudioPlayerDelegate
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer!, successfully flag: Bool) {
         if flag{
             println("Successfully finished playing the file")
         }else{
@@ -55,11 +55,11 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         }
     }
     
-    func audioPlayerBeginInterruption(player: AVAudioPlayer!) {
+    func audioPlayerBeginInterruption(_ player: AVAudioPlayer!) {
         /* The audio session is deactivated here */
     }
     
-    func audioPlayerEndInterruption(player: AVAudioPlayer!,
+    func audioPlayerEndInterruption(_ player: AVAudioPlayer!,
         withOptions flags: Int) {
             if flags == AVAudioSessionInterruptionFlags_ShouldResume{
                 player.play()
@@ -67,7 +67,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
     }
     
     //- MARK: AVAudioRecorderDelegate
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder!, successfully flag: Bool) {
         if flag{
             println("Successfully stopped the recording session")
             
@@ -75,7 +75,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
             var playbackError: NSError?
             var readingError: NSError?
             
-            let fileData = NSData(contentsOfURL: self.audioRecordingPath(), options: NSDataReadingOptions.MappedRead, error: &readingError)
+            let fileData = Data(bytesNoCopy: self.audioRecordingPath(), count: NSData.ReadingOptions.MappedRead, deallocator: &readingError)
             
             self.audioPlayer = AVAudioPlayer(data: fileData, error: &playbackError)
             
@@ -99,10 +99,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
     }
     //- MARK: Helper methods
     // Where the recording file will be saved
-    func audioRecordingPath() -> NSURL{
-        let fileManager = NSFileManager()
+    func audioRecordingPath() -> URL{
+        let fileManager = FileManager()
         
-        let documentFoldersUrl = fileManager.URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)
+        let documentFoldersUrl = fileManager.URLForDirectory(FileManager.SearchPathDirectory.DocumentDirectory, inDomain: FileManager.SearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)
         return documentFoldersUrl!.URLByAppendingPathComponent("Recording.m4a")
     }
     
@@ -130,7 +130,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
         
         audioRecorder = AVAudioRecorder(
             URL: audioRecordingURL,
-            settings: self.audioRecordingSettings() as [NSObject : AnyObject],
+            settings: self.audioRecordingSettings() as! [AnyHashable: Any],
             error: &error)
         
         if let recorder = audioRecorder{
@@ -143,12 +143,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate,
                 
                 // After 5 seconds, let's stop the recording process
                 let delay = 5.0
-                let delayInNanoSeconds = dispatch_time(DISPATCH_TIME_NOW,
-                    Int64(delay * Double(NSEC_PER_SEC)))
+                let delayInNanoSeconds = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                 
-                dispatch_after(
-                    delayInNanoSeconds,
-                    dispatch_get_main_queue(), {[weak self] in
+                DispatchQueue.main.asyncAfter(
+                    deadline: delayInNanoSeconds, execute: {[weak self] in
                         self!.audioRecorder!.stop()
                 })
             }else{

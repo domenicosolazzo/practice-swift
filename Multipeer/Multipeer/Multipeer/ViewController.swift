@@ -24,11 +24,11 @@ class ViewController: UIViewController,
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "Selfie Share"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(showConnectionPrompt))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(importPicture))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
         
-        peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .Required)
+        peerID = MCPeerID(displayName: UIDevice.current.name)
+        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
         mcSession.delegate = self
     }
 
@@ -37,57 +37,57 @@ class ViewController: UIViewController,
         // Dispose of any resources that can be recreated.
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageView", forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageView", for: indexPath)
         
         if let imageView = cell.viewWithTag(1000) as? UIImageView {
-            imageView.image = images[indexPath.item]
+            imageView.image = images[(indexPath as NSIndexPath).item]
         }
         
         return cell
     }
     
-    func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
+    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         
     }
     
-    func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress) {
+    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
         
     }
     
-    func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?) {
+    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
         
     }
     
-    func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         switch state {
-        case MCSessionState.Connected:
+        case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
             
-        case MCSessionState.Connecting:
+        case MCSessionState.connecting:
             print("Connecting: \(peerID.displayName)")
             
-        case MCSessionState.NotConnected:
+        case MCSessionState.notConnected:
             print("Not Connected: \(peerID.displayName)")
         }
     }
     
-    func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         if let image = UIImage(data: data) {
-            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                self.images.insert(image, atIndex: 0)
+            DispatchQueue.main.async { [unowned self] in
+                self.images.insert(image, at: 0)
                 self.collectionView.reloadData()
             }
         }
@@ -98,10 +98,10 @@ class ViewController: UIViewController,
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
-        presentViewController(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var newImage: UIImage
         
         if let possibleImage = info[UIImagePickerControllerEditedImage] as? UIImage {
@@ -112,9 +112,9 @@ class ViewController: UIViewController,
             return
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
-        images.insert(newImage, atIndex: 0)
+        images.insert(newImage, at: 0)
         collectionView.reloadData()
         
         // 1
@@ -123,37 +123,37 @@ class ViewController: UIViewController,
             if let imageData = UIImagePNGRepresentation(newImage) {
                 // 3
                 do {
-                    try mcSession.sendData(imageData, toPeers: mcSession.connectedPeers, withMode: .Reliable)
+                    try mcSession.send(imageData, toPeers: mcSession.connectedPeers, with: .reliable)
                 } catch let error as NSError {
-                    let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .Alert)
-                    ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                    presentViewController(ac, animated: true, completion: nil)
+                    let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(ac, animated: true, completion: nil)
                 }
             }
         }
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func showConnectionPrompt() {
-        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "Host a session", style: .Default, handler: startHosting))
-        ac.addAction(UIAlertAction(title: "Join a session", style: .Default, handler: joinSession))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Host a session", style: .default, handler: startHosting))
+        ac.addAction(UIAlertAction(title: "Join a session", style: .default, handler: joinSession))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true, completion: nil)
     }
     
-    func startHosting(action: UIAlertAction!) {
+    func startHosting(_ action: UIAlertAction!) {
         mcAdvertiserAssistant = MCAdvertiserAssistant(serviceType: "TheProject", discoveryInfo: nil, session: mcSession)
         mcAdvertiserAssistant.start()
     }
     
-    func joinSession(action: UIAlertAction!) {
+    func joinSession(_ action: UIAlertAction!) {
         let mcBrowser = MCBrowserViewController(serviceType: "TheProject", session: mcSession)
         mcBrowser.delegate = self
-        presentViewController(mcBrowser, animated: true, completion: nil)
+        present(mcBrowser, animated: true, completion: nil)
     }
 
 
