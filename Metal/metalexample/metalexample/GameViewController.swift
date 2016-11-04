@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
         let device: MTLDevice = MTLCreateSystemDefaultDevice()!
         
         // create command queue
-        var commandQueue: MTLCommandQueue = device.newCommandQueue()
+        var commandQueue: MTLCommandQueue = device.makeCommandQueue()
         
         // Vertex
         let vertexArray:[Float] = [
@@ -39,15 +39,15 @@ class GameViewController: UIViewController {
         
         // Get the shader
         let newDefaultLibrary = device.newDefaultLibrary()
-        let newVertexFunction = newDefaultLibrary!.newFunctionWithName("myVertexShader")
-        let newFragmentFunction = newDefaultLibrary!.newFunctionWithName("myFragmentShader")
+        let newVertexFunction = newDefaultLibrary!.makeFunction(name: "myVertexShader")
+        let newFragmentFunction = newDefaultLibrary!.makeFunction(name: "myFragmentShader")
         
         // Render the pipeline
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = newVertexFunction
         pipelineDescriptor.fragmentFunction = newFragmentFunction
         // More format here: https://developer.apple.com/library/ios/documentation/Metal/Reference/MetalConstants_Ref/#//apple_ref/c/tdef/MTLPixelFormat
-        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.bgra8Unorm
         
         // Render pipeline state from descriptor
         var pipelineState: MTLRenderPipelineState!
@@ -68,7 +68,7 @@ class GameViewController: UIViewController {
         
         renderPassDescriptor.colorAttachments[0].texture = drawable.texture //assign drawable texture
         
-        renderPassDescriptor.colorAttachments[0].loadAction = .Clear //clear with color on load
+        renderPassDescriptor.colorAttachments[0].loadAction = .clear //clear with color on load
         
         renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 1.0,
             green: 1.0,
@@ -76,17 +76,17 @@ class GameViewController: UIViewController {
             alpha: 1.0) // specify color to clear it with
         
         //Command Buffer - get next available command buffer
-        let commandBuffer = commandQueue.commandBuffer()
+        let commandBuffer = commandQueue.makeCommandBuffer()
         
         //create Encoder - converts code to machine language
-        let renderEncoder:MTLRenderCommandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+        let renderEncoder:MTLRenderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
         
         //provide pipelineState and vertexBuffer
         renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, at: 0)
         
         //drawing begin
-        renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1) //drawin
+        renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1) //drawin
         
         //End drawing
         renderEncoder.endEncoding()

@@ -13,68 +13,68 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
     var mediaPicker: MPMediaPickerController?
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         displayMediaPicker()
     }
     
     func displayMediaPicker(){
         
-        mediaPicker = MPMediaPickerController(mediaTypes: .Any)
+        mediaPicker = MPMediaPickerController(mediaTypes: .any)
         
         if let picker = mediaPicker{
             
-            println("Successfully instantiated a media picker")
+            print("Successfully instantiated a media picker")
             picker.delegate = self
             picker.allowsPickingMultipleItems = false
             
-            presentViewController(picker, animated: true, completion: nil)
+            present(picker, animated: true, completion: nil)
             
         } else {
-            println("Could not instantiate a media picker")
+            print("Could not instantiate a media picker")
         }
         
     }
     
     //- MARK: MPMediaPickerControllerDelegate
-    func mediaPicker(mediaPicker: MPMediaPickerController!, didPickMediaItems mediaItemCollection: MPMediaItemCollection!) {
-        for thisItem in mediaItemCollection.items as! [MPMediaItem]{
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        for thisItem in mediaItemCollection.items {
             
-            let itemUrl = thisItem.valueForProperty(MPMediaItemPropertyAssetURL)
-                as? NSURL
+            let itemUrl = thisItem.value(forProperty: MPMediaItemPropertyAssetURL)
+                as? URL
             
             let itemTitle =
-            thisItem.valueForProperty(MPMediaItemPropertyTitle)
+            thisItem.value(forProperty: MPMediaItemPropertyTitle)
                 as? String
             
             let itemArtist =
-            thisItem.valueForProperty(MPMediaItemPropertyArtist)
+            thisItem.value(forProperty: MPMediaItemPropertyArtist)
                 as? String
             
             let itemArtwork =
-            thisItem.valueForProperty(MPMediaItemPropertyArtwork)
+            thisItem.value(forProperty: MPMediaItemPropertyArtwork)
                 as? MPMediaItemArtwork
             
             
             if let url = itemUrl{
-                println("Item URL = \(url)")
+                print("Item URL = \(url)")
             }
             
             if let title = itemTitle{
-                println("Item Title = \(title)")
+                print("Item Title = \(title)")
             }
             
             if let artist = itemArtist{
-                println("Item Artist = \(artist)")
+                print("Item Artist = \(artist)")
             }
             
             if let artwork = itemArtwork{
-                println("Item Artwork = \(artwork)")
+                print("Item Artwork = \(artwork)")
             }
             
         }
         
-        mediaPicker.dismissViewControllerAnimated(true, completion: nil)
+        mediaPicker.dismiss(animated: true, completion: nil)
     }
 }
 
