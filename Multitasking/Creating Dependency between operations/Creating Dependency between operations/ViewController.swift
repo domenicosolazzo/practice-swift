@@ -13,19 +13,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var firstNumber = 111
-        var secondNumber = 222
+        let firstNumber = 111
+        let secondNumber = 222
         
         // Create the first NSBlockOperation
-        let firstOperation = NSBlockOperation {[weak self] () -> Void in
+        let firstOperation = BlockOperation {[weak self] () -> Void in
             if let strongSelf = self{
-                strongSelf.firstOperationEntry(firstNumber)
+                strongSelf.firstOperationEntry(firstNumber as AnyObject?)
             }
         }
         
-        let secondOperation = NSBlockOperation {[weak self] () -> Void in
+        let secondOperation = BlockOperation {[weak self] () -> Void in
             if let strongSelf = self{
-                strongSelf.secondOperationEntry(secondNumber)
+                strongSelf.secondOperationEntry(secondNumber as AnyObject?)
             }
         }
         
@@ -34,32 +34,32 @@ class ViewController: UIViewController {
         firstOperation.addDependency(secondOperation)
         
         // Create a queeu
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         queue.addOperation(firstOperation)
         queue.addOperation(secondOperation)
         
-        println("Main thread is here")
+        print("Main thread is here")
     }
     
     //- MARK: Helpers
     // Perform the actual work
-    func performWorkForParameter(param: AnyObject?, operationName: String){
+    func performWorkForParameter(_ param: AnyObject?, operationName: String){
         if let theParam: AnyObject = param{
-            println("First operation - Object = \(theParam)")
+            print("First operation - Object = \(theParam)")
         }
         
-        println("\(operationName) Operation - " +
-            "Main Thread = \(NSThread.mainThread())")
+        print("\(operationName) Operation - " +
+            "Main Thread = \(Thread.main)")
         
-        println("\(operationName) Operation - " +
-            "Current Thread = \(NSThread.currentThread())")
+        print("\(operationName) Operation - " +
+            "Current Thread = \(Thread.current)")
     }
     
-    func firstOperationEntry(param: AnyObject?){
+    func firstOperationEntry(_ param: AnyObject?){
         performWorkForParameter(param, operationName: "First")
     }
     
-    func secondOperationEntry(param: AnyObject?){
+    func secondOperationEntry(_ param: AnyObject?){
         
         performWorkForParameter(param, operationName: "Second")
         
