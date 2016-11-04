@@ -12,29 +12,27 @@ import HealthKit
 class ViewController: UIViewController {
 
     // Height
-    let heightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+    let heightQuantity = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
     // Weight
-    let weightQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+    let weightQuantity = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
     // Hearth rate
-    let hearthRateQuantity = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
+    let hearthRateQuantity = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
     
     // Health kit store
     lazy var healthStore = HKHealthStore()
     
     // Information that we would write into the HealthKit
-    lazy var typesToShare: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.heightQuantity, self.weightQuantity)
+    lazy var typesToShare: Set<HKSampleType> = {
+        return Set<HKSampleType>()
     }()
     
     // We want to read these types of data */
-    lazy var typesToRead: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.heightQuantity,
-            self.weightQuantity,
-            self.hearthRateQuantity
+    lazy var typesToRead: Set<HKSampleType> = {
+        return Set<HKSampleType>()
         )
-    }()
+    }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Check if the HealthKit is available

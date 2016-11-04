@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class ViewController: UIViewController {
-    let database = CKContainer.defaultContainer().privateCloudDatabase
+    let database = CKContainer.default().privateCloudDatabase
     
     /* Defines our car types */
     enum CarType: String{
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     /* Checks if the user has logged into her iCloud account or not */
     func isIcloudAvailable() -> Bool{
-        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken{
+        if let _ = FileManager.default.ubiquityIdentityToken{
             return true
         } else {
             return false
@@ -42,14 +42,14 @@ class ViewController: UIViewController {
         let key = "recordId"
         
         var recordName =
-        NSUserDefaults.standardUserDefaults().stringForKey(key)
+        UserDefaults.standard.string(forKey: key)
         
         func createNewRecordName(){
             print("No record name was previously generated")
             print("Creating a new one...")
-            recordName = NSUUID().UUIDString
-            NSUserDefaults.standardUserDefaults().setValue(recordName, forKey: key)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            recordName = UUID().uuidString
+            UserDefaults.standard.setValue(recordName, forKey: key)
+            UserDefaults.standard.synchronize()
         }
         
         if let name = recordName{
@@ -66,26 +66,26 @@ class ViewController: UIViewController {
         
     }
     
-    func saveRecordWithCompletionHandler(completionHandler:
-        (succeeded: Bool, error: NSError!) -> Void){
+    func saveRecordWithCompletionHandler(_ completionHandler:
+        @escaping (_ succeeded: Bool, _ error: NSError?) -> Void){
             
             /* Store information about a Volvo V50 car */
             let volvoV50 = CKRecord(recordType: "MyCar", recordID: recordId())
-            volvoV50.setObject("Volvo", forKey: "maker")
-            volvoV50.setObject("V50", forKey: "model")
-            volvoV50.setObject(5, forKey: "numberOfDoors")
-            volvoV50.setObject(2015, forKey: "year")
+            volvoV50.setObject("Volvo" as CKRecordValue?, forKey: "maker")
+            volvoV50.setObject("V50" as CKRecordValue?, forKey: "model")
+            volvoV50.setObject(5 as CKRecordValue?, forKey: "numberOfDoors")
+            volvoV50.setObject(2015 as CKRecordValue?, forKey: "year")
             
             /* Save this record publicly */
-            database.saveRecord(volvoV50, completionHandler: {
+            database.save(volvoV50, completionHandler: {
                 (record: CKRecord?, error: NSError?) in
-                completionHandler(succeeded: (error == nil), error: error)
-            })
+                completionHandler((error == nil), error)
+            } as! (CKRecord?, Error?) -> Void)
             
     }
     
     
-      override func viewDidAppear(animated: Bool) {
+      override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
         if isIcloudAvailable(){
@@ -97,18 +97,18 @@ class ViewController: UIViewController {
         print("Fetching the record to see if it exists already...")
     
         /* Attempt to find the record if we have saved it already */
-        database.fetchRecordWithID(recordId(), completionHandler:{[weak self]
+        database.fetch(withRecordID: recordId(), completionHandler:{[weak self]
           (record: CKRecord?, error: NSError?) in
     
           if error != nil{
             print("An error occurred")
     
-            if error!.code == CKErrorCode.UnknownItem.rawValue{
+            if error!.code == CKError.unknownItem.rawValue{
               print("This error means that the record was not found.")
               print("Saving the record...")
     
               self!.saveRecordWithCompletionHandler{
-                (succeeded: Bool, error: NSError!) in
+                (succeeded: Bool, error: NSError?) -> Void in
     
                 if succeeded{
                   print("Successfully saved the record")
@@ -127,20 +127,20 @@ class ViewController: UIViewController {
             print("Retrieved record = \(record)")
           }
     
-          })
+          } as! (CKRecord?, Error?) -> Void)
     
       }
     
-    func displayAlertWithTitle(title: String, message: String){
+    func displayAlertWithTitle(_ title: String, message: String){
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     

@@ -11,10 +11,10 @@ import HealthKit
 
 class ViewController: UIViewController {
     // Body mass
-    let weightQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+    let weightQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
     
     lazy var types: Set<NSObject> = {
-        return Set<NSObject>(arrayLiteral: self.weightQuantityType)
+        return Set<NSObject>(arrayLiteral: self.weightQuantityType!!)
     }()
     
     // Health store
@@ -22,30 +22,30 @@ class ViewController: UIViewController {
     
     // Predicate
     lazy var predicate: NSPredicate = {
-        let now = NSDate()
+        let now = Date()
         
-        let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(
-            NSCalendarUnit.NSDayCalendarUnit,
+        let yesterday = (Calendar.current as NSCalendar).date(
+            byAdding: NSCalendar.Unit.NSDayCalendarUnit,
             value: -1,
-            toDate: now,
-            options: NSCalendarOptions.WrapComponents)
+            to: now,
+            options: NSCalendar.Options.wrapComponents)
         
-        return HKQuery.predicateForSamplesWithStartDate(
-            yesterday,
-            endDate: now,
-            options: HKQueryOptions.StrictEndDate)
+        return HKQuery.predicateForSamples(
+            withStart: yesterday,
+            end: now,
+            options: HKQueryOptions.strictEndDate)
     }()
     
     // Observer Query
     lazy var query: HKObserverQuery = {[weak self] in
         let strongSelf = self!
-        return HKObserverQuery(sampleType: strongSelf.weightQuantityType,
+        return HKObserverQuery(sampleType: strongSelf.weightQuantityType!!,
             predicate: strongSelf.predicate,
             updateHandler: strongSelf.weightChangedHandler
         )
     }()
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if HKHealthStore.isHealthDataAvailable(){
@@ -67,14 +67,14 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopObservingWeightChanges()
     }
     
     func startObservingWeightChanges(){
-        healthStore.executeQuery(query)
-        healthStore.enableBackgroundDeliveryForType(weightQuantityType,
+        healthStore.execute(query)
+        healthStore.enableBackgroundDeliveryForType(weightQuantityType!!,
             frequency: HKUpdateFrequency.Immediate) { (succeeded:Bool, error:NSError?) -> Void in
                 if succeeded{
                     print("Enabled background delivery of weight changes")
@@ -84,11 +84,11 @@ class ViewController: UIViewController {
                         print("Error \(theError)")
                     }
                 }
-        }
+        } as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void
     }
     
     func stopObservingWeightChanges(){
-        healthStore.stopQuery(query)
+        healthStore.stop(query)
         healthStore.disableAllBackgroundDeliveryWithCompletion{
             (succeeded: Bool, error: NSError!) in
             
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                 }
             }
             
-        }
+        } as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void as! (Bool, Error?) -> Void
     }
     
     // Fetching the changes
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)
         
         // Query
-        let query = HKSampleQuery(sampleType: weightQuantityType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {[weak self]
+        let query = HKSampleQuery(sampleType: weightQuantityType!!, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {[weak self]
             (query:HKSampleQuery!, results:[AnyObject]!, error: NSError!) -> Void in
             if results.count > 0{
                 for sample in results as! [HKQuantitySample]{
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
         healthStore.executeQuery(query)
     }
     
-    func weightChangedHandler(query: HKObserverQuery!,
+    func weightChangedHandler(_ query: HKObserverQuery!,
         completionHandler: HKObserverQueryCompletionHandler!,
         error: NSError!){
     
