@@ -18,61 +18,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UIBackgroundTaskInvalid
     
     // Timer
-    var myTimer: NSTimer?
+    var myTimer: Timer?
     
     // Check if multitasking is supported
     func isMultitaskingSupported() -> Bool{
-        return UIDevice.currentDevice().multitaskingSupported
+        return UIDevice.current.isMultitaskingSupported
     }
     
-    func timerMethod(sender: NSTimer){
+    func timerMethod(_ sender: Timer){
         // The amount of time that the app can run in background
-        let backgroundTimeRemaining = UIApplication.sharedApplication().backgroundTimeRemaining
+        let backgroundTimeRemaining = UIApplication.shared.backgroundTimeRemaining
         
         if backgroundTimeRemaining == DBL_MAX{
-            println("Background Time Remaining = Undetermined")
+            print("Background Time Remaining = Undetermined")
         } else {
-            println("Background Time Remaining = " +
+            print("Background Time Remaining = " +
                 "\(backgroundTimeRemaining) Seconds")
         }
     }
     
     func endBackgroundTask(){
         // Get the main queue
-        let queue = dispatch_get_main_queue()
+        let queue = DispatchQueue.main
         
-        dispatch_async(queue, {[weak self] in
+        queue.async(execute: {[weak self] in
             if let timer = self!.myTimer{
                 timer.invalidate()
                 self!.myTimer = nil
-                UIApplication.sharedApplication().endBackgroundTask(self!.backgroundTaskIdentifier)
+                UIApplication.shared.endBackgroundTask(self!.backgroundTaskIdentifier)
                 self!.backgroundTaskIdentifier = UIBackgroundTaskInvalid
             }
             
         })
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         if isMultitaskingSupported() == false{
             return
         }
         
-        myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+        myTimer = Timer.scheduledTimer(timeInterval: 1.0,
             target: self,
-            selector: "timerMethod:",
+            selector: #selector(AppDelegate.timerMethod(_:)),
             userInfo: nil,
             repeats: true
         )
         
-        backgroundTaskIdentifier = application.beginBackgroundTaskWithName(
-            "task1",
+        backgroundTaskIdentifier = application.beginBackgroundTask(
+            withName: "task1",
             expirationHandler: {[weak self] in
                 self!.endBackgroundTask()
             }
         )
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         if backgroundTaskIdentifier != UIBackgroundTaskInvalid{
             self.endBackgroundTask()
         }
