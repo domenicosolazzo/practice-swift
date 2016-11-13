@@ -1,4 +1,4 @@
-/** 
+/**
     Big O Notation
     Source: http://waynewbishop.com/swift/big-o-notation
 */
@@ -12,8 +12,8 @@ var count = 0;
 func linearSearch(key: Int) {
     //check all possible values until we find a match
     for number in numberList {
-        count++;
-        println("Count is \(count)")
+        count += 1;
+        print("Count is \(count)")
         if (number == key) {
             let results = "value \(key) found.."
             break
@@ -21,27 +21,27 @@ func linearSearch(key: Int) {
     }
 }
 
-linearSearch(8);
+linearSearch(key: 8);
 count = 0;
 
 // Logarithmic Search - O(log n)
 // Binary approach
 func binarySearch(key: Int, imin: Int, imax: Int) {
-    count++
-    println("Count is \(count)")
+    count += 1
+    print("Count is \(count)")
     
     //find the value at the middle index
     
-    var midIndex : Double = round(Double((imin + imax) / 2))
-    var midNumber = numberList[Int(midIndex)]
+    let midIndex : Double = round(Double((imin + imax) / 2))
+    let midNumber = numberList[Int(midIndex)]
     
     //use recursion to reduce the possible search range
     if (midNumber > key ) {
-        binarySearch(key, imin, Int(midIndex) - 1)
+        binarySearch(key: key, imin: imin, imax: Int(midIndex) - 1)
     }
         
     else if (midNumber < key ) {
-        binarySearch(key, Int(midIndex) + 1, imax)
+        binarySearch(key: key, imin: Int(midIndex) + 1, imax: imax)
     }
         
     else {
@@ -50,7 +50,7 @@ func binarySearch(key: Int, imin: Int, imax: Int) {
     
 }
 
-binarySearch(8, 0, numberList.count)
+binarySearch(key: 8, imin: 0, imax: numberList.count)
 
 
 
