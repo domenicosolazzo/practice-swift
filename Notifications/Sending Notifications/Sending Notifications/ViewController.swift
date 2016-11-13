@@ -15,15 +15,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Creating the notification
-        let notification = NSNotification(
-            name: notificationName,
+        let notification = Notification(
+            name: Notification.Name(rawValue: notificationName),
             object: self,
             userInfo: [
                 "Key1": "Value1",
                 "Key2": "Value2"
             ])
         // Sending the notification
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+        NotificationCenter.default.post(notification)
     }
 }
 
