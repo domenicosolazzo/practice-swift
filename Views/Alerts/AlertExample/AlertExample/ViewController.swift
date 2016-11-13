@@ -16,18 +16,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Initializing the AlertController
-        controller = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+        controller = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
         
         // Creating an action
-        let action = UIAlertAction(title: "My action", style: UIAlertActionStyle.Default){ (paramAction: UIAlertAction) in
+        let action = UIAlertAction(title: "My action", style: UIAlertActionStyle.default){ (paramAction: UIAlertAction) in
                 print("The button was tapped")
         }
         
         controller!.addAction(action)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        self.presentViewController(controller!, animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        self.present(controller!, animated: true, completion: nil)
     }
 
 

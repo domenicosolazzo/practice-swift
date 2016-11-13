@@ -17,15 +17,15 @@ class ViewController: UIViewController {
         
         controller = UIAlertController(title: "Title",
             message: "Hello",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         // Adding a TextField
-        controller!.addTextFieldWithConfigurationHandler(){(textField:UITextField!) in
+        controller!.addTextField(){(textField:UITextField!) in
             textField.placeholder = "XXXXXXX"
         }
         
         let action = UIAlertAction(title: "Done",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: {[weak self](paramAction:UIAlertAction!) in
                 if let textFields = self!.controller?.textFields{
                     var theTextFields = textFields 
@@ -39,9 +39,9 @@ class ViewController: UIViewController {
         
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.presentViewController(controller!, animated: true, completion: nil)
+        self.present(controller!, animated: true, completion: nil)
     }
 
 }
