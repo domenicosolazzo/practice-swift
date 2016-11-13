@@ -11,20 +11,20 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var paintingTimer: NSTimer?
+    var paintingTimer: Timer?
     var window: UIWindow?
 
 
-    func paint(paramTimer: NSTimer){
-        println("Painting")
+    func paint(_ paramTimer: Timer){
+        print("Painting")
     }
     
     func startPainting(){
         stopPainting()
-        println("Starting painting...")
-        paintingTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+        print("Starting painting...")
+        paintingTimer = Timer.scheduledTimer(timeInterval: 1.0,
             target: self,
-            selector: "paint:",
+            selector: #selector(AppDelegate.paint(_:)),
             userInfo: nil,
             repeats: true)
     }
@@ -36,17 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func application(application: UIApplication,
+    func application(_ application: UIApplication,
         didFinishLaunchingWithOptions
-        launchOptions: [NSObject : AnyObject]?) -> Bool {
+        launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         stopPainting()
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         startPainting()
     }
 
