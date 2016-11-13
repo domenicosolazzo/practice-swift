@@ -11,7 +11,7 @@ abstracted manner.
 import Cocoa
 
 // This function can work with any type
-func swapTwoValues<T>(inout a:T, inout b:T){
+func swapTwoValues<T>( a:inout T, b:inout T){
     let temporaryA = a
     a = b
     b = temporaryA
@@ -20,19 +20,19 @@ var firstInt = 3
 var secondInt = 103
 
 // Int example
-swapTwoValues(&firstInt, &secondInt)
-println("\(firstInt)" + " - \(secondInt)" )
+swapTwoValues(a: &firstInt, b: &secondInt)
+print("\(firstInt)" + " - \(secondInt)" )
 
 // String example
 var firstString = "First"
 var secondString = "Second"
-swapTwoValues(&firstString, &secondString)
-println(firstString + " - " + secondString)
+swapTwoValues(a: &firstString, b: &secondString)
+print(firstString + " - " + secondString)
 
 
 // Not-generic version of a Stack
 struct InStack{
-    var items = Int[]()
+    var items = [Int]()
     
     mutating func push(i:Int){
         items.append(i)
@@ -47,12 +47,12 @@ struct InStack{
 
 
 // Example for the GenericInStack
-var stackOfStrings = GenericInStack<String>()
+var stackOfStrings = Stack<String>()
 stackOfStrings.push("First")
 stackOfStrings.push("Second")
 stackOfStrings.push("Third")
 var pullElement = stackOfStrings.pop()
-println(pullElement)
+print(pullElement)
 
 
 /*
@@ -74,8 +74,8 @@ an optional Int value, which will be the index of the first
 matching string in the array if it is found, or nil if the
 string cannot be found
 */
-func findStringIndex(array:String[], valueToFind: String)->Int?{
-    for (index, value) in enumerate(array){
+func findStringIndex(array:[String], valueToFind: String)->Int?{
+    for (index, value) in array.enumerated(){
         if(value == valueToFind){
             return index
         }
@@ -83,23 +83,23 @@ func findStringIndex(array:String[], valueToFind: String)->Int?{
     return nil
 }
 let strings = ["cats", "dogs", "tigers"]
-var index = findStringIndex(strings, "dogs")
-println("The index is \(index)")
+var index = findStringIndex(array: strings, valueToFind: "dogs")
+print("The index is \(index)")
 
 /* Generic example
 You must use Equatable protocol if you want to compare values
 using == and !=
 */
-func findIndex<T: Equatable>(array: T[], valueToFind: T)->Int?{
-    for (index, value) in enumerate(array){
+func findIndex<T: Equatable>(array: [T], valueToFind: T)->Int?{
+    for (index, value) in array.enumerated(){
         if value == valueToFind{
             return index
         }
     }
     return nil
 }
-let doubleIndex = findIndex([1.23, 22.11, 424.11, 3.2], 3.2)
-let stringIndex = findIndex(["Domenico", "Sandro", "Guido"], "Domenico")
+let doubleIndex = findIndex(array: [1.23, 22.11, 424.11, 3.2], valueToFind: 3.2)
+let stringIndex = findIndex(array: ["Domenico", "Sandro", "Guido"], valueToFind: "Domenico")
 
 
 /* 
@@ -114,14 +114,14 @@ typealias keyword.
 */
 protocol Container{
 
-    typealias ItemType
+    associatedtype ItemType
     mutating func append(item:ItemType)
-    var count:Int {get; }
+    var count:Int {get}
     subscript(i:Int) -> ItemType{get}
 }
 // Switft can infer the appropriate ItemType to use
 struct Stack<T>:Container{
-    var items = T[]()
+    var items = [T]()
     mutating func push(item:T){
         items.append(item)
     }
@@ -131,7 +131,7 @@ struct Stack<T>:Container{
     
     // conformance to the Container protocol
     mutating func append(item:T){
-        self.push(item)
+        self.push(item: item)
     }
     var count:Int{
         return items.count
@@ -154,9 +154,9 @@ one or more constraints for associated types, and/or one or
 more equality relationships between types and associated
 types.
 */
-func allItemsMatch<C1: Container, C2: Container
-    where C1.ItemType == C2.ItemType, C1.ItemType: Equatable>
-        (someContainer:C1, anotherContainer:C2) -> Bool{
+func allItemsMatch<C1: Container, C2: Container>
+    (someContainer:C1, anotherContainer:C2) -> Bool
+    where C1.ItemType == C2.ItemType, C1.ItemType: Equatable{
          
             // Check that both containers contain the same number of items
             if someContainer.count != anotherContainer.count{
@@ -164,7 +164,7 @@ func allItemsMatch<C1: Container, C2: Container
             }
             
             // Check each pair of items to see if they are equivalent
-            for i  in 0..someContainer.count{
+            for i in (0 ..< someContainer.count){
                 if someContainer[i] != anotherContainer[i]{
                     return false
                 }

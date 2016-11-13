@@ -59,9 +59,9 @@ img2.lockFocus()
 */
 var path = NSBezierPath()
 // Move the path to the start point
-path.moveToPoint(NSPoint(x:0, y:0))
+path.move(to: NSPoint(x:0, y:0))
 // End point
-path.lineToPoint(NSPoint(x: 100, y:500))
+path.line(to: NSPoint(x: 100, y:500))
 // Draw the pixels
 path.stroke()
 
@@ -77,8 +77,8 @@ while shift <= 200 {
 
     img3.lockFocus()
     var path2 = NSBezierPath()
-    path2.moveToPoint(NSPoint(x:shift, y:300))
-    path2.lineToPoint(NSPoint(x:0, y:shift))
+    path2.move(to: NSPoint(x:shift, y:300))
+    path2.line(to: NSPoint(x:0, y:shift))
     path2.stroke()
     img3.unlockFocus()
 
@@ -87,4 +87,4 @@ while shift <= 200 {
 
 var view3 = NSImageView(frame:frameRect)
 view3.image = img3
-XCPShowView("Parabola", view3)
+XCPShowView(identifier: "Parabola", view: view3)

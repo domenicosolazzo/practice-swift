@@ -44,7 +44,7 @@ func writeLog() {
     let file = openFile()
     // It will close the file not matter what
     // It will be executed before the method exit
-    defer { closeFile(file) }
+    defer { closeFile(file: file) }
     
     let status = fetchStatus()
     guard status != "status" else { return }
