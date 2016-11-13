@@ -22,43 +22,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func createTextField(){
         textField = UITextField(frame:
             CGRect(x: 20, y: 35, width: 280, height: 30))
-        textField.borderStyle = .RoundedRect
+        textField.borderStyle = .roundedRect
         textField.placeholder = "Enter the text to share..."
         textField.delegate = self
         self.view.addSubview(textField)
     }
     
     func createButton(){
-        buttonShare = UIButton(type: UIButtonType.System) as UIButton
+        buttonShare = UIButton(type: UIButtonType.system) as UIButton
         buttonShare.frame = CGRect(x: 20, y: 80, width: 280, height: 44)
-        buttonShare.setTitle("Share", forState: UIControlState.Normal)
+        buttonShare.setTitle("Share", for: UIControlState())
         buttonShare.addTarget(self,
-            action: "handleShare:",
-            forControlEvents: UIControlEvents.TouchUpInside)
+            action: #selector(ViewController.handleShare(_:)),
+            for: UIControlEvents.touchUpInside)
         self.view.addSubview(buttonShare)
     }
     
     //- MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     //- MARK: UIButton
-    func handleShare(sender: UIButton){
+    func handleShare(_ sender: UIButton){
         if (textField.text!.isEmpty){
             let message = "Please enter a text and then click Share"
             let alert = UIAlertController(title: nil,
                 message: message,
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(
                 UIAlertAction(title: "OK",
-                    style: UIAlertActionStyle.Default,
+                    style: UIAlertActionStyle.default,
                     handler: nil)
             )
             
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             return
         }
         
@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             activityItems: [textField.text! as NSString],
             applicationActivities: nil
         )
-        presentViewController(activityController,
+        present(activityController,
             animated: true,
             completion: nil
         )

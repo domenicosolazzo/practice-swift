@@ -17,16 +17,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Creating a new action sheet
-        controller = UIAlertController(title: "My action sheet", message: "How do you want to send a message", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        controller = UIAlertController(title: "My action sheet", message: "How do you want to send a message", preferredStyle: UIAlertControllerStyle.actionSheet)
         
         // Creating the actions
-        let actionViaEmail = UIAlertAction(title: "Via Email", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+        let actionViaEmail = UIAlertAction(title: "Via Email", style: UIAlertActionStyle.default){ (action: UIAlertAction!) in
             print("Message sent by email")
         }
-        let actionViaIMessage = UIAlertAction(title: "Via iMessage", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+        let actionViaIMessage = UIAlertAction(title: "Via iMessage", style: UIAlertActionStyle.default){ (action: UIAlertAction!) in
             print("Message sent by IMessage")
         }
-        let actionDeleted = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default){ (action: UIAlertAction!) in
+        let actionDeleted = UIAlertAction(title: "Delete", style: UIAlertActionStyle.default){ (action: UIAlertAction!) in
             print("Message deleted!")
         }
         
@@ -36,11 +36,11 @@ class ViewController: UIViewController {
         controller!.addAction(actionDeleted)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Presenting the actionSheet
-        self.presentViewController(controller!, animated: true, completion: nil)
+        self.present(controller!, animated: true, completion: nil)
     }
 
     

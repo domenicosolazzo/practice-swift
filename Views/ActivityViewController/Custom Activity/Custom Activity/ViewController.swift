@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let itemsToShare = [
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             activityItems: itemsToShare,
             applicationActivities:[StringReverserActivity()])
         
-        presentViewController(activityController, animated: true, completion: nil)
+        present(activityController, animated: true, completion: nil)
     }
 }
 

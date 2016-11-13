@@ -13,22 +13,22 @@ class StringReverserActivity: UIActivity {
     var activityItems = [NSString]()
     
     // Activity type
-    override func activityType() -> String? {
-        return NSBundle.mainBundle().bundleIdentifier! + ".StringReverseActivity"
+    override var activityType : String? {
+        return Bundle.main.bundleIdentifier! + ".StringReverseActivity"
     }
     
     // This string will be shown to the user
-    override func activityTitle() -> String? {
+    override var activityTitle : String? {
         return "Reverse String"
     }
     
     // Image for the UIActivity
-    override func activityImage() -> UIImage? {
+    override var activityImage : UIImage? {
         return UIImage(named: "Reverse")
     }
     
     // Check if can perform this activity
-    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
         for object in activityItems{
             if object is String{
                 // At least an object is a string and can use this activity
@@ -42,15 +42,15 @@ class StringReverserActivity: UIActivity {
     
     // Saving the items that we need to use. This method is called
     // if canPerformWithActivityItems returns true
-    override func prepareWithActivityItems(paramActivityItems: [AnyObject]) {
+    override func prepare(withActivityItems paramActivityItems: [Any]) {
         for object in paramActivityItems{
             if object is String{
-                activityItems.append(object as! String)
+                activityItems.append(object as! String as NSString)
             }
         }
     }
     
-    func reverseOfString(string: NSString) -> NSString{
+    func reverseOfString(_ string: NSString) -> NSString{
         
         var result = ""
         var characters = [Character]()
@@ -59,16 +59,16 @@ class StringReverserActivity: UIActivity {
             characters.append(character)
         }
         
-        for character in characters.reverse(){
+        for character in characters.reversed(){
             result += "\(character)"
         }
         
-        return result
+        return result as NSString
         
     }
 
     
-    override func performActivity() {
+    override func perform() {
         var reversedStrings = ""
         
         for string in activityItems{
@@ -77,7 +77,7 @@ class StringReverserActivity: UIActivity {
         
         /* Do whatever you need to do with all these
         reversed strings */
-        println(reversedStrings)
+        print(reversedStrings)
     }
     
 }
