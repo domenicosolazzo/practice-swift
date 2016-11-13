@@ -21,24 +21,24 @@ class ViewController: UIViewController {
         
         // Switch is changed
         uiSwitch.addTarget(self,
-            action: "switchIsChanged:",
-            forControlEvents: .ValueChanged)
+            action: #selector(ViewController.switchIsChanged(_:)),
+            for: .valueChanged)
         
         /* Adjust the off-mode tint color */
-        uiSwitch.tintColor = UIColor.redColor()
+        uiSwitch.tintColor = UIColor.red
         /* Adjust the on-mode tint color */
-        uiSwitch.onTintColor = UIColor.brownColor()
+        uiSwitch.onTintColor = UIColor.brown
         /* Also change the knob's tint color */
-        uiSwitch.thumbTintColor = UIColor.greenColor()
+        uiSwitch.thumbTintColor = UIColor.green
         
         // Adding the subview
         self.view.addSubview(uiSwitch)
     }
     
-    func switchIsChanged(sender: UISwitch){
+    func switchIsChanged(_ sender: UISwitch){
         print("Sender is = \(sender)")
         
-        if sender.on{
+        if sender.isOn{
             print("The switch is turned on")
         } else {
             print("The switch is turned off")

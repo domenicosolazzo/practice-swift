@@ -16,40 +16,40 @@ class ViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        tableView = UITableView(frame: view.bounds, style: UITableViewStyle.grouped)
         
         if let theTableView = tableView{
-            theTableView.registerClass(
+            theTableView.register(
                 UITableViewCell.classForCoder(),
                 forCellReuseIdentifier: "identifier")
             
             theTableView.dataSource = self
             theTableView.delegate = self
-            theTableView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+            theTableView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
             
             // Add the table view as subview
             self.view.addSubview(theTableView)
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     //- MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("identifier", forIndexPath: indexPath) 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "identifier", for: indexPath) 
         
-        cell.textLabel!.text = "Cell \(indexPath.row)"
+        cell.textLabel!.text = "Cell \((indexPath as NSIndexPath).row)"
         return cell
     }
     
     // Height for each Header
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     
@@ -68,25 +68,25 @@ class ViewController: UIViewController, UITableViewDataSource,
     
     //- MARK: UITableViewDelegate
     // The view returned from this method will be displayed as the header of the section specified
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return newViewForHeaderOrFooterWithText("Section \(section) Header")
     }
     
     // The view returned from this method will be displayed as the footer of the section specified
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return newViewForHeaderOrFooterWithText("Section \(section) Footer")
     }
     
     //- MARK: Helpers
-    func newLabelWithTitle(title:String) -> UILabel{
+    func newLabelWithTitle(_ title:String) -> UILabel{
         let label = UILabel()
         label.text = title
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         label.sizeToFit()
         return label
     }
     
-    func newViewForHeaderOrFooterWithText(text: String) -> UIView{
+    func newViewForHeaderOrFooterWithText(_ text: String) -> UIView{
         let headerLabel = newLabelWithTitle(text)
         
         /* Move the label 10 points to the right */

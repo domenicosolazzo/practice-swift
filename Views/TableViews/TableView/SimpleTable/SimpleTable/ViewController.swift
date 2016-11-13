@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    private let dwarves = [
+    fileprivate let dwarves = [
         "Sleepy", "Sneezy", "Bashful", "Happy",
         "Doc", "Grumpy", "Dopey",
         "Thorin", "Dorin", "Nori", "Ori",
@@ -32,17 +32,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //- MARK: UITableViewDataSource
     /// Number of row in a section
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dwarves.count
     }
     
     /// It is called by the table view when it needs to draw one of its rows.
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Reuse a cell of the specified type
-        var cell = tableView.dequeueReusableCellWithIdentifier(simpleTableIdentifier) as UITableViewCell!
+        var cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) as UITableViewCell!
         if cell == nil{
             // Create a new cell if it does not exist
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: simpleTableIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: simpleTableIdentifier)
         }
         
         // Adding the images
@@ -53,29 +53,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell!.imageView?.highlightedImage = highlitedImage
         
         // Adding detailed text
-        if indexPath.row < 7 {
+        if (indexPath as NSIndexPath).row < 7 {
             cell!.detailTextLabel?.text = "Mr Disney"
         } else {
             cell!.detailTextLabel?.text = "Mr Tolkien"
         }
         
-        cell!.textLabel!.text = dwarves[indexPath.row]
-        cell!.textLabel!.font = UIFont.boldSystemFontOfSize(50)
+        cell!.textLabel!.text = dwarves[(indexPath as NSIndexPath).row]
+        cell!.textLabel!.font = UIFont.boldSystemFont(ofSize: 50)
         return cell!
         
     }
     
     //- MARK: UITableViewDelegate
-    func tableView(tableView: UITableView,
-        indentationLevelForRowAtIndexPath
-        indexPath: NSIndexPath) -> Int {
-            return indexPath.row % 4
+    func tableView(_ tableView: UITableView,
+        indentationLevelForRowAt
+        indexPath: IndexPath) -> Int {
+            return (indexPath as NSIndexPath).row % 4
     }
     // Before the row is selected
-    func tableView(tableView: UITableView,
-        willSelectRowAtIndexPath indexPath: NSIndexPath)
-        -> NSIndexPath? {
-            if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView,
+        willSelectRowAt indexPath: IndexPath)
+        -> IndexPath? {
+            if (indexPath as NSIndexPath).row == 0 {
                 return nil
             } else {
                 return indexPath
@@ -83,25 +83,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // After the row is selected
-    func tableView(tableView: UITableView,
-        didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            let rowValue = dwarves[indexPath.row]
+    func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+            let rowValue = dwarves[(indexPath as NSIndexPath).row]
             let message = "You selected \(rowValue)"
             
             let controller = UIAlertController(title: "Row Selected",
-                message: message, preferredStyle: .Alert)
+                message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "Yes I Did",
-                style: .Default, handler: nil)
+                style: .default, handler: nil)
             controller.addAction(action)
             
-            presentViewController(controller, animated: true, completion: nil)
+            present(controller, animated: true, completion: nil)
     }
     
     // Customizing the row height
-    func tableView(tableView: UITableView,
-        heightForRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(_ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath)
         -> CGFloat {
-            return indexPath.row == 0 ? 120 : 70
+            return (indexPath as NSIndexPath).row == 0 ? 120 : 70
     }
 
 

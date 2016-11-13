@@ -11,19 +11,19 @@ import UIKit
 class ViewController: UICollectionViewController {
     // Section colors
     let allSectionColors = [
-        UIColor.redColor(),
-        UIColor.greenColor(),
-        UIColor.blueColor()
+        UIColor.red,
+        UIColor.green,
+        UIColor.blue
     ]
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         
         
-        collectionView!.registerClass(UICollectionViewCell.classForCoder(),
+        collectionView!.register(UICollectionViewCell.classForCoder(),
             forCellWithReuseIdentifier: "cell")
         
-        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.backgroundColor = UIColor.white
     }
     
     convenience required init?(coder aDecoder: NSCoder) {
@@ -32,7 +32,7 @@ class ViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.itemSize = CGSize(width: 80, height: 120);
-        flowLayout.scrollDirection = .Vertical
+        flowLayout.scrollDirection = .vertical
         
         flowLayout.sectionInset =
             UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
@@ -41,22 +41,22 @@ class ViewController: UICollectionViewController {
     }
     
     // Number of sections in the collection view
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return allSectionColors.count
     }
     
     // Number of items in each section
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          /* Generate between 20 to 40 cells for each section */
         return Int(arc4random_uniform(21)) + 20
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            "cell",
-            forIndexPath: indexPath) 
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "cell",
+            for: indexPath) 
         
-        cell.backgroundColor = allSectionColors[indexPath.section]
+        cell.backgroundColor = allSectionColors[(indexPath as NSIndexPath).section]
         
         return cell
     }

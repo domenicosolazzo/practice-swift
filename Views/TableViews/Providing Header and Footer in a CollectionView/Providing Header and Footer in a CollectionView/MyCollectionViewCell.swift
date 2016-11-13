@@ -14,10 +14,10 @@ class MyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageViewBackgroundImage.backgroundColor = UIColor.clearColor()
+        imageViewBackgroundImage.backgroundColor = UIColor.clear
         
         // Background color for the selected cell
         self.selectedBackgroundView = UIView(frame: bounds)
-        self.selectedBackgroundView!.backgroundColor = UIColor.blueColor()
+        self.selectedBackgroundView!.backgroundColor = UIColor.blue
     }
 }

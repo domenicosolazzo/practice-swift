@@ -27,8 +27,8 @@ class ViewController: UIViewController {
         slider?.value = slider!.maximumValue / 2.0
         
         // Set thumb images
-        slider?.setThumbImage(UIImage(named: "ThumbNormal"), forState: .Normal)
-        slider?.setThumbImage(UIImage(named: "ThumbHighlighted"), forState: .Highlighted)
+        slider?.setThumbImage(UIImage(named: "ThumbNormal"), for: UIControlState())
+        slider?.setThumbImage(UIImage(named: "ThumbHighlighted"), for: .highlighted)
 
         self.view.addSubview(slider!)
     }

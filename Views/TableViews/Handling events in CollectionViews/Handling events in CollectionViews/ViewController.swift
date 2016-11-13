@@ -26,8 +26,8 @@ class ViewController: UICollectionViewController {
         
         let nib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
         
-        collectionView!.registerNib(nib, forCellWithReuseIdentifier: "cell")
-        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.register(nib, forCellWithReuseIdentifier: "cell")
+        collectionView!.backgroundColor = UIColor.white
     }
     
     convenience required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ class ViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.itemSize = CGSize(width: 80, height: 120);
-        flowLayout.scrollDirection = .Vertical
+        flowLayout.scrollDirection = .vertical
         
         flowLayout.sectionInset =
             UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
@@ -44,59 +44,59 @@ class ViewController: UICollectionViewController {
         self.init(collectionViewLayout: flowLayout)
     }
     
-    override func numberOfSectionsInCollectionView(
-        collectionView: UICollectionView) -> Int {
+    override func numberOfSections(
+        in collectionView: UICollectionView) -> Int {
             /* Between 3 to 6 sections */
             return Int(3 + arc4random_uniform(4))
     }
     
-    override func collectionView(collectionView: UICollectionView,
+    override func collectionView(_ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
             /* Each section has between 10 to 15 cells */
             return Int(10 + arc4random_uniform(6))
     }
     
-    override func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-                "cell", forIndexPath: indexPath) as! MyCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "cell", for: indexPath) as! MyCollectionViewCell
             
             cell.imageViewBackgroundImage.image = randomImage()
-            cell.imageViewBackgroundImage.contentMode = .ScaleAspectFit
+            cell.imageViewBackgroundImage.contentMode = .scaleAspectFit
             
             return cell
             
     }
     
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Fade-in / out of a cell when selected
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+        let selectedCell = collectionView.cellForItem(at: indexPath) as UICollectionViewCell?
         let animationDuration = 1.5;
         // Animation 
-        UIView.animateWithDuration(animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             selectedCell!.alpha = 0;
             }, completion:{[weak self](succeeded:Bool) in
-                UIView.animateWithDuration(animationDuration, animations: {
+                UIView.animate(withDuration: animationDuration, animations: {
                     selectedCell!.alpha = 1;
                 })
             })
     }
     
-    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let selectedCell = collectionView.cellForItem(at: indexPath) as UICollectionViewCell?
         
-        UIView.animateWithDuration(1, animations: {
-            selectedCell?.transform = CGAffineTransformMakeScale(2, 2)
+        UIView.animate(withDuration: 1, animations: {
+            selectedCell?.transform = CGAffineTransform(scaleX: 2, y: 2)
         })
     }
     
-    override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as UICollectionViewCell?
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let selectedCell = collectionView.cellForItem(at: indexPath) as UICollectionViewCell?
         
-        UIView.animateWithDuration(1, animations: {
-            selectedCell?.transform = CGAffineTransformIdentity
+        UIView.animate(withDuration: 1, animations: {
+            selectedCell?.transform = CGAffineTransform.identity
         })
     }
 }

@@ -34,25 +34,25 @@ class NameAndColorCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let nameLabelRect = CGRectMake(0, 5, 70, 15)
+        let nameLabelRect = CGRect(x: 0, y: 5, width: 70, height: 15)
         let nameMarker = UILabel(frame: nameLabelRect)
-        nameMarker.textAlignment = NSTextAlignment.Right
+        nameMarker.textAlignment = NSTextAlignment.right
         nameMarker.text = "Name:"
-        nameMarker.font = UIFont.boldSystemFontOfSize(12)
+        nameMarker.font = UIFont.boldSystemFont(ofSize: 12)
         contentView.addSubview(nameMarker)
         
-        let colorLabelRect = CGRectMake(0, 26, 70, 15)
+        let colorLabelRect = CGRect(x: 0, y: 26, width: 70, height: 15)
         let colorMarker = UILabel(frame: colorLabelRect)
-        colorMarker.textAlignment = NSTextAlignment.Right
+        colorMarker.textAlignment = NSTextAlignment.right
         colorMarker.text = "Color:"
-        colorMarker.font = UIFont.boldSystemFontOfSize(12)
+        colorMarker.font = UIFont.boldSystemFont(ofSize: 12)
         contentView.addSubview(colorMarker)
         
-        let nameValueRect = CGRectMake(80, 5, 200, 15)
+        let nameValueRect = CGRect(x: 80, y: 5, width: 200, height: 15)
         nameLabel = UILabel(frame: nameValueRect)
         contentView.addSubview(nameLabel)
         
-        let colorValueRect = CGRectMake(80, 25, 200, 15)
+        let colorValueRect = CGRect(x: 80, y: 25, width: 200, height: 15)
         colorLabel = UILabel(frame: colorValueRect)
         contentView.addSubview(colorLabel)
     }
@@ -62,7 +62,7 @@ class NameAndColorCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

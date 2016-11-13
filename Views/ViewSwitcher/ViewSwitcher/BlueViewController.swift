@@ -22,14 +22,14 @@ class BlueViewController: UIViewController {
     }
     
 
-    @IBAction func blueButtonPressed(sender: UIButton) {
+    @IBAction func blueButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Blue View Button Pressed",
             message: "You pressed the button on the blue view",
-            preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Yep, I did", style: .Default,
+            preferredStyle: .alert)
+        let action = UIAlertAction(title: "Yep, I did", style: .default,
             handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
 }

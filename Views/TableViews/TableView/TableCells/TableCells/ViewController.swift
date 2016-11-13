@@ -29,23 +29,23 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        tableView.registerClass(NameAndColorCell.self,
+        tableView.register(NameAndColorCell.self,
             forCellReuseIdentifier: cellTableIdentifier)
     }
     
-    func tableView(tableView: UITableView,
+    func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             return computers.count
     }
     
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath)
         -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier(
-                cellTableIdentifier, forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: cellTableIdentifier, for: indexPath)
                 as! NameAndColorCell
             
-            let rowData = computers[indexPath.row]
+            let rowData = computers[(indexPath as NSIndexPath).row]
             cell.name = rowData["Name"]!
             cell.color = rowData["Color"]!
             

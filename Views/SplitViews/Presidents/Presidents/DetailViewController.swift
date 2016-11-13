@@ -12,15 +12,15 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var webView: UIWebView!
-    private var languageButton: UIBarButtonItem?
-    private var languagePopoverController: UIPopoverController?
+    fileprivate var languageButton: UIBarButtonItem?
+    fileprivate var languagePopoverController: UIPopoverController?
     var languageString = "" {
         didSet {
             if (languageString != oldValue) {
                 configureView()
             }
             if let popoverController = languagePopoverController {
-                popoverController.dismissPopoverAnimated(true)
+                popoverController.dismiss(animated: true)
                 languagePopoverController = nil
             }
         }
@@ -42,8 +42,8 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
                 let urlString = modifyUrlForLanguage(url: dict["url"]!, language: languageString)
                 label.text = urlString
                 
-                let url = NSURL(string: urlString)!
-                let request = NSURLRequest(URL: url)
+                let url = URL(string: urlString)!
+                let request = URLRequest(url: url)
                 webView.loadRequest(request)
                 
                 let name = dict["name"]!
@@ -55,9 +55,9 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            languageButton = UIBarButtonItem(title: "Choose Language", style: .Plain,
-                target: self, action: "toggleLanguagePopover")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            languageButton = UIBarButtonItem(title: "Choose Language", style: .plain,
+                target: self, action: #selector(DetailViewController.toggleLanguagePopover))
             navigationItem.rightBarButtonItem = languageButton
         }
         
@@ -70,13 +70,13 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
     }
 
     // Function takes as arguments a URL pointing to a Wikipedia page and a two-letter language code, and then returns a URL that combines the two.
-    private func modifyUrlForLanguage(url url: String, language lang: String?) -> String {
+    fileprivate func modifyUrlForLanguage(url: String, language lang: String?) -> String {
         var newUrl = url
         
         if let langStr = lang {
             let range = NSMakeRange(7, 2)
-            if !langStr.isEmpty && (url as NSString).substringWithRange(range) != langStr {
-                newUrl = (url as NSString).stringByReplacingCharactersInRange(range, withString: langStr)
+            if !langStr.isEmpty && (url as NSString).substring(with: range) != langStr {
+                newUrl = (url as NSString).replacingCharacters(in: range, with: langStr)
             }
         }
         
@@ -89,16 +89,16 @@ class DetailViewController: UIViewController, UIPopoverControllerDelegate {
             languageListController.detailViewController = self
             languagePopoverController =
                 UIPopoverController(contentViewController: languageListController)
-            languagePopoverController?.presentPopoverFromBarButtonItem(
-                languageButton!, permittedArrowDirections: .Any, animated: true)
+            languagePopoverController?.present(
+                from: languageButton!, permittedArrowDirections: .any, animated: true)
         } else {
-            languagePopoverController?.dismissPopoverAnimated(true)
+            languagePopoverController?.dismiss(animated: true)
             languagePopoverController = nil
         }
     }
     
     // User taps somewhere else
-    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
+    func popoverControllerDidDismissPopover(_ popoverController: UIPopoverController) {
         if popoverController == languagePopoverController {
             languagePopoverController = nil
         }

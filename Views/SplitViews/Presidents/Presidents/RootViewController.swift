@@ -9,12 +9,12 @@
 import UIKit
 
 class RootViewController: UINavigationController {
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         let splitVC = viewControllers[0] 
         let newTraits = traitCollection
-        if newTraits.horizontalSizeClass == .Compact
-            && newTraits.verticalSizeClass == .Compact {
-                let childTraits = UITraitCollection(horizontalSizeClass: .Regular)
+        if newTraits.horizontalSizeClass == .compact
+            && newTraits.verticalSizeClass == .compact {
+                let childTraits = UITraitCollection(horizontalSizeClass: .regular)
                 setOverrideTraitCollection(childTraits, forChildViewController: splitVC)
         } else {
             setOverrideTraitCollection(nil, forChildViewController: splitVC)
