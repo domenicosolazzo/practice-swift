@@ -11,9 +11,9 @@ import UIKit
 let reuseIdentifier = "FlickrCell"
 
 extension FlickrPhotosViewController : UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // 1
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         textField.addSubview(activityIndicator)
         activityIndicator.frame = textField.bounds
         activityIndicator.startAnimating()
@@ -29,7 +29,7 @@ extension FlickrPhotosViewController : UITextFieldDelegate {
             if results != nil {
                 //3
                 print("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
-                self.searches.insert(results!, atIndex: 0)
+                self.searches.insert(results!, at: 0)
                 
                 //4
                 self.collectionView?.reloadData()
@@ -44,16 +44,16 @@ extension FlickrPhotosViewController : UITextFieldDelegate {
 
 extension FlickrPhotosViewController {
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return searches.count
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searches[section].searchResults.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlickrPhotoCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlickrPhotoCell
         
         let flickrPhoto = photoForIndexPath(indexPath)
         
@@ -86,7 +86,7 @@ extension FlickrPhotosViewController {
             }
             
             if indexPath == self.largePhotoIndexPath {
-                if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? FlickrPhotoCell {
+                if let cell = collectionView.cellForItem(at: indexPath) as? FlickrPhotoCell {
                     cell.imageView.image = loadedFlickrPhoto.largeImage
                 }
             }
@@ -102,9 +102,9 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     *  To do this, you must first determine which FlickrPhoto you are looking at, since each photo could
     *  have different dimensions.
     */
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
             
             let flickrPhoto =  photoForIndexPath(indexPath)
             // Larged tapped photo  
@@ -125,23 +125,23 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     }
     
     // It returns the spacing between the cells, headers, and footers.
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        insetForSectionAt section: Int) -> UIEdgeInsets {
             return sectionInsets
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             //2
         case UICollectionElementKindSectionHeader:
             //3
             let headerView =
-            collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+            collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                 withReuseIdentifier: "FlickrPhotoHeaderView",
-                forIndexPath: indexPath)
+                for: indexPath)
                 as! FlickrPhotoHeaderView
-            headerView.label.text = searches[indexPath.section].searchTerm
+            headerView.label.text = searches[(indexPath as NSIndexPath).section].searchTerm
             return headerView
         default:
             //4
@@ -149,7 +149,7 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
         }
     }
     // Selected cell
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if sharing {
             return true
         }
@@ -162,8 +162,8 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
         return false
     }
     // Add photos in sharing mode
-    override func collectionView(collectionView: UICollectionView,
-        didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath) {
             if sharing {
                 let photo = photoForIndexPath(indexPath)
                 selectedPhotos.append(photo)
@@ -172,11 +172,11 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
     }
     
     // Remove photos in sharing mode
-    override func collectionView(collectionView: UICollectionView,
-        didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+        didDeselectItemAt indexPath: IndexPath) {
             if sharing {
-                if let foundIndex = selectedPhotos.indexOf(photoForIndexPath(indexPath)) {
-                    selectedPhotos.removeAtIndex(foundIndex)
+                if let foundIndex = selectedPhotos.index(of: photoForIndexPath(indexPath)) {
+                    selectedPhotos.remove(at: foundIndex)
                     updateSharedPhotoCount()
                 }
             }
@@ -184,11 +184,11 @@ extension FlickrPhotosViewController : UICollectionViewDelegateFlowLayout {
 }
 
 class FlickrPhotosViewController: UICollectionViewController {
-    private var searches = [FlickrSearchResults]() // List of searches
-    private let flickr = Flickr() // Singleton
-    private let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-    private var selectedPhotos = [FlickrPhoto]()
-    private let shareTextLabel = UILabel()
+    fileprivate var searches = [FlickrSearchResults]() // List of searches
+    fileprivate let flickr = Flickr() // Singleton
+    fileprivate let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+    fileprivate var selectedPhotos = [FlickrPhoto]()
+    fileprivate let shareTextLabel = UILabel()
     
     func updateSharedPhotoCount() {
         shareTextLabel.textColor = themeColor
@@ -201,9 +201,9 @@ class FlickrPhotosViewController: UICollectionViewController {
     }
 
     // Keep track of the tapped cell
-    var largePhotoIndexPath: NSIndexPath? {
+    var largePhotoIndexPath: IndexPath? {
         didSet{
-            var indexPaths = [NSIndexPath]()
+            var indexPaths = [IndexPath]()
             if self.largePhotoIndexPath != nil{
                 indexPaths.append(self.largePhotoIndexPath!)
             }
@@ -214,14 +214,14 @@ class FlickrPhotosViewController: UICollectionViewController {
             
             // Animate any changes to the collection view performed inside the block
             collectionView?.performBatchUpdates({
-                self.collectionView?.reloadItemsAtIndexPaths(indexPaths)
+                self.collectionView?.reloadItems(at: indexPaths)
                 return
                 }){ completed in
                     if self.largePhotoIndexPath != nil{
                         // Scroll the enlarged cell to the middle of the screen
-                        self.collectionView?.scrollToItemAtIndexPath(
-                            self.largePhotoIndexPath!,
-                            atScrollPosition: UICollectionViewScrollPosition.CenteredVertically,
+                        self.collectionView?.scrollToItem(
+                            at: self.largePhotoIndexPath!,
+                            at: UICollectionViewScrollPosition.centeredVertically,
                             animated: true
                         )
                     }
@@ -233,8 +233,8 @@ class FlickrPhotosViewController: UICollectionViewController {
     var sharing : Bool = false {
         didSet {
             collectionView?.allowsMultipleSelection = sharing
-            collectionView?.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
-            selectedPhotos.removeAll(keepCapacity: false)
+            collectionView?.selectItem(at: nil, animated: true, scrollPosition: UICollectionViewScrollPosition())
+            selectedPhotos.removeAll(keepingCapacity: false)
             if sharing && largePhotoIndexPath != nil {
                 largePhotoIndexPath = nil
             }
@@ -245,17 +245,17 @@ class FlickrPhotosViewController: UICollectionViewController {
                 if sharing {
                     updateSharedPhotoCount()
                     let sharingDetailItem = UIBarButtonItem(customView: shareTextLabel)
-                    navigationItem.setRightBarButtonItems([shareButton,sharingDetailItem], animated: true)
+                    navigationItem.setRightBarButtonItems([shareButton!,sharingDetailItem], animated: true)
                 }
                 else {
-                    navigationItem.setRightBarButtonItems([shareButton], animated: true)
+                    navigationItem.setRightBarButtonItems([shareButton!], animated: true)
                 }
             }
             
         }
     }
     
-    @IBAction func share(sender: AnyObject) {
+    @IBAction func share(_ sender: AnyObject) {
         if searches.isEmpty {
             return
         }
@@ -268,7 +268,7 @@ class FlickrPhotosViewController: UICollectionViewController {
             
             let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
             //let popover = UIPopoverController(contentViewController: shareScreen)
-            self.presentViewController(shareScreen, animated: true, completion: nil)
+            self.present(shareScreen, animated: true, completion: nil)
             //popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
                // permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
@@ -287,8 +287,8 @@ class FlickrPhotosViewController: UICollectionViewController {
     
     // Convenience method that will get a specific photo related to 
     // an index path in your collection view.
-    func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto {
-        return searches[indexPath.section].searchResults[indexPath.row]
+    func photoForIndexPath(_ indexPath: IndexPath) -> FlickrPhoto {
+        return searches[(indexPath as NSIndexPath).section].searchResults[(indexPath as NSIndexPath).row]
     }
     
     

@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // Content that we want to display
-    private var sections: [[String: String]]!
+    fileprivate var sections: [[String: String]]!
 
     
     override func viewDidLoad() {
@@ -34,11 +34,11 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         ]
         
         // Register the content cell
-        collectionView!.registerClass(ContentCell.self,
+        collectionView!.register(ContentCell.self,
             forCellWithReuseIdentifier: "CONTENT")
         
         // Register the header cell
-        collectionView!.registerClass(HeaderCell.self,
+        collectionView!.register(HeaderCell.self,
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
             withReuseIdentifier: "HEADER")
         
@@ -52,7 +52,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         flow.sectionInset = UIEdgeInsetsMake(10, 20, 30, 20)
         
         // Size for the header 
-        flow.headerReferenceSize = CGSizeMake(100, 25)
+        flow.headerReferenceSize = CGSize(width: 100, height: 25)
 
     }
 
@@ -62,59 +62,59 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     // Helper method
-    func wordsInSection(section: Int) -> [String] {
+    func wordsInSection(_ section: Int) -> [String] {
         let content = sections[section]["content"]
-        let spaces = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-        let words = content?.componentsSeparatedByCharactersInSet(spaces)
+        let spaces = CharacterSet.whitespacesAndNewlines
+        let words = content?.components(separatedBy: spaces)
         return words!
     }
     
     // How many sections to display
-    override func numberOfSectionsInCollectionView(
-        collectionView: UICollectionView) -> Int {
+    override func numberOfSections(
+        in collectionView: UICollectionView) -> Int {
             return sections.count
     }
     
     // How many items for each section
-    override func collectionView(collectionView: UICollectionView,
+    override func collectionView(_ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
             let words = wordsInSection(section)
             return words.count
     }
     
     // Returning the cell
-    override func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath)
+    override func collectionView(_ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell {
-            let words = wordsInSection(indexPath.section)
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-                "CONTENT", forIndexPath: indexPath) as! ContentCell
+            let words = wordsInSection((indexPath as NSIndexPath).section)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "CONTENT", for: indexPath) as! ContentCell
             cell.maxWidth = collectionView.bounds.size.width
-            cell.text = words[indexPath.row]
+            cell.text = words[(indexPath as NSIndexPath).row]
             return cell
     }
     
     //- MARK: UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            let words = wordsInSection(indexPath.section)
-            let size = ContentCell.sizeForContentString(words[indexPath.row],
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let words = wordsInSection((indexPath as NSIndexPath).section)
+            let size = ContentCell.sizeForContentString(words[(indexPath as NSIndexPath).row],
                 forMaxWidth: collectionView.bounds.size.width)
             return size
     }
     
-    override func collectionView(collectionView: UICollectionView,
+    override func collectionView(_ collectionView: UICollectionView,
         viewForSupplementaryElementOfKind kind: String,
-        atIndexPath indexPath: NSIndexPath)
+        at indexPath: IndexPath)
         -> UICollectionReusableView {
             if (kind == UICollectionElementKindSectionHeader) {
                 let cell =
-                collectionView.dequeueReusableSupplementaryViewOfKind(
-                    kind, withReuseIdentifier: "HEADER",
-                    forIndexPath: indexPath) as! HeaderCell
+                collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind, withReuseIdentifier: "HEADER",
+                    for: indexPath) as! HeaderCell
                 cell.maxWidth = collectionView.bounds.size.width
-                cell.text = sections[indexPath.section]["header"]
+                cell.text = sections[(indexPath as NSIndexPath).section]["header"]
                 return cell
             }
             abort()

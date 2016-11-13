@@ -15,11 +15,11 @@ class FlickrPhotoCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selected = false
+        self.isSelected = false
     }
-    override var selected : Bool {
+    override var isSelected : Bool {
         didSet {
-            self.backgroundColor = selected ? themeColor : UIColor.blackColor()
+            self.backgroundColor = isSelected ? themeColor : UIColor.black
         }
     }
 }

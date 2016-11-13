@@ -18,7 +18,7 @@ class HeaderCell: UICollectionViewCell {
             label.text = newText
             var newLabelFrame = label.frame
             var newContentFrame = contentView.frame
-            let textSize = self.dynamicType.sizeForContentString(newText,
+            let textSize = type(of: self).sizeForContentString(newText,
                 forMaxWidth: maxWidth)
             newLabelFrame.size = textSize
             newContentFrame.size = textSize
@@ -32,7 +32,7 @@ class HeaderCell: UICollectionViewCell {
         super.init(frame: frame)
         label.backgroundColor = UIColor(red: 0.9, green: 0.9,
             blue: 0.8, alpha: 1.0)
-        label.textColor = UIColor.blackColor()
+        label.textColor = UIColor.black
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,20 +40,20 @@ class HeaderCell: UICollectionViewCell {
     }
     
     class func defaultFont() -> UIFont {
-        return UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        return UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
     }
-    class func sizeForContentString(s: String,
+    class func sizeForContentString(_ s: String,
         forMaxWidth maxWidth: CGFloat) -> CGSize {
-            let maxSize = CGSizeMake(maxWidth, 1000)
-            let opts = NSStringDrawingOptions.UsesLineFragmentOrigin
+            let maxSize = CGSize(width: maxWidth, height: 1000)
+            let opts = NSStringDrawingOptions.usesLineFragmentOrigin
             
             let style = NSMutableParagraphStyle()
-            style.lineBreakMode = NSLineBreakMode.ByCharWrapping
+            style.lineBreakMode = NSLineBreakMode.byCharWrapping
             let attributes = [NSFontAttributeName: self.defaultFont(),
                 NSParagraphStyleAttributeName: style]
             
             let string = s as NSString
-            let rect = string.boundingRectWithSize(maxSize, options: opts,
+            let rect = string.boundingRect(with: maxSize, options: opts,
                 attributes: attributes, context: nil)
             
             return rect.size
