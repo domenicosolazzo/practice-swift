@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var locationManager: CLLocationManager! = nil
     var isExecutingInBackground = false
 
-    func application(application: UIApplication,
+    func application(_ application: UIApplication,
         didFinishLaunchingWithOptions
-        launchOptions: [NSObject : AnyObject]?) -> Bool {
+        launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             locationManager = CLLocationManager()
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.delegate = self
@@ -26,19 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             return true
     }
     
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(_ manager: CLLocationManager!,
         didUpdateToLocation newLocation: CLLocation!,
         fromLocation oldLocation: CLLocation!){
             if isExecutingInBackground{
                 /* We are in the background. Do not do any heavy processing */
-                println("The app is in background")
+                print("The app is in background")
             } else {
                 /* We are in the foreground. Do any processing that you wish */
-                println("The app is in foreground")
+                print("The app is in foreground")
             }
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         isExecutingInBackground = true
         
         /* Reduce the accuracy to ease the strain on
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         isExecutingInBackground = false
         
         /* Now that our app is in the foreground again, let's increase the location
