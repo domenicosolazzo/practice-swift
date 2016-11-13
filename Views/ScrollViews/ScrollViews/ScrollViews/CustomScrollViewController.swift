@@ -22,15 +22,15 @@ class CustomScrollViewController: UIViewController, UIScrollViewDelegate {
         
         // Set up your custom view hierarchy
         let redView = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 80))
-        redView.backgroundColor = UIColor.redColor();
+        redView.backgroundColor = UIColor.red;
         containerView.addSubview(redView)
         
         let blueView = UIView(frame: CGRect(x: 0, y: 560, width: 640, height: 80))
-        blueView.backgroundColor = UIColor.blueColor();
+        blueView.backgroundColor = UIColor.blue;
         containerView.addSubview(blueView)
         
         let greenView = UIView(frame: CGRect(x: 160, y: 160, width: 320, height: 320))
-        greenView.backgroundColor = UIColor.greenColor();
+        greenView.backgroundColor = UIColor.green;
         containerView.addSubview(greenView)
         
         let imageView = UIImageView(image: UIImage(named: "slow.png"))
@@ -72,11 +72,11 @@ class CustomScrollViewController: UIViewController, UIScrollViewDelegate {
         containerView.frame = contentsFrame
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return containerView
     }
     
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         centerScrollViewContents()
     }
 }

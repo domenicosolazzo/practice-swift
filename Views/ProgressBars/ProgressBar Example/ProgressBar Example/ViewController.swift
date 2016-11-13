@@ -13,11 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let progressBar = UIProgressView(progressViewStyle: UIProgressViewStyle.Bar)
+        let progressBar = UIProgressView(progressViewStyle: UIProgressViewStyle.bar)
         progressBar.center = view.center
         progressBar.progress = 1 / 2
-        progressBar.trackTintColor = UIColor.blueColor()
-        progressBar.tintColor = UIColor.redColor()
+        progressBar.trackTintColor = UIColor.blue
+        progressBar.tintColor = UIColor.red
         
         self.view.addSubview(progressBar)
     }

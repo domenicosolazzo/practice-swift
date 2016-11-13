@@ -46,7 +46,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         loadVisiblePages()
     }
     
-    func loadPage(page: Int) {
+    func loadPage(_ page: Int) {
         if page < 0 || page >= pageImages.count {
             // If it's outside the range of what you have to display, then do nothing
             return
@@ -63,7 +63,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
             
             // It creates a new UIImageView, sets it up and adds it to the scroll view
             let newPageView = UIImageView(image: pageImages[page])
-            newPageView.contentMode = .ScaleAspectFit
+            newPageView.contentMode = .scaleAspectFit
             newPageView.frame = frame
             scrollView.addSubview(newPageView)
             
@@ -72,7 +72,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func purgePage(page: Int) {
+    func purgePage(_ page: Int) {
         if page < 0 || page >= pageImages.count {
             // If it's outside the range of what you have to display, then do nothing
             return
@@ -98,7 +98,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         let lastPage = page + 1
         
         // Purge anything before the first page
-        for var index = 0; index < firstPage; ++index {
+        for index in 0 ..< firstPage += 1 {
             purgePage(index)
         }
         
@@ -108,12 +108,12 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         }
         
         // Purge anything after the last page
-        for var index = lastPage+1; index < pageImages.count; ++index {
+        for index in lastPage+1 ..< pageImages.count += 1 {
             purgePage(index)
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Load the pages that are now on screen
         loadVisiblePages()
     }

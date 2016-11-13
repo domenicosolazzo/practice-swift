@@ -38,7 +38,7 @@ class PeekPagedScrollViewController: UIViewController {
         
         // Set up the content size of the scroll view
         let pagesScrollViewSize = scrollView.frame.size
-        scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
+        scrollView.contentSize = CGSize(width: pagesScrollViewSize.width * CGFloat(pageImages.count), height: pagesScrollViewSize.height)
         
         // Load the initial set of pages that are on screen
         loadVisiblePages()
@@ -57,7 +57,7 @@ class PeekPagedScrollViewController: UIViewController {
         let lastPage = page + 1
         
         // Purge anything before the first page
-        for var index = 0; index < firstPage; ++index {
+        for index in 0 ..< firstPage += 1 {
             purgePage(index)
         }
         
@@ -67,12 +67,12 @@ class PeekPagedScrollViewController: UIViewController {
         }
         
         // Purge anything after the last page
-        for var index = lastPage+1; index < pageImages.count; ++index {
+        for index in lastPage+1 ..< pageImages.count += 1 {
             purgePage(index)
         }
     }
     
-    func loadPage(page: Int) {
+    func loadPage(_ page: Int) {
         if page < 0 || page >= pageImages.count {
             // If it's outside the range of what you have to display, then do nothing
             return
@@ -85,17 +85,17 @@ class PeekPagedScrollViewController: UIViewController {
             var frame = scrollView.bounds
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
-            frame = CGRectInset(frame, 10.0, 0.0)
+            frame = frame.insetBy(dx: 10.0, dy: 0.0)
             
             let newPageView = UIImageView(image: pageImages[page])
-            newPageView.contentMode = .ScaleAspectFit
+            newPageView.contentMode = .scaleAspectFit
             newPageView.frame = frame
             scrollView.addSubview(newPageView)
             pageViews[page] = newPageView
         }
     }
     
-    func purgePage(page: Int) {
+    func purgePage(_ page: Int) {
         if page < 0 || page >= pageImages.count {
             // If it's outside the range of what you have to display, then do nothing
             return
@@ -108,7 +108,7 @@ class PeekPagedScrollViewController: UIViewController {
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView!) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView!) {
         // Load the pages that are now on screen
         loadVisiblePages()
     }

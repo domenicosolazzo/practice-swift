@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = image.size
         
         // Setting up a gesture recognizer for the double-tap to zoom in. Zoom gestures is already included in the scrollView.
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.scrollViewDoubleTapped(_:)))
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(doubleTapRecognizer)
@@ -65,9 +65,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         imageView.frame = contentsFrame
     }
     // When the tap gesture detects double tap
-    func scrollViewDoubleTapped(recognizer: UITapGestureRecognizer) {
+    func scrollViewDoubleTapped(_ recognizer: UITapGestureRecognizer) {
         // Where the tap occurred within the image view. 
-        let pointInView = recognizer.locationInView(imageView)
+        let pointInView = recognizer.location(in: imageView)
         
         // Calculate a zoom scale that’s zoomed in 150%, but capped at the maximum zoom scale
         var newZoomScale = scrollView.zoomScale * 1.5
@@ -80,19 +80,19 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let x = pointInView.x - (w / 2.0)
         let y = pointInView.y - (h / 2.0)
         
-        let rectToZoomTo = CGRectMake(x, y, w, h);
+        let rectToZoomTo = CGRect(x: x, y: y, width: w, height: h);
         
         //  Tell the scroll view to zoom in
-        scrollView.zoomToRect(rectToZoomTo, animated: true)
+        scrollView.zoom(to: rectToZoomTo, animated: true)
     }
     
     // Which view should be made bigger and smaller when the scroll view is pinched.
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
     // The scroll view will call this method after the user finishes zooming
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         centerScrollViewContents()
     }
     
