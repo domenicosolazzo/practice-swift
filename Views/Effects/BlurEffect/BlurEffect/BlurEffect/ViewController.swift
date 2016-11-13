@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         
         // Create a blur effect. The style is an UIBlurEffectStyle value
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         
         // Add a UIVisualEffectView
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
