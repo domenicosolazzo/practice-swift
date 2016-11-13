@@ -12,7 +12,7 @@ func swapNumbers(i1: Int, i2: Int){
     inputArray[i2] = temp
 }
 
-func bubbleSort(inputArray: Int[]){
+func bubbleSort(inputArray: [Int]){
     for var index: Int = inputArray.count-1; index > 1; --index{
         for var j:Int = 0; j < index; ++j{
             if inputArray[j] > inputArray[j + 1]{
@@ -45,7 +45,7 @@ inputArray = Int[]()
 
 var min: Int = 0
 
-func selectionSort(inputArray: Int[]){
+func selectionSort(inputArray: [Int]){
     println(inputArray)
     for var index:Int = 0; index < inputArray.count-1; ++index{
         min = index
