@@ -18,28 +18,29 @@ class ViewController: UIViewController {
         
         /* You can choose your own URL here */
         let urlAsString = "http://www.apple.com"
-        let url = NSURL(string: urlAsString)
+        let url = URL(string: urlAsString)
         
         /* Set the timeout on our request here */
-        let urlRequest = NSURLRequest(URL: url!,
-            cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData,
+        let urlRequest = URLRequest(url: url!,
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 15.0)
         
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) {[weak self]
-            (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
+            (response:URLResponse?, data:Data?, error:Error?) -> Void in
             /* Now we may have access to the data, but check if an error came back
             first or not */
-            if data.length > 0 && error == nil{
-                let html = NSString(data: data, encoding: NSUTF8StringEncoding)
-                println("html = \(html)")
-            } else if data.length == 0 && error == nil{
-                println("Nothing was downloaded")
+            if (data?.count)! > 0 && error == nil{
+                let html = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("html = \(html)")
+            } else if data?.count == 0 && error == nil{
+                print("Nothing was downloaded")
             } else if error != nil{
-                println("Error happened = \(error)")
+                print("Error happened = \(error)")
             }
         }
+        
     }
 }
 
