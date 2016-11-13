@@ -161,9 +161,11 @@
 				TargetAttributes = {
 					C0FF7A021B05F1A800BEB1C7 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					C0FF7A171B05F1A800BEB1C7 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C0FF7A021B05F1A800BEB1C7;
 					};
 				};
@@ -345,6 +347,7 @@
 				INFOPLIST_FILE = "Listening to Keyboard notifications/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -355,6 +358,7 @@
 				INFOPLIST_FILE = "Listening to Keyboard notifications/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -373,6 +377,7 @@
 				INFOPLIST_FILE = "Listening to Keyboard notificationsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Listening to Keyboard notifications.app/Listening to Keyboard notifications";
 			};
 			name = Debug;
@@ -388,6 +393,7 @@
 				INFOPLIST_FILE = "Listening to Keyboard notificationsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Listening to Keyboard notifications.app/Listening to Keyboard notifications";
 			};
 			name = Release;
@@ -411,6 +417,7 @@
 				C0FF7A241B05F1A800BEB1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0FF7A251B05F1A800BEB1C7 /* Build configuration list for PBXNativeTarget "Listening to Keyboard notificationsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +426,7 @@
 				C0FF7A271B05F1A800BEB1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

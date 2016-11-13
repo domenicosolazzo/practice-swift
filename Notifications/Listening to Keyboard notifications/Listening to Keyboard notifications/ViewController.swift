@@ -14,39 +14,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let center = NSNotificationCenter.defaultCenter()
+        let center = NotificationCenter.default
         
         center.addObserver(
             self,
-            selector: "handleKeyboardWillShow:",
-            name: UIKeyboardWillShowNotification,
+            selector: #selector(ViewController.handleKeyboardWillShow(_:)),
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
         
         center.addObserver(
             self,
-            selector: "handleKeyboardWillHide:",
-            name: UIKeyboardWillHideNotification,
+            selector: #selector(ViewController.handleKeyboardWillHide(_:)),
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil
         )
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func handleKeyboardWillShow(notification:NSNotification){
-        var userInfo = notification.userInfo
+    func handleKeyboardWillShow(_ notification:Notification){
+        let userInfo = (notification as NSNotification).userInfo
         
         if let info = userInfo{
             /* Get the duration of the animation of the keyboard for when it
@@ -59,24 +59,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
             info[UIKeyboardFrameEndUserInfoKey] as! NSValue
             
             var animationDuration = 0.0
-            var keyboardEndRect = CGRectZero
+            var keyboardEndRect = CGRect.zero
             
             animationDurationObject.getValue(&animationDuration)
             keyboardEndRectObject.getValue(&keyboardEndRect)
             
-            let window = UIApplication.sharedApplication().keyWindow
+            let window = UIApplication.shared.keyWindow
             
             /* Convert the frame from the window's coordinate system to
             our view's coordinate system */
-            keyboardEndRect = view.convertRect(keyboardEndRect, fromView: window)
+            keyboardEndRect = view.convert(keyboardEndRect, from: window)
             
             /* Find out how much of our view is being covered by the keyboard */
             let intersectionOfKeyboardRectAndWindowRect =
-            CGRectIntersection(view.frame, keyboardEndRect);
+            view.frame.intersection(keyboardEndRect);
             
             
             /* Scroll the scroll view up to show the full contents of our view */
-            UIView.animateWithDuration(animationDuration, animations: {[weak self] in
+            UIView.animate(withDuration: animationDuration, animations: {[weak self] in
                 
                 self!.scrollView.contentInset = UIEdgeInsets(top: 0,
                     left: 0,
@@ -92,8 +92,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func handleKeyboardWillHide(notification: NSNotification){
-        let userInfo = notification.userInfo
+    func handleKeyboardWillHide(_ notification: Notification){
+        let userInfo = (notification as NSNotification).userInfo
         
         if let info = userInfo{
             let animationDurationObject =
@@ -104,9 +104,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             animationDurationObject.getValue(&animationDuration)
             
-            UIView.animateWithDuration(animationDuration, animations: {
+            UIView.animate(withDuration: animationDuration, animations: {
                 [weak self] in
-                self!.scrollView.contentInset = UIEdgeInsetsZero
+                self!.scrollView.contentInset = UIEdgeInsets.zero
                 })
         }
     }
