@@ -37,7 +37,7 @@ let outputBits = firstBits ^ otherBits // 00010001
 /*
 === Bitwise Left and Right shift operator (<<) (>>) ===
 */
-let shiftBits:Uint8 =4 //00000100 in binary
+let shiftBits:UInt8 = 4 //00000100 in binary
 shiftBits << 1 // 00001000
 shiftBits << 2 // 00010000
 shiftBits << 5 // 10000000
