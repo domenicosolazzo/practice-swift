@@ -12,18 +12,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dispatch_async(dispatch_get_main_queue(), {[weak self] in
-            println("Current thread: \(NSThread.currentThread())")
-            println("Main thread: \(NSThread.mainThread())")
+        DispatchQueue.main.async(execute: {[weak self] in
+            print("Current thread: \(Thread.current)")
+            print("Main thread: \(Thread.main)")
             
             let alertController = UIAlertController(
                 title: "GCD",
                 message: "GCD is amazing",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             
-            self!.presentViewController(alertController, animated: true, completion: nil)
+            self!.present(alertController, animated: true, completion: nil)
         })
     }
 }
