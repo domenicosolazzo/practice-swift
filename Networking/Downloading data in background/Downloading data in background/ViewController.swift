@@ -8,51 +8,51 @@
 
 import UIKit
 
-class ViewController: UIViewController, NSURLSessionDelegate,
-        NSURLSessionDownloadDelegate, NSURLSessionTaskDelegate {
+class ViewController: UIViewController, URLSessionDelegate,
+        URLSessionDownloadDelegate, URLSessionTaskDelegate {
 
     // Session object
-    var session: NSURLSession!
+    var session: Foundation.URLSession!
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         
-        let configuration = NSURLSessionConfiguration.backgroundSessionConfiguration(configurationIdentifier)
+        let configuration = URLSessionConfiguration.backgroundSessionConfiguration(configurationIdentifier)
         configuration.timeoutIntervalForRequest = 15
         
-        session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        session = Foundation.URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        var url = NSURL(string: "http://goo.gl/mf9xj3")
-        var task = session.downloadTaskWithURL(url!)
+        let url = URL(string: "http://goo.gl/mf9xj3")
+        let task = session.downloadTask(with: url!)
         task.resume()
     }
     
     //- MARK: URLSession delegates
     // This method indicates if we received new data
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        println("Received data")
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        print("Received data")
     }
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         print("Finished...")
         
         if error == nil{
-            println("...without error")
+            print("...without error")
         }else{
-            println("...with error. Error \(error)")
+            print("...with error. Error \(error)")
         }
         
         session.finishTasksAndInvalidate()
     }
     
-    func URLSession(session: NSURLSession,
-        downloadTask: NSURLSessionDownloadTask,
-        didFinishDownloadingToURL location: NSURL){
-            println("Finished writing the downloaded content to URL = \(location)")
+    func urlSession(_ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL){
+            print("Finished writing the downloaded content to URL = \(location)")
     }
     //- MARK: Computer properties
     /* This computed property will generate a unique identifier for our
@@ -63,24 +63,24 @@ class ViewController: UIViewController, NSURLSessionDelegate,
     is persistent between launches of this app.
     */
     var configurationIdentifier: String{
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        var key = "configurationIdentifier"
-        let previousValue = userDefaults.stringForKey(key) as String?
+        let userDefaults = UserDefaults.standard
+        let key = "configurationIdentifier"
+        let previousValue = userDefaults.string(forKey: key) as String?
         
         if previousValue != nil{
             return previousValue!
         }else{
-            let newValue = NSDate().description
-            userDefaults.setObject(newValue, forKey: key)
+            let newValue = Date().description
+            userDefaults.set(newValue, forKey: key)
             userDefaults.synchronize()
             return newValue
         }
     }
     //- MARK: Helper Methods
-    func showAlertWithTitle(title:String, message:String){
-        var controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        presentViewController(controller, animated: true, completion: nil)
+    func showAlertWithTitle(_ title:String, message:String){
+        let controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(controller, animated: true, completion: nil)
     }
 }
 
