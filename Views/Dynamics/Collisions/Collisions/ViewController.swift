@@ -18,9 +18,9 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
         super.viewDidLoad()
         
         let firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
-        firstView.backgroundColor = UIColor.redColor()
+        firstView.backgroundColor = UIColor.red
         let secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
-        secondView.backgroundColor = UIColor.blueColor()
+        secondView.backgroundColor = UIColor.blue
         self.view.addSubview(firstView)
         self.view.addSubview(secondView)
             
@@ -29,7 +29,7 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
         animator.addBehavior(gravity)
         
         collision = UICollisionBehavior(items: [firstView, secondView])
-        collision.collisionMode = UICollisionBehaviorMode.Boundaries
+        collision.collisionMode = UICollisionBehaviorMode.boundaries
         // Set a boundary
         collision.translatesReferenceBoundsIntoBoundary = true
         // Set the delegate
@@ -39,12 +39,12 @@ class ViewController: UIViewController,UICollisionBehaviorDelegate {
         
     }
     
-    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint) {
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
         print("Item1: \(item1)")
         print("Item2: \(item2)")
     }
     
-    func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem) {
+    func collisionBehavior(_ behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, with item2: UIDynamicItem) {
         print("Collision ended")
     }
     

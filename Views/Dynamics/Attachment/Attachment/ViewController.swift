@@ -19,9 +19,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         super.viewDidLoad()
         
         let firstView = UIView(frame: CGRect(x: CGFloat(84), y: CGFloat(42), width: CGFloat(100), height: CGFloat(120)))
-        firstView.backgroundColor = UIColor.redColor()
+        firstView.backgroundColor = UIColor.red
         let secondView = UIView(frame: CGRect(x: CGFloat(50), y: CGFloat(100), width: CGFloat(100), height: CGFloat(120)))
-        secondView.backgroundColor = UIColor.blueColor()
+        secondView.backgroundColor = UIColor.blue
         self.view.addSubview(firstView)
         self.view.addSubview(secondView)
         
@@ -30,14 +30,14 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         animator.addBehavior(gravity)
         
         collision = UICollisionBehavior(items: [firstView, secondView])
-        collision.collisionMode = UICollisionBehaviorMode.Boundaries
+        collision.collisionMode = UICollisionBehaviorMode.boundaries
         // Set a boundary
         collision.translatesReferenceBoundsIntoBoundary = true
         // Set the delegate
         collision.collisionDelegate = self
         animator.addBehavior(collision)
         
-        let centerPoint = CGPointMake(firstView.center.x, firstView.center.y)
+        let centerPoint = CGPoint(x: firstView.center.x, y: firstView.center.y)
         attachment = UIAttachmentBehavior(item: secondView, attachedToAnchor: centerPoint)
         
         animator.addBehavior(attachment)
