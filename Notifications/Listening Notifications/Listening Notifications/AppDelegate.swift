@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return "lastName"
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let person = Person()
         
@@ -37,22 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         // Notification
-        let notification = NSNotification(name: self.classForCoder.notificationName(),
-            object: self,
-            userInfo: additionalInfo)
+        
+        let notification = Notification(name:Notification.Name("Notification"))
         
         /* The person class is currently listening for this
         notification. That class will extract the first name and last name
         from it and set its own first name and last name based on the
         userInfo dictionary of the notification. */
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+        NotificationCenter.default.post(notification)
         
         
         if let firstName = person.firstName{
-            println("Person's first name is: \(firstName)")
+            print("Person's first name is: \(firstName)")
         }
         if let lastName = person.lastName{
-            println("Person's last name is: \(lastName)")
+            print("Person's last name is: \(lastName)")
         }
         return true
     }

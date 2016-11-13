@@ -14,20 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     
-    func application(application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             
             if let options = launchOptions{
                 
                 /* Do we have a value? */
                 let value =
-                options[UIApplicationLaunchOptionsLocalNotificationKey]
+                options[UIApplicationLaunchOptionsKey.localNotification]
                     as? UILocalNotification
                 
                 if let notification = value{
                     print("Opening the app because of a notification...")
                     self.application(application ,
-                        didReceiveLocalNotification: notification)
+                        didReceive: notification)
                 }
             } else {
                 print("Asking for permission...")
@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
     }
     
-    func application(application: UIApplication,
-        didReceiveLocalNotification notification: UILocalNotification) {
+    func application(_ application: UIApplication,
+        didReceive notification: UILocalNotification) {
             
             let key1Value = notification.userInfo!["Key 1"] as? NSString
             let key2Value = notification.userInfo!["Key 2"] as? NSString
@@ -52,8 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
     }
     
-    func application(application: UIApplication,
-        didRegisterUserNotificationSettings
+    func application(_ application: UIApplication,
+        didRegister
         notificationSettings: UIUserNotificationSettings){
             
             if notificationSettings.types == []{
@@ -72,8 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notification = UILocalNotification()
         
         /* Time and timezone settings */
-        notification.fireDate = NSDate(timeIntervalSinceNow: 8.0)
-        notification.timeZone = NSCalendar.currentCalendar().timeZone
+        notification.fireDate = Date(timeIntervalSinceNow: 8.0)
+        notification.timeZone = Calendar.current.timeZone
         
         notification.alertBody = "A new item is downloaded."
         
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /* Badge settings */
         notification.applicationIconBadgeNumber =
-            UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+            UIApplication.shared.applicationIconBadgeNumber + 1
         
         /* Additional information, user info */
         notification.userInfo = [
@@ -92,14 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         /* Schedule the notification */
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
         
     }
     
-    func askForNotificationPermissionForApplication(application: UIApplication){
+    func askForNotificationPermissionForApplication(_ application: UIApplication){
         /* First ask the user if we are
         allowed to perform local notifications */
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge],
+        let settings = UIUserNotificationSettings(types: [.alert, .badge],
             categories: nil)
         
         application.registerUserNotificationSettings(settings)

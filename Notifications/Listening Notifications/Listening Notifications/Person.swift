@@ -18,24 +18,24 @@ class Person: NSObject {
     override init(){
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             // Object observing for this notification
             self,
             // Method that should handle this notification
-            selector: "handleSetPersonInfoNotification:",
+            selector: #selector(Person.handleSetPersonInfoNotification(_:)),
             // Notification name
-            name: AppDelegate.notificationName(),
+            name: NSNotification.Name(rawValue: AppDelegate.notificationName()),
             // Object where the notification is coming from
-            object: UIApplication.sharedApplication().delegate
+            object: UIApplication.shared.delegate
         )
         
     }
     
     //- MARK: Notification selectors
     // Listening for the notification for setting the object's properties
-    func handleSetPersonInfoNotification(notification:NSNotification){
-        self.firstName = notification.userInfo![AppDelegate.personInfoKeyFirstName()] as? String
-        self.lastName = notification.userInfo![AppDelegate.personInfoKeyLastName()] as? String
+    func handleSetPersonInfoNotification(_ notification:Notification){
+        self.firstName = (notification as NSNotification).userInfo![AppDelegate.personInfoKeyFirstName()] as? String
+        self.lastName = (notification as NSNotification).userInfo![AppDelegate.personInfoKeyLastName()] as? String
     }
     
 }
