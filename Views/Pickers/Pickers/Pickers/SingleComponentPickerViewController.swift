@@ -18,7 +18,7 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
 
     @IBOutlet weak var picker: UIPickerView!
     // Data
-    private let characterNames = [
+    fileprivate let characterNames = [
         "Luke", "Leia", "Han", "Chewbacca", "Artoo",
         "Threepio", "Lando"]
     
@@ -28,9 +28,9 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     }
     
 
-    @IBAction func buttonPressed(sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         // Selected row in the picker view
-        let row = picker.selectedRowInComponent(0)
+        let row = picker.selectedRow(inComponent: 0)
         // Select the string in the array
         let selected = characterNames[row]
         
@@ -39,30 +39,30 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         let alert = UIAlertController(
             title: title,
             message: "Thank you for choosing",
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
         
-        let action = UIAlertAction(title: "You are welcome", style: UIAlertActionStyle.Default, handler: nil)
+        let action = UIAlertAction(title: "You are welcome", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     // MARK: -
     // MARK: - Picker Data Source Methods
     /*
         Picker can have more than one component in the spinning wheel
     */
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     // How many row the picker view contains
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return characterNames.count
     }
     
     // MARK: - Picker Delegate Methods
     // Provide the data for a specific row in a specific component
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return characterNames[row]
     }
 }

@@ -21,23 +21,23 @@ class ViewController: UIViewController {
         
         // Add a target
         datePicker?.addTarget(self,
-            action: "datePickerDateChanged:",
-            forControlEvents: .ValueChanged)
+            action: #selector(ViewController.datePickerDateChanged(_:)),
+            for: .valueChanged)
         
         // Limit the date time picker
-        let oneYearTime:NSTimeInterval = 365 * 24 * 60 * 60
-        let todayDate = NSDate()
+        let oneYearTime:TimeInterval = 365 * 24 * 60 * 60
+        let todayDate = Date()
         
-        let oneYearFromToday = todayDate.dateByAddingTimeInterval(oneYearTime)
+        let oneYearFromToday = todayDate.addingTimeInterval(oneYearTime)
         
-        let twoYearsFromToday = todayDate.dateByAddingTimeInterval(2 * oneYearTime)
+        let twoYearsFromToday = todayDate.addingTimeInterval(2 * oneYearTime)
         
         datePicker!.minimumDate = oneYearFromToday
         datePicker!.maximumDate = twoYearsFromToday
     }
     
     // Fetch the current date
-    func datePickerDateChanged(picker:UIDatePicker){
+    func datePickerDateChanged(_ picker:UIDatePicker){
         print("Selected date: \(picker.date)")
     }
 }

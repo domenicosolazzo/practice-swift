@@ -10,25 +10,25 @@ import UIKit
 
 class DependentComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    private let stateComponent = 0
-    private let zipComponent = 1
-    private var stateZips:[String : [String]]!
-    private var states:[String]!
-    private var zips:[String]!
+    fileprivate let stateComponent = 0
+    fileprivate let zipComponent = 1
+    fileprivate var stateZips:[String : [String]]!
+    fileprivate var states:[String]!
+    fileprivate var zips:[String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         // It returns an URL
-        let plistURL = bundle.URLForResource("statedictionary", withExtension: "plist")
+        let plistURL = bundle.url(forResource: "statedictionary", withExtension: "plist")
         
-        stateZips = NSDictionary(contentsOfURL: plistURL!)
+        stateZips = NSDictionary(contentsOf: plistURL!)
                         as! [String : [String]]
         let allStates = stateZips.keys
-        states = allStates.sort()
+        states = allStates.sorted()
         
         let selectedState = states[0]
         zips = stateZips[selectedState]
@@ -54,11 +54,11 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
     }
     */
 
-    @IBAction func buttonPressed(sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         let stateRow =
-        dependentPicker.selectedRowInComponent(stateComponent)
+        dependentPicker.selectedRow(inComponent: stateComponent)
         let zipRow =
-        dependentPicker.selectedRowInComponent(zipComponent)
+        dependentPicker.selectedRow(inComponent: zipComponent)
         
         let state = states[stateRow]
         let zip = zips[zipRow]
@@ -69,22 +69,22 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         let action = UIAlertAction(
             title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK:-
     // MARK: Picker Data Source Methods
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == stateComponent{
             return states.count
         }else{
@@ -94,7 +94,7 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
     
     // MARK:-
     // MARK: Picker Delegate Methods
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedState = states[row]
         zips = stateZips[selectedState]
         dependentPicker.reloadComponent(zipComponent)
@@ -102,7 +102,7 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
             animated: true)
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         if component == stateComponent{
             return states[row]
         }else{
@@ -111,7 +111,7 @@ class DependentComponentPickerViewController: UIViewController, UIPickerViewDele
     }
     
     /// Check how wide should be each component in the picker
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let pickerWidth = pickerView.bounds.size.width
         if component == zipComponent {
             return pickerWidth/3

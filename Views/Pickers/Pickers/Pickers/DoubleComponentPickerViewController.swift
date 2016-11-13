@@ -16,12 +16,12 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         // Do any additional setup after loading the view.
     }
 
-    private let fillingComponent = 0
-    private let breadComponent = 1
-    private let fillingTypes = [
+    fileprivate let fillingComponent = 0
+    fileprivate let breadComponent = 1
+    fileprivate let fillingTypes = [
         "Ham", "Turkey", "Peanut Butter", "Tuna Salad",
         "Chicken Salad", "Roast Beef", "Vegemite"]
-    private let breadTypes = [
+    fileprivate let breadTypes = [
         "White", "Whole Wheat", "Rye", "Sourdough",
         "Seven Grain"]
     
@@ -42,11 +42,11 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     }
     */
 
-    @IBAction func buttonPressed(sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         let fillingRow =
-        doublePicker.selectedRowInComponent(fillingComponent)
+        doublePicker.selectedRow(inComponent: fillingComponent)
         let breadRow =
-        doublePicker.selectedRowInComponent(breadComponent)
+        doublePicker.selectedRow(inComponent: breadComponent)
         
         let filling = fillingTypes[fillingRow]
         let bread = breadTypes[breadRow]
@@ -55,22 +55,22 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         let alert = UIAlertController(
             title: "Thank you for your order",
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         let action = UIAlertAction(
             title: "Great",
-            style: .Default,
+            style: .default,
             handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK:-
     // MARK: Picker Data Source Methods
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView,
+    func pickerView(_ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int) -> Int {
             if component == breadComponent {
                 return breadTypes.count
@@ -81,7 +81,7 @@ class DoubleComponentPickerViewController: UIViewController, UIPickerViewDelegat
     
     // MARK:-
     // MARK: Picker Delegate Methods
-    func pickerView(pickerView: UIPickerView,
+    func pickerView(_ pickerView: UIPickerView,
         titleForRow row: Int,
         forComponent component: Int) -> String! {
             if component == breadComponent {

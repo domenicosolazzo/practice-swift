@@ -11,9 +11,9 @@ import AudioToolbox
 
 class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    private var images:[UIImage]!
-    private var winSoundID: SystemSoundID = 0
-    private var crunchSoundID: SystemSoundID = 0
+    fileprivate var images:[UIImage]!
+    fileprivate var winSoundID: SystemSoundID = 0
+    fileprivate var crunchSoundID: SystemSoundID = 0
     
     
     override func viewDidLoad() {
@@ -32,20 +32,18 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     func showButton() {
-        button.hidden = false
+        button.isHidden = false
     }
     
     func playWinSound() {
         if winSoundID == 0 {
-            let soundURL = NSBundle.mainBundle().URLForResource(
-                "win", withExtension: "wav")! as CFURLRef
+            let soundURL = Bundle.main.url(
+                forResource: "win", withExtension: "wav")! as CFURL
             AudioServicesCreateSystemSoundID(soundURL, &winSoundID)
         }
         AudioServicesPlaySystemSound(winSoundID)
         winLabel.text = "WINNER!"
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-            Int64(1.5 * Double(NSEC_PER_SEC))),
-            dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                 self.showButton()
         }
     }
@@ -60,7 +58,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func spin(sender: UIButton) {
+    @IBAction func spin(_ sender: UIButton) {
         var win = false
         var numInRow = -1
         var lastVal = -1
@@ -68,7 +66,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         for i in 0..<5 {
             let newValue = Int(arc4random_uniform(UInt32(images.count)))
             if newValue == lastVal {
-                numInRow++
+                numInRow += 1
             } else {
                 numInRow = 1
             }
@@ -82,36 +80,32 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
         
         if crunchSoundID == 0 {
-            let soundURL = NSBundle.mainBundle().URLForResource(
-                "crunch", withExtension: "wav")! as CFURLRef
+            let soundURL = Bundle.main.url(
+                forResource: "crunch", withExtension: "wav")! as CFURL
             AudioServicesCreateSystemSoundID(soundURL, &crunchSoundID)
         }
         AudioServicesPlaySystemSound(crunchSoundID)
         
         if win {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-                Int64(0.5 * Double(NSEC_PER_SEC))),
-                dispatch_get_main_queue()) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                     self.playWinSound()
             }
         } else {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-                Int64(0.5 * Double(NSEC_PER_SEC))),
-                dispatch_get_main_queue()) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                     self.showButton()
             }
         }
-        button.hidden = true
+        button.isHidden = true
         winLabel.text = " " // Note the space between the quotes
     }
     
     // MARK:-
     // MARK: Picker Data Source Methods
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 5
     }
     
-    func pickerView(pickerView: UIPickerView,
+    func pickerView(_ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int) -> Int {
             return images.count
     }
@@ -119,15 +113,15 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate, UIPick
     // MARK:-
     // MARK: Picker Delegate Methods
     // We can supply the picker with anything that can be draw in this picker
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int,
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int,
         forComponent component: Int,
-        reusingView view: UIView?) -> UIView {
+        reusing view: UIView?) -> UIView {
             let image = images[row]
             let imageView = UIImageView(image: image)
             return imageView
     }
     
-    func pickerView(pickerView: UIPickerView,
+    func pickerView(_ pickerView: UIPickerView,
         rowHeightForComponent component: Int) -> CGFloat {
             return 64
     }
