@@ -8,16 +8,20 @@
 
 import UIKit
 
-extension NSURL{
+extension URL{
     /* An extension on the NSURL class that allows us to retrieve the current
     documents folder path */
-    class func documentsFolder() -> NSURL{
-        let fileManager = NSFileManager()
-        return fileManager.URLForDirectory(.DocumentDirectory,
-            inDomain: .UserDomainMask,
-            appropriateForURL: nil,
-            create: false,
-            error: nil)!
+    static func documentsFolder() -> URL?{
+        let fileManager = FileManager()
+        do{
+        return try fileManager.url(for: .documentDirectory,
+                                   in: .userDomainMask,
+                                   appropriateFor: nil,
+            create: false)
+        }catch{
+            print("Error")
+        }
+        return nil
     }
 }
 
@@ -25,31 +29,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL(string: "http://www.domenicosolazzo/swiftcode")
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: "http://www.domenicosolazzo/swiftcode")
+        let request = URLRequest(url: url!)
         
-        let operationQueue = NSOperationQueue()
+        let operationQueue = OperationQueue()
         
         NSURLConnection.sendAsynchronousRequest(request, queue: operationQueue) {[weak self]
-            (response:NSURLResponse!, data:NSData!, error:NSError!) in
+            (response:URLResponse?, data:Data?, error:Error?) -> Void in
             /* Now we may have access to the data, but check if an error came back
             first or not */
-            if data.length > 0 && error == nil{
+            if (data?.count)! > 0 && error == nil{
                 
                 /* Append the filename to the documents directory */
                 let filePath =
-                NSURL.documentsFolder().URLByAppendingPathComponent("apple.html")
-                
-                if data.writeToURL(filePath, atomically: true){
-                    println("Successfully saved the file to \(filePath)")
-                } else {
-                    println("Failed to save the file to \(filePath)")
+                URL.documentsFolder()?.appendingPathComponent("apple.html")
+                do{
+                    let writtenData = try data!.write(to: filePath!, options: Data.WritingOptions.atomic)
+                    if writtenData != nil{
+                        print("Successfully saved the file to \(filePath)")
+                    } else {
+                        print("Failed to save the file to \(filePath)")
+                    }
+                }catch{
+                    print("Error")
                 }
                 
-            } else if data.length == 0 && error == nil{
-                println("Nothing was downloaded")
+            } else if data?.count == 0 && error == nil{
+                print("Nothing was downloaded")
             } else if error != nil{
-                println("Error happened = \(error)")
+                print("Error happened = \(error)")
             }
         }
     }
