@@ -11,35 +11,35 @@ import UIKit
 class ViewController: UIViewController {
     
     // Session object
-    var session: NSURLSession!
+    var session: URLSession!
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         
         /* Let's create the session configuration first */
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15
         
         // Create the session object
-        session = NSURLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+        session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var urlString = "http://www.domenicosolazzo.com/swiftcode"
-        var url = NSURL(string: urlString)
+        let urlString = "http://www.domenicosolazzo.com/swiftcode"
+        let url = URL(string: urlString)
         
-        var task = session.dataTaskWithURL(url!, completionHandler: {[weak self]
-            (data:NSData!, response:NSURLResponse!, error:NSError!) in
-            println("Data: \(data)")
-            println("Response: \(response)")
-            println("Error: \(error)")
+        let task = session.dataTask(with: url!, completionHandler: {[weak self]
+            (data:Data?, response:URLResponse?, error:NSError?) in
+            print("Data: \(data)")
+            print("Response: \(response)")
+            print("Error: \(error)")
             
-            println("Done!")
+            print("Done!")
             // End the session
             self!.session.finishTasksAndInvalidate()
-        })
+        } as! (Data?, URLResponse?, Error?) -> Void)
         
         // Start the task
         task.resume();
