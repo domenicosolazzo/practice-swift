@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let myView = UIView(frame: CGRect(x: 84, y: 42, width: 100, height: 120))
-        myView.backgroundColor = UIColor.blueColor()
+        myView.backgroundColor = UIColor.blue
         self.view.addSubview(myView)
         
         
