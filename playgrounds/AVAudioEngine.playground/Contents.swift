@@ -1,10 +1,11 @@
 import UIKit
 import AVFoundation
+import PlaygroundSupport
 
 // Keep playground running
 import XCPlayground
 
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 // Setup engine and node instances
 var engine = AVAudioEngine()
@@ -13,12 +14,12 @@ var reverb = AVAudioUnitReverb()
 var mixer = engine.mainMixerNode
 var input = engine.inputNode
 var output = engine.outputNode
-var format = input!.inputFormatForBus(0)
+var format = input!.inputFormat(forBus: 0)
 var error:NSError?
 
 // Attach FX nodes to engine
-engine.attachNode(delay)
-engine.attachNode(reverb)
+engine.attach(delay)
+engine.attach(reverb)
 
 // Connect nodes
 engine.connect(input!, to: delay, format: format)
@@ -38,5 +39,5 @@ catch {
 delay.delayTime = 1.5
 delay.feedback = 20
 
-reverb.loadFactoryPreset(.MediumChamber)
+reverb.loadFactoryPreset(.mediumChamber)
 reverb.wetDryMix = 50
