@@ -11,26 +11,26 @@ import Social
 
 class ViewController: UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let serviceType = SLServiceTypeTwitter
         
-        if SLComposeViewController.isAvailableForServiceType(serviceType){
+        if SLComposeViewController.isAvailable(forServiceType: serviceType){
             let controller = SLComposeViewController(forServiceType: serviceType)
             // Set the initial text
-            controller.setInitialText("Testing #swift social framework! #coding #dev")
+            controller?.setInitialText("Testing #swift social framework! #coding #dev")
             // Add the image
-            controller.addImage(UIImage(named: "swift"))
+            controller?.add(UIImage(named: "swift"))
             // Add an url
-            controller.addURL(NSURL(string: "http://goo.gl/cEnUaQ"))
+            controller?.add(URL(string: "http://goo.gl/cEnUaQ"))
             // Completion Handler
-            controller.completionHandler = {(result: SLComposeViewControllerResult) in
+            controller?.completionHandler = {(result: SLComposeViewControllerResult) in
                 print("Completed")
                 print("Result: \(result)")
             }
             
-            self.presentViewController(controller, animated: true, completion: nil)
+            self.present(controller!, animated: true, completion: nil)
         }else{
             print("Twitter service is not available")
         }
