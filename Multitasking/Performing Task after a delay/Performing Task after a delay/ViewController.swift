@@ -15,19 +15,19 @@ class ViewController: UIViewController {
         let delayInSeconds = 2.0
         
         // Current time
-        let currentTime:dispatch_time_t = DISPATCH_TIME_NOW
+        let currentTime:DispatchTime = DispatchTime.now()
         // Delta
         let deltaTime: Int64 = Int64(delayInSeconds * Double(NSEC_PER_SEC))
         // The delay in nanoseconds will be equal:
         // delay = currentTime * deltaTime
-        let delayInNanoSeconds = dispatch_time(currentTime, deltaTime)
+        let delayInNanoSeconds = currentTime + Double(deltaTime) / Double(NSEC_PER_SEC)
         
         // Fetch the concurrent queue
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let queue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
         
         // Dispatch this block after a given delay
-        dispatch_after(delayInNanoSeconds, queue, {
-            println("This message is printed after \(delayInNanoSeconds) ns");
+        queue.asyncAfter(deadline: delayInNanoSeconds, execute: {
+            print("This message is printed after \(delayInNanoSeconds) ns");
         })
         
     }
