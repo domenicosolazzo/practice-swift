@@ -1,7 +1,7 @@
 // Optionals: Use optionals when a value may be absent
 import Cocoa
 
-let possibleNumber = "123"
+let possibleNumber: String = "123"
 // This is converted to Int? (Optional int) because not every string can be
 // converted to Int
 let number = possibleNumber.toInt()
@@ -11,9 +11,9 @@ let number = possibleNumber.toInt()
 */
 if number{
     // If the optional contains a value, the if statement will be true
-    println("The number exists")
+    print("The number exists")
 }else{
-    println("The number does not exist")
+    print("The number does not exist")
 }
 
 /*

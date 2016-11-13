@@ -26,7 +26,7 @@ public class LinkedList<T: Equatable>{
                 
                 while ((current.next) != nil) {
                     current = current.next!
-                    result++
+                    result += 1
                 }
                 return result
             }
@@ -86,7 +86,7 @@ public class LinkedList<T: Equatable>{
             // Update the assignments
             trailer = current
             current = current?.next
-            listIndex++
+            listIndex += 1
         }
     }
     
@@ -96,7 +96,7 @@ public class LinkedList<T: Equatable>{
         
         // assign the next instance
         while (current != nil) {
-            println("link item is: \(current.key)")
+            print("link item is: \(current.key)")
             current = current.next
         }
     }

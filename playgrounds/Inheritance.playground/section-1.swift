@@ -82,7 +82,7 @@ class NormalCar:Car{
         super.init()
     }
     
-    @final func fly() -> Bool{
+    final func fly() -> Bool{
         return true
     }
 }

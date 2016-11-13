@@ -3,12 +3,13 @@
 import UIKit
 
 // NSBundle
-var bundle = NSBundle.mainBundle()
+var bundle = Bundle.main
 var resourcePath = bundle.resourcePath
-var fm = NSFileManager.defaultManager()
+var fm = FileManager.default
 
 
 // NSFileManager
-var files = try fm.contentsOfDirectoryAtPath(resourcePath!)
+
+var files = try fm.contentsOfDirectory(atPath: resourcePath!)
 
 
