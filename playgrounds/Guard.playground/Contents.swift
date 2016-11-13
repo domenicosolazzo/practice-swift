@@ -24,7 +24,7 @@ func earlyReturn() {
     // code awesonmeness
 }
 
-enum InputError:ErrorType{
+enum InputError:Error{
     case NameIsEmpty
     case TooYoung
     case IsiOS8

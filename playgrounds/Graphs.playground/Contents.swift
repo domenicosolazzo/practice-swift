@@ -115,10 +115,10 @@ func processDijkstra(source: Vertex, destination: Vertex) -> Path? {
         var x: Int = 0
         var pathIndex: Int = 0
         
-        for (x=0; x < frontier.count; x++) {
-            var itemPath: Path = frontier[x]
+        for x in (0 ..< frontier.count) {
+            let itemPath: Path = frontier[x]
             
-            if (bestPath.total == nil) ||(itemPath.total < bestPath.total) {
+            if ( (bestPath.total == nil) || (itemPath.total < bestPath.total)) {
                 bestPath = itemPath
                 pathIndex = x
             }
@@ -127,7 +127,7 @@ func processDijkstra(source: Vertex, destination: Vertex) -> Path? {
         // Enumerate the bestPath edges
         for e in bestPath.destination.neighbors {
             
-            var newPath: Path = Path()
+            let newPath: Path = Path()
             
             newPath.destination = e.neighbor
             newPath.previous = bestPath
@@ -141,7 +141,7 @@ func processDijkstra(source: Vertex, destination: Vertex) -> Path? {
         finalPaths.append(bestPath)
         
         // Remove the bestPath from the frontier
-        frontier.removeAtIndex(pathIndex)
+        frontier.remove(at: pathIndex)
     }
     
     // Establish the shortest path as an optional

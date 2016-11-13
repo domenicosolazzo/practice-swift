@@ -4,8 +4,8 @@ import HealthKit
 /**
 ** Convert grams to Kilograms
 **/
-let gramUnit = HKUnit(fromMassFormatterUnit: NSMassFormatterUnit.Gram)
-let kilogramUnit = HKUnit(fromMassFormatterUnit: NSMassFormatterUnit.Kilogram)
+let gramUnit = HKUnit(from: MassFormatter.Unit.gram)
+let kilogramUnit = HKUnit(from: MassFormatter.Unit.kilogram)
 
 let weightInGrams:Double = 74_250
 
@@ -13,10 +13,10 @@ let weightInGrams:Double = 74_250
 let weightQuantity = HKQuantity(unit: gramUnit, doubleValue: weightInGrams)
 
 // Convert the quantity to Kilograms
-let weightInKilograms = weightQuantity.doubleValueForUnit(kilogramUnit)
+let weightInKilograms = weightQuantity.doubleValue(for: kilogramUnit)
 
-println("Your wieght is \(weightInKilograms) kilograms")
-println("Your weight is \(weightInGrams) grams")
+print("Your wieght is \(weightInKilograms) kilograms")
+print("Your weight is \(weightInGrams) grams")
 
 /** 
 **  Convert an exercise from 1500 calories to kilojaules
@@ -24,18 +24,18 @@ println("Your weight is \(weightInGrams) grams")
 let caloriesValue:Double = 1_500
 
 // Calories unit
-let caloriesUnit = HKQuantity(unit: HKUnit.calorieUnit(), doubleValue: caloriesValue)
+let caloriesUnit = HKQuantity(unit: HKUnit.calorie(), doubleValue: caloriesValue)
 
-let kilojoulesValue = caloriesUnit.doubleValueForUnit(HKUnit.jouleUnitWithMetricPrefix(HKMetricPrefix.Kilo))
+let kilojoulesValue = caloriesUnit.doubleValue(for: HKUnit.jouleUnit(with: HKMetricPrefix.kilo))
 
 // Energy formatter
-let energyFormatter = NSEnergyFormatter()
+let energyFormatter = EnergyFormatter()
 
-let caloriesString = energyFormatter.stringFromValue(caloriesValue, unit: NSEnergyFormatterUnit.Calorie)
-let kilojoulesString = energyFormatter.stringFromValue(kilojoulesValue, unit: NSEnergyFormatterUnit.Kilojoule)
+let caloriesString = energyFormatter.string(fromValue: caloriesValue, unit: EnergyFormatter.Unit.calorie)
+let kilojoulesString = energyFormatter.string(fromValue: kilojoulesValue, unit: EnergyFormatter.Unit.kilojoule)
 
-println("You've burned \(caloriesString)")
-println("You've burned \(kilojoulesString)")
+print("You've burned \(caloriesString)")
+print("You've burned \(kilojoulesString)")
 
 
 /**
@@ -43,18 +43,19 @@ println("You've burned \(kilojoulesString)")
 **/
 let distanceInMeters:Double = 1_234
 
-let metersUnit = HKQuantity(unit: HKUnit.meterUnit(),
+let metersUnit = HKQuantity(unit: HKUnit.meter(),
     doubleValue: distanceInMeters)
 
-let feetValue = metersUnit.doubleValueForUnit(HKUnit.footUnit())
+let feetValue = metersUnit.doubleValue(for: HKUnit.foot())
 
-let lengthFormatter = NSLengthFormatter()
+let lengthFormatter = LengthFormatter()
 
-let metersString = lengthFormatter.stringFromValue(distanceInMeters, unit: NSLengthFormatterUnit.Meter)
-let feetString = lengthFormatter.stringFromValue(feetValue, unit: NSLengthFormatterUnit.Foot)
+let metersString = lengthFormatter.string(fromValue: distanceInMeters, unit: LengthFormatter.Unit.meter)
+let feetString = lengthFormatter.string(fromValue: feetValue, unit: LengthFormatter.Unit.foot)
 
-println("You've driven \(metersString)")
-println("You've driven \(feetString)")
+print("You've driven \(metersString)")
+print("You've driven \(feetString)")
 
-println(NSUUID().UUIDString)
+print
+(NSUUID().uuidString)
 
