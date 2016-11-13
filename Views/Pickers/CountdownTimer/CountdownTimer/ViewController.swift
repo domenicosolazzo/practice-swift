@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         
         datePicker = UIDatePicker()
         datePicker?.center = self.view.center
-        datePicker?.datePickerMode = UIDatePickerMode.CountDownTimer
+        datePicker?.datePickerMode = UIDatePickerMode.countDownTimer
         
-        let interval = (2 * 60) as NSTimeInterval
+        let interval = (2 * 60) as TimeInterval
         datePicker?.countDownDuration = interval
         
         self.view.addSubview(datePicker!)
