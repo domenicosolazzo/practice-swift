@@ -10,8 +10,8 @@ import UIKit
 
 @objc(AudienceSelectionViewControllerDelegate)
 protocol AudienceSelectionViewControllerDelegate{
-    optional func audienceSelectionViewController(
-        sender: AudienceSelectionViewController,
+    @objc optional func audienceSelectionViewController(
+        _ sender: AudienceSelectionViewController,
         selectedValue: String)
 }
 
@@ -37,45 +37,45 @@ class AudienceSelectionViewController: UITableViewController {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(style: UITableViewStyle) {
         super.init(style: style)
-        tableView.registerClass(UITableViewCell.classForCoder(),
+        tableView.register(UITableViewCell.classForCoder(),
             forCellReuseIdentifier: TableViewValues.identifier)
         title = "Choose Audience"
     }
     
-    override func tableView(tableView: UITableView,
+    override func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             return Audience.allValues.count
     }
     
-    override func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier(
-                TableViewValues.identifier,
-                forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableViewValues.identifier,
+                for: indexPath) 
             
-            let text = Audience.allValues[indexPath.row].rawValue
+            let text = Audience.allValues[(indexPath as NSIndexPath).row].rawValue
             
             cell.textLabel!.text = text
             
             if text == audience{
-                cell.accessoryType = .Checkmark
+                cell.accessoryType = .checkmark
             } else {
-                cell.accessoryType = .None
+                cell.accessoryType = .none
             }
             
             return cell
     }
     
-    override func tableView(tableView: UITableView,
-        didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
             
             if let theDelegate = delegate{
-                let selectedAudience = Audience.allValues[indexPath.row].rawValue
+                let selectedAudience = Audience.allValues[(indexPath as NSIndexPath).row].rawValue
                 theDelegate.audienceSelectionViewController!(self,
                     selectedValue: selectedAudience)
                 
