@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let imageView = UIImageView(
             frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         
         let image = UIImage(named:"Logo")
         

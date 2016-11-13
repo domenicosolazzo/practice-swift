@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    func switchChangedValue(sender: UISwitch){
-        if sender.on{
+    func switchChangedValue(_ sender: UISwitch){
+        if sender.isOn{
             print("Switching off")
         }else{
             print("Switching on")
@@ -22,11 +22,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let simpleSwitch = UISwitch()
-        simpleSwitch.on = true
+        simpleSwitch.isOn = true
         
         simpleSwitch.addTarget(self,
-            action: "switchChangedValue:",
-            forControlEvents: UIControlEvents.ValueChanged)
+            action: #selector(ViewController.switchChangedValue(_:)),
+            for: UIControlEvents.valueChanged)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             customView: simpleSwitch)

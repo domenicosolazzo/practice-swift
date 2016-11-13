@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    func performAdd(sender: UIBarButtonItem){
+    func performAdd(_ sender: UIBarButtonItem){
         print("Add method got called")
     }
     
@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Add",
-            style: .Plain,
+            style: .plain,
             target: self,
-            action: "performAdd:")
+            action: #selector(ViewController.performAdd(_:)))
         
     }
 

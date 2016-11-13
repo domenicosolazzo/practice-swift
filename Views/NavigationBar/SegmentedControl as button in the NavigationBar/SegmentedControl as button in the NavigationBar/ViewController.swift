@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     let items = ["Up", "Down"]
     
-    func segmentedControlValueChanged(sender: UISegmentedControl){
+    func segmentedControlValueChanged(_ sender: UISegmentedControl){
         if (sender.selectedSegmentIndex < items.count){
             print(items[sender.selectedSegmentIndex])
         }else{
@@ -24,9 +24,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.momentary = true
+        segmentedControl.isMomentary = true
         
-        segmentedControl.addTarget(self, action: "segmentedControlValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        segmentedControl.addTarget(self, action: #selector(ViewController.segmentedControlValueChanged(_:)), for: UIControlEvents.valueChanged)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: segmentedControl)
     }

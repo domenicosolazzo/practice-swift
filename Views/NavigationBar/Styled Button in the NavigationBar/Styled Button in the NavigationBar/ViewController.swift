@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    func performAdd(sender: UIBarButtonItem){
+    func performAdd(_ sender: UIBarButtonItem){
         print("AAAS => Add As A Service :)")
     }
     
@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add,
+            barButtonSystemItem: UIBarButtonSystemItem.add,
             target: self,
-            action: "performAdd:")
+            action: #selector(ViewController.performAdd(_:)))
     }
 }
 

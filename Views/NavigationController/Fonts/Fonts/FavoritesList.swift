@@ -20,40 +20,40 @@ class FavoritesList{
     
     // We want external classed to be able to get this variables, but not modifying it.
     // private(set)
-    private(set) var favorites: [String]
+    fileprivate(set) var favorites: [String]
     
     init(){
         // Open the user defaults
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         // Look for the key 'favorites'
-        let storedFavorites = defaults.objectForKey("favorites") as? [String]
+        let storedFavorites = defaults.object(forKey: "favorites") as? [String]
         favorites = storedFavorites != nil ? storedFavorites! : []
     }
     
-    private func saveFavorites(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(favorites, forKey: "favorites")
+    fileprivate func saveFavorites(){
+        let defaults = UserDefaults.standard
+        defaults.set(favorites, forKey: "favorites")
         defaults.synchronize()
     }
     
-    func addFavorite(fontName: String) {
+    func addFavorite(_ fontName: String) {
         if (!favorites.contains(fontName)) {
             favorites.append(fontName)
             saveFavorites()
         }
     }
     
-    func removeFavorite(fontName: String) {
-        if let index = favorites.indexOf(fontName) {
-            favorites.removeAtIndex(index)
+    func removeFavorite(_ fontName: String) {
+        if let index = favorites.index(of: fontName) {
+            favorites.remove(at: index)
             saveFavorites()
         }
     }
     
     func moveItem(fromIndex from: Int, toIndex to: Int) {
         let item = favorites[from]
-        favorites.removeAtIndex(from)
-        favorites.insert(item, atIndex: to)
+        favorites.remove(at: from)
+        favorites.insert(item, at: to)
         saveFavorites()
     }
 }

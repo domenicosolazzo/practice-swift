@@ -27,18 +27,18 @@ class FontInfoViewController: UIViewController {
             + "WwXxYyZz 0123456789"
         fontSizeSlider.value = Float(font.pointSize)
         fontSizeLabel.text = "\(Int(font.pointSize))"
-        favoriteSwitch.on = favorite
+        favoriteSwitch.isOn = favorite
     }
     
-    @IBAction func slideFontSize(slider: UISlider) {
+    @IBAction func slideFontSize(_ slider: UISlider) {
         let newSize = roundf(slider.value)
-        fontSampleLabel.font = font.fontWithSize(CGFloat(newSize))
+        fontSampleLabel.font = font.withSize(CGFloat(newSize))
         fontSizeLabel.text = "\(Int(newSize))"
     }
     
-    @IBAction func toggleFavorite(sender: UISwitch) {
+    @IBAction func toggleFavorite(_ sender: UISwitch) {
         let favoritesList = FavoritesList.sharedFavoriteList
-        if sender.on {
+        if sender.isOn {
             favoritesList.addFavorite(font.fontName)
         } else {
             favoritesList.removeFavorite(font.fontName)

@@ -11,7 +11,7 @@ import UIKit
 class FontSizesViewController: UITableViewController {
 
     var font: UIFont!
-    private var pointSizes: [CGFloat] {
+    fileprivate var pointSizes: [CGFloat] {
         struct Constants {
             static let pointSizes: [CGFloat] = [
                 9, 10, 11, 12, 13, 14, 18, 24, 36, 48, 64, 72, 96, 144
@@ -19,27 +19,27 @@ class FontSizesViewController: UITableViewController {
         }
         return Constants.pointSizes
     }
-    private let cellIdentifier = "FontNameAndSize"
+    fileprivate let cellIdentifier = "FontNameAndSize"
     
-    func fontForDisplay(atIndexPath indexPath: NSIndexPath) -> UIFont {
-        let pointSize = pointSizes[indexPath.row]
-        return font.fontWithSize(pointSize)
+    func fontForDisplay(atIndexPath indexPath: IndexPath) -> UIFont {
+        let pointSize = pointSizes[(indexPath as NSIndexPath).row]
+        return font.withSize(pointSize)
     }
     
-    override func tableView(tableView: UITableView,
+    override func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             // Return the number of rows in the section.
             return pointSizes.count
             
     }
     
-    override func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) 
             
             cell.textLabel!.font = fontForDisplay(atIndexPath: indexPath)
             cell.textLabel!.text = font.fontName
-            cell.detailTextLabel?.text = "\(pointSizes[indexPath.row]) point"
+            cell.detailTextLabel?.text = "\(pointSizes[(indexPath as NSIndexPath).row]) point"
             
             return cell
     }
