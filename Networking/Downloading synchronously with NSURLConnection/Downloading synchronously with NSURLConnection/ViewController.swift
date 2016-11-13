@@ -15,36 +15,35 @@ class ViewController: UIViewController {
         
         /* You can have a custom URL here */
         let urlAsString = "http://www.domenicosolazzo.com"
-        let url = NSURL(string: urlAsString)
+        let url = URL(string: urlAsString)
         
-        let urlRequest = NSURLRequest(URL: url!)
+        let urlRequest = URLRequest(url: url!)
         
-        var response: NSURLResponse?
+        var response: URLResponse?
         var error: NSError?
         
-        println("Firing synchronous url connection...")
+        print("Firing synchronous url connection...")
         
         let dispatchQueue =
-        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
         
-        dispatch_async(dispatchQueue, {
+        dispatchQueue.async(execute: {
             /* Get the data for our URL, synchronously */
-            let data = NSURLConnection.sendSynchronousRequest(urlRequest,
-                returningResponse: &response,
-                error: &error)
+            let data = try NSURLConnection.sendSynchronousRequest(urlRequest,
+                                                              returning: &response)
             
             if data != nil && error == nil{
-                println("\(data!.length) bytes of data was returned")
+                print("\(data.count) bytes of data was returned")
             }
-            else if data!.length == 0 && error == nil{
-                println("No data was returned")
+            else if data.count == 0 && error == nil{
+                print("No data was returned")
             }
             else if error != nil{
-                println("Error happened = \(error)");
+                print("Error happened = \(error)");
             }
 
         })
-        println("We are done")
+        print("We are done")
     }
 }
 
