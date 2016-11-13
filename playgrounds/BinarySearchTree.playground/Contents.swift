@@ -28,14 +28,14 @@ public class AVLTree<T: Comparable> {
         }
         
         // Check the left side of the tree
-        if (key < self.key) {
+        if (key < self.key!) {
             
             if (self.left != nil) {
-                left!.addNode(key)
+                left!.addNode(key: key)
             }else{
                 
                 // Create a new left node
-                var leftChild: AVLTree = AVLTree()
+                let leftChild: AVLTree = AVLTree()
                 leftChild.key = key
                 self.left = leftChild
             
@@ -43,13 +43,13 @@ public class AVLTree<T: Comparable> {
         }
         
         // Check the right side of the tree
-        if (key > self.key){
+        if (key > self.key!){
             if (self.right != nil){
-                right!.addNode(key)
+                right!.addNode(key: key)
             }else{
             
                 // Create a new right node
-                var rightChild: AVLTree = AVLTree()
+                let rightChild: AVLTree = AVLTree()
                 rightChild.key = key
                 self.right = rightChild
             }
@@ -61,18 +61,18 @@ public class AVLTree<T: Comparable> {
         var l = level
         print("Level \(l)")
         if (node.key != nil){
-           println("Key: \(node.key!) => Level: \(l)")
+           print("Key: \(node.key!) => Level: \(l)")
         }
         
-        l++
+        l += 1
         // Print left side
         if (node.left != nil){
-            printBST(node.left!, level:l)
+            printBST(node: node.left!, level:l)
         }
         
         // Print right side
         if (node.right != nil){
-            printBST(node.right!, level:l)
+            printBST(node: node.right!, level:l)
         }
         
     }
@@ -84,8 +84,8 @@ var root = AVLTree<Int>()
 
 // Sort each item in the list
 for number in numberList {
-    root.addNode(number)
+    root.addNode(key: number)
 }
 
 // Print the BST
-AVLTree.printBST(root, level: 0)
+AVLTree.printBST(node: root, level: 0)
