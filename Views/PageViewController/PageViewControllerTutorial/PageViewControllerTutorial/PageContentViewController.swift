@@ -22,7 +22,7 @@ class PageContentViewController: UIViewController {
         self.bkImageView.image = UIImage(named: imageName)
         self.heading.text = self.titleText
         self.heading.alpha = 0.1
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animate(withDuration: 1.0, animations: { () -> Void in
             self.heading.alpha = 1.0
         })
         
