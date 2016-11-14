@@ -10,9 +10,10 @@ public class Queue<T> {
     private var top: QNode<T>! = QNode<T>()
     
     // Enqueue the specified object
-    func enQueue(var key: T){
+    func enQueue( key: T){
         
         // Check for the instance
+        let key = key
         if (top == nil) {
             top = QNode<T>()
         }
@@ -23,7 +24,7 @@ public class Queue<T> {
             return
         }
         
-        var childToUse: QNode<T> = QNode<T>()
+        let childToUse: QNode<T> = QNode<T>()
         var current: QNode = top
         
         // cycle through the list of items to get to the end.
@@ -46,7 +47,7 @@ public class Queue<T> {
         }
         
         // Retrieve and queue the next item
-        var queueitem: T? = top.key!
+        let queueitem: T? = top.key!
         
         // Use optional binding
         if let nextitem = top.next {
@@ -61,7 +62,7 @@ public class Queue<T> {
     // Check for the presence of a value
     func isEmpty() -> Bool {
         // Determine if the key or instance
-        if let topitem: T = self.top?.key {
+        if let _: T = self.top?.key {
             return false
         }else {
             return true

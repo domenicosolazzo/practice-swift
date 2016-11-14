@@ -123,7 +123,7 @@ class SnakesAndLadders: DiceGame{
     let dice = Dice(sides:6, generator:LinearCongruentialGenerator())
     
     var square = 0
-    var board: Int[]
+    var board: [Int]
     
     init(){
         board = Int[](count: finalSquare + 1, repeatedValue: 0)
@@ -197,7 +197,7 @@ struct MyPerson: Named, Aged{
 }
 
 
-func wishHappyBirthday(celebrator: protocol<Named, Aged>){
+func wishHappyBirthday(celebrator: Named & Aged){
     println("Happy birthday (\(celebrator.age)) \(celebrator.name)")
 }
 

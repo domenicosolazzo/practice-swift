@@ -2,7 +2,8 @@
 // Source: http://goo.gl/DvsBPi
 // Use a OSX playground
 
-import Cocoa
+import UIKit
+import PlaygroundSupport
 import SceneKit
 import QuartzCore // for the basic animation
 import XCPlayground // for the live preview
@@ -15,7 +16,7 @@ var scene = SCNScene()
 sceneView.scene = scene
 
 // Start a live preview of the scene
-XCPShowView("The Scene View", sceneView)
+PlaygroundPage.current.liveView = sceneView
 
 // Default lighting
 sceneView.autoenablesDefaultLighting = true
@@ -35,12 +36,12 @@ var torusNode = SCNNode(geometry: torus)
 scene.rootNode.addChildNode(torusNode)
 
 // Configure the geometry object
-torus.firstMaterial.diffuse.contents = NSColor.redColor()
-torus.firstMaterial.specular.contents = NSColor.whiteColor()
+torus.firstMaterial?.diffuse.contents = UIColor.red
+torus.firstMaterial?.specular.contents = UIColor.white
 
 // animate the rotation of the torus
 var spin = CABasicAnimation(keyPath: "rotation")
-spin.toValue = NSValue(SCNVector4: SCNVector4(x: 1, y: 1, z: 0, w: 2.0*M_PI))
+spin.toValue = NSValue(scnVector4: SCNVector4(x: 1, y: 1, z: 0, w: Float(2.0) * Float(M_PI)))
 spin.duration = 3
 spin.repeatCount = HUGE // for infinity
 torus.addAnimation(spin,forKey: "spin aroud")
