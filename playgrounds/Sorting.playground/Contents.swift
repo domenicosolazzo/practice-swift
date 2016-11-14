@@ -10,24 +10,24 @@ var count = 0;
 // Insertion sort
 // Rank items by comparing each key in the list.
 func insertionSort() {
-    var x, y, key : Int
+    var key : Int
     
-    for (x = 0; x < numberList.count; x++) {
-        count++
-        println("Count is \(count)")
+    for x in (0 ..< numberList.count) {
+        count += 1
+        print("Count is \(count)")
         //obtain a key to be evaluated
         key = numberList[x]
         
         //iterate backwards through the sorted portion
-        for (y = x; y > -1; y--) {
+        for y in (x ..< -1).reversed(){
             
             if (key < numberList[y]) {
                 
                 //remove item from original position
-                numberList.removeAtIndex(y + 1)
+                numberList.remove(at: y + 1)
                 
                 //insert the number at the key position
-                numberList.insert(key, atIndex: y)
+                numberList.insert(key, at: y)
                 
             }
             
@@ -46,12 +46,12 @@ count = 0
 // Rank items from the lowest to highest by swapping groups of two items from left to right.
 func bubbleSort() {
     
-    var x, y, z, passes, key : Int
+    var z, passes, key : Int
     
     //track collection iterations
     for x in 0..<numberList.count {
-        count++
-        println("Count is \(count)")
+        count += 1
+        print("Count is \(count)")
         passes = (numberList.count - 1) - x;
         
         //use shorthand "half-open" range operator
