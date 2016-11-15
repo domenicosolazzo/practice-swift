@@ -6,19 +6,19 @@ class CustomViewController: UIViewController{
     @IBOutlet var label:UILabel?{
         didSet{
             self.view.addSubview(self.label!)
-            var constraints = NSLayoutConstraint.constraintsWithVisualFormat("|-(>=20)-[myLabel(==200)]-(>=20)-|", options: [NSLayoutFormatOptions.AlignAllCenterX,NSLayoutFormatOptions.AlignAllCenterY], metrics: nil, views: ["myLabel":self.label!])
-            var constraints2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[myLabel]-|", options: [NSLayoutFormatOptions.AlignAllCenterY], metrics: nil, views: ["myLabel":self.label!])
-            constraints.appendContentsOf(constraints2)
+            var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|-(>=20)-[myLabel(==200)]-(>=20)-|", options: [NSLayoutFormatOptions.alignAllCenterX,NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["myLabel":self.label!])
+            let constraints2 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[myLabel]-|", options: [NSLayoutFormatOptions.alignAllCenterY], metrics: nil, views: ["myLabel":self.label!])
+            constraints.append(contentsOf: constraints2)
             
             self.label?.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activateConstraints(constraints)
+            NSLayoutConstraint.activate(constraints)
             
         }
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        var v = self.createReviewBox()
+        _ = self.createReviewBox()
         //self.view.addSubview(v)
     }
     
@@ -27,9 +27,9 @@ class CustomViewController: UIViewController{
     }
     
     func createReviewBox() -> UIView{
-        var view = UIView(frame: CGRectZero)
+        let view = UIView(frame: CGRect.zero )
         
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor.blue
         self.view.addSubview(view)
         /*var label = UILabel(frame: CGRectZero)
         
@@ -51,13 +51,13 @@ class CustomViewController: UIViewController{
         view.addSubview(button1)
         
         **/
-        var metrics = ["viewWidth":self.view.frame.size.width]
-        var views = ["myView":view, "superview": self.view]
-        var constraints = NSLayoutConstraint.constraintsWithVisualFormat("[superview]-[myView(viewWidth)]", options: [NSLayoutFormatOptions.AlignAllCenterY], metrics: metrics, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:[topGuide]-[myView(160)]", options: [NSLayoutFormatOptions.AlignAllCenterX], metrics: metrics, views: ["myView":view, "superview": self.view, "topGuide":self.topLayoutGuide])
+        let metrics = ["viewWidth":self.view.frame.size.width]
+        let views = ["myView":view, "superview": self.view]
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "[superview]-[myView(viewWidth)]", options: [NSLayoutFormatOptions.alignAllCenterY], metrics: metrics, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[topGuide]-[myView(160)]", options: [NSLayoutFormatOptions.alignAllCenterX], metrics: metrics, views: ["myView":view, "superview": self.view, "topGuide":self.topLayoutGuide])
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         
         return view
     }
@@ -68,7 +68,7 @@ class CustomViewController: UIViewController{
 
 var customViewController = CustomViewController.init(nibName: nil, bundle: nil)
 
-customViewController.view.backgroundColor = UIColor.whiteColor()
+customViewController.view.backgroundColor = UIColor.white
 
 // Set the current live view to the newly create custom view
 XCPlaygroundPage.currentPage.liveView = customViewController
