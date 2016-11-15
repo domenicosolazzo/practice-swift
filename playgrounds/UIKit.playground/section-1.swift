@@ -4,16 +4,17 @@ import UIKit
 /**
 ==== UIView ====
 */
-var v = UIView(frame: CGRectMake(0,0, 200,200))
+var v = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
 
 /** 
 ==== Button ====
 */
-var b = UIButton(frame: CGRectMake(0,0,100,30))
+
+var b = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
 // Set the title
-b.setTitle("Dome here", forState: UIControlState.Normal)
+b.setTitle("Dome here", for: UIControlState.normal)
 // Set the title color
-b.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+b.setTitleColor(UIColor.blue, for: UIControlState.normal)
 
 // Add the button to the subview
 v.addSubview(b)
