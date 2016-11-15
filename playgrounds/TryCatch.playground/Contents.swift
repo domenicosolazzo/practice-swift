@@ -5,7 +5,7 @@ import UIKit
 var str = "Hello, Try / Catch"
 
 // Adding an enumeration with the Errors
-enum MyError: ErrorType {
+enum MyError: Error {
     case UserError
     case NetworkError
     case DiscoveryError
@@ -39,23 +39,6 @@ do {
 }
 
 
-/** Error in Swift 1.2
-
-var err:NSError?
-let contents = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: &err)
-if err != nil{
-    //Do something crazy!
-}
-
-*/
-
-/** Error in Swift 2 */
-let contents: NSString?
-do{
-    contents = try NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
-} catch _ {
-    contents = nil
-}
 
 
 
