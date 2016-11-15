@@ -4,7 +4,7 @@ import UIKit
 import Foundation
 import XCTest
 
-enum SampleError: ErrorType {case ItCouldBeWorse, ThisIsBad, ThisIsReallyBad}
+enum SampleError: Error {case ItCouldBeWorse, ThisIsBad, ThisIsReallyBad}
 
 func sampleThrowingFunc(v: Int) throws -> Int
 {
@@ -21,14 +21,14 @@ class SwiftErrorTestingSample: XCTestCase
     {
         let a = -35
         
-        XCTempAssertThrowsError() {try sampleThrowingFunc(a)}
+        XCTempAssertThrowsError() {try sampleThrowingFunc(v: a)}
         
         XCTempAssertThrowsSpecificError(SampleError.ThisIsBad) {try sampleThrowingFunc(a)}
         
-        XCTempAssertNoThrowError("customized failure message") {
+        XCTempAssertNoThrowError(message: "customized failure message") {
             
             let x = Int(arc4random() % 256)
-            let y = try sampleThrowingFunc(x)
+            let y = try sampleThrowingFunc(v: x)
             
             XCTAssert(x == y, "")
         }
@@ -53,7 +53,7 @@ func XCTempAssertThrowsError(message: String = "", _ block: () throws -> ())
 }
 
 
-func XCTempAssertThrowsSpecificError(kind: ErrorType, _ message: String = "", _ block: () throws -> ())
+func XCTempAssertThrowsSpecificError(kind: Error, _ message: String = "", _ block: () throws -> ())
 {
     do
     {
@@ -85,7 +85,7 @@ func XCTempAssertNoThrowError(message: String = "", _ block: () throws -> ())
 }
 
 
-func XCTempAssertNoThrowSpecificError(kind: ErrorType, _ message: String = "", _ block: () throws -> ())
+func XCTempAssertNoThrowSpecificError(kind: Error, _ message: String = "", _ block: () throws -> ())
 {
     do {try block()}
     catch let error as NSError
