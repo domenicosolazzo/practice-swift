@@ -118,13 +118,13 @@ To remove a substring at a specified range, use the removeRange(_:) method
 */
 var welcome = "hello"
 // Insert
-welcome.insert("!", atIndex: welcome.endIndex)
-welcome.insertContentsOf(" there".characters, at: welcome.endIndex.predecessor())
+welcome.insert("!", at: welcome.endIndex)
+welcome.insert(contentsOf: " there".characters, at: welcome.endIndex.predecessor())
 
 // Remove
-welcome.removeAtIndex(welcome.endIndex.predecessor())
+welcome.remove(at: welcome.endIndex.predecessor())
 let range = welcome.endIndex.advancedBy(-6)..<welcome.endIndex
-welcome.removeRange(range)
+welcome.removeSubrange(range)
 
 /*
 ======== String equality ========
@@ -145,8 +145,8 @@ if(equality1 == equality2){
 ======== Uppercase & Lowercase ========
 */
 var myString = "This is a string"
-var uppercase = myString.uppercaseString
-var lowercase = myString.lowercaseString
+var uppercase = myString.uppercased()
+var lowercase = myString.lowercased()
 
 /*
 ======== Substrings ========
@@ -179,8 +179,8 @@ var newString = stringToSplit.componentsSeparatedByCharactersInSet(NSCharacterSe
 ======== Converting a String to NSData ========
 */
 let string1 = "String to encode"
-let string2: NSString = myString
-let data = string2.dataUsingEncoding(NSUTF8StringEncoding)
+let string2: NSString = myString as NSString
+let data = string2.data(using: NSUTF8StringEncoding.rawValue)
 
 /*
 ======== Prefix & Suffix ========
