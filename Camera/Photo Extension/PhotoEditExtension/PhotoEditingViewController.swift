@@ -74,9 +74,12 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
             let output = PHContentEditingOutput(contentEditingInput: input)
             /* Here we are saving our edited image to the URL that is dictated
             by the content editing output class */
-            editedImageData.writeToURL(output.renderedContentURL,
-                atomically: true)
-            
+            do{
+                try editedImageData.write(to:output.renderedContentURL,
+                options: NSData.WritingOptions.atomicWrite)
+            }catch{
+                print("Error!")
+            }
             output.adjustmentData =
                 PHAdjustmentData(formatIdentifier: editFormatIdentifier!,
                     formatVersion: editFormatVersion,
@@ -123,7 +126,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     }
     
     func finishContentEditing(
-        completionHandler: (PHContentEditingOutput?) -> Void) {
+        completionHandler: @escaping (PHContentEditingOutput?) -> Void) {
             /* Report our output */
             completionHandler(output)
     }
