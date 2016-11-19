@@ -34,7 +34,7 @@ class PersonsListTableViewController: UITableViewController, NSFetchedResultsCon
         navigationItem.rightBarButtonItem = barButtonAddPerson
         
         // Create the fetch request
-        let fetchRequest = NSFetchRequest(entityName: "Person")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
         
         // Sort descriptor
         let ageDescriptor = NSSortDescriptor(key: "age", ascending: true)
