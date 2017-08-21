@@ -1,7 +1,7 @@
 /*
  See LICENSE folder for this sample’s licensing information.
  
- Code from Apple PlacingObjects demo: https://developer.apple.com/sample-code/wwdc/2017/PlacingObjects.zip
+ Code from  
  
  Abstract:
  SceneKit node wrapper shows UI in the AR scene for placing virtual objects.
