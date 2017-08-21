@@ -14,6 +14,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    private var distanceLabel = UILabel()
+    private var trackingStateLabel = UILabel()
+    private var startNode = SCNNode()
+    private var endNode = SCNNode()
+    
+    var dragOnInfinitePlanesEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
