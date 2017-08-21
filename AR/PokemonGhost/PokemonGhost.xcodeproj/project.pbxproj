@@ -16,6 +16,7 @@
 		1F2AFE701F4B529000B25EC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AFE6E1F4B529000B25EC8 /* LaunchScreen.storyboard */; };
 		1F2AFE7B1F4B529000B25EC8 /* PokemonGhostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AFE7A1F4B529000B25EC8 /* PokemonGhostTests.swift */; };
 		1F2AFE861F4B529000B25EC8 /* PokemonGhostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AFE851F4B529000B25EC8 /* PokemonGhostUITests.swift */; };
+		1F2AFE941F4B54D700B25EC8 /* ghost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AFE931F4B54D700B25EC8 /* ghost.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1F2AFE811F4B529000B25EC8 /* PokemonGhostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonGhostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AFE851F4B529000B25EC8 /* PokemonGhostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGhostUITests.swift; sourceTree = "<group>"; };
 		1F2AFE871F4B529000B25EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2AFE931F4B54D700B25EC8 /* ghost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghost.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		1F2AFE601F4B529000B25EC8 /* PokemonGhost */ = {
 			isa = PBXGroup;
 			children = (
+				1F2AFE931F4B54D700B25EC8 /* ghost.wav */,
 				1F2AFE611F4B529000B25EC8 /* AppDelegate.swift */,
 				1F2AFE631F4B529000B25EC8 /* Scene.sks */,
 				1F2AFE651F4B529000B25EC8 /* Scene.swift */,
@@ -237,6 +240,7 @@
 			files = (
 				1F2AFE641F4B529000B25EC8 /* Scene.sks in Resources */,
 				1F2AFE701F4B529000B25EC8 /* LaunchScreen.storyboard in Resources */,
+				1F2AFE941F4B54D700B25EC8 /* ghost.wav in Resources */,
 				1F2AFE6D1F4B529000B25EC8 /* Assets.xcassets in Resources */,
 				1F2AFE6B1F4B529000B25EC8 /* Main.storyboard in Resources */,
 			);
