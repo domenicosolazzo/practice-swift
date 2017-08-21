@@ -10,9 +10,31 @@ import SpriteKit
 import ARKit
 
 class Scene: SKScene {
+    let ghostsLabel = SKLabelNode(text:"Ghosts")
+    let numberOfGhostsLabel = SKLabelNode(text: "0")
+    var creationTime: TimeInterval = 0
+    var ghostCount = 0 {
+        didSet {
+            self.numberOfGhostsLabel.text = "\(ghostCount)"
+        }
+    }
+    
+    // Kill sound for the ghost
+    let killSound = SKAction.playSoundFileNamed("ghost", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         // Setup your scene here
+        ghostsLabel.fontSize = 20
+        ghostsLabel.fontName = "DevanagariSangamMN-Bold"
+        ghostsLabel.color = .white
+        ghostsLabel.position = CGPoint(x: 40, y: 50)
+        addChild(ghostsLabel)
+        
+        numberOfGhostsLabel.fontSize = 30
+        numberOfGhostsLabel.fontName = "DevanagariSangamMN-Bold"
+        numberOfGhostsLabel.color = .white
+        numberOfGhostsLabel.position = CGPoint(x: 40, y: 10)
+        addChild(numberOfGhostsLabel)
     }
     
     override func update(_ currentTime: TimeInterval) {
