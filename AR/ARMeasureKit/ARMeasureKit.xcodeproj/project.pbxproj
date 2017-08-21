@@ -21,6 +21,9 @@
 		1F98E7C71F4AEFFF00F761C4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7C61F4AEFFF00F761C4 /* Utilities.swift */; };
 		1F98E7C81F4AEFFF00F761C4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7C61F4AEFFF00F761C4 /* Utilities.swift */; };
 		1F98E7C91F4AEFFF00F761C4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7C61F4AEFFF00F761C4 /* Utilities.swift */; };
+		1F98E7CC1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7CB1F4AF48700F761C4 /* ViewControllerExtensions.swift */; };
+		1F98E7CD1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7CB1F4AF48700F761C4 /* ViewControllerExtensions.swift */; };
+		1F98E7CE1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F98E7CB1F4AF48700F761C4 /* ViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,7 @@
 		1F98E7B51F4AEF7A00F761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F98E7C21F4AEFE000F761C4 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		1F98E7C61F4AEFFF00F761C4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		1F98E7CB1F4AF48700F761C4 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		1F98E7901F4AEF7A00F761C4 /* ARMeasureKit */ = {
 			isa = PBXGroup;
 			children = (
+				1F98E7CA1F4AF46B00F761C4 /* Extensions */,
 				1F98E7C11F4AEFCA00F761C4 /* Apple */,
 				1F98E7911F4AEF7A00F761C4 /* AppDelegate.swift */,
 				1F98E7931F4AEF7A00F761C4 /* art.scnassets */,
@@ -144,6 +149,14 @@
 				1F98E7C61F4AEFFF00F761C4 /* Utilities.swift */,
 			);
 			path = Apple;
+			sourceTree = "<group>";
+		};
+		1F98E7CA1F4AF46B00F761C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F98E7CB1F4AF48700F761C4 /* ViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +294,7 @@
 				1F98E7961F4AEF7A00F761C4 /* ViewController.swift in Sources */,
 				1F98E7C31F4AEFE000F761C4 /* FocusSquare.swift in Sources */,
 				1F98E7C71F4AEFFF00F761C4 /* Utilities.swift in Sources */,
+				1F98E7CC1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */,
 				1F98E7921F4AEF7A00F761C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F98E7CD1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */,
 				1F98E7C81F4AEFFF00F761C4 /* Utilities.swift in Sources */,
 				1F98E7A91F4AEF7A00F761C4 /* ARMeasureKitTests.swift in Sources */,
 				1F98E7C41F4AEFE000F761C4 /* FocusSquare.swift in Sources */,
@@ -299,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F98E7CE1F4AF48700F761C4 /* ViewControllerExtensions.swift in Sources */,
 				1F98E7C91F4AEFFF00F761C4 /* Utilities.swift in Sources */,
 				1F98E7B41F4AEF7A00F761C4 /* ARMeasureKitUITests.swift in Sources */,
 				1F98E7C51F4AEFE000F761C4 /* FocusSquare.swift in Sources */,
