@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1FD9C2861F38E1D500770926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9C2851F38E1D500770926 /* AppDelegate.swift */; };
-		1FD9C2881F38E1D500770926 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9C2871F38E1D500770926 /* art.scnassets */; };
 		1FD9C28A1F38E1D500770926 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9C2891F38E1D500770926 /* ViewController.swift */; };
 		1FD9C28D1F38E1D500770926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9C28B1F38E1D500770926 /* Main.storyboard */; };
 		1FD9C28F1F38E1D500770926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9C28E1F38E1D500770926 /* Assets.xcassets */; };
 		1FD9C2921F38E1D500770926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9C2901F38E1D500770926 /* LaunchScreen.storyboard */; };
 		1FD9C29D1F38E1D500770926 /* AR_3D_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9C29C1F38E1D500770926 /* AR_3D_ProjectTests.swift */; };
 		1FD9C2A81F38E1D500770926 /* AR_3D_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9C2A71F38E1D500770926 /* AR_3D_ProjectUITests.swift */; };
+		1FD9C2B61F38FACB00770926 /* milkcan.dae in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9C2B51F38FACB00770926 /* milkcan.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		1FD9C2821F38E1D500770926 /* AR 3D Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR 3D Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9C2851F38E1D500770926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1FD9C2871F38E1D500770926 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		1FD9C2891F38E1D500770926 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FD9C28C1F38E1D500770926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FD9C28E1F38E1D500770926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		1FD9C2A31F38E1D500770926 /* AR 3D ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR 3D ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD9C2A71F38E1D500770926 /* AR_3D_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_3D_ProjectUITests.swift; sourceTree = "<group>"; };
 		1FD9C2A91F38E1D500770926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FD9C2B51F38FACB00770926 /* milkcan.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = milkcan.dae; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 		1FD9C2841F38E1D500770926 /* AR 3D Project */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9C2B51F38FACB00770926 /* milkcan.dae */,
 				1FD9C2851F38E1D500770926 /* AppDelegate.swift */,
-				1FD9C2871F38E1D500770926 /* art.scnassets */,
 				1FD9C2891F38E1D500770926 /* ViewController.swift */,
 				1FD9C28B1F38E1D500770926 /* Main.storyboard */,
 				1FD9C28E1F38E1D500770926 /* Assets.xcassets */,
@@ -232,9 +232,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FD9C2881F38E1D500770926 /* art.scnassets in Resources */,
 				1FD9C2921F38E1D500770926 /* LaunchScreen.storyboard in Resources */,
 				1FD9C28F1F38E1D500770926 /* Assets.xcassets in Resources */,
+				1FD9C2B61F38FACB00770926 /* milkcan.dae in Resources */,
 				1FD9C28D1F38E1D500770926 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

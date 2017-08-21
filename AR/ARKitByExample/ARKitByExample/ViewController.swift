@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  AR 3D Project
+//  ARKitByExample
 //
-//  Created by Domenico Solazzo on 8/7/17.
+//  Created by Domenico Solazzo on 8/18/17.
 //  Copyright © 2017 Domenico Solazzo. All rights reserved.
 //
 
@@ -24,30 +24,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene()
+        let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
         // Set the scene to the view
         sceneView.scene = scene
-        
-        addMilkCan()
-    }
-    
-    private func addMilkCan(){
-        let milkcan = ViewController.colladaToSCNNode(filepath: "milkcan.dae")
-        milkcan.position = SCNVector3(0, 0, -0.2)
-        sceneView.scene.rootNode.addChildNode(milkcan)
-    }
-    
-    class func colladaToSCNNode(filepath:String) -> SCNNode {
-        let node = SCNNode()
-        let scene = SCNScene(named: filepath)
-        let nodeArray = scene!.rootNode.childNodes
-        
-        for childNode in nodeArray {
-            node.addChildNode(childNode as SCNNode)
-        }
-        
-        return node
     }
     
     override func viewWillAppear(_ animated: Bool) {
