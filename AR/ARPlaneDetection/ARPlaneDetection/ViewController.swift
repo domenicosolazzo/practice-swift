@@ -101,6 +101,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 }
 
+extension ViewController : SCNPhysicsContactDelegate {
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        let mask = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
+        
+        if CollisionTypes(rawValue: mask) == [CollisionTypes.bottom, CollisionTypes.shape] {
+            if contact.nodeA.physicsBody!.categoryBitMask == CollisionTypes.bottom.rawValue {
+                contact.nodeB.removeFromParentNode()
+            } else {
+                contact.nodeA.removeFromParentNode()
+            }
+        }
+    }
+}
+
+
 struct CollisionTypes : OptionSet {
     let rawValue: Int
     
