@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -101,6 +101,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 }
 
+extension ViewController : ARSCNViewDelegate {
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        let key = planeAnchor.identifier.uuidString
+        let planeNode = NodeGenerator.generatePlaneFrom(planeAnchor: planeAnchor, physics: true, hidden: !self.showPlanes)
+        node.addChildNode(planeNode)
+        self.planes[key] = planeNode
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = self.planes[key] {
+            NodeGenerator.update(planeNode: existingPlane, from: planeAnchor, hidden: !self.showPlanes)
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = self.planes[key] {
+            existingPlane.removeFromParentNode()
+            self.planes.removeValue(forKey: key)
+        }
+    }
+}
+
 extension ViewController : SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
@@ -115,7 +146,6 @@ extension ViewController : SCNPhysicsContactDelegate {
         }
     }
 }
-
 
 struct CollisionTypes : OptionSet {
     let rawValue: Int
