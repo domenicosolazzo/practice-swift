@@ -15,6 +15,7 @@
 		1F1931561F4CC95D00C6AF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1931541F4CC95D00C6AF9D /* LaunchScreen.storyboard */; };
 		1F1931611F4CC95D00C6AF9D /* ARPlaneDetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931601F4CC95D00C6AF9D /* ARPlaneDetectionTests.swift */; };
 		1F19316C1F4CC95E00C6AF9D /* ARPlaneDetectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19316B1F4CC95E00C6AF9D /* ARPlaneDetectionUITests.swift */; };
+		1F19317A1F4CCC6700C6AF9D /* NodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931791F4CCC6700C6AF9D /* NodeGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1F1931671F4CC95E00C6AF9D /* ARPlaneDetectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARPlaneDetectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F19316B1F4CC95E00C6AF9D /* ARPlaneDetectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaneDetectionUITests.swift; sourceTree = "<group>"; };
 		1F19316D1F4CC95E00C6AF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1931791F4CCC6700C6AF9D /* NodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1F1931521F4CC95D00C6AF9D /* Assets.xcassets */,
 				1F1931541F4CC95D00C6AF9D /* LaunchScreen.storyboard */,
 				1F1931571F4CC95D00C6AF9D /* Info.plist */,
+				1F1931791F4CCC6700C6AF9D /* NodeGenerator.swift */,
 			);
 			path = ARPlaneDetection;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				1F19314E1F4CC95D00C6AF9D /* ViewController.swift in Sources */,
 				1F19314A1F4CC95D00C6AF9D /* AppDelegate.swift in Sources */,
+				1F19317A1F4CCC6700C6AF9D /* NodeGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,4 +80,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    private func configureWorldBottom() {
+        let bottomPlane = SCNBox(width: 1000, height: 0.005, length: 1000, chamferRadius: 0)
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor(white: 1.0, alpha: 0.0)
+        bottomPlane.materials = [material]
+        
+        let bottomNode = SCNNode(geometry: bottomPlane)
+        bottomNode.position = SCNVector3(x: 0, y: -10, z: 0)
+        
+        let physicsBody = SCNPhysicsBody.static()
+        physicsBody.categoryBitMask = CollisionTypes.bottom.rawValue
+        physicsBody.contactTestBitMask = CollisionTypes.shape.rawValue
+        bottomNode.physicsBody = physicsBody
+        
+        self.sceneView.scene.rootNode.addChildNode(bottomNode)
+        self.sceneView.scene.physicsWorld.contactDelegate = self
+    }
+}
+
+struct CollisionTypes : OptionSet {
+    let rawValue: Int
+    
+    static let bottom  = CollisionTypes(rawValue: 1 << 0)
+    static let shape = CollisionTypes(rawValue: 1 << 1)
 }
