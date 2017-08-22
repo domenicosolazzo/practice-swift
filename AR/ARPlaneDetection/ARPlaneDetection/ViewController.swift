@@ -26,11 +26,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        self.title = "Plane Mapper"
         
-        // Set the scene to the view
-        sceneView.scene = scene
+        self.sceneView.antialiasingMode = .multisampling4X
+        self.sceneView.delegate = self
+        self.sceneView.autoenablesDefaultLighting = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
