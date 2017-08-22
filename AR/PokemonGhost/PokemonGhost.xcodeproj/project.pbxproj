@@ -17,6 +17,8 @@
 		1F2AFE7B1F4B529000B25EC8 /* PokemonGhostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AFE7A1F4B529000B25EC8 /* PokemonGhostTests.swift */; };
 		1F2AFE861F4B529000B25EC8 /* PokemonGhostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AFE851F4B529000B25EC8 /* PokemonGhostUITests.swift */; };
 		1F2AFE941F4B54D700B25EC8 /* ghost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AFE931F4B54D700B25EC8 /* ghost.wav */; };
+		1FC07F221F4C5D380055F390 /* ghost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AFE931F4B54D700B25EC8 /* ghost.wav */; };
+		1FC07F231F4C5D3A0055F390 /* ghost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AFE931F4B54D700B25EC8 /* ghost.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC07F221F4C5D380055F390 /* ghost.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC07F231F4C5D3A0055F390 /* ghost.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

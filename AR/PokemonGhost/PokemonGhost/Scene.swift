@@ -97,7 +97,7 @@ class Scene: SKScene {
         let rotateX = simd_float4x4(
             SCNMatrix4MakeRotation(_360degrees * randomFloat(min: 0.0, max: 1.0), 1, 0, 0))
         
-        let rotateX = simd_float4x4(
+        let rotateY = simd_float4x4(
             SCNMatrix4MakeRotation(_360degrees * randomFloat(min: 0.0, max: 1.0), 0, 1, 0))
         
         // Multiply the rotation matrices
