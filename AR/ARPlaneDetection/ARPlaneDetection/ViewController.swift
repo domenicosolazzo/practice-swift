@@ -31,6 +31,8 @@ class ViewController: UIViewController {
         self.sceneView.antialiasingMode = .multisampling4X
         self.sceneView.delegate = self
         self.sceneView.autoenablesDefaultLighting = true
+        
+        self.configureWorldBottom()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +40,8 @@ class ViewController: UIViewController {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
+        configuration.planeDetection = .horizontal
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -99,6 +102,22 @@ class ViewController: UIViewController {
         self.sceneView.scene.rootNode.addChildNode(bottomNode)
         self.sceneView.scene.physicsWorld.contactDelegate = self
     }
+    
+    // MARK: - UI Events
+    
+    @IBAction func tapScreen() {
+        if let camera = self.sceneView.pointOfView {
+            let sphere = NodeGenerator.generateCubeInFrontOf(node: camera, physics: true)
+            self.sceneView.scene.rootNode.addChildNode(sphere)
+            print("Added box to scene")
+        }
+    }
+    
+    @objc private func tapTogglePlanes() {
+        self.showPlanes = !self.showPlanes
+        self.planes.values.forEach({ NodeGenerator.update(planeNode: $0, hidden: !self.showPlanes) })
+        self.navigationItem.rightBarButtonItem?.title = self.showPlanes ? "Hide Planes" : "Show Planes"
+    }
 }
 
 extension ViewController : ARSCNViewDelegate {
@@ -130,6 +149,8 @@ extension ViewController : ARSCNViewDelegate {
             self.planes.removeValue(forKey: key)
         }
     }
+    
+    
 }
 
 extension ViewController : SCNPhysicsContactDelegate {
