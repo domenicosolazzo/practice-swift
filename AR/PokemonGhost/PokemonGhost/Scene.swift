@@ -39,24 +39,40 @@ class Scene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        // Create the ghosts at a defined time interval
+        if currentTime > creationTime {
+            createGhostAnchor()
+            creationTime = currentTime + TimeInterval(randomFloat(min: 3.0, max: 6.0))
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let sceneView = self.view as? ARSKView else {
+        guard let touch = touches.first else {
             return
         }
         
-        // Create anchor using the camera's current position
-        if let currentFrame = sceneView.session.currentFrame {
-            
-            // Create a transform with a translation of 0.2 meters in front of the camera
-            var translation = matrix_identity_float4x4
-            translation.columns.3.z = -0.2
-            let transform = simd_mul(currentFrame.camera.transform, translation)
-            
-            // Add a new anchor to the session
-            let anchor = ARAnchor(transform: transform)
-            sceneView.session.add(anchor: anchor)
+        // get the location of the touch in the AR scene
+        let location = touch.location(in: self)
+        
+        // get the nodes at the location
+        let hit = nodes(at: location)
+        
+        // Get the first node and check if it is a ghost
+        if let node = hit.first {
+            if node.name == "ghost" {
+                // Group the fade out and sound actions
+                let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+                let remove = SKAction.removeFromParent()
+                let groupKillingActions = SKAction.group([fadeOut, killSound])
+                // Create an action sequence
+                let sequenceAction = SKAction.sequence([groupKillingActions, remove])
+                // Excecute the actions
+                node.run(sequenceAction)
+                
+                // Update the counter
+                ghostCount -= 1
+                
+            }
         }
     }
     
