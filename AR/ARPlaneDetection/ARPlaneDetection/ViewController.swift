@@ -14,6 +14,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    fileprivate var planes: [String : SCNNode] = [:]
+    fileprivate var showPlanes: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
