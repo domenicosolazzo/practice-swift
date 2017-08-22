@@ -26,21 +26,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.autoenablesDefaultLighting = true
         sceneView.antialiasingMode = .multisampling4X
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        if ARWorldTrackingConfiguration.isSupported {
+            let configuration = ARWorldTrackingConfiguration()
+            self.sceneView.session.run(configuration)
+        } else if ARConfiguration.isSupported {
+            let configuration = ARSessionConfiguration()
+            self.sceneView.session.run(configuration)
+        }
 
-        // Run the view's session
-        sceneView.session.run(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +52,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    @IBAction func tapScreen() {
+        if let camera = self.sceneView.pointOfView {
+            let sphere = NodeGenerator.generateSphereInFrontOf(node: camera)
+            self.sceneView.scene.rootNode.addChildNode(sphere)
+            print("Added sphere to scene")
+        }
+    }
+    
+    @IBAction func twoFingerTapScreen() {
+        if let camera = self.sceneView.pointOfView {
+            let sphere = NodeGenerator.generateCubeInFrontOf(node: camera, physics: false)
+            self.sceneView.scene.rootNode.addChildNode(sphere)
+            print("Added cube to scene")
+        }
     }
 
     // MARK: - ARSCNViewDelegate
