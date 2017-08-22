@@ -59,4 +59,9 @@ class Scene: SKScene {
             sceneView.session.add(anchor: anchor)
         }
     }
+    
+    // Return a random Float between min and max
+    func randomFloat(min: Float, max: Float) -> Float {
+        return (Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
+    }
 }
