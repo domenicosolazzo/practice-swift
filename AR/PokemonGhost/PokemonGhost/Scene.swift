@@ -64,4 +64,43 @@ class Scene: SKScene {
     func randomFloat(min: Float, max: Float) -> Float {
         return (Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
     }
+    
+    func createGhostAnchor(){
+        guard let sceneView = self.view as? ARSKView else {
+            return
+        }
+        
+        // Define 360 degrees in radians
+        let _360degrees = 2.0 * Float.pi
+        
+        /**
+         *  Let’s create one random rotation matrix on the X-axis and one on the Y-axis.
+         *  SCNMatrix4MakeRotation returns a matrix describing a rotation transformation.
+         *  The result of SCNMatrix4MakeRotation is converted to a 4×4 matrix using the simd_float4x4 struct
+        **/
+        let rotateX = simd_float4x4(
+            SCNMatrix4MakeRotation(_360degrees * randomFloat(min: 0.0, max: 1.0), 1, 0, 0))
+        
+        let rotateX = simd_float4x4(
+            SCNMatrix4MakeRotation(_360degrees * randomFloat(min: 0.0, max: 1.0), 0, 1, 0))
+        
+        // Multiply the rotation matrices
+        let rotation = simd_mul(rotateX, rotateY)
+        
+        // Translation matrix in the Z-axis with a random value between -1 and -2 meters
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -1 - randomFloat(min: 0.0, max: 1.0)
+        
+        // Multiply the translation and rotation matrices
+        let transform = simd_mul(rotation, translation)
+        
+        // Let's create an anchor
+        let anchor = ARAnchor(transform: transform)
+        // Add the anchor to the scene
+        sceneView.session.add(anchor: anchor)
+        
+        // Increment the ghost counter
+        ghostCount += 1
+        
+    }
 }
