@@ -33,7 +33,14 @@ class Scene: SKScene {
                     let model = try VNCoreMLModel(for: Inceptionv3().model)
                     // Create a VNCoreMLRequest with a completion handler
                     let request = VNCoreMLRequest(model: model, completionHandler: { (request, error) in
-                        
+                        // Jump onto the main thread
+                        DispatchQueue.main.async {
+                            // Access the first result in the array after casting the array as a VNClassificationObservation array
+                            guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
+                                print ("No results?")
+                                return
+                            }
+                        }
                     })
                     // Create a VNImageRequestHandler
                     let handler = VNImageRequestHandler(cvPixelBuffer: currentFrame.capturedImage, options: [:])
