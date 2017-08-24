@@ -55,10 +55,15 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: "👾")
+        guard let identifier = ARBridge.shared.anchorsToIdentifiers[anchor] else {
+            return nil
+        }
+        
+        let labelNode = SKLabelNode(text: identifier)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
-        return labelNode;
+        labelNode.fontName = UIFont.boldSystemFont(ofSize: 16).fontName
+        return labelNode
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
