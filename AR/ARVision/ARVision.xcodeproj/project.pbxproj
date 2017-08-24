@@ -16,6 +16,8 @@
 		1F1931961F4EADEB00C6AF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1931941F4EADEB00C6AF9D /* LaunchScreen.storyboard */; };
 		1F1931A11F4EADEB00C6AF9D /* ARVisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931A01F4EADEB00C6AF9D /* ARVisionTests.swift */; };
 		1F1931AC1F4EADEB00C6AF9D /* ARVisionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931AB1F4EADEB00C6AF9D /* ARVisionUITests.swift */; };
+		1F1931BB1F4EDEB400C6AF9D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */; };
+		1F1931BC1F4EDEB500C6AF9D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F19318E1F4EADEB00C6AF9D /* ViewController.swift in Sources */,
+				1F1931BB1F4EDEB400C6AF9D /* Inceptionv3.mlmodel in Sources */,
 				1F19318C1F4EADEB00C6AF9D /* Logic.swift in Sources */,
 				1F1931881F4EADEB00C6AF9D /* AppDelegate.swift in Sources */,
 			);
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F1931A11F4EADEB00C6AF9D /* ARVisionTests.swift in Sources */,
+				1F1931BC1F4EDEB500C6AF9D /* Inceptionv3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

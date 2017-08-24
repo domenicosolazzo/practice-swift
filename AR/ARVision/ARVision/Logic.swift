@@ -24,7 +24,14 @@ class Scene: SKScene {
         guard let sceneView = self.view as? ARSKView else {
             return
         }
-        
+        DispatchQueue.global(qos: .background).async {
+            do {
+                // Let's create a new instance of the Inception V3 model
+                let model = try VNCoreMLModel(for: Inceptionv3().model)
+            }catch{
+                
+            }
+        }
         // Create anchor using the camera's current position
         if let currentFrame = sceneView.session.currentFrame {
             
