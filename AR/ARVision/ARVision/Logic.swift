@@ -28,6 +28,9 @@ class Scene: SKScene {
             do {
                 // Let's create a new instance of the Inception V3 model
                 let model = try VNCoreMLModel(for: Inceptionv3().model)
+                let request = VNCoreMLRequest(model: model, completionHandler: { (request, error) in
+                    
+                })
             }catch{
                 
             }
