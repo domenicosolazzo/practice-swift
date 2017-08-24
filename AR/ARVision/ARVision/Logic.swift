@@ -8,6 +8,7 @@
 
 import SpriteKit
 import ARKit
+import Vision
 
 class Scene: SKScene {
     
