@@ -51,6 +51,8 @@
 		1F1931A71F4EADEB00C6AF9D /* ARVisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARVisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F1931AB1F4EADEB00C6AF9D /* ARVisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisionUITests.swift; sourceTree = "<group>"; };
 		1F1931AD1F4EADEB00C6AF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		1F1931BA1F4EDD7500C6AF9D /* Inception-v3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Inception-v3.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,8 @@
 				1F1931891F4EADEB00C6AF9D /* Scene.sks */,
 				1F19318B1F4EADEB00C6AF9D /* Logic.swift */,
 				1F19318D1F4EADEB00C6AF9D /* ViewController.swift */,
+				1F1931BA1F4EDD7500C6AF9D /* Inception-v3.txt */,
+				1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */,
 				1F19318F1F4EADEB00C6AF9D /* Main.storyboard */,
 				1F1931921F4EADEB00C6AF9D /* Assets.xcassets */,
 				1F1931941F4EADEB00C6AF9D /* LaunchScreen.storyboard */,
