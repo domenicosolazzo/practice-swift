@@ -28,13 +28,13 @@ class Scene: SKScene {
         if let currentFrame = sceneView.session.currentFrame {
             
             // Create a transform with a translation of 0.2 meters in front of the camera
-            var translation = matrix_identity_float4x4
-            translation.columns.3.z = -0.2
-            let transform = simd_mul(currentFrame.camera.transform, translation)
+//            var translation = matrix_identity_float4x4
+//            translation.columns.3.z = -0.2
+//            let transform = simd_mul(currentFrame.camera.transform, translation)
             
             // Add a new anchor to the session
-            let anchor = ARAnchor(transform: transform)
-            sceneView.session.add(anchor: anchor)
+//            let anchor = ARAnchor(transform: transform)
+//            sceneView.session.add(anchor: anchor)
         }
     }
 }
