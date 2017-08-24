@@ -18,6 +18,7 @@
 		1F1931AC1F4EADEB00C6AF9D /* ARVisionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931AB1F4EADEB00C6AF9D /* ARVisionUITests.swift */; };
 		1F1931BB1F4EDEB400C6AF9D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */; };
 		1F1931BC1F4EDEB500C6AF9D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */; };
+		1F1931BE1F4EE12700C6AF9D /* ARBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931BD1F4EE12700C6AF9D /* ARBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1F1931AD1F4EADEB00C6AF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F1931B91F4EDD6600C6AF9D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1F1931BA1F4EDD7500C6AF9D /* Inception-v3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Inception-v3.txt"; sourceTree = "<group>"; };
+		1F1931BD1F4EE12700C6AF9D /* ARBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1F1931921F4EADEB00C6AF9D /* Assets.xcassets */,
 				1F1931941F4EADEB00C6AF9D /* LaunchScreen.storyboard */,
 				1F1931971F4EADEB00C6AF9D /* Info.plist */,
+				1F1931BD1F4EE12700C6AF9D /* ARBridge.swift */,
 			);
 			path = ARVision;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				1F19318E1F4EADEB00C6AF9D /* ViewController.swift in Sources */,
 				1F1931BB1F4EDEB400C6AF9D /* Inceptionv3.mlmodel in Sources */,
+				1F1931BE1F4EE12700C6AF9D /* ARBridge.swift in Sources */,
 				1F19318C1F4EADEB00C6AF9D /* Logic.swift in Sources */,
 				1F1931881F4EADEB00C6AF9D /* AppDelegate.swift in Sources */,
 			);

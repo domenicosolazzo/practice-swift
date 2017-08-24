@@ -48,7 +48,12 @@ class Scene: SKScene {
                             
                             // Add a new anchor to the session
                             let anchor = ARAnchor(transform: transform)
+                            
+                            // Set the identifier
+                            ARBridge.shared.anchorsToIdentifiers[anchor] = result.identifier
+                            
                             sceneView.session.add(anchor: anchor)
+
                         }
                     })
                     // Create a VNImageRequestHandler
