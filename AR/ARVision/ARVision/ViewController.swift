@@ -60,6 +60,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         }
         
         let labelNode = SKLabelNode(text: identifier)
+        print(identifier)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontName = UIFont.boldSystemFont(ofSize: 16).fontName
