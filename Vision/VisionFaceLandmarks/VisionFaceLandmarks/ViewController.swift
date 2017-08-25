@@ -129,3 +129,19 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
 }
 
+extension ViewController {
+    
+    func detectFace(on image: CIImage) {
+        try? faceDetectionRequest.perform([faceDetection], on: image)
+        if let results = faceDetection.results as? [VNFaceObservation] {
+            if !results.isEmpty {
+                faceLandmarks.inputFaceObservations = results
+                
+                DispatchQueue.main.async {
+                    self.shapeLayer.sublayers?.removeAll()
+                }
+            }
+        }
+    }
+}
+
