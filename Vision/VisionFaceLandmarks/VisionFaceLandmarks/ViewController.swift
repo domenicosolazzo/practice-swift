@@ -124,7 +124,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         //leftMirrored for front camera
         let ciImageWithOrientation = ciImage.oriented(forExifOrientation: Int32(UIImageOrientation.leftMirrored.rawValue))
         
-        detectFace(on: ciImageWithOrientation)
+        
     }
     
 }

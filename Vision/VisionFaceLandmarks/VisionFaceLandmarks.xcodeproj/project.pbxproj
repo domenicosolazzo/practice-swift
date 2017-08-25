@@ -14,6 +14,7 @@
 		1F1931D91F504FAA00C6AF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1931D71F504FAA00C6AF9D /* LaunchScreen.storyboard */; };
 		1F1931E41F504FAA00C6AF9D /* VisionFaceLandmarksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931E31F504FAA00C6AF9D /* VisionFaceLandmarksTests.swift */; };
 		1F1931EF1F504FAA00C6AF9D /* VisionFaceLandmarksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931EE1F504FAA00C6AF9D /* VisionFaceLandmarksUITests.swift */; };
+		1F1931FE1F508BA500C6AF9D /* CGRect+Scaled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1931FD1F508BA500C6AF9D /* CGRect+Scaled.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1F1931EA1F504FAA00C6AF9D /* VisionFaceLandmarksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionFaceLandmarksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F1931EE1F504FAA00C6AF9D /* VisionFaceLandmarksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionFaceLandmarksUITests.swift; sourceTree = "<group>"; };
 		1F1931F01F504FAA00C6AF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1931FD1F508BA500C6AF9D /* CGRect+Scaled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Scaled.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		1F1931CD1F504FAA00C6AF9D /* VisionFaceLandmarks */ = {
 			isa = PBXGroup;
 			children = (
+				1F1931FC1F508B9200C6AF9D /* Extensions */,
 				1F1931CE1F504FAA00C6AF9D /* AppDelegate.swift */,
 				1F1931D01F504FAA00C6AF9D /* ViewController.swift */,
 				1F1931D21F504FAA00C6AF9D /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				1F1931F01F504FAA00C6AF9D /* Info.plist */,
 			);
 			path = VisionFaceLandmarksUITests;
+			sourceTree = "<group>";
+		};
+		1F1931FC1F508B9200C6AF9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F1931FD1F508BA500C6AF9D /* CGRect+Scaled.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1931FE1F508BA500C6AF9D /* CGRect+Scaled.swift in Sources */,
 				1F1931D11F504FAA00C6AF9D /* ViewController.swift in Sources */,
 				1F1931CF1F504FAA00C6AF9D /* AppDelegate.swift in Sources */,
 			);
