@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     // Prepare the session
     func sessionPrepare() {
         session = AVCaptureSession()
-        guard let session = session, let captureDevice = frontCamera else { return nil }
+        guard let session = session, let captureDevice = frontCamera else { return  }
         
         do {
             let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
@@ -110,5 +110,22 @@ class ViewController: UIViewController {
         }
     }
 
+}
+
+extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        
+        let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate)
+        let ciImage = CIImage(cvImageBuffer: pixelBuffer!, options: attachments as! [String : Any]?)
+        
+        //leftMirrored for front camera
+        let ciImageWithOrientation = ciImage.oriented(forExifOrientation: Int32(UIImageOrientation.leftMirrored.rawValue))
+        
+        detectFace(on: ciImageWithOrientation)
+    }
+    
 }
 
