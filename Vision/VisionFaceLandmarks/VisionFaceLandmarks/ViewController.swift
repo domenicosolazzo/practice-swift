@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
+import Vision
 
 class ViewController: UIViewController {
+    // AVCapture Session
+    var session: AVCaptureSession?
+    // Shape Layer
+    let shapeLayer = CAShapeLayer()
+    
+    // Vision requests
+    let faceDetection = VNDetectFaceRectanglesRequest()
+    // Face Landmarks request
+    let faceLandmarks = VNDetectFaceLandmarksRequest()
+    // Face Detection request handler
+    let faceDetectionRequest = VNSequenceRequestHandler()
+    // Face Landmarks request handler
+    let faceLandmarksRequest = VNSequenceRequestHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
