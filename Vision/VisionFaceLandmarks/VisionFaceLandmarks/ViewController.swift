@@ -38,6 +38,11 @@ class ViewController: UIViewController {
         return previewLayer
     }()
     
+    // Camera to use
+    var frontCamera: AVCaptureDevice? = {
+        return AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: .video, position: AVCaptureDevice.Position.front)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
