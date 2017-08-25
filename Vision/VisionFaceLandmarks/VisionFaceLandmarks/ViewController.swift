@@ -25,6 +25,19 @@ class ViewController: UIViewController {
     // Face Landmarks request handler
     let faceLandmarksRequest = VNSequenceRequestHandler()
     
+    
+    // Preview Layer
+    lazy var previewLayer: AVCaptureVideoPreviewLayer? = {
+        // Check if the AVCapture session is initialized, otherwise return nil
+        guard let session = self.session else { return nil }
+        
+        // Create the preview layer
+        var previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        // Set the aspect of the preview video
+        previewLayer.videoGravity = .resizeAspectFill
+        return previewLayer
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
