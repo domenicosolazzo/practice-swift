@@ -46,13 +46,69 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        sessionPrepare()
+        session?.startRunning()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer?.frame = view.frame
+        shapeLayer.frame = view.frame
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let previewLayer = previewLayer else { return }
+        
+        view.layer.addSublayer(previewLayer)
+        
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 2.0
+        
+        //needs to filp coordinate system for Vision
+        shapeLayer.setAffineTransform(CGAffineTransform(scaleX: -1, y: -1))
+        
+        view.layer.addSublayer(shapeLayer)
+    }
 
+    // Prepare the session
+    func sessionPrepare() {
+        session = AVCaptureSession()
+        guard let session = session, let captureDevice = frontCamera else { return nil }
+        
+        do {
+            let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            session.beginConfiguration()
+            
+            if session.canAddInput(deviceInput) {
+                session.addInput(deviceInput)
+            }
+            
+            let output = AVCaptureVideoDataOutput()
+            output.videoSettings = [
+                String(kCVPixelBufferPixelFormatTypeKey): Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)
+            ]
+            
+            output.alwaysDiscardsLateVideoFrames = true
+            
+            if session.canAddOutput(output) {
+                session.addOutput(output)
+            }
+            
+            session.commitConfiguration()
+            
+            let queue = DispatchQueue(label: "output.queue")
+            output.setSampleBufferDelegate(self, queue: queue)
+            print("Setup delegate")
+        } catch {
+            print("Can't setup session")
+        }
+    }
 
 }
 
